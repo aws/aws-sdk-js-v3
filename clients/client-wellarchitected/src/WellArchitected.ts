@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -180,7 +181,672 @@ import {
   UpgradeLensReviewCommandInput,
   UpgradeLensReviewCommandOutput,
 } from "./commands/UpgradeLensReviewCommand";
-import { WellArchitectedClient } from "./WellArchitectedClient";
+import { WellArchitectedClient, WellArchitectedClientConfig } from "./WellArchitectedClient";
+
+const commands = {
+  AssociateLensesCommand,
+  CreateLensShareCommand,
+  CreateLensVersionCommand,
+  CreateMilestoneCommand,
+  CreateWorkloadCommand,
+  CreateWorkloadShareCommand,
+  DeleteLensCommand,
+  DeleteLensShareCommand,
+  DeleteWorkloadCommand,
+  DeleteWorkloadShareCommand,
+  DisassociateLensesCommand,
+  ExportLensCommand,
+  GetAnswerCommand,
+  GetConsolidatedReportCommand,
+  GetLensCommand,
+  GetLensReviewCommand,
+  GetLensReviewReportCommand,
+  GetLensVersionDifferenceCommand,
+  GetMilestoneCommand,
+  GetWorkloadCommand,
+  ImportLensCommand,
+  ListAnswersCommand,
+  ListCheckDetailsCommand,
+  ListCheckSummariesCommand,
+  ListLensesCommand,
+  ListLensReviewImprovementsCommand,
+  ListLensReviewsCommand,
+  ListLensSharesCommand,
+  ListMilestonesCommand,
+  ListNotificationsCommand,
+  ListShareInvitationsCommand,
+  ListTagsForResourceCommand,
+  ListWorkloadsCommand,
+  ListWorkloadSharesCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateAnswerCommand,
+  UpdateGlobalSettingsCommand,
+  UpdateLensReviewCommand,
+  UpdateShareInvitationCommand,
+  UpdateWorkloadCommand,
+  UpdateWorkloadShareCommand,
+  UpgradeLensReviewCommand,
+};
+
+export interface WellArchitected {
+  /**
+   * @see {@link AssociateLensesCommand}
+   */
+  associateLenses(
+    args: AssociateLensesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateLensesCommandOutput>;
+  associateLenses(args: AssociateLensesCommandInput, cb: (err: any, data?: AssociateLensesCommandOutput) => void): void;
+  associateLenses(
+    args: AssociateLensesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateLensesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLensShareCommand}
+   */
+  createLensShare(
+    args: CreateLensShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLensShareCommandOutput>;
+  createLensShare(args: CreateLensShareCommandInput, cb: (err: any, data?: CreateLensShareCommandOutput) => void): void;
+  createLensShare(
+    args: CreateLensShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLensShareCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLensVersionCommand}
+   */
+  createLensVersion(
+    args: CreateLensVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLensVersionCommandOutput>;
+  createLensVersion(
+    args: CreateLensVersionCommandInput,
+    cb: (err: any, data?: CreateLensVersionCommandOutput) => void
+  ): void;
+  createLensVersion(
+    args: CreateLensVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLensVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateMilestoneCommand}
+   */
+  createMilestone(
+    args: CreateMilestoneCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMilestoneCommandOutput>;
+  createMilestone(args: CreateMilestoneCommandInput, cb: (err: any, data?: CreateMilestoneCommandOutput) => void): void;
+  createMilestone(
+    args: CreateMilestoneCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMilestoneCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateWorkloadCommand}
+   */
+  createWorkload(
+    args: CreateWorkloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorkloadCommandOutput>;
+  createWorkload(args: CreateWorkloadCommandInput, cb: (err: any, data?: CreateWorkloadCommandOutput) => void): void;
+  createWorkload(
+    args: CreateWorkloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorkloadCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateWorkloadShareCommand}
+   */
+  createWorkloadShare(
+    args: CreateWorkloadShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorkloadShareCommandOutput>;
+  createWorkloadShare(
+    args: CreateWorkloadShareCommandInput,
+    cb: (err: any, data?: CreateWorkloadShareCommandOutput) => void
+  ): void;
+  createWorkloadShare(
+    args: CreateWorkloadShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorkloadShareCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLensCommand}
+   */
+  deleteLens(args: DeleteLensCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLensCommandOutput>;
+  deleteLens(args: DeleteLensCommandInput, cb: (err: any, data?: DeleteLensCommandOutput) => void): void;
+  deleteLens(
+    args: DeleteLensCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLensCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLensShareCommand}
+   */
+  deleteLensShare(
+    args: DeleteLensShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLensShareCommandOutput>;
+  deleteLensShare(args: DeleteLensShareCommandInput, cb: (err: any, data?: DeleteLensShareCommandOutput) => void): void;
+  deleteLensShare(
+    args: DeleteLensShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLensShareCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteWorkloadCommand}
+   */
+  deleteWorkload(
+    args: DeleteWorkloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkloadCommandOutput>;
+  deleteWorkload(args: DeleteWorkloadCommandInput, cb: (err: any, data?: DeleteWorkloadCommandOutput) => void): void;
+  deleteWorkload(
+    args: DeleteWorkloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorkloadCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteWorkloadShareCommand}
+   */
+  deleteWorkloadShare(
+    args: DeleteWorkloadShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkloadShareCommandOutput>;
+  deleteWorkloadShare(
+    args: DeleteWorkloadShareCommandInput,
+    cb: (err: any, data?: DeleteWorkloadShareCommandOutput) => void
+  ): void;
+  deleteWorkloadShare(
+    args: DeleteWorkloadShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorkloadShareCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateLensesCommand}
+   */
+  disassociateLenses(
+    args: DisassociateLensesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateLensesCommandOutput>;
+  disassociateLenses(
+    args: DisassociateLensesCommandInput,
+    cb: (err: any, data?: DisassociateLensesCommandOutput) => void
+  ): void;
+  disassociateLenses(
+    args: DisassociateLensesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateLensesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ExportLensCommand}
+   */
+  exportLens(args: ExportLensCommandInput, options?: __HttpHandlerOptions): Promise<ExportLensCommandOutput>;
+  exportLens(args: ExportLensCommandInput, cb: (err: any, data?: ExportLensCommandOutput) => void): void;
+  exportLens(
+    args: ExportLensCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportLensCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAnswerCommand}
+   */
+  getAnswer(args: GetAnswerCommandInput, options?: __HttpHandlerOptions): Promise<GetAnswerCommandOutput>;
+  getAnswer(args: GetAnswerCommandInput, cb: (err: any, data?: GetAnswerCommandOutput) => void): void;
+  getAnswer(
+    args: GetAnswerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAnswerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConsolidatedReportCommand}
+   */
+  getConsolidatedReport(
+    args: GetConsolidatedReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConsolidatedReportCommandOutput>;
+  getConsolidatedReport(
+    args: GetConsolidatedReportCommandInput,
+    cb: (err: any, data?: GetConsolidatedReportCommandOutput) => void
+  ): void;
+  getConsolidatedReport(
+    args: GetConsolidatedReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConsolidatedReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetLensCommand}
+   */
+  getLens(args: GetLensCommandInput, options?: __HttpHandlerOptions): Promise<GetLensCommandOutput>;
+  getLens(args: GetLensCommandInput, cb: (err: any, data?: GetLensCommandOutput) => void): void;
+  getLens(
+    args: GetLensCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLensCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetLensReviewCommand}
+   */
+  getLensReview(args: GetLensReviewCommandInput, options?: __HttpHandlerOptions): Promise<GetLensReviewCommandOutput>;
+  getLensReview(args: GetLensReviewCommandInput, cb: (err: any, data?: GetLensReviewCommandOutput) => void): void;
+  getLensReview(
+    args: GetLensReviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLensReviewCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetLensReviewReportCommand}
+   */
+  getLensReviewReport(
+    args: GetLensReviewReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLensReviewReportCommandOutput>;
+  getLensReviewReport(
+    args: GetLensReviewReportCommandInput,
+    cb: (err: any, data?: GetLensReviewReportCommandOutput) => void
+  ): void;
+  getLensReviewReport(
+    args: GetLensReviewReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLensReviewReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetLensVersionDifferenceCommand}
+   */
+  getLensVersionDifference(
+    args: GetLensVersionDifferenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLensVersionDifferenceCommandOutput>;
+  getLensVersionDifference(
+    args: GetLensVersionDifferenceCommandInput,
+    cb: (err: any, data?: GetLensVersionDifferenceCommandOutput) => void
+  ): void;
+  getLensVersionDifference(
+    args: GetLensVersionDifferenceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLensVersionDifferenceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetMilestoneCommand}
+   */
+  getMilestone(args: GetMilestoneCommandInput, options?: __HttpHandlerOptions): Promise<GetMilestoneCommandOutput>;
+  getMilestone(args: GetMilestoneCommandInput, cb: (err: any, data?: GetMilestoneCommandOutput) => void): void;
+  getMilestone(
+    args: GetMilestoneCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMilestoneCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetWorkloadCommand}
+   */
+  getWorkload(args: GetWorkloadCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkloadCommandOutput>;
+  getWorkload(args: GetWorkloadCommandInput, cb: (err: any, data?: GetWorkloadCommandOutput) => void): void;
+  getWorkload(
+    args: GetWorkloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWorkloadCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ImportLensCommand}
+   */
+  importLens(args: ImportLensCommandInput, options?: __HttpHandlerOptions): Promise<ImportLensCommandOutput>;
+  importLens(args: ImportLensCommandInput, cb: (err: any, data?: ImportLensCommandOutput) => void): void;
+  importLens(
+    args: ImportLensCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportLensCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAnswersCommand}
+   */
+  listAnswers(args: ListAnswersCommandInput, options?: __HttpHandlerOptions): Promise<ListAnswersCommandOutput>;
+  listAnswers(args: ListAnswersCommandInput, cb: (err: any, data?: ListAnswersCommandOutput) => void): void;
+  listAnswers(
+    args: ListAnswersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAnswersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCheckDetailsCommand}
+   */
+  listCheckDetails(
+    args: ListCheckDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCheckDetailsCommandOutput>;
+  listCheckDetails(
+    args: ListCheckDetailsCommandInput,
+    cb: (err: any, data?: ListCheckDetailsCommandOutput) => void
+  ): void;
+  listCheckDetails(
+    args: ListCheckDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCheckDetailsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCheckSummariesCommand}
+   */
+  listCheckSummaries(
+    args: ListCheckSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCheckSummariesCommandOutput>;
+  listCheckSummaries(
+    args: ListCheckSummariesCommandInput,
+    cb: (err: any, data?: ListCheckSummariesCommandOutput) => void
+  ): void;
+  listCheckSummaries(
+    args: ListCheckSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCheckSummariesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListLensesCommand}
+   */
+  listLenses(args: ListLensesCommandInput, options?: __HttpHandlerOptions): Promise<ListLensesCommandOutput>;
+  listLenses(args: ListLensesCommandInput, cb: (err: any, data?: ListLensesCommandOutput) => void): void;
+  listLenses(
+    args: ListLensesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLensesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListLensReviewImprovementsCommand}
+   */
+  listLensReviewImprovements(
+    args: ListLensReviewImprovementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLensReviewImprovementsCommandOutput>;
+  listLensReviewImprovements(
+    args: ListLensReviewImprovementsCommandInput,
+    cb: (err: any, data?: ListLensReviewImprovementsCommandOutput) => void
+  ): void;
+  listLensReviewImprovements(
+    args: ListLensReviewImprovementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLensReviewImprovementsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListLensReviewsCommand}
+   */
+  listLensReviews(
+    args: ListLensReviewsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLensReviewsCommandOutput>;
+  listLensReviews(args: ListLensReviewsCommandInput, cb: (err: any, data?: ListLensReviewsCommandOutput) => void): void;
+  listLensReviews(
+    args: ListLensReviewsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLensReviewsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListLensSharesCommand}
+   */
+  listLensShares(
+    args: ListLensSharesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLensSharesCommandOutput>;
+  listLensShares(args: ListLensSharesCommandInput, cb: (err: any, data?: ListLensSharesCommandOutput) => void): void;
+  listLensShares(
+    args: ListLensSharesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLensSharesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListMilestonesCommand}
+   */
+  listMilestones(
+    args: ListMilestonesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMilestonesCommandOutput>;
+  listMilestones(args: ListMilestonesCommandInput, cb: (err: any, data?: ListMilestonesCommandOutput) => void): void;
+  listMilestones(
+    args: ListMilestonesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMilestonesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNotificationsCommand}
+   */
+  listNotifications(
+    args: ListNotificationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNotificationsCommandOutput>;
+  listNotifications(
+    args: ListNotificationsCommandInput,
+    cb: (err: any, data?: ListNotificationsCommandOutput) => void
+  ): void;
+  listNotifications(
+    args: ListNotificationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNotificationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListShareInvitationsCommand}
+   */
+  listShareInvitations(
+    args: ListShareInvitationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListShareInvitationsCommandOutput>;
+  listShareInvitations(
+    args: ListShareInvitationsCommandInput,
+    cb: (err: any, data?: ListShareInvitationsCommandOutput) => void
+  ): void;
+  listShareInvitations(
+    args: ListShareInvitationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListShareInvitationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListWorkloadsCommand}
+   */
+  listWorkloads(args: ListWorkloadsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkloadsCommandOutput>;
+  listWorkloads(args: ListWorkloadsCommandInput, cb: (err: any, data?: ListWorkloadsCommandOutput) => void): void;
+  listWorkloads(
+    args: ListWorkloadsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkloadsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListWorkloadSharesCommand}
+   */
+  listWorkloadShares(
+    args: ListWorkloadSharesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkloadSharesCommandOutput>;
+  listWorkloadShares(
+    args: ListWorkloadSharesCommandInput,
+    cb: (err: any, data?: ListWorkloadSharesCommandOutput) => void
+  ): void;
+  listWorkloadShares(
+    args: ListWorkloadSharesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkloadSharesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAnswerCommand}
+   */
+  updateAnswer(args: UpdateAnswerCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAnswerCommandOutput>;
+  updateAnswer(args: UpdateAnswerCommandInput, cb: (err: any, data?: UpdateAnswerCommandOutput) => void): void;
+  updateAnswer(
+    args: UpdateAnswerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAnswerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateGlobalSettingsCommand}
+   */
+  updateGlobalSettings(
+    args: UpdateGlobalSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGlobalSettingsCommandOutput>;
+  updateGlobalSettings(
+    args: UpdateGlobalSettingsCommandInput,
+    cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
+  ): void;
+  updateGlobalSettings(
+    args: UpdateGlobalSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLensReviewCommand}
+   */
+  updateLensReview(
+    args: UpdateLensReviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLensReviewCommandOutput>;
+  updateLensReview(
+    args: UpdateLensReviewCommandInput,
+    cb: (err: any, data?: UpdateLensReviewCommandOutput) => void
+  ): void;
+  updateLensReview(
+    args: UpdateLensReviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLensReviewCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateShareInvitationCommand}
+   */
+  updateShareInvitation(
+    args: UpdateShareInvitationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateShareInvitationCommandOutput>;
+  updateShareInvitation(
+    args: UpdateShareInvitationCommandInput,
+    cb: (err: any, data?: UpdateShareInvitationCommandOutput) => void
+  ): void;
+  updateShareInvitation(
+    args: UpdateShareInvitationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateShareInvitationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateWorkloadCommand}
+   */
+  updateWorkload(
+    args: UpdateWorkloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorkloadCommandOutput>;
+  updateWorkload(args: UpdateWorkloadCommandInput, cb: (err: any, data?: UpdateWorkloadCommandOutput) => void): void;
+  updateWorkload(
+    args: UpdateWorkloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWorkloadCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateWorkloadShareCommand}
+   */
+  updateWorkloadShare(
+    args: UpdateWorkloadShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorkloadShareCommandOutput>;
+  updateWorkloadShare(
+    args: UpdateWorkloadShareCommandInput,
+    cb: (err: any, data?: UpdateWorkloadShareCommandOutput) => void
+  ): void;
+  updateWorkloadShare(
+    args: UpdateWorkloadShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWorkloadShareCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpgradeLensReviewCommand}
+   */
+  upgradeLensReview(
+    args: UpgradeLensReviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpgradeLensReviewCommandOutput>;
+  upgradeLensReview(
+    args: UpgradeLensReviewCommandInput,
+    cb: (err: any, data?: UpgradeLensReviewCommandOutput) => void
+  ): void;
+  upgradeLensReview(
+    args: UpgradeLensReviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpgradeLensReviewCommandOutput) => void
+  ): void;
+}
 
 /**
  * @public
@@ -191,1502 +857,5 @@ import { WellArchitectedClient } from "./WellArchitectedClient";
  *             about the Well-Architected Tool, see the
  *            <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html">Well-Architected Tool User Guide</a>.</p>
  */
-export class WellArchitected extends WellArchitectedClient {
-  /**
-   * @public
-   * <p>Associate a lens to a workload.</p>
-   *          <p>Up to 10 lenses can be associated with a workload in a single API operation. A
-   *         maximum of 20 lenses can be associated with a workload.</p>
-   *          <note>
-   *             <p>
-   *                <b>Disclaimer</b>
-   *             </p>
-   *             <p>By accessing and/or applying custom lenses created by another Amazon Web Services user or account,
-   *             you acknowledge that custom lenses created by other users and shared with you are
-   *             Third Party Content as defined in the Amazon Web Services Customer Agreement.    </p>
-   *          </note>
-   */
-  public associateLenses(
-    args: AssociateLensesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssociateLensesCommandOutput>;
-  public associateLenses(
-    args: AssociateLensesCommandInput,
-    cb: (err: any, data?: AssociateLensesCommandOutput) => void
-  ): void;
-  public associateLenses(
-    args: AssociateLensesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociateLensesCommandOutput) => void
-  ): void;
-  public associateLenses(
-    args: AssociateLensesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateLensesCommandOutput) => void),
-    cb?: (err: any, data?: AssociateLensesCommandOutput) => void
-  ): Promise<AssociateLensesCommandOutput> | void {
-    const command = new AssociateLensesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Create a lens share.</p>
-   *          <p>The owner of a lens can share it with other Amazon Web Services accounts, users, an organization,
-   *             and organizational units (OUs) in the same Amazon Web Services Region.
-   *             Lenses provided by Amazon Web Services (Amazon Web Services Official Content) cannot be shared.</p>
-   *          <p>
-   *             Shared access to a lens is not removed until the lens invitation is deleted.</p>
-   *          <p>If you share a lens with an organization or OU, all accounts in the organization or OU
-   *         are granted access to the lens.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-sharing.html">Sharing a custom lens</a> in the
-   *             <i>Well-Architected Tool User Guide</i>.</p>
-   *          <note>
-   *             <p>
-   *                <b>Disclaimer</b>
-   *             </p>
-   *             <p>By sharing your custom lenses with other Amazon Web Services accounts,
-   *                 you acknowledge that Amazon Web Services will make your custom lenses available to those
-   *                 other accounts. Those other accounts may continue to access and use your
-   *                 shared custom lenses even if you delete the custom lenses
-   *                 from your own Amazon Web Services account or terminate
-   *                 your Amazon Web Services account.</p>
-   *          </note>
-   */
-  public createLensShare(
-    args: CreateLensShareCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateLensShareCommandOutput>;
-  public createLensShare(
-    args: CreateLensShareCommandInput,
-    cb: (err: any, data?: CreateLensShareCommandOutput) => void
-  ): void;
-  public createLensShare(
-    args: CreateLensShareCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateLensShareCommandOutput) => void
-  ): void;
-  public createLensShare(
-    args: CreateLensShareCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLensShareCommandOutput) => void),
-    cb?: (err: any, data?: CreateLensShareCommandOutput) => void
-  ): Promise<CreateLensShareCommandOutput> | void {
-    const command = new CreateLensShareCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Create a new lens version.</p>
-   *          <p>A lens can have up to 100 versions.</p>
-   *          <p>Use this operation to publish a new lens version after you have imported a lens. The <code>LensAlias</code>
-   *             is used to identify the lens to be published.
-   *             The owner of a lens can share the lens with other
-   *             Amazon Web Services accounts and users in the same Amazon Web Services Region. Only the owner of a lens can delete it.
-   *         </p>
-   */
-  public createLensVersion(
-    args: CreateLensVersionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateLensVersionCommandOutput>;
-  public createLensVersion(
-    args: CreateLensVersionCommandInput,
-    cb: (err: any, data?: CreateLensVersionCommandOutput) => void
-  ): void;
-  public createLensVersion(
-    args: CreateLensVersionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateLensVersionCommandOutput) => void
-  ): void;
-  public createLensVersion(
-    args: CreateLensVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLensVersionCommandOutput) => void),
-    cb?: (err: any, data?: CreateLensVersionCommandOutput) => void
-  ): Promise<CreateLensVersionCommandOutput> | void {
-    const command = new CreateLensVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Create a milestone for an existing workload.</p>
-   */
-  public createMilestone(
-    args: CreateMilestoneCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateMilestoneCommandOutput>;
-  public createMilestone(
-    args: CreateMilestoneCommandInput,
-    cb: (err: any, data?: CreateMilestoneCommandOutput) => void
-  ): void;
-  public createMilestone(
-    args: CreateMilestoneCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateMilestoneCommandOutput) => void
-  ): void;
-  public createMilestone(
-    args: CreateMilestoneCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMilestoneCommandOutput) => void),
-    cb?: (err: any, data?: CreateMilestoneCommandOutput) => void
-  ): Promise<CreateMilestoneCommandOutput> | void {
-    const command = new CreateMilestoneCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Create a new workload.</p>
-   *          <p>The owner of a workload can share the workload with other Amazon Web Services accounts, users,
-   *             an organization, and organizational units (OUs)
-   *             in the same Amazon Web Services Region. Only the owner of a workload can delete it.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html">Defining a Workload</a> in the
-   *                 <i>Well-Architected Tool User Guide</i>.</p>
-   *          <important>
-   *             <p>Either <code>AwsRegions</code>, <code>NonAwsRegions</code>, or both must be specified when
-   *                 creating a workload.</p>
-   *             <p>You also must specify <code>ReviewOwner</code>, even though the
-   *                 parameter is listed as not being required in the following section.
-   *             </p>
-   *          </important>
-   */
-  public createWorkload(
-    args: CreateWorkloadCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateWorkloadCommandOutput>;
-  public createWorkload(
-    args: CreateWorkloadCommandInput,
-    cb: (err: any, data?: CreateWorkloadCommandOutput) => void
-  ): void;
-  public createWorkload(
-    args: CreateWorkloadCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateWorkloadCommandOutput) => void
-  ): void;
-  public createWorkload(
-    args: CreateWorkloadCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkloadCommandOutput) => void),
-    cb?: (err: any, data?: CreateWorkloadCommandOutput) => void
-  ): Promise<CreateWorkloadCommandOutput> | void {
-    const command = new CreateWorkloadCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Create a workload share.</p>
-   *          <p>The owner of a workload can share it with other Amazon Web Services accounts and users in the same
-   *             Amazon Web Services Region. Shared access to a workload is not removed until the workload invitation is
-   *             deleted.</p>
-   *          <p>If you share a workload with an organization or OU, all accounts in the organization or OU
-   *             are granted access to the workload.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html">Sharing a workload</a> in the
-   *                 <i>Well-Architected Tool User Guide</i>.</p>
-   */
-  public createWorkloadShare(
-    args: CreateWorkloadShareCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateWorkloadShareCommandOutput>;
-  public createWorkloadShare(
-    args: CreateWorkloadShareCommandInput,
-    cb: (err: any, data?: CreateWorkloadShareCommandOutput) => void
-  ): void;
-  public createWorkloadShare(
-    args: CreateWorkloadShareCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateWorkloadShareCommandOutput) => void
-  ): void;
-  public createWorkloadShare(
-    args: CreateWorkloadShareCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkloadShareCommandOutput) => void),
-    cb?: (err: any, data?: CreateWorkloadShareCommandOutput) => void
-  ): Promise<CreateWorkloadShareCommandOutput> | void {
-    const command = new CreateWorkloadShareCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Delete an existing lens.</p>
-   *          <p>Only the owner of a lens can delete it.  After the lens is deleted,  Amazon Web Services accounts and users
-   *               that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads.
-   *         </p>
-   *          <note>
-   *             <p>
-   *                <b>Disclaimer</b>
-   *             </p>
-   *             <p>By sharing your custom lenses with other Amazon Web Services accounts,
-   *                 you acknowledge that Amazon Web Services will make your custom lenses available to those
-   *                 other accounts. Those other accounts may continue to access and use your
-   *                 shared custom lenses even if you delete the custom lenses
-   *                 from your own Amazon Web Services account or terminate
-   *                 your Amazon Web Services account.</p>
-   *          </note>
-   */
-  public deleteLens(args: DeleteLensCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLensCommandOutput>;
-  public deleteLens(args: DeleteLensCommandInput, cb: (err: any, data?: DeleteLensCommandOutput) => void): void;
-  public deleteLens(
-    args: DeleteLensCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteLensCommandOutput) => void
-  ): void;
-  public deleteLens(
-    args: DeleteLensCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLensCommandOutput) => void),
-    cb?: (err: any, data?: DeleteLensCommandOutput) => void
-  ): Promise<DeleteLensCommandOutput> | void {
-    const command = new DeleteLensCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Delete a lens share.</p>
-   *          <p>After the lens share is deleted,  Amazon Web Services accounts, users, organizations,
-   *             and organizational units (OUs)
-   *             that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads.</p>
-   *          <note>
-   *             <p>
-   *                <b>Disclaimer</b>
-   *             </p>
-   *             <p>By sharing your custom lenses with other Amazon Web Services accounts,
-   *                 you acknowledge that Amazon Web Services will make your custom lenses available to those
-   *                 other accounts. Those other accounts may continue to access and use your
-   *                 shared custom lenses even if you delete the custom lenses
-   *                 from your own Amazon Web Services account or terminate
-   *                 your Amazon Web Services account.</p>
-   *          </note>
-   */
-  public deleteLensShare(
-    args: DeleteLensShareCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteLensShareCommandOutput>;
-  public deleteLensShare(
-    args: DeleteLensShareCommandInput,
-    cb: (err: any, data?: DeleteLensShareCommandOutput) => void
-  ): void;
-  public deleteLensShare(
-    args: DeleteLensShareCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteLensShareCommandOutput) => void
-  ): void;
-  public deleteLensShare(
-    args: DeleteLensShareCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLensShareCommandOutput) => void),
-    cb?: (err: any, data?: DeleteLensShareCommandOutput) => void
-  ): Promise<DeleteLensShareCommandOutput> | void {
-    const command = new DeleteLensShareCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Delete an existing workload.</p>
-   */
-  public deleteWorkload(
-    args: DeleteWorkloadCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteWorkloadCommandOutput>;
-  public deleteWorkload(
-    args: DeleteWorkloadCommandInput,
-    cb: (err: any, data?: DeleteWorkloadCommandOutput) => void
-  ): void;
-  public deleteWorkload(
-    args: DeleteWorkloadCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteWorkloadCommandOutput) => void
-  ): void;
-  public deleteWorkload(
-    args: DeleteWorkloadCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkloadCommandOutput) => void),
-    cb?: (err: any, data?: DeleteWorkloadCommandOutput) => void
-  ): Promise<DeleteWorkloadCommandOutput> | void {
-    const command = new DeleteWorkloadCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Delete a workload share.</p>
-   */
-  public deleteWorkloadShare(
-    args: DeleteWorkloadShareCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteWorkloadShareCommandOutput>;
-  public deleteWorkloadShare(
-    args: DeleteWorkloadShareCommandInput,
-    cb: (err: any, data?: DeleteWorkloadShareCommandOutput) => void
-  ): void;
-  public deleteWorkloadShare(
-    args: DeleteWorkloadShareCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteWorkloadShareCommandOutput) => void
-  ): void;
-  public deleteWorkloadShare(
-    args: DeleteWorkloadShareCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkloadShareCommandOutput) => void),
-    cb?: (err: any, data?: DeleteWorkloadShareCommandOutput) => void
-  ): Promise<DeleteWorkloadShareCommandOutput> | void {
-    const command = new DeleteWorkloadShareCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Disassociate a lens from a workload.</p>
-   *          <p>Up to 10 lenses can be disassociated from a workload in a single API operation.</p>
-   *          <note>
-   *             <p>The Amazon Web Services Well-Architected Framework lens (<code>wellarchitected</code>) cannot be
-   *                 removed from a workload.</p>
-   *          </note>
-   */
-  public disassociateLenses(
-    args: DisassociateLensesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisassociateLensesCommandOutput>;
-  public disassociateLenses(
-    args: DisassociateLensesCommandInput,
-    cb: (err: any, data?: DisassociateLensesCommandOutput) => void
-  ): void;
-  public disassociateLenses(
-    args: DisassociateLensesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociateLensesCommandOutput) => void
-  ): void;
-  public disassociateLenses(
-    args: DisassociateLensesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateLensesCommandOutput) => void),
-    cb?: (err: any, data?: DisassociateLensesCommandOutput) => void
-  ): Promise<DisassociateLensesCommandOutput> | void {
-    const command = new DisassociateLensesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Export an existing lens.</p>
-   *          <p>Only the owner of a lens can export it. Lenses provided by Amazon Web Services (Amazon Web Services Official Content)
-   *             cannot be exported.</p>
-   *          <p>Lenses are defined in JSON. For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html">JSON format specification</a>
-   *             in the <i>Well-Architected Tool User Guide</i>.</p>
-   *          <note>
-   *             <p>
-   *                <b>Disclaimer</b>
-   *             </p>
-   *             <p>Do not include or gather personal identifiable information (PII) of end users or
-   *                 other identifiable individuals in or via your custom lenses. If your custom
-   *                 lens or those shared with you and used in your account do include or collect
-   *                 PII you are responsible for: ensuring that the included PII is processed in accordance
-   *                 with applicable law, providing adequate privacy notices, and obtaining necessary
-   *                 consents for processing such data.</p>
-   *          </note>
-   */
-  public exportLens(args: ExportLensCommandInput, options?: __HttpHandlerOptions): Promise<ExportLensCommandOutput>;
-  public exportLens(args: ExportLensCommandInput, cb: (err: any, data?: ExportLensCommandOutput) => void): void;
-  public exportLens(
-    args: ExportLensCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ExportLensCommandOutput) => void
-  ): void;
-  public exportLens(
-    args: ExportLensCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportLensCommandOutput) => void),
-    cb?: (err: any, data?: ExportLensCommandOutput) => void
-  ): Promise<ExportLensCommandOutput> | void {
-    const command = new ExportLensCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Get the answer to a specific question in a workload review.</p>
-   */
-  public getAnswer(args: GetAnswerCommandInput, options?: __HttpHandlerOptions): Promise<GetAnswerCommandOutput>;
-  public getAnswer(args: GetAnswerCommandInput, cb: (err: any, data?: GetAnswerCommandOutput) => void): void;
-  public getAnswer(
-    args: GetAnswerCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetAnswerCommandOutput) => void
-  ): void;
-  public getAnswer(
-    args: GetAnswerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAnswerCommandOutput) => void),
-    cb?: (err: any, data?: GetAnswerCommandOutput) => void
-  ): Promise<GetAnswerCommandOutput> | void {
-    const command = new GetAnswerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Get a consolidated report of your workloads.</p>
-   *          <p>You can optionally choose to include workloads that have been shared with you.</p>
-   */
-  public getConsolidatedReport(
-    args: GetConsolidatedReportCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetConsolidatedReportCommandOutput>;
-  public getConsolidatedReport(
-    args: GetConsolidatedReportCommandInput,
-    cb: (err: any, data?: GetConsolidatedReportCommandOutput) => void
-  ): void;
-  public getConsolidatedReport(
-    args: GetConsolidatedReportCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetConsolidatedReportCommandOutput) => void
-  ): void;
-  public getConsolidatedReport(
-    args: GetConsolidatedReportCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConsolidatedReportCommandOutput) => void),
-    cb?: (err: any, data?: GetConsolidatedReportCommandOutput) => void
-  ): Promise<GetConsolidatedReportCommandOutput> | void {
-    const command = new GetConsolidatedReportCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Get an existing lens.</p>
-   */
-  public getLens(args: GetLensCommandInput, options?: __HttpHandlerOptions): Promise<GetLensCommandOutput>;
-  public getLens(args: GetLensCommandInput, cb: (err: any, data?: GetLensCommandOutput) => void): void;
-  public getLens(
-    args: GetLensCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetLensCommandOutput) => void
-  ): void;
-  public getLens(
-    args: GetLensCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLensCommandOutput) => void),
-    cb?: (err: any, data?: GetLensCommandOutput) => void
-  ): Promise<GetLensCommandOutput> | void {
-    const command = new GetLensCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Get lens review.</p>
-   */
-  public getLensReview(
-    args: GetLensReviewCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetLensReviewCommandOutput>;
-  public getLensReview(
-    args: GetLensReviewCommandInput,
-    cb: (err: any, data?: GetLensReviewCommandOutput) => void
-  ): void;
-  public getLensReview(
-    args: GetLensReviewCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetLensReviewCommandOutput) => void
-  ): void;
-  public getLensReview(
-    args: GetLensReviewCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLensReviewCommandOutput) => void),
-    cb?: (err: any, data?: GetLensReviewCommandOutput) => void
-  ): Promise<GetLensReviewCommandOutput> | void {
-    const command = new GetLensReviewCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Get lens review report.</p>
-   */
-  public getLensReviewReport(
-    args: GetLensReviewReportCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetLensReviewReportCommandOutput>;
-  public getLensReviewReport(
-    args: GetLensReviewReportCommandInput,
-    cb: (err: any, data?: GetLensReviewReportCommandOutput) => void
-  ): void;
-  public getLensReviewReport(
-    args: GetLensReviewReportCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetLensReviewReportCommandOutput) => void
-  ): void;
-  public getLensReviewReport(
-    args: GetLensReviewReportCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLensReviewReportCommandOutput) => void),
-    cb?: (err: any, data?: GetLensReviewReportCommandOutput) => void
-  ): Promise<GetLensReviewReportCommandOutput> | void {
-    const command = new GetLensReviewReportCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Get lens version differences.</p>
-   */
-  public getLensVersionDifference(
-    args: GetLensVersionDifferenceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetLensVersionDifferenceCommandOutput>;
-  public getLensVersionDifference(
-    args: GetLensVersionDifferenceCommandInput,
-    cb: (err: any, data?: GetLensVersionDifferenceCommandOutput) => void
-  ): void;
-  public getLensVersionDifference(
-    args: GetLensVersionDifferenceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetLensVersionDifferenceCommandOutput) => void
-  ): void;
-  public getLensVersionDifference(
-    args: GetLensVersionDifferenceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLensVersionDifferenceCommandOutput) => void),
-    cb?: (err: any, data?: GetLensVersionDifferenceCommandOutput) => void
-  ): Promise<GetLensVersionDifferenceCommandOutput> | void {
-    const command = new GetLensVersionDifferenceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Get a milestone for an existing workload.</p>
-   */
-  public getMilestone(
-    args: GetMilestoneCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetMilestoneCommandOutput>;
-  public getMilestone(args: GetMilestoneCommandInput, cb: (err: any, data?: GetMilestoneCommandOutput) => void): void;
-  public getMilestone(
-    args: GetMilestoneCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetMilestoneCommandOutput) => void
-  ): void;
-  public getMilestone(
-    args: GetMilestoneCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMilestoneCommandOutput) => void),
-    cb?: (err: any, data?: GetMilestoneCommandOutput) => void
-  ): Promise<GetMilestoneCommandOutput> | void {
-    const command = new GetMilestoneCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Get an existing workload.</p>
-   */
-  public getWorkload(args: GetWorkloadCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkloadCommandOutput>;
-  public getWorkload(args: GetWorkloadCommandInput, cb: (err: any, data?: GetWorkloadCommandOutput) => void): void;
-  public getWorkload(
-    args: GetWorkloadCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetWorkloadCommandOutput) => void
-  ): void;
-  public getWorkload(
-    args: GetWorkloadCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkloadCommandOutput) => void),
-    cb?: (err: any, data?: GetWorkloadCommandOutput) => void
-  ): Promise<GetWorkloadCommandOutput> | void {
-    const command = new GetWorkloadCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Import a new custom lens or update an existing custom lens.</p>
-   *          <p>To update an existing custom lens, specify its ARN as the  <code>LensAlias</code>. If
-   *             no ARN is specified, a new custom lens is created.</p>
-   *          <p>The new or updated lens will have a status of <code>DRAFT</code>. The lens cannot be
-   *             applied to workloads or shared with other Amazon Web Services accounts until it's
-   *             published with <a>CreateLensVersion</a>.</p>
-   *          <p>Lenses are defined in JSON. For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html">JSON format specification</a>
-   *             in the <i>Well-Architected Tool User Guide</i>.</p>
-   *          <p>A custom lens cannot exceed 500 KB in size.</p>
-   *          <note>
-   *             <p>
-   *                <b>Disclaimer</b>
-   *             </p>
-   *             <p>Do not include or gather personal identifiable information (PII) of end users or
-   *                 other identifiable individuals in or via your custom lenses. If your custom
-   *                 lens or those shared with you and used in your account do include or collect
-   *                 PII you are responsible for: ensuring that the included PII is processed in accordance
-   *                 with applicable law, providing adequate privacy notices, and obtaining necessary
-   *                 consents for processing such data.</p>
-   *          </note>
-   */
-  public importLens(args: ImportLensCommandInput, options?: __HttpHandlerOptions): Promise<ImportLensCommandOutput>;
-  public importLens(args: ImportLensCommandInput, cb: (err: any, data?: ImportLensCommandOutput) => void): void;
-  public importLens(
-    args: ImportLensCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ImportLensCommandOutput) => void
-  ): void;
-  public importLens(
-    args: ImportLensCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportLensCommandOutput) => void),
-    cb?: (err: any, data?: ImportLensCommandOutput) => void
-  ): Promise<ImportLensCommandOutput> | void {
-    const command = new ImportLensCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>List of answers for a particular workload and lens.</p>
-   */
-  public listAnswers(args: ListAnswersCommandInput, options?: __HttpHandlerOptions): Promise<ListAnswersCommandOutput>;
-  public listAnswers(args: ListAnswersCommandInput, cb: (err: any, data?: ListAnswersCommandOutput) => void): void;
-  public listAnswers(
-    args: ListAnswersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAnswersCommandOutput) => void
-  ): void;
-  public listAnswers(
-    args: ListAnswersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAnswersCommandOutput) => void),
-    cb?: (err: any, data?: ListAnswersCommandOutput) => void
-  ): Promise<ListAnswersCommandOutput> | void {
-    const command = new ListAnswersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>List of Trusted Advisor check details by account related to the workload.</p>
-   */
-  public listCheckDetails(
-    args: ListCheckDetailsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListCheckDetailsCommandOutput>;
-  public listCheckDetails(
-    args: ListCheckDetailsCommandInput,
-    cb: (err: any, data?: ListCheckDetailsCommandOutput) => void
-  ): void;
-  public listCheckDetails(
-    args: ListCheckDetailsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListCheckDetailsCommandOutput) => void
-  ): void;
-  public listCheckDetails(
-    args: ListCheckDetailsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCheckDetailsCommandOutput) => void),
-    cb?: (err: any, data?: ListCheckDetailsCommandOutput) => void
-  ): Promise<ListCheckDetailsCommandOutput> | void {
-    const command = new ListCheckDetailsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>List of Trusted Advisor checks summarized for all accounts related to the workload.</p>
-   */
-  public listCheckSummaries(
-    args: ListCheckSummariesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListCheckSummariesCommandOutput>;
-  public listCheckSummaries(
-    args: ListCheckSummariesCommandInput,
-    cb: (err: any, data?: ListCheckSummariesCommandOutput) => void
-  ): void;
-  public listCheckSummaries(
-    args: ListCheckSummariesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListCheckSummariesCommandOutput) => void
-  ): void;
-  public listCheckSummaries(
-    args: ListCheckSummariesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCheckSummariesCommandOutput) => void),
-    cb?: (err: any, data?: ListCheckSummariesCommandOutput) => void
-  ): Promise<ListCheckSummariesCommandOutput> | void {
-    const command = new ListCheckSummariesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>List the available lenses.</p>
-   */
-  public listLenses(args: ListLensesCommandInput, options?: __HttpHandlerOptions): Promise<ListLensesCommandOutput>;
-  public listLenses(args: ListLensesCommandInput, cb: (err: any, data?: ListLensesCommandOutput) => void): void;
-  public listLenses(
-    args: ListLensesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListLensesCommandOutput) => void
-  ): void;
-  public listLenses(
-    args: ListLensesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLensesCommandOutput) => void),
-    cb?: (err: any, data?: ListLensesCommandOutput) => void
-  ): Promise<ListLensesCommandOutput> | void {
-    const command = new ListLensesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>List lens review improvements.</p>
-   */
-  public listLensReviewImprovements(
-    args: ListLensReviewImprovementsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListLensReviewImprovementsCommandOutput>;
-  public listLensReviewImprovements(
-    args: ListLensReviewImprovementsCommandInput,
-    cb: (err: any, data?: ListLensReviewImprovementsCommandOutput) => void
-  ): void;
-  public listLensReviewImprovements(
-    args: ListLensReviewImprovementsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListLensReviewImprovementsCommandOutput) => void
-  ): void;
-  public listLensReviewImprovements(
-    args: ListLensReviewImprovementsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLensReviewImprovementsCommandOutput) => void),
-    cb?: (err: any, data?: ListLensReviewImprovementsCommandOutput) => void
-  ): Promise<ListLensReviewImprovementsCommandOutput> | void {
-    const command = new ListLensReviewImprovementsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>List lens reviews for a particular workload.</p>
-   */
-  public listLensReviews(
-    args: ListLensReviewsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListLensReviewsCommandOutput>;
-  public listLensReviews(
-    args: ListLensReviewsCommandInput,
-    cb: (err: any, data?: ListLensReviewsCommandOutput) => void
-  ): void;
-  public listLensReviews(
-    args: ListLensReviewsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListLensReviewsCommandOutput) => void
-  ): void;
-  public listLensReviews(
-    args: ListLensReviewsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLensReviewsCommandOutput) => void),
-    cb?: (err: any, data?: ListLensReviewsCommandOutput) => void
-  ): Promise<ListLensReviewsCommandOutput> | void {
-    const command = new ListLensReviewsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>List the lens shares associated with the lens.</p>
-   */
-  public listLensShares(
-    args: ListLensSharesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListLensSharesCommandOutput>;
-  public listLensShares(
-    args: ListLensSharesCommandInput,
-    cb: (err: any, data?: ListLensSharesCommandOutput) => void
-  ): void;
-  public listLensShares(
-    args: ListLensSharesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListLensSharesCommandOutput) => void
-  ): void;
-  public listLensShares(
-    args: ListLensSharesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLensSharesCommandOutput) => void),
-    cb?: (err: any, data?: ListLensSharesCommandOutput) => void
-  ): Promise<ListLensSharesCommandOutput> | void {
-    const command = new ListLensSharesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>List all milestones for an existing workload.</p>
-   */
-  public listMilestones(
-    args: ListMilestonesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListMilestonesCommandOutput>;
-  public listMilestones(
-    args: ListMilestonesCommandInput,
-    cb: (err: any, data?: ListMilestonesCommandOutput) => void
-  ): void;
-  public listMilestones(
-    args: ListMilestonesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListMilestonesCommandOutput) => void
-  ): void;
-  public listMilestones(
-    args: ListMilestonesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMilestonesCommandOutput) => void),
-    cb?: (err: any, data?: ListMilestonesCommandOutput) => void
-  ): Promise<ListMilestonesCommandOutput> | void {
-    const command = new ListMilestonesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>List lens notifications.</p>
-   */
-  public listNotifications(
-    args: ListNotificationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListNotificationsCommandOutput>;
-  public listNotifications(
-    args: ListNotificationsCommandInput,
-    cb: (err: any, data?: ListNotificationsCommandOutput) => void
-  ): void;
-  public listNotifications(
-    args: ListNotificationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListNotificationsCommandOutput) => void
-  ): void;
-  public listNotifications(
-    args: ListNotificationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNotificationsCommandOutput) => void),
-    cb?: (err: any, data?: ListNotificationsCommandOutput) => void
-  ): Promise<ListNotificationsCommandOutput> | void {
-    const command = new ListNotificationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>List  the workload invitations.</p>
-   */
-  public listShareInvitations(
-    args: ListShareInvitationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListShareInvitationsCommandOutput>;
-  public listShareInvitations(
-    args: ListShareInvitationsCommandInput,
-    cb: (err: any, data?: ListShareInvitationsCommandOutput) => void
-  ): void;
-  public listShareInvitations(
-    args: ListShareInvitationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListShareInvitationsCommandOutput) => void
-  ): void;
-  public listShareInvitations(
-    args: ListShareInvitationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListShareInvitationsCommandOutput) => void),
-    cb?: (err: any, data?: ListShareInvitationsCommandOutput) => void
-  ): Promise<ListShareInvitationsCommandOutput> | void {
-    const command = new ListShareInvitationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>List the tags for a resource.</p>
-   *          <note>
-   *             <p>The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.</p>
-   *          </note>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Paginated list of workloads.</p>
-   */
-  public listWorkloads(
-    args: ListWorkloadsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListWorkloadsCommandOutput>;
-  public listWorkloads(
-    args: ListWorkloadsCommandInput,
-    cb: (err: any, data?: ListWorkloadsCommandOutput) => void
-  ): void;
-  public listWorkloads(
-    args: ListWorkloadsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListWorkloadsCommandOutput) => void
-  ): void;
-  public listWorkloads(
-    args: ListWorkloadsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkloadsCommandOutput) => void),
-    cb?: (err: any, data?: ListWorkloadsCommandOutput) => void
-  ): Promise<ListWorkloadsCommandOutput> | void {
-    const command = new ListWorkloadsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>List the workload shares associated with the workload.</p>
-   */
-  public listWorkloadShares(
-    args: ListWorkloadSharesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListWorkloadSharesCommandOutput>;
-  public listWorkloadShares(
-    args: ListWorkloadSharesCommandInput,
-    cb: (err: any, data?: ListWorkloadSharesCommandOutput) => void
-  ): void;
-  public listWorkloadShares(
-    args: ListWorkloadSharesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListWorkloadSharesCommandOutput) => void
-  ): void;
-  public listWorkloadShares(
-    args: ListWorkloadSharesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkloadSharesCommandOutput) => void),
-    cb?: (err: any, data?: ListWorkloadSharesCommandOutput) => void
-  ): Promise<ListWorkloadSharesCommandOutput> | void {
-    const command = new ListWorkloadSharesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds one or more tags to the specified resource.</p>
-   *          <note>
-   *             <p>The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.</p>
-   *          </note>
-   */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes specified tags from a resource.</p>
-   *          <note>
-   *             <p>The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.</p>
-   *          </note>
-   *          <p>To specify multiple tags, use separate <b>tagKeys</b> parameters, for example:</p>
-   *          <p>
-   *             <code>DELETE /tags/WorkloadArn?tagKeys=key1&tagKeys=key2</code>
-   *          </p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Update the answer to a specific question in a workload review.</p>
-   */
-  public updateAnswer(
-    args: UpdateAnswerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAnswerCommandOutput>;
-  public updateAnswer(args: UpdateAnswerCommandInput, cb: (err: any, data?: UpdateAnswerCommandOutput) => void): void;
-  public updateAnswer(
-    args: UpdateAnswerCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAnswerCommandOutput) => void
-  ): void;
-  public updateAnswer(
-    args: UpdateAnswerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAnswerCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAnswerCommandOutput) => void
-  ): Promise<UpdateAnswerCommandOutput> | void {
-    const command = new UpdateAnswerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates whether the Amazon Web Services account is opted into organization sharing features.</p>
-   */
-  public updateGlobalSettings(
-    args: UpdateGlobalSettingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateGlobalSettingsCommandOutput>;
-  public updateGlobalSettings(
-    args: UpdateGlobalSettingsCommandInput,
-    cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
-  ): void;
-  public updateGlobalSettings(
-    args: UpdateGlobalSettingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
-  ): void;
-  public updateGlobalSettings(
-    args: UpdateGlobalSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGlobalSettingsCommandOutput) => void),
-    cb?: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
-  ): Promise<UpdateGlobalSettingsCommandOutput> | void {
-    const command = new UpdateGlobalSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Update lens review for a particular workload.</p>
-   */
-  public updateLensReview(
-    args: UpdateLensReviewCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateLensReviewCommandOutput>;
-  public updateLensReview(
-    args: UpdateLensReviewCommandInput,
-    cb: (err: any, data?: UpdateLensReviewCommandOutput) => void
-  ): void;
-  public updateLensReview(
-    args: UpdateLensReviewCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateLensReviewCommandOutput) => void
-  ): void;
-  public updateLensReview(
-    args: UpdateLensReviewCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLensReviewCommandOutput) => void),
-    cb?: (err: any, data?: UpdateLensReviewCommandOutput) => void
-  ): Promise<UpdateLensReviewCommandOutput> | void {
-    const command = new UpdateLensReviewCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Update a workload or custom lens share invitation.</p>
-   *          <note>
-   *             <p>This API operation can be called independently of any resource. Previous documentation implied that a workload ARN must be specified.</p>
-   *          </note>
-   */
-  public updateShareInvitation(
-    args: UpdateShareInvitationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateShareInvitationCommandOutput>;
-  public updateShareInvitation(
-    args: UpdateShareInvitationCommandInput,
-    cb: (err: any, data?: UpdateShareInvitationCommandOutput) => void
-  ): void;
-  public updateShareInvitation(
-    args: UpdateShareInvitationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateShareInvitationCommandOutput) => void
-  ): void;
-  public updateShareInvitation(
-    args: UpdateShareInvitationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateShareInvitationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateShareInvitationCommandOutput) => void
-  ): Promise<UpdateShareInvitationCommandOutput> | void {
-    const command = new UpdateShareInvitationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Update an existing workload.</p>
-   */
-  public updateWorkload(
-    args: UpdateWorkloadCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateWorkloadCommandOutput>;
-  public updateWorkload(
-    args: UpdateWorkloadCommandInput,
-    cb: (err: any, data?: UpdateWorkloadCommandOutput) => void
-  ): void;
-  public updateWorkload(
-    args: UpdateWorkloadCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateWorkloadCommandOutput) => void
-  ): void;
-  public updateWorkload(
-    args: UpdateWorkloadCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWorkloadCommandOutput) => void),
-    cb?: (err: any, data?: UpdateWorkloadCommandOutput) => void
-  ): Promise<UpdateWorkloadCommandOutput> | void {
-    const command = new UpdateWorkloadCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Update a workload share.</p>
-   */
-  public updateWorkloadShare(
-    args: UpdateWorkloadShareCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateWorkloadShareCommandOutput>;
-  public updateWorkloadShare(
-    args: UpdateWorkloadShareCommandInput,
-    cb: (err: any, data?: UpdateWorkloadShareCommandOutput) => void
-  ): void;
-  public updateWorkloadShare(
-    args: UpdateWorkloadShareCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateWorkloadShareCommandOutput) => void
-  ): void;
-  public updateWorkloadShare(
-    args: UpdateWorkloadShareCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWorkloadShareCommandOutput) => void),
-    cb?: (err: any, data?: UpdateWorkloadShareCommandOutput) => void
-  ): Promise<UpdateWorkloadShareCommandOutput> | void {
-    const command = new UpdateWorkloadShareCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Upgrade lens review for a particular workload.</p>
-   */
-  public upgradeLensReview(
-    args: UpgradeLensReviewCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpgradeLensReviewCommandOutput>;
-  public upgradeLensReview(
-    args: UpgradeLensReviewCommandInput,
-    cb: (err: any, data?: UpgradeLensReviewCommandOutput) => void
-  ): void;
-  public upgradeLensReview(
-    args: UpgradeLensReviewCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpgradeLensReviewCommandOutput) => void
-  ): void;
-  public upgradeLensReview(
-    args: UpgradeLensReviewCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpgradeLensReviewCommandOutput) => void),
-    cb?: (err: any, data?: UpgradeLensReviewCommandOutput) => void
-  ): Promise<UpgradeLensReviewCommandOutput> | void {
-    const command = new UpgradeLensReviewCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class WellArchitected extends WellArchitectedClient implements WellArchitected {}
+createAggregatedClient(commands, WellArchitected);

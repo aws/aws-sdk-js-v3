@@ -1,7 +1,8 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
-import { ChimeClient } from "./ChimeClient";
+import { ChimeClient, ChimeClientConfig } from "./ChimeClient";
 import {
   AssociatePhoneNumbersWithVoiceConnectorCommand,
   AssociatePhoneNumbersWithVoiceConnectorCommandInput,
@@ -870,6 +871,3176 @@ import {
   ValidateE911AddressCommandOutput,
 } from "./commands/ValidateE911AddressCommand";
 
+const commands = {
+  AssociatePhoneNumbersWithVoiceConnectorCommand,
+  AssociatePhoneNumbersWithVoiceConnectorGroupCommand,
+  AssociatePhoneNumberWithUserCommand,
+  AssociateSigninDelegateGroupsWithAccountCommand,
+  BatchCreateAttendeeCommand,
+  BatchCreateChannelMembershipCommand,
+  BatchCreateRoomMembershipCommand,
+  BatchDeletePhoneNumberCommand,
+  BatchSuspendUserCommand,
+  BatchUnsuspendUserCommand,
+  BatchUpdatePhoneNumberCommand,
+  BatchUpdateUserCommand,
+  CreateAccountCommand,
+  CreateAppInstanceCommand,
+  CreateAppInstanceAdminCommand,
+  CreateAppInstanceUserCommand,
+  CreateAttendeeCommand,
+  CreateBotCommand,
+  CreateChannelCommand,
+  CreateChannelBanCommand,
+  CreateChannelMembershipCommand,
+  CreateChannelModeratorCommand,
+  CreateMediaCapturePipelineCommand,
+  CreateMeetingCommand,
+  CreateMeetingDialOutCommand,
+  CreateMeetingWithAttendeesCommand,
+  CreatePhoneNumberOrderCommand,
+  CreateProxySessionCommand,
+  CreateRoomCommand,
+  CreateRoomMembershipCommand,
+  CreateSipMediaApplicationCommand,
+  CreateSipMediaApplicationCallCommand,
+  CreateSipRuleCommand,
+  CreateUserCommand,
+  CreateVoiceConnectorCommand,
+  CreateVoiceConnectorGroupCommand,
+  DeleteAccountCommand,
+  DeleteAppInstanceCommand,
+  DeleteAppInstanceAdminCommand,
+  DeleteAppInstanceStreamingConfigurationsCommand,
+  DeleteAppInstanceUserCommand,
+  DeleteAttendeeCommand,
+  DeleteChannelCommand,
+  DeleteChannelBanCommand,
+  DeleteChannelMembershipCommand,
+  DeleteChannelMessageCommand,
+  DeleteChannelModeratorCommand,
+  DeleteEventsConfigurationCommand,
+  DeleteMediaCapturePipelineCommand,
+  DeleteMeetingCommand,
+  DeletePhoneNumberCommand,
+  DeleteProxySessionCommand,
+  DeleteRoomCommand,
+  DeleteRoomMembershipCommand,
+  DeleteSipMediaApplicationCommand,
+  DeleteSipRuleCommand,
+  DeleteVoiceConnectorCommand,
+  DeleteVoiceConnectorEmergencyCallingConfigurationCommand,
+  DeleteVoiceConnectorGroupCommand,
+  DeleteVoiceConnectorOriginationCommand,
+  DeleteVoiceConnectorProxyCommand,
+  DeleteVoiceConnectorStreamingConfigurationCommand,
+  DeleteVoiceConnectorTerminationCommand,
+  DeleteVoiceConnectorTerminationCredentialsCommand,
+  DescribeAppInstanceCommand,
+  DescribeAppInstanceAdminCommand,
+  DescribeAppInstanceUserCommand,
+  DescribeChannelCommand,
+  DescribeChannelBanCommand,
+  DescribeChannelMembershipCommand,
+  DescribeChannelMembershipForAppInstanceUserCommand,
+  DescribeChannelModeratedByAppInstanceUserCommand,
+  DescribeChannelModeratorCommand,
+  DisassociatePhoneNumberFromUserCommand,
+  DisassociatePhoneNumbersFromVoiceConnectorCommand,
+  DisassociatePhoneNumbersFromVoiceConnectorGroupCommand,
+  DisassociateSigninDelegateGroupsFromAccountCommand,
+  GetAccountCommand,
+  GetAccountSettingsCommand,
+  GetAppInstanceRetentionSettingsCommand,
+  GetAppInstanceStreamingConfigurationsCommand,
+  GetAttendeeCommand,
+  GetBotCommand,
+  GetChannelMessageCommand,
+  GetEventsConfigurationCommand,
+  GetGlobalSettingsCommand,
+  GetMediaCapturePipelineCommand,
+  GetMeetingCommand,
+  GetMessagingSessionEndpointCommand,
+  GetPhoneNumberCommand,
+  GetPhoneNumberOrderCommand,
+  GetPhoneNumberSettingsCommand,
+  GetProxySessionCommand,
+  GetRetentionSettingsCommand,
+  GetRoomCommand,
+  GetSipMediaApplicationCommand,
+  GetSipMediaApplicationLoggingConfigurationCommand,
+  GetSipRuleCommand,
+  GetUserCommand,
+  GetUserSettingsCommand,
+  GetVoiceConnectorCommand,
+  GetVoiceConnectorEmergencyCallingConfigurationCommand,
+  GetVoiceConnectorGroupCommand,
+  GetVoiceConnectorLoggingConfigurationCommand,
+  GetVoiceConnectorOriginationCommand,
+  GetVoiceConnectorProxyCommand,
+  GetVoiceConnectorStreamingConfigurationCommand,
+  GetVoiceConnectorTerminationCommand,
+  GetVoiceConnectorTerminationHealthCommand,
+  InviteUsersCommand,
+  ListAccountsCommand,
+  ListAppInstanceAdminsCommand,
+  ListAppInstancesCommand,
+  ListAppInstanceUsersCommand,
+  ListAttendeesCommand,
+  ListAttendeeTagsCommand,
+  ListBotsCommand,
+  ListChannelBansCommand,
+  ListChannelMembershipsCommand,
+  ListChannelMembershipsForAppInstanceUserCommand,
+  ListChannelMessagesCommand,
+  ListChannelModeratorsCommand,
+  ListChannelsCommand,
+  ListChannelsModeratedByAppInstanceUserCommand,
+  ListMediaCapturePipelinesCommand,
+  ListMeetingsCommand,
+  ListMeetingTagsCommand,
+  ListPhoneNumberOrdersCommand,
+  ListPhoneNumbersCommand,
+  ListProxySessionsCommand,
+  ListRoomMembershipsCommand,
+  ListRoomsCommand,
+  ListSipMediaApplicationsCommand,
+  ListSipRulesCommand,
+  ListSupportedPhoneNumberCountriesCommand,
+  ListTagsForResourceCommand,
+  ListUsersCommand,
+  ListVoiceConnectorGroupsCommand,
+  ListVoiceConnectorsCommand,
+  ListVoiceConnectorTerminationCredentialsCommand,
+  LogoutUserCommand,
+  PutAppInstanceRetentionSettingsCommand,
+  PutAppInstanceStreamingConfigurationsCommand,
+  PutEventsConfigurationCommand,
+  PutRetentionSettingsCommand,
+  PutSipMediaApplicationLoggingConfigurationCommand,
+  PutVoiceConnectorEmergencyCallingConfigurationCommand,
+  PutVoiceConnectorLoggingConfigurationCommand,
+  PutVoiceConnectorOriginationCommand,
+  PutVoiceConnectorProxyCommand,
+  PutVoiceConnectorStreamingConfigurationCommand,
+  PutVoiceConnectorTerminationCommand,
+  PutVoiceConnectorTerminationCredentialsCommand,
+  RedactChannelMessageCommand,
+  RedactConversationMessageCommand,
+  RedactRoomMessageCommand,
+  RegenerateSecurityTokenCommand,
+  ResetPersonalPINCommand,
+  RestorePhoneNumberCommand,
+  SearchAvailablePhoneNumbersCommand,
+  SendChannelMessageCommand,
+  StartMeetingTranscriptionCommand,
+  StopMeetingTranscriptionCommand,
+  TagAttendeeCommand,
+  TagMeetingCommand,
+  TagResourceCommand,
+  UntagAttendeeCommand,
+  UntagMeetingCommand,
+  UntagResourceCommand,
+  UpdateAccountCommand,
+  UpdateAccountSettingsCommand,
+  UpdateAppInstanceCommand,
+  UpdateAppInstanceUserCommand,
+  UpdateBotCommand,
+  UpdateChannelCommand,
+  UpdateChannelMessageCommand,
+  UpdateChannelReadMarkerCommand,
+  UpdateGlobalSettingsCommand,
+  UpdatePhoneNumberCommand,
+  UpdatePhoneNumberSettingsCommand,
+  UpdateProxySessionCommand,
+  UpdateRoomCommand,
+  UpdateRoomMembershipCommand,
+  UpdateSipMediaApplicationCommand,
+  UpdateSipMediaApplicationCallCommand,
+  UpdateSipRuleCommand,
+  UpdateUserCommand,
+  UpdateUserSettingsCommand,
+  UpdateVoiceConnectorCommand,
+  UpdateVoiceConnectorGroupCommand,
+  ValidateE911AddressCommand,
+};
+
+export interface Chime {
+  /**
+   * @see {@link AssociatePhoneNumbersWithVoiceConnectorCommand}
+   */
+  associatePhoneNumbersWithVoiceConnector(
+    args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociatePhoneNumbersWithVoiceConnectorCommandOutput>;
+  associatePhoneNumbersWithVoiceConnector(
+    args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
+    cb: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput) => void
+  ): void;
+  associatePhoneNumbersWithVoiceConnector(
+    args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociatePhoneNumbersWithVoiceConnectorGroupCommand}
+   */
+  associatePhoneNumbersWithVoiceConnectorGroup(
+    args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput>;
+  associatePhoneNumbersWithVoiceConnectorGroup(
+    args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
+    cb: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput) => void
+  ): void;
+  associatePhoneNumbersWithVoiceConnectorGroup(
+    args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociatePhoneNumberWithUserCommand}
+   */
+  associatePhoneNumberWithUser(
+    args: AssociatePhoneNumberWithUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociatePhoneNumberWithUserCommandOutput>;
+  associatePhoneNumberWithUser(
+    args: AssociatePhoneNumberWithUserCommandInput,
+    cb: (err: any, data?: AssociatePhoneNumberWithUserCommandOutput) => void
+  ): void;
+  associatePhoneNumberWithUser(
+    args: AssociatePhoneNumberWithUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociatePhoneNumberWithUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateSigninDelegateGroupsWithAccountCommand}
+   */
+  associateSigninDelegateGroupsWithAccount(
+    args: AssociateSigninDelegateGroupsWithAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateSigninDelegateGroupsWithAccountCommandOutput>;
+  associateSigninDelegateGroupsWithAccount(
+    args: AssociateSigninDelegateGroupsWithAccountCommandInput,
+    cb: (err: any, data?: AssociateSigninDelegateGroupsWithAccountCommandOutput) => void
+  ): void;
+  associateSigninDelegateGroupsWithAccount(
+    args: AssociateSigninDelegateGroupsWithAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateSigninDelegateGroupsWithAccountCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchCreateAttendeeCommand}
+   */
+  batchCreateAttendee(
+    args: BatchCreateAttendeeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchCreateAttendeeCommandOutput>;
+  batchCreateAttendee(
+    args: BatchCreateAttendeeCommandInput,
+    cb: (err: any, data?: BatchCreateAttendeeCommandOutput) => void
+  ): void;
+  batchCreateAttendee(
+    args: BatchCreateAttendeeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchCreateAttendeeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchCreateChannelMembershipCommand}
+   */
+  batchCreateChannelMembership(
+    args: BatchCreateChannelMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchCreateChannelMembershipCommandOutput>;
+  batchCreateChannelMembership(
+    args: BatchCreateChannelMembershipCommandInput,
+    cb: (err: any, data?: BatchCreateChannelMembershipCommandOutput) => void
+  ): void;
+  batchCreateChannelMembership(
+    args: BatchCreateChannelMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchCreateChannelMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchCreateRoomMembershipCommand}
+   */
+  batchCreateRoomMembership(
+    args: BatchCreateRoomMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchCreateRoomMembershipCommandOutput>;
+  batchCreateRoomMembership(
+    args: BatchCreateRoomMembershipCommandInput,
+    cb: (err: any, data?: BatchCreateRoomMembershipCommandOutput) => void
+  ): void;
+  batchCreateRoomMembership(
+    args: BatchCreateRoomMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchCreateRoomMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDeletePhoneNumberCommand}
+   */
+  batchDeletePhoneNumber(
+    args: BatchDeletePhoneNumberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeletePhoneNumberCommandOutput>;
+  batchDeletePhoneNumber(
+    args: BatchDeletePhoneNumberCommandInput,
+    cb: (err: any, data?: BatchDeletePhoneNumberCommandOutput) => void
+  ): void;
+  batchDeletePhoneNumber(
+    args: BatchDeletePhoneNumberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeletePhoneNumberCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchSuspendUserCommand}
+   */
+  batchSuspendUser(
+    args: BatchSuspendUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchSuspendUserCommandOutput>;
+  batchSuspendUser(
+    args: BatchSuspendUserCommandInput,
+    cb: (err: any, data?: BatchSuspendUserCommandOutput) => void
+  ): void;
+  batchSuspendUser(
+    args: BatchSuspendUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchSuspendUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchUnsuspendUserCommand}
+   */
+  batchUnsuspendUser(
+    args: BatchUnsuspendUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUnsuspendUserCommandOutput>;
+  batchUnsuspendUser(
+    args: BatchUnsuspendUserCommandInput,
+    cb: (err: any, data?: BatchUnsuspendUserCommandOutput) => void
+  ): void;
+  batchUnsuspendUser(
+    args: BatchUnsuspendUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUnsuspendUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchUpdatePhoneNumberCommand}
+   */
+  batchUpdatePhoneNumber(
+    args: BatchUpdatePhoneNumberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdatePhoneNumberCommandOutput>;
+  batchUpdatePhoneNumber(
+    args: BatchUpdatePhoneNumberCommandInput,
+    cb: (err: any, data?: BatchUpdatePhoneNumberCommandOutput) => void
+  ): void;
+  batchUpdatePhoneNumber(
+    args: BatchUpdatePhoneNumberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdatePhoneNumberCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchUpdateUserCommand}
+   */
+  batchUpdateUser(
+    args: BatchUpdateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateUserCommandOutput>;
+  batchUpdateUser(args: BatchUpdateUserCommandInput, cb: (err: any, data?: BatchUpdateUserCommandOutput) => void): void;
+  batchUpdateUser(
+    args: BatchUpdateUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAccountCommand}
+   */
+  createAccount(args: CreateAccountCommandInput, options?: __HttpHandlerOptions): Promise<CreateAccountCommandOutput>;
+  createAccount(args: CreateAccountCommandInput, cb: (err: any, data?: CreateAccountCommandOutput) => void): void;
+  createAccount(
+    args: CreateAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAccountCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAppInstanceCommand}
+   */
+  createAppInstance(
+    args: CreateAppInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAppInstanceCommandOutput>;
+  createAppInstance(
+    args: CreateAppInstanceCommandInput,
+    cb: (err: any, data?: CreateAppInstanceCommandOutput) => void
+  ): void;
+  createAppInstance(
+    args: CreateAppInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAppInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAppInstanceAdminCommand}
+   */
+  createAppInstanceAdmin(
+    args: CreateAppInstanceAdminCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAppInstanceAdminCommandOutput>;
+  createAppInstanceAdmin(
+    args: CreateAppInstanceAdminCommandInput,
+    cb: (err: any, data?: CreateAppInstanceAdminCommandOutput) => void
+  ): void;
+  createAppInstanceAdmin(
+    args: CreateAppInstanceAdminCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAppInstanceAdminCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAppInstanceUserCommand}
+   */
+  createAppInstanceUser(
+    args: CreateAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAppInstanceUserCommandOutput>;
+  createAppInstanceUser(
+    args: CreateAppInstanceUserCommandInput,
+    cb: (err: any, data?: CreateAppInstanceUserCommandOutput) => void
+  ): void;
+  createAppInstanceUser(
+    args: CreateAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAppInstanceUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAttendeeCommand}
+   */
+  createAttendee(
+    args: CreateAttendeeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAttendeeCommandOutput>;
+  createAttendee(args: CreateAttendeeCommandInput, cb: (err: any, data?: CreateAttendeeCommandOutput) => void): void;
+  createAttendee(
+    args: CreateAttendeeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAttendeeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateBotCommand}
+   */
+  createBot(args: CreateBotCommandInput, options?: __HttpHandlerOptions): Promise<CreateBotCommandOutput>;
+  createBot(args: CreateBotCommandInput, cb: (err: any, data?: CreateBotCommandOutput) => void): void;
+  createBot(
+    args: CreateBotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBotCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateChannelCommand}
+   */
+  createChannel(args: CreateChannelCommandInput, options?: __HttpHandlerOptions): Promise<CreateChannelCommandOutput>;
+  createChannel(args: CreateChannelCommandInput, cb: (err: any, data?: CreateChannelCommandOutput) => void): void;
+  createChannel(
+    args: CreateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateChannelBanCommand}
+   */
+  createChannelBan(
+    args: CreateChannelBanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelBanCommandOutput>;
+  createChannelBan(
+    args: CreateChannelBanCommandInput,
+    cb: (err: any, data?: CreateChannelBanCommandOutput) => void
+  ): void;
+  createChannelBan(
+    args: CreateChannelBanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelBanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateChannelMembershipCommand}
+   */
+  createChannelMembership(
+    args: CreateChannelMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelMembershipCommandOutput>;
+  createChannelMembership(
+    args: CreateChannelMembershipCommandInput,
+    cb: (err: any, data?: CreateChannelMembershipCommandOutput) => void
+  ): void;
+  createChannelMembership(
+    args: CreateChannelMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateChannelModeratorCommand}
+   */
+  createChannelModerator(
+    args: CreateChannelModeratorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelModeratorCommandOutput>;
+  createChannelModerator(
+    args: CreateChannelModeratorCommandInput,
+    cb: (err: any, data?: CreateChannelModeratorCommandOutput) => void
+  ): void;
+  createChannelModerator(
+    args: CreateChannelModeratorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelModeratorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateMediaCapturePipelineCommand}
+   */
+  createMediaCapturePipeline(
+    args: CreateMediaCapturePipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMediaCapturePipelineCommandOutput>;
+  createMediaCapturePipeline(
+    args: CreateMediaCapturePipelineCommandInput,
+    cb: (err: any, data?: CreateMediaCapturePipelineCommandOutput) => void
+  ): void;
+  createMediaCapturePipeline(
+    args: CreateMediaCapturePipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMediaCapturePipelineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateMeetingCommand}
+   */
+  createMeeting(args: CreateMeetingCommandInput, options?: __HttpHandlerOptions): Promise<CreateMeetingCommandOutput>;
+  createMeeting(args: CreateMeetingCommandInput, cb: (err: any, data?: CreateMeetingCommandOutput) => void): void;
+  createMeeting(
+    args: CreateMeetingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMeetingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateMeetingDialOutCommand}
+   */
+  createMeetingDialOut(
+    args: CreateMeetingDialOutCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMeetingDialOutCommandOutput>;
+  createMeetingDialOut(
+    args: CreateMeetingDialOutCommandInput,
+    cb: (err: any, data?: CreateMeetingDialOutCommandOutput) => void
+  ): void;
+  createMeetingDialOut(
+    args: CreateMeetingDialOutCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMeetingDialOutCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateMeetingWithAttendeesCommand}
+   */
+  createMeetingWithAttendees(
+    args: CreateMeetingWithAttendeesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMeetingWithAttendeesCommandOutput>;
+  createMeetingWithAttendees(
+    args: CreateMeetingWithAttendeesCommandInput,
+    cb: (err: any, data?: CreateMeetingWithAttendeesCommandOutput) => void
+  ): void;
+  createMeetingWithAttendees(
+    args: CreateMeetingWithAttendeesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMeetingWithAttendeesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePhoneNumberOrderCommand}
+   */
+  createPhoneNumberOrder(
+    args: CreatePhoneNumberOrderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePhoneNumberOrderCommandOutput>;
+  createPhoneNumberOrder(
+    args: CreatePhoneNumberOrderCommandInput,
+    cb: (err: any, data?: CreatePhoneNumberOrderCommandOutput) => void
+  ): void;
+  createPhoneNumberOrder(
+    args: CreatePhoneNumberOrderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePhoneNumberOrderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateProxySessionCommand}
+   */
+  createProxySession(
+    args: CreateProxySessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProxySessionCommandOutput>;
+  createProxySession(
+    args: CreateProxySessionCommandInput,
+    cb: (err: any, data?: CreateProxySessionCommandOutput) => void
+  ): void;
+  createProxySession(
+    args: CreateProxySessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateProxySessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRoomCommand}
+   */
+  createRoom(args: CreateRoomCommandInput, options?: __HttpHandlerOptions): Promise<CreateRoomCommandOutput>;
+  createRoom(args: CreateRoomCommandInput, cb: (err: any, data?: CreateRoomCommandOutput) => void): void;
+  createRoom(
+    args: CreateRoomCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRoomCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRoomMembershipCommand}
+   */
+  createRoomMembership(
+    args: CreateRoomMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRoomMembershipCommandOutput>;
+  createRoomMembership(
+    args: CreateRoomMembershipCommandInput,
+    cb: (err: any, data?: CreateRoomMembershipCommandOutput) => void
+  ): void;
+  createRoomMembership(
+    args: CreateRoomMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRoomMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSipMediaApplicationCommand}
+   */
+  createSipMediaApplication(
+    args: CreateSipMediaApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSipMediaApplicationCommandOutput>;
+  createSipMediaApplication(
+    args: CreateSipMediaApplicationCommandInput,
+    cb: (err: any, data?: CreateSipMediaApplicationCommandOutput) => void
+  ): void;
+  createSipMediaApplication(
+    args: CreateSipMediaApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSipMediaApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSipMediaApplicationCallCommand}
+   */
+  createSipMediaApplicationCall(
+    args: CreateSipMediaApplicationCallCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSipMediaApplicationCallCommandOutput>;
+  createSipMediaApplicationCall(
+    args: CreateSipMediaApplicationCallCommandInput,
+    cb: (err: any, data?: CreateSipMediaApplicationCallCommandOutput) => void
+  ): void;
+  createSipMediaApplicationCall(
+    args: CreateSipMediaApplicationCallCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSipMediaApplicationCallCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSipRuleCommand}
+   */
+  createSipRule(args: CreateSipRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateSipRuleCommandOutput>;
+  createSipRule(args: CreateSipRuleCommandInput, cb: (err: any, data?: CreateSipRuleCommandOutput) => void): void;
+  createSipRule(
+    args: CreateSipRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSipRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateUserCommand}
+   */
+  createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
+  createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
+  createUser(
+    args: CreateUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateVoiceConnectorCommand}
+   */
+  createVoiceConnector(
+    args: CreateVoiceConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVoiceConnectorCommandOutput>;
+  createVoiceConnector(
+    args: CreateVoiceConnectorCommandInput,
+    cb: (err: any, data?: CreateVoiceConnectorCommandOutput) => void
+  ): void;
+  createVoiceConnector(
+    args: CreateVoiceConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVoiceConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateVoiceConnectorGroupCommand}
+   */
+  createVoiceConnectorGroup(
+    args: CreateVoiceConnectorGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVoiceConnectorGroupCommandOutput>;
+  createVoiceConnectorGroup(
+    args: CreateVoiceConnectorGroupCommandInput,
+    cb: (err: any, data?: CreateVoiceConnectorGroupCommandOutput) => void
+  ): void;
+  createVoiceConnectorGroup(
+    args: CreateVoiceConnectorGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVoiceConnectorGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAccountCommand}
+   */
+  deleteAccount(args: DeleteAccountCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAccountCommandOutput>;
+  deleteAccount(args: DeleteAccountCommandInput, cb: (err: any, data?: DeleteAccountCommandOutput) => void): void;
+  deleteAccount(
+    args: DeleteAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccountCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAppInstanceCommand}
+   */
+  deleteAppInstance(
+    args: DeleteAppInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppInstanceCommandOutput>;
+  deleteAppInstance(
+    args: DeleteAppInstanceCommandInput,
+    cb: (err: any, data?: DeleteAppInstanceCommandOutput) => void
+  ): void;
+  deleteAppInstance(
+    args: DeleteAppInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAppInstanceAdminCommand}
+   */
+  deleteAppInstanceAdmin(
+    args: DeleteAppInstanceAdminCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppInstanceAdminCommandOutput>;
+  deleteAppInstanceAdmin(
+    args: DeleteAppInstanceAdminCommandInput,
+    cb: (err: any, data?: DeleteAppInstanceAdminCommandOutput) => void
+  ): void;
+  deleteAppInstanceAdmin(
+    args: DeleteAppInstanceAdminCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppInstanceAdminCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAppInstanceStreamingConfigurationsCommand}
+   */
+  deleteAppInstanceStreamingConfigurations(
+    args: DeleteAppInstanceStreamingConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppInstanceStreamingConfigurationsCommandOutput>;
+  deleteAppInstanceStreamingConfigurations(
+    args: DeleteAppInstanceStreamingConfigurationsCommandInput,
+    cb: (err: any, data?: DeleteAppInstanceStreamingConfigurationsCommandOutput) => void
+  ): void;
+  deleteAppInstanceStreamingConfigurations(
+    args: DeleteAppInstanceStreamingConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppInstanceStreamingConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAppInstanceUserCommand}
+   */
+  deleteAppInstanceUser(
+    args: DeleteAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppInstanceUserCommandOutput>;
+  deleteAppInstanceUser(
+    args: DeleteAppInstanceUserCommandInput,
+    cb: (err: any, data?: DeleteAppInstanceUserCommandOutput) => void
+  ): void;
+  deleteAppInstanceUser(
+    args: DeleteAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppInstanceUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAttendeeCommand}
+   */
+  deleteAttendee(
+    args: DeleteAttendeeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAttendeeCommandOutput>;
+  deleteAttendee(args: DeleteAttendeeCommandInput, cb: (err: any, data?: DeleteAttendeeCommandOutput) => void): void;
+  deleteAttendee(
+    args: DeleteAttendeeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAttendeeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteChannelCommand}
+   */
+  deleteChannel(args: DeleteChannelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteChannelCommandOutput>;
+  deleteChannel(args: DeleteChannelCommandInput, cb: (err: any, data?: DeleteChannelCommandOutput) => void): void;
+  deleteChannel(
+    args: DeleteChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteChannelBanCommand}
+   */
+  deleteChannelBan(
+    args: DeleteChannelBanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelBanCommandOutput>;
+  deleteChannelBan(
+    args: DeleteChannelBanCommandInput,
+    cb: (err: any, data?: DeleteChannelBanCommandOutput) => void
+  ): void;
+  deleteChannelBan(
+    args: DeleteChannelBanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelBanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteChannelMembershipCommand}
+   */
+  deleteChannelMembership(
+    args: DeleteChannelMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelMembershipCommandOutput>;
+  deleteChannelMembership(
+    args: DeleteChannelMembershipCommandInput,
+    cb: (err: any, data?: DeleteChannelMembershipCommandOutput) => void
+  ): void;
+  deleteChannelMembership(
+    args: DeleteChannelMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteChannelMessageCommand}
+   */
+  deleteChannelMessage(
+    args: DeleteChannelMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelMessageCommandOutput>;
+  deleteChannelMessage(
+    args: DeleteChannelMessageCommandInput,
+    cb: (err: any, data?: DeleteChannelMessageCommandOutput) => void
+  ): void;
+  deleteChannelMessage(
+    args: DeleteChannelMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelMessageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteChannelModeratorCommand}
+   */
+  deleteChannelModerator(
+    args: DeleteChannelModeratorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelModeratorCommandOutput>;
+  deleteChannelModerator(
+    args: DeleteChannelModeratorCommandInput,
+    cb: (err: any, data?: DeleteChannelModeratorCommandOutput) => void
+  ): void;
+  deleteChannelModerator(
+    args: DeleteChannelModeratorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelModeratorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteEventsConfigurationCommand}
+   */
+  deleteEventsConfiguration(
+    args: DeleteEventsConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEventsConfigurationCommandOutput>;
+  deleteEventsConfiguration(
+    args: DeleteEventsConfigurationCommandInput,
+    cb: (err: any, data?: DeleteEventsConfigurationCommandOutput) => void
+  ): void;
+  deleteEventsConfiguration(
+    args: DeleteEventsConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEventsConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteMediaCapturePipelineCommand}
+   */
+  deleteMediaCapturePipeline(
+    args: DeleteMediaCapturePipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMediaCapturePipelineCommandOutput>;
+  deleteMediaCapturePipeline(
+    args: DeleteMediaCapturePipelineCommandInput,
+    cb: (err: any, data?: DeleteMediaCapturePipelineCommandOutput) => void
+  ): void;
+  deleteMediaCapturePipeline(
+    args: DeleteMediaCapturePipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMediaCapturePipelineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteMeetingCommand}
+   */
+  deleteMeeting(args: DeleteMeetingCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMeetingCommandOutput>;
+  deleteMeeting(args: DeleteMeetingCommandInput, cb: (err: any, data?: DeleteMeetingCommandOutput) => void): void;
+  deleteMeeting(
+    args: DeleteMeetingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMeetingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePhoneNumberCommand}
+   */
+  deletePhoneNumber(
+    args: DeletePhoneNumberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePhoneNumberCommandOutput>;
+  deletePhoneNumber(
+    args: DeletePhoneNumberCommandInput,
+    cb: (err: any, data?: DeletePhoneNumberCommandOutput) => void
+  ): void;
+  deletePhoneNumber(
+    args: DeletePhoneNumberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePhoneNumberCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteProxySessionCommand}
+   */
+  deleteProxySession(
+    args: DeleteProxySessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProxySessionCommandOutput>;
+  deleteProxySession(
+    args: DeleteProxySessionCommandInput,
+    cb: (err: any, data?: DeleteProxySessionCommandOutput) => void
+  ): void;
+  deleteProxySession(
+    args: DeleteProxySessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProxySessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRoomCommand}
+   */
+  deleteRoom(args: DeleteRoomCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRoomCommandOutput>;
+  deleteRoom(args: DeleteRoomCommandInput, cb: (err: any, data?: DeleteRoomCommandOutput) => void): void;
+  deleteRoom(
+    args: DeleteRoomCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRoomCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRoomMembershipCommand}
+   */
+  deleteRoomMembership(
+    args: DeleteRoomMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRoomMembershipCommandOutput>;
+  deleteRoomMembership(
+    args: DeleteRoomMembershipCommandInput,
+    cb: (err: any, data?: DeleteRoomMembershipCommandOutput) => void
+  ): void;
+  deleteRoomMembership(
+    args: DeleteRoomMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRoomMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSipMediaApplicationCommand}
+   */
+  deleteSipMediaApplication(
+    args: DeleteSipMediaApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSipMediaApplicationCommandOutput>;
+  deleteSipMediaApplication(
+    args: DeleteSipMediaApplicationCommandInput,
+    cb: (err: any, data?: DeleteSipMediaApplicationCommandOutput) => void
+  ): void;
+  deleteSipMediaApplication(
+    args: DeleteSipMediaApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSipMediaApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSipRuleCommand}
+   */
+  deleteSipRule(args: DeleteSipRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSipRuleCommandOutput>;
+  deleteSipRule(args: DeleteSipRuleCommandInput, cb: (err: any, data?: DeleteSipRuleCommandOutput) => void): void;
+  deleteSipRule(
+    args: DeleteSipRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSipRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVoiceConnectorCommand}
+   */
+  deleteVoiceConnector(
+    args: DeleteVoiceConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVoiceConnectorCommandOutput>;
+  deleteVoiceConnector(
+    args: DeleteVoiceConnectorCommandInput,
+    cb: (err: any, data?: DeleteVoiceConnectorCommandOutput) => void
+  ): void;
+  deleteVoiceConnector(
+    args: DeleteVoiceConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVoiceConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVoiceConnectorEmergencyCallingConfigurationCommand}
+   */
+  deleteVoiceConnectorEmergencyCallingConfiguration(
+    args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput>;
+  deleteVoiceConnectorEmergencyCallingConfiguration(
+    args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    cb: (err: any, data?: DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
+  ): void;
+  deleteVoiceConnectorEmergencyCallingConfiguration(
+    args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVoiceConnectorGroupCommand}
+   */
+  deleteVoiceConnectorGroup(
+    args: DeleteVoiceConnectorGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVoiceConnectorGroupCommandOutput>;
+  deleteVoiceConnectorGroup(
+    args: DeleteVoiceConnectorGroupCommandInput,
+    cb: (err: any, data?: DeleteVoiceConnectorGroupCommandOutput) => void
+  ): void;
+  deleteVoiceConnectorGroup(
+    args: DeleteVoiceConnectorGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVoiceConnectorGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVoiceConnectorOriginationCommand}
+   */
+  deleteVoiceConnectorOrigination(
+    args: DeleteVoiceConnectorOriginationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVoiceConnectorOriginationCommandOutput>;
+  deleteVoiceConnectorOrigination(
+    args: DeleteVoiceConnectorOriginationCommandInput,
+    cb: (err: any, data?: DeleteVoiceConnectorOriginationCommandOutput) => void
+  ): void;
+  deleteVoiceConnectorOrigination(
+    args: DeleteVoiceConnectorOriginationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVoiceConnectorOriginationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVoiceConnectorProxyCommand}
+   */
+  deleteVoiceConnectorProxy(
+    args: DeleteVoiceConnectorProxyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVoiceConnectorProxyCommandOutput>;
+  deleteVoiceConnectorProxy(
+    args: DeleteVoiceConnectorProxyCommandInput,
+    cb: (err: any, data?: DeleteVoiceConnectorProxyCommandOutput) => void
+  ): void;
+  deleteVoiceConnectorProxy(
+    args: DeleteVoiceConnectorProxyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVoiceConnectorProxyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVoiceConnectorStreamingConfigurationCommand}
+   */
+  deleteVoiceConnectorStreamingConfiguration(
+    args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVoiceConnectorStreamingConfigurationCommandOutput>;
+  deleteVoiceConnectorStreamingConfiguration(
+    args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
+    cb: (err: any, data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput) => void
+  ): void;
+  deleteVoiceConnectorStreamingConfiguration(
+    args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVoiceConnectorTerminationCommand}
+   */
+  deleteVoiceConnectorTermination(
+    args: DeleteVoiceConnectorTerminationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVoiceConnectorTerminationCommandOutput>;
+  deleteVoiceConnectorTermination(
+    args: DeleteVoiceConnectorTerminationCommandInput,
+    cb: (err: any, data?: DeleteVoiceConnectorTerminationCommandOutput) => void
+  ): void;
+  deleteVoiceConnectorTermination(
+    args: DeleteVoiceConnectorTerminationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVoiceConnectorTerminationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVoiceConnectorTerminationCredentialsCommand}
+   */
+  deleteVoiceConnectorTerminationCredentials(
+    args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVoiceConnectorTerminationCredentialsCommandOutput>;
+  deleteVoiceConnectorTerminationCredentials(
+    args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
+    cb: (err: any, data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput) => void
+  ): void;
+  deleteVoiceConnectorTerminationCredentials(
+    args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAppInstanceCommand}
+   */
+  describeAppInstance(
+    args: DescribeAppInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppInstanceCommandOutput>;
+  describeAppInstance(
+    args: DescribeAppInstanceCommandInput,
+    cb: (err: any, data?: DescribeAppInstanceCommandOutput) => void
+  ): void;
+  describeAppInstance(
+    args: DescribeAppInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAppInstanceAdminCommand}
+   */
+  describeAppInstanceAdmin(
+    args: DescribeAppInstanceAdminCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppInstanceAdminCommandOutput>;
+  describeAppInstanceAdmin(
+    args: DescribeAppInstanceAdminCommandInput,
+    cb: (err: any, data?: DescribeAppInstanceAdminCommandOutput) => void
+  ): void;
+  describeAppInstanceAdmin(
+    args: DescribeAppInstanceAdminCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppInstanceAdminCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAppInstanceUserCommand}
+   */
+  describeAppInstanceUser(
+    args: DescribeAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppInstanceUserCommandOutput>;
+  describeAppInstanceUser(
+    args: DescribeAppInstanceUserCommandInput,
+    cb: (err: any, data?: DescribeAppInstanceUserCommandOutput) => void
+  ): void;
+  describeAppInstanceUser(
+    args: DescribeAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppInstanceUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeChannelCommand}
+   */
+  describeChannel(
+    args: DescribeChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelCommandOutput>;
+  describeChannel(args: DescribeChannelCommandInput, cb: (err: any, data?: DescribeChannelCommandOutput) => void): void;
+  describeChannel(
+    args: DescribeChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeChannelBanCommand}
+   */
+  describeChannelBan(
+    args: DescribeChannelBanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelBanCommandOutput>;
+  describeChannelBan(
+    args: DescribeChannelBanCommandInput,
+    cb: (err: any, data?: DescribeChannelBanCommandOutput) => void
+  ): void;
+  describeChannelBan(
+    args: DescribeChannelBanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelBanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeChannelMembershipCommand}
+   */
+  describeChannelMembership(
+    args: DescribeChannelMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelMembershipCommandOutput>;
+  describeChannelMembership(
+    args: DescribeChannelMembershipCommandInput,
+    cb: (err: any, data?: DescribeChannelMembershipCommandOutput) => void
+  ): void;
+  describeChannelMembership(
+    args: DescribeChannelMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeChannelMembershipForAppInstanceUserCommand}
+   */
+  describeChannelMembershipForAppInstanceUser(
+    args: DescribeChannelMembershipForAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelMembershipForAppInstanceUserCommandOutput>;
+  describeChannelMembershipForAppInstanceUser(
+    args: DescribeChannelMembershipForAppInstanceUserCommandInput,
+    cb: (err: any, data?: DescribeChannelMembershipForAppInstanceUserCommandOutput) => void
+  ): void;
+  describeChannelMembershipForAppInstanceUser(
+    args: DescribeChannelMembershipForAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelMembershipForAppInstanceUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeChannelModeratedByAppInstanceUserCommand}
+   */
+  describeChannelModeratedByAppInstanceUser(
+    args: DescribeChannelModeratedByAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelModeratedByAppInstanceUserCommandOutput>;
+  describeChannelModeratedByAppInstanceUser(
+    args: DescribeChannelModeratedByAppInstanceUserCommandInput,
+    cb: (err: any, data?: DescribeChannelModeratedByAppInstanceUserCommandOutput) => void
+  ): void;
+  describeChannelModeratedByAppInstanceUser(
+    args: DescribeChannelModeratedByAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelModeratedByAppInstanceUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeChannelModeratorCommand}
+   */
+  describeChannelModerator(
+    args: DescribeChannelModeratorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelModeratorCommandOutput>;
+  describeChannelModerator(
+    args: DescribeChannelModeratorCommandInput,
+    cb: (err: any, data?: DescribeChannelModeratorCommandOutput) => void
+  ): void;
+  describeChannelModerator(
+    args: DescribeChannelModeratorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelModeratorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociatePhoneNumberFromUserCommand}
+   */
+  disassociatePhoneNumberFromUser(
+    args: DisassociatePhoneNumberFromUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociatePhoneNumberFromUserCommandOutput>;
+  disassociatePhoneNumberFromUser(
+    args: DisassociatePhoneNumberFromUserCommandInput,
+    cb: (err: any, data?: DisassociatePhoneNumberFromUserCommandOutput) => void
+  ): void;
+  disassociatePhoneNumberFromUser(
+    args: DisassociatePhoneNumberFromUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociatePhoneNumberFromUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociatePhoneNumbersFromVoiceConnectorCommand}
+   */
+  disassociatePhoneNumbersFromVoiceConnector(
+    args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociatePhoneNumbersFromVoiceConnectorCommandOutput>;
+  disassociatePhoneNumbersFromVoiceConnector(
+    args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
+    cb: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput) => void
+  ): void;
+  disassociatePhoneNumbersFromVoiceConnector(
+    args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociatePhoneNumbersFromVoiceConnectorGroupCommand}
+   */
+  disassociatePhoneNumbersFromVoiceConnectorGroup(
+    args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput>;
+  disassociatePhoneNumbersFromVoiceConnectorGroup(
+    args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
+    cb: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput) => void
+  ): void;
+  disassociatePhoneNumbersFromVoiceConnectorGroup(
+    args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateSigninDelegateGroupsFromAccountCommand}
+   */
+  disassociateSigninDelegateGroupsFromAccount(
+    args: DisassociateSigninDelegateGroupsFromAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateSigninDelegateGroupsFromAccountCommandOutput>;
+  disassociateSigninDelegateGroupsFromAccount(
+    args: DisassociateSigninDelegateGroupsFromAccountCommandInput,
+    cb: (err: any, data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput) => void
+  ): void;
+  disassociateSigninDelegateGroupsFromAccount(
+    args: DisassociateSigninDelegateGroupsFromAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAccountCommand}
+   */
+  getAccount(args: GetAccountCommandInput, options?: __HttpHandlerOptions): Promise<GetAccountCommandOutput>;
+  getAccount(args: GetAccountCommandInput, cb: (err: any, data?: GetAccountCommandOutput) => void): void;
+  getAccount(
+    args: GetAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccountCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAccountSettingsCommand}
+   */
+  getAccountSettings(
+    args: GetAccountSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountSettingsCommandOutput>;
+  getAccountSettings(
+    args: GetAccountSettingsCommandInput,
+    cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
+  ): void;
+  getAccountSettings(
+    args: GetAccountSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAppInstanceRetentionSettingsCommand}
+   */
+  getAppInstanceRetentionSettings(
+    args: GetAppInstanceRetentionSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAppInstanceRetentionSettingsCommandOutput>;
+  getAppInstanceRetentionSettings(
+    args: GetAppInstanceRetentionSettingsCommandInput,
+    cb: (err: any, data?: GetAppInstanceRetentionSettingsCommandOutput) => void
+  ): void;
+  getAppInstanceRetentionSettings(
+    args: GetAppInstanceRetentionSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAppInstanceRetentionSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAppInstanceStreamingConfigurationsCommand}
+   */
+  getAppInstanceStreamingConfigurations(
+    args: GetAppInstanceStreamingConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAppInstanceStreamingConfigurationsCommandOutput>;
+  getAppInstanceStreamingConfigurations(
+    args: GetAppInstanceStreamingConfigurationsCommandInput,
+    cb: (err: any, data?: GetAppInstanceStreamingConfigurationsCommandOutput) => void
+  ): void;
+  getAppInstanceStreamingConfigurations(
+    args: GetAppInstanceStreamingConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAppInstanceStreamingConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAttendeeCommand}
+   */
+  getAttendee(args: GetAttendeeCommandInput, options?: __HttpHandlerOptions): Promise<GetAttendeeCommandOutput>;
+  getAttendee(args: GetAttendeeCommandInput, cb: (err: any, data?: GetAttendeeCommandOutput) => void): void;
+  getAttendee(
+    args: GetAttendeeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAttendeeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetBotCommand}
+   */
+  getBot(args: GetBotCommandInput, options?: __HttpHandlerOptions): Promise<GetBotCommandOutput>;
+  getBot(args: GetBotCommandInput, cb: (err: any, data?: GetBotCommandOutput) => void): void;
+  getBot(
+    args: GetBotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBotCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetChannelMessageCommand}
+   */
+  getChannelMessage(
+    args: GetChannelMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetChannelMessageCommandOutput>;
+  getChannelMessage(
+    args: GetChannelMessageCommandInput,
+    cb: (err: any, data?: GetChannelMessageCommandOutput) => void
+  ): void;
+  getChannelMessage(
+    args: GetChannelMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetChannelMessageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEventsConfigurationCommand}
+   */
+  getEventsConfiguration(
+    args: GetEventsConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEventsConfigurationCommandOutput>;
+  getEventsConfiguration(
+    args: GetEventsConfigurationCommandInput,
+    cb: (err: any, data?: GetEventsConfigurationCommandOutput) => void
+  ): void;
+  getEventsConfiguration(
+    args: GetEventsConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEventsConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetGlobalSettingsCommand}
+   */
+  getGlobalSettings(
+    args: GetGlobalSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGlobalSettingsCommandOutput>;
+  getGlobalSettings(
+    args: GetGlobalSettingsCommandInput,
+    cb: (err: any, data?: GetGlobalSettingsCommandOutput) => void
+  ): void;
+  getGlobalSettings(
+    args: GetGlobalSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGlobalSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetMediaCapturePipelineCommand}
+   */
+  getMediaCapturePipeline(
+    args: GetMediaCapturePipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMediaCapturePipelineCommandOutput>;
+  getMediaCapturePipeline(
+    args: GetMediaCapturePipelineCommandInput,
+    cb: (err: any, data?: GetMediaCapturePipelineCommandOutput) => void
+  ): void;
+  getMediaCapturePipeline(
+    args: GetMediaCapturePipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMediaCapturePipelineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetMeetingCommand}
+   */
+  getMeeting(args: GetMeetingCommandInput, options?: __HttpHandlerOptions): Promise<GetMeetingCommandOutput>;
+  getMeeting(args: GetMeetingCommandInput, cb: (err: any, data?: GetMeetingCommandOutput) => void): void;
+  getMeeting(
+    args: GetMeetingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMeetingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetMessagingSessionEndpointCommand}
+   */
+  getMessagingSessionEndpoint(
+    args: GetMessagingSessionEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMessagingSessionEndpointCommandOutput>;
+  getMessagingSessionEndpoint(
+    args: GetMessagingSessionEndpointCommandInput,
+    cb: (err: any, data?: GetMessagingSessionEndpointCommandOutput) => void
+  ): void;
+  getMessagingSessionEndpoint(
+    args: GetMessagingSessionEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMessagingSessionEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPhoneNumberCommand}
+   */
+  getPhoneNumber(
+    args: GetPhoneNumberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPhoneNumberCommandOutput>;
+  getPhoneNumber(args: GetPhoneNumberCommandInput, cb: (err: any, data?: GetPhoneNumberCommandOutput) => void): void;
+  getPhoneNumber(
+    args: GetPhoneNumberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPhoneNumberCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPhoneNumberOrderCommand}
+   */
+  getPhoneNumberOrder(
+    args: GetPhoneNumberOrderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPhoneNumberOrderCommandOutput>;
+  getPhoneNumberOrder(
+    args: GetPhoneNumberOrderCommandInput,
+    cb: (err: any, data?: GetPhoneNumberOrderCommandOutput) => void
+  ): void;
+  getPhoneNumberOrder(
+    args: GetPhoneNumberOrderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPhoneNumberOrderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPhoneNumberSettingsCommand}
+   */
+  getPhoneNumberSettings(
+    args: GetPhoneNumberSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPhoneNumberSettingsCommandOutput>;
+  getPhoneNumberSettings(
+    args: GetPhoneNumberSettingsCommandInput,
+    cb: (err: any, data?: GetPhoneNumberSettingsCommandOutput) => void
+  ): void;
+  getPhoneNumberSettings(
+    args: GetPhoneNumberSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPhoneNumberSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetProxySessionCommand}
+   */
+  getProxySession(
+    args: GetProxySessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProxySessionCommandOutput>;
+  getProxySession(args: GetProxySessionCommandInput, cb: (err: any, data?: GetProxySessionCommandOutput) => void): void;
+  getProxySession(
+    args: GetProxySessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetProxySessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRetentionSettingsCommand}
+   */
+  getRetentionSettings(
+    args: GetRetentionSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRetentionSettingsCommandOutput>;
+  getRetentionSettings(
+    args: GetRetentionSettingsCommandInput,
+    cb: (err: any, data?: GetRetentionSettingsCommandOutput) => void
+  ): void;
+  getRetentionSettings(
+    args: GetRetentionSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRetentionSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRoomCommand}
+   */
+  getRoom(args: GetRoomCommandInput, options?: __HttpHandlerOptions): Promise<GetRoomCommandOutput>;
+  getRoom(args: GetRoomCommandInput, cb: (err: any, data?: GetRoomCommandOutput) => void): void;
+  getRoom(
+    args: GetRoomCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRoomCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSipMediaApplicationCommand}
+   */
+  getSipMediaApplication(
+    args: GetSipMediaApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSipMediaApplicationCommandOutput>;
+  getSipMediaApplication(
+    args: GetSipMediaApplicationCommandInput,
+    cb: (err: any, data?: GetSipMediaApplicationCommandOutput) => void
+  ): void;
+  getSipMediaApplication(
+    args: GetSipMediaApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSipMediaApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSipMediaApplicationLoggingConfigurationCommand}
+   */
+  getSipMediaApplicationLoggingConfiguration(
+    args: GetSipMediaApplicationLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSipMediaApplicationLoggingConfigurationCommandOutput>;
+  getSipMediaApplicationLoggingConfiguration(
+    args: GetSipMediaApplicationLoggingConfigurationCommandInput,
+    cb: (err: any, data?: GetSipMediaApplicationLoggingConfigurationCommandOutput) => void
+  ): void;
+  getSipMediaApplicationLoggingConfiguration(
+    args: GetSipMediaApplicationLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSipMediaApplicationLoggingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSipRuleCommand}
+   */
+  getSipRule(args: GetSipRuleCommandInput, options?: __HttpHandlerOptions): Promise<GetSipRuleCommandOutput>;
+  getSipRule(args: GetSipRuleCommandInput, cb: (err: any, data?: GetSipRuleCommandOutput) => void): void;
+  getSipRule(
+    args: GetSipRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSipRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetUserCommand}
+   */
+  getUser(args: GetUserCommandInput, options?: __HttpHandlerOptions): Promise<GetUserCommandOutput>;
+  getUser(args: GetUserCommandInput, cb: (err: any, data?: GetUserCommandOutput) => void): void;
+  getUser(
+    args: GetUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetUserSettingsCommand}
+   */
+  getUserSettings(
+    args: GetUserSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUserSettingsCommandOutput>;
+  getUserSettings(args: GetUserSettingsCommandInput, cb: (err: any, data?: GetUserSettingsCommandOutput) => void): void;
+  getUserSettings(
+    args: GetUserSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetUserSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVoiceConnectorCommand}
+   */
+  getVoiceConnector(
+    args: GetVoiceConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceConnectorCommandOutput>;
+  getVoiceConnector(
+    args: GetVoiceConnectorCommandInput,
+    cb: (err: any, data?: GetVoiceConnectorCommandOutput) => void
+  ): void;
+  getVoiceConnector(
+    args: GetVoiceConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVoiceConnectorEmergencyCallingConfigurationCommand}
+   */
+  getVoiceConnectorEmergencyCallingConfiguration(
+    args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceConnectorEmergencyCallingConfigurationCommandOutput>;
+  getVoiceConnectorEmergencyCallingConfiguration(
+    args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    cb: (err: any, data?: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
+  ): void;
+  getVoiceConnectorEmergencyCallingConfiguration(
+    args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVoiceConnectorGroupCommand}
+   */
+  getVoiceConnectorGroup(
+    args: GetVoiceConnectorGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceConnectorGroupCommandOutput>;
+  getVoiceConnectorGroup(
+    args: GetVoiceConnectorGroupCommandInput,
+    cb: (err: any, data?: GetVoiceConnectorGroupCommandOutput) => void
+  ): void;
+  getVoiceConnectorGroup(
+    args: GetVoiceConnectorGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceConnectorGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVoiceConnectorLoggingConfigurationCommand}
+   */
+  getVoiceConnectorLoggingConfiguration(
+    args: GetVoiceConnectorLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceConnectorLoggingConfigurationCommandOutput>;
+  getVoiceConnectorLoggingConfiguration(
+    args: GetVoiceConnectorLoggingConfigurationCommandInput,
+    cb: (err: any, data?: GetVoiceConnectorLoggingConfigurationCommandOutput) => void
+  ): void;
+  getVoiceConnectorLoggingConfiguration(
+    args: GetVoiceConnectorLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceConnectorLoggingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVoiceConnectorOriginationCommand}
+   */
+  getVoiceConnectorOrigination(
+    args: GetVoiceConnectorOriginationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceConnectorOriginationCommandOutput>;
+  getVoiceConnectorOrigination(
+    args: GetVoiceConnectorOriginationCommandInput,
+    cb: (err: any, data?: GetVoiceConnectorOriginationCommandOutput) => void
+  ): void;
+  getVoiceConnectorOrigination(
+    args: GetVoiceConnectorOriginationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceConnectorOriginationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVoiceConnectorProxyCommand}
+   */
+  getVoiceConnectorProxy(
+    args: GetVoiceConnectorProxyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceConnectorProxyCommandOutput>;
+  getVoiceConnectorProxy(
+    args: GetVoiceConnectorProxyCommandInput,
+    cb: (err: any, data?: GetVoiceConnectorProxyCommandOutput) => void
+  ): void;
+  getVoiceConnectorProxy(
+    args: GetVoiceConnectorProxyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceConnectorProxyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVoiceConnectorStreamingConfigurationCommand}
+   */
+  getVoiceConnectorStreamingConfiguration(
+    args: GetVoiceConnectorStreamingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceConnectorStreamingConfigurationCommandOutput>;
+  getVoiceConnectorStreamingConfiguration(
+    args: GetVoiceConnectorStreamingConfigurationCommandInput,
+    cb: (err: any, data?: GetVoiceConnectorStreamingConfigurationCommandOutput) => void
+  ): void;
+  getVoiceConnectorStreamingConfiguration(
+    args: GetVoiceConnectorStreamingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceConnectorStreamingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVoiceConnectorTerminationCommand}
+   */
+  getVoiceConnectorTermination(
+    args: GetVoiceConnectorTerminationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceConnectorTerminationCommandOutput>;
+  getVoiceConnectorTermination(
+    args: GetVoiceConnectorTerminationCommandInput,
+    cb: (err: any, data?: GetVoiceConnectorTerminationCommandOutput) => void
+  ): void;
+  getVoiceConnectorTermination(
+    args: GetVoiceConnectorTerminationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceConnectorTerminationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVoiceConnectorTerminationHealthCommand}
+   */
+  getVoiceConnectorTerminationHealth(
+    args: GetVoiceConnectorTerminationHealthCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceConnectorTerminationHealthCommandOutput>;
+  getVoiceConnectorTerminationHealth(
+    args: GetVoiceConnectorTerminationHealthCommandInput,
+    cb: (err: any, data?: GetVoiceConnectorTerminationHealthCommandOutput) => void
+  ): void;
+  getVoiceConnectorTerminationHealth(
+    args: GetVoiceConnectorTerminationHealthCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceConnectorTerminationHealthCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link InviteUsersCommand}
+   */
+  inviteUsers(args: InviteUsersCommandInput, options?: __HttpHandlerOptions): Promise<InviteUsersCommandOutput>;
+  inviteUsers(args: InviteUsersCommandInput, cb: (err: any, data?: InviteUsersCommandOutput) => void): void;
+  inviteUsers(
+    args: InviteUsersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InviteUsersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAccountsCommand}
+   */
+  listAccounts(args: ListAccountsCommandInput, options?: __HttpHandlerOptions): Promise<ListAccountsCommandOutput>;
+  listAccounts(args: ListAccountsCommandInput, cb: (err: any, data?: ListAccountsCommandOutput) => void): void;
+  listAccounts(
+    args: ListAccountsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccountsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAppInstanceAdminsCommand}
+   */
+  listAppInstanceAdmins(
+    args: ListAppInstanceAdminsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppInstanceAdminsCommandOutput>;
+  listAppInstanceAdmins(
+    args: ListAppInstanceAdminsCommandInput,
+    cb: (err: any, data?: ListAppInstanceAdminsCommandOutput) => void
+  ): void;
+  listAppInstanceAdmins(
+    args: ListAppInstanceAdminsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAppInstanceAdminsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAppInstancesCommand}
+   */
+  listAppInstances(
+    args: ListAppInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppInstancesCommandOutput>;
+  listAppInstances(
+    args: ListAppInstancesCommandInput,
+    cb: (err: any, data?: ListAppInstancesCommandOutput) => void
+  ): void;
+  listAppInstances(
+    args: ListAppInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAppInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAppInstanceUsersCommand}
+   */
+  listAppInstanceUsers(
+    args: ListAppInstanceUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppInstanceUsersCommandOutput>;
+  listAppInstanceUsers(
+    args: ListAppInstanceUsersCommandInput,
+    cb: (err: any, data?: ListAppInstanceUsersCommandOutput) => void
+  ): void;
+  listAppInstanceUsers(
+    args: ListAppInstanceUsersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAppInstanceUsersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAttendeesCommand}
+   */
+  listAttendees(args: ListAttendeesCommandInput, options?: __HttpHandlerOptions): Promise<ListAttendeesCommandOutput>;
+  listAttendees(args: ListAttendeesCommandInput, cb: (err: any, data?: ListAttendeesCommandOutput) => void): void;
+  listAttendees(
+    args: ListAttendeesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAttendeesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAttendeeTagsCommand}
+   */
+  listAttendeeTags(
+    args: ListAttendeeTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAttendeeTagsCommandOutput>;
+  listAttendeeTags(
+    args: ListAttendeeTagsCommandInput,
+    cb: (err: any, data?: ListAttendeeTagsCommandOutput) => void
+  ): void;
+  listAttendeeTags(
+    args: ListAttendeeTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAttendeeTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListBotsCommand}
+   */
+  listBots(args: ListBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListBotsCommandOutput>;
+  listBots(args: ListBotsCommandInput, cb: (err: any, data?: ListBotsCommandOutput) => void): void;
+  listBots(
+    args: ListBotsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBotsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelBansCommand}
+   */
+  listChannelBans(
+    args: ListChannelBansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelBansCommandOutput>;
+  listChannelBans(args: ListChannelBansCommandInput, cb: (err: any, data?: ListChannelBansCommandOutput) => void): void;
+  listChannelBans(
+    args: ListChannelBansCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelBansCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelMembershipsCommand}
+   */
+  listChannelMemberships(
+    args: ListChannelMembershipsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelMembershipsCommandOutput>;
+  listChannelMemberships(
+    args: ListChannelMembershipsCommandInput,
+    cb: (err: any, data?: ListChannelMembershipsCommandOutput) => void
+  ): void;
+  listChannelMemberships(
+    args: ListChannelMembershipsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelMembershipsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelMembershipsForAppInstanceUserCommand}
+   */
+  listChannelMembershipsForAppInstanceUser(
+    args: ListChannelMembershipsForAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelMembershipsForAppInstanceUserCommandOutput>;
+  listChannelMembershipsForAppInstanceUser(
+    args: ListChannelMembershipsForAppInstanceUserCommandInput,
+    cb: (err: any, data?: ListChannelMembershipsForAppInstanceUserCommandOutput) => void
+  ): void;
+  listChannelMembershipsForAppInstanceUser(
+    args: ListChannelMembershipsForAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelMembershipsForAppInstanceUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelMessagesCommand}
+   */
+  listChannelMessages(
+    args: ListChannelMessagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelMessagesCommandOutput>;
+  listChannelMessages(
+    args: ListChannelMessagesCommandInput,
+    cb: (err: any, data?: ListChannelMessagesCommandOutput) => void
+  ): void;
+  listChannelMessages(
+    args: ListChannelMessagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelMessagesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelModeratorsCommand}
+   */
+  listChannelModerators(
+    args: ListChannelModeratorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelModeratorsCommandOutput>;
+  listChannelModerators(
+    args: ListChannelModeratorsCommandInput,
+    cb: (err: any, data?: ListChannelModeratorsCommandOutput) => void
+  ): void;
+  listChannelModerators(
+    args: ListChannelModeratorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelModeratorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelsCommand}
+   */
+  listChannels(args: ListChannelsCommandInput, options?: __HttpHandlerOptions): Promise<ListChannelsCommandOutput>;
+  listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
+  listChannels(
+    args: ListChannelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelsModeratedByAppInstanceUserCommand}
+   */
+  listChannelsModeratedByAppInstanceUser(
+    args: ListChannelsModeratedByAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput>;
+  listChannelsModeratedByAppInstanceUser(
+    args: ListChannelsModeratedByAppInstanceUserCommandInput,
+    cb: (err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void
+  ): void;
+  listChannelsModeratedByAppInstanceUser(
+    args: ListChannelsModeratedByAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListMediaCapturePipelinesCommand}
+   */
+  listMediaCapturePipelines(
+    args: ListMediaCapturePipelinesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMediaCapturePipelinesCommandOutput>;
+  listMediaCapturePipelines(
+    args: ListMediaCapturePipelinesCommandInput,
+    cb: (err: any, data?: ListMediaCapturePipelinesCommandOutput) => void
+  ): void;
+  listMediaCapturePipelines(
+    args: ListMediaCapturePipelinesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMediaCapturePipelinesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListMeetingsCommand}
+   */
+  listMeetings(args: ListMeetingsCommandInput, options?: __HttpHandlerOptions): Promise<ListMeetingsCommandOutput>;
+  listMeetings(args: ListMeetingsCommandInput, cb: (err: any, data?: ListMeetingsCommandOutput) => void): void;
+  listMeetings(
+    args: ListMeetingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMeetingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListMeetingTagsCommand}
+   */
+  listMeetingTags(
+    args: ListMeetingTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMeetingTagsCommandOutput>;
+  listMeetingTags(args: ListMeetingTagsCommandInput, cb: (err: any, data?: ListMeetingTagsCommandOutput) => void): void;
+  listMeetingTags(
+    args: ListMeetingTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMeetingTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPhoneNumberOrdersCommand}
+   */
+  listPhoneNumberOrders(
+    args: ListPhoneNumberOrdersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPhoneNumberOrdersCommandOutput>;
+  listPhoneNumberOrders(
+    args: ListPhoneNumberOrdersCommandInput,
+    cb: (err: any, data?: ListPhoneNumberOrdersCommandOutput) => void
+  ): void;
+  listPhoneNumberOrders(
+    args: ListPhoneNumberOrdersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPhoneNumberOrdersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPhoneNumbersCommand}
+   */
+  listPhoneNumbers(
+    args: ListPhoneNumbersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPhoneNumbersCommandOutput>;
+  listPhoneNumbers(
+    args: ListPhoneNumbersCommandInput,
+    cb: (err: any, data?: ListPhoneNumbersCommandOutput) => void
+  ): void;
+  listPhoneNumbers(
+    args: ListPhoneNumbersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPhoneNumbersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListProxySessionsCommand}
+   */
+  listProxySessions(
+    args: ListProxySessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProxySessionsCommandOutput>;
+  listProxySessions(
+    args: ListProxySessionsCommandInput,
+    cb: (err: any, data?: ListProxySessionsCommandOutput) => void
+  ): void;
+  listProxySessions(
+    args: ListProxySessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProxySessionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRoomMembershipsCommand}
+   */
+  listRoomMemberships(
+    args: ListRoomMembershipsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRoomMembershipsCommandOutput>;
+  listRoomMemberships(
+    args: ListRoomMembershipsCommandInput,
+    cb: (err: any, data?: ListRoomMembershipsCommandOutput) => void
+  ): void;
+  listRoomMemberships(
+    args: ListRoomMembershipsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRoomMembershipsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRoomsCommand}
+   */
+  listRooms(args: ListRoomsCommandInput, options?: __HttpHandlerOptions): Promise<ListRoomsCommandOutput>;
+  listRooms(args: ListRoomsCommandInput, cb: (err: any, data?: ListRoomsCommandOutput) => void): void;
+  listRooms(
+    args: ListRoomsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRoomsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSipMediaApplicationsCommand}
+   */
+  listSipMediaApplications(
+    args: ListSipMediaApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSipMediaApplicationsCommandOutput>;
+  listSipMediaApplications(
+    args: ListSipMediaApplicationsCommandInput,
+    cb: (err: any, data?: ListSipMediaApplicationsCommandOutput) => void
+  ): void;
+  listSipMediaApplications(
+    args: ListSipMediaApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSipMediaApplicationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSipRulesCommand}
+   */
+  listSipRules(args: ListSipRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListSipRulesCommandOutput>;
+  listSipRules(args: ListSipRulesCommandInput, cb: (err: any, data?: ListSipRulesCommandOutput) => void): void;
+  listSipRules(
+    args: ListSipRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSipRulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSupportedPhoneNumberCountriesCommand}
+   */
+  listSupportedPhoneNumberCountries(
+    args: ListSupportedPhoneNumberCountriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSupportedPhoneNumberCountriesCommandOutput>;
+  listSupportedPhoneNumberCountries(
+    args: ListSupportedPhoneNumberCountriesCommandInput,
+    cb: (err: any, data?: ListSupportedPhoneNumberCountriesCommandOutput) => void
+  ): void;
+  listSupportedPhoneNumberCountries(
+    args: ListSupportedPhoneNumberCountriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSupportedPhoneNumberCountriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListUsersCommand}
+   */
+  listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
+  listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
+  listUsers(
+    args: ListUsersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListVoiceConnectorGroupsCommand}
+   */
+  listVoiceConnectorGroups(
+    args: ListVoiceConnectorGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVoiceConnectorGroupsCommandOutput>;
+  listVoiceConnectorGroups(
+    args: ListVoiceConnectorGroupsCommandInput,
+    cb: (err: any, data?: ListVoiceConnectorGroupsCommandOutput) => void
+  ): void;
+  listVoiceConnectorGroups(
+    args: ListVoiceConnectorGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVoiceConnectorGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListVoiceConnectorsCommand}
+   */
+  listVoiceConnectors(
+    args: ListVoiceConnectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVoiceConnectorsCommandOutput>;
+  listVoiceConnectors(
+    args: ListVoiceConnectorsCommandInput,
+    cb: (err: any, data?: ListVoiceConnectorsCommandOutput) => void
+  ): void;
+  listVoiceConnectors(
+    args: ListVoiceConnectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVoiceConnectorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListVoiceConnectorTerminationCredentialsCommand}
+   */
+  listVoiceConnectorTerminationCredentials(
+    args: ListVoiceConnectorTerminationCredentialsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVoiceConnectorTerminationCredentialsCommandOutput>;
+  listVoiceConnectorTerminationCredentials(
+    args: ListVoiceConnectorTerminationCredentialsCommandInput,
+    cb: (err: any, data?: ListVoiceConnectorTerminationCredentialsCommandOutput) => void
+  ): void;
+  listVoiceConnectorTerminationCredentials(
+    args: ListVoiceConnectorTerminationCredentialsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVoiceConnectorTerminationCredentialsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link LogoutUserCommand}
+   */
+  logoutUser(args: LogoutUserCommandInput, options?: __HttpHandlerOptions): Promise<LogoutUserCommandOutput>;
+  logoutUser(args: LogoutUserCommandInput, cb: (err: any, data?: LogoutUserCommandOutput) => void): void;
+  logoutUser(
+    args: LogoutUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: LogoutUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAppInstanceRetentionSettingsCommand}
+   */
+  putAppInstanceRetentionSettings(
+    args: PutAppInstanceRetentionSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAppInstanceRetentionSettingsCommandOutput>;
+  putAppInstanceRetentionSettings(
+    args: PutAppInstanceRetentionSettingsCommandInput,
+    cb: (err: any, data?: PutAppInstanceRetentionSettingsCommandOutput) => void
+  ): void;
+  putAppInstanceRetentionSettings(
+    args: PutAppInstanceRetentionSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAppInstanceRetentionSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAppInstanceStreamingConfigurationsCommand}
+   */
+  putAppInstanceStreamingConfigurations(
+    args: PutAppInstanceStreamingConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAppInstanceStreamingConfigurationsCommandOutput>;
+  putAppInstanceStreamingConfigurations(
+    args: PutAppInstanceStreamingConfigurationsCommandInput,
+    cb: (err: any, data?: PutAppInstanceStreamingConfigurationsCommandOutput) => void
+  ): void;
+  putAppInstanceStreamingConfigurations(
+    args: PutAppInstanceStreamingConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAppInstanceStreamingConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutEventsConfigurationCommand}
+   */
+  putEventsConfiguration(
+    args: PutEventsConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutEventsConfigurationCommandOutput>;
+  putEventsConfiguration(
+    args: PutEventsConfigurationCommandInput,
+    cb: (err: any, data?: PutEventsConfigurationCommandOutput) => void
+  ): void;
+  putEventsConfiguration(
+    args: PutEventsConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutEventsConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutRetentionSettingsCommand}
+   */
+  putRetentionSettings(
+    args: PutRetentionSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutRetentionSettingsCommandOutput>;
+  putRetentionSettings(
+    args: PutRetentionSettingsCommandInput,
+    cb: (err: any, data?: PutRetentionSettingsCommandOutput) => void
+  ): void;
+  putRetentionSettings(
+    args: PutRetentionSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutRetentionSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutSipMediaApplicationLoggingConfigurationCommand}
+   */
+  putSipMediaApplicationLoggingConfiguration(
+    args: PutSipMediaApplicationLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutSipMediaApplicationLoggingConfigurationCommandOutput>;
+  putSipMediaApplicationLoggingConfiguration(
+    args: PutSipMediaApplicationLoggingConfigurationCommandInput,
+    cb: (err: any, data?: PutSipMediaApplicationLoggingConfigurationCommandOutput) => void
+  ): void;
+  putSipMediaApplicationLoggingConfiguration(
+    args: PutSipMediaApplicationLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutSipMediaApplicationLoggingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutVoiceConnectorEmergencyCallingConfigurationCommand}
+   */
+  putVoiceConnectorEmergencyCallingConfiguration(
+    args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutVoiceConnectorEmergencyCallingConfigurationCommandOutput>;
+  putVoiceConnectorEmergencyCallingConfiguration(
+    args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    cb: (err: any, data?: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
+  ): void;
+  putVoiceConnectorEmergencyCallingConfiguration(
+    args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutVoiceConnectorLoggingConfigurationCommand}
+   */
+  putVoiceConnectorLoggingConfiguration(
+    args: PutVoiceConnectorLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutVoiceConnectorLoggingConfigurationCommandOutput>;
+  putVoiceConnectorLoggingConfiguration(
+    args: PutVoiceConnectorLoggingConfigurationCommandInput,
+    cb: (err: any, data?: PutVoiceConnectorLoggingConfigurationCommandOutput) => void
+  ): void;
+  putVoiceConnectorLoggingConfiguration(
+    args: PutVoiceConnectorLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutVoiceConnectorLoggingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutVoiceConnectorOriginationCommand}
+   */
+  putVoiceConnectorOrigination(
+    args: PutVoiceConnectorOriginationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutVoiceConnectorOriginationCommandOutput>;
+  putVoiceConnectorOrigination(
+    args: PutVoiceConnectorOriginationCommandInput,
+    cb: (err: any, data?: PutVoiceConnectorOriginationCommandOutput) => void
+  ): void;
+  putVoiceConnectorOrigination(
+    args: PutVoiceConnectorOriginationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutVoiceConnectorOriginationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutVoiceConnectorProxyCommand}
+   */
+  putVoiceConnectorProxy(
+    args: PutVoiceConnectorProxyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutVoiceConnectorProxyCommandOutput>;
+  putVoiceConnectorProxy(
+    args: PutVoiceConnectorProxyCommandInput,
+    cb: (err: any, data?: PutVoiceConnectorProxyCommandOutput) => void
+  ): void;
+  putVoiceConnectorProxy(
+    args: PutVoiceConnectorProxyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutVoiceConnectorProxyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutVoiceConnectorStreamingConfigurationCommand}
+   */
+  putVoiceConnectorStreamingConfiguration(
+    args: PutVoiceConnectorStreamingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutVoiceConnectorStreamingConfigurationCommandOutput>;
+  putVoiceConnectorStreamingConfiguration(
+    args: PutVoiceConnectorStreamingConfigurationCommandInput,
+    cb: (err: any, data?: PutVoiceConnectorStreamingConfigurationCommandOutput) => void
+  ): void;
+  putVoiceConnectorStreamingConfiguration(
+    args: PutVoiceConnectorStreamingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutVoiceConnectorStreamingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutVoiceConnectorTerminationCommand}
+   */
+  putVoiceConnectorTermination(
+    args: PutVoiceConnectorTerminationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutVoiceConnectorTerminationCommandOutput>;
+  putVoiceConnectorTermination(
+    args: PutVoiceConnectorTerminationCommandInput,
+    cb: (err: any, data?: PutVoiceConnectorTerminationCommandOutput) => void
+  ): void;
+  putVoiceConnectorTermination(
+    args: PutVoiceConnectorTerminationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutVoiceConnectorTerminationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutVoiceConnectorTerminationCredentialsCommand}
+   */
+  putVoiceConnectorTerminationCredentials(
+    args: PutVoiceConnectorTerminationCredentialsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutVoiceConnectorTerminationCredentialsCommandOutput>;
+  putVoiceConnectorTerminationCredentials(
+    args: PutVoiceConnectorTerminationCredentialsCommandInput,
+    cb: (err: any, data?: PutVoiceConnectorTerminationCredentialsCommandOutput) => void
+  ): void;
+  putVoiceConnectorTerminationCredentials(
+    args: PutVoiceConnectorTerminationCredentialsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutVoiceConnectorTerminationCredentialsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RedactChannelMessageCommand}
+   */
+  redactChannelMessage(
+    args: RedactChannelMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RedactChannelMessageCommandOutput>;
+  redactChannelMessage(
+    args: RedactChannelMessageCommandInput,
+    cb: (err: any, data?: RedactChannelMessageCommandOutput) => void
+  ): void;
+  redactChannelMessage(
+    args: RedactChannelMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RedactChannelMessageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RedactConversationMessageCommand}
+   */
+  redactConversationMessage(
+    args: RedactConversationMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RedactConversationMessageCommandOutput>;
+  redactConversationMessage(
+    args: RedactConversationMessageCommandInput,
+    cb: (err: any, data?: RedactConversationMessageCommandOutput) => void
+  ): void;
+  redactConversationMessage(
+    args: RedactConversationMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RedactConversationMessageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RedactRoomMessageCommand}
+   */
+  redactRoomMessage(
+    args: RedactRoomMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RedactRoomMessageCommandOutput>;
+  redactRoomMessage(
+    args: RedactRoomMessageCommandInput,
+    cb: (err: any, data?: RedactRoomMessageCommandOutput) => void
+  ): void;
+  redactRoomMessage(
+    args: RedactRoomMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RedactRoomMessageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegenerateSecurityTokenCommand}
+   */
+  regenerateSecurityToken(
+    args: RegenerateSecurityTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegenerateSecurityTokenCommandOutput>;
+  regenerateSecurityToken(
+    args: RegenerateSecurityTokenCommandInput,
+    cb: (err: any, data?: RegenerateSecurityTokenCommandOutput) => void
+  ): void;
+  regenerateSecurityToken(
+    args: RegenerateSecurityTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegenerateSecurityTokenCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ResetPersonalPINCommand}
+   */
+  resetPersonalPIN(
+    args: ResetPersonalPINCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResetPersonalPINCommandOutput>;
+  resetPersonalPIN(
+    args: ResetPersonalPINCommandInput,
+    cb: (err: any, data?: ResetPersonalPINCommandOutput) => void
+  ): void;
+  resetPersonalPIN(
+    args: ResetPersonalPINCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResetPersonalPINCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RestorePhoneNumberCommand}
+   */
+  restorePhoneNumber(
+    args: RestorePhoneNumberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestorePhoneNumberCommandOutput>;
+  restorePhoneNumber(
+    args: RestorePhoneNumberCommandInput,
+    cb: (err: any, data?: RestorePhoneNumberCommandOutput) => void
+  ): void;
+  restorePhoneNumber(
+    args: RestorePhoneNumberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestorePhoneNumberCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchAvailablePhoneNumbersCommand}
+   */
+  searchAvailablePhoneNumbers(
+    args: SearchAvailablePhoneNumbersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchAvailablePhoneNumbersCommandOutput>;
+  searchAvailablePhoneNumbers(
+    args: SearchAvailablePhoneNumbersCommandInput,
+    cb: (err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void
+  ): void;
+  searchAvailablePhoneNumbers(
+    args: SearchAvailablePhoneNumbersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendChannelMessageCommand}
+   */
+  sendChannelMessage(
+    args: SendChannelMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendChannelMessageCommandOutput>;
+  sendChannelMessage(
+    args: SendChannelMessageCommandInput,
+    cb: (err: any, data?: SendChannelMessageCommandOutput) => void
+  ): void;
+  sendChannelMessage(
+    args: SendChannelMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendChannelMessageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartMeetingTranscriptionCommand}
+   */
+  startMeetingTranscription(
+    args: StartMeetingTranscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMeetingTranscriptionCommandOutput>;
+  startMeetingTranscription(
+    args: StartMeetingTranscriptionCommandInput,
+    cb: (err: any, data?: StartMeetingTranscriptionCommandOutput) => void
+  ): void;
+  startMeetingTranscription(
+    args: StartMeetingTranscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMeetingTranscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopMeetingTranscriptionCommand}
+   */
+  stopMeetingTranscription(
+    args: StopMeetingTranscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopMeetingTranscriptionCommandOutput>;
+  stopMeetingTranscription(
+    args: StopMeetingTranscriptionCommandInput,
+    cb: (err: any, data?: StopMeetingTranscriptionCommandOutput) => void
+  ): void;
+  stopMeetingTranscription(
+    args: StopMeetingTranscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopMeetingTranscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagAttendeeCommand}
+   */
+  tagAttendee(args: TagAttendeeCommandInput, options?: __HttpHandlerOptions): Promise<TagAttendeeCommandOutput>;
+  tagAttendee(args: TagAttendeeCommandInput, cb: (err: any, data?: TagAttendeeCommandOutput) => void): void;
+  tagAttendee(
+    args: TagAttendeeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagAttendeeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagMeetingCommand}
+   */
+  tagMeeting(args: TagMeetingCommandInput, options?: __HttpHandlerOptions): Promise<TagMeetingCommandOutput>;
+  tagMeeting(args: TagMeetingCommandInput, cb: (err: any, data?: TagMeetingCommandOutput) => void): void;
+  tagMeeting(
+    args: TagMeetingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagMeetingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagAttendeeCommand}
+   */
+  untagAttendee(args: UntagAttendeeCommandInput, options?: __HttpHandlerOptions): Promise<UntagAttendeeCommandOutput>;
+  untagAttendee(args: UntagAttendeeCommandInput, cb: (err: any, data?: UntagAttendeeCommandOutput) => void): void;
+  untagAttendee(
+    args: UntagAttendeeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagAttendeeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagMeetingCommand}
+   */
+  untagMeeting(args: UntagMeetingCommandInput, options?: __HttpHandlerOptions): Promise<UntagMeetingCommandOutput>;
+  untagMeeting(args: UntagMeetingCommandInput, cb: (err: any, data?: UntagMeetingCommandOutput) => void): void;
+  untagMeeting(
+    args: UntagMeetingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagMeetingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAccountCommand}
+   */
+  updateAccount(args: UpdateAccountCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAccountCommandOutput>;
+  updateAccount(args: UpdateAccountCommandInput, cb: (err: any, data?: UpdateAccountCommandOutput) => void): void;
+  updateAccount(
+    args: UpdateAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccountCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAccountSettingsCommand}
+   */
+  updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccountSettingsCommandOutput>;
+  updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
+  ): void;
+  updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAppInstanceCommand}
+   */
+  updateAppInstance(
+    args: UpdateAppInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAppInstanceCommandOutput>;
+  updateAppInstance(
+    args: UpdateAppInstanceCommandInput,
+    cb: (err: any, data?: UpdateAppInstanceCommandOutput) => void
+  ): void;
+  updateAppInstance(
+    args: UpdateAppInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAppInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAppInstanceUserCommand}
+   */
+  updateAppInstanceUser(
+    args: UpdateAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAppInstanceUserCommandOutput>;
+  updateAppInstanceUser(
+    args: UpdateAppInstanceUserCommandInput,
+    cb: (err: any, data?: UpdateAppInstanceUserCommandOutput) => void
+  ): void;
+  updateAppInstanceUser(
+    args: UpdateAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAppInstanceUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateBotCommand}
+   */
+  updateBot(args: UpdateBotCommandInput, options?: __HttpHandlerOptions): Promise<UpdateBotCommandOutput>;
+  updateBot(args: UpdateBotCommandInput, cb: (err: any, data?: UpdateBotCommandOutput) => void): void;
+  updateBot(
+    args: UpdateBotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateBotCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateChannelCommand}
+   */
+  updateChannel(args: UpdateChannelCommandInput, options?: __HttpHandlerOptions): Promise<UpdateChannelCommandOutput>;
+  updateChannel(args: UpdateChannelCommandInput, cb: (err: any, data?: UpdateChannelCommandOutput) => void): void;
+  updateChannel(
+    args: UpdateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateChannelMessageCommand}
+   */
+  updateChannelMessage(
+    args: UpdateChannelMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateChannelMessageCommandOutput>;
+  updateChannelMessage(
+    args: UpdateChannelMessageCommandInput,
+    cb: (err: any, data?: UpdateChannelMessageCommandOutput) => void
+  ): void;
+  updateChannelMessage(
+    args: UpdateChannelMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelMessageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateChannelReadMarkerCommand}
+   */
+  updateChannelReadMarker(
+    args: UpdateChannelReadMarkerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateChannelReadMarkerCommandOutput>;
+  updateChannelReadMarker(
+    args: UpdateChannelReadMarkerCommandInput,
+    cb: (err: any, data?: UpdateChannelReadMarkerCommandOutput) => void
+  ): void;
+  updateChannelReadMarker(
+    args: UpdateChannelReadMarkerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelReadMarkerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateGlobalSettingsCommand}
+   */
+  updateGlobalSettings(
+    args: UpdateGlobalSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGlobalSettingsCommandOutput>;
+  updateGlobalSettings(
+    args: UpdateGlobalSettingsCommandInput,
+    cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
+  ): void;
+  updateGlobalSettings(
+    args: UpdateGlobalSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePhoneNumberCommand}
+   */
+  updatePhoneNumber(
+    args: UpdatePhoneNumberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePhoneNumberCommandOutput>;
+  updatePhoneNumber(
+    args: UpdatePhoneNumberCommandInput,
+    cb: (err: any, data?: UpdatePhoneNumberCommandOutput) => void
+  ): void;
+  updatePhoneNumber(
+    args: UpdatePhoneNumberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePhoneNumberCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePhoneNumberSettingsCommand}
+   */
+  updatePhoneNumberSettings(
+    args: UpdatePhoneNumberSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePhoneNumberSettingsCommandOutput>;
+  updatePhoneNumberSettings(
+    args: UpdatePhoneNumberSettingsCommandInput,
+    cb: (err: any, data?: UpdatePhoneNumberSettingsCommandOutput) => void
+  ): void;
+  updatePhoneNumberSettings(
+    args: UpdatePhoneNumberSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePhoneNumberSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateProxySessionCommand}
+   */
+  updateProxySession(
+    args: UpdateProxySessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProxySessionCommandOutput>;
+  updateProxySession(
+    args: UpdateProxySessionCommandInput,
+    cb: (err: any, data?: UpdateProxySessionCommandOutput) => void
+  ): void;
+  updateProxySession(
+    args: UpdateProxySessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProxySessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRoomCommand}
+   */
+  updateRoom(args: UpdateRoomCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRoomCommandOutput>;
+  updateRoom(args: UpdateRoomCommandInput, cb: (err: any, data?: UpdateRoomCommandOutput) => void): void;
+  updateRoom(
+    args: UpdateRoomCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRoomCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRoomMembershipCommand}
+   */
+  updateRoomMembership(
+    args: UpdateRoomMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRoomMembershipCommandOutput>;
+  updateRoomMembership(
+    args: UpdateRoomMembershipCommandInput,
+    cb: (err: any, data?: UpdateRoomMembershipCommandOutput) => void
+  ): void;
+  updateRoomMembership(
+    args: UpdateRoomMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRoomMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSipMediaApplicationCommand}
+   */
+  updateSipMediaApplication(
+    args: UpdateSipMediaApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSipMediaApplicationCommandOutput>;
+  updateSipMediaApplication(
+    args: UpdateSipMediaApplicationCommandInput,
+    cb: (err: any, data?: UpdateSipMediaApplicationCommandOutput) => void
+  ): void;
+  updateSipMediaApplication(
+    args: UpdateSipMediaApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSipMediaApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSipMediaApplicationCallCommand}
+   */
+  updateSipMediaApplicationCall(
+    args: UpdateSipMediaApplicationCallCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSipMediaApplicationCallCommandOutput>;
+  updateSipMediaApplicationCall(
+    args: UpdateSipMediaApplicationCallCommandInput,
+    cb: (err: any, data?: UpdateSipMediaApplicationCallCommandOutput) => void
+  ): void;
+  updateSipMediaApplicationCall(
+    args: UpdateSipMediaApplicationCallCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSipMediaApplicationCallCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSipRuleCommand}
+   */
+  updateSipRule(args: UpdateSipRuleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSipRuleCommandOutput>;
+  updateSipRule(args: UpdateSipRuleCommandInput, cb: (err: any, data?: UpdateSipRuleCommandOutput) => void): void;
+  updateSipRule(
+    args: UpdateSipRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSipRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateUserCommand}
+   */
+  updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
+  updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
+  updateUser(
+    args: UpdateUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateUserSettingsCommand}
+   */
+  updateUserSettings(
+    args: UpdateUserSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserSettingsCommandOutput>;
+  updateUserSettings(
+    args: UpdateUserSettingsCommandInput,
+    cb: (err: any, data?: UpdateUserSettingsCommandOutput) => void
+  ): void;
+  updateUserSettings(
+    args: UpdateUserSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateUserSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateVoiceConnectorCommand}
+   */
+  updateVoiceConnector(
+    args: UpdateVoiceConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVoiceConnectorCommandOutput>;
+  updateVoiceConnector(
+    args: UpdateVoiceConnectorCommandInput,
+    cb: (err: any, data?: UpdateVoiceConnectorCommandOutput) => void
+  ): void;
+  updateVoiceConnector(
+    args: UpdateVoiceConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVoiceConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateVoiceConnectorGroupCommand}
+   */
+  updateVoiceConnectorGroup(
+    args: UpdateVoiceConnectorGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVoiceConnectorGroupCommandOutput>;
+  updateVoiceConnectorGroup(
+    args: UpdateVoiceConnectorGroupCommandInput,
+    cb: (err: any, data?: UpdateVoiceConnectorGroupCommandOutput) => void
+  ): void;
+  updateVoiceConnectorGroup(
+    args: UpdateVoiceConnectorGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVoiceConnectorGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ValidateE911AddressCommand}
+   */
+  validateE911Address(
+    args: ValidateE911AddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ValidateE911AddressCommandOutput>;
+  validateE911Address(
+    args: ValidateE911AddressCommandInput,
+    cb: (err: any, data?: ValidateE911AddressCommandOutput) => void
+  ): void;
+  validateE911Address(
+    args: ValidateE911AddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ValidateE911AddressCommandOutput) => void
+  ): void;
+}
+
 /**
  * @public
  * <p>The Amazon Chime API (application programming interface) is designed for developers to
@@ -912,6700 +4083,5 @@ import {
  * <a href="https://docs.aws.amazon.com/chime/latest/ag/security-iam.html">Identity and Access Management for Amazon Chime</a>
  * in the <i>Amazon Chime Administration Guide</i>.</p>
  */
-export class Chime extends ChimeClient {
-  /**
-   * @public
-   * <p>Associates phone numbers with the specified Amazon Chime Voice Connector.</p>
-   */
-  public associatePhoneNumbersWithVoiceConnector(
-    args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssociatePhoneNumbersWithVoiceConnectorCommandOutput>;
-  public associatePhoneNumbersWithVoiceConnector(
-    args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
-    cb: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput) => void
-  ): void;
-  public associatePhoneNumbersWithVoiceConnector(
-    args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput) => void
-  ): void;
-  public associatePhoneNumbersWithVoiceConnector(
-    args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput) => void),
-    cb?: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput) => void
-  ): Promise<AssociatePhoneNumbersWithVoiceConnectorCommandOutput> | void {
-    const command = new AssociatePhoneNumbersWithVoiceConnectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Associates phone numbers with the specified Amazon Chime Voice Connector group.</p>
-   */
-  public associatePhoneNumbersWithVoiceConnectorGroup(
-    args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput>;
-  public associatePhoneNumbersWithVoiceConnectorGroup(
-    args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
-    cb: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput) => void
-  ): void;
-  public associatePhoneNumbersWithVoiceConnectorGroup(
-    args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput) => void
-  ): void;
-  public associatePhoneNumbersWithVoiceConnectorGroup(
-    args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput) => void),
-    cb?: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput) => void
-  ): Promise<AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput> | void {
-    const command = new AssociatePhoneNumbersWithVoiceConnectorGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Associates a phone number with the specified Amazon Chime user.</p>
-   */
-  public associatePhoneNumberWithUser(
-    args: AssociatePhoneNumberWithUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssociatePhoneNumberWithUserCommandOutput>;
-  public associatePhoneNumberWithUser(
-    args: AssociatePhoneNumberWithUserCommandInput,
-    cb: (err: any, data?: AssociatePhoneNumberWithUserCommandOutput) => void
-  ): void;
-  public associatePhoneNumberWithUser(
-    args: AssociatePhoneNumberWithUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociatePhoneNumberWithUserCommandOutput) => void
-  ): void;
-  public associatePhoneNumberWithUser(
-    args: AssociatePhoneNumberWithUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociatePhoneNumberWithUserCommandOutput) => void),
-    cb?: (err: any, data?: AssociatePhoneNumberWithUserCommandOutput) => void
-  ): Promise<AssociatePhoneNumberWithUserCommandOutput> | void {
-    const command = new AssociatePhoneNumberWithUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Associates the specified sign-in delegate groups with the specified Amazon Chime account.</p>
-   */
-  public associateSigninDelegateGroupsWithAccount(
-    args: AssociateSigninDelegateGroupsWithAccountCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssociateSigninDelegateGroupsWithAccountCommandOutput>;
-  public associateSigninDelegateGroupsWithAccount(
-    args: AssociateSigninDelegateGroupsWithAccountCommandInput,
-    cb: (err: any, data?: AssociateSigninDelegateGroupsWithAccountCommandOutput) => void
-  ): void;
-  public associateSigninDelegateGroupsWithAccount(
-    args: AssociateSigninDelegateGroupsWithAccountCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociateSigninDelegateGroupsWithAccountCommandOutput) => void
-  ): void;
-  public associateSigninDelegateGroupsWithAccount(
-    args: AssociateSigninDelegateGroupsWithAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateSigninDelegateGroupsWithAccountCommandOutput) => void),
-    cb?: (err: any, data?: AssociateSigninDelegateGroupsWithAccountCommandOutput) => void
-  ): Promise<AssociateSigninDelegateGroupsWithAccountCommandOutput> | void {
-    const command = new AssociateSigninDelegateGroupsWithAccountCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>
-   * Creates up to 100 new attendees for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
-   * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
-   * in the
-   * <i>Amazon Chime Developer Guide</i>.
-   * </p>
-   */
-  public batchCreateAttendee(
-    args: BatchCreateAttendeeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchCreateAttendeeCommandOutput>;
-  public batchCreateAttendee(
-    args: BatchCreateAttendeeCommandInput,
-    cb: (err: any, data?: BatchCreateAttendeeCommandOutput) => void
-  ): void;
-  public batchCreateAttendee(
-    args: BatchCreateAttendeeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchCreateAttendeeCommandOutput) => void
-  ): void;
-  public batchCreateAttendee(
-    args: BatchCreateAttendeeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchCreateAttendeeCommandOutput) => void),
-    cb?: (err: any, data?: BatchCreateAttendeeCommandOutput) => void
-  ): Promise<BatchCreateAttendeeCommandOutput> | void {
-    const command = new BatchCreateAttendeeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds a specified number of users to a channel.</p>
-   */
-  public batchCreateChannelMembership(
-    args: BatchCreateChannelMembershipCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchCreateChannelMembershipCommandOutput>;
-  public batchCreateChannelMembership(
-    args: BatchCreateChannelMembershipCommandInput,
-    cb: (err: any, data?: BatchCreateChannelMembershipCommandOutput) => void
-  ): void;
-  public batchCreateChannelMembership(
-    args: BatchCreateChannelMembershipCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchCreateChannelMembershipCommandOutput) => void
-  ): void;
-  public batchCreateChannelMembership(
-    args: BatchCreateChannelMembershipCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchCreateChannelMembershipCommandOutput) => void),
-    cb?: (err: any, data?: BatchCreateChannelMembershipCommandOutput) => void
-  ): Promise<BatchCreateChannelMembershipCommandOutput> | void {
-    const command = new BatchCreateChannelMembershipCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds up to 50 members to a chat room in an Amazon Chime Enterprise account. Members can be users or bots. The member role designates whether the member is a chat room administrator or a general chat room member.</p>
-   */
-  public batchCreateRoomMembership(
-    args: BatchCreateRoomMembershipCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchCreateRoomMembershipCommandOutput>;
-  public batchCreateRoomMembership(
-    args: BatchCreateRoomMembershipCommandInput,
-    cb: (err: any, data?: BatchCreateRoomMembershipCommandOutput) => void
-  ): void;
-  public batchCreateRoomMembership(
-    args: BatchCreateRoomMembershipCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchCreateRoomMembershipCommandOutput) => void
-  ): void;
-  public batchCreateRoomMembership(
-    args: BatchCreateRoomMembershipCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchCreateRoomMembershipCommandOutput) => void),
-    cb?: (err: any, data?: BatchCreateRoomMembershipCommandOutput) => void
-  ): Promise<BatchCreateRoomMembershipCommandOutput> | void {
-    const command = new BatchCreateRoomMembershipCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>
-   * Moves phone numbers into the
-   * <b>Deletion queue</b>. Phone numbers must be disassociated from any users or Amazon Chime Voice Connectors before they can be deleted.
-   * </p>
-   *
-   *          <p>
-   * Phone numbers remain in the
-   * <b>Deletion queue</b> for 7 days before they are deleted permanently.
-   * </p>
-   */
-  public batchDeletePhoneNumber(
-    args: BatchDeletePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchDeletePhoneNumberCommandOutput>;
-  public batchDeletePhoneNumber(
-    args: BatchDeletePhoneNumberCommandInput,
-    cb: (err: any, data?: BatchDeletePhoneNumberCommandOutput) => void
-  ): void;
-  public batchDeletePhoneNumber(
-    args: BatchDeletePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchDeletePhoneNumberCommandOutput) => void
-  ): void;
-  public batchDeletePhoneNumber(
-    args: BatchDeletePhoneNumberCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeletePhoneNumberCommandOutput) => void),
-    cb?: (err: any, data?: BatchDeletePhoneNumberCommandOutput) => void
-  ): Promise<BatchDeletePhoneNumberCommandOutput> | void {
-    const command = new BatchDeletePhoneNumberCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Suspends up to 50 users from a <code>Team</code> or <code>EnterpriseLWA</code> Amazon Chime
-   *             account. For more information about different account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration
-   *                 Guide</i>.</p>
-   *
-   *          <p>Users suspended from a <code>Team</code> account are disassociated from the account,but they
-   *             can continue to use Amazon Chime as free users. To remove the suspension from suspended
-   *                 <code>Team</code> account users, invite them to the <code>Team</code> account again.
-   *             You can use the <a>InviteUsers</a> action to do so.</p>
-   *
-   *          <p>Users suspended from an <code>EnterpriseLWA</code> account are immediately signed out of
-   *             Amazon Chime and can no longer sign in. To remove the suspension from suspended <code>EnterpriseLWA</code> account users, use the <a>BatchUnsuspendUser</a> action.</p>
-   *
-   *          <p>
-   * To sign out users without suspending them, use the
-   * <a>LogoutUser</a>
-   * action.
-   * </p>
-   */
-  public batchSuspendUser(
-    args: BatchSuspendUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchSuspendUserCommandOutput>;
-  public batchSuspendUser(
-    args: BatchSuspendUserCommandInput,
-    cb: (err: any, data?: BatchSuspendUserCommandOutput) => void
-  ): void;
-  public batchSuspendUser(
-    args: BatchSuspendUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchSuspendUserCommandOutput) => void
-  ): void;
-  public batchSuspendUser(
-    args: BatchSuspendUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchSuspendUserCommandOutput) => void),
-    cb?: (err: any, data?: BatchSuspendUserCommandOutput) => void
-  ): Promise<BatchSuspendUserCommandOutput> | void {
-    const command = new BatchSuspendUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes the suspension from up to 50 previously suspended users for the specified Amazon
-   *             Chime <code>EnterpriseLWA</code> account. Only users on <code>EnterpriseLWA</code>
-   *             accounts can be unsuspended using this action. For more information about different account types, see
-   *     <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">
-   *         Managing Your Amazon Chime Accounts
-   *     </a> in the account types, in the <i>Amazon Chime Administration Guide</i>.
-   * </p>
-   *
-   *          <p>
-   * Previously suspended users who are unsuspended using this action are returned to
-   * <code>Registered</code>
-   * status. Users who are not previously suspended are ignored.
-   * </p>
-   */
-  public batchUnsuspendUser(
-    args: BatchUnsuspendUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchUnsuspendUserCommandOutput>;
-  public batchUnsuspendUser(
-    args: BatchUnsuspendUserCommandInput,
-    cb: (err: any, data?: BatchUnsuspendUserCommandOutput) => void
-  ): void;
-  public batchUnsuspendUser(
-    args: BatchUnsuspendUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchUnsuspendUserCommandOutput) => void
-  ): void;
-  public batchUnsuspendUser(
-    args: BatchUnsuspendUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchUnsuspendUserCommandOutput) => void),
-    cb?: (err: any, data?: BatchUnsuspendUserCommandOutput) => void
-  ): Promise<BatchUnsuspendUserCommandOutput> | void {
-    const command = new BatchUnsuspendUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates phone number product types or calling names. You can update one attribute at a time for each <code>UpdatePhoneNumberRequestItem</code>. For example, you can update the product type or the calling name.</p>
-   *          <p>For toll-free numbers, you cannot use the Amazon Chime Business Calling product type. For numbers outside the U.S., you must use the Amazon Chime SIP Media Application Dial-In product type.</p>
-   *          <p>Updates to outbound calling names can take up to 72 hours to complete. Pending updates to outbound calling names must be complete before you can request another update.</p>
-   */
-  public batchUpdatePhoneNumber(
-    args: BatchUpdatePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchUpdatePhoneNumberCommandOutput>;
-  public batchUpdatePhoneNumber(
-    args: BatchUpdatePhoneNumberCommandInput,
-    cb: (err: any, data?: BatchUpdatePhoneNumberCommandOutput) => void
-  ): void;
-  public batchUpdatePhoneNumber(
-    args: BatchUpdatePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchUpdatePhoneNumberCommandOutput) => void
-  ): void;
-  public batchUpdatePhoneNumber(
-    args: BatchUpdatePhoneNumberCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchUpdatePhoneNumberCommandOutput) => void),
-    cb?: (err: any, data?: BatchUpdatePhoneNumberCommandOutput) => void
-  ): Promise<BatchUpdatePhoneNumberCommandOutput> | void {
-    const command = new BatchUpdatePhoneNumberCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates user details within the <a>UpdateUserRequestItem</a> object for up to 20 users for the specified Amazon Chime account. Currently, only <code>LicenseType</code> updates are supported for this action.</p>
-   */
-  public batchUpdateUser(
-    args: BatchUpdateUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchUpdateUserCommandOutput>;
-  public batchUpdateUser(
-    args: BatchUpdateUserCommandInput,
-    cb: (err: any, data?: BatchUpdateUserCommandOutput) => void
-  ): void;
-  public batchUpdateUser(
-    args: BatchUpdateUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchUpdateUserCommandOutput) => void
-  ): void;
-  public batchUpdateUser(
-    args: BatchUpdateUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchUpdateUserCommandOutput) => void),
-    cb?: (err: any, data?: BatchUpdateUserCommandOutput) => void
-  ): Promise<BatchUpdateUserCommandOutput> | void {
-    const command = new BatchUpdateUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an Amazon Chime account under the administrator's AWS account. Only <code>Team</code>
-   *             account types are currently supported for this action. For more information about different account types, see
-   *     <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration Guide</i>.</p>
-   */
-  public createAccount(
-    args: CreateAccountCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAccountCommandOutput>;
-  public createAccount(
-    args: CreateAccountCommandInput,
-    cb: (err: any, data?: CreateAccountCommandOutput) => void
-  ): void;
-  public createAccount(
-    args: CreateAccountCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateAccountCommandOutput) => void
-  ): void;
-  public createAccount(
-    args: CreateAccountCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAccountCommandOutput) => void),
-    cb?: (err: any, data?: CreateAccountCommandOutput) => void
-  ): Promise<CreateAccountCommandOutput> | void {
-    const command = new CreateAccountCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an Amazon Chime SDK messaging <code>AppInstance</code> under an AWS account. Only SDK messaging customers use this API.
-   * <code>CreateAppInstance</code> supports idempotency behavior as described in the AWS API Standard.</p>
-   */
-  public createAppInstance(
-    args: CreateAppInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAppInstanceCommandOutput>;
-  public createAppInstance(
-    args: CreateAppInstanceCommandInput,
-    cb: (err: any, data?: CreateAppInstanceCommandOutput) => void
-  ): void;
-  public createAppInstance(
-    args: CreateAppInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateAppInstanceCommandOutput) => void
-  ): void;
-  public createAppInstance(
-    args: CreateAppInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppInstanceCommandOutput) => void),
-    cb?: (err: any, data?: CreateAppInstanceCommandOutput) => void
-  ): Promise<CreateAppInstanceCommandOutput> | void {
-    const command = new CreateAppInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Promotes an <code>AppInstanceUser</code> to an <code>AppInstanceAdmin</code>. The promoted user can perform the following actions.
-   * </p>
-   *
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ChannelModerator</code> actions across all channels in the <code>AppInstance</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DeleteChannelMessage</code> actions.</p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>Only an <code>AppInstanceUser</code> can be promoted to an <code>AppInstanceAdmin</code> role.</p>
-   */
-  public createAppInstanceAdmin(
-    args: CreateAppInstanceAdminCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAppInstanceAdminCommandOutput>;
-  public createAppInstanceAdmin(
-    args: CreateAppInstanceAdminCommandInput,
-    cb: (err: any, data?: CreateAppInstanceAdminCommandOutput) => void
-  ): void;
-  public createAppInstanceAdmin(
-    args: CreateAppInstanceAdminCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateAppInstanceAdminCommandOutput) => void
-  ): void;
-  public createAppInstanceAdmin(
-    args: CreateAppInstanceAdminCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppInstanceAdminCommandOutput) => void),
-    cb?: (err: any, data?: CreateAppInstanceAdminCommandOutput) => void
-  ): Promise<CreateAppInstanceAdminCommandOutput> | void {
-    const command = new CreateAppInstanceAdminCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a user under an Amazon Chime <code>AppInstance</code>. The request consists of a unique <code>appInstanceUserId</code> and
-   * <code>Name</code> for that user.</p>
-   */
-  public createAppInstanceUser(
-    args: CreateAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAppInstanceUserCommandOutput>;
-  public createAppInstanceUser(
-    args: CreateAppInstanceUserCommandInput,
-    cb: (err: any, data?: CreateAppInstanceUserCommandOutput) => void
-  ): void;
-  public createAppInstanceUser(
-    args: CreateAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateAppInstanceUserCommandOutput) => void
-  ): void;
-  public createAppInstanceUser(
-    args: CreateAppInstanceUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppInstanceUserCommandOutput) => void),
-    cb?: (err: any, data?: CreateAppInstanceUserCommandOutput) => void
-  ): Promise<CreateAppInstanceUserCommandOutput> | void {
-    const command = new CreateAppInstanceUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>
-   * Creates a new attendee for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
-   * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
-   * in the
-   * <i>Amazon Chime Developer Guide</i>.
-   * </p>
-   */
-  public createAttendee(
-    args: CreateAttendeeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAttendeeCommandOutput>;
-  public createAttendee(
-    args: CreateAttendeeCommandInput,
-    cb: (err: any, data?: CreateAttendeeCommandOutput) => void
-  ): void;
-  public createAttendee(
-    args: CreateAttendeeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateAttendeeCommandOutput) => void
-  ): void;
-  public createAttendee(
-    args: CreateAttendeeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAttendeeCommandOutput) => void),
-    cb?: (err: any, data?: CreateAttendeeCommandOutput) => void
-  ): Promise<CreateAttendeeCommandOutput> | void {
-    const command = new CreateAttendeeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a bot for an Amazon Chime Enterprise account.</p>
-   */
-  public createBot(args: CreateBotCommandInput, options?: __HttpHandlerOptions): Promise<CreateBotCommandOutput>;
-  public createBot(args: CreateBotCommandInput, cb: (err: any, data?: CreateBotCommandOutput) => void): void;
-  public createBot(
-    args: CreateBotCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateBotCommandOutput) => void
-  ): void;
-  public createBot(
-    args: CreateBotCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBotCommandOutput) => void),
-    cb?: (err: any, data?: CreateBotCommandOutput) => void
-  ): Promise<CreateBotCommandOutput> | void {
-    const command = new CreateBotCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a channel to which you can add users and send messages.</p>
-   *
-   *          <p>
-   *             <b>Restriction</b>: You can't change a channel's
-   *          privacy.</p>
-   *
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public createChannel(
-    args: CreateChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateChannelCommandOutput>;
-  public createChannel(
-    args: CreateChannelCommandInput,
-    cb: (err: any, data?: CreateChannelCommandOutput) => void
-  ): void;
-  public createChannel(
-    args: CreateChannelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateChannelCommandOutput) => void
-  ): void;
-  public createChannel(
-    args: CreateChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelCommandOutput) => void),
-    cb?: (err: any, data?: CreateChannelCommandOutput) => void
-  ): Promise<CreateChannelCommandOutput> | void {
-    const command = new CreateChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Permanently bans a member from a channel. Moderators can't add banned members to a
-   *          channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then
-   *             <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or
-   *          channels.</p>
-   *          <p>If you ban a user who is already part of a channel, that user is automatically kicked
-   *          from the channel.</p>
-   *
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public createChannelBan(
-    args: CreateChannelBanCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateChannelBanCommandOutput>;
-  public createChannelBan(
-    args: CreateChannelBanCommandInput,
-    cb: (err: any, data?: CreateChannelBanCommandOutput) => void
-  ): void;
-  public createChannelBan(
-    args: CreateChannelBanCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateChannelBanCommandOutput) => void
-  ): void;
-  public createChannelBan(
-    args: CreateChannelBanCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelBanCommandOutput) => void),
-    cb?: (err: any, data?: CreateChannelBanCommandOutput) => void
-  ): Promise<CreateChannelBanCommandOutput> | void {
-    const command = new CreateChannelBanCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds a user to a channel. The <code>InvitedBy</code> response field is derived from the
-   *          request header. A channel member can:</p>
-   *
-   *          <ul>
-   *             <li>
-   *                <p>List messages</p>
-   *             </li>
-   *             <li>
-   *                <p>Send messages</p>
-   *             </li>
-   *             <li>
-   *                <p>Receive messages</p>
-   *             </li>
-   *             <li>
-   *                <p>Edit their own messages</p>
-   *             </li>
-   *             <li>
-   *                <p>Leave the channel</p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>Privacy settings impact this action as follows:</p>
-   *
-   *          <ul>
-   *             <li>
-   *                <p>Public Channels: You do not need to be a member to list messages, but you must be
-   *                a member to send messages.</p>
-   *             </li>
-   *             <li>
-   *                <p>Private Channels: You must be a member to list or send messages.</p>
-   *             </li>
-   *          </ul>
-   *
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public createChannelMembership(
-    args: CreateChannelMembershipCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateChannelMembershipCommandOutput>;
-  public createChannelMembership(
-    args: CreateChannelMembershipCommandInput,
-    cb: (err: any, data?: CreateChannelMembershipCommandOutput) => void
-  ): void;
-  public createChannelMembership(
-    args: CreateChannelMembershipCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateChannelMembershipCommandOutput) => void
-  ): void;
-  public createChannelMembership(
-    args: CreateChannelMembershipCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelMembershipCommandOutput) => void),
-    cb?: (err: any, data?: CreateChannelMembershipCommandOutput) => void
-  ): Promise<CreateChannelMembershipCommandOutput> | void {
-    const command = new CreateChannelMembershipCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p>
-   *
-   *          <ul>
-   *             <li>
-   *                <p>Add and remove other members of the channel.</p>
-   *             </li>
-   *             <li>
-   *                <p>Add and remove other moderators of the channel.</p>
-   *             </li>
-   *             <li>
-   *                <p>Add and remove user bans for the channel.</p>
-   *             </li>
-   *             <li>
-   *                <p>Redact messages in the channel.</p>
-   *             </li>
-   *             <li>
-   *                <p>List messages in the channel.</p>
-   *             </li>
-   *          </ul>
-   *
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public createChannelModerator(
-    args: CreateChannelModeratorCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateChannelModeratorCommandOutput>;
-  public createChannelModerator(
-    args: CreateChannelModeratorCommandInput,
-    cb: (err: any, data?: CreateChannelModeratorCommandOutput) => void
-  ): void;
-  public createChannelModerator(
-    args: CreateChannelModeratorCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateChannelModeratorCommandOutput) => void
-  ): void;
-  public createChannelModerator(
-    args: CreateChannelModeratorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelModeratorCommandOutput) => void),
-    cb?: (err: any, data?: CreateChannelModeratorCommandOutput) => void
-  ): Promise<CreateChannelModeratorCommandOutput> | void {
-    const command = new CreateChannelModeratorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a media capture pipeline.</p>
-   */
-  public createMediaCapturePipeline(
-    args: CreateMediaCapturePipelineCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateMediaCapturePipelineCommandOutput>;
-  public createMediaCapturePipeline(
-    args: CreateMediaCapturePipelineCommandInput,
-    cb: (err: any, data?: CreateMediaCapturePipelineCommandOutput) => void
-  ): void;
-  public createMediaCapturePipeline(
-    args: CreateMediaCapturePipelineCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateMediaCapturePipelineCommandOutput) => void
-  ): void;
-  public createMediaCapturePipeline(
-    args: CreateMediaCapturePipelineCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMediaCapturePipelineCommandOutput) => void),
-    cb?: (err: any, data?: CreateMediaCapturePipelineCommandOutput) => void
-  ): Promise<CreateMediaCapturePipelineCommandOutput> | void {
-    const command = new CreateMediaCapturePipelineCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>
-   * Creates a new Amazon Chime SDK meeting in the specified media Region with no initial attendees. For more information about specifying media Regions, see
-   * <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a>
-   * in the
-   * <i>Amazon Chime Developer Guide</i>
-   * . For more information about the Amazon Chime SDK, see
-   * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
-   * in the
-   * <i>Amazon Chime Developer Guide</i>
-   * .
-   * </p>
-   */
-  public createMeeting(
-    args: CreateMeetingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateMeetingCommandOutput>;
-  public createMeeting(
-    args: CreateMeetingCommandInput,
-    cb: (err: any, data?: CreateMeetingCommandOutput) => void
-  ): void;
-  public createMeeting(
-    args: CreateMeetingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateMeetingCommandOutput) => void
-  ): void;
-  public createMeeting(
-    args: CreateMeetingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMeetingCommandOutput) => void),
-    cb?: (err: any, data?: CreateMeetingCommandOutput) => void
-  ): Promise<CreateMeetingCommandOutput> | void {
-    const command = new CreateMeetingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Uses the join token and call metadata in a meeting request (From number, To number, and so forth) to initiate an outbound call to a public
-   *     switched telephone network (PSTN) and join them into a Chime meeting. Also ensures that the From number belongs to the customer.</p>
-   *
-   *          <p>To play welcome audio or implement an interactive voice response (IVR), use the
-   * <code>CreateSipMediaApplicationCall</code> action with the corresponding SIP media application ID.</p>
-   */
-  public createMeetingDialOut(
-    args: CreateMeetingDialOutCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateMeetingDialOutCommandOutput>;
-  public createMeetingDialOut(
-    args: CreateMeetingDialOutCommandInput,
-    cb: (err: any, data?: CreateMeetingDialOutCommandOutput) => void
-  ): void;
-  public createMeetingDialOut(
-    args: CreateMeetingDialOutCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateMeetingDialOutCommandOutput) => void
-  ): void;
-  public createMeetingDialOut(
-    args: CreateMeetingDialOutCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMeetingDialOutCommandOutput) => void),
-    cb?: (err: any, data?: CreateMeetingDialOutCommandOutput) => void
-  ): Promise<CreateMeetingDialOutCommandOutput> | void {
-    const command = new CreateMeetingDialOutCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>
-   * Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions, see
-   * <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a>
-   * in the
-   * <i>Amazon Chime Developer Guide</i>
-   * . For more information about the Amazon Chime SDK, see
-   * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
-   * in the
-   * <i>Amazon Chime Developer Guide</i>
-   * .
-   * </p>
-   */
-  public createMeetingWithAttendees(
-    args: CreateMeetingWithAttendeesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateMeetingWithAttendeesCommandOutput>;
-  public createMeetingWithAttendees(
-    args: CreateMeetingWithAttendeesCommandInput,
-    cb: (err: any, data?: CreateMeetingWithAttendeesCommandOutput) => void
-  ): void;
-  public createMeetingWithAttendees(
-    args: CreateMeetingWithAttendeesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateMeetingWithAttendeesCommandOutput) => void
-  ): void;
-  public createMeetingWithAttendees(
-    args: CreateMeetingWithAttendeesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMeetingWithAttendeesCommandOutput) => void),
-    cb?: (err: any, data?: CreateMeetingWithAttendeesCommandOutput) => void
-  ): Promise<CreateMeetingWithAttendeesCommandOutput> | void {
-    const command = new CreateMeetingWithAttendeesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an order for phone numbers to be provisioned. For toll-free numbers, you cannot use the Amazon Chime Business Calling product type.
-   *         For numbers outside the U.S., you must use the Amazon Chime SIP Media Application Dial-In product type.</p>
-   */
-  public createPhoneNumberOrder(
-    args: CreatePhoneNumberOrderCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreatePhoneNumberOrderCommandOutput>;
-  public createPhoneNumberOrder(
-    args: CreatePhoneNumberOrderCommandInput,
-    cb: (err: any, data?: CreatePhoneNumberOrderCommandOutput) => void
-  ): void;
-  public createPhoneNumberOrder(
-    args: CreatePhoneNumberOrderCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreatePhoneNumberOrderCommandOutput) => void
-  ): void;
-  public createPhoneNumberOrder(
-    args: CreatePhoneNumberOrderCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePhoneNumberOrderCommandOutput) => void),
-    cb?: (err: any, data?: CreatePhoneNumberOrderCommandOutput) => void
-  ): Promise<CreatePhoneNumberOrderCommandOutput> | void {
-    const command = new CreatePhoneNumberOrderCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a proxy session on the specified Amazon Chime Voice Connector for the specified participant phone numbers.</p>
-   */
-  public createProxySession(
-    args: CreateProxySessionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateProxySessionCommandOutput>;
-  public createProxySession(
-    args: CreateProxySessionCommandInput,
-    cb: (err: any, data?: CreateProxySessionCommandOutput) => void
-  ): void;
-  public createProxySession(
-    args: CreateProxySessionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateProxySessionCommandOutput) => void
-  ): void;
-  public createProxySession(
-    args: CreateProxySessionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProxySessionCommandOutput) => void),
-    cb?: (err: any, data?: CreateProxySessionCommandOutput) => void
-  ): Promise<CreateProxySessionCommandOutput> | void {
-    const command = new CreateProxySessionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a chat room for the specified Amazon Chime Enterprise account.</p>
-   */
-  public createRoom(args: CreateRoomCommandInput, options?: __HttpHandlerOptions): Promise<CreateRoomCommandOutput>;
-  public createRoom(args: CreateRoomCommandInput, cb: (err: any, data?: CreateRoomCommandOutput) => void): void;
-  public createRoom(
-    args: CreateRoomCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateRoomCommandOutput) => void
-  ): void;
-  public createRoom(
-    args: CreateRoomCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRoomCommandOutput) => void),
-    cb?: (err: any, data?: CreateRoomCommandOutput) => void
-  ): Promise<CreateRoomCommandOutput> | void {
-    const command = new CreateRoomCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds a member to a chat room in an Amazon Chime Enterprise account. A member can be either a user or a bot. The member role designates whether the member is a chat room administrator or a general chat room member.</p>
-   */
-  public createRoomMembership(
-    args: CreateRoomMembershipCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateRoomMembershipCommandOutput>;
-  public createRoomMembership(
-    args: CreateRoomMembershipCommandInput,
-    cb: (err: any, data?: CreateRoomMembershipCommandOutput) => void
-  ): void;
-  public createRoomMembership(
-    args: CreateRoomMembershipCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateRoomMembershipCommandOutput) => void
-  ): void;
-  public createRoomMembership(
-    args: CreateRoomMembershipCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRoomMembershipCommandOutput) => void),
-    cb?: (err: any, data?: CreateRoomMembershipCommandOutput) => void
-  ): Promise<CreateRoomMembershipCommandOutput> | void {
-    const command = new CreateRoomMembershipCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a SIP media application.</p>
-   */
-  public createSipMediaApplication(
-    args: CreateSipMediaApplicationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateSipMediaApplicationCommandOutput>;
-  public createSipMediaApplication(
-    args: CreateSipMediaApplicationCommandInput,
-    cb: (err: any, data?: CreateSipMediaApplicationCommandOutput) => void
-  ): void;
-  public createSipMediaApplication(
-    args: CreateSipMediaApplicationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateSipMediaApplicationCommandOutput) => void
-  ): void;
-  public createSipMediaApplication(
-    args: CreateSipMediaApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSipMediaApplicationCommandOutput) => void),
-    cb?: (err: any, data?: CreateSipMediaApplicationCommandOutput) => void
-  ): Promise<CreateSipMediaApplicationCommandOutput> | void {
-    const command = new CreateSipMediaApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an outbound call to a phone number from the phone number specified in the request, and it invokes the endpoint of the specified
-   * <code>sipMediaApplicationId</code>.</p>
-   */
-  public createSipMediaApplicationCall(
-    args: CreateSipMediaApplicationCallCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateSipMediaApplicationCallCommandOutput>;
-  public createSipMediaApplicationCall(
-    args: CreateSipMediaApplicationCallCommandInput,
-    cb: (err: any, data?: CreateSipMediaApplicationCallCommandOutput) => void
-  ): void;
-  public createSipMediaApplicationCall(
-    args: CreateSipMediaApplicationCallCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateSipMediaApplicationCallCommandOutput) => void
-  ): void;
-  public createSipMediaApplicationCall(
-    args: CreateSipMediaApplicationCallCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSipMediaApplicationCallCommandOutput) => void),
-    cb?: (err: any, data?: CreateSipMediaApplicationCallCommandOutput) => void
-  ): Promise<CreateSipMediaApplicationCallCommandOutput> | void {
-    const command = new CreateSipMediaApplicationCallCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a SIP rule which can be used to run a SIP media application as a target for a specific trigger type.</p>
-   */
-  public createSipRule(
-    args: CreateSipRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateSipRuleCommandOutput>;
-  public createSipRule(
-    args: CreateSipRuleCommandInput,
-    cb: (err: any, data?: CreateSipRuleCommandOutput) => void
-  ): void;
-  public createSipRule(
-    args: CreateSipRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateSipRuleCommandOutput) => void
-  ): void;
-  public createSipRule(
-    args: CreateSipRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSipRuleCommandOutput) => void),
-    cb?: (err: any, data?: CreateSipRuleCommandOutput) => void
-  ): Promise<CreateSipRuleCommandOutput> | void {
-    const command = new CreateSipRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a user under the specified Amazon Chime account.</p>
-   */
-  public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
-  public createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
-  public createUser(
-    args: CreateUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateUserCommandOutput) => void
-  ): void;
-  public createUser(
-    args: CreateUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
-    cb?: (err: any, data?: CreateUserCommandOutput) => void
-  ): Promise<CreateUserCommandOutput> | void {
-    const command = new CreateUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an Amazon Chime Voice Connector under the administrator's AWS account. You can choose to create an Amazon Chime Voice Connector in a specific AWS Region.</p>
-   *
-   *          <p>
-   * Enabling
-   * <a>CreateVoiceConnectorRequest$RequireEncryption</a>
-   * configures your Amazon Chime Voice Connector to use TLS transport for SIP signaling and Secure RTP (SRTP) for media. Inbound calls use TLS transport, and unencrypted outbound calls are blocked.
-   * </p>
-   */
-  public createVoiceConnector(
-    args: CreateVoiceConnectorCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateVoiceConnectorCommandOutput>;
-  public createVoiceConnector(
-    args: CreateVoiceConnectorCommandInput,
-    cb: (err: any, data?: CreateVoiceConnectorCommandOutput) => void
-  ): void;
-  public createVoiceConnector(
-    args: CreateVoiceConnectorCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateVoiceConnectorCommandOutput) => void
-  ): void;
-  public createVoiceConnector(
-    args: CreateVoiceConnectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVoiceConnectorCommandOutput) => void),
-    cb?: (err: any, data?: CreateVoiceConnectorCommandOutput) => void
-  ): Promise<CreateVoiceConnectorCommandOutput> | void {
-    const command = new CreateVoiceConnectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an Amazon Chime Voice Connector group under the administrator's AWS account. You can
-   *             associate Amazon Chime Voice Connectors with the Amazon Chime Voice Connector group by
-   *             including <code>VoiceConnectorItems</code> in the request.</p>
-   *          <p>You can include Amazon Chime Voice Connectors from different AWS Regions in your group. This
-   *             creates a fault tolerant mechanism for fallback in case of availability events.</p>
-   */
-  public createVoiceConnectorGroup(
-    args: CreateVoiceConnectorGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateVoiceConnectorGroupCommandOutput>;
-  public createVoiceConnectorGroup(
-    args: CreateVoiceConnectorGroupCommandInput,
-    cb: (err: any, data?: CreateVoiceConnectorGroupCommandOutput) => void
-  ): void;
-  public createVoiceConnectorGroup(
-    args: CreateVoiceConnectorGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateVoiceConnectorGroupCommandOutput) => void
-  ): void;
-  public createVoiceConnectorGroup(
-    args: CreateVoiceConnectorGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVoiceConnectorGroupCommandOutput) => void),
-    cb?: (err: any, data?: CreateVoiceConnectorGroupCommandOutput) => void
-  ): Promise<CreateVoiceConnectorGroupCommandOutput> | void {
-    const command = new CreateVoiceConnectorGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the specified Amazon Chime account. You must suspend all users before deleting
-   *                 <code>Team</code> account. You can use the <a>BatchSuspendUser</a> action
-   *             to dodo.</p>
-   *
-   *          <p>For <code>EnterpriseLWA</code> and <code>EnterpriseAD</code> accounts, you must release the
-   *             claimed domains for your Amazon Chime account before deletion. As soon as you release
-   *             the domain, all users under that account are suspended.</p>
-   *
-   *          <p>Deleted accounts appear in your <code>Disabled</code> accounts list for 90 days. To restore
-   *             deleted account from your <code>Disabled</code> accounts list, you must contact AWS
-   *             Support.</p>
-   *
-   *          <p>After 90 days, deleted accounts are permanently removed from your
-   * <code>Disabled</code> accounts list.</p>
-   */
-  public deleteAccount(
-    args: DeleteAccountCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAccountCommandOutput>;
-  public deleteAccount(
-    args: DeleteAccountCommandInput,
-    cb: (err: any, data?: DeleteAccountCommandOutput) => void
-  ): void;
-  public deleteAccount(
-    args: DeleteAccountCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAccountCommandOutput) => void
-  ): void;
-  public deleteAccount(
-    args: DeleteAccountCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccountCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAccountCommandOutput) => void
-  ): Promise<DeleteAccountCommandOutput> | void {
-    const command = new DeleteAccountCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes an <code>AppInstance</code> and all associated data asynchronously.</p>
-   */
-  public deleteAppInstance(
-    args: DeleteAppInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAppInstanceCommandOutput>;
-  public deleteAppInstance(
-    args: DeleteAppInstanceCommandInput,
-    cb: (err: any, data?: DeleteAppInstanceCommandOutput) => void
-  ): void;
-  public deleteAppInstance(
-    args: DeleteAppInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAppInstanceCommandOutput) => void
-  ): void;
-  public deleteAppInstance(
-    args: DeleteAppInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppInstanceCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAppInstanceCommandOutput) => void
-  ): Promise<DeleteAppInstanceCommandOutput> | void {
-    const command = new DeleteAppInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code>. This action does not delete the user.</p>
-   */
-  public deleteAppInstanceAdmin(
-    args: DeleteAppInstanceAdminCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAppInstanceAdminCommandOutput>;
-  public deleteAppInstanceAdmin(
-    args: DeleteAppInstanceAdminCommandInput,
-    cb: (err: any, data?: DeleteAppInstanceAdminCommandOutput) => void
-  ): void;
-  public deleteAppInstanceAdmin(
-    args: DeleteAppInstanceAdminCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAppInstanceAdminCommandOutput) => void
-  ): void;
-  public deleteAppInstanceAdmin(
-    args: DeleteAppInstanceAdminCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppInstanceAdminCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAppInstanceAdminCommandOutput) => void
-  ): Promise<DeleteAppInstanceAdminCommandOutput> | void {
-    const command = new DeleteAppInstanceAdminCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the streaming configurations of an <code>AppInstance</code>.</p>
-   */
-  public deleteAppInstanceStreamingConfigurations(
-    args: DeleteAppInstanceStreamingConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAppInstanceStreamingConfigurationsCommandOutput>;
-  public deleteAppInstanceStreamingConfigurations(
-    args: DeleteAppInstanceStreamingConfigurationsCommandInput,
-    cb: (err: any, data?: DeleteAppInstanceStreamingConfigurationsCommandOutput) => void
-  ): void;
-  public deleteAppInstanceStreamingConfigurations(
-    args: DeleteAppInstanceStreamingConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAppInstanceStreamingConfigurationsCommandOutput) => void
-  ): void;
-  public deleteAppInstanceStreamingConfigurations(
-    args: DeleteAppInstanceStreamingConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAppInstanceStreamingConfigurationsCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAppInstanceStreamingConfigurationsCommandOutput) => void
-  ): Promise<DeleteAppInstanceStreamingConfigurationsCommandOutput> | void {
-    const command = new DeleteAppInstanceStreamingConfigurationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes an <code>AppInstanceUser</code>.</p>
-   */
-  public deleteAppInstanceUser(
-    args: DeleteAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAppInstanceUserCommandOutput>;
-  public deleteAppInstanceUser(
-    args: DeleteAppInstanceUserCommandInput,
-    cb: (err: any, data?: DeleteAppInstanceUserCommandOutput) => void
-  ): void;
-  public deleteAppInstanceUser(
-    args: DeleteAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAppInstanceUserCommandOutput) => void
-  ): void;
-  public deleteAppInstanceUser(
-    args: DeleteAppInstanceUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppInstanceUserCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAppInstanceUserCommandOutput) => void
-  ): Promise<DeleteAppInstanceUserCommandOutput> | void {
-    const command = new DeleteAppInstanceUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes an attendee from the specified Amazon Chime SDK meeting and deletes their
-   * <code>JoinToken</code>. Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted. For more information about the Amazon Chime SDK, see
-   * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
-   * in the <i>Amazon Chime Developer Guide</i>.</p>
-   */
-  public deleteAttendee(
-    args: DeleteAttendeeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAttendeeCommandOutput>;
-  public deleteAttendee(
-    args: DeleteAttendeeCommandInput,
-    cb: (err: any, data?: DeleteAttendeeCommandOutput) => void
-  ): void;
-  public deleteAttendee(
-    args: DeleteAttendeeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAttendeeCommandOutput) => void
-  ): void;
-  public deleteAttendee(
-    args: DeleteAttendeeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAttendeeCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAttendeeCommandOutput) => void
-  ): Promise<DeleteAttendeeCommandOutput> | void {
-    const command = new DeleteAttendeeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Immediately makes a channel and its memberships inaccessible and marks them for
-   *          deletion. This is an irreversible process.</p>
-   *
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public deleteChannel(
-    args: DeleteChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteChannelCommandOutput>;
-  public deleteChannel(
-    args: DeleteChannelCommandInput,
-    cb: (err: any, data?: DeleteChannelCommandOutput) => void
-  ): void;
-  public deleteChannel(
-    args: DeleteChannelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteChannelCommandOutput) => void
-  ): void;
-  public deleteChannel(
-    args: DeleteChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteChannelCommandOutput) => void
-  ): Promise<DeleteChannelCommandOutput> | void {
-    const command = new DeleteChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes a user from a channel's ban list.</p>
-   *
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public deleteChannelBan(
-    args: DeleteChannelBanCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteChannelBanCommandOutput>;
-  public deleteChannelBan(
-    args: DeleteChannelBanCommandInput,
-    cb: (err: any, data?: DeleteChannelBanCommandOutput) => void
-  ): void;
-  public deleteChannelBan(
-    args: DeleteChannelBanCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteChannelBanCommandOutput) => void
-  ): void;
-  public deleteChannelBan(
-    args: DeleteChannelBanCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelBanCommandOutput) => void),
-    cb?: (err: any, data?: DeleteChannelBanCommandOutput) => void
-  ): Promise<DeleteChannelBanCommandOutput> | void {
-    const command = new DeleteChannelBanCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes a member from a channel.</p>
-   *
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public deleteChannelMembership(
-    args: DeleteChannelMembershipCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteChannelMembershipCommandOutput>;
-  public deleteChannelMembership(
-    args: DeleteChannelMembershipCommandInput,
-    cb: (err: any, data?: DeleteChannelMembershipCommandOutput) => void
-  ): void;
-  public deleteChannelMembership(
-    args: DeleteChannelMembershipCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteChannelMembershipCommandOutput) => void
-  ): void;
-  public deleteChannelMembership(
-    args: DeleteChannelMembershipCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelMembershipCommandOutput) => void),
-    cb?: (err: any, data?: DeleteChannelMembershipCommandOutput) => void
-  ): Promise<DeleteChannelMembershipCommandOutput> | void {
-    const command = new DeleteChannelMembershipCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a channel message. Only admins can perform this action. Deletion makes messages
-   *          inaccessible immediately. A background process deletes any revisions created by
-   *             <code>UpdateChannelMessage</code>.</p>
-   *
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public deleteChannelMessage(
-    args: DeleteChannelMessageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteChannelMessageCommandOutput>;
-  public deleteChannelMessage(
-    args: DeleteChannelMessageCommandInput,
-    cb: (err: any, data?: DeleteChannelMessageCommandOutput) => void
-  ): void;
-  public deleteChannelMessage(
-    args: DeleteChannelMessageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteChannelMessageCommandOutput) => void
-  ): void;
-  public deleteChannelMessage(
-    args: DeleteChannelMessageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelMessageCommandOutput) => void),
-    cb?: (err: any, data?: DeleteChannelMessageCommandOutput) => void
-  ): Promise<DeleteChannelMessageCommandOutput> | void {
-    const command = new DeleteChannelMessageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a channel moderator.</p>
-   *
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public deleteChannelModerator(
-    args: DeleteChannelModeratorCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteChannelModeratorCommandOutput>;
-  public deleteChannelModerator(
-    args: DeleteChannelModeratorCommandInput,
-    cb: (err: any, data?: DeleteChannelModeratorCommandOutput) => void
-  ): void;
-  public deleteChannelModerator(
-    args: DeleteChannelModeratorCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteChannelModeratorCommandOutput) => void
-  ): void;
-  public deleteChannelModerator(
-    args: DeleteChannelModeratorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelModeratorCommandOutput) => void),
-    cb?: (err: any, data?: DeleteChannelModeratorCommandOutput) => void
-  ): Promise<DeleteChannelModeratorCommandOutput> | void {
-    const command = new DeleteChannelModeratorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the events configuration that allows a bot to receive outgoing events.</p>
-   */
-  public deleteEventsConfiguration(
-    args: DeleteEventsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteEventsConfigurationCommandOutput>;
-  public deleteEventsConfiguration(
-    args: DeleteEventsConfigurationCommandInput,
-    cb: (err: any, data?: DeleteEventsConfigurationCommandOutput) => void
-  ): void;
-  public deleteEventsConfiguration(
-    args: DeleteEventsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteEventsConfigurationCommandOutput) => void
-  ): void;
-  public deleteEventsConfiguration(
-    args: DeleteEventsConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventsConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEventsConfigurationCommandOutput) => void
-  ): Promise<DeleteEventsConfigurationCommandOutput> | void {
-    const command = new DeleteEventsConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the media capture pipeline.</p>
-   */
-  public deleteMediaCapturePipeline(
-    args: DeleteMediaCapturePipelineCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteMediaCapturePipelineCommandOutput>;
-  public deleteMediaCapturePipeline(
-    args: DeleteMediaCapturePipelineCommandInput,
-    cb: (err: any, data?: DeleteMediaCapturePipelineCommandOutput) => void
-  ): void;
-  public deleteMediaCapturePipeline(
-    args: DeleteMediaCapturePipelineCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteMediaCapturePipelineCommandOutput) => void
-  ): void;
-  public deleteMediaCapturePipeline(
-    args: DeleteMediaCapturePipelineCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMediaCapturePipelineCommandOutput) => void),
-    cb?: (err: any, data?: DeleteMediaCapturePipelineCommandOutput) => void
-  ): Promise<DeleteMediaCapturePipelineCommandOutput> | void {
-    const command = new DeleteMediaCapturePipelineCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the specified Amazon Chime SDK meeting. The operation deletes all attendees, disconnects all clients, and prevents new clients from
-   *     joining the meeting. For more information about the Amazon Chime SDK, see
-   *     <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the
-   *     <i>Amazon Chime Developer Guide</i>.</p>
-   */
-  public deleteMeeting(
-    args: DeleteMeetingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteMeetingCommandOutput>;
-  public deleteMeeting(
-    args: DeleteMeetingCommandInput,
-    cb: (err: any, data?: DeleteMeetingCommandOutput) => void
-  ): void;
-  public deleteMeeting(
-    args: DeleteMeetingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteMeetingCommandOutput) => void
-  ): void;
-  public deleteMeeting(
-    args: DeleteMeetingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMeetingCommandOutput) => void),
-    cb?: (err: any, data?: DeleteMeetingCommandOutput) => void
-  ): Promise<DeleteMeetingCommandOutput> | void {
-    const command = new DeleteMeetingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Moves the specified phone number into the <b>Deletion queue</b>. A
-   *             phone number must be disassociated from any users or Amazon Chime Voice Connectors
-   *             before it can be deleted.</p>
-   *
-   *          <p>Deleted phone numbers remain in the
-   * <b>Deletion queue</b>
-   * for 7 days before they are deleted permanently.</p>
-   */
-  public deletePhoneNumber(
-    args: DeletePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeletePhoneNumberCommandOutput>;
-  public deletePhoneNumber(
-    args: DeletePhoneNumberCommandInput,
-    cb: (err: any, data?: DeletePhoneNumberCommandOutput) => void
-  ): void;
-  public deletePhoneNumber(
-    args: DeletePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeletePhoneNumberCommandOutput) => void
-  ): void;
-  public deletePhoneNumber(
-    args: DeletePhoneNumberCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePhoneNumberCommandOutput) => void),
-    cb?: (err: any, data?: DeletePhoneNumberCommandOutput) => void
-  ): Promise<DeletePhoneNumberCommandOutput> | void {
-    const command = new DeletePhoneNumberCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the specified proxy session from the specified Amazon Chime Voice Connector.</p>
-   */
-  public deleteProxySession(
-    args: DeleteProxySessionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteProxySessionCommandOutput>;
-  public deleteProxySession(
-    args: DeleteProxySessionCommandInput,
-    cb: (err: any, data?: DeleteProxySessionCommandOutput) => void
-  ): void;
-  public deleteProxySession(
-    args: DeleteProxySessionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteProxySessionCommandOutput) => void
-  ): void;
-  public deleteProxySession(
-    args: DeleteProxySessionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProxySessionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteProxySessionCommandOutput) => void
-  ): Promise<DeleteProxySessionCommandOutput> | void {
-    const command = new DeleteProxySessionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a chat room in an Amazon Chime Enterprise account.</p>
-   */
-  public deleteRoom(args: DeleteRoomCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRoomCommandOutput>;
-  public deleteRoom(args: DeleteRoomCommandInput, cb: (err: any, data?: DeleteRoomCommandOutput) => void): void;
-  public deleteRoom(
-    args: DeleteRoomCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteRoomCommandOutput) => void
-  ): void;
-  public deleteRoom(
-    args: DeleteRoomCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRoomCommandOutput) => void),
-    cb?: (err: any, data?: DeleteRoomCommandOutput) => void
-  ): Promise<DeleteRoomCommandOutput> | void {
-    const command = new DeleteRoomCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes a member from a chat room in an Amazon Chime Enterprise account.</p>
-   */
-  public deleteRoomMembership(
-    args: DeleteRoomMembershipCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteRoomMembershipCommandOutput>;
-  public deleteRoomMembership(
-    args: DeleteRoomMembershipCommandInput,
-    cb: (err: any, data?: DeleteRoomMembershipCommandOutput) => void
-  ): void;
-  public deleteRoomMembership(
-    args: DeleteRoomMembershipCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteRoomMembershipCommandOutput) => void
-  ): void;
-  public deleteRoomMembership(
-    args: DeleteRoomMembershipCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRoomMembershipCommandOutput) => void),
-    cb?: (err: any, data?: DeleteRoomMembershipCommandOutput) => void
-  ): Promise<DeleteRoomMembershipCommandOutput> | void {
-    const command = new DeleteRoomMembershipCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a SIP media application.</p>
-   */
-  public deleteSipMediaApplication(
-    args: DeleteSipMediaApplicationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteSipMediaApplicationCommandOutput>;
-  public deleteSipMediaApplication(
-    args: DeleteSipMediaApplicationCommandInput,
-    cb: (err: any, data?: DeleteSipMediaApplicationCommandOutput) => void
-  ): void;
-  public deleteSipMediaApplication(
-    args: DeleteSipMediaApplicationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteSipMediaApplicationCommandOutput) => void
-  ): void;
-  public deleteSipMediaApplication(
-    args: DeleteSipMediaApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSipMediaApplicationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSipMediaApplicationCommandOutput) => void
-  ): Promise<DeleteSipMediaApplicationCommandOutput> | void {
-    const command = new DeleteSipMediaApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a SIP rule. You must disable a SIP rule before you can delete it.</p>
-   */
-  public deleteSipRule(
-    args: DeleteSipRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteSipRuleCommandOutput>;
-  public deleteSipRule(
-    args: DeleteSipRuleCommandInput,
-    cb: (err: any, data?: DeleteSipRuleCommandOutput) => void
-  ): void;
-  public deleteSipRule(
-    args: DeleteSipRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteSipRuleCommandOutput) => void
-  ): void;
-  public deleteSipRule(
-    args: DeleteSipRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSipRuleCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSipRuleCommandOutput) => void
-  ): Promise<DeleteSipRuleCommandOutput> | void {
-    const command = new DeleteSipRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the specified Amazon Chime Voice Connector. Any phone numbers associated with the
-   *             Amazon Chime Voice Connector must be disassociated from it before it can be
-   *             deleted.</p>
-   */
-  public deleteVoiceConnector(
-    args: DeleteVoiceConnectorCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteVoiceConnectorCommandOutput>;
-  public deleteVoiceConnector(
-    args: DeleteVoiceConnectorCommandInput,
-    cb: (err: any, data?: DeleteVoiceConnectorCommandOutput) => void
-  ): void;
-  public deleteVoiceConnector(
-    args: DeleteVoiceConnectorCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteVoiceConnectorCommandOutput) => void
-  ): void;
-  public deleteVoiceConnector(
-    args: DeleteVoiceConnectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVoiceConnectorCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVoiceConnectorCommandOutput) => void
-  ): Promise<DeleteVoiceConnectorCommandOutput> | void {
-    const command = new DeleteVoiceConnectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the emergency calling configuration details from the specified Amazon Chime Voice Connector.</p>
-   */
-  public deleteVoiceConnectorEmergencyCallingConfiguration(
-    args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput>;
-  public deleteVoiceConnectorEmergencyCallingConfiguration(
-    args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    cb: (err: any, data?: DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
-  ): void;
-  public deleteVoiceConnectorEmergencyCallingConfiguration(
-    args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
-  ): void;
-  public deleteVoiceConnectorEmergencyCallingConfiguration(
-    args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
-  ): Promise<DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput> | void {
-    const command = new DeleteVoiceConnectorEmergencyCallingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the specified Amazon Chime Voice Connector group. Any
-   * <code>VoiceConnectorItems</code>
-   * and phone numbers associated with the group must be removed before it can be deleted.</p>
-   */
-  public deleteVoiceConnectorGroup(
-    args: DeleteVoiceConnectorGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteVoiceConnectorGroupCommandOutput>;
-  public deleteVoiceConnectorGroup(
-    args: DeleteVoiceConnectorGroupCommandInput,
-    cb: (err: any, data?: DeleteVoiceConnectorGroupCommandOutput) => void
-  ): void;
-  public deleteVoiceConnectorGroup(
-    args: DeleteVoiceConnectorGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteVoiceConnectorGroupCommandOutput) => void
-  ): void;
-  public deleteVoiceConnectorGroup(
-    args: DeleteVoiceConnectorGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVoiceConnectorGroupCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVoiceConnectorGroupCommandOutput) => void
-  ): Promise<DeleteVoiceConnectorGroupCommandOutput> | void {
-    const command = new DeleteVoiceConnectorGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the origination settings for the specified Amazon Chime Voice Connector.</p>
-   *
-   *          <note>
-   *             <p>If emergency calling is configured for the Amazon Chime Voice Connector, it must be deleted prior to deleting the origination settings.</p>
-   *          </note>
-   */
-  public deleteVoiceConnectorOrigination(
-    args: DeleteVoiceConnectorOriginationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteVoiceConnectorOriginationCommandOutput>;
-  public deleteVoiceConnectorOrigination(
-    args: DeleteVoiceConnectorOriginationCommandInput,
-    cb: (err: any, data?: DeleteVoiceConnectorOriginationCommandOutput) => void
-  ): void;
-  public deleteVoiceConnectorOrigination(
-    args: DeleteVoiceConnectorOriginationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteVoiceConnectorOriginationCommandOutput) => void
-  ): void;
-  public deleteVoiceConnectorOrigination(
-    args: DeleteVoiceConnectorOriginationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVoiceConnectorOriginationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVoiceConnectorOriginationCommandOutput) => void
-  ): Promise<DeleteVoiceConnectorOriginationCommandOutput> | void {
-    const command = new DeleteVoiceConnectorOriginationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the proxy configuration from the specified Amazon Chime Voice Connector.</p>
-   */
-  public deleteVoiceConnectorProxy(
-    args: DeleteVoiceConnectorProxyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteVoiceConnectorProxyCommandOutput>;
-  public deleteVoiceConnectorProxy(
-    args: DeleteVoiceConnectorProxyCommandInput,
-    cb: (err: any, data?: DeleteVoiceConnectorProxyCommandOutput) => void
-  ): void;
-  public deleteVoiceConnectorProxy(
-    args: DeleteVoiceConnectorProxyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteVoiceConnectorProxyCommandOutput) => void
-  ): void;
-  public deleteVoiceConnectorProxy(
-    args: DeleteVoiceConnectorProxyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVoiceConnectorProxyCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVoiceConnectorProxyCommandOutput) => void
-  ): Promise<DeleteVoiceConnectorProxyCommandOutput> | void {
-    const command = new DeleteVoiceConnectorProxyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the streaming configuration for the specified Amazon Chime Voice Connector.</p>
-   */
-  public deleteVoiceConnectorStreamingConfiguration(
-    args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteVoiceConnectorStreamingConfigurationCommandOutput>;
-  public deleteVoiceConnectorStreamingConfiguration(
-    args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
-    cb: (err: any, data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput) => void
-  ): void;
-  public deleteVoiceConnectorStreamingConfiguration(
-    args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput) => void
-  ): void;
-  public deleteVoiceConnectorStreamingConfiguration(
-    args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput) => void
-  ): Promise<DeleteVoiceConnectorStreamingConfigurationCommandOutput> | void {
-    const command = new DeleteVoiceConnectorStreamingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the termination settings for the specified Amazon Chime Voice Connector.</p>
-   *
-   *          <note>
-   *             <p>If emergency calling is configured for the Amazon Chime Voice Connector, it must be deleted prior to deleting the termination settings.</p>
-   *          </note>
-   */
-  public deleteVoiceConnectorTermination(
-    args: DeleteVoiceConnectorTerminationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteVoiceConnectorTerminationCommandOutput>;
-  public deleteVoiceConnectorTermination(
-    args: DeleteVoiceConnectorTerminationCommandInput,
-    cb: (err: any, data?: DeleteVoiceConnectorTerminationCommandOutput) => void
-  ): void;
-  public deleteVoiceConnectorTermination(
-    args: DeleteVoiceConnectorTerminationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteVoiceConnectorTerminationCommandOutput) => void
-  ): void;
-  public deleteVoiceConnectorTermination(
-    args: DeleteVoiceConnectorTerminationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVoiceConnectorTerminationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVoiceConnectorTerminationCommandOutput) => void
-  ): Promise<DeleteVoiceConnectorTerminationCommandOutput> | void {
-    const command = new DeleteVoiceConnectorTerminationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the specified SIP credentials used by your equipment to authenticate during call termination.</p>
-   */
-  public deleteVoiceConnectorTerminationCredentials(
-    args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteVoiceConnectorTerminationCredentialsCommandOutput>;
-  public deleteVoiceConnectorTerminationCredentials(
-    args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
-    cb: (err: any, data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput) => void
-  ): void;
-  public deleteVoiceConnectorTerminationCredentials(
-    args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput) => void
-  ): void;
-  public deleteVoiceConnectorTerminationCredentials(
-    args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput) => void
-  ): Promise<DeleteVoiceConnectorTerminationCredentialsCommandOutput> | void {
-    const command = new DeleteVoiceConnectorTerminationCredentialsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the full details of an <code>AppInstance</code>.</p>
-   */
-  public describeAppInstance(
-    args: DescribeAppInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAppInstanceCommandOutput>;
-  public describeAppInstance(
-    args: DescribeAppInstanceCommandInput,
-    cb: (err: any, data?: DescribeAppInstanceCommandOutput) => void
-  ): void;
-  public describeAppInstance(
-    args: DescribeAppInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAppInstanceCommandOutput) => void
-  ): void;
-  public describeAppInstance(
-    args: DescribeAppInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAppInstanceCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAppInstanceCommandOutput) => void
-  ): Promise<DescribeAppInstanceCommandOutput> | void {
-    const command = new DescribeAppInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the full details of an <code>AppInstanceAdmin</code>.</p>
-   */
-  public describeAppInstanceAdmin(
-    args: DescribeAppInstanceAdminCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAppInstanceAdminCommandOutput>;
-  public describeAppInstanceAdmin(
-    args: DescribeAppInstanceAdminCommandInput,
-    cb: (err: any, data?: DescribeAppInstanceAdminCommandOutput) => void
-  ): void;
-  public describeAppInstanceAdmin(
-    args: DescribeAppInstanceAdminCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAppInstanceAdminCommandOutput) => void
-  ): void;
-  public describeAppInstanceAdmin(
-    args: DescribeAppInstanceAdminCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAppInstanceAdminCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAppInstanceAdminCommandOutput) => void
-  ): Promise<DescribeAppInstanceAdminCommandOutput> | void {
-    const command = new DescribeAppInstanceAdminCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the full details of an <code>AppInstanceUser</code>.</p>
-   */
-  public describeAppInstanceUser(
-    args: DescribeAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAppInstanceUserCommandOutput>;
-  public describeAppInstanceUser(
-    args: DescribeAppInstanceUserCommandInput,
-    cb: (err: any, data?: DescribeAppInstanceUserCommandOutput) => void
-  ): void;
-  public describeAppInstanceUser(
-    args: DescribeAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAppInstanceUserCommandOutput) => void
-  ): void;
-  public describeAppInstanceUser(
-    args: DescribeAppInstanceUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAppInstanceUserCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAppInstanceUserCommandOutput) => void
-  ): Promise<DescribeAppInstanceUserCommandOutput> | void {
-    const command = new DescribeAppInstanceUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the full details of a channel in an Amazon Chime
-   *          <code>AppInstance</code>.</p>
-   *
-   *          <note>
-   *
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public describeChannel(
-    args: DescribeChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeChannelCommandOutput>;
-  public describeChannel(
-    args: DescribeChannelCommandInput,
-    cb: (err: any, data?: DescribeChannelCommandOutput) => void
-  ): void;
-  public describeChannel(
-    args: DescribeChannelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeChannelCommandOutput) => void
-  ): void;
-  public describeChannel(
-    args: DescribeChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelCommandOutput) => void),
-    cb?: (err: any, data?: DescribeChannelCommandOutput) => void
-  ): Promise<DescribeChannelCommandOutput> | void {
-    const command = new DescribeChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the full details of a channel ban.</p>
-   *
-   *          <note>
-   *
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public describeChannelBan(
-    args: DescribeChannelBanCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeChannelBanCommandOutput>;
-  public describeChannelBan(
-    args: DescribeChannelBanCommandInput,
-    cb: (err: any, data?: DescribeChannelBanCommandOutput) => void
-  ): void;
-  public describeChannelBan(
-    args: DescribeChannelBanCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeChannelBanCommandOutput) => void
-  ): void;
-  public describeChannelBan(
-    args: DescribeChannelBanCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelBanCommandOutput) => void),
-    cb?: (err: any, data?: DescribeChannelBanCommandOutput) => void
-  ): Promise<DescribeChannelBanCommandOutput> | void {
-    const command = new DescribeChannelBanCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the full details of a user's channel membership.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public describeChannelMembership(
-    args: DescribeChannelMembershipCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeChannelMembershipCommandOutput>;
-  public describeChannelMembership(
-    args: DescribeChannelMembershipCommandInput,
-    cb: (err: any, data?: DescribeChannelMembershipCommandOutput) => void
-  ): void;
-  public describeChannelMembership(
-    args: DescribeChannelMembershipCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeChannelMembershipCommandOutput) => void
-  ): void;
-  public describeChannelMembership(
-    args: DescribeChannelMembershipCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelMembershipCommandOutput) => void),
-    cb?: (err: any, data?: DescribeChannelMembershipCommandOutput) => void
-  ): Promise<DescribeChannelMembershipCommandOutput> | void {
-    const command = new DescribeChannelMembershipCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Returns the details of a channel based on the membership of the specified
-   *             <code>AppInstanceUser</code>.</p>
-   *
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public describeChannelMembershipForAppInstanceUser(
-    args: DescribeChannelMembershipForAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeChannelMembershipForAppInstanceUserCommandOutput>;
-  public describeChannelMembershipForAppInstanceUser(
-    args: DescribeChannelMembershipForAppInstanceUserCommandInput,
-    cb: (err: any, data?: DescribeChannelMembershipForAppInstanceUserCommandOutput) => void
-  ): void;
-  public describeChannelMembershipForAppInstanceUser(
-    args: DescribeChannelMembershipForAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeChannelMembershipForAppInstanceUserCommandOutput) => void
-  ): void;
-  public describeChannelMembershipForAppInstanceUser(
-    args: DescribeChannelMembershipForAppInstanceUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeChannelMembershipForAppInstanceUserCommandOutput) => void),
-    cb?: (err: any, data?: DescribeChannelMembershipForAppInstanceUserCommandOutput) => void
-  ): Promise<DescribeChannelMembershipForAppInstanceUserCommandOutput> | void {
-    const command = new DescribeChannelMembershipForAppInstanceUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the full details of a channel moderated by the specified
-   *             <code>AppInstanceUser</code>.</p>
-   *
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public describeChannelModeratedByAppInstanceUser(
-    args: DescribeChannelModeratedByAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeChannelModeratedByAppInstanceUserCommandOutput>;
-  public describeChannelModeratedByAppInstanceUser(
-    args: DescribeChannelModeratedByAppInstanceUserCommandInput,
-    cb: (err: any, data?: DescribeChannelModeratedByAppInstanceUserCommandOutput) => void
-  ): void;
-  public describeChannelModeratedByAppInstanceUser(
-    args: DescribeChannelModeratedByAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeChannelModeratedByAppInstanceUserCommandOutput) => void
-  ): void;
-  public describeChannelModeratedByAppInstanceUser(
-    args: DescribeChannelModeratedByAppInstanceUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeChannelModeratedByAppInstanceUserCommandOutput) => void),
-    cb?: (err: any, data?: DescribeChannelModeratedByAppInstanceUserCommandOutput) => void
-  ): Promise<DescribeChannelModeratedByAppInstanceUserCommandOutput> | void {
-    const command = new DescribeChannelModeratedByAppInstanceUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the full details of a single ChannelModerator.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public describeChannelModerator(
-    args: DescribeChannelModeratorCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeChannelModeratorCommandOutput>;
-  public describeChannelModerator(
-    args: DescribeChannelModeratorCommandInput,
-    cb: (err: any, data?: DescribeChannelModeratorCommandOutput) => void
-  ): void;
-  public describeChannelModerator(
-    args: DescribeChannelModeratorCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeChannelModeratorCommandOutput) => void
-  ): void;
-  public describeChannelModerator(
-    args: DescribeChannelModeratorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelModeratorCommandOutput) => void),
-    cb?: (err: any, data?: DescribeChannelModeratorCommandOutput) => void
-  ): Promise<DescribeChannelModeratorCommandOutput> | void {
-    const command = new DescribeChannelModeratorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Disassociates the primary provisioned phone number from the specified Amazon Chime user.</p>
-   */
-  public disassociatePhoneNumberFromUser(
-    args: DisassociatePhoneNumberFromUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisassociatePhoneNumberFromUserCommandOutput>;
-  public disassociatePhoneNumberFromUser(
-    args: DisassociatePhoneNumberFromUserCommandInput,
-    cb: (err: any, data?: DisassociatePhoneNumberFromUserCommandOutput) => void
-  ): void;
-  public disassociatePhoneNumberFromUser(
-    args: DisassociatePhoneNumberFromUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociatePhoneNumberFromUserCommandOutput) => void
-  ): void;
-  public disassociatePhoneNumberFromUser(
-    args: DisassociatePhoneNumberFromUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociatePhoneNumberFromUserCommandOutput) => void),
-    cb?: (err: any, data?: DisassociatePhoneNumberFromUserCommandOutput) => void
-  ): Promise<DisassociatePhoneNumberFromUserCommandOutput> | void {
-    const command = new DisassociatePhoneNumberFromUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Disassociates the specified phone numbers from the specified Amazon Chime Voice Connector.</p>
-   */
-  public disassociatePhoneNumbersFromVoiceConnector(
-    args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisassociatePhoneNumbersFromVoiceConnectorCommandOutput>;
-  public disassociatePhoneNumbersFromVoiceConnector(
-    args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
-    cb: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput) => void
-  ): void;
-  public disassociatePhoneNumbersFromVoiceConnector(
-    args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput) => void
-  ): void;
-  public disassociatePhoneNumbersFromVoiceConnector(
-    args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput) => void),
-    cb?: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput) => void
-  ): Promise<DisassociatePhoneNumbersFromVoiceConnectorCommandOutput> | void {
-    const command = new DisassociatePhoneNumbersFromVoiceConnectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Disassociates the specified phone numbers from the specified Amazon Chime Voice Connector group.</p>
-   */
-  public disassociatePhoneNumbersFromVoiceConnectorGroup(
-    args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput>;
-  public disassociatePhoneNumbersFromVoiceConnectorGroup(
-    args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
-    cb: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput) => void
-  ): void;
-  public disassociatePhoneNumbersFromVoiceConnectorGroup(
-    args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput) => void
-  ): void;
-  public disassociatePhoneNumbersFromVoiceConnectorGroup(
-    args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput) => void),
-    cb?: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput) => void
-  ): Promise<DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput> | void {
-    const command = new DisassociatePhoneNumbersFromVoiceConnectorGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Disassociates the specified sign-in delegate groups from the specified Amazon Chime account.</p>
-   */
-  public disassociateSigninDelegateGroupsFromAccount(
-    args: DisassociateSigninDelegateGroupsFromAccountCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisassociateSigninDelegateGroupsFromAccountCommandOutput>;
-  public disassociateSigninDelegateGroupsFromAccount(
-    args: DisassociateSigninDelegateGroupsFromAccountCommandInput,
-    cb: (err: any, data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput) => void
-  ): void;
-  public disassociateSigninDelegateGroupsFromAccount(
-    args: DisassociateSigninDelegateGroupsFromAccountCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput) => void
-  ): void;
-  public disassociateSigninDelegateGroupsFromAccount(
-    args: DisassociateSigninDelegateGroupsFromAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput) => void),
-    cb?: (err: any, data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput) => void
-  ): Promise<DisassociateSigninDelegateGroupsFromAccountCommandOutput> | void {
-    const command = new DisassociateSigninDelegateGroupsFromAccountCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves details for the specified Amazon Chime account, such as account type and supported
-   *             licenses.</p>
-   */
-  public getAccount(args: GetAccountCommandInput, options?: __HttpHandlerOptions): Promise<GetAccountCommandOutput>;
-  public getAccount(args: GetAccountCommandInput, cb: (err: any, data?: GetAccountCommandOutput) => void): void;
-  public getAccount(
-    args: GetAccountCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetAccountCommandOutput) => void
-  ): void;
-  public getAccount(
-    args: GetAccountCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountCommandOutput) => void),
-    cb?: (err: any, data?: GetAccountCommandOutput) => void
-  ): Promise<GetAccountCommandOutput> | void {
-    const command = new GetAccountCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves account settings for the specified Amazon Chime account ID, such as remote control
-   *             and dialout settings. For more information about these settings, see
-   *     <a href="https://docs.aws.amazon.com/chime/latest/ag/policies.html">Use the Policies Page</a> in the <i>Amazon Chime Administration Guide</i>.
-   * </p>
-   */
-  public getAccountSettings(
-    args: GetAccountSettingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAccountSettingsCommandOutput>;
-  public getAccountSettings(
-    args: GetAccountSettingsCommandInput,
-    cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
-  ): void;
-  public getAccountSettings(
-    args: GetAccountSettingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
-  ): void;
-  public getAccountSettings(
-    args: GetAccountSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountSettingsCommandOutput) => void),
-    cb?: (err: any, data?: GetAccountSettingsCommandOutput) => void
-  ): Promise<GetAccountSettingsCommandOutput> | void {
-    const command = new GetAccountSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets the retention settings for an <code>AppInstance</code>.</p>
-   */
-  public getAppInstanceRetentionSettings(
-    args: GetAppInstanceRetentionSettingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAppInstanceRetentionSettingsCommandOutput>;
-  public getAppInstanceRetentionSettings(
-    args: GetAppInstanceRetentionSettingsCommandInput,
-    cb: (err: any, data?: GetAppInstanceRetentionSettingsCommandOutput) => void
-  ): void;
-  public getAppInstanceRetentionSettings(
-    args: GetAppInstanceRetentionSettingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetAppInstanceRetentionSettingsCommandOutput) => void
-  ): void;
-  public getAppInstanceRetentionSettings(
-    args: GetAppInstanceRetentionSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAppInstanceRetentionSettingsCommandOutput) => void),
-    cb?: (err: any, data?: GetAppInstanceRetentionSettingsCommandOutput) => void
-  ): Promise<GetAppInstanceRetentionSettingsCommandOutput> | void {
-    const command = new GetAppInstanceRetentionSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets the streaming settings for an <code>AppInstance</code>.</p>
-   */
-  public getAppInstanceStreamingConfigurations(
-    args: GetAppInstanceStreamingConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAppInstanceStreamingConfigurationsCommandOutput>;
-  public getAppInstanceStreamingConfigurations(
-    args: GetAppInstanceStreamingConfigurationsCommandInput,
-    cb: (err: any, data?: GetAppInstanceStreamingConfigurationsCommandOutput) => void
-  ): void;
-  public getAppInstanceStreamingConfigurations(
-    args: GetAppInstanceStreamingConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetAppInstanceStreamingConfigurationsCommandOutput) => void
-  ): void;
-  public getAppInstanceStreamingConfigurations(
-    args: GetAppInstanceStreamingConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAppInstanceStreamingConfigurationsCommandOutput) => void),
-    cb?: (err: any, data?: GetAppInstanceStreamingConfigurationsCommandOutput) => void
-  ): Promise<GetAppInstanceStreamingConfigurationsCommandOutput> | void {
-    const command = new GetAppInstanceStreamingConfigurationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>
-   * Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee ID. For more information about the Amazon Chime SDK, see
-   * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
-   * in the
-   * <i>Amazon Chime Developer Guide</i>
-   * .
-   * </p>
-   */
-  public getAttendee(args: GetAttendeeCommandInput, options?: __HttpHandlerOptions): Promise<GetAttendeeCommandOutput>;
-  public getAttendee(args: GetAttendeeCommandInput, cb: (err: any, data?: GetAttendeeCommandOutput) => void): void;
-  public getAttendee(
-    args: GetAttendeeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetAttendeeCommandOutput) => void
-  ): void;
-  public getAttendee(
-    args: GetAttendeeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAttendeeCommandOutput) => void),
-    cb?: (err: any, data?: GetAttendeeCommandOutput) => void
-  ): Promise<GetAttendeeCommandOutput> | void {
-    const command = new GetAttendeeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves details for the specified bot, such as bot email address, bot type, status, and display name.</p>
-   */
-  public getBot(args: GetBotCommandInput, options?: __HttpHandlerOptions): Promise<GetBotCommandOutput>;
-  public getBot(args: GetBotCommandInput, cb: (err: any, data?: GetBotCommandOutput) => void): void;
-  public getBot(
-    args: GetBotCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetBotCommandOutput) => void
-  ): void;
-  public getBot(
-    args: GetBotCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBotCommandOutput) => void),
-    cb?: (err: any, data?: GetBotCommandOutput) => void
-  ): Promise<GetBotCommandOutput> | void {
-    const command = new GetBotCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets the full details of a channel message.</p>
-   *
-   *          <note>
-   *             <p>The x-amz-chime-bearer request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public getChannelMessage(
-    args: GetChannelMessageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetChannelMessageCommandOutput>;
-  public getChannelMessage(
-    args: GetChannelMessageCommandInput,
-    cb: (err: any, data?: GetChannelMessageCommandOutput) => void
-  ): void;
-  public getChannelMessage(
-    args: GetChannelMessageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetChannelMessageCommandOutput) => void
-  ): void;
-  public getChannelMessage(
-    args: GetChannelMessageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChannelMessageCommandOutput) => void),
-    cb?: (err: any, data?: GetChannelMessageCommandOutput) => void
-  ): Promise<GetChannelMessageCommandOutput> | void {
-    const command = new GetChannelMessageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets details for an events configuration that allows a bot to receive outgoing events, such as an HTTPS endpoint or Lambda function ARN.</p>
-   */
-  public getEventsConfiguration(
-    args: GetEventsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetEventsConfigurationCommandOutput>;
-  public getEventsConfiguration(
-    args: GetEventsConfigurationCommandInput,
-    cb: (err: any, data?: GetEventsConfigurationCommandOutput) => void
-  ): void;
-  public getEventsConfiguration(
-    args: GetEventsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetEventsConfigurationCommandOutput) => void
-  ): void;
-  public getEventsConfiguration(
-    args: GetEventsConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEventsConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetEventsConfigurationCommandOutput) => void
-  ): Promise<GetEventsConfigurationCommandOutput> | void {
-    const command = new GetEventsConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves global settings for the administrator's AWS account, such as Amazon Chime Business
-   *             Calling and Amazon Chime Voice Connector settings.</p>
-   */
-  public getGlobalSettings(
-    args: GetGlobalSettingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetGlobalSettingsCommandOutput>;
-  public getGlobalSettings(
-    args: GetGlobalSettingsCommandInput,
-    cb: (err: any, data?: GetGlobalSettingsCommandOutput) => void
-  ): void;
-  public getGlobalSettings(
-    args: GetGlobalSettingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetGlobalSettingsCommandOutput) => void
-  ): void;
-  public getGlobalSettings(
-    args: GetGlobalSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGlobalSettingsCommandOutput) => void),
-    cb?: (err: any, data?: GetGlobalSettingsCommandOutput) => void
-  ): Promise<GetGlobalSettingsCommandOutput> | void {
-    const command = new GetGlobalSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets an existing media capture pipeline.</p>
-   */
-  public getMediaCapturePipeline(
-    args: GetMediaCapturePipelineCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetMediaCapturePipelineCommandOutput>;
-  public getMediaCapturePipeline(
-    args: GetMediaCapturePipelineCommandInput,
-    cb: (err: any, data?: GetMediaCapturePipelineCommandOutput) => void
-  ): void;
-  public getMediaCapturePipeline(
-    args: GetMediaCapturePipelineCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetMediaCapturePipelineCommandOutput) => void
-  ): void;
-  public getMediaCapturePipeline(
-    args: GetMediaCapturePipelineCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMediaCapturePipelineCommandOutput) => void),
-    cb?: (err: any, data?: GetMediaCapturePipelineCommandOutput) => void
-  ): Promise<GetMediaCapturePipelineCommandOutput> | void {
-    const command = new GetMediaCapturePipelineCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>
-   * Gets the Amazon Chime SDK meeting details for the specified meeting ID. For more information about the Amazon Chime SDK, see
-   * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
-   * in the
-   * <i>Amazon Chime Developer Guide</i>
-   * .
-   * </p>
-   */
-  public getMeeting(args: GetMeetingCommandInput, options?: __HttpHandlerOptions): Promise<GetMeetingCommandOutput>;
-  public getMeeting(args: GetMeetingCommandInput, cb: (err: any, data?: GetMeetingCommandOutput) => void): void;
-  public getMeeting(
-    args: GetMeetingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetMeetingCommandOutput) => void
-  ): void;
-  public getMeeting(
-    args: GetMeetingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMeetingCommandOutput) => void),
-    cb?: (err: any, data?: GetMeetingCommandOutput) => void
-  ): Promise<GetMeetingCommandOutput> | void {
-    const command = new GetMeetingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>The details of the endpoint for the messaging session.</p>
-   */
-  public getMessagingSessionEndpoint(
-    args: GetMessagingSessionEndpointCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetMessagingSessionEndpointCommandOutput>;
-  public getMessagingSessionEndpoint(
-    args: GetMessagingSessionEndpointCommandInput,
-    cb: (err: any, data?: GetMessagingSessionEndpointCommandOutput) => void
-  ): void;
-  public getMessagingSessionEndpoint(
-    args: GetMessagingSessionEndpointCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetMessagingSessionEndpointCommandOutput) => void
-  ): void;
-  public getMessagingSessionEndpoint(
-    args: GetMessagingSessionEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMessagingSessionEndpointCommandOutput) => void),
-    cb?: (err: any, data?: GetMessagingSessionEndpointCommandOutput) => void
-  ): Promise<GetMessagingSessionEndpointCommandOutput> | void {
-    const command = new GetMessagingSessionEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves details for the specified phone number ID, such as associations, capabilities, and product type.</p>
-   */
-  public getPhoneNumber(
-    args: GetPhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPhoneNumberCommandOutput>;
-  public getPhoneNumber(
-    args: GetPhoneNumberCommandInput,
-    cb: (err: any, data?: GetPhoneNumberCommandOutput) => void
-  ): void;
-  public getPhoneNumber(
-    args: GetPhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetPhoneNumberCommandOutput) => void
-  ): void;
-  public getPhoneNumber(
-    args: GetPhoneNumberCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPhoneNumberCommandOutput) => void),
-    cb?: (err: any, data?: GetPhoneNumberCommandOutput) => void
-  ): Promise<GetPhoneNumberCommandOutput> | void {
-    const command = new GetPhoneNumberCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves details for the specified phone number order, such as the order creation timestamp, phone
-   *             numbers in E.164 format, product type, and order status.</p>
-   */
-  public getPhoneNumberOrder(
-    args: GetPhoneNumberOrderCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPhoneNumberOrderCommandOutput>;
-  public getPhoneNumberOrder(
-    args: GetPhoneNumberOrderCommandInput,
-    cb: (err: any, data?: GetPhoneNumberOrderCommandOutput) => void
-  ): void;
-  public getPhoneNumberOrder(
-    args: GetPhoneNumberOrderCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetPhoneNumberOrderCommandOutput) => void
-  ): void;
-  public getPhoneNumberOrder(
-    args: GetPhoneNumberOrderCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPhoneNumberOrderCommandOutput) => void),
-    cb?: (err: any, data?: GetPhoneNumberOrderCommandOutput) => void
-  ): Promise<GetPhoneNumberOrderCommandOutput> | void {
-    const command = new GetPhoneNumberOrderCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the phone number settings for the administrator's AWS account, such as the default outbound calling name.</p>
-   */
-  public getPhoneNumberSettings(
-    args: GetPhoneNumberSettingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPhoneNumberSettingsCommandOutput>;
-  public getPhoneNumberSettings(
-    args: GetPhoneNumberSettingsCommandInput,
-    cb: (err: any, data?: GetPhoneNumberSettingsCommandOutput) => void
-  ): void;
-  public getPhoneNumberSettings(
-    args: GetPhoneNumberSettingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetPhoneNumberSettingsCommandOutput) => void
-  ): void;
-  public getPhoneNumberSettings(
-    args: GetPhoneNumberSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPhoneNumberSettingsCommandOutput) => void),
-    cb?: (err: any, data?: GetPhoneNumberSettingsCommandOutput) => void
-  ): Promise<GetPhoneNumberSettingsCommandOutput> | void {
-    const command = new GetPhoneNumberSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets the specified proxy session details for the specified Amazon Chime Voice Connector.</p>
-   */
-  public getProxySession(
-    args: GetProxySessionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetProxySessionCommandOutput>;
-  public getProxySession(
-    args: GetProxySessionCommandInput,
-    cb: (err: any, data?: GetProxySessionCommandOutput) => void
-  ): void;
-  public getProxySession(
-    args: GetProxySessionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetProxySessionCommandOutput) => void
-  ): void;
-  public getProxySession(
-    args: GetProxySessionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetProxySessionCommandOutput) => void),
-    cb?: (err: any, data?: GetProxySessionCommandOutput) => void
-  ): Promise<GetProxySessionCommandOutput> | void {
-    const command = new GetProxySessionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>
-   * Gets the retention settings for the specified Amazon Chime Enterprise account. For more information about retention settings, see
-   * <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing Chat Retention Policies</a> in the <i>Amazon Chime Administration Guide</i>.
-   * </p>
-   */
-  public getRetentionSettings(
-    args: GetRetentionSettingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetRetentionSettingsCommandOutput>;
-  public getRetentionSettings(
-    args: GetRetentionSettingsCommandInput,
-    cb: (err: any, data?: GetRetentionSettingsCommandOutput) => void
-  ): void;
-  public getRetentionSettings(
-    args: GetRetentionSettingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetRetentionSettingsCommandOutput) => void
-  ): void;
-  public getRetentionSettings(
-    args: GetRetentionSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRetentionSettingsCommandOutput) => void),
-    cb?: (err: any, data?: GetRetentionSettingsCommandOutput) => void
-  ): Promise<GetRetentionSettingsCommandOutput> | void {
-    const command = new GetRetentionSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves room details, such as the room name, for a room in an Amazon Chime Enterprise account.</p>
-   */
-  public getRoom(args: GetRoomCommandInput, options?: __HttpHandlerOptions): Promise<GetRoomCommandOutput>;
-  public getRoom(args: GetRoomCommandInput, cb: (err: any, data?: GetRoomCommandOutput) => void): void;
-  public getRoom(
-    args: GetRoomCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetRoomCommandOutput) => void
-  ): void;
-  public getRoom(
-    args: GetRoomCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRoomCommandOutput) => void),
-    cb?: (err: any, data?: GetRoomCommandOutput) => void
-  ): Promise<GetRoomCommandOutput> | void {
-    const command = new GetRoomCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the information for a SIP media application, including name, AWS Region, and endpoints.</p>
-   */
-  public getSipMediaApplication(
-    args: GetSipMediaApplicationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSipMediaApplicationCommandOutput>;
-  public getSipMediaApplication(
-    args: GetSipMediaApplicationCommandInput,
-    cb: (err: any, data?: GetSipMediaApplicationCommandOutput) => void
-  ): void;
-  public getSipMediaApplication(
-    args: GetSipMediaApplicationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSipMediaApplicationCommandOutput) => void
-  ): void;
-  public getSipMediaApplication(
-    args: GetSipMediaApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSipMediaApplicationCommandOutput) => void),
-    cb?: (err: any, data?: GetSipMediaApplicationCommandOutput) => void
-  ): Promise<GetSipMediaApplicationCommandOutput> | void {
-    const command = new GetSipMediaApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the logging configuration for the specified SIP media application.</p>
-   */
-  public getSipMediaApplicationLoggingConfiguration(
-    args: GetSipMediaApplicationLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSipMediaApplicationLoggingConfigurationCommandOutput>;
-  public getSipMediaApplicationLoggingConfiguration(
-    args: GetSipMediaApplicationLoggingConfigurationCommandInput,
-    cb: (err: any, data?: GetSipMediaApplicationLoggingConfigurationCommandOutput) => void
-  ): void;
-  public getSipMediaApplicationLoggingConfiguration(
-    args: GetSipMediaApplicationLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSipMediaApplicationLoggingConfigurationCommandOutput) => void
-  ): void;
-  public getSipMediaApplicationLoggingConfiguration(
-    args: GetSipMediaApplicationLoggingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSipMediaApplicationLoggingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetSipMediaApplicationLoggingConfigurationCommandOutput) => void
-  ): Promise<GetSipMediaApplicationLoggingConfigurationCommandOutput> | void {
-    const command = new GetSipMediaApplicationLoggingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and target endpoints.</p>
-   */
-  public getSipRule(args: GetSipRuleCommandInput, options?: __HttpHandlerOptions): Promise<GetSipRuleCommandOutput>;
-  public getSipRule(args: GetSipRuleCommandInput, cb: (err: any, data?: GetSipRuleCommandOutput) => void): void;
-  public getSipRule(
-    args: GetSipRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSipRuleCommandOutput) => void
-  ): void;
-  public getSipRule(
-    args: GetSipRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSipRuleCommandOutput) => void),
-    cb?: (err: any, data?: GetSipRuleCommandOutput) => void
-  ): Promise<GetSipRuleCommandOutput> | void {
-    const command = new GetSipRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves details for the specified user ID, such as primary email address, license type,and personal meeting PIN.</p>
-   *
-   *          <p>
-   * To retrieve user details with an email address instead of a user ID, use the
-   * <a>ListUsers</a> action, and then filter by email address.
-   * </p>
-   */
-  public getUser(args: GetUserCommandInput, options?: __HttpHandlerOptions): Promise<GetUserCommandOutput>;
-  public getUser(args: GetUserCommandInput, cb: (err: any, data?: GetUserCommandOutput) => void): void;
-  public getUser(
-    args: GetUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetUserCommandOutput) => void
-  ): void;
-  public getUser(
-    args: GetUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserCommandOutput) => void),
-    cb?: (err: any, data?: GetUserCommandOutput) => void
-  ): Promise<GetUserCommandOutput> | void {
-    const command = new GetUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves settings for the specified user ID, such as any associated phone number settings.</p>
-   */
-  public getUserSettings(
-    args: GetUserSettingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetUserSettingsCommandOutput>;
-  public getUserSettings(
-    args: GetUserSettingsCommandInput,
-    cb: (err: any, data?: GetUserSettingsCommandOutput) => void
-  ): void;
-  public getUserSettings(
-    args: GetUserSettingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetUserSettingsCommandOutput) => void
-  ): void;
-  public getUserSettings(
-    args: GetUserSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserSettingsCommandOutput) => void),
-    cb?: (err: any, data?: GetUserSettingsCommandOutput) => void
-  ): Promise<GetUserSettingsCommandOutput> | void {
-    const command = new GetUserSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves details for the specified Amazon Chime Voice Connector, such as timestamps,name, outbound host, and encryption requirements.</p>
-   */
-  public getVoiceConnector(
-    args: GetVoiceConnectorCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetVoiceConnectorCommandOutput>;
-  public getVoiceConnector(
-    args: GetVoiceConnectorCommandInput,
-    cb: (err: any, data?: GetVoiceConnectorCommandOutput) => void
-  ): void;
-  public getVoiceConnector(
-    args: GetVoiceConnectorCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetVoiceConnectorCommandOutput) => void
-  ): void;
-  public getVoiceConnector(
-    args: GetVoiceConnectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceConnectorCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceConnectorCommandOutput) => void
-  ): Promise<GetVoiceConnectorCommandOutput> | void {
-    const command = new GetVoiceConnectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets the emergency calling configuration details for the specified Amazon Chime Voice Connector.</p>
-   */
-  public getVoiceConnectorEmergencyCallingConfiguration(
-    args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetVoiceConnectorEmergencyCallingConfigurationCommandOutput>;
-  public getVoiceConnectorEmergencyCallingConfiguration(
-    args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    cb: (err: any, data?: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
-  ): void;
-  public getVoiceConnectorEmergencyCallingConfiguration(
-    args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
-  ): void;
-  public getVoiceConnectorEmergencyCallingConfiguration(
-    args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
-  ): Promise<GetVoiceConnectorEmergencyCallingConfigurationCommandOutput> | void {
-    const command = new GetVoiceConnectorEmergencyCallingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>
-   * Retrieves details for the specified Amazon Chime Voice Connector group, such as timestamps,name, and associated <code>VoiceConnectorItems</code>.</p>
-   */
-  public getVoiceConnectorGroup(
-    args: GetVoiceConnectorGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetVoiceConnectorGroupCommandOutput>;
-  public getVoiceConnectorGroup(
-    args: GetVoiceConnectorGroupCommandInput,
-    cb: (err: any, data?: GetVoiceConnectorGroupCommandOutput) => void
-  ): void;
-  public getVoiceConnectorGroup(
-    args: GetVoiceConnectorGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetVoiceConnectorGroupCommandOutput) => void
-  ): void;
-  public getVoiceConnectorGroup(
-    args: GetVoiceConnectorGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceConnectorGroupCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceConnectorGroupCommandOutput) => void
-  ): Promise<GetVoiceConnectorGroupCommandOutput> | void {
-    const command = new GetVoiceConnectorGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the logging configuration details for the specified Amazon Chime Voice Connector. Shows whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.</p>
-   */
-  public getVoiceConnectorLoggingConfiguration(
-    args: GetVoiceConnectorLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetVoiceConnectorLoggingConfigurationCommandOutput>;
-  public getVoiceConnectorLoggingConfiguration(
-    args: GetVoiceConnectorLoggingConfigurationCommandInput,
-    cb: (err: any, data?: GetVoiceConnectorLoggingConfigurationCommandOutput) => void
-  ): void;
-  public getVoiceConnectorLoggingConfiguration(
-    args: GetVoiceConnectorLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetVoiceConnectorLoggingConfigurationCommandOutput) => void
-  ): void;
-  public getVoiceConnectorLoggingConfiguration(
-    args: GetVoiceConnectorLoggingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetVoiceConnectorLoggingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceConnectorLoggingConfigurationCommandOutput) => void
-  ): Promise<GetVoiceConnectorLoggingConfigurationCommandOutput> | void {
-    const command = new GetVoiceConnectorLoggingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves origination setting details for the specified Amazon Chime Voice Connector.</p>
-   */
-  public getVoiceConnectorOrigination(
-    args: GetVoiceConnectorOriginationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetVoiceConnectorOriginationCommandOutput>;
-  public getVoiceConnectorOrigination(
-    args: GetVoiceConnectorOriginationCommandInput,
-    cb: (err: any, data?: GetVoiceConnectorOriginationCommandOutput) => void
-  ): void;
-  public getVoiceConnectorOrigination(
-    args: GetVoiceConnectorOriginationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetVoiceConnectorOriginationCommandOutput) => void
-  ): void;
-  public getVoiceConnectorOrigination(
-    args: GetVoiceConnectorOriginationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceConnectorOriginationCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceConnectorOriginationCommandOutput) => void
-  ): Promise<GetVoiceConnectorOriginationCommandOutput> | void {
-    const command = new GetVoiceConnectorOriginationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets the proxy configuration details for the specified Amazon Chime Voice Connector.</p>
-   */
-  public getVoiceConnectorProxy(
-    args: GetVoiceConnectorProxyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetVoiceConnectorProxyCommandOutput>;
-  public getVoiceConnectorProxy(
-    args: GetVoiceConnectorProxyCommandInput,
-    cb: (err: any, data?: GetVoiceConnectorProxyCommandOutput) => void
-  ): void;
-  public getVoiceConnectorProxy(
-    args: GetVoiceConnectorProxyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetVoiceConnectorProxyCommandOutput) => void
-  ): void;
-  public getVoiceConnectorProxy(
-    args: GetVoiceConnectorProxyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceConnectorProxyCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceConnectorProxyCommandOutput) => void
-  ): Promise<GetVoiceConnectorProxyCommandOutput> | void {
-    const command = new GetVoiceConnectorProxyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the streaming configuration details for the specified Amazon Chime Voice Connector.
-   *             Shows whether media streaming is enabled for sending to Amazon Kinesis. It also shows
-   *             the retention period, in hours, for the Amazon Kinesis data.</p>
-   */
-  public getVoiceConnectorStreamingConfiguration(
-    args: GetVoiceConnectorStreamingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetVoiceConnectorStreamingConfigurationCommandOutput>;
-  public getVoiceConnectorStreamingConfiguration(
-    args: GetVoiceConnectorStreamingConfigurationCommandInput,
-    cb: (err: any, data?: GetVoiceConnectorStreamingConfigurationCommandOutput) => void
-  ): void;
-  public getVoiceConnectorStreamingConfiguration(
-    args: GetVoiceConnectorStreamingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetVoiceConnectorStreamingConfigurationCommandOutput) => void
-  ): void;
-  public getVoiceConnectorStreamingConfiguration(
-    args: GetVoiceConnectorStreamingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetVoiceConnectorStreamingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceConnectorStreamingConfigurationCommandOutput) => void
-  ): Promise<GetVoiceConnectorStreamingConfigurationCommandOutput> | void {
-    const command = new GetVoiceConnectorStreamingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves termination setting details for the specified Amazon Chime Voice Connector.</p>
-   */
-  public getVoiceConnectorTermination(
-    args: GetVoiceConnectorTerminationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetVoiceConnectorTerminationCommandOutput>;
-  public getVoiceConnectorTermination(
-    args: GetVoiceConnectorTerminationCommandInput,
-    cb: (err: any, data?: GetVoiceConnectorTerminationCommandOutput) => void
-  ): void;
-  public getVoiceConnectorTermination(
-    args: GetVoiceConnectorTerminationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetVoiceConnectorTerminationCommandOutput) => void
-  ): void;
-  public getVoiceConnectorTermination(
-    args: GetVoiceConnectorTerminationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceConnectorTerminationCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceConnectorTerminationCommandOutput) => void
-  ): Promise<GetVoiceConnectorTerminationCommandOutput> | void {
-    const command = new GetVoiceConnectorTerminationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about the last time a SIP <code>OPTIONS</code> ping was received from
-   *             your SIP infrastructure for the specified Amazon Chime Voice Connector.</p>
-   */
-  public getVoiceConnectorTerminationHealth(
-    args: GetVoiceConnectorTerminationHealthCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetVoiceConnectorTerminationHealthCommandOutput>;
-  public getVoiceConnectorTerminationHealth(
-    args: GetVoiceConnectorTerminationHealthCommandInput,
-    cb: (err: any, data?: GetVoiceConnectorTerminationHealthCommandOutput) => void
-  ): void;
-  public getVoiceConnectorTerminationHealth(
-    args: GetVoiceConnectorTerminationHealthCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetVoiceConnectorTerminationHealthCommandOutput) => void
-  ): void;
-  public getVoiceConnectorTerminationHealth(
-    args: GetVoiceConnectorTerminationHealthCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceConnectorTerminationHealthCommandOutput) => void),
-    cb?: (err: any, data?: GetVoiceConnectorTerminationHealthCommandOutput) => void
-  ): Promise<GetVoiceConnectorTerminationHealthCommandOutput> | void {
-    const command = new GetVoiceConnectorTerminationHealthCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Sends email to a maximum of 50 users, inviting them to the specified Amazon Chime
-   *                 <code>Team</code> account. Only <code>Team</code> account types are currently
-   *             supported for this action.</p>
-   */
-  public inviteUsers(args: InviteUsersCommandInput, options?: __HttpHandlerOptions): Promise<InviteUsersCommandOutput>;
-  public inviteUsers(args: InviteUsersCommandInput, cb: (err: any, data?: InviteUsersCommandOutput) => void): void;
-  public inviteUsers(
-    args: InviteUsersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: InviteUsersCommandOutput) => void
-  ): void;
-  public inviteUsers(
-    args: InviteUsersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InviteUsersCommandOutput) => void),
-    cb?: (err: any, data?: InviteUsersCommandOutput) => void
-  ): Promise<InviteUsersCommandOutput> | void {
-    const command = new InviteUsersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the Amazon Chime accounts under the administrator's AWS account. You can filter accounts
-   *             by account name prefix. To find out which Amazon Chime account a user belongs to, you can
-   *             filter by the user's email address, which returns one account result.</p>
-   */
-  public listAccounts(
-    args: ListAccountsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAccountsCommandOutput>;
-  public listAccounts(args: ListAccountsCommandInput, cb: (err: any, data?: ListAccountsCommandOutput) => void): void;
-  public listAccounts(
-    args: ListAccountsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAccountsCommandOutput) => void
-  ): void;
-  public listAccounts(
-    args: ListAccountsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccountsCommandOutput) => void),
-    cb?: (err: any, data?: ListAccountsCommandOutput) => void
-  ): Promise<ListAccountsCommandOutput> | void {
-    const command = new ListAccountsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns a list of the administrators in the <code>AppInstance</code>.</p>
-   */
-  public listAppInstanceAdmins(
-    args: ListAppInstanceAdminsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAppInstanceAdminsCommandOutput>;
-  public listAppInstanceAdmins(
-    args: ListAppInstanceAdminsCommandInput,
-    cb: (err: any, data?: ListAppInstanceAdminsCommandOutput) => void
-  ): void;
-  public listAppInstanceAdmins(
-    args: ListAppInstanceAdminsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAppInstanceAdminsCommandOutput) => void
-  ): void;
-  public listAppInstanceAdmins(
-    args: ListAppInstanceAdminsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAppInstanceAdminsCommandOutput) => void),
-    cb?: (err: any, data?: ListAppInstanceAdminsCommandOutput) => void
-  ): Promise<ListAppInstanceAdminsCommandOutput> | void {
-    const command = new ListAppInstanceAdminsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all Amazon Chime <code>AppInstance</code>s created under a single AWS account.</p>
-   */
-  public listAppInstances(
-    args: ListAppInstancesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAppInstancesCommandOutput>;
-  public listAppInstances(
-    args: ListAppInstancesCommandInput,
-    cb: (err: any, data?: ListAppInstancesCommandOutput) => void
-  ): void;
-  public listAppInstances(
-    args: ListAppInstancesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAppInstancesCommandOutput) => void
-  ): void;
-  public listAppInstances(
-    args: ListAppInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAppInstancesCommandOutput) => void),
-    cb?: (err: any, data?: ListAppInstancesCommandOutput) => void
-  ): Promise<ListAppInstancesCommandOutput> | void {
-    const command = new ListAppInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>List all <code>AppInstanceUsers</code>
-   *             created under a single <code>AppInstance</code>.
-   *         </p>
-   */
-  public listAppInstanceUsers(
-    args: ListAppInstanceUsersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAppInstanceUsersCommandOutput>;
-  public listAppInstanceUsers(
-    args: ListAppInstanceUsersCommandInput,
-    cb: (err: any, data?: ListAppInstanceUsersCommandOutput) => void
-  ): void;
-  public listAppInstanceUsers(
-    args: ListAppInstanceUsersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAppInstanceUsersCommandOutput) => void
-  ): void;
-  public listAppInstanceUsers(
-    args: ListAppInstanceUsersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAppInstanceUsersCommandOutput) => void),
-    cb?: (err: any, data?: ListAppInstanceUsersCommandOutput) => void
-  ): Promise<ListAppInstanceUsersCommandOutput> | void {
-    const command = new ListAppInstanceUsersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>
-   * Lists the attendees for the specified Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
-   * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
-   * in the <i>Amazon Chime Developer Guide</i>.
-   * </p>
-   */
-  public listAttendees(
-    args: ListAttendeesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAttendeesCommandOutput>;
-  public listAttendees(
-    args: ListAttendeesCommandInput,
-    cb: (err: any, data?: ListAttendeesCommandOutput) => void
-  ): void;
-  public listAttendees(
-    args: ListAttendeesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAttendeesCommandOutput) => void
-  ): void;
-  public listAttendees(
-    args: ListAttendeesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAttendeesCommandOutput) => void),
-    cb?: (err: any, data?: ListAttendeesCommandOutput) => void
-  ): Promise<ListAttendeesCommandOutput> | void {
-    const command = new ListAttendeesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the tags applied to an Amazon Chime SDK attendee resource.</p>
-   */
-  public listAttendeeTags(
-    args: ListAttendeeTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAttendeeTagsCommandOutput>;
-  public listAttendeeTags(
-    args: ListAttendeeTagsCommandInput,
-    cb: (err: any, data?: ListAttendeeTagsCommandOutput) => void
-  ): void;
-  public listAttendeeTags(
-    args: ListAttendeeTagsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAttendeeTagsCommandOutput) => void
-  ): void;
-  public listAttendeeTags(
-    args: ListAttendeeTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAttendeeTagsCommandOutput) => void),
-    cb?: (err: any, data?: ListAttendeeTagsCommandOutput) => void
-  ): Promise<ListAttendeeTagsCommandOutput> | void {
-    const command = new ListAttendeeTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the bots associated with the administrator's Amazon Chime Enterprise account ID.</p>
-   */
-  public listBots(args: ListBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListBotsCommandOutput>;
-  public listBots(args: ListBotsCommandInput, cb: (err: any, data?: ListBotsCommandOutput) => void): void;
-  public listBots(
-    args: ListBotsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListBotsCommandOutput) => void
-  ): void;
-  public listBots(
-    args: ListBotsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBotsCommandOutput) => void),
-    cb?: (err: any, data?: ListBotsCommandOutput) => void
-  ): Promise<ListBotsCommandOutput> | void {
-    const command = new ListBotsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all the users banned from a particular channel.</p>
-   *
-   *          <note>
-   *
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public listChannelBans(
-    args: ListChannelBansCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelBansCommandOutput>;
-  public listChannelBans(
-    args: ListChannelBansCommandInput,
-    cb: (err: any, data?: ListChannelBansCommandOutput) => void
-  ): void;
-  public listChannelBans(
-    args: ListChannelBansCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelBansCommandOutput) => void
-  ): void;
-  public listChannelBans(
-    args: ListChannelBansCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelBansCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelBansCommandOutput) => void
-  ): Promise<ListChannelBansCommandOutput> | void {
-    const command = new ListChannelBansCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all channel memberships in a channel.</p>
-   *
-   *          <note>
-   *
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public listChannelMemberships(
-    args: ListChannelMembershipsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelMembershipsCommandOutput>;
-  public listChannelMemberships(
-    args: ListChannelMembershipsCommandInput,
-    cb: (err: any, data?: ListChannelMembershipsCommandOutput) => void
-  ): void;
-  public listChannelMemberships(
-    args: ListChannelMembershipsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelMembershipsCommandOutput) => void
-  ): void;
-  public listChannelMemberships(
-    args: ListChannelMembershipsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelMembershipsCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelMembershipsCommandOutput) => void
-  ): Promise<ListChannelMembershipsCommandOutput> | void {
-    const command = new ListChannelMembershipsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Lists all channels that a particular <code>AppInstanceUser</code> is a part of. Only an
-   *             <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p>
-   *
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public listChannelMembershipsForAppInstanceUser(
-    args: ListChannelMembershipsForAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelMembershipsForAppInstanceUserCommandOutput>;
-  public listChannelMembershipsForAppInstanceUser(
-    args: ListChannelMembershipsForAppInstanceUserCommandInput,
-    cb: (err: any, data?: ListChannelMembershipsForAppInstanceUserCommandOutput) => void
-  ): void;
-  public listChannelMembershipsForAppInstanceUser(
-    args: ListChannelMembershipsForAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelMembershipsForAppInstanceUserCommandOutput) => void
-  ): void;
-  public listChannelMembershipsForAppInstanceUser(
-    args: ListChannelMembershipsForAppInstanceUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListChannelMembershipsForAppInstanceUserCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelMembershipsForAppInstanceUserCommandOutput) => void
-  ): Promise<ListChannelMembershipsForAppInstanceUserCommandOutput> | void {
-    const command = new ListChannelMembershipsForAppInstanceUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>List all the messages in a channel. Returns a paginated list of
-   *             <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending
-   *          order.</p>
-   *          <note>
-   *             <p>Redacted messages appear in the results as empty, since they are only redacted, not
-   *             deleted. Deleted messages do not appear in the results. This action always returns the
-   *             latest version of an edited message.</p>
-   *             <p>Also, the x-amz-chime-bearer request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public listChannelMessages(
-    args: ListChannelMessagesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelMessagesCommandOutput>;
-  public listChannelMessages(
-    args: ListChannelMessagesCommandInput,
-    cb: (err: any, data?: ListChannelMessagesCommandOutput) => void
-  ): void;
-  public listChannelMessages(
-    args: ListChannelMessagesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelMessagesCommandOutput) => void
-  ): void;
-  public listChannelMessages(
-    args: ListChannelMessagesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelMessagesCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelMessagesCommandOutput) => void
-  ): Promise<ListChannelMessagesCommandOutput> | void {
-    const command = new ListChannelMessagesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all the moderators for a channel.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public listChannelModerators(
-    args: ListChannelModeratorsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelModeratorsCommandOutput>;
-  public listChannelModerators(
-    args: ListChannelModeratorsCommandInput,
-    cb: (err: any, data?: ListChannelModeratorsCommandOutput) => void
-  ): void;
-  public listChannelModerators(
-    args: ListChannelModeratorsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelModeratorsCommandOutput) => void
-  ): void;
-  public listChannelModerators(
-    args: ListChannelModeratorsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelModeratorsCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelModeratorsCommandOutput) => void
-  ): Promise<ListChannelModeratorsCommandOutput> | void {
-    const command = new ListChannelModeratorsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all Channels created under a single Chime App as a paginated list. You can specify
-   *          filters to narrow results.</p>
-   *
-   *          <p class="title">
-   *             <b>Functionality & restrictions</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the
-   *                account.</p>
-   *             </li>
-   *             <li>
-   *                <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to
-   *                list the private channels in an account.</p>
-   *             </li>
-   *          </ul>
-   *
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public listChannels(
-    args: ListChannelsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelsCommandOutput>;
-  public listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
-  public listChannels(
-    args: ListChannelsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelsCommandOutput) => void
-  ): void;
-  public listChannels(
-    args: ListChannelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelsCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelsCommandOutput) => void
-  ): Promise<ListChannelsCommandOutput> | void {
-    const command = new ListChannelsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p>
-   *
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public listChannelsModeratedByAppInstanceUser(
-    args: ListChannelsModeratedByAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput>;
-  public listChannelsModeratedByAppInstanceUser(
-    args: ListChannelsModeratedByAppInstanceUserCommandInput,
-    cb: (err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void
-  ): void;
-  public listChannelsModeratedByAppInstanceUser(
-    args: ListChannelsModeratedByAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void
-  ): void;
-  public listChannelsModeratedByAppInstanceUser(
-    args: ListChannelsModeratedByAppInstanceUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void
-  ): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput> | void {
-    const command = new ListChannelsModeratedByAppInstanceUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns a list of media capture pipelines.</p>
-   */
-  public listMediaCapturePipelines(
-    args: ListMediaCapturePipelinesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListMediaCapturePipelinesCommandOutput>;
-  public listMediaCapturePipelines(
-    args: ListMediaCapturePipelinesCommandInput,
-    cb: (err: any, data?: ListMediaCapturePipelinesCommandOutput) => void
-  ): void;
-  public listMediaCapturePipelines(
-    args: ListMediaCapturePipelinesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListMediaCapturePipelinesCommandOutput) => void
-  ): void;
-  public listMediaCapturePipelines(
-    args: ListMediaCapturePipelinesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMediaCapturePipelinesCommandOutput) => void),
-    cb?: (err: any, data?: ListMediaCapturePipelinesCommandOutput) => void
-  ): Promise<ListMediaCapturePipelinesCommandOutput> | void {
-    const command = new ListMediaCapturePipelinesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>
-   * Lists up to 100 active Amazon Chime SDK meetings. For more information about the Amazon Chime SDK, see
-   * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
-   * in the <i>Amazon Chime Developer Guide</i>.</p>
-   */
-  public listMeetings(
-    args: ListMeetingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListMeetingsCommandOutput>;
-  public listMeetings(args: ListMeetingsCommandInput, cb: (err: any, data?: ListMeetingsCommandOutput) => void): void;
-  public listMeetings(
-    args: ListMeetingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListMeetingsCommandOutput) => void
-  ): void;
-  public listMeetings(
-    args: ListMeetingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMeetingsCommandOutput) => void),
-    cb?: (err: any, data?: ListMeetingsCommandOutput) => void
-  ): Promise<ListMeetingsCommandOutput> | void {
-    const command = new ListMeetingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the tags applied to an Amazon Chime SDK meeting resource.</p>
-   */
-  public listMeetingTags(
-    args: ListMeetingTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListMeetingTagsCommandOutput>;
-  public listMeetingTags(
-    args: ListMeetingTagsCommandInput,
-    cb: (err: any, data?: ListMeetingTagsCommandOutput) => void
-  ): void;
-  public listMeetingTags(
-    args: ListMeetingTagsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListMeetingTagsCommandOutput) => void
-  ): void;
-  public listMeetingTags(
-    args: ListMeetingTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMeetingTagsCommandOutput) => void),
-    cb?: (err: any, data?: ListMeetingTagsCommandOutput) => void
-  ): Promise<ListMeetingTagsCommandOutput> | void {
-    const command = new ListMeetingTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the phone number orders for the administrator's Amazon Chime account.</p>
-   */
-  public listPhoneNumberOrders(
-    args: ListPhoneNumberOrdersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListPhoneNumberOrdersCommandOutput>;
-  public listPhoneNumberOrders(
-    args: ListPhoneNumberOrdersCommandInput,
-    cb: (err: any, data?: ListPhoneNumberOrdersCommandOutput) => void
-  ): void;
-  public listPhoneNumberOrders(
-    args: ListPhoneNumberOrdersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListPhoneNumberOrdersCommandOutput) => void
-  ): void;
-  public listPhoneNumberOrders(
-    args: ListPhoneNumberOrdersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPhoneNumberOrdersCommandOutput) => void),
-    cb?: (err: any, data?: ListPhoneNumberOrdersCommandOutput) => void
-  ): Promise<ListPhoneNumberOrdersCommandOutput> | void {
-    const command = new ListPhoneNumberOrdersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the phone numbers for the specified Amazon Chime account, Amazon Chime user, Amazon Chime Voice Connector, or Amazon Chime Voice Connector group.</p>
-   */
-  public listPhoneNumbers(
-    args: ListPhoneNumbersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListPhoneNumbersCommandOutput>;
-  public listPhoneNumbers(
-    args: ListPhoneNumbersCommandInput,
-    cb: (err: any, data?: ListPhoneNumbersCommandOutput) => void
-  ): void;
-  public listPhoneNumbers(
-    args: ListPhoneNumbersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListPhoneNumbersCommandOutput) => void
-  ): void;
-  public listPhoneNumbers(
-    args: ListPhoneNumbersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPhoneNumbersCommandOutput) => void),
-    cb?: (err: any, data?: ListPhoneNumbersCommandOutput) => void
-  ): Promise<ListPhoneNumbersCommandOutput> | void {
-    const command = new ListPhoneNumbersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the proxy sessions for the specified Amazon Chime Voice Connector.</p>
-   */
-  public listProxySessions(
-    args: ListProxySessionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListProxySessionsCommandOutput>;
-  public listProxySessions(
-    args: ListProxySessionsCommandInput,
-    cb: (err: any, data?: ListProxySessionsCommandOutput) => void
-  ): void;
-  public listProxySessions(
-    args: ListProxySessionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListProxySessionsCommandOutput) => void
-  ): void;
-  public listProxySessions(
-    args: ListProxySessionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProxySessionsCommandOutput) => void),
-    cb?: (err: any, data?: ListProxySessionsCommandOutput) => void
-  ): Promise<ListProxySessionsCommandOutput> | void {
-    const command = new ListProxySessionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the membership details for the specified room in an Amazon Chime Enterprise account,
-   *             such as the members' IDs, email addresses, and names.</p>
-   */
-  public listRoomMemberships(
-    args: ListRoomMembershipsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListRoomMembershipsCommandOutput>;
-  public listRoomMemberships(
-    args: ListRoomMembershipsCommandInput,
-    cb: (err: any, data?: ListRoomMembershipsCommandOutput) => void
-  ): void;
-  public listRoomMemberships(
-    args: ListRoomMembershipsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListRoomMembershipsCommandOutput) => void
-  ): void;
-  public listRoomMemberships(
-    args: ListRoomMembershipsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRoomMembershipsCommandOutput) => void),
-    cb?: (err: any, data?: ListRoomMembershipsCommandOutput) => void
-  ): Promise<ListRoomMembershipsCommandOutput> | void {
-    const command = new ListRoomMembershipsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the room details for the specified Amazon Chime Enterprise account. Optionally, filter the results by a member ID (user ID or bot ID) to see a list of rooms that the member belongs to.</p>
-   */
-  public listRooms(args: ListRoomsCommandInput, options?: __HttpHandlerOptions): Promise<ListRoomsCommandOutput>;
-  public listRooms(args: ListRoomsCommandInput, cb: (err: any, data?: ListRoomsCommandOutput) => void): void;
-  public listRooms(
-    args: ListRoomsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListRoomsCommandOutput) => void
-  ): void;
-  public listRooms(
-    args: ListRoomsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRoomsCommandOutput) => void),
-    cb?: (err: any, data?: ListRoomsCommandOutput) => void
-  ): Promise<ListRoomsCommandOutput> | void {
-    const command = new ListRoomsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the SIP media applications under the administrator's AWS account.</p>
-   */
-  public listSipMediaApplications(
-    args: ListSipMediaApplicationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSipMediaApplicationsCommandOutput>;
-  public listSipMediaApplications(
-    args: ListSipMediaApplicationsCommandInput,
-    cb: (err: any, data?: ListSipMediaApplicationsCommandOutput) => void
-  ): void;
-  public listSipMediaApplications(
-    args: ListSipMediaApplicationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSipMediaApplicationsCommandOutput) => void
-  ): void;
-  public listSipMediaApplications(
-    args: ListSipMediaApplicationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSipMediaApplicationsCommandOutput) => void),
-    cb?: (err: any, data?: ListSipMediaApplicationsCommandOutput) => void
-  ): Promise<ListSipMediaApplicationsCommandOutput> | void {
-    const command = new ListSipMediaApplicationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the SIP rules under the administrator's AWS account.</p>
-   */
-  public listSipRules(
-    args: ListSipRulesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSipRulesCommandOutput>;
-  public listSipRules(args: ListSipRulesCommandInput, cb: (err: any, data?: ListSipRulesCommandOutput) => void): void;
-  public listSipRules(
-    args: ListSipRulesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSipRulesCommandOutput) => void
-  ): void;
-  public listSipRules(
-    args: ListSipRulesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSipRulesCommandOutput) => void),
-    cb?: (err: any, data?: ListSipRulesCommandOutput) => void
-  ): Promise<ListSipRulesCommandOutput> | void {
-    const command = new ListSipRulesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists supported phone number countries.</p>
-   */
-  public listSupportedPhoneNumberCountries(
-    args: ListSupportedPhoneNumberCountriesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSupportedPhoneNumberCountriesCommandOutput>;
-  public listSupportedPhoneNumberCountries(
-    args: ListSupportedPhoneNumberCountriesCommandInput,
-    cb: (err: any, data?: ListSupportedPhoneNumberCountriesCommandOutput) => void
-  ): void;
-  public listSupportedPhoneNumberCountries(
-    args: ListSupportedPhoneNumberCountriesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSupportedPhoneNumberCountriesCommandOutput) => void
-  ): void;
-  public listSupportedPhoneNumberCountries(
-    args: ListSupportedPhoneNumberCountriesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSupportedPhoneNumberCountriesCommandOutput) => void),
-    cb?: (err: any, data?: ListSupportedPhoneNumberCountriesCommandOutput) => void
-  ): Promise<ListSupportedPhoneNumberCountriesCommandOutput> | void {
-    const command = new ListSupportedPhoneNumberCountriesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the tags applied to an Amazon Chime SDK meeting resource.</p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the users that belong to the specified Amazon Chime account. You can specify an email
-   *             address to list only the user that the email address belongs to.</p>
-   */
-  public listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
-  public listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
-  public listUsers(
-    args: ListUsersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListUsersCommandOutput) => void
-  ): void;
-  public listUsers(
-    args: ListUsersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersCommandOutput) => void),
-    cb?: (err: any, data?: ListUsersCommandOutput) => void
-  ): Promise<ListUsersCommandOutput> | void {
-    const command = new ListUsersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the Amazon Chime Voice Connector groups for the administrator's AWS account.</p>
-   */
-  public listVoiceConnectorGroups(
-    args: ListVoiceConnectorGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListVoiceConnectorGroupsCommandOutput>;
-  public listVoiceConnectorGroups(
-    args: ListVoiceConnectorGroupsCommandInput,
-    cb: (err: any, data?: ListVoiceConnectorGroupsCommandOutput) => void
-  ): void;
-  public listVoiceConnectorGroups(
-    args: ListVoiceConnectorGroupsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListVoiceConnectorGroupsCommandOutput) => void
-  ): void;
-  public listVoiceConnectorGroups(
-    args: ListVoiceConnectorGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVoiceConnectorGroupsCommandOutput) => void),
-    cb?: (err: any, data?: ListVoiceConnectorGroupsCommandOutput) => void
-  ): Promise<ListVoiceConnectorGroupsCommandOutput> | void {
-    const command = new ListVoiceConnectorGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the Amazon Chime Voice Connectors for the administrator's AWS account.</p>
-   */
-  public listVoiceConnectors(
-    args: ListVoiceConnectorsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListVoiceConnectorsCommandOutput>;
-  public listVoiceConnectors(
-    args: ListVoiceConnectorsCommandInput,
-    cb: (err: any, data?: ListVoiceConnectorsCommandOutput) => void
-  ): void;
-  public listVoiceConnectors(
-    args: ListVoiceConnectorsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListVoiceConnectorsCommandOutput) => void
-  ): void;
-  public listVoiceConnectors(
-    args: ListVoiceConnectorsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVoiceConnectorsCommandOutput) => void),
-    cb?: (err: any, data?: ListVoiceConnectorsCommandOutput) => void
-  ): Promise<ListVoiceConnectorsCommandOutput> | void {
-    const command = new ListVoiceConnectorsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the SIP credentials for the specified Amazon Chime Voice Connector.</p>
-   */
-  public listVoiceConnectorTerminationCredentials(
-    args: ListVoiceConnectorTerminationCredentialsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListVoiceConnectorTerminationCredentialsCommandOutput>;
-  public listVoiceConnectorTerminationCredentials(
-    args: ListVoiceConnectorTerminationCredentialsCommandInput,
-    cb: (err: any, data?: ListVoiceConnectorTerminationCredentialsCommandOutput) => void
-  ): void;
-  public listVoiceConnectorTerminationCredentials(
-    args: ListVoiceConnectorTerminationCredentialsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListVoiceConnectorTerminationCredentialsCommandOutput) => void
-  ): void;
-  public listVoiceConnectorTerminationCredentials(
-    args: ListVoiceConnectorTerminationCredentialsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListVoiceConnectorTerminationCredentialsCommandOutput) => void),
-    cb?: (err: any, data?: ListVoiceConnectorTerminationCredentialsCommandOutput) => void
-  ): Promise<ListVoiceConnectorTerminationCredentialsCommandOutput> | void {
-    const command = new ListVoiceConnectorTerminationCredentialsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Logs out the specified user from all of the devices they are currently logged into.</p>
-   */
-  public logoutUser(args: LogoutUserCommandInput, options?: __HttpHandlerOptions): Promise<LogoutUserCommandOutput>;
-  public logoutUser(args: LogoutUserCommandInput, cb: (err: any, data?: LogoutUserCommandOutput) => void): void;
-  public logoutUser(
-    args: LogoutUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: LogoutUserCommandOutput) => void
-  ): void;
-  public logoutUser(
-    args: LogoutUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: LogoutUserCommandOutput) => void),
-    cb?: (err: any, data?: LogoutUserCommandOutput) => void
-  ): Promise<LogoutUserCommandOutput> | void {
-    const command = new LogoutUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Sets the amount of time in days that a given <code>AppInstance</code> retains data.</p>
-   */
-  public putAppInstanceRetentionSettings(
-    args: PutAppInstanceRetentionSettingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutAppInstanceRetentionSettingsCommandOutput>;
-  public putAppInstanceRetentionSettings(
-    args: PutAppInstanceRetentionSettingsCommandInput,
-    cb: (err: any, data?: PutAppInstanceRetentionSettingsCommandOutput) => void
-  ): void;
-  public putAppInstanceRetentionSettings(
-    args: PutAppInstanceRetentionSettingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutAppInstanceRetentionSettingsCommandOutput) => void
-  ): void;
-  public putAppInstanceRetentionSettings(
-    args: PutAppInstanceRetentionSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAppInstanceRetentionSettingsCommandOutput) => void),
-    cb?: (err: any, data?: PutAppInstanceRetentionSettingsCommandOutput) => void
-  ): Promise<PutAppInstanceRetentionSettingsCommandOutput> | void {
-    const command = new PutAppInstanceRetentionSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>The data streaming configurations of an <code>AppInstance</code>.</p>
-   */
-  public putAppInstanceStreamingConfigurations(
-    args: PutAppInstanceStreamingConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutAppInstanceStreamingConfigurationsCommandOutput>;
-  public putAppInstanceStreamingConfigurations(
-    args: PutAppInstanceStreamingConfigurationsCommandInput,
-    cb: (err: any, data?: PutAppInstanceStreamingConfigurationsCommandOutput) => void
-  ): void;
-  public putAppInstanceStreamingConfigurations(
-    args: PutAppInstanceStreamingConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutAppInstanceStreamingConfigurationsCommandOutput) => void
-  ): void;
-  public putAppInstanceStreamingConfigurations(
-    args: PutAppInstanceStreamingConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutAppInstanceStreamingConfigurationsCommandOutput) => void),
-    cb?: (err: any, data?: PutAppInstanceStreamingConfigurationsCommandOutput) => void
-  ): Promise<PutAppInstanceStreamingConfigurationsCommandOutput> | void {
-    const command = new PutAppInstanceStreamingConfigurationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an events configuration that allows a bot to receive outgoing events sent by Amazon
-   *             Chime. Choose either an HTTPS endpoint or a Lambda function ARN. For more information,
-   *             see <a>Bot</a>.</p>
-   */
-  public putEventsConfiguration(
-    args: PutEventsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutEventsConfigurationCommandOutput>;
-  public putEventsConfiguration(
-    args: PutEventsConfigurationCommandInput,
-    cb: (err: any, data?: PutEventsConfigurationCommandOutput) => void
-  ): void;
-  public putEventsConfiguration(
-    args: PutEventsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutEventsConfigurationCommandOutput) => void
-  ): void;
-  public putEventsConfiguration(
-    args: PutEventsConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEventsConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: PutEventsConfigurationCommandOutput) => void
-  ): Promise<PutEventsConfigurationCommandOutput> | void {
-    const command = new PutEventsConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>
-   * Puts retention settings for the specified Amazon Chime Enterprise account. We recommend using AWS CloudTrail to monitor usage of this API for your account. For more information, see
-   * <a href="https://docs.aws.amazon.com/chime/latest/ag/cloudtrail.html">Logging Amazon Chime API Calls with AWS CloudTrail</a>
-   * in the <i>Amazon Chime Administration Guide</i>.</p>
-   *
-   *          <p>
-   * To turn off existing retention settings, remove the number of days from the corresponding
-   * <b>RetentionDays</b>
-   * field in the
-   * <b>RetentionSettings</b>
-   * object. For more information about retention settings, see
-   * <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing Chat Retention Policies</a>
-   * in the <i>Amazon Chime Administration Guide</i>.</p>
-   */
-  public putRetentionSettings(
-    args: PutRetentionSettingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutRetentionSettingsCommandOutput>;
-  public putRetentionSettings(
-    args: PutRetentionSettingsCommandInput,
-    cb: (err: any, data?: PutRetentionSettingsCommandOutput) => void
-  ): void;
-  public putRetentionSettings(
-    args: PutRetentionSettingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutRetentionSettingsCommandOutput) => void
-  ): void;
-  public putRetentionSettings(
-    args: PutRetentionSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRetentionSettingsCommandOutput) => void),
-    cb?: (err: any, data?: PutRetentionSettingsCommandOutput) => void
-  ): Promise<PutRetentionSettingsCommandOutput> | void {
-    const command = new PutRetentionSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the logging configuration for the specified SIP media application.</p>
-   */
-  public putSipMediaApplicationLoggingConfiguration(
-    args: PutSipMediaApplicationLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutSipMediaApplicationLoggingConfigurationCommandOutput>;
-  public putSipMediaApplicationLoggingConfiguration(
-    args: PutSipMediaApplicationLoggingConfigurationCommandInput,
-    cb: (err: any, data?: PutSipMediaApplicationLoggingConfigurationCommandOutput) => void
-  ): void;
-  public putSipMediaApplicationLoggingConfiguration(
-    args: PutSipMediaApplicationLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutSipMediaApplicationLoggingConfigurationCommandOutput) => void
-  ): void;
-  public putSipMediaApplicationLoggingConfiguration(
-    args: PutSipMediaApplicationLoggingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutSipMediaApplicationLoggingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: PutSipMediaApplicationLoggingConfigurationCommandOutput) => void
-  ): Promise<PutSipMediaApplicationLoggingConfigurationCommandOutput> | void {
-    const command = new PutSipMediaApplicationLoggingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Puts emergency calling configuration details to the specified Amazon Chime Voice Connector, such as emergency phone numbers and calling countries. Origination and termination settings must be enabled for
-   *     the Amazon Chime Voice Connector before emergency calling can be configured.</p>
-   */
-  public putVoiceConnectorEmergencyCallingConfiguration(
-    args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutVoiceConnectorEmergencyCallingConfigurationCommandOutput>;
-  public putVoiceConnectorEmergencyCallingConfiguration(
-    args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    cb: (err: any, data?: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
-  ): void;
-  public putVoiceConnectorEmergencyCallingConfiguration(
-    args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
-  ): void;
-  public putVoiceConnectorEmergencyCallingConfiguration(
-    args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
-  ): Promise<PutVoiceConnectorEmergencyCallingConfigurationCommandOutput> | void {
-    const command = new PutVoiceConnectorEmergencyCallingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging configuration specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.</p>
-   */
-  public putVoiceConnectorLoggingConfiguration(
-    args: PutVoiceConnectorLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutVoiceConnectorLoggingConfigurationCommandOutput>;
-  public putVoiceConnectorLoggingConfiguration(
-    args: PutVoiceConnectorLoggingConfigurationCommandInput,
-    cb: (err: any, data?: PutVoiceConnectorLoggingConfigurationCommandOutput) => void
-  ): void;
-  public putVoiceConnectorLoggingConfiguration(
-    args: PutVoiceConnectorLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutVoiceConnectorLoggingConfigurationCommandOutput) => void
-  ): void;
-  public putVoiceConnectorLoggingConfiguration(
-    args: PutVoiceConnectorLoggingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutVoiceConnectorLoggingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: PutVoiceConnectorLoggingConfigurationCommandOutput) => void
-  ): Promise<PutVoiceConnectorLoggingConfigurationCommandOutput> | void {
-    const command = new PutVoiceConnectorLoggingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds origination settings for the specified Amazon Chime Voice Connector.</p>
-   *
-   *          <note>
-   *             <p>If emergency calling is configured for the Amazon Chime Voice Connector, it must be deleted prior to turning off origination settings.</p>
-   *          </note>
-   */
-  public putVoiceConnectorOrigination(
-    args: PutVoiceConnectorOriginationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutVoiceConnectorOriginationCommandOutput>;
-  public putVoiceConnectorOrigination(
-    args: PutVoiceConnectorOriginationCommandInput,
-    cb: (err: any, data?: PutVoiceConnectorOriginationCommandOutput) => void
-  ): void;
-  public putVoiceConnectorOrigination(
-    args: PutVoiceConnectorOriginationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutVoiceConnectorOriginationCommandOutput) => void
-  ): void;
-  public putVoiceConnectorOrigination(
-    args: PutVoiceConnectorOriginationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutVoiceConnectorOriginationCommandOutput) => void),
-    cb?: (err: any, data?: PutVoiceConnectorOriginationCommandOutput) => void
-  ): Promise<PutVoiceConnectorOriginationCommandOutput> | void {
-    const command = new PutVoiceConnectorOriginationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Puts the specified proxy configuration to the specified Amazon Chime Voice Connector.</p>
-   */
-  public putVoiceConnectorProxy(
-    args: PutVoiceConnectorProxyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutVoiceConnectorProxyCommandOutput>;
-  public putVoiceConnectorProxy(
-    args: PutVoiceConnectorProxyCommandInput,
-    cb: (err: any, data?: PutVoiceConnectorProxyCommandOutput) => void
-  ): void;
-  public putVoiceConnectorProxy(
-    args: PutVoiceConnectorProxyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutVoiceConnectorProxyCommandOutput) => void
-  ): void;
-  public putVoiceConnectorProxy(
-    args: PutVoiceConnectorProxyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutVoiceConnectorProxyCommandOutput) => void),
-    cb?: (err: any, data?: PutVoiceConnectorProxyCommandOutput) => void
-  ): Promise<PutVoiceConnectorProxyCommandOutput> | void {
-    const command = new PutVoiceConnectorProxyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds a streaming configuration for the specified Amazon Chime Voice Connector. The streaming
-   *             configuration specifies whether media streaming is enabled for sending to Kinesis.
-   *             It also sets the retention period, in hours, for the Amazon Kinesis data.</p>
-   */
-  public putVoiceConnectorStreamingConfiguration(
-    args: PutVoiceConnectorStreamingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutVoiceConnectorStreamingConfigurationCommandOutput>;
-  public putVoiceConnectorStreamingConfiguration(
-    args: PutVoiceConnectorStreamingConfigurationCommandInput,
-    cb: (err: any, data?: PutVoiceConnectorStreamingConfigurationCommandOutput) => void
-  ): void;
-  public putVoiceConnectorStreamingConfiguration(
-    args: PutVoiceConnectorStreamingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutVoiceConnectorStreamingConfigurationCommandOutput) => void
-  ): void;
-  public putVoiceConnectorStreamingConfiguration(
-    args: PutVoiceConnectorStreamingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutVoiceConnectorStreamingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: PutVoiceConnectorStreamingConfigurationCommandOutput) => void
-  ): Promise<PutVoiceConnectorStreamingConfigurationCommandOutput> | void {
-    const command = new PutVoiceConnectorStreamingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds termination settings for the specified Amazon Chime Voice Connector.</p>
-   *
-   *          <note>
-   *             <p>If emergency calling is configured for the Amazon Chime Voice Connector, it must be deleted prior to turning off termination settings.</p>
-   *          </note>
-   */
-  public putVoiceConnectorTermination(
-    args: PutVoiceConnectorTerminationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutVoiceConnectorTerminationCommandOutput>;
-  public putVoiceConnectorTermination(
-    args: PutVoiceConnectorTerminationCommandInput,
-    cb: (err: any, data?: PutVoiceConnectorTerminationCommandOutput) => void
-  ): void;
-  public putVoiceConnectorTermination(
-    args: PutVoiceConnectorTerminationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutVoiceConnectorTerminationCommandOutput) => void
-  ): void;
-  public putVoiceConnectorTermination(
-    args: PutVoiceConnectorTerminationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutVoiceConnectorTerminationCommandOutput) => void),
-    cb?: (err: any, data?: PutVoiceConnectorTerminationCommandOutput) => void
-  ): Promise<PutVoiceConnectorTerminationCommandOutput> | void {
-    const command = new PutVoiceConnectorTerminationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds termination SIP credentials for the specified Amazon Chime Voice Connector.</p>
-   */
-  public putVoiceConnectorTerminationCredentials(
-    args: PutVoiceConnectorTerminationCredentialsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutVoiceConnectorTerminationCredentialsCommandOutput>;
-  public putVoiceConnectorTerminationCredentials(
-    args: PutVoiceConnectorTerminationCredentialsCommandInput,
-    cb: (err: any, data?: PutVoiceConnectorTerminationCredentialsCommandOutput) => void
-  ): void;
-  public putVoiceConnectorTerminationCredentials(
-    args: PutVoiceConnectorTerminationCredentialsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutVoiceConnectorTerminationCredentialsCommandOutput) => void
-  ): void;
-  public putVoiceConnectorTerminationCredentials(
-    args: PutVoiceConnectorTerminationCredentialsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutVoiceConnectorTerminationCredentialsCommandOutput) => void),
-    cb?: (err: any, data?: PutVoiceConnectorTerminationCredentialsCommandOutput) => void
-  ): Promise<PutVoiceConnectorTerminationCredentialsCommandOutput> | void {
-    const command = new PutVoiceConnectorTerminationCredentialsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Redacts message content, but not metadata. The message exists in the back end, but the
-   *          action returns null content, and the state shows as redacted.</p>
-   *
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public redactChannelMessage(
-    args: RedactChannelMessageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RedactChannelMessageCommandOutput>;
-  public redactChannelMessage(
-    args: RedactChannelMessageCommandInput,
-    cb: (err: any, data?: RedactChannelMessageCommandOutput) => void
-  ): void;
-  public redactChannelMessage(
-    args: RedactChannelMessageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RedactChannelMessageCommandOutput) => void
-  ): void;
-  public redactChannelMessage(
-    args: RedactChannelMessageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RedactChannelMessageCommandOutput) => void),
-    cb?: (err: any, data?: RedactChannelMessageCommandOutput) => void
-  ): Promise<RedactChannelMessageCommandOutput> | void {
-    const command = new RedactChannelMessageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Redacts the specified message from the specified Amazon Chime conversation.</p>
-   */
-  public redactConversationMessage(
-    args: RedactConversationMessageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RedactConversationMessageCommandOutput>;
-  public redactConversationMessage(
-    args: RedactConversationMessageCommandInput,
-    cb: (err: any, data?: RedactConversationMessageCommandOutput) => void
-  ): void;
-  public redactConversationMessage(
-    args: RedactConversationMessageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RedactConversationMessageCommandOutput) => void
-  ): void;
-  public redactConversationMessage(
-    args: RedactConversationMessageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RedactConversationMessageCommandOutput) => void),
-    cb?: (err: any, data?: RedactConversationMessageCommandOutput) => void
-  ): Promise<RedactConversationMessageCommandOutput> | void {
-    const command = new RedactConversationMessageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Redacts the specified message from the specified Amazon Chime channel.</p>
-   */
-  public redactRoomMessage(
-    args: RedactRoomMessageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RedactRoomMessageCommandOutput>;
-  public redactRoomMessage(
-    args: RedactRoomMessageCommandInput,
-    cb: (err: any, data?: RedactRoomMessageCommandOutput) => void
-  ): void;
-  public redactRoomMessage(
-    args: RedactRoomMessageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RedactRoomMessageCommandOutput) => void
-  ): void;
-  public redactRoomMessage(
-    args: RedactRoomMessageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RedactRoomMessageCommandOutput) => void),
-    cb?: (err: any, data?: RedactRoomMessageCommandOutput) => void
-  ): Promise<RedactRoomMessageCommandOutput> | void {
-    const command = new RedactRoomMessageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Regenerates the security token for a bot.</p>
-   */
-  public regenerateSecurityToken(
-    args: RegenerateSecurityTokenCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegenerateSecurityTokenCommandOutput>;
-  public regenerateSecurityToken(
-    args: RegenerateSecurityTokenCommandInput,
-    cb: (err: any, data?: RegenerateSecurityTokenCommandOutput) => void
-  ): void;
-  public regenerateSecurityToken(
-    args: RegenerateSecurityTokenCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegenerateSecurityTokenCommandOutput) => void
-  ): void;
-  public regenerateSecurityToken(
-    args: RegenerateSecurityTokenCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegenerateSecurityTokenCommandOutput) => void),
-    cb?: (err: any, data?: RegenerateSecurityTokenCommandOutput) => void
-  ): Promise<RegenerateSecurityTokenCommandOutput> | void {
-    const command = new RegenerateSecurityTokenCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Resets the personal meeting PIN for the specified user on an Amazon Chime account. Returns
-   *             the <a>User</a> object with the updated personal meeting PIN.</p>
-   */
-  public resetPersonalPIN(
-    args: ResetPersonalPINCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ResetPersonalPINCommandOutput>;
-  public resetPersonalPIN(
-    args: ResetPersonalPINCommandInput,
-    cb: (err: any, data?: ResetPersonalPINCommandOutput) => void
-  ): void;
-  public resetPersonalPIN(
-    args: ResetPersonalPINCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ResetPersonalPINCommandOutput) => void
-  ): void;
-  public resetPersonalPIN(
-    args: ResetPersonalPINCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetPersonalPINCommandOutput) => void),
-    cb?: (err: any, data?: ResetPersonalPINCommandOutput) => void
-  ): Promise<ResetPersonalPINCommandOutput> | void {
-    const command = new ResetPersonalPINCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Moves a phone number from the <b>Deletion queue</b> back into the
-   *             phone number <b>Inventory</b>.</p>
-   */
-  public restorePhoneNumber(
-    args: RestorePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RestorePhoneNumberCommandOutput>;
-  public restorePhoneNumber(
-    args: RestorePhoneNumberCommandInput,
-    cb: (err: any, data?: RestorePhoneNumberCommandOutput) => void
-  ): void;
-  public restorePhoneNumber(
-    args: RestorePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RestorePhoneNumberCommandOutput) => void
-  ): void;
-  public restorePhoneNumber(
-    args: RestorePhoneNumberCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestorePhoneNumberCommandOutput) => void),
-    cb?: (err: any, data?: RestorePhoneNumberCommandOutput) => void
-  ): Promise<RestorePhoneNumberCommandOutput> | void {
-    const command = new RestorePhoneNumberCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Searches for phone numbers that can be ordered. For US numbers, provide at least one of
-   *             the following search filters: <code>AreaCode</code>, <code>City</code>,
-   *                 <code>State</code>, or <code>TollFreePrefix</code>. If you provide
-   *             <code>City</code>, you must also provide <code>State</code>. Numbers outside the US only
-   *             support the <code>PhoneNumberType</code> filter, which you must use.</p>
-   */
-  public searchAvailablePhoneNumbers(
-    args: SearchAvailablePhoneNumbersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SearchAvailablePhoneNumbersCommandOutput>;
-  public searchAvailablePhoneNumbers(
-    args: SearchAvailablePhoneNumbersCommandInput,
-    cb: (err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void
-  ): void;
-  public searchAvailablePhoneNumbers(
-    args: SearchAvailablePhoneNumbersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void
-  ): void;
-  public searchAvailablePhoneNumbers(
-    args: SearchAvailablePhoneNumbersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void),
-    cb?: (err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void
-  ): Promise<SearchAvailablePhoneNumbersCommandOutput> | void {
-    const command = new SearchAvailablePhoneNumbersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Sends a message to a particular channel that the member is a part of.</p>
-   *
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *
-   *             <p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata.
-   *                <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p>
-   *          </note>
-   */
-  public sendChannelMessage(
-    args: SendChannelMessageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SendChannelMessageCommandOutput>;
-  public sendChannelMessage(
-    args: SendChannelMessageCommandInput,
-    cb: (err: any, data?: SendChannelMessageCommandOutput) => void
-  ): void;
-  public sendChannelMessage(
-    args: SendChannelMessageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SendChannelMessageCommandOutput) => void
-  ): void;
-  public sendChannelMessage(
-    args: SendChannelMessageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendChannelMessageCommandOutput) => void),
-    cb?: (err: any, data?: SendChannelMessageCommandOutput) => void
-  ): Promise<SendChannelMessageCommandOutput> | void {
-    const command = new SendChannelMessageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Starts transcription for the specified <code>meetingId</code>. </p>
-   */
-  public startMeetingTranscription(
-    args: StartMeetingTranscriptionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartMeetingTranscriptionCommandOutput>;
-  public startMeetingTranscription(
-    args: StartMeetingTranscriptionCommandInput,
-    cb: (err: any, data?: StartMeetingTranscriptionCommandOutput) => void
-  ): void;
-  public startMeetingTranscription(
-    args: StartMeetingTranscriptionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartMeetingTranscriptionCommandOutput) => void
-  ): void;
-  public startMeetingTranscription(
-    args: StartMeetingTranscriptionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMeetingTranscriptionCommandOutput) => void),
-    cb?: (err: any, data?: StartMeetingTranscriptionCommandOutput) => void
-  ): Promise<StartMeetingTranscriptionCommandOutput> | void {
-    const command = new StartMeetingTranscriptionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Stops transcription for the specified <code>meetingId</code>.</p>
-   */
-  public stopMeetingTranscription(
-    args: StopMeetingTranscriptionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopMeetingTranscriptionCommandOutput>;
-  public stopMeetingTranscription(
-    args: StopMeetingTranscriptionCommandInput,
-    cb: (err: any, data?: StopMeetingTranscriptionCommandOutput) => void
-  ): void;
-  public stopMeetingTranscription(
-    args: StopMeetingTranscriptionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StopMeetingTranscriptionCommandOutput) => void
-  ): void;
-  public stopMeetingTranscription(
-    args: StopMeetingTranscriptionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopMeetingTranscriptionCommandOutput) => void),
-    cb?: (err: any, data?: StopMeetingTranscriptionCommandOutput) => void
-  ): Promise<StopMeetingTranscriptionCommandOutput> | void {
-    const command = new StopMeetingTranscriptionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Applies the specified tags to the specified Amazon Chime SDK attendee.</p>
-   */
-  public tagAttendee(args: TagAttendeeCommandInput, options?: __HttpHandlerOptions): Promise<TagAttendeeCommandOutput>;
-  public tagAttendee(args: TagAttendeeCommandInput, cb: (err: any, data?: TagAttendeeCommandOutput) => void): void;
-  public tagAttendee(
-    args: TagAttendeeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagAttendeeCommandOutput) => void
-  ): void;
-  public tagAttendee(
-    args: TagAttendeeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagAttendeeCommandOutput) => void),
-    cb?: (err: any, data?: TagAttendeeCommandOutput) => void
-  ): Promise<TagAttendeeCommandOutput> | void {
-    const command = new TagAttendeeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Applies the specified tags to the specified Amazon Chime SDK meeting.</p>
-   */
-  public tagMeeting(args: TagMeetingCommandInput, options?: __HttpHandlerOptions): Promise<TagMeetingCommandOutput>;
-  public tagMeeting(args: TagMeetingCommandInput, cb: (err: any, data?: TagMeetingCommandOutput) => void): void;
-  public tagMeeting(
-    args: TagMeetingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagMeetingCommandOutput) => void
-  ): void;
-  public tagMeeting(
-    args: TagMeetingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagMeetingCommandOutput) => void),
-    cb?: (err: any, data?: TagMeetingCommandOutput) => void
-  ): Promise<TagMeetingCommandOutput> | void {
-    const command = new TagMeetingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Applies the specified tags to the specified Amazon Chime SDK meeting resource.</p>
-   */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Untags the specified tags from the specified Amazon Chime SDK attendee.</p>
-   */
-  public untagAttendee(
-    args: UntagAttendeeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagAttendeeCommandOutput>;
-  public untagAttendee(
-    args: UntagAttendeeCommandInput,
-    cb: (err: any, data?: UntagAttendeeCommandOutput) => void
-  ): void;
-  public untagAttendee(
-    args: UntagAttendeeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagAttendeeCommandOutput) => void
-  ): void;
-  public untagAttendee(
-    args: UntagAttendeeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagAttendeeCommandOutput) => void),
-    cb?: (err: any, data?: UntagAttendeeCommandOutput) => void
-  ): Promise<UntagAttendeeCommandOutput> | void {
-    const command = new UntagAttendeeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Untags the specified tags from the specified Amazon Chime SDK meeting.</p>
-   */
-  public untagMeeting(
-    args: UntagMeetingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagMeetingCommandOutput>;
-  public untagMeeting(args: UntagMeetingCommandInput, cb: (err: any, data?: UntagMeetingCommandOutput) => void): void;
-  public untagMeeting(
-    args: UntagMeetingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagMeetingCommandOutput) => void
-  ): void;
-  public untagMeeting(
-    args: UntagMeetingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagMeetingCommandOutput) => void),
-    cb?: (err: any, data?: UntagMeetingCommandOutput) => void
-  ): Promise<UntagMeetingCommandOutput> | void {
-    const command = new UntagMeetingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Untags the specified tags from the specified Amazon Chime SDK meeting resource.</p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates account details for the specified Amazon Chime account. Currently, only account name and default license updates are supported for this action.</p>
-   */
-  public updateAccount(
-    args: UpdateAccountCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAccountCommandOutput>;
-  public updateAccount(
-    args: UpdateAccountCommandInput,
-    cb: (err: any, data?: UpdateAccountCommandOutput) => void
-  ): void;
-  public updateAccount(
-    args: UpdateAccountCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAccountCommandOutput) => void
-  ): void;
-  public updateAccount(
-    args: UpdateAccountCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAccountCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAccountCommandOutput) => void
-  ): Promise<UpdateAccountCommandOutput> | void {
-    const command = new UpdateAccountCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the settings for the specified Amazon Chime account. You can update settings for
-   *             remote control of shared screens, or for the dial-out option. For more information about
-   *             these settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/policies.html">Use
-   *                 the Policies Page</a> in the <i>Amazon Chime Administration
-   *                 Guide</i>.</p>
-   */
-  public updateAccountSettings(
-    args: UpdateAccountSettingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAccountSettingsCommandOutput>;
-  public updateAccountSettings(
-    args: UpdateAccountSettingsCommandInput,
-    cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
-  ): void;
-  public updateAccountSettings(
-    args: UpdateAccountSettingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
-  ): void;
-  public updateAccountSettings(
-    args: UpdateAccountSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAccountSettingsCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
-  ): Promise<UpdateAccountSettingsCommandOutput> | void {
-    const command = new UpdateAccountSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates <code>AppInstance</code> metadata.</p>
-   */
-  public updateAppInstance(
-    args: UpdateAppInstanceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAppInstanceCommandOutput>;
-  public updateAppInstance(
-    args: UpdateAppInstanceCommandInput,
-    cb: (err: any, data?: UpdateAppInstanceCommandOutput) => void
-  ): void;
-  public updateAppInstance(
-    args: UpdateAppInstanceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAppInstanceCommandOutput) => void
-  ): void;
-  public updateAppInstance(
-    args: UpdateAppInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAppInstanceCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAppInstanceCommandOutput) => void
-  ): Promise<UpdateAppInstanceCommandOutput> | void {
-    const command = new UpdateAppInstanceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the details of an <code>AppInstanceUser</code>. You can update names and metadata.</p>
-   */
-  public updateAppInstanceUser(
-    args: UpdateAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAppInstanceUserCommandOutput>;
-  public updateAppInstanceUser(
-    args: UpdateAppInstanceUserCommandInput,
-    cb: (err: any, data?: UpdateAppInstanceUserCommandOutput) => void
-  ): void;
-  public updateAppInstanceUser(
-    args: UpdateAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAppInstanceUserCommandOutput) => void
-  ): void;
-  public updateAppInstanceUser(
-    args: UpdateAppInstanceUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAppInstanceUserCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAppInstanceUserCommandOutput) => void
-  ): Promise<UpdateAppInstanceUserCommandOutput> | void {
-    const command = new UpdateAppInstanceUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the status of the specified bot, such as starting or stopping the bot from running in your Amazon Chime Enterprise account.</p>
-   */
-  public updateBot(args: UpdateBotCommandInput, options?: __HttpHandlerOptions): Promise<UpdateBotCommandOutput>;
-  public updateBot(args: UpdateBotCommandInput, cb: (err: any, data?: UpdateBotCommandOutput) => void): void;
-  public updateBot(
-    args: UpdateBotCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateBotCommandOutput) => void
-  ): void;
-  public updateBot(
-    args: UpdateBotCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBotCommandOutput) => void),
-    cb?: (err: any, data?: UpdateBotCommandOutput) => void
-  ): Promise<UpdateBotCommandOutput> | void {
-    const command = new UpdateBotCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Update a channel's attributes.</p>
-   *          <p>
-   *             <b>Restriction</b>: You can't change a channel's privacy. </p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public updateChannel(
-    args: UpdateChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateChannelCommandOutput>;
-  public updateChannel(
-    args: UpdateChannelCommandInput,
-    cb: (err: any, data?: UpdateChannelCommandOutput) => void
-  ): void;
-  public updateChannel(
-    args: UpdateChannelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateChannelCommandOutput) => void
-  ): void;
-  public updateChannel(
-    args: UpdateChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateChannelCommandOutput) => void
-  ): Promise<UpdateChannelCommandOutput> | void {
-    const command = new UpdateChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the content of a message.</p>
-   *
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public updateChannelMessage(
-    args: UpdateChannelMessageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateChannelMessageCommandOutput>;
-  public updateChannelMessage(
-    args: UpdateChannelMessageCommandInput,
-    cb: (err: any, data?: UpdateChannelMessageCommandOutput) => void
-  ): void;
-  public updateChannelMessage(
-    args: UpdateChannelMessageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateChannelMessageCommandOutput) => void
-  ): void;
-  public updateChannelMessage(
-    args: UpdateChannelMessageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelMessageCommandOutput) => void),
-    cb?: (err: any, data?: UpdateChannelMessageCommandOutput) => void
-  ): Promise<UpdateChannelMessageCommandOutput> | void {
-    const command = new UpdateChannelMessageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>The details of the time when a user last read messages in a channel.</p>
-   *
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public updateChannelReadMarker(
-    args: UpdateChannelReadMarkerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateChannelReadMarkerCommandOutput>;
-  public updateChannelReadMarker(
-    args: UpdateChannelReadMarkerCommandInput,
-    cb: (err: any, data?: UpdateChannelReadMarkerCommandOutput) => void
-  ): void;
-  public updateChannelReadMarker(
-    args: UpdateChannelReadMarkerCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateChannelReadMarkerCommandOutput) => void
-  ): void;
-  public updateChannelReadMarker(
-    args: UpdateChannelReadMarkerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelReadMarkerCommandOutput) => void),
-    cb?: (err: any, data?: UpdateChannelReadMarkerCommandOutput) => void
-  ): Promise<UpdateChannelReadMarkerCommandOutput> | void {
-    const command = new UpdateChannelReadMarkerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates global settings for the administrator's AWS account, such as Amazon Chime Business Calling and Amazon Chime Voice Connector settings.</p>
-   */
-  public updateGlobalSettings(
-    args: UpdateGlobalSettingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateGlobalSettingsCommandOutput>;
-  public updateGlobalSettings(
-    args: UpdateGlobalSettingsCommandInput,
-    cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
-  ): void;
-  public updateGlobalSettings(
-    args: UpdateGlobalSettingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
-  ): void;
-  public updateGlobalSettings(
-    args: UpdateGlobalSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGlobalSettingsCommandOutput) => void),
-    cb?: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
-  ): Promise<UpdateGlobalSettingsCommandOutput> | void {
-    const command = new UpdateGlobalSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates phone number details, such as product type or calling name, for the specified phone number ID. You can update one phone number detail at a time. For example, you can update either the product type or the calling name in one action.</p>
-   *          <p>For toll-free numbers, you cannot use the Amazon Chime Business Calling product type. For numbers outside the U.S., you must use the Amazon Chime SIP Media Application Dial-In product type.</p>
-   *          <p>Updates to outbound calling names can take 72 hours to complete. Pending updates to outbound calling names must be complete before you can request another update.</p>
-   */
-  public updatePhoneNumber(
-    args: UpdatePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdatePhoneNumberCommandOutput>;
-  public updatePhoneNumber(
-    args: UpdatePhoneNumberCommandInput,
-    cb: (err: any, data?: UpdatePhoneNumberCommandOutput) => void
-  ): void;
-  public updatePhoneNumber(
-    args: UpdatePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdatePhoneNumberCommandOutput) => void
-  ): void;
-  public updatePhoneNumber(
-    args: UpdatePhoneNumberCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePhoneNumberCommandOutput) => void),
-    cb?: (err: any, data?: UpdatePhoneNumberCommandOutput) => void
-  ): Promise<UpdatePhoneNumberCommandOutput> | void {
-    const command = new UpdatePhoneNumberCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the phone number settings for the administrator's AWS account, such as the default
-   *             outbound calling name. You can update the default outbound calling name once every seven
-   *             days. Outbound calling names can take up to 72 hours to update.</p>
-   */
-  public updatePhoneNumberSettings(
-    args: UpdatePhoneNumberSettingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdatePhoneNumberSettingsCommandOutput>;
-  public updatePhoneNumberSettings(
-    args: UpdatePhoneNumberSettingsCommandInput,
-    cb: (err: any, data?: UpdatePhoneNumberSettingsCommandOutput) => void
-  ): void;
-  public updatePhoneNumberSettings(
-    args: UpdatePhoneNumberSettingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdatePhoneNumberSettingsCommandOutput) => void
-  ): void;
-  public updatePhoneNumberSettings(
-    args: UpdatePhoneNumberSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePhoneNumberSettingsCommandOutput) => void),
-    cb?: (err: any, data?: UpdatePhoneNumberSettingsCommandOutput) => void
-  ): Promise<UpdatePhoneNumberSettingsCommandOutput> | void {
-    const command = new UpdatePhoneNumberSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the specified proxy session details, such as voice or SMS capabilities.</p>
-   */
-  public updateProxySession(
-    args: UpdateProxySessionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateProxySessionCommandOutput>;
-  public updateProxySession(
-    args: UpdateProxySessionCommandInput,
-    cb: (err: any, data?: UpdateProxySessionCommandOutput) => void
-  ): void;
-  public updateProxySession(
-    args: UpdateProxySessionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateProxySessionCommandOutput) => void
-  ): void;
-  public updateProxySession(
-    args: UpdateProxySessionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProxySessionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateProxySessionCommandOutput) => void
-  ): Promise<UpdateProxySessionCommandOutput> | void {
-    const command = new UpdateProxySessionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates room details, such as the room name, for a room in an Amazon Chime Enterprise account.</p>
-   */
-  public updateRoom(args: UpdateRoomCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRoomCommandOutput>;
-  public updateRoom(args: UpdateRoomCommandInput, cb: (err: any, data?: UpdateRoomCommandOutput) => void): void;
-  public updateRoom(
-    args: UpdateRoomCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateRoomCommandOutput) => void
-  ): void;
-  public updateRoom(
-    args: UpdateRoomCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRoomCommandOutput) => void),
-    cb?: (err: any, data?: UpdateRoomCommandOutput) => void
-  ): Promise<UpdateRoomCommandOutput> | void {
-    const command = new UpdateRoomCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates room membership details, such as the member role, for a room in an Amazon Chime
-   *             Enterprise account. The member role designates whether the member is a chat room
-   *             administrator or a general chat room member. The member role can be updated only for
-   *             user IDs.</p>
-   */
-  public updateRoomMembership(
-    args: UpdateRoomMembershipCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateRoomMembershipCommandOutput>;
-  public updateRoomMembership(
-    args: UpdateRoomMembershipCommandInput,
-    cb: (err: any, data?: UpdateRoomMembershipCommandOutput) => void
-  ): void;
-  public updateRoomMembership(
-    args: UpdateRoomMembershipCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateRoomMembershipCommandOutput) => void
-  ): void;
-  public updateRoomMembership(
-    args: UpdateRoomMembershipCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRoomMembershipCommandOutput) => void),
-    cb?: (err: any, data?: UpdateRoomMembershipCommandOutput) => void
-  ): Promise<UpdateRoomMembershipCommandOutput> | void {
-    const command = new UpdateRoomMembershipCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the details of the specified SIP media application.</p>
-   */
-  public updateSipMediaApplication(
-    args: UpdateSipMediaApplicationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateSipMediaApplicationCommandOutput>;
-  public updateSipMediaApplication(
-    args: UpdateSipMediaApplicationCommandInput,
-    cb: (err: any, data?: UpdateSipMediaApplicationCommandOutput) => void
-  ): void;
-  public updateSipMediaApplication(
-    args: UpdateSipMediaApplicationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateSipMediaApplicationCommandOutput) => void
-  ): void;
-  public updateSipMediaApplication(
-    args: UpdateSipMediaApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSipMediaApplicationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateSipMediaApplicationCommandOutput) => void
-  ): Promise<UpdateSipMediaApplicationCommandOutput> | void {
-    const command = new UpdateSipMediaApplicationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Invokes the AWS Lambda function associated with the SIP media application and transaction ID in an update request. The Lambda function can then return a new set of actions.</p>
-   */
-  public updateSipMediaApplicationCall(
-    args: UpdateSipMediaApplicationCallCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateSipMediaApplicationCallCommandOutput>;
-  public updateSipMediaApplicationCall(
-    args: UpdateSipMediaApplicationCallCommandInput,
-    cb: (err: any, data?: UpdateSipMediaApplicationCallCommandOutput) => void
-  ): void;
-  public updateSipMediaApplicationCall(
-    args: UpdateSipMediaApplicationCallCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateSipMediaApplicationCallCommandOutput) => void
-  ): void;
-  public updateSipMediaApplicationCall(
-    args: UpdateSipMediaApplicationCallCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSipMediaApplicationCallCommandOutput) => void),
-    cb?: (err: any, data?: UpdateSipMediaApplicationCallCommandOutput) => void
-  ): Promise<UpdateSipMediaApplicationCallCommandOutput> | void {
-    const command = new UpdateSipMediaApplicationCallCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the details of the specified SIP rule.</p>
-   */
-  public updateSipRule(
-    args: UpdateSipRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateSipRuleCommandOutput>;
-  public updateSipRule(
-    args: UpdateSipRuleCommandInput,
-    cb: (err: any, data?: UpdateSipRuleCommandOutput) => void
-  ): void;
-  public updateSipRule(
-    args: UpdateSipRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateSipRuleCommandOutput) => void
-  ): void;
-  public updateSipRule(
-    args: UpdateSipRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSipRuleCommandOutput) => void),
-    cb?: (err: any, data?: UpdateSipRuleCommandOutput) => void
-  ): Promise<UpdateSipRuleCommandOutput> | void {
-    const command = new UpdateSipRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates user details for a specified user ID. Currently, only <code>LicenseType</code> updates are supported for this action.</p>
-   */
-  public updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
-  public updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
-  public updateUser(
-    args: UpdateUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateUserCommandOutput) => void
-  ): void;
-  public updateUser(
-    args: UpdateUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserCommandOutput) => void),
-    cb?: (err: any, data?: UpdateUserCommandOutput) => void
-  ): Promise<UpdateUserCommandOutput> | void {
-    const command = new UpdateUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the settings for the specified user, such as phone number settings.</p>
-   */
-  public updateUserSettings(
-    args: UpdateUserSettingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateUserSettingsCommandOutput>;
-  public updateUserSettings(
-    args: UpdateUserSettingsCommandInput,
-    cb: (err: any, data?: UpdateUserSettingsCommandOutput) => void
-  ): void;
-  public updateUserSettings(
-    args: UpdateUserSettingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateUserSettingsCommandOutput) => void
-  ): void;
-  public updateUserSettings(
-    args: UpdateUserSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserSettingsCommandOutput) => void),
-    cb?: (err: any, data?: UpdateUserSettingsCommandOutput) => void
-  ): Promise<UpdateUserSettingsCommandOutput> | void {
-    const command = new UpdateUserSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates details for the specified Amazon Chime Voice Connector.</p>
-   */
-  public updateVoiceConnector(
-    args: UpdateVoiceConnectorCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateVoiceConnectorCommandOutput>;
-  public updateVoiceConnector(
-    args: UpdateVoiceConnectorCommandInput,
-    cb: (err: any, data?: UpdateVoiceConnectorCommandOutput) => void
-  ): void;
-  public updateVoiceConnector(
-    args: UpdateVoiceConnectorCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateVoiceConnectorCommandOutput) => void
-  ): void;
-  public updateVoiceConnector(
-    args: UpdateVoiceConnectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVoiceConnectorCommandOutput) => void),
-    cb?: (err: any, data?: UpdateVoiceConnectorCommandOutput) => void
-  ): Promise<UpdateVoiceConnectorCommandOutput> | void {
-    const command = new UpdateVoiceConnectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates details of the specified Amazon Chime Voice Connector group, such as the name and
-   *             Amazon Chime Voice Connector priority ranking.</p>
-   */
-  public updateVoiceConnectorGroup(
-    args: UpdateVoiceConnectorGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateVoiceConnectorGroupCommandOutput>;
-  public updateVoiceConnectorGroup(
-    args: UpdateVoiceConnectorGroupCommandInput,
-    cb: (err: any, data?: UpdateVoiceConnectorGroupCommandOutput) => void
-  ): void;
-  public updateVoiceConnectorGroup(
-    args: UpdateVoiceConnectorGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateVoiceConnectorGroupCommandOutput) => void
-  ): void;
-  public updateVoiceConnectorGroup(
-    args: UpdateVoiceConnectorGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVoiceConnectorGroupCommandOutput) => void),
-    cb?: (err: any, data?: UpdateVoiceConnectorGroupCommandOutput) => void
-  ): Promise<UpdateVoiceConnectorGroupCommandOutput> | void {
-    const command = new UpdateVoiceConnectorGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Validates an address to be used for 911 calls made with Amazon
-   *             Chime Voice Connectors. You can use validated addresses
-   *             in a Presence Information Data Format Location Object file that you include in SIP requests.
-   *             That helps ensure that addresses are routed to the appropriate Public Safety Answering Point.</p>
-   */
-  public validateE911Address(
-    args: ValidateE911AddressCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ValidateE911AddressCommandOutput>;
-  public validateE911Address(
-    args: ValidateE911AddressCommandInput,
-    cb: (err: any, data?: ValidateE911AddressCommandOutput) => void
-  ): void;
-  public validateE911Address(
-    args: ValidateE911AddressCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ValidateE911AddressCommandOutput) => void
-  ): void;
-  public validateE911Address(
-    args: ValidateE911AddressCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ValidateE911AddressCommandOutput) => void),
-    cb?: (err: any, data?: ValidateE911AddressCommandOutput) => void
-  ): Promise<ValidateE911AddressCommandOutput> | void {
-    const command = new ValidateE911AddressCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class Chime extends ChimeClient implements Chime {}
+createAggregatedClient(commands, Chime);

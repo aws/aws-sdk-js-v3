@@ -1,7 +1,8 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
-import { ChimeSDKMessagingClient } from "./ChimeSDKMessagingClient";
+import { ChimeSDKMessagingClient, ChimeSDKMessagingClientConfig } from "./ChimeSDKMessagingClient";
 import {
   AssociateChannelFlowCommand,
   AssociateChannelFlowCommandInput,
@@ -254,6 +255,881 @@ import {
   UpdateChannelReadMarkerCommandOutput,
 } from "./commands/UpdateChannelReadMarkerCommand";
 
+const commands = {
+  AssociateChannelFlowCommand,
+  BatchCreateChannelMembershipCommand,
+  ChannelFlowCallbackCommand,
+  CreateChannelCommand,
+  CreateChannelBanCommand,
+  CreateChannelFlowCommand,
+  CreateChannelMembershipCommand,
+  CreateChannelModeratorCommand,
+  DeleteChannelCommand,
+  DeleteChannelBanCommand,
+  DeleteChannelFlowCommand,
+  DeleteChannelMembershipCommand,
+  DeleteChannelMessageCommand,
+  DeleteChannelModeratorCommand,
+  DeleteMessagingStreamingConfigurationsCommand,
+  DescribeChannelCommand,
+  DescribeChannelBanCommand,
+  DescribeChannelFlowCommand,
+  DescribeChannelMembershipCommand,
+  DescribeChannelMembershipForAppInstanceUserCommand,
+  DescribeChannelModeratedByAppInstanceUserCommand,
+  DescribeChannelModeratorCommand,
+  DisassociateChannelFlowCommand,
+  GetChannelMembershipPreferencesCommand,
+  GetChannelMessageCommand,
+  GetChannelMessageStatusCommand,
+  GetMessagingSessionEndpointCommand,
+  GetMessagingStreamingConfigurationsCommand,
+  ListChannelBansCommand,
+  ListChannelFlowsCommand,
+  ListChannelMembershipsCommand,
+  ListChannelMembershipsForAppInstanceUserCommand,
+  ListChannelMessagesCommand,
+  ListChannelModeratorsCommand,
+  ListChannelsCommand,
+  ListChannelsAssociatedWithChannelFlowCommand,
+  ListChannelsModeratedByAppInstanceUserCommand,
+  ListSubChannelsCommand,
+  ListTagsForResourceCommand,
+  PutChannelExpirationSettingsCommand,
+  PutChannelMembershipPreferencesCommand,
+  PutMessagingStreamingConfigurationsCommand,
+  RedactChannelMessageCommand,
+  SearchChannelsCommand,
+  SendChannelMessageCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateChannelCommand,
+  UpdateChannelFlowCommand,
+  UpdateChannelMessageCommand,
+  UpdateChannelReadMarkerCommand,
+};
+
+export interface ChimeSDKMessaging {
+  /**
+   * @see {@link AssociateChannelFlowCommand}
+   */
+  associateChannelFlow(
+    args: AssociateChannelFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateChannelFlowCommandOutput>;
+  associateChannelFlow(
+    args: AssociateChannelFlowCommandInput,
+    cb: (err: any, data?: AssociateChannelFlowCommandOutput) => void
+  ): void;
+  associateChannelFlow(
+    args: AssociateChannelFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateChannelFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchCreateChannelMembershipCommand}
+   */
+  batchCreateChannelMembership(
+    args: BatchCreateChannelMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchCreateChannelMembershipCommandOutput>;
+  batchCreateChannelMembership(
+    args: BatchCreateChannelMembershipCommandInput,
+    cb: (err: any, data?: BatchCreateChannelMembershipCommandOutput) => void
+  ): void;
+  batchCreateChannelMembership(
+    args: BatchCreateChannelMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchCreateChannelMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ChannelFlowCallbackCommand}
+   */
+  channelFlowCallback(
+    args: ChannelFlowCallbackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ChannelFlowCallbackCommandOutput>;
+  channelFlowCallback(
+    args: ChannelFlowCallbackCommandInput,
+    cb: (err: any, data?: ChannelFlowCallbackCommandOutput) => void
+  ): void;
+  channelFlowCallback(
+    args: ChannelFlowCallbackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ChannelFlowCallbackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateChannelCommand}
+   */
+  createChannel(args: CreateChannelCommandInput, options?: __HttpHandlerOptions): Promise<CreateChannelCommandOutput>;
+  createChannel(args: CreateChannelCommandInput, cb: (err: any, data?: CreateChannelCommandOutput) => void): void;
+  createChannel(
+    args: CreateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateChannelBanCommand}
+   */
+  createChannelBan(
+    args: CreateChannelBanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelBanCommandOutput>;
+  createChannelBan(
+    args: CreateChannelBanCommandInput,
+    cb: (err: any, data?: CreateChannelBanCommandOutput) => void
+  ): void;
+  createChannelBan(
+    args: CreateChannelBanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelBanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateChannelFlowCommand}
+   */
+  createChannelFlow(
+    args: CreateChannelFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelFlowCommandOutput>;
+  createChannelFlow(
+    args: CreateChannelFlowCommandInput,
+    cb: (err: any, data?: CreateChannelFlowCommandOutput) => void
+  ): void;
+  createChannelFlow(
+    args: CreateChannelFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateChannelMembershipCommand}
+   */
+  createChannelMembership(
+    args: CreateChannelMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelMembershipCommandOutput>;
+  createChannelMembership(
+    args: CreateChannelMembershipCommandInput,
+    cb: (err: any, data?: CreateChannelMembershipCommandOutput) => void
+  ): void;
+  createChannelMembership(
+    args: CreateChannelMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateChannelModeratorCommand}
+   */
+  createChannelModerator(
+    args: CreateChannelModeratorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelModeratorCommandOutput>;
+  createChannelModerator(
+    args: CreateChannelModeratorCommandInput,
+    cb: (err: any, data?: CreateChannelModeratorCommandOutput) => void
+  ): void;
+  createChannelModerator(
+    args: CreateChannelModeratorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelModeratorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteChannelCommand}
+   */
+  deleteChannel(args: DeleteChannelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteChannelCommandOutput>;
+  deleteChannel(args: DeleteChannelCommandInput, cb: (err: any, data?: DeleteChannelCommandOutput) => void): void;
+  deleteChannel(
+    args: DeleteChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteChannelBanCommand}
+   */
+  deleteChannelBan(
+    args: DeleteChannelBanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelBanCommandOutput>;
+  deleteChannelBan(
+    args: DeleteChannelBanCommandInput,
+    cb: (err: any, data?: DeleteChannelBanCommandOutput) => void
+  ): void;
+  deleteChannelBan(
+    args: DeleteChannelBanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelBanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteChannelFlowCommand}
+   */
+  deleteChannelFlow(
+    args: DeleteChannelFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelFlowCommandOutput>;
+  deleteChannelFlow(
+    args: DeleteChannelFlowCommandInput,
+    cb: (err: any, data?: DeleteChannelFlowCommandOutput) => void
+  ): void;
+  deleteChannelFlow(
+    args: DeleteChannelFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteChannelMembershipCommand}
+   */
+  deleteChannelMembership(
+    args: DeleteChannelMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelMembershipCommandOutput>;
+  deleteChannelMembership(
+    args: DeleteChannelMembershipCommandInput,
+    cb: (err: any, data?: DeleteChannelMembershipCommandOutput) => void
+  ): void;
+  deleteChannelMembership(
+    args: DeleteChannelMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteChannelMessageCommand}
+   */
+  deleteChannelMessage(
+    args: DeleteChannelMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelMessageCommandOutput>;
+  deleteChannelMessage(
+    args: DeleteChannelMessageCommandInput,
+    cb: (err: any, data?: DeleteChannelMessageCommandOutput) => void
+  ): void;
+  deleteChannelMessage(
+    args: DeleteChannelMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelMessageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteChannelModeratorCommand}
+   */
+  deleteChannelModerator(
+    args: DeleteChannelModeratorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelModeratorCommandOutput>;
+  deleteChannelModerator(
+    args: DeleteChannelModeratorCommandInput,
+    cb: (err: any, data?: DeleteChannelModeratorCommandOutput) => void
+  ): void;
+  deleteChannelModerator(
+    args: DeleteChannelModeratorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelModeratorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteMessagingStreamingConfigurationsCommand}
+   */
+  deleteMessagingStreamingConfigurations(
+    args: DeleteMessagingStreamingConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMessagingStreamingConfigurationsCommandOutput>;
+  deleteMessagingStreamingConfigurations(
+    args: DeleteMessagingStreamingConfigurationsCommandInput,
+    cb: (err: any, data?: DeleteMessagingStreamingConfigurationsCommandOutput) => void
+  ): void;
+  deleteMessagingStreamingConfigurations(
+    args: DeleteMessagingStreamingConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMessagingStreamingConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeChannelCommand}
+   */
+  describeChannel(
+    args: DescribeChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelCommandOutput>;
+  describeChannel(args: DescribeChannelCommandInput, cb: (err: any, data?: DescribeChannelCommandOutput) => void): void;
+  describeChannel(
+    args: DescribeChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeChannelBanCommand}
+   */
+  describeChannelBan(
+    args: DescribeChannelBanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelBanCommandOutput>;
+  describeChannelBan(
+    args: DescribeChannelBanCommandInput,
+    cb: (err: any, data?: DescribeChannelBanCommandOutput) => void
+  ): void;
+  describeChannelBan(
+    args: DescribeChannelBanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelBanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeChannelFlowCommand}
+   */
+  describeChannelFlow(
+    args: DescribeChannelFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelFlowCommandOutput>;
+  describeChannelFlow(
+    args: DescribeChannelFlowCommandInput,
+    cb: (err: any, data?: DescribeChannelFlowCommandOutput) => void
+  ): void;
+  describeChannelFlow(
+    args: DescribeChannelFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeChannelMembershipCommand}
+   */
+  describeChannelMembership(
+    args: DescribeChannelMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelMembershipCommandOutput>;
+  describeChannelMembership(
+    args: DescribeChannelMembershipCommandInput,
+    cb: (err: any, data?: DescribeChannelMembershipCommandOutput) => void
+  ): void;
+  describeChannelMembership(
+    args: DescribeChannelMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeChannelMembershipForAppInstanceUserCommand}
+   */
+  describeChannelMembershipForAppInstanceUser(
+    args: DescribeChannelMembershipForAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelMembershipForAppInstanceUserCommandOutput>;
+  describeChannelMembershipForAppInstanceUser(
+    args: DescribeChannelMembershipForAppInstanceUserCommandInput,
+    cb: (err: any, data?: DescribeChannelMembershipForAppInstanceUserCommandOutput) => void
+  ): void;
+  describeChannelMembershipForAppInstanceUser(
+    args: DescribeChannelMembershipForAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelMembershipForAppInstanceUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeChannelModeratedByAppInstanceUserCommand}
+   */
+  describeChannelModeratedByAppInstanceUser(
+    args: DescribeChannelModeratedByAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelModeratedByAppInstanceUserCommandOutput>;
+  describeChannelModeratedByAppInstanceUser(
+    args: DescribeChannelModeratedByAppInstanceUserCommandInput,
+    cb: (err: any, data?: DescribeChannelModeratedByAppInstanceUserCommandOutput) => void
+  ): void;
+  describeChannelModeratedByAppInstanceUser(
+    args: DescribeChannelModeratedByAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelModeratedByAppInstanceUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeChannelModeratorCommand}
+   */
+  describeChannelModerator(
+    args: DescribeChannelModeratorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelModeratorCommandOutput>;
+  describeChannelModerator(
+    args: DescribeChannelModeratorCommandInput,
+    cb: (err: any, data?: DescribeChannelModeratorCommandOutput) => void
+  ): void;
+  describeChannelModerator(
+    args: DescribeChannelModeratorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelModeratorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateChannelFlowCommand}
+   */
+  disassociateChannelFlow(
+    args: DisassociateChannelFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateChannelFlowCommandOutput>;
+  disassociateChannelFlow(
+    args: DisassociateChannelFlowCommandInput,
+    cb: (err: any, data?: DisassociateChannelFlowCommandOutput) => void
+  ): void;
+  disassociateChannelFlow(
+    args: DisassociateChannelFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateChannelFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetChannelMembershipPreferencesCommand}
+   */
+  getChannelMembershipPreferences(
+    args: GetChannelMembershipPreferencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetChannelMembershipPreferencesCommandOutput>;
+  getChannelMembershipPreferences(
+    args: GetChannelMembershipPreferencesCommandInput,
+    cb: (err: any, data?: GetChannelMembershipPreferencesCommandOutput) => void
+  ): void;
+  getChannelMembershipPreferences(
+    args: GetChannelMembershipPreferencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetChannelMembershipPreferencesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetChannelMessageCommand}
+   */
+  getChannelMessage(
+    args: GetChannelMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetChannelMessageCommandOutput>;
+  getChannelMessage(
+    args: GetChannelMessageCommandInput,
+    cb: (err: any, data?: GetChannelMessageCommandOutput) => void
+  ): void;
+  getChannelMessage(
+    args: GetChannelMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetChannelMessageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetChannelMessageStatusCommand}
+   */
+  getChannelMessageStatus(
+    args: GetChannelMessageStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetChannelMessageStatusCommandOutput>;
+  getChannelMessageStatus(
+    args: GetChannelMessageStatusCommandInput,
+    cb: (err: any, data?: GetChannelMessageStatusCommandOutput) => void
+  ): void;
+  getChannelMessageStatus(
+    args: GetChannelMessageStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetChannelMessageStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetMessagingSessionEndpointCommand}
+   */
+  getMessagingSessionEndpoint(
+    args: GetMessagingSessionEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMessagingSessionEndpointCommandOutput>;
+  getMessagingSessionEndpoint(
+    args: GetMessagingSessionEndpointCommandInput,
+    cb: (err: any, data?: GetMessagingSessionEndpointCommandOutput) => void
+  ): void;
+  getMessagingSessionEndpoint(
+    args: GetMessagingSessionEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMessagingSessionEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetMessagingStreamingConfigurationsCommand}
+   */
+  getMessagingStreamingConfigurations(
+    args: GetMessagingStreamingConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMessagingStreamingConfigurationsCommandOutput>;
+  getMessagingStreamingConfigurations(
+    args: GetMessagingStreamingConfigurationsCommandInput,
+    cb: (err: any, data?: GetMessagingStreamingConfigurationsCommandOutput) => void
+  ): void;
+  getMessagingStreamingConfigurations(
+    args: GetMessagingStreamingConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMessagingStreamingConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelBansCommand}
+   */
+  listChannelBans(
+    args: ListChannelBansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelBansCommandOutput>;
+  listChannelBans(args: ListChannelBansCommandInput, cb: (err: any, data?: ListChannelBansCommandOutput) => void): void;
+  listChannelBans(
+    args: ListChannelBansCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelBansCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelFlowsCommand}
+   */
+  listChannelFlows(
+    args: ListChannelFlowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelFlowsCommandOutput>;
+  listChannelFlows(
+    args: ListChannelFlowsCommandInput,
+    cb: (err: any, data?: ListChannelFlowsCommandOutput) => void
+  ): void;
+  listChannelFlows(
+    args: ListChannelFlowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelFlowsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelMembershipsCommand}
+   */
+  listChannelMemberships(
+    args: ListChannelMembershipsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelMembershipsCommandOutput>;
+  listChannelMemberships(
+    args: ListChannelMembershipsCommandInput,
+    cb: (err: any, data?: ListChannelMembershipsCommandOutput) => void
+  ): void;
+  listChannelMemberships(
+    args: ListChannelMembershipsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelMembershipsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelMembershipsForAppInstanceUserCommand}
+   */
+  listChannelMembershipsForAppInstanceUser(
+    args: ListChannelMembershipsForAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelMembershipsForAppInstanceUserCommandOutput>;
+  listChannelMembershipsForAppInstanceUser(
+    args: ListChannelMembershipsForAppInstanceUserCommandInput,
+    cb: (err: any, data?: ListChannelMembershipsForAppInstanceUserCommandOutput) => void
+  ): void;
+  listChannelMembershipsForAppInstanceUser(
+    args: ListChannelMembershipsForAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelMembershipsForAppInstanceUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelMessagesCommand}
+   */
+  listChannelMessages(
+    args: ListChannelMessagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelMessagesCommandOutput>;
+  listChannelMessages(
+    args: ListChannelMessagesCommandInput,
+    cb: (err: any, data?: ListChannelMessagesCommandOutput) => void
+  ): void;
+  listChannelMessages(
+    args: ListChannelMessagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelMessagesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelModeratorsCommand}
+   */
+  listChannelModerators(
+    args: ListChannelModeratorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelModeratorsCommandOutput>;
+  listChannelModerators(
+    args: ListChannelModeratorsCommandInput,
+    cb: (err: any, data?: ListChannelModeratorsCommandOutput) => void
+  ): void;
+  listChannelModerators(
+    args: ListChannelModeratorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelModeratorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelsCommand}
+   */
+  listChannels(args: ListChannelsCommandInput, options?: __HttpHandlerOptions): Promise<ListChannelsCommandOutput>;
+  listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
+  listChannels(
+    args: ListChannelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelsAssociatedWithChannelFlowCommand}
+   */
+  listChannelsAssociatedWithChannelFlow(
+    args: ListChannelsAssociatedWithChannelFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelsAssociatedWithChannelFlowCommandOutput>;
+  listChannelsAssociatedWithChannelFlow(
+    args: ListChannelsAssociatedWithChannelFlowCommandInput,
+    cb: (err: any, data?: ListChannelsAssociatedWithChannelFlowCommandOutput) => void
+  ): void;
+  listChannelsAssociatedWithChannelFlow(
+    args: ListChannelsAssociatedWithChannelFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelsAssociatedWithChannelFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelsModeratedByAppInstanceUserCommand}
+   */
+  listChannelsModeratedByAppInstanceUser(
+    args: ListChannelsModeratedByAppInstanceUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput>;
+  listChannelsModeratedByAppInstanceUser(
+    args: ListChannelsModeratedByAppInstanceUserCommandInput,
+    cb: (err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void
+  ): void;
+  listChannelsModeratedByAppInstanceUser(
+    args: ListChannelsModeratedByAppInstanceUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSubChannelsCommand}
+   */
+  listSubChannels(
+    args: ListSubChannelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSubChannelsCommandOutput>;
+  listSubChannels(args: ListSubChannelsCommandInput, cb: (err: any, data?: ListSubChannelsCommandOutput) => void): void;
+  listSubChannels(
+    args: ListSubChannelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSubChannelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutChannelExpirationSettingsCommand}
+   */
+  putChannelExpirationSettings(
+    args: PutChannelExpirationSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutChannelExpirationSettingsCommandOutput>;
+  putChannelExpirationSettings(
+    args: PutChannelExpirationSettingsCommandInput,
+    cb: (err: any, data?: PutChannelExpirationSettingsCommandOutput) => void
+  ): void;
+  putChannelExpirationSettings(
+    args: PutChannelExpirationSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutChannelExpirationSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutChannelMembershipPreferencesCommand}
+   */
+  putChannelMembershipPreferences(
+    args: PutChannelMembershipPreferencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutChannelMembershipPreferencesCommandOutput>;
+  putChannelMembershipPreferences(
+    args: PutChannelMembershipPreferencesCommandInput,
+    cb: (err: any, data?: PutChannelMembershipPreferencesCommandOutput) => void
+  ): void;
+  putChannelMembershipPreferences(
+    args: PutChannelMembershipPreferencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutChannelMembershipPreferencesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutMessagingStreamingConfigurationsCommand}
+   */
+  putMessagingStreamingConfigurations(
+    args: PutMessagingStreamingConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutMessagingStreamingConfigurationsCommandOutput>;
+  putMessagingStreamingConfigurations(
+    args: PutMessagingStreamingConfigurationsCommandInput,
+    cb: (err: any, data?: PutMessagingStreamingConfigurationsCommandOutput) => void
+  ): void;
+  putMessagingStreamingConfigurations(
+    args: PutMessagingStreamingConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutMessagingStreamingConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RedactChannelMessageCommand}
+   */
+  redactChannelMessage(
+    args: RedactChannelMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RedactChannelMessageCommandOutput>;
+  redactChannelMessage(
+    args: RedactChannelMessageCommandInput,
+    cb: (err: any, data?: RedactChannelMessageCommandOutput) => void
+  ): void;
+  redactChannelMessage(
+    args: RedactChannelMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RedactChannelMessageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchChannelsCommand}
+   */
+  searchChannels(
+    args: SearchChannelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchChannelsCommandOutput>;
+  searchChannels(args: SearchChannelsCommandInput, cb: (err: any, data?: SearchChannelsCommandOutput) => void): void;
+  searchChannels(
+    args: SearchChannelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchChannelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendChannelMessageCommand}
+   */
+  sendChannelMessage(
+    args: SendChannelMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendChannelMessageCommandOutput>;
+  sendChannelMessage(
+    args: SendChannelMessageCommandInput,
+    cb: (err: any, data?: SendChannelMessageCommandOutput) => void
+  ): void;
+  sendChannelMessage(
+    args: SendChannelMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendChannelMessageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateChannelCommand}
+   */
+  updateChannel(args: UpdateChannelCommandInput, options?: __HttpHandlerOptions): Promise<UpdateChannelCommandOutput>;
+  updateChannel(args: UpdateChannelCommandInput, cb: (err: any, data?: UpdateChannelCommandOutput) => void): void;
+  updateChannel(
+    args: UpdateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateChannelFlowCommand}
+   */
+  updateChannelFlow(
+    args: UpdateChannelFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateChannelFlowCommandOutput>;
+  updateChannelFlow(
+    args: UpdateChannelFlowCommandInput,
+    cb: (err: any, data?: UpdateChannelFlowCommandOutput) => void
+  ): void;
+  updateChannelFlow(
+    args: UpdateChannelFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateChannelMessageCommand}
+   */
+  updateChannelMessage(
+    args: UpdateChannelMessageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateChannelMessageCommandOutput>;
+  updateChannelMessage(
+    args: UpdateChannelMessageCommandInput,
+    cb: (err: any, data?: UpdateChannelMessageCommandOutput) => void
+  ): void;
+  updateChannelMessage(
+    args: UpdateChannelMessageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelMessageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateChannelReadMarkerCommand}
+   */
+  updateChannelReadMarker(
+    args: UpdateChannelReadMarkerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateChannelReadMarkerCommandOutput>;
+  updateChannelReadMarker(
+    args: UpdateChannelReadMarkerCommandInput,
+    cb: (err: any, data?: UpdateChannelReadMarkerCommandOutput) => void
+  ): void;
+  updateChannelReadMarker(
+    args: UpdateChannelReadMarkerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelReadMarkerCommandOutput) => void
+  ): void;
+}
+
 /**
  * @public
  * <p>The Amazon Chime SDK Messaging APIs in this section allow software developers to send
@@ -261,2043 +1137,5 @@ import {
  *          provided by the Amazon Chime SDK Identity APIs. For more information about the messaging
  *          APIs, see <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html">Amazon Chime SDK messaging</a>.</p>
  */
-export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
-  /**
-   * @public
-   * <p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the
-   *          <code>DisassociateChannelFlow</code> API.</p>
-   *          <note>
-   *             <p>Only administrators or channel moderators can associate a channel flow. The
-   *          <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
-   *          <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          that makes the API call as the value in the header.</p>
-   *          </note>
-   */
-  public associateChannelFlow(
-    args: AssociateChannelFlowCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssociateChannelFlowCommandOutput>;
-  public associateChannelFlow(
-    args: AssociateChannelFlowCommandInput,
-    cb: (err: any, data?: AssociateChannelFlowCommandOutput) => void
-  ): void;
-  public associateChannelFlow(
-    args: AssociateChannelFlowCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociateChannelFlowCommandOutput) => void
-  ): void;
-  public associateChannelFlow(
-    args: AssociateChannelFlowCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateChannelFlowCommandOutput) => void),
-    cb?: (err: any, data?: AssociateChannelFlowCommandOutput) => void
-  ): Promise<AssociateChannelFlowCommandOutput> | void {
-    const command = new AssociateChannelFlowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds a specified number of users and bots to a channel. </p>
-   */
-  public batchCreateChannelMembership(
-    args: BatchCreateChannelMembershipCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchCreateChannelMembershipCommandOutput>;
-  public batchCreateChannelMembership(
-    args: BatchCreateChannelMembershipCommandInput,
-    cb: (err: any, data?: BatchCreateChannelMembershipCommandOutput) => void
-  ): void;
-  public batchCreateChannelMembership(
-    args: BatchCreateChannelMembershipCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchCreateChannelMembershipCommandOutput) => void
-  ): void;
-  public batchCreateChannelMembership(
-    args: BatchCreateChannelMembershipCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchCreateChannelMembershipCommandOutput) => void),
-    cb?: (err: any, data?: BatchCreateChannelMembershipCommandOutput) => void
-  ): Promise<BatchCreateChannelMembershipCommandOutput> | void {
-    const command = new BatchCreateChannelMembershipCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Calls back Chime SDK Messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p>
-   *          <p>You can return one of the following processing responses:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Update message content or metadata</p>
-   *             </li>
-   *             <li>
-   *                <p>Deny a message</p>
-   *             </li>
-   *             <li>
-   *                <p>Make no changes to the message</p>
-   *             </li>
-   *          </ul>
-   */
-  public channelFlowCallback(
-    args: ChannelFlowCallbackCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ChannelFlowCallbackCommandOutput>;
-  public channelFlowCallback(
-    args: ChannelFlowCallbackCommandInput,
-    cb: (err: any, data?: ChannelFlowCallbackCommandOutput) => void
-  ): void;
-  public channelFlowCallback(
-    args: ChannelFlowCallbackCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ChannelFlowCallbackCommandOutput) => void
-  ): void;
-  public channelFlowCallback(
-    args: ChannelFlowCallbackCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ChannelFlowCallbackCommandOutput) => void),
-    cb?: (err: any, data?: ChannelFlowCallbackCommandOutput) => void
-  ): Promise<ChannelFlowCallbackCommandOutput> | void {
-    const command = new ChannelFlowCallbackCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a channel to which you can add users and send messages.</p>
-   *          <p>
-   *             <b>Restriction</b>: You can't change a channel's
-   *          privacy.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *               ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public createChannel(
-    args: CreateChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateChannelCommandOutput>;
-  public createChannel(
-    args: CreateChannelCommandInput,
-    cb: (err: any, data?: CreateChannelCommandOutput) => void
-  ): void;
-  public createChannel(
-    args: CreateChannelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateChannelCommandOutput) => void
-  ): void;
-  public createChannel(
-    args: CreateChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelCommandOutput) => void),
-    cb?: (err: any, data?: CreateChannelCommandOutput) => void
-  ): Promise<CreateChannelCommandOutput> | void {
-    const command = new CreateChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Permanently bans a member from a channel. Moderators can't add banned members to a
-   *          channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then
-   *             <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or
-   *          channels.</p>
-   *          <p>If you ban a user who is already part of a channel, that user is automatically kicked
-   *          from the channel.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public createChannelBan(
-    args: CreateChannelBanCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateChannelBanCommandOutput>;
-  public createChannelBan(
-    args: CreateChannelBanCommandInput,
-    cb: (err: any, data?: CreateChannelBanCommandOutput) => void
-  ): void;
-  public createChannelBan(
-    args: CreateChannelBanCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateChannelBanCommandOutput) => void
-  ): void;
-  public createChannelBan(
-    args: CreateChannelBanCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelBanCommandOutput) => void),
-    cb?: (err: any, data?: CreateChannelBanCommandOutput) => void
-  ): Promise<CreateChannelBanCommandOutput> | void {
-    const command = new CreateChannelBanCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions
-   *          that perform actions on chat messages, such as stripping out profanity. You can associate
-   *          channel flows with channels, and the processors in the channel flow then take action on all
-   *          messages sent to that channel. This is a developer API.</p>
-   *          <p>Channel flows process the following items:</p>
-   *          <ol>
-   *             <li>
-   *                <p>New and updated messages</p>
-   *             </li>
-   *             <li>
-   *                <p>Persistent and non-persistent messages</p>
-   *             </li>
-   *             <li>
-   *                <p>The Standard message type</p>
-   *             </li>
-   *          </ol>
-   *          <note>
-   *             <p>Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK Messaging, refer to
-   *            <a href="https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types">Message types</a> in the <i>Amazon Chime developer guide</i>.</p>
-   *          </note>
-   */
-  public createChannelFlow(
-    args: CreateChannelFlowCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateChannelFlowCommandOutput>;
-  public createChannelFlow(
-    args: CreateChannelFlowCommandInput,
-    cb: (err: any, data?: CreateChannelFlowCommandOutput) => void
-  ): void;
-  public createChannelFlow(
-    args: CreateChannelFlowCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateChannelFlowCommandOutput) => void
-  ): void;
-  public createChannelFlow(
-    args: CreateChannelFlowCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelFlowCommandOutput) => void),
-    cb?: (err: any, data?: CreateChannelFlowCommandOutput) => void
-  ): Promise<CreateChannelFlowCommandOutput> | void {
-    const command = new CreateChannelFlowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds a member to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code>
-   *          is derived from the request header. A channel member can:</p>
-   *          <ul>
-   *             <li>
-   *                <p>List messages</p>
-   *             </li>
-   *             <li>
-   *                <p>Send messages</p>
-   *             </li>
-   *             <li>
-   *                <p>Receive messages</p>
-   *             </li>
-   *             <li>
-   *                <p>Edit their own messages</p>
-   *             </li>
-   *             <li>
-   *                <p>Leave the channel</p>
-   *             </li>
-   *          </ul>
-   *          <p>Privacy settings impact this action as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Public Channels: You do not need to be a member to list messages, but you must be
-   *                a member to send messages.</p>
-   *             </li>
-   *             <li>
-   *                <p>Private Channels: You must be a member to list or send messages.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                ARN of the <code>AppInstanceUserArn</code> or <code>AppInstanceBot</code> that makes the API call
-   *             as the value in the header.</p>
-   *          </note>
-   */
-  public createChannelMembership(
-    args: CreateChannelMembershipCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateChannelMembershipCommandOutput>;
-  public createChannelMembership(
-    args: CreateChannelMembershipCommandInput,
-    cb: (err: any, data?: CreateChannelMembershipCommandOutput) => void
-  ): void;
-  public createChannelMembership(
-    args: CreateChannelMembershipCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateChannelMembershipCommandOutput) => void
-  ): void;
-  public createChannelMembership(
-    args: CreateChannelMembershipCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelMembershipCommandOutput) => void),
-    cb?: (err: any, data?: CreateChannelMembershipCommandOutput) => void
-  ): Promise<CreateChannelMembershipCommandOutput> | void {
-    const command = new CreateChannelMembershipCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Add and remove other members of the channel.</p>
-   *             </li>
-   *             <li>
-   *                <p>Add and remove other moderators of the channel.</p>
-   *             </li>
-   *             <li>
-   *                <p>Add and remove user bans for the channel.</p>
-   *             </li>
-   *             <li>
-   *                <p>Redact messages in the channel.</p>
-   *             </li>
-   *             <li>
-   *                <p>List messages in the channel.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code>of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public createChannelModerator(
-    args: CreateChannelModeratorCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateChannelModeratorCommandOutput>;
-  public createChannelModerator(
-    args: CreateChannelModeratorCommandInput,
-    cb: (err: any, data?: CreateChannelModeratorCommandOutput) => void
-  ): void;
-  public createChannelModerator(
-    args: CreateChannelModeratorCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateChannelModeratorCommandOutput) => void
-  ): void;
-  public createChannelModerator(
-    args: CreateChannelModeratorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelModeratorCommandOutput) => void),
-    cb?: (err: any, data?: CreateChannelModeratorCommandOutput) => void
-  ): Promise<CreateChannelModeratorCommandOutput> | void {
-    const command = new CreateChannelModeratorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Immediately makes a channel and its memberships inaccessible and marks them for
-   *          deletion. This is an irreversible process.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                ARN of the <code>AppInstanceUserArn</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public deleteChannel(
-    args: DeleteChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteChannelCommandOutput>;
-  public deleteChannel(
-    args: DeleteChannelCommandInput,
-    cb: (err: any, data?: DeleteChannelCommandOutput) => void
-  ): void;
-  public deleteChannel(
-    args: DeleteChannelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteChannelCommandOutput) => void
-  ): void;
-  public deleteChannel(
-    args: DeleteChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelCommandOutput) => void),
-    cb?: (err: any, data?: DeleteChannelCommandOutput) => void
-  ): Promise<DeleteChannelCommandOutput> | void {
-    const command = new DeleteChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes a member from a channel's ban list.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public deleteChannelBan(
-    args: DeleteChannelBanCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteChannelBanCommandOutput>;
-  public deleteChannelBan(
-    args: DeleteChannelBanCommandInput,
-    cb: (err: any, data?: DeleteChannelBanCommandOutput) => void
-  ): void;
-  public deleteChannelBan(
-    args: DeleteChannelBanCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteChannelBanCommandOutput) => void
-  ): void;
-  public deleteChannelBan(
-    args: DeleteChannelBanCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelBanCommandOutput) => void),
-    cb?: (err: any, data?: DeleteChannelBanCommandOutput) => void
-  ): Promise<DeleteChannelBanCommandOutput> | void {
-    const command = new DeleteChannelBanCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a channel flow, an irreversible process. This is a developer API.</p>
-   *          <note>
-   *             <p> This API works only when the channel flow is not associated with any channel. To get a list of all channels that a channel flow is associated with, use the
-   *            <code>ListChannelsAssociatedWithChannelFlow</code> API. Use the <code>DisassociateChannelFlow</code> API to disassociate a channel flow from all channels. </p>
-   *          </note>
-   */
-  public deleteChannelFlow(
-    args: DeleteChannelFlowCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteChannelFlowCommandOutput>;
-  public deleteChannelFlow(
-    args: DeleteChannelFlowCommandInput,
-    cb: (err: any, data?: DeleteChannelFlowCommandOutput) => void
-  ): void;
-  public deleteChannelFlow(
-    args: DeleteChannelFlowCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteChannelFlowCommandOutput) => void
-  ): void;
-  public deleteChannelFlow(
-    args: DeleteChannelFlowCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelFlowCommandOutput) => void),
-    cb?: (err: any, data?: DeleteChannelFlowCommandOutput) => void
-  ): Promise<DeleteChannelFlowCommandOutput> | void {
-    const command = new DeleteChannelFlowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes a member from a channel.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public deleteChannelMembership(
-    args: DeleteChannelMembershipCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteChannelMembershipCommandOutput>;
-  public deleteChannelMembership(
-    args: DeleteChannelMembershipCommandInput,
-    cb: (err: any, data?: DeleteChannelMembershipCommandOutput) => void
-  ): void;
-  public deleteChannelMembership(
-    args: DeleteChannelMembershipCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteChannelMembershipCommandOutput) => void
-  ): void;
-  public deleteChannelMembership(
-    args: DeleteChannelMembershipCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelMembershipCommandOutput) => void),
-    cb?: (err: any, data?: DeleteChannelMembershipCommandOutput) => void
-  ): Promise<DeleteChannelMembershipCommandOutput> | void {
-    const command = new DeleteChannelMembershipCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a channel message. Only admins can perform this action. Deletion makes messages
-   *          inaccessible immediately. A background process deletes any revisions created by
-   *             <code>UpdateChannelMessage</code>.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public deleteChannelMessage(
-    args: DeleteChannelMessageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteChannelMessageCommandOutput>;
-  public deleteChannelMessage(
-    args: DeleteChannelMessageCommandInput,
-    cb: (err: any, data?: DeleteChannelMessageCommandOutput) => void
-  ): void;
-  public deleteChannelMessage(
-    args: DeleteChannelMessageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteChannelMessageCommandOutput) => void
-  ): void;
-  public deleteChannelMessage(
-    args: DeleteChannelMessageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelMessageCommandOutput) => void),
-    cb?: (err: any, data?: DeleteChannelMessageCommandOutput) => void
-  ): Promise<DeleteChannelMessageCommandOutput> | void {
-    const command = new DeleteChannelMessageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a channel moderator.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public deleteChannelModerator(
-    args: DeleteChannelModeratorCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteChannelModeratorCommandOutput>;
-  public deleteChannelModerator(
-    args: DeleteChannelModeratorCommandInput,
-    cb: (err: any, data?: DeleteChannelModeratorCommandOutput) => void
-  ): void;
-  public deleteChannelModerator(
-    args: DeleteChannelModeratorCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteChannelModeratorCommandOutput) => void
-  ): void;
-  public deleteChannelModerator(
-    args: DeleteChannelModeratorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelModeratorCommandOutput) => void),
-    cb?: (err: any, data?: DeleteChannelModeratorCommandOutput) => void
-  ): Promise<DeleteChannelModeratorCommandOutput> | void {
-    const command = new DeleteChannelModeratorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the streaming configurations for an <code>AppInstance</code>. For more information, see
-   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
-   */
-  public deleteMessagingStreamingConfigurations(
-    args: DeleteMessagingStreamingConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteMessagingStreamingConfigurationsCommandOutput>;
-  public deleteMessagingStreamingConfigurations(
-    args: DeleteMessagingStreamingConfigurationsCommandInput,
-    cb: (err: any, data?: DeleteMessagingStreamingConfigurationsCommandOutput) => void
-  ): void;
-  public deleteMessagingStreamingConfigurations(
-    args: DeleteMessagingStreamingConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteMessagingStreamingConfigurationsCommandOutput) => void
-  ): void;
-  public deleteMessagingStreamingConfigurations(
-    args: DeleteMessagingStreamingConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMessagingStreamingConfigurationsCommandOutput) => void),
-    cb?: (err: any, data?: DeleteMessagingStreamingConfigurationsCommandOutput) => void
-  ): Promise<DeleteMessagingStreamingConfigurationsCommandOutput> | void {
-    const command = new DeleteMessagingStreamingConfigurationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the full details of a channel in an Amazon Chime
-   *          <code>AppInstance</code>.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public describeChannel(
-    args: DescribeChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeChannelCommandOutput>;
-  public describeChannel(
-    args: DescribeChannelCommandInput,
-    cb: (err: any, data?: DescribeChannelCommandOutput) => void
-  ): void;
-  public describeChannel(
-    args: DescribeChannelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeChannelCommandOutput) => void
-  ): void;
-  public describeChannel(
-    args: DescribeChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelCommandOutput) => void),
-    cb?: (err: any, data?: DescribeChannelCommandOutput) => void
-  ): Promise<DescribeChannelCommandOutput> | void {
-    const command = new DescribeChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the full details of a channel ban.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public describeChannelBan(
-    args: DescribeChannelBanCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeChannelBanCommandOutput>;
-  public describeChannelBan(
-    args: DescribeChannelBanCommandInput,
-    cb: (err: any, data?: DescribeChannelBanCommandOutput) => void
-  ): void;
-  public describeChannelBan(
-    args: DescribeChannelBanCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeChannelBanCommandOutput) => void
-  ): void;
-  public describeChannelBan(
-    args: DescribeChannelBanCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelBanCommandOutput) => void),
-    cb?: (err: any, data?: DescribeChannelBanCommandOutput) => void
-  ): Promise<DescribeChannelBanCommandOutput> | void {
-    const command = new DescribeChannelBanCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the full details of a channel flow in an Amazon Chime <code>AppInstance</code>. This is a developer API.</p>
-   */
-  public describeChannelFlow(
-    args: DescribeChannelFlowCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeChannelFlowCommandOutput>;
-  public describeChannelFlow(
-    args: DescribeChannelFlowCommandInput,
-    cb: (err: any, data?: DescribeChannelFlowCommandOutput) => void
-  ): void;
-  public describeChannelFlow(
-    args: DescribeChannelFlowCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeChannelFlowCommandOutput) => void
-  ): void;
-  public describeChannelFlow(
-    args: DescribeChannelFlowCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelFlowCommandOutput) => void),
-    cb?: (err: any, data?: DescribeChannelFlowCommandOutput) => void
-  ): Promise<DescribeChannelFlowCommandOutput> | void {
-    const command = new DescribeChannelFlowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the full details of a user's channel membership.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public describeChannelMembership(
-    args: DescribeChannelMembershipCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeChannelMembershipCommandOutput>;
-  public describeChannelMembership(
-    args: DescribeChannelMembershipCommandInput,
-    cb: (err: any, data?: DescribeChannelMembershipCommandOutput) => void
-  ): void;
-  public describeChannelMembership(
-    args: DescribeChannelMembershipCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeChannelMembershipCommandOutput) => void
-  ): void;
-  public describeChannelMembership(
-    args: DescribeChannelMembershipCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelMembershipCommandOutput) => void),
-    cb?: (err: any, data?: DescribeChannelMembershipCommandOutput) => void
-  ): Promise<DescribeChannelMembershipCommandOutput> | void {
-    const command = new DescribeChannelMembershipCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Returns the details of a channel based on the membership of the specified
-   *             <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public describeChannelMembershipForAppInstanceUser(
-    args: DescribeChannelMembershipForAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeChannelMembershipForAppInstanceUserCommandOutput>;
-  public describeChannelMembershipForAppInstanceUser(
-    args: DescribeChannelMembershipForAppInstanceUserCommandInput,
-    cb: (err: any, data?: DescribeChannelMembershipForAppInstanceUserCommandOutput) => void
-  ): void;
-  public describeChannelMembershipForAppInstanceUser(
-    args: DescribeChannelMembershipForAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeChannelMembershipForAppInstanceUserCommandOutput) => void
-  ): void;
-  public describeChannelMembershipForAppInstanceUser(
-    args: DescribeChannelMembershipForAppInstanceUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeChannelMembershipForAppInstanceUserCommandOutput) => void),
-    cb?: (err: any, data?: DescribeChannelMembershipForAppInstanceUserCommandOutput) => void
-  ): Promise<DescribeChannelMembershipForAppInstanceUserCommandOutput> | void {
-    const command = new DescribeChannelMembershipForAppInstanceUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the full details of a channel moderated by the specified
-   *             <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public describeChannelModeratedByAppInstanceUser(
-    args: DescribeChannelModeratedByAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeChannelModeratedByAppInstanceUserCommandOutput>;
-  public describeChannelModeratedByAppInstanceUser(
-    args: DescribeChannelModeratedByAppInstanceUserCommandInput,
-    cb: (err: any, data?: DescribeChannelModeratedByAppInstanceUserCommandOutput) => void
-  ): void;
-  public describeChannelModeratedByAppInstanceUser(
-    args: DescribeChannelModeratedByAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeChannelModeratedByAppInstanceUserCommandOutput) => void
-  ): void;
-  public describeChannelModeratedByAppInstanceUser(
-    args: DescribeChannelModeratedByAppInstanceUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeChannelModeratedByAppInstanceUserCommandOutput) => void),
-    cb?: (err: any, data?: DescribeChannelModeratedByAppInstanceUserCommandOutput) => void
-  ): Promise<DescribeChannelModeratedByAppInstanceUserCommandOutput> | void {
-    const command = new DescribeChannelModeratedByAppInstanceUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the full details of a single ChannelModerator.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public describeChannelModerator(
-    args: DescribeChannelModeratorCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeChannelModeratorCommandOutput>;
-  public describeChannelModerator(
-    args: DescribeChannelModeratorCommandInput,
-    cb: (err: any, data?: DescribeChannelModeratorCommandOutput) => void
-  ): void;
-  public describeChannelModerator(
-    args: DescribeChannelModeratorCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeChannelModeratorCommandOutput) => void
-  ): void;
-  public describeChannelModerator(
-    args: DescribeChannelModeratorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelModeratorCommandOutput) => void),
-    cb?: (err: any, data?: DescribeChannelModeratorCommandOutput) => void
-  ): Promise<DescribeChannelModeratorCommandOutput> | void {
-    const command = new DescribeChannelModeratorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Disassociates a channel flow from all its channels. Once disassociated, all messages to
-   *          that channel stop going through the channel flow processor.</p>
-   *          <note>
-   *             <p>Only administrators or channel moderators can disassociate a channel flow.</p>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *              ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *              the header.</p>
-   *          </note>
-   */
-  public disassociateChannelFlow(
-    args: DisassociateChannelFlowCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisassociateChannelFlowCommandOutput>;
-  public disassociateChannelFlow(
-    args: DisassociateChannelFlowCommandInput,
-    cb: (err: any, data?: DisassociateChannelFlowCommandOutput) => void
-  ): void;
-  public disassociateChannelFlow(
-    args: DisassociateChannelFlowCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociateChannelFlowCommandOutput) => void
-  ): void;
-  public disassociateChannelFlow(
-    args: DisassociateChannelFlowCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateChannelFlowCommandOutput) => void),
-    cb?: (err: any, data?: DisassociateChannelFlowCommandOutput) => void
-  ): Promise<DisassociateChannelFlowCommandOutput> | void {
-    const command = new DisassociateChannelFlowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
-   *          for the specified channel. A user or a bot must be a member of the channel and own the membership to be able
-   *          to retrieve membership preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't
-   *          retrieve preferences for other users or bots. Banned users or bots can't retrieve membership preferences for the
-   *          channel from which they are banned.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *          ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *          the header.</p>
-   *          </note>
-   */
-  public getChannelMembershipPreferences(
-    args: GetChannelMembershipPreferencesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetChannelMembershipPreferencesCommandOutput>;
-  public getChannelMembershipPreferences(
-    args: GetChannelMembershipPreferencesCommandInput,
-    cb: (err: any, data?: GetChannelMembershipPreferencesCommandOutput) => void
-  ): void;
-  public getChannelMembershipPreferences(
-    args: GetChannelMembershipPreferencesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetChannelMembershipPreferencesCommandOutput) => void
-  ): void;
-  public getChannelMembershipPreferences(
-    args: GetChannelMembershipPreferencesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChannelMembershipPreferencesCommandOutput) => void),
-    cb?: (err: any, data?: GetChannelMembershipPreferencesCommandOutput) => void
-  ): Promise<GetChannelMembershipPreferencesCommandOutput> | void {
-    const command = new GetChannelMembershipPreferencesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets the full details of a channel message.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public getChannelMessage(
-    args: GetChannelMessageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetChannelMessageCommandOutput>;
-  public getChannelMessage(
-    args: GetChannelMessageCommandInput,
-    cb: (err: any, data?: GetChannelMessageCommandOutput) => void
-  ): void;
-  public getChannelMessage(
-    args: GetChannelMessageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetChannelMessageCommandOutput) => void
-  ): void;
-  public getChannelMessage(
-    args: GetChannelMessageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChannelMessageCommandOutput) => void),
-    cb?: (err: any, data?: GetChannelMessageCommandOutput) => void
-  ): Promise<GetChannelMessageCommandOutput> | void {
-    const command = new GetChannelMessageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to
-   *          retrieving message status if the event was not received because a client wasn't connected to a websocket. </p>
-   *          <p>Messages can have any one of these statuses.</p>
-   *          <dl>
-   *             <dt>SENT</dt>
-   *             <dd>
-   *                <p>Message processed successfully</p>
-   *             </dd>
-   *             <dt>PENDING</dt>
-   *             <dd>
-   *                <p>Ongoing processing</p>
-   *             </dd>
-   *             <dt>FAILED</dt>
-   *             <dd>
-   *                <p>Processing failed</p>
-   *             </dd>
-   *             <dt>DENIED</dt>
-   *             <dd>
-   *                <p>Messasge denied by the processor</p>
-   *             </dd>
-   *          </dl>
-   *          <note>
-   *             <ul>
-   *                <li>
-   *                   <p>This API does not return statuses for denied messages, because we don't store them once the processor denies them. </p>
-   *                </li>
-   *                <li>
-   *                   <p>Only the message sender can invoke this API.</p>
-   *                </li>
-   *                <li>
-   *                   <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
-   */
-  public getChannelMessageStatus(
-    args: GetChannelMessageStatusCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetChannelMessageStatusCommandOutput>;
-  public getChannelMessageStatus(
-    args: GetChannelMessageStatusCommandInput,
-    cb: (err: any, data?: GetChannelMessageStatusCommandOutput) => void
-  ): void;
-  public getChannelMessageStatus(
-    args: GetChannelMessageStatusCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetChannelMessageStatusCommandOutput) => void
-  ): void;
-  public getChannelMessageStatus(
-    args: GetChannelMessageStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChannelMessageStatusCommandOutput) => void),
-    cb?: (err: any, data?: GetChannelMessageStatusCommandOutput) => void
-  ): Promise<GetChannelMessageStatusCommandOutput> | void {
-    const command = new GetChannelMessageStatusCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>The details of the endpoint for the messaging session.</p>
-   */
-  public getMessagingSessionEndpoint(
-    args: GetMessagingSessionEndpointCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetMessagingSessionEndpointCommandOutput>;
-  public getMessagingSessionEndpoint(
-    args: GetMessagingSessionEndpointCommandInput,
-    cb: (err: any, data?: GetMessagingSessionEndpointCommandOutput) => void
-  ): void;
-  public getMessagingSessionEndpoint(
-    args: GetMessagingSessionEndpointCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetMessagingSessionEndpointCommandOutput) => void
-  ): void;
-  public getMessagingSessionEndpoint(
-    args: GetMessagingSessionEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMessagingSessionEndpointCommandOutput) => void),
-    cb?: (err: any, data?: GetMessagingSessionEndpointCommandOutput) => void
-  ): Promise<GetMessagingSessionEndpointCommandOutput> | void {
-    const command = new GetMessagingSessionEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the data streaming configuration for an <code>AppInstance</code>. For more information, see
-   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
-   */
-  public getMessagingStreamingConfigurations(
-    args: GetMessagingStreamingConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetMessagingStreamingConfigurationsCommandOutput>;
-  public getMessagingStreamingConfigurations(
-    args: GetMessagingStreamingConfigurationsCommandInput,
-    cb: (err: any, data?: GetMessagingStreamingConfigurationsCommandOutput) => void
-  ): void;
-  public getMessagingStreamingConfigurations(
-    args: GetMessagingStreamingConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetMessagingStreamingConfigurationsCommandOutput) => void
-  ): void;
-  public getMessagingStreamingConfigurations(
-    args: GetMessagingStreamingConfigurationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMessagingStreamingConfigurationsCommandOutput) => void),
-    cb?: (err: any, data?: GetMessagingStreamingConfigurationsCommandOutput) => void
-  ): Promise<GetMessagingStreamingConfigurationsCommandOutput> | void {
-    const command = new GetMessagingStreamingConfigurationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all the users and bots banned from a particular channel.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public listChannelBans(
-    args: ListChannelBansCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelBansCommandOutput>;
-  public listChannelBans(
-    args: ListChannelBansCommandInput,
-    cb: (err: any, data?: ListChannelBansCommandOutput) => void
-  ): void;
-  public listChannelBans(
-    args: ListChannelBansCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelBansCommandOutput) => void
-  ): void;
-  public listChannelBans(
-    args: ListChannelBansCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelBansCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelBansCommandOutput) => void
-  ): Promise<ListChannelBansCommandOutput> | void {
-    const command = new ListChannelBansCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns a paginated lists of all the channel flows created under a single Chime. This is a developer API.</p>
-   */
-  public listChannelFlows(
-    args: ListChannelFlowsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelFlowsCommandOutput>;
-  public listChannelFlows(
-    args: ListChannelFlowsCommandInput,
-    cb: (err: any, data?: ListChannelFlowsCommandOutput) => void
-  ): void;
-  public listChannelFlows(
-    args: ListChannelFlowsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelFlowsCommandOutput) => void
-  ): void;
-  public listChannelFlows(
-    args: ListChannelFlowsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelFlowsCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelFlowsCommandOutput) => void
-  ): Promise<ListChannelFlowsCommandOutput> | void {
-    const command = new ListChannelFlowsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all channel memberships in a channel.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   *          <p>If you want to list the channels to which a specific app instance user belongs, see the
-   *          <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html">ListChannelMembershipsForAppInstanceUser</a> API.</p>
-   */
-  public listChannelMemberships(
-    args: ListChannelMembershipsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelMembershipsCommandOutput>;
-  public listChannelMemberships(
-    args: ListChannelMembershipsCommandInput,
-    cb: (err: any, data?: ListChannelMembershipsCommandOutput) => void
-  ): void;
-  public listChannelMemberships(
-    args: ListChannelMembershipsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelMembershipsCommandOutput) => void
-  ): void;
-  public listChannelMemberships(
-    args: ListChannelMembershipsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelMembershipsCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelMembershipsCommandOutput) => void
-  ): Promise<ListChannelMembershipsCommandOutput> | void {
-    const command = new ListChannelMembershipsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p> Lists all channels that anr <code>AppInstanceUser</code> or <code>AppInstanceBot</code> is a part of.
-   *          Only an <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public listChannelMembershipsForAppInstanceUser(
-    args: ListChannelMembershipsForAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelMembershipsForAppInstanceUserCommandOutput>;
-  public listChannelMembershipsForAppInstanceUser(
-    args: ListChannelMembershipsForAppInstanceUserCommandInput,
-    cb: (err: any, data?: ListChannelMembershipsForAppInstanceUserCommandOutput) => void
-  ): void;
-  public listChannelMembershipsForAppInstanceUser(
-    args: ListChannelMembershipsForAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelMembershipsForAppInstanceUserCommandOutput) => void
-  ): void;
-  public listChannelMembershipsForAppInstanceUser(
-    args: ListChannelMembershipsForAppInstanceUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListChannelMembershipsForAppInstanceUserCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelMembershipsForAppInstanceUserCommandOutput) => void
-  ): Promise<ListChannelMembershipsForAppInstanceUserCommandOutput> | void {
-    const command = new ListChannelMembershipsForAppInstanceUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>List all the messages in a channel. Returns a paginated list of
-   *             <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending
-   *          order.</p>
-   *          <note>
-   *             <p>Redacted messages appear in the results as empty, since they are only redacted, not
-   *             deleted. Deleted messages do not appear in the results. This action always returns the
-   *             latest version of an edited message.</p>
-   *             <p>Also, the <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public listChannelMessages(
-    args: ListChannelMessagesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelMessagesCommandOutput>;
-  public listChannelMessages(
-    args: ListChannelMessagesCommandInput,
-    cb: (err: any, data?: ListChannelMessagesCommandOutput) => void
-  ): void;
-  public listChannelMessages(
-    args: ListChannelMessagesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelMessagesCommandOutput) => void
-  ): void;
-  public listChannelMessages(
-    args: ListChannelMessagesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelMessagesCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelMessagesCommandOutput) => void
-  ): Promise<ListChannelMessagesCommandOutput> | void {
-    const command = new ListChannelMessagesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all the moderators for a channel.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public listChannelModerators(
-    args: ListChannelModeratorsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelModeratorsCommandOutput>;
-  public listChannelModerators(
-    args: ListChannelModeratorsCommandInput,
-    cb: (err: any, data?: ListChannelModeratorsCommandOutput) => void
-  ): void;
-  public listChannelModerators(
-    args: ListChannelModeratorsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelModeratorsCommandOutput) => void
-  ): void;
-  public listChannelModerators(
-    args: ListChannelModeratorsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelModeratorsCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelModeratorsCommandOutput) => void
-  ): Promise<ListChannelModeratorsCommandOutput> | void {
-    const command = new ListChannelModeratorsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all Channels created under a single Chime App as a paginated list. You can specify
-   *          filters to narrow results.</p>
-   *          <p class="title">
-   *             <b>Functionality & restrictions</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the
-   *                account.</p>
-   *             </li>
-   *             <li>
-   *                <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to
-   *                list the private channels in an account.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public listChannels(
-    args: ListChannelsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelsCommandOutput>;
-  public listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
-  public listChannels(
-    args: ListChannelsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelsCommandOutput) => void
-  ): void;
-  public listChannels(
-    args: ListChannelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelsCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelsCommandOutput) => void
-  ): Promise<ListChannelsCommandOutput> | void {
-    const command = new ListChannelsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all channels associated with a specified channel flow. You can associate a channel flow with multiple channels, but you can only associate a channel with one channel flow. This is a developer API.</p>
-   */
-  public listChannelsAssociatedWithChannelFlow(
-    args: ListChannelsAssociatedWithChannelFlowCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelsAssociatedWithChannelFlowCommandOutput>;
-  public listChannelsAssociatedWithChannelFlow(
-    args: ListChannelsAssociatedWithChannelFlowCommandInput,
-    cb: (err: any, data?: ListChannelsAssociatedWithChannelFlowCommandOutput) => void
-  ): void;
-  public listChannelsAssociatedWithChannelFlow(
-    args: ListChannelsAssociatedWithChannelFlowCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelsAssociatedWithChannelFlowCommandOutput) => void
-  ): void;
-  public listChannelsAssociatedWithChannelFlow(
-    args: ListChannelsAssociatedWithChannelFlowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListChannelsAssociatedWithChannelFlowCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelsAssociatedWithChannelFlowCommandOutput) => void
-  ): Promise<ListChannelsAssociatedWithChannelFlowCommandOutput> | void {
-    const command = new ListChannelsAssociatedWithChannelFlowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public listChannelsModeratedByAppInstanceUser(
-    args: ListChannelsModeratedByAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput>;
-  public listChannelsModeratedByAppInstanceUser(
-    args: ListChannelsModeratedByAppInstanceUserCommandInput,
-    cb: (err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void
-  ): void;
-  public listChannelsModeratedByAppInstanceUser(
-    args: ListChannelsModeratedByAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void
-  ): void;
-  public listChannelsModeratedByAppInstanceUser(
-    args: ListChannelsModeratedByAppInstanceUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void
-  ): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput> | void {
-    const command = new ListChannelsModeratedByAppInstanceUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all the SubChannels in an elastic channel when given a channel ID. Available only to the app instance admins and channel moderators of elastic channels.</p>
-   */
-  public listSubChannels(
-    args: ListSubChannelsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSubChannelsCommandOutput>;
-  public listSubChannels(
-    args: ListSubChannelsCommandInput,
-    cb: (err: any, data?: ListSubChannelsCommandOutput) => void
-  ): void;
-  public listSubChannels(
-    args: ListSubChannelsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSubChannelsCommandOutput) => void
-  ): void;
-  public listSubChannels(
-    args: ListSubChannelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSubChannelsCommandOutput) => void),
-    cb?: (err: any, data?: ListSubChannelsCommandOutput) => void
-  ): Promise<ListSubChannelsCommandOutput> | void {
-    const command = new ListSubChannelsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the tags applied to an Amazon Chime SDK messaging resource.</p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Sets the number of days before the channel is automatically deleted.</p>
-   *          <note>
-   *             <ul>
-   *                <li>
-   *                   <p>A background process deletes expired channels within 6 hours of expiration.
-   *             Actual deletion times may vary.</p>
-   *                </li>
-   *                <li>
-   *                   <p>Expired channels that have not yet been deleted appear as active, and you can update
-   *             their expiration settings. The system honors the new settings.</p>
-   *                </li>
-   *                <li>
-   *                   <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
-   */
-  public putChannelExpirationSettings(
-    args: PutChannelExpirationSettingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutChannelExpirationSettingsCommandOutput>;
-  public putChannelExpirationSettings(
-    args: PutChannelExpirationSettingsCommandInput,
-    cb: (err: any, data?: PutChannelExpirationSettingsCommandOutput) => void
-  ): void;
-  public putChannelExpirationSettings(
-    args: PutChannelExpirationSettingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutChannelExpirationSettingsCommandOutput) => void
-  ): void;
-  public putChannelExpirationSettings(
-    args: PutChannelExpirationSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutChannelExpirationSettingsCommandOutput) => void),
-    cb?: (err: any, data?: PutChannelExpirationSettingsCommandOutput) => void
-  ): Promise<PutChannelExpirationSettingsCommandOutput> | void {
-    const command = new PutChannelExpirationSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppIntanceBot</code>
-   *          for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the
-   *          membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't set
-   *          preferences for other users or users. Banned users or bots can't set membership preferences for the channel from
-   *          which they are banned.</p>
-   *          <note>
-   *             <p>The x-amz-chime-bearer request header is mandatory. Use the ARN of an
-   *          <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in the
-   *          header.</p>
-   *          </note>
-   */
-  public putChannelMembershipPreferences(
-    args: PutChannelMembershipPreferencesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutChannelMembershipPreferencesCommandOutput>;
-  public putChannelMembershipPreferences(
-    args: PutChannelMembershipPreferencesCommandInput,
-    cb: (err: any, data?: PutChannelMembershipPreferencesCommandOutput) => void
-  ): void;
-  public putChannelMembershipPreferences(
-    args: PutChannelMembershipPreferencesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutChannelMembershipPreferencesCommandOutput) => void
-  ): void;
-  public putChannelMembershipPreferences(
-    args: PutChannelMembershipPreferencesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutChannelMembershipPreferencesCommandOutput) => void),
-    cb?: (err: any, data?: PutChannelMembershipPreferencesCommandOutput) => void
-  ): Promise<PutChannelMembershipPreferencesCommandOutput> | void {
-    const command = new PutChannelMembershipPreferencesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Sets the data streaming configuration for an <code>AppInstance</code>. For more information, see
-   *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
-   */
-  public putMessagingStreamingConfigurations(
-    args: PutMessagingStreamingConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutMessagingStreamingConfigurationsCommandOutput>;
-  public putMessagingStreamingConfigurations(
-    args: PutMessagingStreamingConfigurationsCommandInput,
-    cb: (err: any, data?: PutMessagingStreamingConfigurationsCommandOutput) => void
-  ): void;
-  public putMessagingStreamingConfigurations(
-    args: PutMessagingStreamingConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutMessagingStreamingConfigurationsCommandOutput) => void
-  ): void;
-  public putMessagingStreamingConfigurations(
-    args: PutMessagingStreamingConfigurationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutMessagingStreamingConfigurationsCommandOutput) => void),
-    cb?: (err: any, data?: PutMessagingStreamingConfigurationsCommandOutput) => void
-  ): Promise<PutMessagingStreamingConfigurationsCommandOutput> | void {
-    const command = new PutMessagingStreamingConfigurationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Redacts message content, but not metadata. The message exists in the back end, but the
-   *          action returns null content, and the state shows as redacted.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public redactChannelMessage(
-    args: RedactChannelMessageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RedactChannelMessageCommandOutput>;
-  public redactChannelMessage(
-    args: RedactChannelMessageCommandInput,
-    cb: (err: any, data?: RedactChannelMessageCommandOutput) => void
-  ): void;
-  public redactChannelMessage(
-    args: RedactChannelMessageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RedactChannelMessageCommandOutput) => void
-  ): void;
-  public redactChannelMessage(
-    args: RedactChannelMessageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RedactChannelMessageCommandOutput) => void),
-    cb?: (err: any, data?: RedactChannelMessageCommandOutput) => void
-  ): Promise<RedactChannelMessageCommandOutput> | void {
-    const command = new RedactChannelMessageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Allows the <code>ChimeBearer</code> to search channels by channel members. Users or bots can search
-   *          across the channels that they belong to. Users in the <code>AppInstanceAdmin</code> role can search across
-   *          all channels.</p>
-   *          <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *          ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *          the header.</p>
-   */
-  public searchChannels(
-    args: SearchChannelsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SearchChannelsCommandOutput>;
-  public searchChannels(
-    args: SearchChannelsCommandInput,
-    cb: (err: any, data?: SearchChannelsCommandOutput) => void
-  ): void;
-  public searchChannels(
-    args: SearchChannelsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SearchChannelsCommandOutput) => void
-  ): void;
-  public searchChannels(
-    args: SearchChannelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchChannelsCommandOutput) => void),
-    cb?: (err: any, data?: SearchChannelsCommandOutput) => void
-  ): Promise<SearchChannelsCommandOutput> | void {
-    const command = new SearchChannelsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Sends a message to a particular channel that the member is a part of.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *             <p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata.
-   *                <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p>
-   *          </note>
-   */
-  public sendChannelMessage(
-    args: SendChannelMessageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SendChannelMessageCommandOutput>;
-  public sendChannelMessage(
-    args: SendChannelMessageCommandInput,
-    cb: (err: any, data?: SendChannelMessageCommandOutput) => void
-  ): void;
-  public sendChannelMessage(
-    args: SendChannelMessageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SendChannelMessageCommandOutput) => void
-  ): void;
-  public sendChannelMessage(
-    args: SendChannelMessageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendChannelMessageCommandOutput) => void),
-    cb?: (err: any, data?: SendChannelMessageCommandOutput) => void
-  ): Promise<SendChannelMessageCommandOutput> | void {
-    const command = new SendChannelMessageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Applies the specified tags to the specified Amazon Chime SDK messaging resource.</p>
-   */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes the specified tags from the specified Amazon Chime SDK messaging resource.</p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Update a channel's attributes.</p>
-   *          <p>
-   *             <b>Restriction</b>: You can't change a channel's privacy. </p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public updateChannel(
-    args: UpdateChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateChannelCommandOutput>;
-  public updateChannel(
-    args: UpdateChannelCommandInput,
-    cb: (err: any, data?: UpdateChannelCommandOutput) => void
-  ): void;
-  public updateChannel(
-    args: UpdateChannelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateChannelCommandOutput) => void
-  ): void;
-  public updateChannel(
-    args: UpdateChannelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateChannelCommandOutput) => void
-  ): Promise<UpdateChannelCommandOutput> | void {
-    const command = new UpdateChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates channel flow attributes. This is a developer API.</p>
-   */
-  public updateChannelFlow(
-    args: UpdateChannelFlowCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateChannelFlowCommandOutput>;
-  public updateChannelFlow(
-    args: UpdateChannelFlowCommandInput,
-    cb: (err: any, data?: UpdateChannelFlowCommandOutput) => void
-  ): void;
-  public updateChannelFlow(
-    args: UpdateChannelFlowCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateChannelFlowCommandOutput) => void
-  ): void;
-  public updateChannelFlow(
-    args: UpdateChannelFlowCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelFlowCommandOutput) => void),
-    cb?: (err: any, data?: UpdateChannelFlowCommandOutput) => void
-  ): Promise<UpdateChannelFlowCommandOutput> | void {
-    const command = new UpdateChannelFlowCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the content of a message.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public updateChannelMessage(
-    args: UpdateChannelMessageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateChannelMessageCommandOutput>;
-  public updateChannelMessage(
-    args: UpdateChannelMessageCommandInput,
-    cb: (err: any, data?: UpdateChannelMessageCommandOutput) => void
-  ): void;
-  public updateChannelMessage(
-    args: UpdateChannelMessageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateChannelMessageCommandOutput) => void
-  ): void;
-  public updateChannelMessage(
-    args: UpdateChannelMessageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelMessageCommandOutput) => void),
-    cb?: (err: any, data?: UpdateChannelMessageCommandOutput) => void
-  ): Promise<UpdateChannelMessageCommandOutput> | void {
-    const command = new UpdateChannelMessageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>The details of the time when a user last read messages in a channel.</p>
-   *          <note>
-   *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
-   *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
-   *             the header.</p>
-   *          </note>
-   */
-  public updateChannelReadMarker(
-    args: UpdateChannelReadMarkerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateChannelReadMarkerCommandOutput>;
-  public updateChannelReadMarker(
-    args: UpdateChannelReadMarkerCommandInput,
-    cb: (err: any, data?: UpdateChannelReadMarkerCommandOutput) => void
-  ): void;
-  public updateChannelReadMarker(
-    args: UpdateChannelReadMarkerCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateChannelReadMarkerCommandOutput) => void
-  ): void;
-  public updateChannelReadMarker(
-    args: UpdateChannelReadMarkerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelReadMarkerCommandOutput) => void),
-    cb?: (err: any, data?: UpdateChannelReadMarkerCommandOutput) => void
-  ): Promise<UpdateChannelReadMarkerCommandOutput> | void {
-    const command = new UpdateChannelReadMarkerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class ChimeSDKMessaging extends ChimeSDKMessagingClient implements ChimeSDKMessaging {}
+createAggregatedClient(commands, ChimeSDKMessaging);

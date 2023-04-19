@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -16,7 +17,66 @@ import {
   StartStreamTranscriptionCommandInput,
   StartStreamTranscriptionCommandOutput,
 } from "./commands/StartStreamTranscriptionCommand";
-import { TranscribeStreamingClient } from "./TranscribeStreamingClient";
+import { TranscribeStreamingClient, TranscribeStreamingClientConfig } from "./TranscribeStreamingClient";
+
+const commands = {
+  StartCallAnalyticsStreamTranscriptionCommand,
+  StartMedicalStreamTranscriptionCommand,
+  StartStreamTranscriptionCommand,
+};
+
+export interface TranscribeStreaming {
+  /**
+   * @see {@link StartCallAnalyticsStreamTranscriptionCommand}
+   */
+  startCallAnalyticsStreamTranscription(
+    args: StartCallAnalyticsStreamTranscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCallAnalyticsStreamTranscriptionCommandOutput>;
+  startCallAnalyticsStreamTranscription(
+    args: StartCallAnalyticsStreamTranscriptionCommandInput,
+    cb: (err: any, data?: StartCallAnalyticsStreamTranscriptionCommandOutput) => void
+  ): void;
+  startCallAnalyticsStreamTranscription(
+    args: StartCallAnalyticsStreamTranscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCallAnalyticsStreamTranscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartMedicalStreamTranscriptionCommand}
+   */
+  startMedicalStreamTranscription(
+    args: StartMedicalStreamTranscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMedicalStreamTranscriptionCommandOutput>;
+  startMedicalStreamTranscription(
+    args: StartMedicalStreamTranscriptionCommandInput,
+    cb: (err: any, data?: StartMedicalStreamTranscriptionCommandOutput) => void
+  ): void;
+  startMedicalStreamTranscription(
+    args: StartMedicalStreamTranscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMedicalStreamTranscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartStreamTranscriptionCommand}
+   */
+  startStreamTranscription(
+    args: StartStreamTranscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartStreamTranscriptionCommandOutput>;
+  startStreamTranscription(
+    args: StartStreamTranscriptionCommandInput,
+    cb: (err: any, data?: StartStreamTranscriptionCommandOutput) => void
+  ): void;
+  startStreamTranscription(
+    args: StartStreamTranscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartStreamTranscriptionCommandOutput) => void
+  ): void;
+}
 
 /**
  * @public
@@ -44,169 +104,5 @@ import { TranscribeStreamingClient } from "./TranscribeStreamingClient";
  *             </li>
  *          </ul>
  */
-export class TranscribeStreaming extends TranscribeStreamingClient {
-  /**
-   * @public
-   * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
-   *       Amazon Transcribe and the transcription results are streamed to your application. Use this operation
-   *       for <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html">Call Analytics</a> transcriptions.</p>
-   *          <p>The following parameters are required:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>language-code</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>media-encoding</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sample-rate</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information on streaming with Amazon Transcribe, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html">Transcribing streaming audio</a>.</p>
-   */
-  public startCallAnalyticsStreamTranscription(
-    args: StartCallAnalyticsStreamTranscriptionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartCallAnalyticsStreamTranscriptionCommandOutput>;
-  public startCallAnalyticsStreamTranscription(
-    args: StartCallAnalyticsStreamTranscriptionCommandInput,
-    cb: (err: any, data?: StartCallAnalyticsStreamTranscriptionCommandOutput) => void
-  ): void;
-  public startCallAnalyticsStreamTranscription(
-    args: StartCallAnalyticsStreamTranscriptionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartCallAnalyticsStreamTranscriptionCommandOutput) => void
-  ): void;
-  public startCallAnalyticsStreamTranscription(
-    args: StartCallAnalyticsStreamTranscriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartCallAnalyticsStreamTranscriptionCommandOutput) => void),
-    cb?: (err: any, data?: StartCallAnalyticsStreamTranscriptionCommandOutput) => void
-  ): Promise<StartCallAnalyticsStreamTranscriptionCommandOutput> | void {
-    const command = new StartCallAnalyticsStreamTranscriptionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
-   *             Amazon Transcribe Medical and the transcription results are streamed to your
-   *             application.</p>
-   *         <p>The following parameters are required:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>language-code</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>media-encoding</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>sample-rate</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *         <p>For more information on streaming with Amazon Transcribe Medical, see
-   *             <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html">Transcribing
-   *                 streaming audio</a>.</p>
-   */
-  public startMedicalStreamTranscription(
-    args: StartMedicalStreamTranscriptionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartMedicalStreamTranscriptionCommandOutput>;
-  public startMedicalStreamTranscription(
-    args: StartMedicalStreamTranscriptionCommandInput,
-    cb: (err: any, data?: StartMedicalStreamTranscriptionCommandOutput) => void
-  ): void;
-  public startMedicalStreamTranscription(
-    args: StartMedicalStreamTranscriptionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartMedicalStreamTranscriptionCommandOutput) => void
-  ): void;
-  public startMedicalStreamTranscription(
-    args: StartMedicalStreamTranscriptionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMedicalStreamTranscriptionCommandOutput) => void),
-    cb?: (err: any, data?: StartMedicalStreamTranscriptionCommandOutput) => void
-  ): Promise<StartMedicalStreamTranscriptionCommandOutput> | void {
-    const command = new StartMedicalStreamTranscriptionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
-   *       Amazon Transcribe and the transcription results are streamed to your application.</p>
-   *          <p>The following parameters are required:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>language-code</code> or <code>identify-language</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>media-encoding</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sample-rate</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information on streaming with Amazon Transcribe, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html">Transcribing streaming audio</a>.</p>
-   */
-  public startStreamTranscription(
-    args: StartStreamTranscriptionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartStreamTranscriptionCommandOutput>;
-  public startStreamTranscription(
-    args: StartStreamTranscriptionCommandInput,
-    cb: (err: any, data?: StartStreamTranscriptionCommandOutput) => void
-  ): void;
-  public startStreamTranscription(
-    args: StartStreamTranscriptionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartStreamTranscriptionCommandOutput) => void
-  ): void;
-  public startStreamTranscription(
-    args: StartStreamTranscriptionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartStreamTranscriptionCommandOutput) => void),
-    cb?: (err: any, data?: StartStreamTranscriptionCommandOutput) => void
-  ): Promise<StartStreamTranscriptionCommandOutput> | void {
-    const command = new StartStreamTranscriptionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class TranscribeStreaming extends TranscribeStreamingClient implements TranscribeStreaming {}
+createAggregatedClient(commands, TranscribeStreaming);

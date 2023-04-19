@@ -2,6 +2,7 @@ export * from "./NoOpLogger";
 export * from "./client";
 export * from "./command";
 export * from "./constants";
+export * from "./create-aggregated-client";
 export * from "./date-utils";
 export * from "./default-error-handler";
 export * from "./defaults-mode";

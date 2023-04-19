@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
@@ -56,7 +57,282 @@ import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } fr
 import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
-import { IdentitystoreClient } from "./IdentitystoreClient";
+import { IdentitystoreClient, IdentitystoreClientConfig } from "./IdentitystoreClient";
+
+const commands = {
+  CreateGroupCommand,
+  CreateGroupMembershipCommand,
+  CreateUserCommand,
+  DeleteGroupCommand,
+  DeleteGroupMembershipCommand,
+  DeleteUserCommand,
+  DescribeGroupCommand,
+  DescribeGroupMembershipCommand,
+  DescribeUserCommand,
+  GetGroupIdCommand,
+  GetGroupMembershipIdCommand,
+  GetUserIdCommand,
+  IsMemberInGroupsCommand,
+  ListGroupMembershipsCommand,
+  ListGroupMembershipsForMemberCommand,
+  ListGroupsCommand,
+  ListUsersCommand,
+  UpdateGroupCommand,
+  UpdateUserCommand,
+};
+
+export interface Identitystore {
+  /**
+   * @see {@link CreateGroupCommand}
+   */
+  createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
+  createGroup(args: CreateGroupCommandInput, cb: (err: any, data?: CreateGroupCommandOutput) => void): void;
+  createGroup(
+    args: CreateGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateGroupMembershipCommand}
+   */
+  createGroupMembership(
+    args: CreateGroupMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGroupMembershipCommandOutput>;
+  createGroupMembership(
+    args: CreateGroupMembershipCommandInput,
+    cb: (err: any, data?: CreateGroupMembershipCommandOutput) => void
+  ): void;
+  createGroupMembership(
+    args: CreateGroupMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGroupMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateUserCommand}
+   */
+  createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
+  createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
+  createUser(
+    args: CreateUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteGroupCommand}
+   */
+  deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
+  deleteGroup(args: DeleteGroupCommandInput, cb: (err: any, data?: DeleteGroupCommandOutput) => void): void;
+  deleteGroup(
+    args: DeleteGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteGroupMembershipCommand}
+   */
+  deleteGroupMembership(
+    args: DeleteGroupMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGroupMembershipCommandOutput>;
+  deleteGroupMembership(
+    args: DeleteGroupMembershipCommandInput,
+    cb: (err: any, data?: DeleteGroupMembershipCommandOutput) => void
+  ): void;
+  deleteGroupMembership(
+    args: DeleteGroupMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGroupMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteUserCommand}
+   */
+  deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
+  deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeGroupCommand}
+   */
+  describeGroup(args: DescribeGroupCommandInput, options?: __HttpHandlerOptions): Promise<DescribeGroupCommandOutput>;
+  describeGroup(args: DescribeGroupCommandInput, cb: (err: any, data?: DescribeGroupCommandOutput) => void): void;
+  describeGroup(
+    args: DescribeGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeGroupMembershipCommand}
+   */
+  describeGroupMembership(
+    args: DescribeGroupMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeGroupMembershipCommandOutput>;
+  describeGroupMembership(
+    args: DescribeGroupMembershipCommandInput,
+    cb: (err: any, data?: DescribeGroupMembershipCommandOutput) => void
+  ): void;
+  describeGroupMembership(
+    args: DescribeGroupMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeGroupMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeUserCommand}
+   */
+  describeUser(args: DescribeUserCommandInput, options?: __HttpHandlerOptions): Promise<DescribeUserCommandOutput>;
+  describeUser(args: DescribeUserCommandInput, cb: (err: any, data?: DescribeUserCommandOutput) => void): void;
+  describeUser(
+    args: DescribeUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetGroupIdCommand}
+   */
+  getGroupId(args: GetGroupIdCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupIdCommandOutput>;
+  getGroupId(args: GetGroupIdCommandInput, cb: (err: any, data?: GetGroupIdCommandOutput) => void): void;
+  getGroupId(
+    args: GetGroupIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGroupIdCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetGroupMembershipIdCommand}
+   */
+  getGroupMembershipId(
+    args: GetGroupMembershipIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGroupMembershipIdCommandOutput>;
+  getGroupMembershipId(
+    args: GetGroupMembershipIdCommandInput,
+    cb: (err: any, data?: GetGroupMembershipIdCommandOutput) => void
+  ): void;
+  getGroupMembershipId(
+    args: GetGroupMembershipIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGroupMembershipIdCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetUserIdCommand}
+   */
+  getUserId(args: GetUserIdCommandInput, options?: __HttpHandlerOptions): Promise<GetUserIdCommandOutput>;
+  getUserId(args: GetUserIdCommandInput, cb: (err: any, data?: GetUserIdCommandOutput) => void): void;
+  getUserId(
+    args: GetUserIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetUserIdCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link IsMemberInGroupsCommand}
+   */
+  isMemberInGroups(
+    args: IsMemberInGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<IsMemberInGroupsCommandOutput>;
+  isMemberInGroups(
+    args: IsMemberInGroupsCommandInput,
+    cb: (err: any, data?: IsMemberInGroupsCommandOutput) => void
+  ): void;
+  isMemberInGroups(
+    args: IsMemberInGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: IsMemberInGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListGroupMembershipsCommand}
+   */
+  listGroupMemberships(
+    args: ListGroupMembershipsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGroupMembershipsCommandOutput>;
+  listGroupMemberships(
+    args: ListGroupMembershipsCommandInput,
+    cb: (err: any, data?: ListGroupMembershipsCommandOutput) => void
+  ): void;
+  listGroupMemberships(
+    args: ListGroupMembershipsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGroupMembershipsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListGroupMembershipsForMemberCommand}
+   */
+  listGroupMembershipsForMember(
+    args: ListGroupMembershipsForMemberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGroupMembershipsForMemberCommandOutput>;
+  listGroupMembershipsForMember(
+    args: ListGroupMembershipsForMemberCommandInput,
+    cb: (err: any, data?: ListGroupMembershipsForMemberCommandOutput) => void
+  ): void;
+  listGroupMembershipsForMember(
+    args: ListGroupMembershipsForMemberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGroupMembershipsForMemberCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListGroupsCommand}
+   */
+  listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
+  listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
+  listGroups(
+    args: ListGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListUsersCommand}
+   */
+  listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
+  listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
+  listUsers(
+    args: ListUsersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateGroupCommand}
+   */
+  updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
+  updateGroup(args: UpdateGroupCommandInput, cb: (err: any, data?: UpdateGroupCommandOutput) => void): void;
+  updateGroup(
+    args: UpdateGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateUserCommand}
+   */
+  updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
+  updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
+  updateUser(
+    args: UpdateUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): void;
+}
 
 /**
  * @public
@@ -73,571 +349,5 @@ import { IdentitystoreClient } from "./IdentitystoreClient";
  *          <p>This reference guide describes the identity store operations that you can call
  *          programatically and includes detailed information about data types and errors.</p>
  */
-export class Identitystore extends IdentitystoreClient {
-  /**
-   * @public
-   * <p>Creates a group within the specified identity store.</p>
-   */
-  public createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
-  public createGroup(args: CreateGroupCommandInput, cb: (err: any, data?: CreateGroupCommandOutput) => void): void;
-  public createGroup(
-    args: CreateGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateGroupCommandOutput) => void
-  ): void;
-  public createGroup(
-    args: CreateGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGroupCommandOutput) => void),
-    cb?: (err: any, data?: CreateGroupCommandOutput) => void
-  ): Promise<CreateGroupCommandOutput> | void {
-    const command = new CreateGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a relationship between a member and a group. The following identifiers must be specified: <code>GroupId</code>, <code>IdentityStoreId</code>, and <code>MemberId</code>.</p>
-   */
-  public createGroupMembership(
-    args: CreateGroupMembershipCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateGroupMembershipCommandOutput>;
-  public createGroupMembership(
-    args: CreateGroupMembershipCommandInput,
-    cb: (err: any, data?: CreateGroupMembershipCommandOutput) => void
-  ): void;
-  public createGroupMembership(
-    args: CreateGroupMembershipCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateGroupMembershipCommandOutput) => void
-  ): void;
-  public createGroupMembership(
-    args: CreateGroupMembershipCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGroupMembershipCommandOutput) => void),
-    cb?: (err: any, data?: CreateGroupMembershipCommandOutput) => void
-  ): Promise<CreateGroupMembershipCommandOutput> | void {
-    const command = new CreateGroupMembershipCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a user within the specified identity store.</p>
-   */
-  public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
-  public createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
-  public createUser(
-    args: CreateUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateUserCommandOutput) => void
-  ): void;
-  public createUser(
-    args: CreateUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
-    cb?: (err: any, data?: CreateUserCommandOutput) => void
-  ): Promise<CreateUserCommandOutput> | void {
-    const command = new CreateUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Delete a group within an identity store given <code>GroupId</code>.</p>
-   */
-  public deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
-  public deleteGroup(args: DeleteGroupCommandInput, cb: (err: any, data?: DeleteGroupCommandOutput) => void): void;
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteGroupCommandOutput) => void
-  ): void;
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGroupCommandOutput) => void),
-    cb?: (err: any, data?: DeleteGroupCommandOutput) => void
-  ): Promise<DeleteGroupCommandOutput> | void {
-    const command = new DeleteGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Delete a membership within a group given <code>MembershipId</code>.</p>
-   */
-  public deleteGroupMembership(
-    args: DeleteGroupMembershipCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteGroupMembershipCommandOutput>;
-  public deleteGroupMembership(
-    args: DeleteGroupMembershipCommandInput,
-    cb: (err: any, data?: DeleteGroupMembershipCommandOutput) => void
-  ): void;
-  public deleteGroupMembership(
-    args: DeleteGroupMembershipCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteGroupMembershipCommandOutput) => void
-  ): void;
-  public deleteGroupMembership(
-    args: DeleteGroupMembershipCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGroupMembershipCommandOutput) => void),
-    cb?: (err: any, data?: DeleteGroupMembershipCommandOutput) => void
-  ): Promise<DeleteGroupMembershipCommandOutput> | void {
-    const command = new DeleteGroupMembershipCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a user within an identity store given <code>UserId</code>.</p>
-   */
-  public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
-  public deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteUserCommandOutput) => void
-  ): void;
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
-    cb?: (err: any, data?: DeleteUserCommandOutput) => void
-  ): Promise<DeleteUserCommandOutput> | void {
-    const command = new DeleteUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the group metadata and attributes from <code>GroupId</code> in an identity
-   *          store.</p>
-   */
-  public describeGroup(
-    args: DescribeGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeGroupCommandOutput>;
-  public describeGroup(
-    args: DescribeGroupCommandInput,
-    cb: (err: any, data?: DescribeGroupCommandOutput) => void
-  ): void;
-  public describeGroup(
-    args: DescribeGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeGroupCommandOutput) => void
-  ): void;
-  public describeGroup(
-    args: DescribeGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGroupCommandOutput) => void),
-    cb?: (err: any, data?: DescribeGroupCommandOutput) => void
-  ): Promise<DescribeGroupCommandOutput> | void {
-    const command = new DescribeGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves membership metadata and attributes from <code>MembershipId</code> in an identity store.</p>
-   */
-  public describeGroupMembership(
-    args: DescribeGroupMembershipCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeGroupMembershipCommandOutput>;
-  public describeGroupMembership(
-    args: DescribeGroupMembershipCommandInput,
-    cb: (err: any, data?: DescribeGroupMembershipCommandOutput) => void
-  ): void;
-  public describeGroupMembership(
-    args: DescribeGroupMembershipCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeGroupMembershipCommandOutput) => void
-  ): void;
-  public describeGroupMembership(
-    args: DescribeGroupMembershipCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGroupMembershipCommandOutput) => void),
-    cb?: (err: any, data?: DescribeGroupMembershipCommandOutput) => void
-  ): Promise<DescribeGroupMembershipCommandOutput> | void {
-    const command = new DescribeGroupMembershipCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the user metadata and attributes from the <code>UserId</code> in an identity store.</p>
-   */
-  public describeUser(
-    args: DescribeUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeUserCommandOutput>;
-  public describeUser(args: DescribeUserCommandInput, cb: (err: any, data?: DescribeUserCommandOutput) => void): void;
-  public describeUser(
-    args: DescribeUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeUserCommandOutput) => void
-  ): void;
-  public describeUser(
-    args: DescribeUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserCommandOutput) => void),
-    cb?: (err: any, data?: DescribeUserCommandOutput) => void
-  ): Promise<DescribeUserCommandOutput> | void {
-    const command = new DescribeUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves <code>GroupId</code> in an identity store.</p>
-   */
-  public getGroupId(args: GetGroupIdCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupIdCommandOutput>;
-  public getGroupId(args: GetGroupIdCommandInput, cb: (err: any, data?: GetGroupIdCommandOutput) => void): void;
-  public getGroupId(
-    args: GetGroupIdCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetGroupIdCommandOutput) => void
-  ): void;
-  public getGroupId(
-    args: GetGroupIdCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupIdCommandOutput) => void),
-    cb?: (err: any, data?: GetGroupIdCommandOutput) => void
-  ): Promise<GetGroupIdCommandOutput> | void {
-    const command = new GetGroupIdCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the <code>MembershipId</code> in an identity store.</p>
-   */
-  public getGroupMembershipId(
-    args: GetGroupMembershipIdCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetGroupMembershipIdCommandOutput>;
-  public getGroupMembershipId(
-    args: GetGroupMembershipIdCommandInput,
-    cb: (err: any, data?: GetGroupMembershipIdCommandOutput) => void
-  ): void;
-  public getGroupMembershipId(
-    args: GetGroupMembershipIdCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetGroupMembershipIdCommandOutput) => void
-  ): void;
-  public getGroupMembershipId(
-    args: GetGroupMembershipIdCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupMembershipIdCommandOutput) => void),
-    cb?: (err: any, data?: GetGroupMembershipIdCommandOutput) => void
-  ): Promise<GetGroupMembershipIdCommandOutput> | void {
-    const command = new GetGroupMembershipIdCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the <code>UserId</code> in an identity store.</p>
-   */
-  public getUserId(args: GetUserIdCommandInput, options?: __HttpHandlerOptions): Promise<GetUserIdCommandOutput>;
-  public getUserId(args: GetUserIdCommandInput, cb: (err: any, data?: GetUserIdCommandOutput) => void): void;
-  public getUserId(
-    args: GetUserIdCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetUserIdCommandOutput) => void
-  ): void;
-  public getUserId(
-    args: GetUserIdCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserIdCommandOutput) => void),
-    cb?: (err: any, data?: GetUserIdCommandOutput) => void
-  ): Promise<GetUserIdCommandOutput> | void {
-    const command = new GetUserIdCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Checks the user's membership in all requested groups and returns if the member exists in all queried groups.</p>
-   */
-  public isMemberInGroups(
-    args: IsMemberInGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<IsMemberInGroupsCommandOutput>;
-  public isMemberInGroups(
-    args: IsMemberInGroupsCommandInput,
-    cb: (err: any, data?: IsMemberInGroupsCommandOutput) => void
-  ): void;
-  public isMemberInGroups(
-    args: IsMemberInGroupsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: IsMemberInGroupsCommandOutput) => void
-  ): void;
-  public isMemberInGroups(
-    args: IsMemberInGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: IsMemberInGroupsCommandOutput) => void),
-    cb?: (err: any, data?: IsMemberInGroupsCommandOutput) => void
-  ): Promise<IsMemberInGroupsCommandOutput> | void {
-    const command = new IsMemberInGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>For the specified group in the specified identity store, returns the list of all <code>GroupMembership</code> objects and returns results in paginated form.</p>
-   */
-  public listGroupMemberships(
-    args: ListGroupMembershipsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListGroupMembershipsCommandOutput>;
-  public listGroupMemberships(
-    args: ListGroupMembershipsCommandInput,
-    cb: (err: any, data?: ListGroupMembershipsCommandOutput) => void
-  ): void;
-  public listGroupMemberships(
-    args: ListGroupMembershipsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListGroupMembershipsCommandOutput) => void
-  ): void;
-  public listGroupMemberships(
-    args: ListGroupMembershipsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupMembershipsCommandOutput) => void),
-    cb?: (err: any, data?: ListGroupMembershipsCommandOutput) => void
-  ): Promise<ListGroupMembershipsCommandOutput> | void {
-    const command = new ListGroupMembershipsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>For the specified member in the specified identity store, returns the list of all <code>GroupMembership</code> objects and returns results in paginated form.</p>
-   */
-  public listGroupMembershipsForMember(
-    args: ListGroupMembershipsForMemberCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListGroupMembershipsForMemberCommandOutput>;
-  public listGroupMembershipsForMember(
-    args: ListGroupMembershipsForMemberCommandInput,
-    cb: (err: any, data?: ListGroupMembershipsForMemberCommandOutput) => void
-  ): void;
-  public listGroupMembershipsForMember(
-    args: ListGroupMembershipsForMemberCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListGroupMembershipsForMemberCommandOutput) => void
-  ): void;
-  public listGroupMembershipsForMember(
-    args: ListGroupMembershipsForMemberCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupMembershipsForMemberCommandOutput) => void),
-    cb?: (err: any, data?: ListGroupMembershipsForMemberCommandOutput) => void
-  ): Promise<ListGroupMembershipsForMemberCommandOutput> | void {
-    const command = new ListGroupMembershipsForMemberCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all groups in the identity store. Returns a paginated list of complete <code>Group</code> objects.
-   *          Filtering for a <code>Group</code> by the <code>DisplayName</code> attribute is deprecated. Instead, use the <code>GetGroupId</code> API action.</p>
-   */
-  public listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
-  public listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
-  public listGroups(
-    args: ListGroupsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListGroupsCommandOutput) => void
-  ): void;
-  public listGroups(
-    args: ListGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGroupsCommandOutput) => void),
-    cb?: (err: any, data?: ListGroupsCommandOutput) => void
-  ): Promise<ListGroupsCommandOutput> | void {
-    const command = new ListGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all users in the identity store. Returns a paginated list of complete <code>User</code> objects.
-   *          Filtering for a <code>User</code> by the <code>UserName</code> attribute is deprecated. Instead, use the <code>GetUserId</code> API action.</p>
-   */
-  public listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
-  public listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
-  public listUsers(
-    args: ListUsersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListUsersCommandOutput) => void
-  ): void;
-  public listUsers(
-    args: ListUsersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersCommandOutput) => void),
-    cb?: (err: any, data?: ListUsersCommandOutput) => void
-  ): Promise<ListUsersCommandOutput> | void {
-    const command = new ListUsersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>For the specified group in the specified identity store, updates the group metadata and attributes.</p>
-   */
-  public updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
-  public updateGroup(args: UpdateGroupCommandInput, cb: (err: any, data?: UpdateGroupCommandOutput) => void): void;
-  public updateGroup(
-    args: UpdateGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateGroupCommandOutput) => void
-  ): void;
-  public updateGroup(
-    args: UpdateGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGroupCommandOutput) => void),
-    cb?: (err: any, data?: UpdateGroupCommandOutput) => void
-  ): Promise<UpdateGroupCommandOutput> | void {
-    const command = new UpdateGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>For the specified user in the specified identity store, updates the user metadata and attributes.</p>
-   */
-  public updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
-  public updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
-  public updateUser(
-    args: UpdateUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateUserCommandOutput) => void
-  ): void;
-  public updateUser(
-    args: UpdateUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserCommandOutput) => void),
-    cb?: (err: any, data?: UpdateUserCommandOutput) => void
-  ): Promise<UpdateUserCommandOutput> | void {
-    const command = new UpdateUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class Identitystore extends IdentitystoreClient implements Identitystore {}
+createAggregatedClient(commands, Identitystore);

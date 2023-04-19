@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -201,7 +202,687 @@ import {
   UpdateFolderCommandOutput,
 } from "./commands/UpdateFolderCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
-import { WorkDocsClient } from "./WorkDocsClient";
+import { WorkDocsClient, WorkDocsClientConfig } from "./WorkDocsClient";
+
+const commands = {
+  AbortDocumentVersionUploadCommand,
+  ActivateUserCommand,
+  AddResourcePermissionsCommand,
+  CreateCommentCommand,
+  CreateCustomMetadataCommand,
+  CreateFolderCommand,
+  CreateLabelsCommand,
+  CreateNotificationSubscriptionCommand,
+  CreateUserCommand,
+  DeactivateUserCommand,
+  DeleteCommentCommand,
+  DeleteCustomMetadataCommand,
+  DeleteDocumentCommand,
+  DeleteDocumentVersionCommand,
+  DeleteFolderCommand,
+  DeleteFolderContentsCommand,
+  DeleteLabelsCommand,
+  DeleteNotificationSubscriptionCommand,
+  DeleteUserCommand,
+  DescribeActivitiesCommand,
+  DescribeCommentsCommand,
+  DescribeDocumentVersionsCommand,
+  DescribeFolderContentsCommand,
+  DescribeGroupsCommand,
+  DescribeNotificationSubscriptionsCommand,
+  DescribeResourcePermissionsCommand,
+  DescribeRootFoldersCommand,
+  DescribeUsersCommand,
+  GetCurrentUserCommand,
+  GetDocumentCommand,
+  GetDocumentPathCommand,
+  GetDocumentVersionCommand,
+  GetFolderCommand,
+  GetFolderPathCommand,
+  GetResourcesCommand,
+  InitiateDocumentVersionUploadCommand,
+  RemoveAllResourcePermissionsCommand,
+  RemoveResourcePermissionCommand,
+  RestoreDocumentVersionsCommand,
+  SearchResourcesCommand,
+  UpdateDocumentCommand,
+  UpdateDocumentVersionCommand,
+  UpdateFolderCommand,
+  UpdateUserCommand,
+};
+
+export interface WorkDocs {
+  /**
+   * @see {@link AbortDocumentVersionUploadCommand}
+   */
+  abortDocumentVersionUpload(
+    args: AbortDocumentVersionUploadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AbortDocumentVersionUploadCommandOutput>;
+  abortDocumentVersionUpload(
+    args: AbortDocumentVersionUploadCommandInput,
+    cb: (err: any, data?: AbortDocumentVersionUploadCommandOutput) => void
+  ): void;
+  abortDocumentVersionUpload(
+    args: AbortDocumentVersionUploadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AbortDocumentVersionUploadCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ActivateUserCommand}
+   */
+  activateUser(args: ActivateUserCommandInput, options?: __HttpHandlerOptions): Promise<ActivateUserCommandOutput>;
+  activateUser(args: ActivateUserCommandInput, cb: (err: any, data?: ActivateUserCommandOutput) => void): void;
+  activateUser(
+    args: ActivateUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ActivateUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AddResourcePermissionsCommand}
+   */
+  addResourcePermissions(
+    args: AddResourcePermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddResourcePermissionsCommandOutput>;
+  addResourcePermissions(
+    args: AddResourcePermissionsCommandInput,
+    cb: (err: any, data?: AddResourcePermissionsCommandOutput) => void
+  ): void;
+  addResourcePermissions(
+    args: AddResourcePermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddResourcePermissionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCommentCommand}
+   */
+  createComment(args: CreateCommentCommandInput, options?: __HttpHandlerOptions): Promise<CreateCommentCommandOutput>;
+  createComment(args: CreateCommentCommandInput, cb: (err: any, data?: CreateCommentCommandOutput) => void): void;
+  createComment(
+    args: CreateCommentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCommentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCustomMetadataCommand}
+   */
+  createCustomMetadata(
+    args: CreateCustomMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCustomMetadataCommandOutput>;
+  createCustomMetadata(
+    args: CreateCustomMetadataCommandInput,
+    cb: (err: any, data?: CreateCustomMetadataCommandOutput) => void
+  ): void;
+  createCustomMetadata(
+    args: CreateCustomMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCustomMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateFolderCommand}
+   */
+  createFolder(args: CreateFolderCommandInput, options?: __HttpHandlerOptions): Promise<CreateFolderCommandOutput>;
+  createFolder(args: CreateFolderCommandInput, cb: (err: any, data?: CreateFolderCommandOutput) => void): void;
+  createFolder(
+    args: CreateFolderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFolderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLabelsCommand}
+   */
+  createLabels(args: CreateLabelsCommandInput, options?: __HttpHandlerOptions): Promise<CreateLabelsCommandOutput>;
+  createLabels(args: CreateLabelsCommandInput, cb: (err: any, data?: CreateLabelsCommandOutput) => void): void;
+  createLabels(
+    args: CreateLabelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLabelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateNotificationSubscriptionCommand}
+   */
+  createNotificationSubscription(
+    args: CreateNotificationSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateNotificationSubscriptionCommandOutput>;
+  createNotificationSubscription(
+    args: CreateNotificationSubscriptionCommandInput,
+    cb: (err: any, data?: CreateNotificationSubscriptionCommandOutput) => void
+  ): void;
+  createNotificationSubscription(
+    args: CreateNotificationSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateNotificationSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateUserCommand}
+   */
+  createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
+  createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
+  createUser(
+    args: CreateUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeactivateUserCommand}
+   */
+  deactivateUser(
+    args: DeactivateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeactivateUserCommandOutput>;
+  deactivateUser(args: DeactivateUserCommandInput, cb: (err: any, data?: DeactivateUserCommandOutput) => void): void;
+  deactivateUser(
+    args: DeactivateUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeactivateUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCommentCommand}
+   */
+  deleteComment(args: DeleteCommentCommandInput, options?: __HttpHandlerOptions): Promise<DeleteCommentCommandOutput>;
+  deleteComment(args: DeleteCommentCommandInput, cb: (err: any, data?: DeleteCommentCommandOutput) => void): void;
+  deleteComment(
+    args: DeleteCommentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCommentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCustomMetadataCommand}
+   */
+  deleteCustomMetadata(
+    args: DeleteCustomMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCustomMetadataCommandOutput>;
+  deleteCustomMetadata(
+    args: DeleteCustomMetadataCommandInput,
+    cb: (err: any, data?: DeleteCustomMetadataCommandOutput) => void
+  ): void;
+  deleteCustomMetadata(
+    args: DeleteCustomMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCustomMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDocumentCommand}
+   */
+  deleteDocument(
+    args: DeleteDocumentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDocumentCommandOutput>;
+  deleteDocument(args: DeleteDocumentCommandInput, cb: (err: any, data?: DeleteDocumentCommandOutput) => void): void;
+  deleteDocument(
+    args: DeleteDocumentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDocumentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDocumentVersionCommand}
+   */
+  deleteDocumentVersion(
+    args: DeleteDocumentVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDocumentVersionCommandOutput>;
+  deleteDocumentVersion(
+    args: DeleteDocumentVersionCommandInput,
+    cb: (err: any, data?: DeleteDocumentVersionCommandOutput) => void
+  ): void;
+  deleteDocumentVersion(
+    args: DeleteDocumentVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDocumentVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteFolderCommand}
+   */
+  deleteFolder(args: DeleteFolderCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFolderCommandOutput>;
+  deleteFolder(args: DeleteFolderCommandInput, cb: (err: any, data?: DeleteFolderCommandOutput) => void): void;
+  deleteFolder(
+    args: DeleteFolderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFolderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteFolderContentsCommand}
+   */
+  deleteFolderContents(
+    args: DeleteFolderContentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFolderContentsCommandOutput>;
+  deleteFolderContents(
+    args: DeleteFolderContentsCommandInput,
+    cb: (err: any, data?: DeleteFolderContentsCommandOutput) => void
+  ): void;
+  deleteFolderContents(
+    args: DeleteFolderContentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFolderContentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLabelsCommand}
+   */
+  deleteLabels(args: DeleteLabelsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLabelsCommandOutput>;
+  deleteLabels(args: DeleteLabelsCommandInput, cb: (err: any, data?: DeleteLabelsCommandOutput) => void): void;
+  deleteLabels(
+    args: DeleteLabelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLabelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteNotificationSubscriptionCommand}
+   */
+  deleteNotificationSubscription(
+    args: DeleteNotificationSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteNotificationSubscriptionCommandOutput>;
+  deleteNotificationSubscription(
+    args: DeleteNotificationSubscriptionCommandInput,
+    cb: (err: any, data?: DeleteNotificationSubscriptionCommandOutput) => void
+  ): void;
+  deleteNotificationSubscription(
+    args: DeleteNotificationSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteNotificationSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteUserCommand}
+   */
+  deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
+  deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
+  deleteUser(
+    args: DeleteUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeActivitiesCommand}
+   */
+  describeActivities(
+    args: DescribeActivitiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeActivitiesCommandOutput>;
+  describeActivities(
+    args: DescribeActivitiesCommandInput,
+    cb: (err: any, data?: DescribeActivitiesCommandOutput) => void
+  ): void;
+  describeActivities(
+    args: DescribeActivitiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeActivitiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCommentsCommand}
+   */
+  describeComments(
+    args: DescribeCommentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCommentsCommandOutput>;
+  describeComments(
+    args: DescribeCommentsCommandInput,
+    cb: (err: any, data?: DescribeCommentsCommandOutput) => void
+  ): void;
+  describeComments(
+    args: DescribeCommentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCommentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDocumentVersionsCommand}
+   */
+  describeDocumentVersions(
+    args: DescribeDocumentVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDocumentVersionsCommandOutput>;
+  describeDocumentVersions(
+    args: DescribeDocumentVersionsCommandInput,
+    cb: (err: any, data?: DescribeDocumentVersionsCommandOutput) => void
+  ): void;
+  describeDocumentVersions(
+    args: DescribeDocumentVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDocumentVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeFolderContentsCommand}
+   */
+  describeFolderContents(
+    args: DescribeFolderContentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFolderContentsCommandOutput>;
+  describeFolderContents(
+    args: DescribeFolderContentsCommandInput,
+    cb: (err: any, data?: DescribeFolderContentsCommandOutput) => void
+  ): void;
+  describeFolderContents(
+    args: DescribeFolderContentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFolderContentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeGroupsCommand}
+   */
+  describeGroups(
+    args: DescribeGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeGroupsCommandOutput>;
+  describeGroups(args: DescribeGroupsCommandInput, cb: (err: any, data?: DescribeGroupsCommandOutput) => void): void;
+  describeGroups(
+    args: DescribeGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeNotificationSubscriptionsCommand}
+   */
+  describeNotificationSubscriptions(
+    args: DescribeNotificationSubscriptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeNotificationSubscriptionsCommandOutput>;
+  describeNotificationSubscriptions(
+    args: DescribeNotificationSubscriptionsCommandInput,
+    cb: (err: any, data?: DescribeNotificationSubscriptionsCommandOutput) => void
+  ): void;
+  describeNotificationSubscriptions(
+    args: DescribeNotificationSubscriptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeNotificationSubscriptionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeResourcePermissionsCommand}
+   */
+  describeResourcePermissions(
+    args: DescribeResourcePermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeResourcePermissionsCommandOutput>;
+  describeResourcePermissions(
+    args: DescribeResourcePermissionsCommandInput,
+    cb: (err: any, data?: DescribeResourcePermissionsCommandOutput) => void
+  ): void;
+  describeResourcePermissions(
+    args: DescribeResourcePermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeResourcePermissionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeRootFoldersCommand}
+   */
+  describeRootFolders(
+    args: DescribeRootFoldersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRootFoldersCommandOutput>;
+  describeRootFolders(
+    args: DescribeRootFoldersCommandInput,
+    cb: (err: any, data?: DescribeRootFoldersCommandOutput) => void
+  ): void;
+  describeRootFolders(
+    args: DescribeRootFoldersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRootFoldersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeUsersCommand}
+   */
+  describeUsers(args: DescribeUsersCommandInput, options?: __HttpHandlerOptions): Promise<DescribeUsersCommandOutput>;
+  describeUsers(args: DescribeUsersCommandInput, cb: (err: any, data?: DescribeUsersCommandOutput) => void): void;
+  describeUsers(
+    args: DescribeUsersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeUsersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCurrentUserCommand}
+   */
+  getCurrentUser(
+    args: GetCurrentUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCurrentUserCommandOutput>;
+  getCurrentUser(args: GetCurrentUserCommandInput, cb: (err: any, data?: GetCurrentUserCommandOutput) => void): void;
+  getCurrentUser(
+    args: GetCurrentUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCurrentUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDocumentCommand}
+   */
+  getDocument(args: GetDocumentCommandInput, options?: __HttpHandlerOptions): Promise<GetDocumentCommandOutput>;
+  getDocument(args: GetDocumentCommandInput, cb: (err: any, data?: GetDocumentCommandOutput) => void): void;
+  getDocument(
+    args: GetDocumentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDocumentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDocumentPathCommand}
+   */
+  getDocumentPath(
+    args: GetDocumentPathCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDocumentPathCommandOutput>;
+  getDocumentPath(args: GetDocumentPathCommandInput, cb: (err: any, data?: GetDocumentPathCommandOutput) => void): void;
+  getDocumentPath(
+    args: GetDocumentPathCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDocumentPathCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDocumentVersionCommand}
+   */
+  getDocumentVersion(
+    args: GetDocumentVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDocumentVersionCommandOutput>;
+  getDocumentVersion(
+    args: GetDocumentVersionCommandInput,
+    cb: (err: any, data?: GetDocumentVersionCommandOutput) => void
+  ): void;
+  getDocumentVersion(
+    args: GetDocumentVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDocumentVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFolderCommand}
+   */
+  getFolder(args: GetFolderCommandInput, options?: __HttpHandlerOptions): Promise<GetFolderCommandOutput>;
+  getFolder(args: GetFolderCommandInput, cb: (err: any, data?: GetFolderCommandOutput) => void): void;
+  getFolder(
+    args: GetFolderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFolderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFolderPathCommand}
+   */
+  getFolderPath(args: GetFolderPathCommandInput, options?: __HttpHandlerOptions): Promise<GetFolderPathCommandOutput>;
+  getFolderPath(args: GetFolderPathCommandInput, cb: (err: any, data?: GetFolderPathCommandOutput) => void): void;
+  getFolderPath(
+    args: GetFolderPathCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFolderPathCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourcesCommand}
+   */
+  getResources(args: GetResourcesCommandInput, options?: __HttpHandlerOptions): Promise<GetResourcesCommandOutput>;
+  getResources(args: GetResourcesCommandInput, cb: (err: any, data?: GetResourcesCommandOutput) => void): void;
+  getResources(
+    args: GetResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link InitiateDocumentVersionUploadCommand}
+   */
+  initiateDocumentVersionUpload(
+    args: InitiateDocumentVersionUploadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InitiateDocumentVersionUploadCommandOutput>;
+  initiateDocumentVersionUpload(
+    args: InitiateDocumentVersionUploadCommandInput,
+    cb: (err: any, data?: InitiateDocumentVersionUploadCommandOutput) => void
+  ): void;
+  initiateDocumentVersionUpload(
+    args: InitiateDocumentVersionUploadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InitiateDocumentVersionUploadCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RemoveAllResourcePermissionsCommand}
+   */
+  removeAllResourcePermissions(
+    args: RemoveAllResourcePermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveAllResourcePermissionsCommandOutput>;
+  removeAllResourcePermissions(
+    args: RemoveAllResourcePermissionsCommandInput,
+    cb: (err: any, data?: RemoveAllResourcePermissionsCommandOutput) => void
+  ): void;
+  removeAllResourcePermissions(
+    args: RemoveAllResourcePermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveAllResourcePermissionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RemoveResourcePermissionCommand}
+   */
+  removeResourcePermission(
+    args: RemoveResourcePermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveResourcePermissionCommandOutput>;
+  removeResourcePermission(
+    args: RemoveResourcePermissionCommandInput,
+    cb: (err: any, data?: RemoveResourcePermissionCommandOutput) => void
+  ): void;
+  removeResourcePermission(
+    args: RemoveResourcePermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveResourcePermissionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RestoreDocumentVersionsCommand}
+   */
+  restoreDocumentVersions(
+    args: RestoreDocumentVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreDocumentVersionsCommandOutput>;
+  restoreDocumentVersions(
+    args: RestoreDocumentVersionsCommandInput,
+    cb: (err: any, data?: RestoreDocumentVersionsCommandOutput) => void
+  ): void;
+  restoreDocumentVersions(
+    args: RestoreDocumentVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestoreDocumentVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchResourcesCommand}
+   */
+  searchResources(
+    args: SearchResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchResourcesCommandOutput>;
+  searchResources(args: SearchResourcesCommandInput, cb: (err: any, data?: SearchResourcesCommandOutput) => void): void;
+  searchResources(
+    args: SearchResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDocumentCommand}
+   */
+  updateDocument(
+    args: UpdateDocumentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDocumentCommandOutput>;
+  updateDocument(args: UpdateDocumentCommandInput, cb: (err: any, data?: UpdateDocumentCommandOutput) => void): void;
+  updateDocument(
+    args: UpdateDocumentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDocumentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDocumentVersionCommand}
+   */
+  updateDocumentVersion(
+    args: UpdateDocumentVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDocumentVersionCommandOutput>;
+  updateDocumentVersion(
+    args: UpdateDocumentVersionCommandInput,
+    cb: (err: any, data?: UpdateDocumentVersionCommandOutput) => void
+  ): void;
+  updateDocumentVersion(
+    args: UpdateDocumentVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDocumentVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateFolderCommand}
+   */
+  updateFolder(args: UpdateFolderCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFolderCommandOutput>;
+  updateFolder(args: UpdateFolderCommandInput, cb: (err: any, data?: UpdateFolderCommandOutput) => void): void;
+  updateFolder(
+    args: UpdateFolderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFolderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateUserCommand}
+   */
+  updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
+  updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
+  updateUser(
+    args: UpdateUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): void;
+}
 
 /**
  * @public
@@ -265,1469 +946,5 @@ import { WorkDocsClient } from "./WorkDocsClient";
  *             <p>For information about Amazon WorkDocs API pricing, see <a href="https://aws.amazon.com/workdocs/pricing/">Amazon WorkDocs Pricing</a>.</p>
  *          </note>
  */
-export class WorkDocs extends WorkDocsClient {
-  /**
-   * @public
-   * <p>Aborts the upload of the specified document version that was previously initiated
-   *             by <a>InitiateDocumentVersionUpload</a>. The client should make this call
-   *             only when it no longer intends to upload the document version, or fails to do
-   *             so.</p>
-   */
-  public abortDocumentVersionUpload(
-    args: AbortDocumentVersionUploadCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AbortDocumentVersionUploadCommandOutput>;
-  public abortDocumentVersionUpload(
-    args: AbortDocumentVersionUploadCommandInput,
-    cb: (err: any, data?: AbortDocumentVersionUploadCommandOutput) => void
-  ): void;
-  public abortDocumentVersionUpload(
-    args: AbortDocumentVersionUploadCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AbortDocumentVersionUploadCommandOutput) => void
-  ): void;
-  public abortDocumentVersionUpload(
-    args: AbortDocumentVersionUploadCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AbortDocumentVersionUploadCommandOutput) => void),
-    cb?: (err: any, data?: AbortDocumentVersionUploadCommandOutput) => void
-  ): Promise<AbortDocumentVersionUploadCommandOutput> | void {
-    const command = new AbortDocumentVersionUploadCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Activates the specified user. Only active users can access Amazon
-   *             WorkDocs.</p>
-   */
-  public activateUser(
-    args: ActivateUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ActivateUserCommandOutput>;
-  public activateUser(args: ActivateUserCommandInput, cb: (err: any, data?: ActivateUserCommandOutput) => void): void;
-  public activateUser(
-    args: ActivateUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ActivateUserCommandOutput) => void
-  ): void;
-  public activateUser(
-    args: ActivateUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ActivateUserCommandOutput) => void),
-    cb?: (err: any, data?: ActivateUserCommandOutput) => void
-  ): Promise<ActivateUserCommandOutput> | void {
-    const command = new ActivateUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a set of permissions for the specified folder or document. The resource
-   *             permissions are overwritten if the principals already have different
-   *             permissions.</p>
-   */
-  public addResourcePermissions(
-    args: AddResourcePermissionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AddResourcePermissionsCommandOutput>;
-  public addResourcePermissions(
-    args: AddResourcePermissionsCommandInput,
-    cb: (err: any, data?: AddResourcePermissionsCommandOutput) => void
-  ): void;
-  public addResourcePermissions(
-    args: AddResourcePermissionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AddResourcePermissionsCommandOutput) => void
-  ): void;
-  public addResourcePermissions(
-    args: AddResourcePermissionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddResourcePermissionsCommandOutput) => void),
-    cb?: (err: any, data?: AddResourcePermissionsCommandOutput) => void
-  ): Promise<AddResourcePermissionsCommandOutput> | void {
-    const command = new AddResourcePermissionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds a new comment to the specified document version.</p>
-   */
-  public createComment(
-    args: CreateCommentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateCommentCommandOutput>;
-  public createComment(
-    args: CreateCommentCommandInput,
-    cb: (err: any, data?: CreateCommentCommandOutput) => void
-  ): void;
-  public createComment(
-    args: CreateCommentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateCommentCommandOutput) => void
-  ): void;
-  public createComment(
-    args: CreateCommentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCommentCommandOutput) => void),
-    cb?: (err: any, data?: CreateCommentCommandOutput) => void
-  ): Promise<CreateCommentCommandOutput> | void {
-    const command = new CreateCommentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds one or more custom properties to the specified resource (a folder, document,
-   *             or version).</p>
-   */
-  public createCustomMetadata(
-    args: CreateCustomMetadataCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateCustomMetadataCommandOutput>;
-  public createCustomMetadata(
-    args: CreateCustomMetadataCommandInput,
-    cb: (err: any, data?: CreateCustomMetadataCommandOutput) => void
-  ): void;
-  public createCustomMetadata(
-    args: CreateCustomMetadataCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateCustomMetadataCommandOutput) => void
-  ): void;
-  public createCustomMetadata(
-    args: CreateCustomMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCustomMetadataCommandOutput) => void),
-    cb?: (err: any, data?: CreateCustomMetadataCommandOutput) => void
-  ): Promise<CreateCustomMetadataCommandOutput> | void {
-    const command = new CreateCustomMetadataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a folder with the specified name and parent folder.</p>
-   */
-  public createFolder(
-    args: CreateFolderCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateFolderCommandOutput>;
-  public createFolder(args: CreateFolderCommandInput, cb: (err: any, data?: CreateFolderCommandOutput) => void): void;
-  public createFolder(
-    args: CreateFolderCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateFolderCommandOutput) => void
-  ): void;
-  public createFolder(
-    args: CreateFolderCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFolderCommandOutput) => void),
-    cb?: (err: any, data?: CreateFolderCommandOutput) => void
-  ): Promise<CreateFolderCommandOutput> | void {
-    const command = new CreateFolderCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds the specified list of labels to the given resource (a document or
-   *             folder)</p>
-   */
-  public createLabels(
-    args: CreateLabelsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateLabelsCommandOutput>;
-  public createLabels(args: CreateLabelsCommandInput, cb: (err: any, data?: CreateLabelsCommandOutput) => void): void;
-  public createLabels(
-    args: CreateLabelsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateLabelsCommandOutput) => void
-  ): void;
-  public createLabels(
-    args: CreateLabelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLabelsCommandOutput) => void),
-    cb?: (err: any, data?: CreateLabelsCommandOutput) => void
-  ): Promise<CreateLabelsCommandOutput> | void {
-    const command = new CreateLabelsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a
-   *             confirmation message, and must confirm the subscription.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/manage-notifications.html">Setting up notifications for an IAM user or role</a> in the <i>Amazon WorkDocs Developer
-   *             Guide</i>.</p>
-   */
-  public createNotificationSubscription(
-    args: CreateNotificationSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateNotificationSubscriptionCommandOutput>;
-  public createNotificationSubscription(
-    args: CreateNotificationSubscriptionCommandInput,
-    cb: (err: any, data?: CreateNotificationSubscriptionCommandOutput) => void
-  ): void;
-  public createNotificationSubscription(
-    args: CreateNotificationSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateNotificationSubscriptionCommandOutput) => void
-  ): void;
-  public createNotificationSubscription(
-    args: CreateNotificationSubscriptionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNotificationSubscriptionCommandOutput) => void),
-    cb?: (err: any, data?: CreateNotificationSubscriptionCommandOutput) => void
-  ): Promise<CreateNotificationSubscriptionCommandOutput> | void {
-    const command = new CreateNotificationSubscriptionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a user in a Simple AD or Microsoft AD directory. The status of a newly
-   *             created user is "ACTIVE". New users can access Amazon WorkDocs.</p>
-   */
-  public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
-  public createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
-  public createUser(
-    args: CreateUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateUserCommandOutput) => void
-  ): void;
-  public createUser(
-    args: CreateUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
-    cb?: (err: any, data?: CreateUserCommandOutput) => void
-  ): Promise<CreateUserCommandOutput> | void {
-    const command = new CreateUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deactivates the specified user, which revokes the user's access to Amazon
-   *             WorkDocs.</p>
-   */
-  public deactivateUser(
-    args: DeactivateUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeactivateUserCommandOutput>;
-  public deactivateUser(
-    args: DeactivateUserCommandInput,
-    cb: (err: any, data?: DeactivateUserCommandOutput) => void
-  ): void;
-  public deactivateUser(
-    args: DeactivateUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeactivateUserCommandOutput) => void
-  ): void;
-  public deactivateUser(
-    args: DeactivateUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeactivateUserCommandOutput) => void),
-    cb?: (err: any, data?: DeactivateUserCommandOutput) => void
-  ): Promise<DeactivateUserCommandOutput> | void {
-    const command = new DeactivateUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the specified comment from the document version.</p>
-   */
-  public deleteComment(
-    args: DeleteCommentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteCommentCommandOutput>;
-  public deleteComment(
-    args: DeleteCommentCommandInput,
-    cb: (err: any, data?: DeleteCommentCommandOutput) => void
-  ): void;
-  public deleteComment(
-    args: DeleteCommentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteCommentCommandOutput) => void
-  ): void;
-  public deleteComment(
-    args: DeleteCommentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCommentCommandOutput) => void),
-    cb?: (err: any, data?: DeleteCommentCommandOutput) => void
-  ): Promise<DeleteCommentCommandOutput> | void {
-    const command = new DeleteCommentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes custom metadata from the specified resource.</p>
-   */
-  public deleteCustomMetadata(
-    args: DeleteCustomMetadataCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteCustomMetadataCommandOutput>;
-  public deleteCustomMetadata(
-    args: DeleteCustomMetadataCommandInput,
-    cb: (err: any, data?: DeleteCustomMetadataCommandOutput) => void
-  ): void;
-  public deleteCustomMetadata(
-    args: DeleteCustomMetadataCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteCustomMetadataCommandOutput) => void
-  ): void;
-  public deleteCustomMetadata(
-    args: DeleteCustomMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCustomMetadataCommandOutput) => void),
-    cb?: (err: any, data?: DeleteCustomMetadataCommandOutput) => void
-  ): Promise<DeleteCustomMetadataCommandOutput> | void {
-    const command = new DeleteCustomMetadataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Permanently deletes the specified document and its associated metadata.</p>
-   */
-  public deleteDocument(
-    args: DeleteDocumentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteDocumentCommandOutput>;
-  public deleteDocument(
-    args: DeleteDocumentCommandInput,
-    cb: (err: any, data?: DeleteDocumentCommandOutput) => void
-  ): void;
-  public deleteDocument(
-    args: DeleteDocumentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDocumentCommandOutput) => void
-  ): void;
-  public deleteDocument(
-    args: DeleteDocumentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDocumentCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDocumentCommandOutput) => void
-  ): Promise<DeleteDocumentCommandOutput> | void {
-    const command = new DeleteDocumentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a specific version of a document.</p>
-   */
-  public deleteDocumentVersion(
-    args: DeleteDocumentVersionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteDocumentVersionCommandOutput>;
-  public deleteDocumentVersion(
-    args: DeleteDocumentVersionCommandInput,
-    cb: (err: any, data?: DeleteDocumentVersionCommandOutput) => void
-  ): void;
-  public deleteDocumentVersion(
-    args: DeleteDocumentVersionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDocumentVersionCommandOutput) => void
-  ): void;
-  public deleteDocumentVersion(
-    args: DeleteDocumentVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDocumentVersionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDocumentVersionCommandOutput) => void
-  ): Promise<DeleteDocumentVersionCommandOutput> | void {
-    const command = new DeleteDocumentVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Permanently deletes the specified folder and its contents.</p>
-   */
-  public deleteFolder(
-    args: DeleteFolderCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteFolderCommandOutput>;
-  public deleteFolder(args: DeleteFolderCommandInput, cb: (err: any, data?: DeleteFolderCommandOutput) => void): void;
-  public deleteFolder(
-    args: DeleteFolderCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteFolderCommandOutput) => void
-  ): void;
-  public deleteFolder(
-    args: DeleteFolderCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFolderCommandOutput) => void),
-    cb?: (err: any, data?: DeleteFolderCommandOutput) => void
-  ): Promise<DeleteFolderCommandOutput> | void {
-    const command = new DeleteFolderCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the contents of the specified folder.</p>
-   */
-  public deleteFolderContents(
-    args: DeleteFolderContentsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteFolderContentsCommandOutput>;
-  public deleteFolderContents(
-    args: DeleteFolderContentsCommandInput,
-    cb: (err: any, data?: DeleteFolderContentsCommandOutput) => void
-  ): void;
-  public deleteFolderContents(
-    args: DeleteFolderContentsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteFolderContentsCommandOutput) => void
-  ): void;
-  public deleteFolderContents(
-    args: DeleteFolderContentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFolderContentsCommandOutput) => void),
-    cb?: (err: any, data?: DeleteFolderContentsCommandOutput) => void
-  ): Promise<DeleteFolderContentsCommandOutput> | void {
-    const command = new DeleteFolderContentsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the specified list of labels from a resource.</p>
-   */
-  public deleteLabels(
-    args: DeleteLabelsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteLabelsCommandOutput>;
-  public deleteLabels(args: DeleteLabelsCommandInput, cb: (err: any, data?: DeleteLabelsCommandOutput) => void): void;
-  public deleteLabels(
-    args: DeleteLabelsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteLabelsCommandOutput) => void
-  ): void;
-  public deleteLabels(
-    args: DeleteLabelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLabelsCommandOutput) => void),
-    cb?: (err: any, data?: DeleteLabelsCommandOutput) => void
-  ): Promise<DeleteLabelsCommandOutput> | void {
-    const command = new DeleteLabelsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the specified subscription from the specified organization.</p>
-   */
-  public deleteNotificationSubscription(
-    args: DeleteNotificationSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteNotificationSubscriptionCommandOutput>;
-  public deleteNotificationSubscription(
-    args: DeleteNotificationSubscriptionCommandInput,
-    cb: (err: any, data?: DeleteNotificationSubscriptionCommandOutput) => void
-  ): void;
-  public deleteNotificationSubscription(
-    args: DeleteNotificationSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteNotificationSubscriptionCommandOutput) => void
-  ): void;
-  public deleteNotificationSubscription(
-    args: DeleteNotificationSubscriptionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNotificationSubscriptionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteNotificationSubscriptionCommandOutput) => void
-  ): Promise<DeleteNotificationSubscriptionCommandOutput> | void {
-    const command = new DeleteNotificationSubscriptionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the specified user from a Simple AD or Microsoft AD directory.</p>
-   *          <important>
-   *             <p>Deleting a user immediately and permanently deletes all content in that user's folder structure. Site retention policies do NOT apply to this type of deletion.</p>
-   *          </important>
-   */
-  public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
-  public deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteUserCommandOutput) => void
-  ): void;
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
-    cb?: (err: any, data?: DeleteUserCommandOutput) => void
-  ): Promise<DeleteUserCommandOutput> | void {
-    const command = new DeleteUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes the user activities in a specified time period.</p>
-   */
-  public describeActivities(
-    args: DescribeActivitiesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeActivitiesCommandOutput>;
-  public describeActivities(
-    args: DescribeActivitiesCommandInput,
-    cb: (err: any, data?: DescribeActivitiesCommandOutput) => void
-  ): void;
-  public describeActivities(
-    args: DescribeActivitiesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeActivitiesCommandOutput) => void
-  ): void;
-  public describeActivities(
-    args: DescribeActivitiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeActivitiesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeActivitiesCommandOutput) => void
-  ): Promise<DescribeActivitiesCommandOutput> | void {
-    const command = new DescribeActivitiesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>List all the comments for the specified document version.</p>
-   */
-  public describeComments(
-    args: DescribeCommentsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeCommentsCommandOutput>;
-  public describeComments(
-    args: DescribeCommentsCommandInput,
-    cb: (err: any, data?: DescribeCommentsCommandOutput) => void
-  ): void;
-  public describeComments(
-    args: DescribeCommentsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeCommentsCommandOutput) => void
-  ): void;
-  public describeComments(
-    args: DescribeCommentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCommentsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeCommentsCommandOutput) => void
-  ): Promise<DescribeCommentsCommandOutput> | void {
-    const command = new DescribeCommentsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the document versions for the specified document.</p>
-   *          <p>By default, only active versions are returned.</p>
-   */
-  public describeDocumentVersions(
-    args: DescribeDocumentVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeDocumentVersionsCommandOutput>;
-  public describeDocumentVersions(
-    args: DescribeDocumentVersionsCommandInput,
-    cb: (err: any, data?: DescribeDocumentVersionsCommandOutput) => void
-  ): void;
-  public describeDocumentVersions(
-    args: DescribeDocumentVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeDocumentVersionsCommandOutput) => void
-  ): void;
-  public describeDocumentVersions(
-    args: DescribeDocumentVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDocumentVersionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDocumentVersionsCommandOutput) => void
-  ): Promise<DescribeDocumentVersionsCommandOutput> | void {
-    const command = new DescribeDocumentVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes the contents of the specified folder, including its documents and
-   *             subfolders.</p>
-   *          <p>By default, Amazon WorkDocs returns the first 100 active document and folder
-   *             metadata items. If there are more results, the response includes a marker that you can
-   *             use to request the next set of results. You can also request initialized
-   *             documents.</p>
-   */
-  public describeFolderContents(
-    args: DescribeFolderContentsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeFolderContentsCommandOutput>;
-  public describeFolderContents(
-    args: DescribeFolderContentsCommandInput,
-    cb: (err: any, data?: DescribeFolderContentsCommandOutput) => void
-  ): void;
-  public describeFolderContents(
-    args: DescribeFolderContentsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeFolderContentsCommandOutput) => void
-  ): void;
-  public describeFolderContents(
-    args: DescribeFolderContentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFolderContentsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeFolderContentsCommandOutput) => void
-  ): Promise<DescribeFolderContentsCommandOutput> | void {
-    const command = new DescribeFolderContentsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes the groups specified by the query. Groups are defined by the underlying
-   *             Active Directory.</p>
-   */
-  public describeGroups(
-    args: DescribeGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeGroupsCommandOutput>;
-  public describeGroups(
-    args: DescribeGroupsCommandInput,
-    cb: (err: any, data?: DescribeGroupsCommandOutput) => void
-  ): void;
-  public describeGroups(
-    args: DescribeGroupsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeGroupsCommandOutput) => void
-  ): void;
-  public describeGroups(
-    args: DescribeGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGroupsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeGroupsCommandOutput) => void
-  ): Promise<DescribeGroupsCommandOutput> | void {
-    const command = new DescribeGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the specified notification subscriptions.</p>
-   */
-  public describeNotificationSubscriptions(
-    args: DescribeNotificationSubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeNotificationSubscriptionsCommandOutput>;
-  public describeNotificationSubscriptions(
-    args: DescribeNotificationSubscriptionsCommandInput,
-    cb: (err: any, data?: DescribeNotificationSubscriptionsCommandOutput) => void
-  ): void;
-  public describeNotificationSubscriptions(
-    args: DescribeNotificationSubscriptionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeNotificationSubscriptionsCommandOutput) => void
-  ): void;
-  public describeNotificationSubscriptions(
-    args: DescribeNotificationSubscriptionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNotificationSubscriptionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeNotificationSubscriptionsCommandOutput) => void
-  ): Promise<DescribeNotificationSubscriptionsCommandOutput> | void {
-    const command = new DescribeNotificationSubscriptionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes the permissions of a specified resource.</p>
-   */
-  public describeResourcePermissions(
-    args: DescribeResourcePermissionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeResourcePermissionsCommandOutput>;
-  public describeResourcePermissions(
-    args: DescribeResourcePermissionsCommandInput,
-    cb: (err: any, data?: DescribeResourcePermissionsCommandOutput) => void
-  ): void;
-  public describeResourcePermissions(
-    args: DescribeResourcePermissionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeResourcePermissionsCommandOutput) => void
-  ): void;
-  public describeResourcePermissions(
-    args: DescribeResourcePermissionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeResourcePermissionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeResourcePermissionsCommandOutput) => void
-  ): Promise<DescribeResourcePermissionsCommandOutput> | void {
-    const command = new DescribeResourcePermissionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes the current user's special folders; the <code>RootFolder</code> and the
-   *                 <code>RecycleBin</code>. <code>RootFolder</code> is the root of user's files and
-   *             folders and <code>RecycleBin</code> is the root of recycled items. This is not a valid
-   *             action for SigV4 (administrative API) clients.</p>
-   *          <p>This action requires an authentication token. To get an authentication token,
-   *             register an application with Amazon WorkDocs. For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html">Authentication and Access
-   *                 Control for User Applications</a> in the
-   *             <i>Amazon
-   *             WorkDocs Developer Guide</i>.</p>
-   */
-  public describeRootFolders(
-    args: DescribeRootFoldersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeRootFoldersCommandOutput>;
-  public describeRootFolders(
-    args: DescribeRootFoldersCommandInput,
-    cb: (err: any, data?: DescribeRootFoldersCommandOutput) => void
-  ): void;
-  public describeRootFolders(
-    args: DescribeRootFoldersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeRootFoldersCommandOutput) => void
-  ): void;
-  public describeRootFolders(
-    args: DescribeRootFoldersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRootFoldersCommandOutput) => void),
-    cb?: (err: any, data?: DescribeRootFoldersCommandOutput) => void
-  ): Promise<DescribeRootFoldersCommandOutput> | void {
-    const command = new DescribeRootFoldersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Describes the specified users. You can describe all users or filter the results
-   *             (for example, by status or organization).</p>
-   *          <p>By default, Amazon WorkDocs returns the first 24 active or pending users. If there
-   *             are more results, the response includes a marker that you can use to request the next
-   *             set of results.</p>
-   */
-  public describeUsers(
-    args: DescribeUsersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeUsersCommandOutput>;
-  public describeUsers(
-    args: DescribeUsersCommandInput,
-    cb: (err: any, data?: DescribeUsersCommandOutput) => void
-  ): void;
-  public describeUsers(
-    args: DescribeUsersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeUsersCommandOutput) => void
-  ): void;
-  public describeUsers(
-    args: DescribeUsersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUsersCommandOutput) => void),
-    cb?: (err: any, data?: DescribeUsersCommandOutput) => void
-  ): Promise<DescribeUsersCommandOutput> | void {
-    const command = new DescribeUsersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves details of the current user for whom the authentication token was
-   *             generated. This is not a valid action for SigV4 (administrative API) clients.</p>
-   *          <p>This action requires an authentication token. To get an authentication token,
-   *             register an application with Amazon WorkDocs. For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html">Authentication and Access
-   *                 Control for User Applications</a> in the
-   *             <i>Amazon
-   *                 WorkDocs Developer Guide</i>.</p>
-   */
-  public getCurrentUser(
-    args: GetCurrentUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetCurrentUserCommandOutput>;
-  public getCurrentUser(
-    args: GetCurrentUserCommandInput,
-    cb: (err: any, data?: GetCurrentUserCommandOutput) => void
-  ): void;
-  public getCurrentUser(
-    args: GetCurrentUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetCurrentUserCommandOutput) => void
-  ): void;
-  public getCurrentUser(
-    args: GetCurrentUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCurrentUserCommandOutput) => void),
-    cb?: (err: any, data?: GetCurrentUserCommandOutput) => void
-  ): Promise<GetCurrentUserCommandOutput> | void {
-    const command = new GetCurrentUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves details of a document.</p>
-   */
-  public getDocument(args: GetDocumentCommandInput, options?: __HttpHandlerOptions): Promise<GetDocumentCommandOutput>;
-  public getDocument(args: GetDocumentCommandInput, cb: (err: any, data?: GetDocumentCommandOutput) => void): void;
-  public getDocument(
-    args: GetDocumentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDocumentCommandOutput) => void
-  ): void;
-  public getDocument(
-    args: GetDocumentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDocumentCommandOutput) => void),
-    cb?: (err: any, data?: GetDocumentCommandOutput) => void
-  ): Promise<GetDocumentCommandOutput> | void {
-    const command = new GetDocumentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the path information (the hierarchy from the root folder) for the
-   *             requested document.</p>
-   *          <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
-   *             requested document and only includes the IDs of the parent folders in the path. You can
-   *             limit the maximum number of levels. You can also request the names of the parent
-   *             folders.</p>
-   */
-  public getDocumentPath(
-    args: GetDocumentPathCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDocumentPathCommandOutput>;
-  public getDocumentPath(
-    args: GetDocumentPathCommandInput,
-    cb: (err: any, data?: GetDocumentPathCommandOutput) => void
-  ): void;
-  public getDocumentPath(
-    args: GetDocumentPathCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDocumentPathCommandOutput) => void
-  ): void;
-  public getDocumentPath(
-    args: GetDocumentPathCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDocumentPathCommandOutput) => void),
-    cb?: (err: any, data?: GetDocumentPathCommandOutput) => void
-  ): Promise<GetDocumentPathCommandOutput> | void {
-    const command = new GetDocumentPathCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves version metadata for the specified document.</p>
-   */
-  public getDocumentVersion(
-    args: GetDocumentVersionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDocumentVersionCommandOutput>;
-  public getDocumentVersion(
-    args: GetDocumentVersionCommandInput,
-    cb: (err: any, data?: GetDocumentVersionCommandOutput) => void
-  ): void;
-  public getDocumentVersion(
-    args: GetDocumentVersionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDocumentVersionCommandOutput) => void
-  ): void;
-  public getDocumentVersion(
-    args: GetDocumentVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDocumentVersionCommandOutput) => void),
-    cb?: (err: any, data?: GetDocumentVersionCommandOutput) => void
-  ): Promise<GetDocumentVersionCommandOutput> | void {
-    const command = new GetDocumentVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the metadata of the specified folder.</p>
-   */
-  public getFolder(args: GetFolderCommandInput, options?: __HttpHandlerOptions): Promise<GetFolderCommandOutput>;
-  public getFolder(args: GetFolderCommandInput, cb: (err: any, data?: GetFolderCommandOutput) => void): void;
-  public getFolder(
-    args: GetFolderCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetFolderCommandOutput) => void
-  ): void;
-  public getFolder(
-    args: GetFolderCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFolderCommandOutput) => void),
-    cb?: (err: any, data?: GetFolderCommandOutput) => void
-  ): Promise<GetFolderCommandOutput> | void {
-    const command = new GetFolderCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the path information (the hierarchy from the root folder) for the
-   *             specified folder.</p>
-   *          <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the
-   *             requested folder and only includes the IDs of the parent folders in the path. You can
-   *             limit the maximum number of levels. You can also request the parent folder
-   *             names.</p>
-   */
-  public getFolderPath(
-    args: GetFolderPathCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetFolderPathCommandOutput>;
-  public getFolderPath(
-    args: GetFolderPathCommandInput,
-    cb: (err: any, data?: GetFolderPathCommandOutput) => void
-  ): void;
-  public getFolderPath(
-    args: GetFolderPathCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetFolderPathCommandOutput) => void
-  ): void;
-  public getFolderPath(
-    args: GetFolderPathCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFolderPathCommandOutput) => void),
-    cb?: (err: any, data?: GetFolderPathCommandOutput) => void
-  ): Promise<GetFolderPathCommandOutput> | void {
-    const command = new GetFolderPathCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves a collection of resources, including folders and documents. The only
-   *             <code>CollectionType</code> supported is <code>SHARED_WITH_ME</code>.</p>
-   */
-  public getResources(
-    args: GetResourcesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetResourcesCommandOutput>;
-  public getResources(args: GetResourcesCommandInput, cb: (err: any, data?: GetResourcesCommandOutput) => void): void;
-  public getResources(
-    args: GetResourcesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetResourcesCommandOutput) => void
-  ): void;
-  public getResources(
-    args: GetResourcesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcesCommandOutput) => void),
-    cb?: (err: any, data?: GetResourcesCommandOutput) => void
-  ): Promise<GetResourcesCommandOutput> | void {
-    const command = new GetResourcesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a new document object and version object.</p>
-   *          <p>The client specifies the parent folder ID and name of the document to upload. The
-   *             ID is optionally specified when creating a new version of an existing document. This is
-   *             the first step to upload a document. Next, upload the document to the URL returned from
-   *             the call, and then call <a>UpdateDocumentVersion</a>.</p>
-   *          <p>To cancel the document upload, call <a>AbortDocumentVersionUpload</a>.</p>
-   */
-  public initiateDocumentVersionUpload(
-    args: InitiateDocumentVersionUploadCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<InitiateDocumentVersionUploadCommandOutput>;
-  public initiateDocumentVersionUpload(
-    args: InitiateDocumentVersionUploadCommandInput,
-    cb: (err: any, data?: InitiateDocumentVersionUploadCommandOutput) => void
-  ): void;
-  public initiateDocumentVersionUpload(
-    args: InitiateDocumentVersionUploadCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: InitiateDocumentVersionUploadCommandOutput) => void
-  ): void;
-  public initiateDocumentVersionUpload(
-    args: InitiateDocumentVersionUploadCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InitiateDocumentVersionUploadCommandOutput) => void),
-    cb?: (err: any, data?: InitiateDocumentVersionUploadCommandOutput) => void
-  ): Promise<InitiateDocumentVersionUploadCommandOutput> | void {
-    const command = new InitiateDocumentVersionUploadCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes all the permissions from the specified resource.</p>
-   */
-  public removeAllResourcePermissions(
-    args: RemoveAllResourcePermissionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RemoveAllResourcePermissionsCommandOutput>;
-  public removeAllResourcePermissions(
-    args: RemoveAllResourcePermissionsCommandInput,
-    cb: (err: any, data?: RemoveAllResourcePermissionsCommandOutput) => void
-  ): void;
-  public removeAllResourcePermissions(
-    args: RemoveAllResourcePermissionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RemoveAllResourcePermissionsCommandOutput) => void
-  ): void;
-  public removeAllResourcePermissions(
-    args: RemoveAllResourcePermissionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveAllResourcePermissionsCommandOutput) => void),
-    cb?: (err: any, data?: RemoveAllResourcePermissionsCommandOutput) => void
-  ): Promise<RemoveAllResourcePermissionsCommandOutput> | void {
-    const command = new RemoveAllResourcePermissionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes the permission for the specified principal from the specified
-   *             resource.</p>
-   */
-  public removeResourcePermission(
-    args: RemoveResourcePermissionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RemoveResourcePermissionCommandOutput>;
-  public removeResourcePermission(
-    args: RemoveResourcePermissionCommandInput,
-    cb: (err: any, data?: RemoveResourcePermissionCommandOutput) => void
-  ): void;
-  public removeResourcePermission(
-    args: RemoveResourcePermissionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RemoveResourcePermissionCommandOutput) => void
-  ): void;
-  public removeResourcePermission(
-    args: RemoveResourcePermissionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveResourcePermissionCommandOutput) => void),
-    cb?: (err: any, data?: RemoveResourcePermissionCommandOutput) => void
-  ): Promise<RemoveResourcePermissionCommandOutput> | void {
-    const command = new RemoveResourcePermissionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Recovers a deleted version of an Amazon WorkDocs document.</p>
-   */
-  public restoreDocumentVersions(
-    args: RestoreDocumentVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RestoreDocumentVersionsCommandOutput>;
-  public restoreDocumentVersions(
-    args: RestoreDocumentVersionsCommandInput,
-    cb: (err: any, data?: RestoreDocumentVersionsCommandOutput) => void
-  ): void;
-  public restoreDocumentVersions(
-    args: RestoreDocumentVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RestoreDocumentVersionsCommandOutput) => void
-  ): void;
-  public restoreDocumentVersions(
-    args: RestoreDocumentVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreDocumentVersionsCommandOutput) => void),
-    cb?: (err: any, data?: RestoreDocumentVersionsCommandOutput) => void
-  ): Promise<RestoreDocumentVersionsCommandOutput> | void {
-    const command = new RestoreDocumentVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Searches metadata and the content of folders, documents, document versions, and comments.</p>
-   */
-  public searchResources(
-    args: SearchResourcesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SearchResourcesCommandOutput>;
-  public searchResources(
-    args: SearchResourcesCommandInput,
-    cb: (err: any, data?: SearchResourcesCommandOutput) => void
-  ): void;
-  public searchResources(
-    args: SearchResourcesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SearchResourcesCommandOutput) => void
-  ): void;
-  public searchResources(
-    args: SearchResourcesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchResourcesCommandOutput) => void),
-    cb?: (err: any, data?: SearchResourcesCommandOutput) => void
-  ): Promise<SearchResourcesCommandOutput> | void {
-    const command = new SearchResourcesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the specified attributes of a document. The user must have access to both
-   *             the document and its parent folder, if applicable.</p>
-   */
-  public updateDocument(
-    args: UpdateDocumentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDocumentCommandOutput>;
-  public updateDocument(
-    args: UpdateDocumentCommandInput,
-    cb: (err: any, data?: UpdateDocumentCommandOutput) => void
-  ): void;
-  public updateDocument(
-    args: UpdateDocumentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDocumentCommandOutput) => void
-  ): void;
-  public updateDocument(
-    args: UpdateDocumentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDocumentCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDocumentCommandOutput) => void
-  ): Promise<UpdateDocumentCommandOutput> | void {
-    const command = new UpdateDocumentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Changes the status of the document version to ACTIVE. </p>
-   *          <p>Amazon WorkDocs also sets its document container to ACTIVE. This is the last step
-   *             in a document upload, after the client uploads the document to an S3-presigned URL
-   *             returned by <a>InitiateDocumentVersionUpload</a>. </p>
-   */
-  public updateDocumentVersion(
-    args: UpdateDocumentVersionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDocumentVersionCommandOutput>;
-  public updateDocumentVersion(
-    args: UpdateDocumentVersionCommandInput,
-    cb: (err: any, data?: UpdateDocumentVersionCommandOutput) => void
-  ): void;
-  public updateDocumentVersion(
-    args: UpdateDocumentVersionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDocumentVersionCommandOutput) => void
-  ): void;
-  public updateDocumentVersion(
-    args: UpdateDocumentVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDocumentVersionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDocumentVersionCommandOutput) => void
-  ): Promise<UpdateDocumentVersionCommandOutput> | void {
-    const command = new UpdateDocumentVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the specified attributes of the specified folder. The user must have access
-   *             to both the folder and its parent folder, if applicable.</p>
-   */
-  public updateFolder(
-    args: UpdateFolderCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateFolderCommandOutput>;
-  public updateFolder(args: UpdateFolderCommandInput, cb: (err: any, data?: UpdateFolderCommandOutput) => void): void;
-  public updateFolder(
-    args: UpdateFolderCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateFolderCommandOutput) => void
-  ): void;
-  public updateFolder(
-    args: UpdateFolderCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFolderCommandOutput) => void),
-    cb?: (err: any, data?: UpdateFolderCommandOutput) => void
-  ): Promise<UpdateFolderCommandOutput> | void {
-    const command = new UpdateFolderCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the specified attributes of the specified user, and grants or revokes
-   *             administrative privileges to the Amazon WorkDocs site.</p>
-   */
-  public updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
-  public updateUser(args: UpdateUserCommandInput, cb: (err: any, data?: UpdateUserCommandOutput) => void): void;
-  public updateUser(
-    args: UpdateUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateUserCommandOutput) => void
-  ): void;
-  public updateUser(
-    args: UpdateUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserCommandOutput) => void),
-    cb?: (err: any, data?: UpdateUserCommandOutput) => void
-  ): Promise<UpdateUserCommandOutput> | void {
-    const command = new UpdateUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class WorkDocs extends WorkDocsClient implements WorkDocs {}
+createAggregatedClient(commands, WorkDocs);

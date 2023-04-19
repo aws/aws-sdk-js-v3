@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -152,7 +153,552 @@ import {
   UpdateVpcEndpointCommandInput,
   UpdateVpcEndpointCommandOutput,
 } from "./commands/UpdateVpcEndpointCommand";
-import { OpenSearchServerlessClient } from "./OpenSearchServerlessClient";
+import { OpenSearchServerlessClient, OpenSearchServerlessClientConfig } from "./OpenSearchServerlessClient";
+
+const commands = {
+  BatchGetCollectionCommand,
+  BatchGetVpcEndpointCommand,
+  CreateAccessPolicyCommand,
+  CreateCollectionCommand,
+  CreateSecurityConfigCommand,
+  CreateSecurityPolicyCommand,
+  CreateVpcEndpointCommand,
+  DeleteAccessPolicyCommand,
+  DeleteCollectionCommand,
+  DeleteSecurityConfigCommand,
+  DeleteSecurityPolicyCommand,
+  DeleteVpcEndpointCommand,
+  GetAccessPolicyCommand,
+  GetAccountSettingsCommand,
+  GetPoliciesStatsCommand,
+  GetSecurityConfigCommand,
+  GetSecurityPolicyCommand,
+  ListAccessPoliciesCommand,
+  ListCollectionsCommand,
+  ListSecurityConfigsCommand,
+  ListSecurityPoliciesCommand,
+  ListTagsForResourceCommand,
+  ListVpcEndpointsCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateAccessPolicyCommand,
+  UpdateAccountSettingsCommand,
+  UpdateCollectionCommand,
+  UpdateSecurityConfigCommand,
+  UpdateSecurityPolicyCommand,
+  UpdateVpcEndpointCommand,
+};
+
+export interface OpenSearchServerless {
+  /**
+   * @see {@link BatchGetCollectionCommand}
+   */
+  batchGetCollection(
+    args: BatchGetCollectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetCollectionCommandOutput>;
+  batchGetCollection(
+    args: BatchGetCollectionCommandInput,
+    cb: (err: any, data?: BatchGetCollectionCommandOutput) => void
+  ): void;
+  batchGetCollection(
+    args: BatchGetCollectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetCollectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetVpcEndpointCommand}
+   */
+  batchGetVpcEndpoint(
+    args: BatchGetVpcEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetVpcEndpointCommandOutput>;
+  batchGetVpcEndpoint(
+    args: BatchGetVpcEndpointCommandInput,
+    cb: (err: any, data?: BatchGetVpcEndpointCommandOutput) => void
+  ): void;
+  batchGetVpcEndpoint(
+    args: BatchGetVpcEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetVpcEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAccessPolicyCommand}
+   */
+  createAccessPolicy(
+    args: CreateAccessPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccessPolicyCommandOutput>;
+  createAccessPolicy(
+    args: CreateAccessPolicyCommandInput,
+    cb: (err: any, data?: CreateAccessPolicyCommandOutput) => void
+  ): void;
+  createAccessPolicy(
+    args: CreateAccessPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAccessPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCollectionCommand}
+   */
+  createCollection(
+    args: CreateCollectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCollectionCommandOutput>;
+  createCollection(
+    args: CreateCollectionCommandInput,
+    cb: (err: any, data?: CreateCollectionCommandOutput) => void
+  ): void;
+  createCollection(
+    args: CreateCollectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCollectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSecurityConfigCommand}
+   */
+  createSecurityConfig(
+    args: CreateSecurityConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSecurityConfigCommandOutput>;
+  createSecurityConfig(
+    args: CreateSecurityConfigCommandInput,
+    cb: (err: any, data?: CreateSecurityConfigCommandOutput) => void
+  ): void;
+  createSecurityConfig(
+    args: CreateSecurityConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSecurityConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSecurityPolicyCommand}
+   */
+  createSecurityPolicy(
+    args: CreateSecurityPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSecurityPolicyCommandOutput>;
+  createSecurityPolicy(
+    args: CreateSecurityPolicyCommandInput,
+    cb: (err: any, data?: CreateSecurityPolicyCommandOutput) => void
+  ): void;
+  createSecurityPolicy(
+    args: CreateSecurityPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSecurityPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateVpcEndpointCommand}
+   */
+  createVpcEndpoint(
+    args: CreateVpcEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVpcEndpointCommandOutput>;
+  createVpcEndpoint(
+    args: CreateVpcEndpointCommandInput,
+    cb: (err: any, data?: CreateVpcEndpointCommandOutput) => void
+  ): void;
+  createVpcEndpoint(
+    args: CreateVpcEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVpcEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAccessPolicyCommand}
+   */
+  deleteAccessPolicy(
+    args: DeleteAccessPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccessPolicyCommandOutput>;
+  deleteAccessPolicy(
+    args: DeleteAccessPolicyCommandInput,
+    cb: (err: any, data?: DeleteAccessPolicyCommandOutput) => void
+  ): void;
+  deleteAccessPolicy(
+    args: DeleteAccessPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccessPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCollectionCommand}
+   */
+  deleteCollection(
+    args: DeleteCollectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCollectionCommandOutput>;
+  deleteCollection(
+    args: DeleteCollectionCommandInput,
+    cb: (err: any, data?: DeleteCollectionCommandOutput) => void
+  ): void;
+  deleteCollection(
+    args: DeleteCollectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCollectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSecurityConfigCommand}
+   */
+  deleteSecurityConfig(
+    args: DeleteSecurityConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSecurityConfigCommandOutput>;
+  deleteSecurityConfig(
+    args: DeleteSecurityConfigCommandInput,
+    cb: (err: any, data?: DeleteSecurityConfigCommandOutput) => void
+  ): void;
+  deleteSecurityConfig(
+    args: DeleteSecurityConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSecurityConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSecurityPolicyCommand}
+   */
+  deleteSecurityPolicy(
+    args: DeleteSecurityPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSecurityPolicyCommandOutput>;
+  deleteSecurityPolicy(
+    args: DeleteSecurityPolicyCommandInput,
+    cb: (err: any, data?: DeleteSecurityPolicyCommandOutput) => void
+  ): void;
+  deleteSecurityPolicy(
+    args: DeleteSecurityPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSecurityPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVpcEndpointCommand}
+   */
+  deleteVpcEndpoint(
+    args: DeleteVpcEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVpcEndpointCommandOutput>;
+  deleteVpcEndpoint(
+    args: DeleteVpcEndpointCommandInput,
+    cb: (err: any, data?: DeleteVpcEndpointCommandOutput) => void
+  ): void;
+  deleteVpcEndpoint(
+    args: DeleteVpcEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVpcEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAccessPolicyCommand}
+   */
+  getAccessPolicy(
+    args: GetAccessPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccessPolicyCommandOutput>;
+  getAccessPolicy(args: GetAccessPolicyCommandInput, cb: (err: any, data?: GetAccessPolicyCommandOutput) => void): void;
+  getAccessPolicy(
+    args: GetAccessPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccessPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAccountSettingsCommand}
+   */
+  getAccountSettings(
+    args: GetAccountSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountSettingsCommandOutput>;
+  getAccountSettings(
+    args: GetAccountSettingsCommandInput,
+    cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
+  ): void;
+  getAccountSettings(
+    args: GetAccountSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPoliciesStatsCommand}
+   */
+  getPoliciesStats(
+    args: GetPoliciesStatsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPoliciesStatsCommandOutput>;
+  getPoliciesStats(
+    args: GetPoliciesStatsCommandInput,
+    cb: (err: any, data?: GetPoliciesStatsCommandOutput) => void
+  ): void;
+  getPoliciesStats(
+    args: GetPoliciesStatsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPoliciesStatsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSecurityConfigCommand}
+   */
+  getSecurityConfig(
+    args: GetSecurityConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSecurityConfigCommandOutput>;
+  getSecurityConfig(
+    args: GetSecurityConfigCommandInput,
+    cb: (err: any, data?: GetSecurityConfigCommandOutput) => void
+  ): void;
+  getSecurityConfig(
+    args: GetSecurityConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSecurityConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSecurityPolicyCommand}
+   */
+  getSecurityPolicy(
+    args: GetSecurityPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSecurityPolicyCommandOutput>;
+  getSecurityPolicy(
+    args: GetSecurityPolicyCommandInput,
+    cb: (err: any, data?: GetSecurityPolicyCommandOutput) => void
+  ): void;
+  getSecurityPolicy(
+    args: GetSecurityPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSecurityPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAccessPoliciesCommand}
+   */
+  listAccessPolicies(
+    args: ListAccessPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccessPoliciesCommandOutput>;
+  listAccessPolicies(
+    args: ListAccessPoliciesCommandInput,
+    cb: (err: any, data?: ListAccessPoliciesCommandOutput) => void
+  ): void;
+  listAccessPolicies(
+    args: ListAccessPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccessPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCollectionsCommand}
+   */
+  listCollections(
+    args: ListCollectionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCollectionsCommandOutput>;
+  listCollections(args: ListCollectionsCommandInput, cb: (err: any, data?: ListCollectionsCommandOutput) => void): void;
+  listCollections(
+    args: ListCollectionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCollectionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSecurityConfigsCommand}
+   */
+  listSecurityConfigs(
+    args: ListSecurityConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSecurityConfigsCommandOutput>;
+  listSecurityConfigs(
+    args: ListSecurityConfigsCommandInput,
+    cb: (err: any, data?: ListSecurityConfigsCommandOutput) => void
+  ): void;
+  listSecurityConfigs(
+    args: ListSecurityConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSecurityConfigsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSecurityPoliciesCommand}
+   */
+  listSecurityPolicies(
+    args: ListSecurityPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSecurityPoliciesCommandOutput>;
+  listSecurityPolicies(
+    args: ListSecurityPoliciesCommandInput,
+    cb: (err: any, data?: ListSecurityPoliciesCommandOutput) => void
+  ): void;
+  listSecurityPolicies(
+    args: ListSecurityPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSecurityPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListVpcEndpointsCommand}
+   */
+  listVpcEndpoints(
+    args: ListVpcEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVpcEndpointsCommandOutput>;
+  listVpcEndpoints(
+    args: ListVpcEndpointsCommandInput,
+    cb: (err: any, data?: ListVpcEndpointsCommandOutput) => void
+  ): void;
+  listVpcEndpoints(
+    args: ListVpcEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVpcEndpointsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAccessPolicyCommand}
+   */
+  updateAccessPolicy(
+    args: UpdateAccessPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccessPolicyCommandOutput>;
+  updateAccessPolicy(
+    args: UpdateAccessPolicyCommandInput,
+    cb: (err: any, data?: UpdateAccessPolicyCommandOutput) => void
+  ): void;
+  updateAccessPolicy(
+    args: UpdateAccessPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccessPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAccountSettingsCommand}
+   */
+  updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccountSettingsCommandOutput>;
+  updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
+  ): void;
+  updateAccountSettings(
+    args: UpdateAccountSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCollectionCommand}
+   */
+  updateCollection(
+    args: UpdateCollectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCollectionCommandOutput>;
+  updateCollection(
+    args: UpdateCollectionCommandInput,
+    cb: (err: any, data?: UpdateCollectionCommandOutput) => void
+  ): void;
+  updateCollection(
+    args: UpdateCollectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCollectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSecurityConfigCommand}
+   */
+  updateSecurityConfig(
+    args: UpdateSecurityConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSecurityConfigCommandOutput>;
+  updateSecurityConfig(
+    args: UpdateSecurityConfigCommandInput,
+    cb: (err: any, data?: UpdateSecurityConfigCommandOutput) => void
+  ): void;
+  updateSecurityConfig(
+    args: UpdateSecurityConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSecurityConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSecurityPolicyCommand}
+   */
+  updateSecurityPolicy(
+    args: UpdateSecurityPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSecurityPolicyCommandOutput>;
+  updateSecurityPolicy(
+    args: UpdateSecurityPolicyCommandInput,
+    cb: (err: any, data?: UpdateSecurityPolicyCommandOutput) => void
+  ): void;
+  updateSecurityPolicy(
+    args: UpdateSecurityPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSecurityPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateVpcEndpointCommand}
+   */
+  updateVpcEndpoint(
+    args: UpdateVpcEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVpcEndpointCommandOutput>;
+  updateVpcEndpoint(
+    args: UpdateVpcEndpointCommandInput,
+    cb: (err: any, data?: UpdateVpcEndpointCommandOutput) => void
+  ): void;
+  updateVpcEndpoint(
+    args: UpdateVpcEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVpcEndpointCommandOutput) => void
+  ): void;
+}
 
 /**
  * @public
@@ -167,1064 +713,5 @@ import { OpenSearchServerlessClient } from "./OpenSearchServerlessClient";
  *                 Amazon OpenSearch Serverless?</a>
  *          </p>
  */
-export class OpenSearchServerless extends OpenSearchServerlessClient {
-  /**
-   * @public
-   * <p>Returns attributes for one or more collections, including the collection endpoint and
-   *             the OpenSearch Dashboards endpoint. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
-   *                 managing Amazon OpenSearch Serverless collections</a>.</p>
-   */
-  public batchGetCollection(
-    args: BatchGetCollectionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchGetCollectionCommandOutput>;
-  public batchGetCollection(
-    args: BatchGetCollectionCommandInput,
-    cb: (err: any, data?: BatchGetCollectionCommandOutput) => void
-  ): void;
-  public batchGetCollection(
-    args: BatchGetCollectionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetCollectionCommandOutput) => void
-  ): void;
-  public batchGetCollection(
-    args: BatchGetCollectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetCollectionCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetCollectionCommandOutput) => void
-  ): Promise<BatchGetCollectionCommandOutput> | void {
-    const command = new BatchGetCollectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns attributes for one or more VPC endpoints associated with the current account.
-   *             For more information, see
-   *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
-   */
-  public batchGetVpcEndpoint(
-    args: BatchGetVpcEndpointCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchGetVpcEndpointCommandOutput>;
-  public batchGetVpcEndpoint(
-    args: BatchGetVpcEndpointCommandInput,
-    cb: (err: any, data?: BatchGetVpcEndpointCommandOutput) => void
-  ): void;
-  public batchGetVpcEndpoint(
-    args: BatchGetVpcEndpointCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetVpcEndpointCommandOutput) => void
-  ): void;
-  public batchGetVpcEndpoint(
-    args: BatchGetVpcEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetVpcEndpointCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetVpcEndpointCommandOutput) => void
-  ): Promise<BatchGetVpcEndpointCommandOutput> | void {
-    const command = new BatchGetVpcEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a data access policy for OpenSearch Serverless. Access policies limit access to collections
-   *             and the resources within them, and allow a user to access that data irrespective of the
-   *             access mechanism or network source. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data access
-   *                 control for Amazon OpenSearch Serverless</a>.</p>
-   */
-  public createAccessPolicy(
-    args: CreateAccessPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAccessPolicyCommandOutput>;
-  public createAccessPolicy(
-    args: CreateAccessPolicyCommandInput,
-    cb: (err: any, data?: CreateAccessPolicyCommandOutput) => void
-  ): void;
-  public createAccessPolicy(
-    args: CreateAccessPolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateAccessPolicyCommandOutput) => void
-  ): void;
-  public createAccessPolicy(
-    args: CreateAccessPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAccessPolicyCommandOutput) => void),
-    cb?: (err: any, data?: CreateAccessPolicyCommandOutput) => void
-  ): Promise<CreateAccessPolicyCommandOutput> | void {
-    const command = new CreateAccessPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a new OpenSearch Serverless collection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
-   *                 managing Amazon OpenSearch Serverless collections</a>.</p>
-   */
-  public createCollection(
-    args: CreateCollectionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateCollectionCommandOutput>;
-  public createCollection(
-    args: CreateCollectionCommandInput,
-    cb: (err: any, data?: CreateCollectionCommandOutput) => void
-  ): void;
-  public createCollection(
-    args: CreateCollectionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateCollectionCommandOutput) => void
-  ): void;
-  public createCollection(
-    args: CreateCollectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCollectionCommandOutput) => void),
-    cb?: (err: any, data?: CreateCollectionCommandOutput) => void
-  ): Promise<CreateCollectionCommandOutput> | void {
-    const command = new CreateCollectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Specifies a security configuration for OpenSearch Serverless. For more information, see
-   *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
-   *                 authentication for Amazon OpenSearch Serverless</a>. </p>
-   */
-  public createSecurityConfig(
-    args: CreateSecurityConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateSecurityConfigCommandOutput>;
-  public createSecurityConfig(
-    args: CreateSecurityConfigCommandInput,
-    cb: (err: any, data?: CreateSecurityConfigCommandOutput) => void
-  ): void;
-  public createSecurityConfig(
-    args: CreateSecurityConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateSecurityConfigCommandOutput) => void
-  ): void;
-  public createSecurityConfig(
-    args: CreateSecurityConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSecurityConfigCommandOutput) => void),
-    cb?: (err: any, data?: CreateSecurityConfigCommandOutput) => void
-  ): Promise<CreateSecurityConfigCommandOutput> | void {
-    const command = new CreateSecurityConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a security policy to be used by one or more OpenSearch Serverless collections. Security
-   *             policies provide access to a collection and its OpenSearch Dashboards endpoint from
-   *             public networks or specific VPC endpoints. They also allow you to secure a collection
-   *             with a KMS encryption key. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html">Network access
-   *                 for Amazon OpenSearch Serverless</a> and <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html">Encryption at
-   *                 rest for Amazon OpenSearch Serverless</a>.</p>
-   */
-  public createSecurityPolicy(
-    args: CreateSecurityPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateSecurityPolicyCommandOutput>;
-  public createSecurityPolicy(
-    args: CreateSecurityPolicyCommandInput,
-    cb: (err: any, data?: CreateSecurityPolicyCommandOutput) => void
-  ): void;
-  public createSecurityPolicy(
-    args: CreateSecurityPolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateSecurityPolicyCommandOutput) => void
-  ): void;
-  public createSecurityPolicy(
-    args: CreateSecurityPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSecurityPolicyCommandOutput) => void),
-    cb?: (err: any, data?: CreateSecurityPolicyCommandOutput) => void
-  ): Promise<CreateSecurityPolicyCommandOutput> | void {
-    const command = new CreateSecurityPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an OpenSearch Serverless-managed interface VPC endpoint. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access
-   *                 Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
-   */
-  public createVpcEndpoint(
-    args: CreateVpcEndpointCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateVpcEndpointCommandOutput>;
-  public createVpcEndpoint(
-    args: CreateVpcEndpointCommandInput,
-    cb: (err: any, data?: CreateVpcEndpointCommandOutput) => void
-  ): void;
-  public createVpcEndpoint(
-    args: CreateVpcEndpointCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateVpcEndpointCommandOutput) => void
-  ): void;
-  public createVpcEndpoint(
-    args: CreateVpcEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpcEndpointCommandOutput) => void),
-    cb?: (err: any, data?: CreateVpcEndpointCommandOutput) => void
-  ): Promise<CreateVpcEndpointCommandOutput> | void {
-    const command = new CreateVpcEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes an OpenSearch Serverless access policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data
-   *                 access control for Amazon OpenSearch Serverless</a>.</p>
-   */
-  public deleteAccessPolicy(
-    args: DeleteAccessPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAccessPolicyCommandOutput>;
-  public deleteAccessPolicy(
-    args: DeleteAccessPolicyCommandInput,
-    cb: (err: any, data?: DeleteAccessPolicyCommandOutput) => void
-  ): void;
-  public deleteAccessPolicy(
-    args: DeleteAccessPolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAccessPolicyCommandOutput) => void
-  ): void;
-  public deleteAccessPolicy(
-    args: DeleteAccessPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccessPolicyCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAccessPolicyCommandOutput) => void
-  ): Promise<DeleteAccessPolicyCommandOutput> | void {
-    const command = new DeleteAccessPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes an OpenSearch Serverless collection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
-   *                 managing Amazon OpenSearch Serverless collections</a>.</p>
-   */
-  public deleteCollection(
-    args: DeleteCollectionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteCollectionCommandOutput>;
-  public deleteCollection(
-    args: DeleteCollectionCommandInput,
-    cb: (err: any, data?: DeleteCollectionCommandOutput) => void
-  ): void;
-  public deleteCollection(
-    args: DeleteCollectionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteCollectionCommandOutput) => void
-  ): void;
-  public deleteCollection(
-    args: DeleteCollectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCollectionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteCollectionCommandOutput) => void
-  ): Promise<DeleteCollectionCommandOutput> | void {
-    const command = new DeleteCollectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a security configuration for OpenSearch Serverless. For more information, see
-   *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
-   *                 authentication for Amazon OpenSearch Serverless</a>.</p>
-   */
-  public deleteSecurityConfig(
-    args: DeleteSecurityConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteSecurityConfigCommandOutput>;
-  public deleteSecurityConfig(
-    args: DeleteSecurityConfigCommandInput,
-    cb: (err: any, data?: DeleteSecurityConfigCommandOutput) => void
-  ): void;
-  public deleteSecurityConfig(
-    args: DeleteSecurityConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteSecurityConfigCommandOutput) => void
-  ): void;
-  public deleteSecurityConfig(
-    args: DeleteSecurityConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSecurityConfigCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSecurityConfigCommandOutput) => void
-  ): Promise<DeleteSecurityConfigCommandOutput> | void {
-    const command = new DeleteSecurityConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes an OpenSearch Serverless security policy.</p>
-   */
-  public deleteSecurityPolicy(
-    args: DeleteSecurityPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteSecurityPolicyCommandOutput>;
-  public deleteSecurityPolicy(
-    args: DeleteSecurityPolicyCommandInput,
-    cb: (err: any, data?: DeleteSecurityPolicyCommandOutput) => void
-  ): void;
-  public deleteSecurityPolicy(
-    args: DeleteSecurityPolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteSecurityPolicyCommandOutput) => void
-  ): void;
-  public deleteSecurityPolicy(
-    args: DeleteSecurityPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSecurityPolicyCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSecurityPolicyCommandOutput) => void
-  ): Promise<DeleteSecurityPolicyCommandOutput> | void {
-    const command = new DeleteSecurityPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes an OpenSearch Serverless-managed interface endpoint. For more information, see
-   *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
-   */
-  public deleteVpcEndpoint(
-    args: DeleteVpcEndpointCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteVpcEndpointCommandOutput>;
-  public deleteVpcEndpoint(
-    args: DeleteVpcEndpointCommandInput,
-    cb: (err: any, data?: DeleteVpcEndpointCommandOutput) => void
-  ): void;
-  public deleteVpcEndpoint(
-    args: DeleteVpcEndpointCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteVpcEndpointCommandOutput) => void
-  ): void;
-  public deleteVpcEndpoint(
-    args: DeleteVpcEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpcEndpointCommandOutput) => void),
-    cb?: (err: any, data?: DeleteVpcEndpointCommandOutput) => void
-  ): Promise<DeleteVpcEndpointCommandOutput> | void {
-    const command = new DeleteVpcEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns an OpenSearch Serverless access policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data
-   *             access control for Amazon OpenSearch Serverless</a>.</p>
-   */
-  public getAccessPolicy(
-    args: GetAccessPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAccessPolicyCommandOutput>;
-  public getAccessPolicy(
-    args: GetAccessPolicyCommandInput,
-    cb: (err: any, data?: GetAccessPolicyCommandOutput) => void
-  ): void;
-  public getAccessPolicy(
-    args: GetAccessPolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetAccessPolicyCommandOutput) => void
-  ): void;
-  public getAccessPolicy(
-    args: GetAccessPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccessPolicyCommandOutput) => void),
-    cb?: (err: any, data?: GetAccessPolicyCommandOutput) => void
-  ): Promise<GetAccessPolicyCommandOutput> | void {
-    const command = new GetAccessPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns account-level settings related to OpenSearch Serverless.</p>
-   */
-  public getAccountSettings(
-    args: GetAccountSettingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAccountSettingsCommandOutput>;
-  public getAccountSettings(
-    args: GetAccountSettingsCommandInput,
-    cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
-  ): void;
-  public getAccountSettings(
-    args: GetAccountSettingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
-  ): void;
-  public getAccountSettings(
-    args: GetAccountSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountSettingsCommandOutput) => void),
-    cb?: (err: any, data?: GetAccountSettingsCommandOutput) => void
-  ): Promise<GetAccountSettingsCommandOutput> | void {
-    const command = new GetAccountSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns statistical information about your OpenSearch Serverless access policies, security
-   *             configurations, and security policies.</p>
-   */
-  public getPoliciesStats(
-    args: GetPoliciesStatsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPoliciesStatsCommandOutput>;
-  public getPoliciesStats(
-    args: GetPoliciesStatsCommandInput,
-    cb: (err: any, data?: GetPoliciesStatsCommandOutput) => void
-  ): void;
-  public getPoliciesStats(
-    args: GetPoliciesStatsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetPoliciesStatsCommandOutput) => void
-  ): void;
-  public getPoliciesStats(
-    args: GetPoliciesStatsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPoliciesStatsCommandOutput) => void),
-    cb?: (err: any, data?: GetPoliciesStatsCommandOutput) => void
-  ): Promise<GetPoliciesStatsCommandOutput> | void {
-    const command = new GetPoliciesStatsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns information about an OpenSearch Serverless security configuration. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
-   *                 authentication for Amazon OpenSearch Serverless</a>.</p>
-   */
-  public getSecurityConfig(
-    args: GetSecurityConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSecurityConfigCommandOutput>;
-  public getSecurityConfig(
-    args: GetSecurityConfigCommandInput,
-    cb: (err: any, data?: GetSecurityConfigCommandOutput) => void
-  ): void;
-  public getSecurityConfig(
-    args: GetSecurityConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSecurityConfigCommandOutput) => void
-  ): void;
-  public getSecurityConfig(
-    args: GetSecurityConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSecurityConfigCommandOutput) => void),
-    cb?: (err: any, data?: GetSecurityConfigCommandOutput) => void
-  ): Promise<GetSecurityConfigCommandOutput> | void {
-    const command = new GetSecurityConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns information about a configured OpenSearch Serverless security policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html">Network access
-   *             for Amazon OpenSearch Serverless</a> and <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html">Encryption at
-   *                 rest for Amazon OpenSearch Serverless</a>.</p>
-   */
-  public getSecurityPolicy(
-    args: GetSecurityPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSecurityPolicyCommandOutput>;
-  public getSecurityPolicy(
-    args: GetSecurityPolicyCommandInput,
-    cb: (err: any, data?: GetSecurityPolicyCommandOutput) => void
-  ): void;
-  public getSecurityPolicy(
-    args: GetSecurityPolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSecurityPolicyCommandOutput) => void
-  ): void;
-  public getSecurityPolicy(
-    args: GetSecurityPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSecurityPolicyCommandOutput) => void),
-    cb?: (err: any, data?: GetSecurityPolicyCommandOutput) => void
-  ): Promise<GetSecurityPolicyCommandOutput> | void {
-    const command = new GetSecurityPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns information about a list of OpenSearch Serverless access policies.</p>
-   */
-  public listAccessPolicies(
-    args: ListAccessPoliciesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAccessPoliciesCommandOutput>;
-  public listAccessPolicies(
-    args: ListAccessPoliciesCommandInput,
-    cb: (err: any, data?: ListAccessPoliciesCommandOutput) => void
-  ): void;
-  public listAccessPolicies(
-    args: ListAccessPoliciesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAccessPoliciesCommandOutput) => void
-  ): void;
-  public listAccessPolicies(
-    args: ListAccessPoliciesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccessPoliciesCommandOutput) => void),
-    cb?: (err: any, data?: ListAccessPoliciesCommandOutput) => void
-  ): Promise<ListAccessPoliciesCommandOutput> | void {
-    const command = new ListAccessPoliciesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all OpenSearch Serverless collections. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
-   *                 managing Amazon OpenSearch Serverless collections</a>.</p>
-   *          <note>
-   *             <p>Make sure to include an empty request body \{\} if you don't include any collection
-   *                 filters in the request.</p>
-   *          </note>
-   */
-  public listCollections(
-    args: ListCollectionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListCollectionsCommandOutput>;
-  public listCollections(
-    args: ListCollectionsCommandInput,
-    cb: (err: any, data?: ListCollectionsCommandOutput) => void
-  ): void;
-  public listCollections(
-    args: ListCollectionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListCollectionsCommandOutput) => void
-  ): void;
-  public listCollections(
-    args: ListCollectionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCollectionsCommandOutput) => void),
-    cb?: (err: any, data?: ListCollectionsCommandOutput) => void
-  ): Promise<ListCollectionsCommandOutput> | void {
-    const command = new ListCollectionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns information about configured OpenSearch Serverless security configurations. For more information, see
-   *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
-   *                 authentication for Amazon OpenSearch Serverless</a>.</p>
-   */
-  public listSecurityConfigs(
-    args: ListSecurityConfigsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSecurityConfigsCommandOutput>;
-  public listSecurityConfigs(
-    args: ListSecurityConfigsCommandInput,
-    cb: (err: any, data?: ListSecurityConfigsCommandOutput) => void
-  ): void;
-  public listSecurityConfigs(
-    args: ListSecurityConfigsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSecurityConfigsCommandOutput) => void
-  ): void;
-  public listSecurityConfigs(
-    args: ListSecurityConfigsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSecurityConfigsCommandOutput) => void),
-    cb?: (err: any, data?: ListSecurityConfigsCommandOutput) => void
-  ): Promise<ListSecurityConfigsCommandOutput> | void {
-    const command = new ListSecurityConfigsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns information about configured OpenSearch Serverless security policies.</p>
-   */
-  public listSecurityPolicies(
-    args: ListSecurityPoliciesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSecurityPoliciesCommandOutput>;
-  public listSecurityPolicies(
-    args: ListSecurityPoliciesCommandInput,
-    cb: (err: any, data?: ListSecurityPoliciesCommandOutput) => void
-  ): void;
-  public listSecurityPolicies(
-    args: ListSecurityPoliciesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSecurityPoliciesCommandOutput) => void
-  ): void;
-  public listSecurityPolicies(
-    args: ListSecurityPoliciesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSecurityPoliciesCommandOutput) => void),
-    cb?: (err: any, data?: ListSecurityPoliciesCommandOutput) => void
-  ): Promise<ListSecurityPoliciesCommandOutput> | void {
-    const command = new ListSecurityPoliciesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the tags for an OpenSearch Serverless resource. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html">Tagging Amazon OpenSearch Serverless collections</a>.</p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the OpenSearch Serverless-managed interface VPC endpoints associated with the current
-   *             account. For more information, see
-   *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
-   */
-  public listVpcEndpoints(
-    args: ListVpcEndpointsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListVpcEndpointsCommandOutput>;
-  public listVpcEndpoints(
-    args: ListVpcEndpointsCommandInput,
-    cb: (err: any, data?: ListVpcEndpointsCommandOutput) => void
-  ): void;
-  public listVpcEndpoints(
-    args: ListVpcEndpointsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListVpcEndpointsCommandOutput) => void
-  ): void;
-  public listVpcEndpoints(
-    args: ListVpcEndpointsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVpcEndpointsCommandOutput) => void),
-    cb?: (err: any, data?: ListVpcEndpointsCommandOutput) => void
-  ): Promise<ListVpcEndpointsCommandOutput> | void {
-    const command = new ListVpcEndpointsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Associates tags with an OpenSearch Serverless resource. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html">Tagging Amazon OpenSearch Serverless collections</a>.</p>
-   */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes a tag or set of tags from an OpenSearch Serverless resource. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-collection.html">Tagging Amazon OpenSearch Serverless collections</a>.</p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates an OpenSearch Serverless access policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data
-   *             access control for Amazon OpenSearch Serverless</a>.</p>
-   */
-  public updateAccessPolicy(
-    args: UpdateAccessPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAccessPolicyCommandOutput>;
-  public updateAccessPolicy(
-    args: UpdateAccessPolicyCommandInput,
-    cb: (err: any, data?: UpdateAccessPolicyCommandOutput) => void
-  ): void;
-  public updateAccessPolicy(
-    args: UpdateAccessPolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAccessPolicyCommandOutput) => void
-  ): void;
-  public updateAccessPolicy(
-    args: UpdateAccessPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAccessPolicyCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAccessPolicyCommandOutput) => void
-  ): Promise<UpdateAccessPolicyCommandOutput> | void {
-    const command = new UpdateAccessPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Update the OpenSearch Serverless settings for the current Amazon Web Services account. For more
-   *             information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html">Managing capacity limits for Amazon OpenSearch Serverless</a>.</p>
-   */
-  public updateAccountSettings(
-    args: UpdateAccountSettingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAccountSettingsCommandOutput>;
-  public updateAccountSettings(
-    args: UpdateAccountSettingsCommandInput,
-    cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
-  ): void;
-  public updateAccountSettings(
-    args: UpdateAccountSettingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
-  ): void;
-  public updateAccountSettings(
-    args: UpdateAccountSettingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAccountSettingsCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
-  ): Promise<UpdateAccountSettingsCommandOutput> | void {
-    const command = new UpdateAccountSettingsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates an OpenSearch Serverless collection.</p>
-   */
-  public updateCollection(
-    args: UpdateCollectionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateCollectionCommandOutput>;
-  public updateCollection(
-    args: UpdateCollectionCommandInput,
-    cb: (err: any, data?: UpdateCollectionCommandOutput) => void
-  ): void;
-  public updateCollection(
-    args: UpdateCollectionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateCollectionCommandOutput) => void
-  ): void;
-  public updateCollection(
-    args: UpdateCollectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCollectionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateCollectionCommandOutput) => void
-  ): Promise<UpdateCollectionCommandOutput> | void {
-    const command = new UpdateCollectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates a security configuration for OpenSearch Serverless. For more information, see
-   *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
-   *                 authentication for Amazon OpenSearch Serverless</a>.</p>
-   */
-  public updateSecurityConfig(
-    args: UpdateSecurityConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateSecurityConfigCommandOutput>;
-  public updateSecurityConfig(
-    args: UpdateSecurityConfigCommandInput,
-    cb: (err: any, data?: UpdateSecurityConfigCommandOutput) => void
-  ): void;
-  public updateSecurityConfig(
-    args: UpdateSecurityConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateSecurityConfigCommandOutput) => void
-  ): void;
-  public updateSecurityConfig(
-    args: UpdateSecurityConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSecurityConfigCommandOutput) => void),
-    cb?: (err: any, data?: UpdateSecurityConfigCommandOutput) => void
-  ): Promise<UpdateSecurityConfigCommandOutput> | void {
-    const command = new UpdateSecurityConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates an OpenSearch Serverless security policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html">Network access
-   *             for Amazon OpenSearch Serverless</a> and <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html">Encryption at
-   *                 rest for Amazon OpenSearch Serverless</a>.</p>
-   */
-  public updateSecurityPolicy(
-    args: UpdateSecurityPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateSecurityPolicyCommandOutput>;
-  public updateSecurityPolicy(
-    args: UpdateSecurityPolicyCommandInput,
-    cb: (err: any, data?: UpdateSecurityPolicyCommandOutput) => void
-  ): void;
-  public updateSecurityPolicy(
-    args: UpdateSecurityPolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateSecurityPolicyCommandOutput) => void
-  ): void;
-  public updateSecurityPolicy(
-    args: UpdateSecurityPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSecurityPolicyCommandOutput) => void),
-    cb?: (err: any, data?: UpdateSecurityPolicyCommandOutput) => void
-  ): Promise<UpdateSecurityPolicyCommandOutput> | void {
-    const command = new UpdateSecurityPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates an OpenSearch Serverless-managed interface endpoint. For more information, see
-   *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
-   */
-  public updateVpcEndpoint(
-    args: UpdateVpcEndpointCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateVpcEndpointCommandOutput>;
-  public updateVpcEndpoint(
-    args: UpdateVpcEndpointCommandInput,
-    cb: (err: any, data?: UpdateVpcEndpointCommandOutput) => void
-  ): void;
-  public updateVpcEndpoint(
-    args: UpdateVpcEndpointCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateVpcEndpointCommandOutput) => void
-  ): void;
-  public updateVpcEndpoint(
-    args: UpdateVpcEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVpcEndpointCommandOutput) => void),
-    cb?: (err: any, data?: UpdateVpcEndpointCommandOutput) => void
-  ): Promise<UpdateVpcEndpointCommandOutput> | void {
-    const command = new UpdateVpcEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class OpenSearchServerless extends OpenSearchServerlessClient implements OpenSearchServerless {}
+createAggregatedClient(commands, OpenSearchServerless);

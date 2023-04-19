@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -185,7 +186,723 @@ import {
   UpdateTaskExecutionCommandInput,
   UpdateTaskExecutionCommandOutput,
 } from "./commands/UpdateTaskExecutionCommand";
-import { DataSyncClient } from "./DataSyncClient";
+import { DataSyncClient, DataSyncClientConfig } from "./DataSyncClient";
+
+const commands = {
+  CancelTaskExecutionCommand,
+  CreateAgentCommand,
+  CreateLocationEfsCommand,
+  CreateLocationFsxLustreCommand,
+  CreateLocationFsxOntapCommand,
+  CreateLocationFsxOpenZfsCommand,
+  CreateLocationFsxWindowsCommand,
+  CreateLocationHdfsCommand,
+  CreateLocationNfsCommand,
+  CreateLocationObjectStorageCommand,
+  CreateLocationS3Command,
+  CreateLocationSmbCommand,
+  CreateTaskCommand,
+  DeleteAgentCommand,
+  DeleteLocationCommand,
+  DeleteTaskCommand,
+  DescribeAgentCommand,
+  DescribeLocationEfsCommand,
+  DescribeLocationFsxLustreCommand,
+  DescribeLocationFsxOntapCommand,
+  DescribeLocationFsxOpenZfsCommand,
+  DescribeLocationFsxWindowsCommand,
+  DescribeLocationHdfsCommand,
+  DescribeLocationNfsCommand,
+  DescribeLocationObjectStorageCommand,
+  DescribeLocationS3Command,
+  DescribeLocationSmbCommand,
+  DescribeTaskCommand,
+  DescribeTaskExecutionCommand,
+  ListAgentsCommand,
+  ListLocationsCommand,
+  ListTagsForResourceCommand,
+  ListTaskExecutionsCommand,
+  ListTasksCommand,
+  StartTaskExecutionCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateAgentCommand,
+  UpdateLocationHdfsCommand,
+  UpdateLocationNfsCommand,
+  UpdateLocationObjectStorageCommand,
+  UpdateLocationSmbCommand,
+  UpdateTaskCommand,
+  UpdateTaskExecutionCommand,
+};
+
+export interface DataSync {
+  /**
+   * @see {@link CancelTaskExecutionCommand}
+   */
+  cancelTaskExecution(
+    args: CancelTaskExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelTaskExecutionCommandOutput>;
+  cancelTaskExecution(
+    args: CancelTaskExecutionCommandInput,
+    cb: (err: any, data?: CancelTaskExecutionCommandOutput) => void
+  ): void;
+  cancelTaskExecution(
+    args: CancelTaskExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelTaskExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAgentCommand}
+   */
+  createAgent(args: CreateAgentCommandInput, options?: __HttpHandlerOptions): Promise<CreateAgentCommandOutput>;
+  createAgent(args: CreateAgentCommandInput, cb: (err: any, data?: CreateAgentCommandOutput) => void): void;
+  createAgent(
+    args: CreateAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAgentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLocationEfsCommand}
+   */
+  createLocationEfs(
+    args: CreateLocationEfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocationEfsCommandOutput>;
+  createLocationEfs(
+    args: CreateLocationEfsCommandInput,
+    cb: (err: any, data?: CreateLocationEfsCommandOutput) => void
+  ): void;
+  createLocationEfs(
+    args: CreateLocationEfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocationEfsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLocationFsxLustreCommand}
+   */
+  createLocationFsxLustre(
+    args: CreateLocationFsxLustreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocationFsxLustreCommandOutput>;
+  createLocationFsxLustre(
+    args: CreateLocationFsxLustreCommandInput,
+    cb: (err: any, data?: CreateLocationFsxLustreCommandOutput) => void
+  ): void;
+  createLocationFsxLustre(
+    args: CreateLocationFsxLustreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocationFsxLustreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLocationFsxOntapCommand}
+   */
+  createLocationFsxOntap(
+    args: CreateLocationFsxOntapCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocationFsxOntapCommandOutput>;
+  createLocationFsxOntap(
+    args: CreateLocationFsxOntapCommandInput,
+    cb: (err: any, data?: CreateLocationFsxOntapCommandOutput) => void
+  ): void;
+  createLocationFsxOntap(
+    args: CreateLocationFsxOntapCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocationFsxOntapCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLocationFsxOpenZfsCommand}
+   */
+  createLocationFsxOpenZfs(
+    args: CreateLocationFsxOpenZfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocationFsxOpenZfsCommandOutput>;
+  createLocationFsxOpenZfs(
+    args: CreateLocationFsxOpenZfsCommandInput,
+    cb: (err: any, data?: CreateLocationFsxOpenZfsCommandOutput) => void
+  ): void;
+  createLocationFsxOpenZfs(
+    args: CreateLocationFsxOpenZfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocationFsxOpenZfsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLocationFsxWindowsCommand}
+   */
+  createLocationFsxWindows(
+    args: CreateLocationFsxWindowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocationFsxWindowsCommandOutput>;
+  createLocationFsxWindows(
+    args: CreateLocationFsxWindowsCommandInput,
+    cb: (err: any, data?: CreateLocationFsxWindowsCommandOutput) => void
+  ): void;
+  createLocationFsxWindows(
+    args: CreateLocationFsxWindowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocationFsxWindowsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLocationHdfsCommand}
+   */
+  createLocationHdfs(
+    args: CreateLocationHdfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocationHdfsCommandOutput>;
+  createLocationHdfs(
+    args: CreateLocationHdfsCommandInput,
+    cb: (err: any, data?: CreateLocationHdfsCommandOutput) => void
+  ): void;
+  createLocationHdfs(
+    args: CreateLocationHdfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocationHdfsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLocationNfsCommand}
+   */
+  createLocationNfs(
+    args: CreateLocationNfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocationNfsCommandOutput>;
+  createLocationNfs(
+    args: CreateLocationNfsCommandInput,
+    cb: (err: any, data?: CreateLocationNfsCommandOutput) => void
+  ): void;
+  createLocationNfs(
+    args: CreateLocationNfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocationNfsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLocationObjectStorageCommand}
+   */
+  createLocationObjectStorage(
+    args: CreateLocationObjectStorageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocationObjectStorageCommandOutput>;
+  createLocationObjectStorage(
+    args: CreateLocationObjectStorageCommandInput,
+    cb: (err: any, data?: CreateLocationObjectStorageCommandOutput) => void
+  ): void;
+  createLocationObjectStorage(
+    args: CreateLocationObjectStorageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocationObjectStorageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLocationS3Command}
+   */
+  createLocationS3(
+    args: CreateLocationS3CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocationS3CommandOutput>;
+  createLocationS3(
+    args: CreateLocationS3CommandInput,
+    cb: (err: any, data?: CreateLocationS3CommandOutput) => void
+  ): void;
+  createLocationS3(
+    args: CreateLocationS3CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocationS3CommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLocationSmbCommand}
+   */
+  createLocationSmb(
+    args: CreateLocationSmbCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocationSmbCommandOutput>;
+  createLocationSmb(
+    args: CreateLocationSmbCommandInput,
+    cb: (err: any, data?: CreateLocationSmbCommandOutput) => void
+  ): void;
+  createLocationSmb(
+    args: CreateLocationSmbCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocationSmbCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateTaskCommand}
+   */
+  createTask(args: CreateTaskCommandInput, options?: __HttpHandlerOptions): Promise<CreateTaskCommandOutput>;
+  createTask(args: CreateTaskCommandInput, cb: (err: any, data?: CreateTaskCommandOutput) => void): void;
+  createTask(
+    args: CreateTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAgentCommand}
+   */
+  deleteAgent(args: DeleteAgentCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAgentCommandOutput>;
+  deleteAgent(args: DeleteAgentCommandInput, cb: (err: any, data?: DeleteAgentCommandOutput) => void): void;
+  deleteAgent(
+    args: DeleteAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAgentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLocationCommand}
+   */
+  deleteLocation(
+    args: DeleteLocationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLocationCommandOutput>;
+  deleteLocation(args: DeleteLocationCommandInput, cb: (err: any, data?: DeleteLocationCommandOutput) => void): void;
+  deleteLocation(
+    args: DeleteLocationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLocationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTaskCommand}
+   */
+  deleteTask(args: DeleteTaskCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTaskCommandOutput>;
+  deleteTask(args: DeleteTaskCommandInput, cb: (err: any, data?: DeleteTaskCommandOutput) => void): void;
+  deleteTask(
+    args: DeleteTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAgentCommand}
+   */
+  describeAgent(args: DescribeAgentCommandInput, options?: __HttpHandlerOptions): Promise<DescribeAgentCommandOutput>;
+  describeAgent(args: DescribeAgentCommandInput, cb: (err: any, data?: DescribeAgentCommandOutput) => void): void;
+  describeAgent(
+    args: DescribeAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAgentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeLocationEfsCommand}
+   */
+  describeLocationEfs(
+    args: DescribeLocationEfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLocationEfsCommandOutput>;
+  describeLocationEfs(
+    args: DescribeLocationEfsCommandInput,
+    cb: (err: any, data?: DescribeLocationEfsCommandOutput) => void
+  ): void;
+  describeLocationEfs(
+    args: DescribeLocationEfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLocationEfsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeLocationFsxLustreCommand}
+   */
+  describeLocationFsxLustre(
+    args: DescribeLocationFsxLustreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLocationFsxLustreCommandOutput>;
+  describeLocationFsxLustre(
+    args: DescribeLocationFsxLustreCommandInput,
+    cb: (err: any, data?: DescribeLocationFsxLustreCommandOutput) => void
+  ): void;
+  describeLocationFsxLustre(
+    args: DescribeLocationFsxLustreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLocationFsxLustreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeLocationFsxOntapCommand}
+   */
+  describeLocationFsxOntap(
+    args: DescribeLocationFsxOntapCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLocationFsxOntapCommandOutput>;
+  describeLocationFsxOntap(
+    args: DescribeLocationFsxOntapCommandInput,
+    cb: (err: any, data?: DescribeLocationFsxOntapCommandOutput) => void
+  ): void;
+  describeLocationFsxOntap(
+    args: DescribeLocationFsxOntapCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLocationFsxOntapCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeLocationFsxOpenZfsCommand}
+   */
+  describeLocationFsxOpenZfs(
+    args: DescribeLocationFsxOpenZfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLocationFsxOpenZfsCommandOutput>;
+  describeLocationFsxOpenZfs(
+    args: DescribeLocationFsxOpenZfsCommandInput,
+    cb: (err: any, data?: DescribeLocationFsxOpenZfsCommandOutput) => void
+  ): void;
+  describeLocationFsxOpenZfs(
+    args: DescribeLocationFsxOpenZfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLocationFsxOpenZfsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeLocationFsxWindowsCommand}
+   */
+  describeLocationFsxWindows(
+    args: DescribeLocationFsxWindowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLocationFsxWindowsCommandOutput>;
+  describeLocationFsxWindows(
+    args: DescribeLocationFsxWindowsCommandInput,
+    cb: (err: any, data?: DescribeLocationFsxWindowsCommandOutput) => void
+  ): void;
+  describeLocationFsxWindows(
+    args: DescribeLocationFsxWindowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLocationFsxWindowsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeLocationHdfsCommand}
+   */
+  describeLocationHdfs(
+    args: DescribeLocationHdfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLocationHdfsCommandOutput>;
+  describeLocationHdfs(
+    args: DescribeLocationHdfsCommandInput,
+    cb: (err: any, data?: DescribeLocationHdfsCommandOutput) => void
+  ): void;
+  describeLocationHdfs(
+    args: DescribeLocationHdfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLocationHdfsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeLocationNfsCommand}
+   */
+  describeLocationNfs(
+    args: DescribeLocationNfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLocationNfsCommandOutput>;
+  describeLocationNfs(
+    args: DescribeLocationNfsCommandInput,
+    cb: (err: any, data?: DescribeLocationNfsCommandOutput) => void
+  ): void;
+  describeLocationNfs(
+    args: DescribeLocationNfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLocationNfsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeLocationObjectStorageCommand}
+   */
+  describeLocationObjectStorage(
+    args: DescribeLocationObjectStorageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLocationObjectStorageCommandOutput>;
+  describeLocationObjectStorage(
+    args: DescribeLocationObjectStorageCommandInput,
+    cb: (err: any, data?: DescribeLocationObjectStorageCommandOutput) => void
+  ): void;
+  describeLocationObjectStorage(
+    args: DescribeLocationObjectStorageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLocationObjectStorageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeLocationS3Command}
+   */
+  describeLocationS3(
+    args: DescribeLocationS3CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLocationS3CommandOutput>;
+  describeLocationS3(
+    args: DescribeLocationS3CommandInput,
+    cb: (err: any, data?: DescribeLocationS3CommandOutput) => void
+  ): void;
+  describeLocationS3(
+    args: DescribeLocationS3CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLocationS3CommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeLocationSmbCommand}
+   */
+  describeLocationSmb(
+    args: DescribeLocationSmbCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLocationSmbCommandOutput>;
+  describeLocationSmb(
+    args: DescribeLocationSmbCommandInput,
+    cb: (err: any, data?: DescribeLocationSmbCommandOutput) => void
+  ): void;
+  describeLocationSmb(
+    args: DescribeLocationSmbCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLocationSmbCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTaskCommand}
+   */
+  describeTask(args: DescribeTaskCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTaskCommandOutput>;
+  describeTask(args: DescribeTaskCommandInput, cb: (err: any, data?: DescribeTaskCommandOutput) => void): void;
+  describeTask(
+    args: DescribeTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTaskExecutionCommand}
+   */
+  describeTaskExecution(
+    args: DescribeTaskExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTaskExecutionCommandOutput>;
+  describeTaskExecution(
+    args: DescribeTaskExecutionCommandInput,
+    cb: (err: any, data?: DescribeTaskExecutionCommandOutput) => void
+  ): void;
+  describeTaskExecution(
+    args: DescribeTaskExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTaskExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAgentsCommand}
+   */
+  listAgents(args: ListAgentsCommandInput, options?: __HttpHandlerOptions): Promise<ListAgentsCommandOutput>;
+  listAgents(args: ListAgentsCommandInput, cb: (err: any, data?: ListAgentsCommandOutput) => void): void;
+  listAgents(
+    args: ListAgentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAgentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListLocationsCommand}
+   */
+  listLocations(args: ListLocationsCommandInput, options?: __HttpHandlerOptions): Promise<ListLocationsCommandOutput>;
+  listLocations(args: ListLocationsCommandInput, cb: (err: any, data?: ListLocationsCommandOutput) => void): void;
+  listLocations(
+    args: ListLocationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLocationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTaskExecutionsCommand}
+   */
+  listTaskExecutions(
+    args: ListTaskExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTaskExecutionsCommandOutput>;
+  listTaskExecutions(
+    args: ListTaskExecutionsCommandInput,
+    cb: (err: any, data?: ListTaskExecutionsCommandOutput) => void
+  ): void;
+  listTaskExecutions(
+    args: ListTaskExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTaskExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTasksCommand}
+   */
+  listTasks(args: ListTasksCommandInput, options?: __HttpHandlerOptions): Promise<ListTasksCommandOutput>;
+  listTasks(args: ListTasksCommandInput, cb: (err: any, data?: ListTasksCommandOutput) => void): void;
+  listTasks(
+    args: ListTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTasksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartTaskExecutionCommand}
+   */
+  startTaskExecution(
+    args: StartTaskExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartTaskExecutionCommandOutput>;
+  startTaskExecution(
+    args: StartTaskExecutionCommandInput,
+    cb: (err: any, data?: StartTaskExecutionCommandOutput) => void
+  ): void;
+  startTaskExecution(
+    args: StartTaskExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartTaskExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAgentCommand}
+   */
+  updateAgent(args: UpdateAgentCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAgentCommandOutput>;
+  updateAgent(args: UpdateAgentCommandInput, cb: (err: any, data?: UpdateAgentCommandOutput) => void): void;
+  updateAgent(
+    args: UpdateAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAgentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLocationHdfsCommand}
+   */
+  updateLocationHdfs(
+    args: UpdateLocationHdfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationHdfsCommandOutput>;
+  updateLocationHdfs(
+    args: UpdateLocationHdfsCommandInput,
+    cb: (err: any, data?: UpdateLocationHdfsCommandOutput) => void
+  ): void;
+  updateLocationHdfs(
+    args: UpdateLocationHdfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationHdfsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLocationNfsCommand}
+   */
+  updateLocationNfs(
+    args: UpdateLocationNfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationNfsCommandOutput>;
+  updateLocationNfs(
+    args: UpdateLocationNfsCommandInput,
+    cb: (err: any, data?: UpdateLocationNfsCommandOutput) => void
+  ): void;
+  updateLocationNfs(
+    args: UpdateLocationNfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationNfsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLocationObjectStorageCommand}
+   */
+  updateLocationObjectStorage(
+    args: UpdateLocationObjectStorageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationObjectStorageCommandOutput>;
+  updateLocationObjectStorage(
+    args: UpdateLocationObjectStorageCommandInput,
+    cb: (err: any, data?: UpdateLocationObjectStorageCommandOutput) => void
+  ): void;
+  updateLocationObjectStorage(
+    args: UpdateLocationObjectStorageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationObjectStorageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLocationSmbCommand}
+   */
+  updateLocationSmb(
+    args: UpdateLocationSmbCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationSmbCommandOutput>;
+  updateLocationSmb(
+    args: UpdateLocationSmbCommandInput,
+    cb: (err: any, data?: UpdateLocationSmbCommandOutput) => void
+  ): void;
+  updateLocationSmb(
+    args: UpdateLocationSmbCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationSmbCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateTaskCommand}
+   */
+  updateTask(args: UpdateTaskCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTaskCommandOutput>;
+  updateTask(args: UpdateTaskCommandInput, cb: (err: any, data?: UpdateTaskCommandOutput) => void): void;
+  updateTask(
+    args: UpdateTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateTaskExecutionCommand}
+   */
+  updateTaskExecution(
+    args: UpdateTaskExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTaskExecutionCommandOutput>;
+  updateTaskExecution(
+    args: UpdateTaskExecutionCommandInput,
+    cb: (err: any, data?: UpdateTaskExecutionCommandOutput) => void
+  ): void;
+  updateTaskExecution(
+    args: UpdateTaskExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTaskExecutionCommandOutput) => void
+  ): void;
+}
 
 /**
  * @public
@@ -198,1473 +915,5 @@ import { DataSyncClient } from "./DataSyncClient";
  *         Guide</a>
  *             </i>.</p>
  */
-export class DataSync extends DataSyncClient {
-  /**
-   * @public
-   * <p>Stops an DataSync task execution that's in progress. The transfer of some
-   *       files are abruptly interrupted. File contents that're transferred to the destination might be
-   *       incomplete or inconsistent with the source files.</p>
-   *          <p>However, if you start a new task execution using the same task and allow it to finish,
-   *       file content on the destination will be complete and consistent. This applies to other
-   *       unexpected failures that interrupt a task execution. In all of these cases, DataSync successfully completes the transfer when you start the next task
-   *       execution.</p>
-   */
-  public cancelTaskExecution(
-    args: CancelTaskExecutionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CancelTaskExecutionCommandOutput>;
-  public cancelTaskExecution(
-    args: CancelTaskExecutionCommandInput,
-    cb: (err: any, data?: CancelTaskExecutionCommandOutput) => void
-  ): void;
-  public cancelTaskExecution(
-    args: CancelTaskExecutionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CancelTaskExecutionCommandOutput) => void
-  ): void;
-  public cancelTaskExecution(
-    args: CancelTaskExecutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelTaskExecutionCommandOutput) => void),
-    cb?: (err: any, data?: CancelTaskExecutionCommandOutput) => void
-  ): Promise<CancelTaskExecutionCommandOutput> | void {
-    const command = new CancelTaskExecutionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Activates an DataSync agent that you have deployed in your storage
-   *       environment. The activation process associates your agent with your account. In the activation
-   *       process, you specify information such as the Amazon Web Services Region that you want to
-   *       activate the agent in. You activate the agent in the Amazon Web Services Region where your
-   *       target locations (in Amazon S3 or Amazon EFS) reside. Your tasks are created in this Amazon Web Services Region.</p>
-   *          <p>You can activate the agent in a VPC (virtual private cloud) or provide the agent access to
-   *       a VPC endpoint so you can run tasks without going over the public internet.</p>
-   *          <p>You can use an agent for more than one location. If a task uses multiple agents, all of
-   *       them need to have status AVAILABLE for the task to run. If you use multiple agents for a
-   *       source location, the status of all the agents must be AVAILABLE for the task to run. </p>
-   *          <p>Agents are automatically updated by Amazon Web Services on a regular basis, using a mechanism that
-   *       ensures minimal interruption to your tasks.</p>
-   */
-  public createAgent(args: CreateAgentCommandInput, options?: __HttpHandlerOptions): Promise<CreateAgentCommandOutput>;
-  public createAgent(args: CreateAgentCommandInput, cb: (err: any, data?: CreateAgentCommandOutput) => void): void;
-  public createAgent(
-    args: CreateAgentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateAgentCommandOutput) => void
-  ): void;
-  public createAgent(
-    args: CreateAgentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAgentCommandOutput) => void),
-    cb?: (err: any, data?: CreateAgentCommandOutput) => void
-  ): Promise<CreateAgentCommandOutput> | void {
-    const command = new CreateAgentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an endpoint for an Amazon EFS file system that DataSync
-   *       can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-efs-location.html">Creating a location for Amazon EFS</a>.</p>
-   */
-  public createLocationEfs(
-    args: CreateLocationEfsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateLocationEfsCommandOutput>;
-  public createLocationEfs(
-    args: CreateLocationEfsCommandInput,
-    cb: (err: any, data?: CreateLocationEfsCommandOutput) => void
-  ): void;
-  public createLocationEfs(
-    args: CreateLocationEfsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateLocationEfsCommandOutput) => void
-  ): void;
-  public createLocationEfs(
-    args: CreateLocationEfsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationEfsCommandOutput) => void),
-    cb?: (err: any, data?: CreateLocationEfsCommandOutput) => void
-  ): Promise<CreateLocationEfsCommandOutput> | void {
-    const command = new CreateLocationEfsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an endpoint for an Amazon FSx for Lustre file system.</p>
-   */
-  public createLocationFsxLustre(
-    args: CreateLocationFsxLustreCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateLocationFsxLustreCommandOutput>;
-  public createLocationFsxLustre(
-    args: CreateLocationFsxLustreCommandInput,
-    cb: (err: any, data?: CreateLocationFsxLustreCommandOutput) => void
-  ): void;
-  public createLocationFsxLustre(
-    args: CreateLocationFsxLustreCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateLocationFsxLustreCommandOutput) => void
-  ): void;
-  public createLocationFsxLustre(
-    args: CreateLocationFsxLustreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationFsxLustreCommandOutput) => void),
-    cb?: (err: any, data?: CreateLocationFsxLustreCommandOutput) => void
-  ): Promise<CreateLocationFsxLustreCommandOutput> | void {
-    const command = new CreateLocationFsxLustreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an endpoint for an Amazon FSx for NetApp ONTAP file system that DataSync
-   *       can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html">Creating a location for FSx for ONTAP</a>.</p>
-   */
-  public createLocationFsxOntap(
-    args: CreateLocationFsxOntapCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateLocationFsxOntapCommandOutput>;
-  public createLocationFsxOntap(
-    args: CreateLocationFsxOntapCommandInput,
-    cb: (err: any, data?: CreateLocationFsxOntapCommandOutput) => void
-  ): void;
-  public createLocationFsxOntap(
-    args: CreateLocationFsxOntapCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateLocationFsxOntapCommandOutput) => void
-  ): void;
-  public createLocationFsxOntap(
-    args: CreateLocationFsxOntapCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationFsxOntapCommandOutput) => void),
-    cb?: (err: any, data?: CreateLocationFsxOntapCommandOutput) => void
-  ): Promise<CreateLocationFsxOntapCommandOutput> | void {
-    const command = new CreateLocationFsxOntapCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an endpoint for an Amazon FSx for OpenZFS file system that DataSync
-   *       can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html">Creating a location for FSx for OpenZFS</a>.</p>
-   *          <note>
-   *             <p>Request parameters related to <code>SMB</code> aren't supported with the
-   *         <code>CreateLocationFsxOpenZfs</code> operation.</p>
-   *          </note>
-   */
-  public createLocationFsxOpenZfs(
-    args: CreateLocationFsxOpenZfsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateLocationFsxOpenZfsCommandOutput>;
-  public createLocationFsxOpenZfs(
-    args: CreateLocationFsxOpenZfsCommandInput,
-    cb: (err: any, data?: CreateLocationFsxOpenZfsCommandOutput) => void
-  ): void;
-  public createLocationFsxOpenZfs(
-    args: CreateLocationFsxOpenZfsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateLocationFsxOpenZfsCommandOutput) => void
-  ): void;
-  public createLocationFsxOpenZfs(
-    args: CreateLocationFsxOpenZfsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationFsxOpenZfsCommandOutput) => void),
-    cb?: (err: any, data?: CreateLocationFsxOpenZfsCommandOutput) => void
-  ): Promise<CreateLocationFsxOpenZfsCommandOutput> | void {
-    const command = new CreateLocationFsxOpenZfsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an endpoint for an Amazon FSx for Windows File Server file system.</p>
-   */
-  public createLocationFsxWindows(
-    args: CreateLocationFsxWindowsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateLocationFsxWindowsCommandOutput>;
-  public createLocationFsxWindows(
-    args: CreateLocationFsxWindowsCommandInput,
-    cb: (err: any, data?: CreateLocationFsxWindowsCommandOutput) => void
-  ): void;
-  public createLocationFsxWindows(
-    args: CreateLocationFsxWindowsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateLocationFsxWindowsCommandOutput) => void
-  ): void;
-  public createLocationFsxWindows(
-    args: CreateLocationFsxWindowsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationFsxWindowsCommandOutput) => void),
-    cb?: (err: any, data?: CreateLocationFsxWindowsCommandOutput) => void
-  ): Promise<CreateLocationFsxWindowsCommandOutput> | void {
-    const command = new CreateLocationFsxWindowsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an endpoint for a Hadoop Distributed File System (HDFS). </p>
-   */
-  public createLocationHdfs(
-    args: CreateLocationHdfsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateLocationHdfsCommandOutput>;
-  public createLocationHdfs(
-    args: CreateLocationHdfsCommandInput,
-    cb: (err: any, data?: CreateLocationHdfsCommandOutput) => void
-  ): void;
-  public createLocationHdfs(
-    args: CreateLocationHdfsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateLocationHdfsCommandOutput) => void
-  ): void;
-  public createLocationHdfs(
-    args: CreateLocationHdfsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationHdfsCommandOutput) => void),
-    cb?: (err: any, data?: CreateLocationHdfsCommandOutput) => void
-  ): Promise<CreateLocationHdfsCommandOutput> | void {
-    const command = new CreateLocationHdfsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Defines a file system on a Network File System (NFS) server that can be read from or
-   *       written to.</p>
-   */
-  public createLocationNfs(
-    args: CreateLocationNfsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateLocationNfsCommandOutput>;
-  public createLocationNfs(
-    args: CreateLocationNfsCommandInput,
-    cb: (err: any, data?: CreateLocationNfsCommandOutput) => void
-  ): void;
-  public createLocationNfs(
-    args: CreateLocationNfsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateLocationNfsCommandOutput) => void
-  ): void;
-  public createLocationNfs(
-    args: CreateLocationNfsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationNfsCommandOutput) => void),
-    cb?: (err: any, data?: CreateLocationNfsCommandOutput) => void
-  ): Promise<CreateLocationNfsCommandOutput> | void {
-    const command = new CreateLocationNfsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an endpoint for an object storage system that DataSync can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object storage</a>.</p>
-   */
-  public createLocationObjectStorage(
-    args: CreateLocationObjectStorageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateLocationObjectStorageCommandOutput>;
-  public createLocationObjectStorage(
-    args: CreateLocationObjectStorageCommandInput,
-    cb: (err: any, data?: CreateLocationObjectStorageCommandOutput) => void
-  ): void;
-  public createLocationObjectStorage(
-    args: CreateLocationObjectStorageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateLocationObjectStorageCommandOutput) => void
-  ): void;
-  public createLocationObjectStorage(
-    args: CreateLocationObjectStorageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationObjectStorageCommandOutput) => void),
-    cb?: (err: any, data?: CreateLocationObjectStorageCommandOutput) => void
-  ): Promise<CreateLocationObjectStorageCommandOutput> | void {
-    const command = new CreateLocationObjectStorageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an endpoint for an Amazon S3 bucket that DataSync can
-   *       access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Create an Amazon S3 location</a>.</p>
-   */
-  public createLocationS3(
-    args: CreateLocationS3CommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateLocationS3CommandOutput>;
-  public createLocationS3(
-    args: CreateLocationS3CommandInput,
-    cb: (err: any, data?: CreateLocationS3CommandOutput) => void
-  ): void;
-  public createLocationS3(
-    args: CreateLocationS3CommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateLocationS3CommandOutput) => void
-  ): void;
-  public createLocationS3(
-    args: CreateLocationS3CommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationS3CommandOutput) => void),
-    cb?: (err: any, data?: CreateLocationS3CommandOutput) => void
-  ): Promise<CreateLocationS3CommandOutput> | void {
-    const command = new CreateLocationS3Command(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an endpoint for a Server Message Block (SMB) file server that DataSync can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">Creating an SMB location</a>.</p>
-   */
-  public createLocationSmb(
-    args: CreateLocationSmbCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateLocationSmbCommandOutput>;
-  public createLocationSmb(
-    args: CreateLocationSmbCommandInput,
-    cb: (err: any, data?: CreateLocationSmbCommandOutput) => void
-  ): void;
-  public createLocationSmb(
-    args: CreateLocationSmbCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateLocationSmbCommandOutput) => void
-  ): void;
-  public createLocationSmb(
-    args: CreateLocationSmbCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationSmbCommandOutput) => void),
-    cb?: (err: any, data?: CreateLocationSmbCommandOutput) => void
-  ): Promise<CreateLocationSmbCommandOutput> | void {
-    const command = new CreateLocationSmbCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Configures a task, which defines where and how DataSync transfers your
-   *       data.</p>
-   *          <p>A task includes a source location, a destination location, and the preferences for how and
-   *       when you want to transfer your data (such as bandwidth limits, scheduling, among other
-   *       options).</p>
-   */
-  public createTask(args: CreateTaskCommandInput, options?: __HttpHandlerOptions): Promise<CreateTaskCommandOutput>;
-  public createTask(args: CreateTaskCommandInput, cb: (err: any, data?: CreateTaskCommandOutput) => void): void;
-  public createTask(
-    args: CreateTaskCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateTaskCommandOutput) => void
-  ): void;
-  public createTask(
-    args: CreateTaskCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTaskCommandOutput) => void),
-    cb?: (err: any, data?: CreateTaskCommandOutput) => void
-  ): Promise<CreateTaskCommandOutput> | void {
-    const command = new CreateTaskCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes an agent. To specify which agent to delete, use the Amazon Resource Name (ARN)
-   *       of the agent in your request. The operation disassociates the agent from your Amazon Web Services account.
-   *       However, it doesn't delete the agent virtual machine (VM) from your on-premises
-   *       environment.</p>
-   */
-  public deleteAgent(args: DeleteAgentCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAgentCommandOutput>;
-  public deleteAgent(args: DeleteAgentCommandInput, cb: (err: any, data?: DeleteAgentCommandOutput) => void): void;
-  public deleteAgent(
-    args: DeleteAgentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAgentCommandOutput) => void
-  ): void;
-  public deleteAgent(
-    args: DeleteAgentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAgentCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAgentCommandOutput) => void
-  ): Promise<DeleteAgentCommandOutput> | void {
-    const command = new DeleteAgentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the configuration of a location used by DataSync. </p>
-   */
-  public deleteLocation(
-    args: DeleteLocationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteLocationCommandOutput>;
-  public deleteLocation(
-    args: DeleteLocationCommandInput,
-    cb: (err: any, data?: DeleteLocationCommandOutput) => void
-  ): void;
-  public deleteLocation(
-    args: DeleteLocationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteLocationCommandOutput) => void
-  ): void;
-  public deleteLocation(
-    args: DeleteLocationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLocationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteLocationCommandOutput) => void
-  ): Promise<DeleteLocationCommandOutput> | void {
-    const command = new DeleteLocationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes an DataSync task.</p>
-   */
-  public deleteTask(args: DeleteTaskCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTaskCommandOutput>;
-  public deleteTask(args: DeleteTaskCommandInput, cb: (err: any, data?: DeleteTaskCommandOutput) => void): void;
-  public deleteTask(
-    args: DeleteTaskCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteTaskCommandOutput) => void
-  ): void;
-  public deleteTask(
-    args: DeleteTaskCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTaskCommandOutput) => void),
-    cb?: (err: any, data?: DeleteTaskCommandOutput) => void
-  ): Promise<DeleteTaskCommandOutput> | void {
-    const command = new DeleteTaskCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns metadata about an DataSync agent, such as its name, endpoint type, and status.</p>
-   */
-  public describeAgent(
-    args: DescribeAgentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAgentCommandOutput>;
-  public describeAgent(
-    args: DescribeAgentCommandInput,
-    cb: (err: any, data?: DescribeAgentCommandOutput) => void
-  ): void;
-  public describeAgent(
-    args: DescribeAgentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAgentCommandOutput) => void
-  ): void;
-  public describeAgent(
-    args: DescribeAgentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAgentCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAgentCommandOutput) => void
-  ): Promise<DescribeAgentCommandOutput> | void {
-    const command = new DescribeAgentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns metadata about your DataSync location for an Amazon EFS file system.</p>
-   */
-  public describeLocationEfs(
-    args: DescribeLocationEfsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeLocationEfsCommandOutput>;
-  public describeLocationEfs(
-    args: DescribeLocationEfsCommandInput,
-    cb: (err: any, data?: DescribeLocationEfsCommandOutput) => void
-  ): void;
-  public describeLocationEfs(
-    args: DescribeLocationEfsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLocationEfsCommandOutput) => void
-  ): void;
-  public describeLocationEfs(
-    args: DescribeLocationEfsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationEfsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeLocationEfsCommandOutput) => void
-  ): Promise<DescribeLocationEfsCommandOutput> | void {
-    const command = new DescribeLocationEfsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Provides details about how an DataSync location for an Amazon FSx for Lustre file system is configured.</p>
-   */
-  public describeLocationFsxLustre(
-    args: DescribeLocationFsxLustreCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeLocationFsxLustreCommandOutput>;
-  public describeLocationFsxLustre(
-    args: DescribeLocationFsxLustreCommandInput,
-    cb: (err: any, data?: DescribeLocationFsxLustreCommandOutput) => void
-  ): void;
-  public describeLocationFsxLustre(
-    args: DescribeLocationFsxLustreCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLocationFsxLustreCommandOutput) => void
-  ): void;
-  public describeLocationFsxLustre(
-    args: DescribeLocationFsxLustreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationFsxLustreCommandOutput) => void),
-    cb?: (err: any, data?: DescribeLocationFsxLustreCommandOutput) => void
-  ): Promise<DescribeLocationFsxLustreCommandOutput> | void {
-    const command = new DescribeLocationFsxLustreCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Provides details about how an DataSync location for an Amazon FSx for NetApp ONTAP file system is configured.</p>
-   *          <note>
-   *             <p>If your location uses SMB, the <code>DescribeLocationFsxOntap</code> operation doesn't
-   *         actually return a <code>Password</code>.</p>
-   *          </note>
-   */
-  public describeLocationFsxOntap(
-    args: DescribeLocationFsxOntapCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeLocationFsxOntapCommandOutput>;
-  public describeLocationFsxOntap(
-    args: DescribeLocationFsxOntapCommandInput,
-    cb: (err: any, data?: DescribeLocationFsxOntapCommandOutput) => void
-  ): void;
-  public describeLocationFsxOntap(
-    args: DescribeLocationFsxOntapCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLocationFsxOntapCommandOutput) => void
-  ): void;
-  public describeLocationFsxOntap(
-    args: DescribeLocationFsxOntapCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationFsxOntapCommandOutput) => void),
-    cb?: (err: any, data?: DescribeLocationFsxOntapCommandOutput) => void
-  ): Promise<DescribeLocationFsxOntapCommandOutput> | void {
-    const command = new DescribeLocationFsxOntapCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Provides details about how an DataSync location for an Amazon FSx for OpenZFS file system is configured.</p>
-   *          <note>
-   *             <p>Response elements related to <code>SMB</code> aren't supported with the
-   *         <code>DescribeLocationFsxOpenZfs</code> operation.</p>
-   *          </note>
-   */
-  public describeLocationFsxOpenZfs(
-    args: DescribeLocationFsxOpenZfsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeLocationFsxOpenZfsCommandOutput>;
-  public describeLocationFsxOpenZfs(
-    args: DescribeLocationFsxOpenZfsCommandInput,
-    cb: (err: any, data?: DescribeLocationFsxOpenZfsCommandOutput) => void
-  ): void;
-  public describeLocationFsxOpenZfs(
-    args: DescribeLocationFsxOpenZfsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLocationFsxOpenZfsCommandOutput) => void
-  ): void;
-  public describeLocationFsxOpenZfs(
-    args: DescribeLocationFsxOpenZfsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationFsxOpenZfsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeLocationFsxOpenZfsCommandOutput) => void
-  ): Promise<DescribeLocationFsxOpenZfsCommandOutput> | void {
-    const command = new DescribeLocationFsxOpenZfsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns metadata about an Amazon FSx for Windows File Server
-   *       location, such as information about its path.</p>
-   */
-  public describeLocationFsxWindows(
-    args: DescribeLocationFsxWindowsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeLocationFsxWindowsCommandOutput>;
-  public describeLocationFsxWindows(
-    args: DescribeLocationFsxWindowsCommandInput,
-    cb: (err: any, data?: DescribeLocationFsxWindowsCommandOutput) => void
-  ): void;
-  public describeLocationFsxWindows(
-    args: DescribeLocationFsxWindowsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLocationFsxWindowsCommandOutput) => void
-  ): void;
-  public describeLocationFsxWindows(
-    args: DescribeLocationFsxWindowsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationFsxWindowsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeLocationFsxWindowsCommandOutput) => void
-  ): Promise<DescribeLocationFsxWindowsCommandOutput> | void {
-    const command = new DescribeLocationFsxWindowsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns metadata, such as the authentication information about the Hadoop Distributed File
-   *       System (HDFS) location. </p>
-   */
-  public describeLocationHdfs(
-    args: DescribeLocationHdfsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeLocationHdfsCommandOutput>;
-  public describeLocationHdfs(
-    args: DescribeLocationHdfsCommandInput,
-    cb: (err: any, data?: DescribeLocationHdfsCommandOutput) => void
-  ): void;
-  public describeLocationHdfs(
-    args: DescribeLocationHdfsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLocationHdfsCommandOutput) => void
-  ): void;
-  public describeLocationHdfs(
-    args: DescribeLocationHdfsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationHdfsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeLocationHdfsCommandOutput) => void
-  ): Promise<DescribeLocationHdfsCommandOutput> | void {
-    const command = new DescribeLocationHdfsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns metadata, such as the path information, about an NFS location.</p>
-   */
-  public describeLocationNfs(
-    args: DescribeLocationNfsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeLocationNfsCommandOutput>;
-  public describeLocationNfs(
-    args: DescribeLocationNfsCommandInput,
-    cb: (err: any, data?: DescribeLocationNfsCommandOutput) => void
-  ): void;
-  public describeLocationNfs(
-    args: DescribeLocationNfsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLocationNfsCommandOutput) => void
-  ): void;
-  public describeLocationNfs(
-    args: DescribeLocationNfsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationNfsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeLocationNfsCommandOutput) => void
-  ): Promise<DescribeLocationNfsCommandOutput> | void {
-    const command = new DescribeLocationNfsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns metadata about your DataSync location for an object storage system.</p>
-   */
-  public describeLocationObjectStorage(
-    args: DescribeLocationObjectStorageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeLocationObjectStorageCommandOutput>;
-  public describeLocationObjectStorage(
-    args: DescribeLocationObjectStorageCommandInput,
-    cb: (err: any, data?: DescribeLocationObjectStorageCommandOutput) => void
-  ): void;
-  public describeLocationObjectStorage(
-    args: DescribeLocationObjectStorageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLocationObjectStorageCommandOutput) => void
-  ): void;
-  public describeLocationObjectStorage(
-    args: DescribeLocationObjectStorageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationObjectStorageCommandOutput) => void),
-    cb?: (err: any, data?: DescribeLocationObjectStorageCommandOutput) => void
-  ): Promise<DescribeLocationObjectStorageCommandOutput> | void {
-    const command = new DescribeLocationObjectStorageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns metadata, such as bucket name, about an Amazon S3 bucket location.</p>
-   */
-  public describeLocationS3(
-    args: DescribeLocationS3CommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeLocationS3CommandOutput>;
-  public describeLocationS3(
-    args: DescribeLocationS3CommandInput,
-    cb: (err: any, data?: DescribeLocationS3CommandOutput) => void
-  ): void;
-  public describeLocationS3(
-    args: DescribeLocationS3CommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLocationS3CommandOutput) => void
-  ): void;
-  public describeLocationS3(
-    args: DescribeLocationS3CommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationS3CommandOutput) => void),
-    cb?: (err: any, data?: DescribeLocationS3CommandOutput) => void
-  ): Promise<DescribeLocationS3CommandOutput> | void {
-    const command = new DescribeLocationS3Command(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns metadata, such as the path and user information about an SMB location.</p>
-   */
-  public describeLocationSmb(
-    args: DescribeLocationSmbCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeLocationSmbCommandOutput>;
-  public describeLocationSmb(
-    args: DescribeLocationSmbCommandInput,
-    cb: (err: any, data?: DescribeLocationSmbCommandOutput) => void
-  ): void;
-  public describeLocationSmb(
-    args: DescribeLocationSmbCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLocationSmbCommandOutput) => void
-  ): void;
-  public describeLocationSmb(
-    args: DescribeLocationSmbCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationSmbCommandOutput) => void),
-    cb?: (err: any, data?: DescribeLocationSmbCommandOutput) => void
-  ): Promise<DescribeLocationSmbCommandOutput> | void {
-    const command = new DescribeLocationSmbCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns metadata about a task.</p>
-   */
-  public describeTask(
-    args: DescribeTaskCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeTaskCommandOutput>;
-  public describeTask(args: DescribeTaskCommandInput, cb: (err: any, data?: DescribeTaskCommandOutput) => void): void;
-  public describeTask(
-    args: DescribeTaskCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeTaskCommandOutput) => void
-  ): void;
-  public describeTask(
-    args: DescribeTaskCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTaskCommandOutput) => void),
-    cb?: (err: any, data?: DescribeTaskCommandOutput) => void
-  ): Promise<DescribeTaskCommandOutput> | void {
-    const command = new DescribeTaskCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns detailed metadata about a task that is being executed.</p>
-   */
-  public describeTaskExecution(
-    args: DescribeTaskExecutionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeTaskExecutionCommandOutput>;
-  public describeTaskExecution(
-    args: DescribeTaskExecutionCommandInput,
-    cb: (err: any, data?: DescribeTaskExecutionCommandOutput) => void
-  ): void;
-  public describeTaskExecution(
-    args: DescribeTaskExecutionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeTaskExecutionCommandOutput) => void
-  ): void;
-  public describeTaskExecution(
-    args: DescribeTaskExecutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTaskExecutionCommandOutput) => void),
-    cb?: (err: any, data?: DescribeTaskExecutionCommandOutput) => void
-  ): Promise<DescribeTaskExecutionCommandOutput> | void {
-    const command = new DescribeTaskExecutionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns a list of DataSync agents that belong to an Amazon Web Services account in the Amazon Web Services Region specified in the request.</p>
-   *          <p>With pagination, you can reduce the number of agents returned in a response. If you get
-   *       a truncated list of agents in a response, the response contains a marker that you can specify
-   *       in your next request to fetch the next page of agents.</p>
-   *          <p>
-   *             <code>ListAgents</code> is eventually consistent. This means the result of running the
-   *       operation might not reflect that you just created or deleted an agent. For example, if you
-   *       create an agent with <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateAgent.html">CreateAgent</a> and then
-   *       immediately run <code>ListAgents</code>, that agent might not show up in the list right away.
-   *       In situations like this, you can always confirm whether an agent has been created (or deleted)
-   *       by using <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeAgent.html">DescribeAgent</a>.</p>
-   */
-  public listAgents(args: ListAgentsCommandInput, options?: __HttpHandlerOptions): Promise<ListAgentsCommandOutput>;
-  public listAgents(args: ListAgentsCommandInput, cb: (err: any, data?: ListAgentsCommandOutput) => void): void;
-  public listAgents(
-    args: ListAgentsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAgentsCommandOutput) => void
-  ): void;
-  public listAgents(
-    args: ListAgentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAgentsCommandOutput) => void),
-    cb?: (err: any, data?: ListAgentsCommandOutput) => void
-  ): Promise<ListAgentsCommandOutput> | void {
-    const command = new ListAgentsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns a list of source and destination locations.</p>
-   *          <p>If you have more locations than are returned in a response (that is, the response
-   *       returns only a truncated list of your agents), the response contains a token that you can
-   *       specify in your next request to fetch the next page of locations.</p>
-   */
-  public listLocations(
-    args: ListLocationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListLocationsCommandOutput>;
-  public listLocations(
-    args: ListLocationsCommandInput,
-    cb: (err: any, data?: ListLocationsCommandOutput) => void
-  ): void;
-  public listLocations(
-    args: ListLocationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListLocationsCommandOutput) => void
-  ): void;
-  public listLocations(
-    args: ListLocationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLocationsCommandOutput) => void),
-    cb?: (err: any, data?: ListLocationsCommandOutput) => void
-  ): Promise<ListLocationsCommandOutput> | void {
-    const command = new ListLocationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns all the tags associated with an Amazon Web Services resource.</p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns a list of executed tasks.</p>
-   */
-  public listTaskExecutions(
-    args: ListTaskExecutionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTaskExecutionsCommandOutput>;
-  public listTaskExecutions(
-    args: ListTaskExecutionsCommandInput,
-    cb: (err: any, data?: ListTaskExecutionsCommandOutput) => void
-  ): void;
-  public listTaskExecutions(
-    args: ListTaskExecutionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTaskExecutionsCommandOutput) => void
-  ): void;
-  public listTaskExecutions(
-    args: ListTaskExecutionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTaskExecutionsCommandOutput) => void),
-    cb?: (err: any, data?: ListTaskExecutionsCommandOutput) => void
-  ): Promise<ListTaskExecutionsCommandOutput> | void {
-    const command = new ListTaskExecutionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns a list of the DataSync tasks you created.</p>
-   */
-  public listTasks(args: ListTasksCommandInput, options?: __HttpHandlerOptions): Promise<ListTasksCommandOutput>;
-  public listTasks(args: ListTasksCommandInput, cb: (err: any, data?: ListTasksCommandOutput) => void): void;
-  public listTasks(
-    args: ListTasksCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTasksCommandOutput) => void
-  ): void;
-  public listTasks(
-    args: ListTasksCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTasksCommandOutput) => void),
-    cb?: (err: any, data?: ListTasksCommandOutput) => void
-  ): Promise<ListTasksCommandOutput> | void {
-    const command = new ListTasksCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Starts an DataSync task. For each task, you can only run one task execution at a time.</p>
-   *          <p>There are several phases to a task execution. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses">Task execution statuses</a>.</p>
-   */
-  public startTaskExecution(
-    args: StartTaskExecutionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartTaskExecutionCommandOutput>;
-  public startTaskExecution(
-    args: StartTaskExecutionCommandInput,
-    cb: (err: any, data?: StartTaskExecutionCommandOutput) => void
-  ): void;
-  public startTaskExecution(
-    args: StartTaskExecutionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartTaskExecutionCommandOutput) => void
-  ): void;
-  public startTaskExecution(
-    args: StartTaskExecutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartTaskExecutionCommandOutput) => void),
-    cb?: (err: any, data?: StartTaskExecutionCommandOutput) => void
-  ): Promise<StartTaskExecutionCommandOutput> | void {
-    const command = new StartTaskExecutionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Applies a <i>tag</i> to an Amazon Web Services
-   *       resource. Tags are key-value pairs that can help you manage, filter, and search for your resources.</p>
-   *          <p>These include DataSync resources, such as locations, tasks, and task executions.</p>
-   */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes tags from an Amazon Web Services resource.</p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the name of an agent.</p>
-   */
-  public updateAgent(args: UpdateAgentCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAgentCommandOutput>;
-  public updateAgent(args: UpdateAgentCommandInput, cb: (err: any, data?: UpdateAgentCommandOutput) => void): void;
-  public updateAgent(
-    args: UpdateAgentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAgentCommandOutput) => void
-  ): void;
-  public updateAgent(
-    args: UpdateAgentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAgentCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAgentCommandOutput) => void
-  ): Promise<UpdateAgentCommandOutput> | void {
-    const command = new UpdateAgentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates some parameters of a previously created location for a Hadoop Distributed File
-   *       System cluster.</p>
-   */
-  public updateLocationHdfs(
-    args: UpdateLocationHdfsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateLocationHdfsCommandOutput>;
-  public updateLocationHdfs(
-    args: UpdateLocationHdfsCommandInput,
-    cb: (err: any, data?: UpdateLocationHdfsCommandOutput) => void
-  ): void;
-  public updateLocationHdfs(
-    args: UpdateLocationHdfsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateLocationHdfsCommandOutput) => void
-  ): void;
-  public updateLocationHdfs(
-    args: UpdateLocationHdfsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLocationHdfsCommandOutput) => void),
-    cb?: (err: any, data?: UpdateLocationHdfsCommandOutput) => void
-  ): Promise<UpdateLocationHdfsCommandOutput> | void {
-    const command = new UpdateLocationHdfsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates some of the parameters of a previously created location for Network File System (NFS) access.
-   *       For information about creating an NFS location, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html">Creating a location for NFS</a>.</p>
-   */
-  public updateLocationNfs(
-    args: UpdateLocationNfsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateLocationNfsCommandOutput>;
-  public updateLocationNfs(
-    args: UpdateLocationNfsCommandInput,
-    cb: (err: any, data?: UpdateLocationNfsCommandOutput) => void
-  ): void;
-  public updateLocationNfs(
-    args: UpdateLocationNfsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateLocationNfsCommandOutput) => void
-  ): void;
-  public updateLocationNfs(
-    args: UpdateLocationNfsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLocationNfsCommandOutput) => void),
-    cb?: (err: any, data?: UpdateLocationNfsCommandOutput) => void
-  ): Promise<UpdateLocationNfsCommandOutput> | void {
-    const command = new UpdateLocationNfsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates some parameters of an existing object storage location that DataSync
-   *       accesses for a transfer. For information about creating a self-managed object storage
-   *       location, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object
-   *         storage</a>.</p>
-   */
-  public updateLocationObjectStorage(
-    args: UpdateLocationObjectStorageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateLocationObjectStorageCommandOutput>;
-  public updateLocationObjectStorage(
-    args: UpdateLocationObjectStorageCommandInput,
-    cb: (err: any, data?: UpdateLocationObjectStorageCommandOutput) => void
-  ): void;
-  public updateLocationObjectStorage(
-    args: UpdateLocationObjectStorageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateLocationObjectStorageCommandOutput) => void
-  ): void;
-  public updateLocationObjectStorage(
-    args: UpdateLocationObjectStorageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLocationObjectStorageCommandOutput) => void),
-    cb?: (err: any, data?: UpdateLocationObjectStorageCommandOutput) => void
-  ): Promise<UpdateLocationObjectStorageCommandOutput> | void {
-    const command = new UpdateLocationObjectStorageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates some of the parameters of a previously created location for Server Message Block
-   *       (SMB) file system access. For information about creating an SMB location, see
-   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">Creating a location for SMB</a>.</p>
-   */
-  public updateLocationSmb(
-    args: UpdateLocationSmbCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateLocationSmbCommandOutput>;
-  public updateLocationSmb(
-    args: UpdateLocationSmbCommandInput,
-    cb: (err: any, data?: UpdateLocationSmbCommandOutput) => void
-  ): void;
-  public updateLocationSmb(
-    args: UpdateLocationSmbCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateLocationSmbCommandOutput) => void
-  ): void;
-  public updateLocationSmb(
-    args: UpdateLocationSmbCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLocationSmbCommandOutput) => void),
-    cb?: (err: any, data?: UpdateLocationSmbCommandOutput) => void
-  ): Promise<UpdateLocationSmbCommandOutput> | void {
-    const command = new UpdateLocationSmbCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the metadata associated with a task.</p>
-   */
-  public updateTask(args: UpdateTaskCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTaskCommandOutput>;
-  public updateTask(args: UpdateTaskCommandInput, cb: (err: any, data?: UpdateTaskCommandOutput) => void): void;
-  public updateTask(
-    args: UpdateTaskCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateTaskCommandOutput) => void
-  ): void;
-  public updateTask(
-    args: UpdateTaskCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTaskCommandOutput) => void),
-    cb?: (err: any, data?: UpdateTaskCommandOutput) => void
-  ): Promise<UpdateTaskCommandOutput> | void {
-    const command = new UpdateTaskCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates execution of a task.</p>
-   *          <p>You can modify bandwidth throttling for a task execution that is running or queued.
-   *       For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#adjust-bandwidth-throttling">Adjusting Bandwidth Throttling for a Task Execution</a>.</p>
-   *          <note>
-   *             <p>The only <code>Option</code> that can be modified by <code>UpdateTaskExecution</code>
-   *         is <code>
-   *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond">BytesPerSecond</a>
-   *                </code>.</p>
-   *          </note>
-   */
-  public updateTaskExecution(
-    args: UpdateTaskExecutionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateTaskExecutionCommandOutput>;
-  public updateTaskExecution(
-    args: UpdateTaskExecutionCommandInput,
-    cb: (err: any, data?: UpdateTaskExecutionCommandOutput) => void
-  ): void;
-  public updateTaskExecution(
-    args: UpdateTaskExecutionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateTaskExecutionCommandOutput) => void
-  ): void;
-  public updateTaskExecution(
-    args: UpdateTaskExecutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTaskExecutionCommandOutput) => void),
-    cb?: (err: any, data?: UpdateTaskExecutionCommandOutput) => void
-  ): Promise<UpdateTaskExecutionCommandOutput> | void {
-    const command = new UpdateTaskExecutionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class DataSync extends DataSyncClient implements DataSync {}
+createAggregatedClient(commands, DataSync);

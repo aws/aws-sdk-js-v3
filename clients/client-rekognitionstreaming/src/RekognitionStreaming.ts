@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -6,7 +7,30 @@ import {
   StartFaceLivenessSessionCommandInput,
   StartFaceLivenessSessionCommandOutput,
 } from "./commands/StartFaceLivenessSessionCommand";
-import { RekognitionStreamingClient } from "./RekognitionStreamingClient";
+import { RekognitionStreamingClient, RekognitionStreamingClientConfig } from "./RekognitionStreamingClient";
+
+const commands = {
+  StartFaceLivenessSessionCommand,
+};
+
+export interface RekognitionStreaming {
+  /**
+   * @see {@link StartFaceLivenessSessionCommand}
+   */
+  startFaceLivenessSession(
+    args: StartFaceLivenessSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartFaceLivenessSessionCommandOutput>;
+  startFaceLivenessSession(
+    args: StartFaceLivenessSessionCommandInput,
+    cb: (err: any, data?: StartFaceLivenessSessionCommandOutput) => void
+  ): void;
+  startFaceLivenessSession(
+    args: StartFaceLivenessSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartFaceLivenessSessionCommandOutput) => void
+  ): void;
+}
 
 /**
  * @public
@@ -33,45 +57,5 @@ import { RekognitionStreamingClient } from "./RekognitionStreamingClient";
  *             </li>
  *          </ul>
  */
-export class RekognitionStreaming extends RekognitionStreamingClient {
-  /**
-   * @public
-   * <p>Starts a Face Liveness video stream and liveness detection process for a given
-   *       session.</p>
-   *          <p>Requires <code>sessionId</code>, <code>ChallengeVersions</code>, <code>VideoWidth</code>,
-   *         <code>VideoHeight</code> and a <code>RequestEventStream</code> as input. The event stream
-   *       contains information about different events for the session, including the challenge
-   *       information used for verification. </p>
-   *          <p>The maximum video size for Face Liveness is 10 MB. Face Liveness throws a
-   *         <code>ValidationException</code> if the video does not match the necessary formatting and
-   *       size parameters. </p>
-   */
-  public startFaceLivenessSession(
-    args: StartFaceLivenessSessionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartFaceLivenessSessionCommandOutput>;
-  public startFaceLivenessSession(
-    args: StartFaceLivenessSessionCommandInput,
-    cb: (err: any, data?: StartFaceLivenessSessionCommandOutput) => void
-  ): void;
-  public startFaceLivenessSession(
-    args: StartFaceLivenessSessionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartFaceLivenessSessionCommandOutput) => void
-  ): void;
-  public startFaceLivenessSession(
-    args: StartFaceLivenessSessionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartFaceLivenessSessionCommandOutput) => void),
-    cb?: (err: any, data?: StartFaceLivenessSessionCommandOutput) => void
-  ): Promise<StartFaceLivenessSessionCommandOutput> | void {
-    const command = new StartFaceLivenessSessionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class RekognitionStreaming extends RekognitionStreamingClient implements RekognitionStreaming {}
+createAggregatedClient(commands, RekognitionStreaming);

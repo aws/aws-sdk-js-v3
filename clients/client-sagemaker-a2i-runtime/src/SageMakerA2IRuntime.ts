@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -26,7 +27,87 @@ import {
   StopHumanLoopCommandInput,
   StopHumanLoopCommandOutput,
 } from "./commands/StopHumanLoopCommand";
-import { SageMakerA2IRuntimeClient } from "./SageMakerA2IRuntimeClient";
+import { SageMakerA2IRuntimeClient, SageMakerA2IRuntimeClientConfig } from "./SageMakerA2IRuntimeClient";
+
+const commands = {
+  DeleteHumanLoopCommand,
+  DescribeHumanLoopCommand,
+  ListHumanLoopsCommand,
+  StartHumanLoopCommand,
+  StopHumanLoopCommand,
+};
+
+export interface SageMakerA2IRuntime {
+  /**
+   * @see {@link DeleteHumanLoopCommand}
+   */
+  deleteHumanLoop(
+    args: DeleteHumanLoopCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHumanLoopCommandOutput>;
+  deleteHumanLoop(args: DeleteHumanLoopCommandInput, cb: (err: any, data?: DeleteHumanLoopCommandOutput) => void): void;
+  deleteHumanLoop(
+    args: DeleteHumanLoopCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteHumanLoopCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeHumanLoopCommand}
+   */
+  describeHumanLoop(
+    args: DescribeHumanLoopCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeHumanLoopCommandOutput>;
+  describeHumanLoop(
+    args: DescribeHumanLoopCommandInput,
+    cb: (err: any, data?: DescribeHumanLoopCommandOutput) => void
+  ): void;
+  describeHumanLoop(
+    args: DescribeHumanLoopCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeHumanLoopCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListHumanLoopsCommand}
+   */
+  listHumanLoops(
+    args: ListHumanLoopsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHumanLoopsCommandOutput>;
+  listHumanLoops(args: ListHumanLoopsCommandInput, cb: (err: any, data?: ListHumanLoopsCommandOutput) => void): void;
+  listHumanLoops(
+    args: ListHumanLoopsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListHumanLoopsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartHumanLoopCommand}
+   */
+  startHumanLoop(
+    args: StartHumanLoopCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartHumanLoopCommandOutput>;
+  startHumanLoop(args: StartHumanLoopCommandInput, cb: (err: any, data?: StartHumanLoopCommandOutput) => void): void;
+  startHumanLoop(
+    args: StartHumanLoopCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartHumanLoopCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopHumanLoopCommand}
+   */
+  stopHumanLoop(args: StopHumanLoopCommandInput, options?: __HttpHandlerOptions): Promise<StopHumanLoopCommandOutput>;
+  stopHumanLoop(args: StopHumanLoopCommandInput, cb: (err: any, data?: StopHumanLoopCommandOutput) => void): void;
+  stopHumanLoop(
+    args: StopHumanLoopCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopHumanLoopCommandOutput) => void
+  ): void;
+}
 
 /**
  * @public
@@ -57,172 +138,5 @@ import { SageMakerA2IRuntimeClient } from "./SageMakerA2IRuntimeClient";
  *       workflows for those services. To learn how Amazon A2I uses these APIs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-api-references.html">Use APIs in
  *         Amazon A2I</a> in the Amazon SageMaker Developer Guide.</p>
  */
-export class SageMakerA2IRuntime extends SageMakerA2IRuntimeClient {
-  /**
-   * @public
-   * <p>Deletes the specified human loop for a flow definition.</p>
-   *          <p>If the human loop was deleted, this operation will return a
-   *         <code>ResourceNotFoundException</code>. </p>
-   */
-  public deleteHumanLoop(
-    args: DeleteHumanLoopCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteHumanLoopCommandOutput>;
-  public deleteHumanLoop(
-    args: DeleteHumanLoopCommandInput,
-    cb: (err: any, data?: DeleteHumanLoopCommandOutput) => void
-  ): void;
-  public deleteHumanLoop(
-    args: DeleteHumanLoopCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteHumanLoopCommandOutput) => void
-  ): void;
-  public deleteHumanLoop(
-    args: DeleteHumanLoopCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHumanLoopCommandOutput) => void),
-    cb?: (err: any, data?: DeleteHumanLoopCommandOutput) => void
-  ): Promise<DeleteHumanLoopCommandOutput> | void {
-    const command = new DeleteHumanLoopCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns information about the specified human loop. If the human loop was deleted, this
-   *       operation will return a <code>ResourceNotFoundException</code> error. </p>
-   */
-  public describeHumanLoop(
-    args: DescribeHumanLoopCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeHumanLoopCommandOutput>;
-  public describeHumanLoop(
-    args: DescribeHumanLoopCommandInput,
-    cb: (err: any, data?: DescribeHumanLoopCommandOutput) => void
-  ): void;
-  public describeHumanLoop(
-    args: DescribeHumanLoopCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeHumanLoopCommandOutput) => void
-  ): void;
-  public describeHumanLoop(
-    args: DescribeHumanLoopCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHumanLoopCommandOutput) => void),
-    cb?: (err: any, data?: DescribeHumanLoopCommandOutput) => void
-  ): Promise<DescribeHumanLoopCommandOutput> | void {
-    const command = new DescribeHumanLoopCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns information about human loops, given the specified parameters. If a human loop was deleted, it will not be included.</p>
-   */
-  public listHumanLoops(
-    args: ListHumanLoopsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListHumanLoopsCommandOutput>;
-  public listHumanLoops(
-    args: ListHumanLoopsCommandInput,
-    cb: (err: any, data?: ListHumanLoopsCommandOutput) => void
-  ): void;
-  public listHumanLoops(
-    args: ListHumanLoopsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListHumanLoopsCommandOutput) => void
-  ): void;
-  public listHumanLoops(
-    args: ListHumanLoopsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHumanLoopsCommandOutput) => void),
-    cb?: (err: any, data?: ListHumanLoopsCommandOutput) => void
-  ): Promise<ListHumanLoopsCommandOutput> | void {
-    const command = new ListHumanLoopsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Starts a human loop, provided that at least one activation condition is met.</p>
-   */
-  public startHumanLoop(
-    args: StartHumanLoopCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartHumanLoopCommandOutput>;
-  public startHumanLoop(
-    args: StartHumanLoopCommandInput,
-    cb: (err: any, data?: StartHumanLoopCommandOutput) => void
-  ): void;
-  public startHumanLoop(
-    args: StartHumanLoopCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartHumanLoopCommandOutput) => void
-  ): void;
-  public startHumanLoop(
-    args: StartHumanLoopCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartHumanLoopCommandOutput) => void),
-    cb?: (err: any, data?: StartHumanLoopCommandOutput) => void
-  ): Promise<StartHumanLoopCommandOutput> | void {
-    const command = new StartHumanLoopCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Stops the specified human loop.</p>
-   */
-  public stopHumanLoop(
-    args: StopHumanLoopCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopHumanLoopCommandOutput>;
-  public stopHumanLoop(
-    args: StopHumanLoopCommandInput,
-    cb: (err: any, data?: StopHumanLoopCommandOutput) => void
-  ): void;
-  public stopHumanLoop(
-    args: StopHumanLoopCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StopHumanLoopCommandOutput) => void
-  ): void;
-  public stopHumanLoop(
-    args: StopHumanLoopCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopHumanLoopCommandOutput) => void),
-    cb?: (err: any, data?: StopHumanLoopCommandOutput) => void
-  ): Promise<StopHumanLoopCommandOutput> | void {
-    const command = new StopHumanLoopCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class SageMakerA2IRuntime extends SageMakerA2IRuntimeClient implements SageMakerA2IRuntime {}
+createAggregatedClient(commands, SageMakerA2IRuntime);

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -312,7 +313,1131 @@ import {
   UpdateResolverRuleCommandInput,
   UpdateResolverRuleCommandOutput,
 } from "./commands/UpdateResolverRuleCommand";
-import { Route53ResolverClient } from "./Route53ResolverClient";
+import { Route53ResolverClient, Route53ResolverClientConfig } from "./Route53ResolverClient";
+
+const commands = {
+  AssociateFirewallRuleGroupCommand,
+  AssociateResolverEndpointIpAddressCommand,
+  AssociateResolverQueryLogConfigCommand,
+  AssociateResolverRuleCommand,
+  CreateFirewallDomainListCommand,
+  CreateFirewallRuleCommand,
+  CreateFirewallRuleGroupCommand,
+  CreateResolverEndpointCommand,
+  CreateResolverQueryLogConfigCommand,
+  CreateResolverRuleCommand,
+  DeleteFirewallDomainListCommand,
+  DeleteFirewallRuleCommand,
+  DeleteFirewallRuleGroupCommand,
+  DeleteResolverEndpointCommand,
+  DeleteResolverQueryLogConfigCommand,
+  DeleteResolverRuleCommand,
+  DisassociateFirewallRuleGroupCommand,
+  DisassociateResolverEndpointIpAddressCommand,
+  DisassociateResolverQueryLogConfigCommand,
+  DisassociateResolverRuleCommand,
+  GetFirewallConfigCommand,
+  GetFirewallDomainListCommand,
+  GetFirewallRuleGroupCommand,
+  GetFirewallRuleGroupAssociationCommand,
+  GetFirewallRuleGroupPolicyCommand,
+  GetResolverConfigCommand,
+  GetResolverDnssecConfigCommand,
+  GetResolverEndpointCommand,
+  GetResolverQueryLogConfigCommand,
+  GetResolverQueryLogConfigAssociationCommand,
+  GetResolverQueryLogConfigPolicyCommand,
+  GetResolverRuleCommand,
+  GetResolverRuleAssociationCommand,
+  GetResolverRulePolicyCommand,
+  ImportFirewallDomainsCommand,
+  ListFirewallConfigsCommand,
+  ListFirewallDomainListsCommand,
+  ListFirewallDomainsCommand,
+  ListFirewallRuleGroupAssociationsCommand,
+  ListFirewallRuleGroupsCommand,
+  ListFirewallRulesCommand,
+  ListResolverConfigsCommand,
+  ListResolverDnssecConfigsCommand,
+  ListResolverEndpointIpAddressesCommand,
+  ListResolverEndpointsCommand,
+  ListResolverQueryLogConfigAssociationsCommand,
+  ListResolverQueryLogConfigsCommand,
+  ListResolverRuleAssociationsCommand,
+  ListResolverRulesCommand,
+  ListTagsForResourceCommand,
+  PutFirewallRuleGroupPolicyCommand,
+  PutResolverQueryLogConfigPolicyCommand,
+  PutResolverRulePolicyCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateFirewallConfigCommand,
+  UpdateFirewallDomainsCommand,
+  UpdateFirewallRuleCommand,
+  UpdateFirewallRuleGroupAssociationCommand,
+  UpdateResolverConfigCommand,
+  UpdateResolverDnssecConfigCommand,
+  UpdateResolverEndpointCommand,
+  UpdateResolverRuleCommand,
+};
+
+export interface Route53Resolver {
+  /**
+   * @see {@link AssociateFirewallRuleGroupCommand}
+   */
+  associateFirewallRuleGroup(
+    args: AssociateFirewallRuleGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateFirewallRuleGroupCommandOutput>;
+  associateFirewallRuleGroup(
+    args: AssociateFirewallRuleGroupCommandInput,
+    cb: (err: any, data?: AssociateFirewallRuleGroupCommandOutput) => void
+  ): void;
+  associateFirewallRuleGroup(
+    args: AssociateFirewallRuleGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateFirewallRuleGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateResolverEndpointIpAddressCommand}
+   */
+  associateResolverEndpointIpAddress(
+    args: AssociateResolverEndpointIpAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateResolverEndpointIpAddressCommandOutput>;
+  associateResolverEndpointIpAddress(
+    args: AssociateResolverEndpointIpAddressCommandInput,
+    cb: (err: any, data?: AssociateResolverEndpointIpAddressCommandOutput) => void
+  ): void;
+  associateResolverEndpointIpAddress(
+    args: AssociateResolverEndpointIpAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateResolverEndpointIpAddressCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateResolverQueryLogConfigCommand}
+   */
+  associateResolverQueryLogConfig(
+    args: AssociateResolverQueryLogConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateResolverQueryLogConfigCommandOutput>;
+  associateResolverQueryLogConfig(
+    args: AssociateResolverQueryLogConfigCommandInput,
+    cb: (err: any, data?: AssociateResolverQueryLogConfigCommandOutput) => void
+  ): void;
+  associateResolverQueryLogConfig(
+    args: AssociateResolverQueryLogConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateResolverQueryLogConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateResolverRuleCommand}
+   */
+  associateResolverRule(
+    args: AssociateResolverRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateResolverRuleCommandOutput>;
+  associateResolverRule(
+    args: AssociateResolverRuleCommandInput,
+    cb: (err: any, data?: AssociateResolverRuleCommandOutput) => void
+  ): void;
+  associateResolverRule(
+    args: AssociateResolverRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateResolverRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateFirewallDomainListCommand}
+   */
+  createFirewallDomainList(
+    args: CreateFirewallDomainListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFirewallDomainListCommandOutput>;
+  createFirewallDomainList(
+    args: CreateFirewallDomainListCommandInput,
+    cb: (err: any, data?: CreateFirewallDomainListCommandOutput) => void
+  ): void;
+  createFirewallDomainList(
+    args: CreateFirewallDomainListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFirewallDomainListCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateFirewallRuleCommand}
+   */
+  createFirewallRule(
+    args: CreateFirewallRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFirewallRuleCommandOutput>;
+  createFirewallRule(
+    args: CreateFirewallRuleCommandInput,
+    cb: (err: any, data?: CreateFirewallRuleCommandOutput) => void
+  ): void;
+  createFirewallRule(
+    args: CreateFirewallRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFirewallRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateFirewallRuleGroupCommand}
+   */
+  createFirewallRuleGroup(
+    args: CreateFirewallRuleGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFirewallRuleGroupCommandOutput>;
+  createFirewallRuleGroup(
+    args: CreateFirewallRuleGroupCommandInput,
+    cb: (err: any, data?: CreateFirewallRuleGroupCommandOutput) => void
+  ): void;
+  createFirewallRuleGroup(
+    args: CreateFirewallRuleGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFirewallRuleGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateResolverEndpointCommand}
+   */
+  createResolverEndpoint(
+    args: CreateResolverEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateResolverEndpointCommandOutput>;
+  createResolverEndpoint(
+    args: CreateResolverEndpointCommandInput,
+    cb: (err: any, data?: CreateResolverEndpointCommandOutput) => void
+  ): void;
+  createResolverEndpoint(
+    args: CreateResolverEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateResolverEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateResolverQueryLogConfigCommand}
+   */
+  createResolverQueryLogConfig(
+    args: CreateResolverQueryLogConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateResolverQueryLogConfigCommandOutput>;
+  createResolverQueryLogConfig(
+    args: CreateResolverQueryLogConfigCommandInput,
+    cb: (err: any, data?: CreateResolverQueryLogConfigCommandOutput) => void
+  ): void;
+  createResolverQueryLogConfig(
+    args: CreateResolverQueryLogConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateResolverQueryLogConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateResolverRuleCommand}
+   */
+  createResolverRule(
+    args: CreateResolverRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateResolverRuleCommandOutput>;
+  createResolverRule(
+    args: CreateResolverRuleCommandInput,
+    cb: (err: any, data?: CreateResolverRuleCommandOutput) => void
+  ): void;
+  createResolverRule(
+    args: CreateResolverRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateResolverRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteFirewallDomainListCommand}
+   */
+  deleteFirewallDomainList(
+    args: DeleteFirewallDomainListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFirewallDomainListCommandOutput>;
+  deleteFirewallDomainList(
+    args: DeleteFirewallDomainListCommandInput,
+    cb: (err: any, data?: DeleteFirewallDomainListCommandOutput) => void
+  ): void;
+  deleteFirewallDomainList(
+    args: DeleteFirewallDomainListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFirewallDomainListCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteFirewallRuleCommand}
+   */
+  deleteFirewallRule(
+    args: DeleteFirewallRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFirewallRuleCommandOutput>;
+  deleteFirewallRule(
+    args: DeleteFirewallRuleCommandInput,
+    cb: (err: any, data?: DeleteFirewallRuleCommandOutput) => void
+  ): void;
+  deleteFirewallRule(
+    args: DeleteFirewallRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFirewallRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteFirewallRuleGroupCommand}
+   */
+  deleteFirewallRuleGroup(
+    args: DeleteFirewallRuleGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFirewallRuleGroupCommandOutput>;
+  deleteFirewallRuleGroup(
+    args: DeleteFirewallRuleGroupCommandInput,
+    cb: (err: any, data?: DeleteFirewallRuleGroupCommandOutput) => void
+  ): void;
+  deleteFirewallRuleGroup(
+    args: DeleteFirewallRuleGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFirewallRuleGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteResolverEndpointCommand}
+   */
+  deleteResolverEndpoint(
+    args: DeleteResolverEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResolverEndpointCommandOutput>;
+  deleteResolverEndpoint(
+    args: DeleteResolverEndpointCommandInput,
+    cb: (err: any, data?: DeleteResolverEndpointCommandOutput) => void
+  ): void;
+  deleteResolverEndpoint(
+    args: DeleteResolverEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResolverEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteResolverQueryLogConfigCommand}
+   */
+  deleteResolverQueryLogConfig(
+    args: DeleteResolverQueryLogConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResolverQueryLogConfigCommandOutput>;
+  deleteResolverQueryLogConfig(
+    args: DeleteResolverQueryLogConfigCommandInput,
+    cb: (err: any, data?: DeleteResolverQueryLogConfigCommandOutput) => void
+  ): void;
+  deleteResolverQueryLogConfig(
+    args: DeleteResolverQueryLogConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResolverQueryLogConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteResolverRuleCommand}
+   */
+  deleteResolverRule(
+    args: DeleteResolverRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResolverRuleCommandOutput>;
+  deleteResolverRule(
+    args: DeleteResolverRuleCommandInput,
+    cb: (err: any, data?: DeleteResolverRuleCommandOutput) => void
+  ): void;
+  deleteResolverRule(
+    args: DeleteResolverRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResolverRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateFirewallRuleGroupCommand}
+   */
+  disassociateFirewallRuleGroup(
+    args: DisassociateFirewallRuleGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateFirewallRuleGroupCommandOutput>;
+  disassociateFirewallRuleGroup(
+    args: DisassociateFirewallRuleGroupCommandInput,
+    cb: (err: any, data?: DisassociateFirewallRuleGroupCommandOutput) => void
+  ): void;
+  disassociateFirewallRuleGroup(
+    args: DisassociateFirewallRuleGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateFirewallRuleGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateResolverEndpointIpAddressCommand}
+   */
+  disassociateResolverEndpointIpAddress(
+    args: DisassociateResolverEndpointIpAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateResolverEndpointIpAddressCommandOutput>;
+  disassociateResolverEndpointIpAddress(
+    args: DisassociateResolverEndpointIpAddressCommandInput,
+    cb: (err: any, data?: DisassociateResolverEndpointIpAddressCommandOutput) => void
+  ): void;
+  disassociateResolverEndpointIpAddress(
+    args: DisassociateResolverEndpointIpAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateResolverEndpointIpAddressCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateResolverQueryLogConfigCommand}
+   */
+  disassociateResolverQueryLogConfig(
+    args: DisassociateResolverQueryLogConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateResolverQueryLogConfigCommandOutput>;
+  disassociateResolverQueryLogConfig(
+    args: DisassociateResolverQueryLogConfigCommandInput,
+    cb: (err: any, data?: DisassociateResolverQueryLogConfigCommandOutput) => void
+  ): void;
+  disassociateResolverQueryLogConfig(
+    args: DisassociateResolverQueryLogConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateResolverQueryLogConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateResolverRuleCommand}
+   */
+  disassociateResolverRule(
+    args: DisassociateResolverRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateResolverRuleCommandOutput>;
+  disassociateResolverRule(
+    args: DisassociateResolverRuleCommandInput,
+    cb: (err: any, data?: DisassociateResolverRuleCommandOutput) => void
+  ): void;
+  disassociateResolverRule(
+    args: DisassociateResolverRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateResolverRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFirewallConfigCommand}
+   */
+  getFirewallConfig(
+    args: GetFirewallConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFirewallConfigCommandOutput>;
+  getFirewallConfig(
+    args: GetFirewallConfigCommandInput,
+    cb: (err: any, data?: GetFirewallConfigCommandOutput) => void
+  ): void;
+  getFirewallConfig(
+    args: GetFirewallConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFirewallConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFirewallDomainListCommand}
+   */
+  getFirewallDomainList(
+    args: GetFirewallDomainListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFirewallDomainListCommandOutput>;
+  getFirewallDomainList(
+    args: GetFirewallDomainListCommandInput,
+    cb: (err: any, data?: GetFirewallDomainListCommandOutput) => void
+  ): void;
+  getFirewallDomainList(
+    args: GetFirewallDomainListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFirewallDomainListCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFirewallRuleGroupCommand}
+   */
+  getFirewallRuleGroup(
+    args: GetFirewallRuleGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFirewallRuleGroupCommandOutput>;
+  getFirewallRuleGroup(
+    args: GetFirewallRuleGroupCommandInput,
+    cb: (err: any, data?: GetFirewallRuleGroupCommandOutput) => void
+  ): void;
+  getFirewallRuleGroup(
+    args: GetFirewallRuleGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFirewallRuleGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFirewallRuleGroupAssociationCommand}
+   */
+  getFirewallRuleGroupAssociation(
+    args: GetFirewallRuleGroupAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFirewallRuleGroupAssociationCommandOutput>;
+  getFirewallRuleGroupAssociation(
+    args: GetFirewallRuleGroupAssociationCommandInput,
+    cb: (err: any, data?: GetFirewallRuleGroupAssociationCommandOutput) => void
+  ): void;
+  getFirewallRuleGroupAssociation(
+    args: GetFirewallRuleGroupAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFirewallRuleGroupAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFirewallRuleGroupPolicyCommand}
+   */
+  getFirewallRuleGroupPolicy(
+    args: GetFirewallRuleGroupPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFirewallRuleGroupPolicyCommandOutput>;
+  getFirewallRuleGroupPolicy(
+    args: GetFirewallRuleGroupPolicyCommandInput,
+    cb: (err: any, data?: GetFirewallRuleGroupPolicyCommandOutput) => void
+  ): void;
+  getFirewallRuleGroupPolicy(
+    args: GetFirewallRuleGroupPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFirewallRuleGroupPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResolverConfigCommand}
+   */
+  getResolverConfig(
+    args: GetResolverConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResolverConfigCommandOutput>;
+  getResolverConfig(
+    args: GetResolverConfigCommandInput,
+    cb: (err: any, data?: GetResolverConfigCommandOutput) => void
+  ): void;
+  getResolverConfig(
+    args: GetResolverConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResolverConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResolverDnssecConfigCommand}
+   */
+  getResolverDnssecConfig(
+    args: GetResolverDnssecConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResolverDnssecConfigCommandOutput>;
+  getResolverDnssecConfig(
+    args: GetResolverDnssecConfigCommandInput,
+    cb: (err: any, data?: GetResolverDnssecConfigCommandOutput) => void
+  ): void;
+  getResolverDnssecConfig(
+    args: GetResolverDnssecConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResolverDnssecConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResolverEndpointCommand}
+   */
+  getResolverEndpoint(
+    args: GetResolverEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResolverEndpointCommandOutput>;
+  getResolverEndpoint(
+    args: GetResolverEndpointCommandInput,
+    cb: (err: any, data?: GetResolverEndpointCommandOutput) => void
+  ): void;
+  getResolverEndpoint(
+    args: GetResolverEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResolverEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResolverQueryLogConfigCommand}
+   */
+  getResolverQueryLogConfig(
+    args: GetResolverQueryLogConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResolverQueryLogConfigCommandOutput>;
+  getResolverQueryLogConfig(
+    args: GetResolverQueryLogConfigCommandInput,
+    cb: (err: any, data?: GetResolverQueryLogConfigCommandOutput) => void
+  ): void;
+  getResolverQueryLogConfig(
+    args: GetResolverQueryLogConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResolverQueryLogConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResolverQueryLogConfigAssociationCommand}
+   */
+  getResolverQueryLogConfigAssociation(
+    args: GetResolverQueryLogConfigAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResolverQueryLogConfigAssociationCommandOutput>;
+  getResolverQueryLogConfigAssociation(
+    args: GetResolverQueryLogConfigAssociationCommandInput,
+    cb: (err: any, data?: GetResolverQueryLogConfigAssociationCommandOutput) => void
+  ): void;
+  getResolverQueryLogConfigAssociation(
+    args: GetResolverQueryLogConfigAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResolverQueryLogConfigAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResolverQueryLogConfigPolicyCommand}
+   */
+  getResolverQueryLogConfigPolicy(
+    args: GetResolverQueryLogConfigPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResolverQueryLogConfigPolicyCommandOutput>;
+  getResolverQueryLogConfigPolicy(
+    args: GetResolverQueryLogConfigPolicyCommandInput,
+    cb: (err: any, data?: GetResolverQueryLogConfigPolicyCommandOutput) => void
+  ): void;
+  getResolverQueryLogConfigPolicy(
+    args: GetResolverQueryLogConfigPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResolverQueryLogConfigPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResolverRuleCommand}
+   */
+  getResolverRule(
+    args: GetResolverRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResolverRuleCommandOutput>;
+  getResolverRule(args: GetResolverRuleCommandInput, cb: (err: any, data?: GetResolverRuleCommandOutput) => void): void;
+  getResolverRule(
+    args: GetResolverRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResolverRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResolverRuleAssociationCommand}
+   */
+  getResolverRuleAssociation(
+    args: GetResolverRuleAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResolverRuleAssociationCommandOutput>;
+  getResolverRuleAssociation(
+    args: GetResolverRuleAssociationCommandInput,
+    cb: (err: any, data?: GetResolverRuleAssociationCommandOutput) => void
+  ): void;
+  getResolverRuleAssociation(
+    args: GetResolverRuleAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResolverRuleAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResolverRulePolicyCommand}
+   */
+  getResolverRulePolicy(
+    args: GetResolverRulePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResolverRulePolicyCommandOutput>;
+  getResolverRulePolicy(
+    args: GetResolverRulePolicyCommandInput,
+    cb: (err: any, data?: GetResolverRulePolicyCommandOutput) => void
+  ): void;
+  getResolverRulePolicy(
+    args: GetResolverRulePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResolverRulePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ImportFirewallDomainsCommand}
+   */
+  importFirewallDomains(
+    args: ImportFirewallDomainsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportFirewallDomainsCommandOutput>;
+  importFirewallDomains(
+    args: ImportFirewallDomainsCommandInput,
+    cb: (err: any, data?: ImportFirewallDomainsCommandOutput) => void
+  ): void;
+  importFirewallDomains(
+    args: ImportFirewallDomainsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportFirewallDomainsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFirewallConfigsCommand}
+   */
+  listFirewallConfigs(
+    args: ListFirewallConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFirewallConfigsCommandOutput>;
+  listFirewallConfigs(
+    args: ListFirewallConfigsCommandInput,
+    cb: (err: any, data?: ListFirewallConfigsCommandOutput) => void
+  ): void;
+  listFirewallConfigs(
+    args: ListFirewallConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFirewallConfigsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFirewallDomainListsCommand}
+   */
+  listFirewallDomainLists(
+    args: ListFirewallDomainListsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFirewallDomainListsCommandOutput>;
+  listFirewallDomainLists(
+    args: ListFirewallDomainListsCommandInput,
+    cb: (err: any, data?: ListFirewallDomainListsCommandOutput) => void
+  ): void;
+  listFirewallDomainLists(
+    args: ListFirewallDomainListsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFirewallDomainListsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFirewallDomainsCommand}
+   */
+  listFirewallDomains(
+    args: ListFirewallDomainsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFirewallDomainsCommandOutput>;
+  listFirewallDomains(
+    args: ListFirewallDomainsCommandInput,
+    cb: (err: any, data?: ListFirewallDomainsCommandOutput) => void
+  ): void;
+  listFirewallDomains(
+    args: ListFirewallDomainsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFirewallDomainsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFirewallRuleGroupAssociationsCommand}
+   */
+  listFirewallRuleGroupAssociations(
+    args: ListFirewallRuleGroupAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFirewallRuleGroupAssociationsCommandOutput>;
+  listFirewallRuleGroupAssociations(
+    args: ListFirewallRuleGroupAssociationsCommandInput,
+    cb: (err: any, data?: ListFirewallRuleGroupAssociationsCommandOutput) => void
+  ): void;
+  listFirewallRuleGroupAssociations(
+    args: ListFirewallRuleGroupAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFirewallRuleGroupAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFirewallRuleGroupsCommand}
+   */
+  listFirewallRuleGroups(
+    args: ListFirewallRuleGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFirewallRuleGroupsCommandOutput>;
+  listFirewallRuleGroups(
+    args: ListFirewallRuleGroupsCommandInput,
+    cb: (err: any, data?: ListFirewallRuleGroupsCommandOutput) => void
+  ): void;
+  listFirewallRuleGroups(
+    args: ListFirewallRuleGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFirewallRuleGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFirewallRulesCommand}
+   */
+  listFirewallRules(
+    args: ListFirewallRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFirewallRulesCommandOutput>;
+  listFirewallRules(
+    args: ListFirewallRulesCommandInput,
+    cb: (err: any, data?: ListFirewallRulesCommandOutput) => void
+  ): void;
+  listFirewallRules(
+    args: ListFirewallRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFirewallRulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResolverConfigsCommand}
+   */
+  listResolverConfigs(
+    args: ListResolverConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResolverConfigsCommandOutput>;
+  listResolverConfigs(
+    args: ListResolverConfigsCommandInput,
+    cb: (err: any, data?: ListResolverConfigsCommandOutput) => void
+  ): void;
+  listResolverConfigs(
+    args: ListResolverConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResolverConfigsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResolverDnssecConfigsCommand}
+   */
+  listResolverDnssecConfigs(
+    args: ListResolverDnssecConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResolverDnssecConfigsCommandOutput>;
+  listResolverDnssecConfigs(
+    args: ListResolverDnssecConfigsCommandInput,
+    cb: (err: any, data?: ListResolverDnssecConfigsCommandOutput) => void
+  ): void;
+  listResolverDnssecConfigs(
+    args: ListResolverDnssecConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResolverDnssecConfigsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResolverEndpointIpAddressesCommand}
+   */
+  listResolverEndpointIpAddresses(
+    args: ListResolverEndpointIpAddressesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResolverEndpointIpAddressesCommandOutput>;
+  listResolverEndpointIpAddresses(
+    args: ListResolverEndpointIpAddressesCommandInput,
+    cb: (err: any, data?: ListResolverEndpointIpAddressesCommandOutput) => void
+  ): void;
+  listResolverEndpointIpAddresses(
+    args: ListResolverEndpointIpAddressesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResolverEndpointIpAddressesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResolverEndpointsCommand}
+   */
+  listResolverEndpoints(
+    args: ListResolverEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResolverEndpointsCommandOutput>;
+  listResolverEndpoints(
+    args: ListResolverEndpointsCommandInput,
+    cb: (err: any, data?: ListResolverEndpointsCommandOutput) => void
+  ): void;
+  listResolverEndpoints(
+    args: ListResolverEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResolverEndpointsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResolverQueryLogConfigAssociationsCommand}
+   */
+  listResolverQueryLogConfigAssociations(
+    args: ListResolverQueryLogConfigAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResolverQueryLogConfigAssociationsCommandOutput>;
+  listResolverQueryLogConfigAssociations(
+    args: ListResolverQueryLogConfigAssociationsCommandInput,
+    cb: (err: any, data?: ListResolverQueryLogConfigAssociationsCommandOutput) => void
+  ): void;
+  listResolverQueryLogConfigAssociations(
+    args: ListResolverQueryLogConfigAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResolverQueryLogConfigAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResolverQueryLogConfigsCommand}
+   */
+  listResolverQueryLogConfigs(
+    args: ListResolverQueryLogConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResolverQueryLogConfigsCommandOutput>;
+  listResolverQueryLogConfigs(
+    args: ListResolverQueryLogConfigsCommandInput,
+    cb: (err: any, data?: ListResolverQueryLogConfigsCommandOutput) => void
+  ): void;
+  listResolverQueryLogConfigs(
+    args: ListResolverQueryLogConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResolverQueryLogConfigsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResolverRuleAssociationsCommand}
+   */
+  listResolverRuleAssociations(
+    args: ListResolverRuleAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResolverRuleAssociationsCommandOutput>;
+  listResolverRuleAssociations(
+    args: ListResolverRuleAssociationsCommandInput,
+    cb: (err: any, data?: ListResolverRuleAssociationsCommandOutput) => void
+  ): void;
+  listResolverRuleAssociations(
+    args: ListResolverRuleAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResolverRuleAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResolverRulesCommand}
+   */
+  listResolverRules(
+    args: ListResolverRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResolverRulesCommandOutput>;
+  listResolverRules(
+    args: ListResolverRulesCommandInput,
+    cb: (err: any, data?: ListResolverRulesCommandOutput) => void
+  ): void;
+  listResolverRules(
+    args: ListResolverRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResolverRulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutFirewallRuleGroupPolicyCommand}
+   */
+  putFirewallRuleGroupPolicy(
+    args: PutFirewallRuleGroupPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutFirewallRuleGroupPolicyCommandOutput>;
+  putFirewallRuleGroupPolicy(
+    args: PutFirewallRuleGroupPolicyCommandInput,
+    cb: (err: any, data?: PutFirewallRuleGroupPolicyCommandOutput) => void
+  ): void;
+  putFirewallRuleGroupPolicy(
+    args: PutFirewallRuleGroupPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutFirewallRuleGroupPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutResolverQueryLogConfigPolicyCommand}
+   */
+  putResolverQueryLogConfigPolicy(
+    args: PutResolverQueryLogConfigPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResolverQueryLogConfigPolicyCommandOutput>;
+  putResolverQueryLogConfigPolicy(
+    args: PutResolverQueryLogConfigPolicyCommandInput,
+    cb: (err: any, data?: PutResolverQueryLogConfigPolicyCommandOutput) => void
+  ): void;
+  putResolverQueryLogConfigPolicy(
+    args: PutResolverQueryLogConfigPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResolverQueryLogConfigPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutResolverRulePolicyCommand}
+   */
+  putResolverRulePolicy(
+    args: PutResolverRulePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResolverRulePolicyCommandOutput>;
+  putResolverRulePolicy(
+    args: PutResolverRulePolicyCommandInput,
+    cb: (err: any, data?: PutResolverRulePolicyCommandOutput) => void
+  ): void;
+  putResolverRulePolicy(
+    args: PutResolverRulePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResolverRulePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateFirewallConfigCommand}
+   */
+  updateFirewallConfig(
+    args: UpdateFirewallConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFirewallConfigCommandOutput>;
+  updateFirewallConfig(
+    args: UpdateFirewallConfigCommandInput,
+    cb: (err: any, data?: UpdateFirewallConfigCommandOutput) => void
+  ): void;
+  updateFirewallConfig(
+    args: UpdateFirewallConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFirewallConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateFirewallDomainsCommand}
+   */
+  updateFirewallDomains(
+    args: UpdateFirewallDomainsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFirewallDomainsCommandOutput>;
+  updateFirewallDomains(
+    args: UpdateFirewallDomainsCommandInput,
+    cb: (err: any, data?: UpdateFirewallDomainsCommandOutput) => void
+  ): void;
+  updateFirewallDomains(
+    args: UpdateFirewallDomainsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFirewallDomainsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateFirewallRuleCommand}
+   */
+  updateFirewallRule(
+    args: UpdateFirewallRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFirewallRuleCommandOutput>;
+  updateFirewallRule(
+    args: UpdateFirewallRuleCommandInput,
+    cb: (err: any, data?: UpdateFirewallRuleCommandOutput) => void
+  ): void;
+  updateFirewallRule(
+    args: UpdateFirewallRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFirewallRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateFirewallRuleGroupAssociationCommand}
+   */
+  updateFirewallRuleGroupAssociation(
+    args: UpdateFirewallRuleGroupAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFirewallRuleGroupAssociationCommandOutput>;
+  updateFirewallRuleGroupAssociation(
+    args: UpdateFirewallRuleGroupAssociationCommandInput,
+    cb: (err: any, data?: UpdateFirewallRuleGroupAssociationCommandOutput) => void
+  ): void;
+  updateFirewallRuleGroupAssociation(
+    args: UpdateFirewallRuleGroupAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFirewallRuleGroupAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateResolverConfigCommand}
+   */
+  updateResolverConfig(
+    args: UpdateResolverConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateResolverConfigCommandOutput>;
+  updateResolverConfig(
+    args: UpdateResolverConfigCommandInput,
+    cb: (err: any, data?: UpdateResolverConfigCommandOutput) => void
+  ): void;
+  updateResolverConfig(
+    args: UpdateResolverConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateResolverConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateResolverDnssecConfigCommand}
+   */
+  updateResolverDnssecConfig(
+    args: UpdateResolverDnssecConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateResolverDnssecConfigCommandOutput>;
+  updateResolverDnssecConfig(
+    args: UpdateResolverDnssecConfigCommandInput,
+    cb: (err: any, data?: UpdateResolverDnssecConfigCommandOutput) => void
+  ): void;
+  updateResolverDnssecConfig(
+    args: UpdateResolverDnssecConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateResolverDnssecConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateResolverEndpointCommand}
+   */
+  updateResolverEndpoint(
+    args: UpdateResolverEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateResolverEndpointCommandOutput>;
+  updateResolverEndpoint(
+    args: UpdateResolverEndpointCommandInput,
+    cb: (err: any, data?: UpdateResolverEndpointCommandOutput) => void
+  ): void;
+  updateResolverEndpoint(
+    args: UpdateResolverEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateResolverEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateResolverRuleCommand}
+   */
+  updateResolverRule(
+    args: UpdateResolverRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateResolverRuleCommandOutput>;
+  updateResolverRule(
+    args: UpdateResolverRuleCommandInput,
+    cb: (err: any, data?: UpdateResolverRuleCommandOutput) => void
+  ): void;
+  updateResolverRule(
+    args: UpdateResolverRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateResolverRuleCommandOutput) => void
+  ): void;
+}
 
 /**
  * @public
@@ -344,2199 +1469,5 @@ import { Route53ResolverClient } from "./Route53ResolverClient";
  * 			whether to forward queries from your VPCs to your network (outbound queries), from your
  * 			network to your VPCs (inbound queries), or both.</p>
  */
-export class Route53Resolver extends Route53ResolverClient {
-  /**
-   * @public
-   * <p>Associates a <a>FirewallRuleGroup</a> with a VPC, to provide DNS filtering for the VPC. </p>
-   */
-  public associateFirewallRuleGroup(
-    args: AssociateFirewallRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssociateFirewallRuleGroupCommandOutput>;
-  public associateFirewallRuleGroup(
-    args: AssociateFirewallRuleGroupCommandInput,
-    cb: (err: any, data?: AssociateFirewallRuleGroupCommandOutput) => void
-  ): void;
-  public associateFirewallRuleGroup(
-    args: AssociateFirewallRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociateFirewallRuleGroupCommandOutput) => void
-  ): void;
-  public associateFirewallRuleGroup(
-    args: AssociateFirewallRuleGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateFirewallRuleGroupCommandOutput) => void),
-    cb?: (err: any, data?: AssociateFirewallRuleGroupCommandOutput) => void
-  ): Promise<AssociateFirewallRuleGroupCommandOutput> | void {
-    const command = new AssociateFirewallRuleGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds IP addresses to an inbound or an outbound Resolver endpoint. If you want to add more than one IP address,
-   * 			submit one <code>AssociateResolverEndpointIpAddress</code> request for each IP address.</p>
-   *          <p>To remove an IP address from an endpoint, see
-   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverEndpointIpAddress.html">DisassociateResolverEndpointIpAddress</a>.
-   * 		</p>
-   */
-  public associateResolverEndpointIpAddress(
-    args: AssociateResolverEndpointIpAddressCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssociateResolverEndpointIpAddressCommandOutput>;
-  public associateResolverEndpointIpAddress(
-    args: AssociateResolverEndpointIpAddressCommandInput,
-    cb: (err: any, data?: AssociateResolverEndpointIpAddressCommandOutput) => void
-  ): void;
-  public associateResolverEndpointIpAddress(
-    args: AssociateResolverEndpointIpAddressCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociateResolverEndpointIpAddressCommandOutput) => void
-  ): void;
-  public associateResolverEndpointIpAddress(
-    args: AssociateResolverEndpointIpAddressCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateResolverEndpointIpAddressCommandOutput) => void),
-    cb?: (err: any, data?: AssociateResolverEndpointIpAddressCommandOutput) => void
-  ): Promise<AssociateResolverEndpointIpAddressCommandOutput> | void {
-    const command = new AssociateResolverEndpointIpAddressCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Associates an Amazon VPC with a specified query logging configuration. Route 53 Resolver logs DNS queries that originate in all of the Amazon VPCs
-   * 			that are associated with a specified query logging configuration. To associate more than one VPC with a configuration, submit one <code>AssociateResolverQueryLogConfig</code>
-   * 			request for each VPC.</p>
-   *          <note>
-   *             <p>The VPCs that you associate with a query logging configuration must be in the same Region as the configuration.</p>
-   *          </note>
-   *          <p>To remove a VPC from a query logging configuration, see
-   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverQueryLogConfig.html">DisassociateResolverQueryLogConfig</a>.
-   * 			</p>
-   */
-  public associateResolverQueryLogConfig(
-    args: AssociateResolverQueryLogConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssociateResolverQueryLogConfigCommandOutput>;
-  public associateResolverQueryLogConfig(
-    args: AssociateResolverQueryLogConfigCommandInput,
-    cb: (err: any, data?: AssociateResolverQueryLogConfigCommandOutput) => void
-  ): void;
-  public associateResolverQueryLogConfig(
-    args: AssociateResolverQueryLogConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociateResolverQueryLogConfigCommandOutput) => void
-  ): void;
-  public associateResolverQueryLogConfig(
-    args: AssociateResolverQueryLogConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateResolverQueryLogConfigCommandOutput) => void),
-    cb?: (err: any, data?: AssociateResolverQueryLogConfigCommandOutput) => void
-  ): Promise<AssociateResolverQueryLogConfigCommandOutput> | void {
-    const command = new AssociateResolverQueryLogConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Associates a Resolver rule with a VPC. When you associate a rule with a VPC, Resolver forwards all DNS queries
-   * 			for the domain name that is specified in the rule and that originate in the VPC. The queries are forwarded to the
-   * 			IP addresses for the DNS resolvers that are specified in the rule. For more information about rules, see
-   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverRule.html">CreateResolverRule</a>. </p>
-   */
-  public associateResolverRule(
-    args: AssociateResolverRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssociateResolverRuleCommandOutput>;
-  public associateResolverRule(
-    args: AssociateResolverRuleCommandInput,
-    cb: (err: any, data?: AssociateResolverRuleCommandOutput) => void
-  ): void;
-  public associateResolverRule(
-    args: AssociateResolverRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociateResolverRuleCommandOutput) => void
-  ): void;
-  public associateResolverRule(
-    args: AssociateResolverRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateResolverRuleCommandOutput) => void),
-    cb?: (err: any, data?: AssociateResolverRuleCommandOutput) => void
-  ): Promise<AssociateResolverRuleCommandOutput> | void {
-    const command = new AssociateResolverRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an empty firewall domain list for use in DNS Firewall rules. You can populate the domains for the new list with a file, using <a>ImportFirewallDomains</a>, or with domain strings, using <a>UpdateFirewallDomains</a>. </p>
-   */
-  public createFirewallDomainList(
-    args: CreateFirewallDomainListCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateFirewallDomainListCommandOutput>;
-  public createFirewallDomainList(
-    args: CreateFirewallDomainListCommandInput,
-    cb: (err: any, data?: CreateFirewallDomainListCommandOutput) => void
-  ): void;
-  public createFirewallDomainList(
-    args: CreateFirewallDomainListCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateFirewallDomainListCommandOutput) => void
-  ): void;
-  public createFirewallDomainList(
-    args: CreateFirewallDomainListCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFirewallDomainListCommandOutput) => void),
-    cb?: (err: any, data?: CreateFirewallDomainListCommandOutput) => void
-  ): Promise<CreateFirewallDomainListCommandOutput> | void {
-    const command = new CreateFirewallDomainListCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a single DNS Firewall rule in the specified rule group, using the specified domain list.</p>
-   */
-  public createFirewallRule(
-    args: CreateFirewallRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateFirewallRuleCommandOutput>;
-  public createFirewallRule(
-    args: CreateFirewallRuleCommandInput,
-    cb: (err: any, data?: CreateFirewallRuleCommandOutput) => void
-  ): void;
-  public createFirewallRule(
-    args: CreateFirewallRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateFirewallRuleCommandOutput) => void
-  ): void;
-  public createFirewallRule(
-    args: CreateFirewallRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFirewallRuleCommandOutput) => void),
-    cb?: (err: any, data?: CreateFirewallRuleCommandOutput) => void
-  ): Promise<CreateFirewallRuleCommandOutput> | void {
-    const command = new CreateFirewallRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an empty DNS Firewall rule group for filtering DNS network traffic in a VPC. You can add rules to the new rule group
-   *            by calling <a>CreateFirewallRule</a>. </p>
-   */
-  public createFirewallRuleGroup(
-    args: CreateFirewallRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateFirewallRuleGroupCommandOutput>;
-  public createFirewallRuleGroup(
-    args: CreateFirewallRuleGroupCommandInput,
-    cb: (err: any, data?: CreateFirewallRuleGroupCommandOutput) => void
-  ): void;
-  public createFirewallRuleGroup(
-    args: CreateFirewallRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateFirewallRuleGroupCommandOutput) => void
-  ): void;
-  public createFirewallRuleGroup(
-    args: CreateFirewallRuleGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFirewallRuleGroupCommandOutput) => void),
-    cb?: (err: any, data?: CreateFirewallRuleGroupCommandOutput) => void
-  ): Promise<CreateFirewallRuleGroupCommandOutput> | void {
-    const command = new CreateFirewallRuleGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound:</p>
-   *          <ul>
-   *             <li>
-   *                <p>An <i>inbound Resolver endpoint</i> forwards DNS queries to the DNS service for a VPC
-   * 				from your network.</p>
-   *             </li>
-   *             <li>
-   *                <p>An <i>outbound Resolver endpoint</i> forwards DNS queries from the DNS service for a VPC
-   * 				to your network.</p>
-   *             </li>
-   *          </ul>
-   */
-  public createResolverEndpoint(
-    args: CreateResolverEndpointCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateResolverEndpointCommandOutput>;
-  public createResolverEndpoint(
-    args: CreateResolverEndpointCommandInput,
-    cb: (err: any, data?: CreateResolverEndpointCommandOutput) => void
-  ): void;
-  public createResolverEndpoint(
-    args: CreateResolverEndpointCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateResolverEndpointCommandOutput) => void
-  ): void;
-  public createResolverEndpoint(
-    args: CreateResolverEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResolverEndpointCommandOutput) => void),
-    cb?: (err: any, data?: CreateResolverEndpointCommandOutput) => void
-  ): Promise<CreateResolverEndpointCommandOutput> | void {
-    const command = new CreateResolverEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a Resolver query logging configuration, which defines where you want Resolver to save DNS query logs that originate in your VPCs.
-   * 			Resolver can log queries only for VPCs that are in the same Region as the query logging configuration.</p>
-   *          <p>To specify which VPCs you want to log queries for, you use <code>AssociateResolverQueryLogConfig</code>. For more information, see
-   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverQueryLogConfig.html">AssociateResolverQueryLogConfig</a>. </p>
-   *          <p>You can optionally use Resource Access Manager (RAM) to share a query logging configuration with other Amazon Web Services accounts. The other accounts
-   * 			can then associate VPCs with the configuration. The query logs that Resolver creates for a configuration include all DNS queries that originate in all
-   * 			VPCs that are associated with the configuration.</p>
-   */
-  public createResolverQueryLogConfig(
-    args: CreateResolverQueryLogConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateResolverQueryLogConfigCommandOutput>;
-  public createResolverQueryLogConfig(
-    args: CreateResolverQueryLogConfigCommandInput,
-    cb: (err: any, data?: CreateResolverQueryLogConfigCommandOutput) => void
-  ): void;
-  public createResolverQueryLogConfig(
-    args: CreateResolverQueryLogConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateResolverQueryLogConfigCommandOutput) => void
-  ): void;
-  public createResolverQueryLogConfig(
-    args: CreateResolverQueryLogConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResolverQueryLogConfigCommandOutput) => void),
-    cb?: (err: any, data?: CreateResolverQueryLogConfigCommandOutput) => void
-  ): Promise<CreateResolverQueryLogConfigCommandOutput> | void {
-    const command = new CreateResolverQueryLogConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>For DNS queries that originate in your VPCs, specifies which Resolver endpoint the queries pass through,
-   * 			one domain name that you want to forward to your network, and the IP addresses of the DNS resolvers in your network.</p>
-   */
-  public createResolverRule(
-    args: CreateResolverRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateResolverRuleCommandOutput>;
-  public createResolverRule(
-    args: CreateResolverRuleCommandInput,
-    cb: (err: any, data?: CreateResolverRuleCommandOutput) => void
-  ): void;
-  public createResolverRule(
-    args: CreateResolverRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateResolverRuleCommandOutput) => void
-  ): void;
-  public createResolverRule(
-    args: CreateResolverRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResolverRuleCommandOutput) => void),
-    cb?: (err: any, data?: CreateResolverRuleCommandOutput) => void
-  ): Promise<CreateResolverRuleCommandOutput> | void {
-    const command = new CreateResolverRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the specified domain list. </p>
-   */
-  public deleteFirewallDomainList(
-    args: DeleteFirewallDomainListCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteFirewallDomainListCommandOutput>;
-  public deleteFirewallDomainList(
-    args: DeleteFirewallDomainListCommandInput,
-    cb: (err: any, data?: DeleteFirewallDomainListCommandOutput) => void
-  ): void;
-  public deleteFirewallDomainList(
-    args: DeleteFirewallDomainListCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteFirewallDomainListCommandOutput) => void
-  ): void;
-  public deleteFirewallDomainList(
-    args: DeleteFirewallDomainListCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFirewallDomainListCommandOutput) => void),
-    cb?: (err: any, data?: DeleteFirewallDomainListCommandOutput) => void
-  ): Promise<DeleteFirewallDomainListCommandOutput> | void {
-    const command = new DeleteFirewallDomainListCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the specified firewall rule.</p>
-   */
-  public deleteFirewallRule(
-    args: DeleteFirewallRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteFirewallRuleCommandOutput>;
-  public deleteFirewallRule(
-    args: DeleteFirewallRuleCommandInput,
-    cb: (err: any, data?: DeleteFirewallRuleCommandOutput) => void
-  ): void;
-  public deleteFirewallRule(
-    args: DeleteFirewallRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteFirewallRuleCommandOutput) => void
-  ): void;
-  public deleteFirewallRule(
-    args: DeleteFirewallRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFirewallRuleCommandOutput) => void),
-    cb?: (err: any, data?: DeleteFirewallRuleCommandOutput) => void
-  ): Promise<DeleteFirewallRuleCommandOutput> | void {
-    const command = new DeleteFirewallRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes the specified firewall rule group. </p>
-   */
-  public deleteFirewallRuleGroup(
-    args: DeleteFirewallRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteFirewallRuleGroupCommandOutput>;
-  public deleteFirewallRuleGroup(
-    args: DeleteFirewallRuleGroupCommandInput,
-    cb: (err: any, data?: DeleteFirewallRuleGroupCommandOutput) => void
-  ): void;
-  public deleteFirewallRuleGroup(
-    args: DeleteFirewallRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteFirewallRuleGroupCommandOutput) => void
-  ): void;
-  public deleteFirewallRuleGroup(
-    args: DeleteFirewallRuleGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFirewallRuleGroupCommandOutput) => void),
-    cb?: (err: any, data?: DeleteFirewallRuleGroupCommandOutput) => void
-  ): Promise<DeleteFirewallRuleGroupCommandOutput> | void {
-    const command = new DeleteFirewallRuleGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a Resolver endpoint. The effect of deleting a Resolver endpoint depends on whether it's an inbound or an outbound
-   * 			Resolver endpoint:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Inbound</b>: DNS queries from your network are no longer routed
-   * 				to the DNS service for the specified VPC.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Outbound</b>: DNS queries from a VPC are no longer routed to your network.</p>
-   *             </li>
-   *          </ul>
-   */
-  public deleteResolverEndpoint(
-    args: DeleteResolverEndpointCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteResolverEndpointCommandOutput>;
-  public deleteResolverEndpoint(
-    args: DeleteResolverEndpointCommandInput,
-    cb: (err: any, data?: DeleteResolverEndpointCommandOutput) => void
-  ): void;
-  public deleteResolverEndpoint(
-    args: DeleteResolverEndpointCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteResolverEndpointCommandOutput) => void
-  ): void;
-  public deleteResolverEndpoint(
-    args: DeleteResolverEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResolverEndpointCommandOutput) => void),
-    cb?: (err: any, data?: DeleteResolverEndpointCommandOutput) => void
-  ): Promise<DeleteResolverEndpointCommandOutput> | void {
-    const command = new DeleteResolverEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a query logging configuration. When you delete a configuration, Resolver stops logging DNS queries for all of the Amazon VPCs that are
-   * 			associated with the configuration. This also applies if the query logging configuration is shared with other Amazon Web Services accounts, and
-   * 			the other accounts have associated VPCs with the shared configuration.</p>
-   *          <p>Before you can delete a query logging configuration, you must first disassociate all VPCs from the configuration. See
-   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverQueryLogConfig.html">DisassociateResolverQueryLogConfig</a>.</p>
-   *          <p>If you used Resource Access Manager (RAM) to share a query logging configuration with other accounts, you must stop sharing
-   * 			the configuration before you can delete a configuration. The accounts that you shared the configuration with can first disassociate VPCs
-   * 			that they associated with the configuration, but that's not necessary. If you stop sharing the configuration, those VPCs are automatically
-   * 			disassociated from the configuration.</p>
-   */
-  public deleteResolverQueryLogConfig(
-    args: DeleteResolverQueryLogConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteResolverQueryLogConfigCommandOutput>;
-  public deleteResolverQueryLogConfig(
-    args: DeleteResolverQueryLogConfigCommandInput,
-    cb: (err: any, data?: DeleteResolverQueryLogConfigCommandOutput) => void
-  ): void;
-  public deleteResolverQueryLogConfig(
-    args: DeleteResolverQueryLogConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteResolverQueryLogConfigCommandOutput) => void
-  ): void;
-  public deleteResolverQueryLogConfig(
-    args: DeleteResolverQueryLogConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResolverQueryLogConfigCommandOutput) => void),
-    cb?: (err: any, data?: DeleteResolverQueryLogConfigCommandOutput) => void
-  ): Promise<DeleteResolverQueryLogConfigCommandOutput> | void {
-    const command = new DeleteResolverQueryLogConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a Resolver rule. Before you can delete a Resolver rule, you must disassociate it from all the VPCs that you
-   * 			associated the Resolver rule with. For more information, see
-   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html">DisassociateResolverRule</a>.</p>
-   */
-  public deleteResolverRule(
-    args: DeleteResolverRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteResolverRuleCommandOutput>;
-  public deleteResolverRule(
-    args: DeleteResolverRuleCommandInput,
-    cb: (err: any, data?: DeleteResolverRuleCommandOutput) => void
-  ): void;
-  public deleteResolverRule(
-    args: DeleteResolverRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteResolverRuleCommandOutput) => void
-  ): void;
-  public deleteResolverRule(
-    args: DeleteResolverRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResolverRuleCommandOutput) => void),
-    cb?: (err: any, data?: DeleteResolverRuleCommandOutput) => void
-  ): Promise<DeleteResolverRuleCommandOutput> | void {
-    const command = new DeleteResolverRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Disassociates a <a>FirewallRuleGroup</a> from a VPC, to remove DNS filtering from the VPC. </p>
-   */
-  public disassociateFirewallRuleGroup(
-    args: DisassociateFirewallRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisassociateFirewallRuleGroupCommandOutput>;
-  public disassociateFirewallRuleGroup(
-    args: DisassociateFirewallRuleGroupCommandInput,
-    cb: (err: any, data?: DisassociateFirewallRuleGroupCommandOutput) => void
-  ): void;
-  public disassociateFirewallRuleGroup(
-    args: DisassociateFirewallRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociateFirewallRuleGroupCommandOutput) => void
-  ): void;
-  public disassociateFirewallRuleGroup(
-    args: DisassociateFirewallRuleGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateFirewallRuleGroupCommandOutput) => void),
-    cb?: (err: any, data?: DisassociateFirewallRuleGroupCommandOutput) => void
-  ): Promise<DisassociateFirewallRuleGroupCommandOutput> | void {
-    const command = new DisassociateFirewallRuleGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes IP addresses from an inbound or an outbound Resolver endpoint. If you want to remove more than one IP address,
-   * 			submit one <code>DisassociateResolverEndpointIpAddress</code> request for each IP address.</p>
-   *          <p>To add an IP address to an endpoint, see
-   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverEndpointIpAddress.html">AssociateResolverEndpointIpAddress</a>.
-   * 		</p>
-   */
-  public disassociateResolverEndpointIpAddress(
-    args: DisassociateResolverEndpointIpAddressCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisassociateResolverEndpointIpAddressCommandOutput>;
-  public disassociateResolverEndpointIpAddress(
-    args: DisassociateResolverEndpointIpAddressCommandInput,
-    cb: (err: any, data?: DisassociateResolverEndpointIpAddressCommandOutput) => void
-  ): void;
-  public disassociateResolverEndpointIpAddress(
-    args: DisassociateResolverEndpointIpAddressCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociateResolverEndpointIpAddressCommandOutput) => void
-  ): void;
-  public disassociateResolverEndpointIpAddress(
-    args: DisassociateResolverEndpointIpAddressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateResolverEndpointIpAddressCommandOutput) => void),
-    cb?: (err: any, data?: DisassociateResolverEndpointIpAddressCommandOutput) => void
-  ): Promise<DisassociateResolverEndpointIpAddressCommandOutput> | void {
-    const command = new DisassociateResolverEndpointIpAddressCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Disassociates a VPC from a query logging configuration.</p>
-   *          <note>
-   *             <p>Before you can delete a query logging configuration, you must first disassociate all VPCs
-   * 				from the configuration. If you used Resource Access Manager (RAM) to share a
-   * 				query logging configuration with other accounts, VPCs can be disassociated from the
-   * 				configuration in the following ways:</p>
-   *             <ul>
-   *                <li>
-   *                   <p>The accounts that you shared the configuration with can disassociate VPCs from the configuration.</p>
-   *                </li>
-   *                <li>
-   *                   <p>You can stop sharing the configuration.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
-   */
-  public disassociateResolverQueryLogConfig(
-    args: DisassociateResolverQueryLogConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisassociateResolverQueryLogConfigCommandOutput>;
-  public disassociateResolverQueryLogConfig(
-    args: DisassociateResolverQueryLogConfigCommandInput,
-    cb: (err: any, data?: DisassociateResolverQueryLogConfigCommandOutput) => void
-  ): void;
-  public disassociateResolverQueryLogConfig(
-    args: DisassociateResolverQueryLogConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociateResolverQueryLogConfigCommandOutput) => void
-  ): void;
-  public disassociateResolverQueryLogConfig(
-    args: DisassociateResolverQueryLogConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateResolverQueryLogConfigCommandOutput) => void),
-    cb?: (err: any, data?: DisassociateResolverQueryLogConfigCommandOutput) => void
-  ): Promise<DisassociateResolverQueryLogConfigCommandOutput> | void {
-    const command = new DisassociateResolverQueryLogConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes the association between a specified Resolver rule and a specified VPC.</p>
-   *          <important>
-   *             <p>If you disassociate a Resolver rule from a VPC, Resolver stops forwarding DNS queries for the
-   * 				domain name that you specified in the Resolver rule. </p>
-   *          </important>
-   */
-  public disassociateResolverRule(
-    args: DisassociateResolverRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisassociateResolverRuleCommandOutput>;
-  public disassociateResolverRule(
-    args: DisassociateResolverRuleCommandInput,
-    cb: (err: any, data?: DisassociateResolverRuleCommandOutput) => void
-  ): void;
-  public disassociateResolverRule(
-    args: DisassociateResolverRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociateResolverRuleCommandOutput) => void
-  ): void;
-  public disassociateResolverRule(
-    args: DisassociateResolverRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateResolverRuleCommandOutput) => void),
-    cb?: (err: any, data?: DisassociateResolverRuleCommandOutput) => void
-  ): Promise<DisassociateResolverRuleCommandOutput> | void {
-    const command = new DisassociateResolverRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the configuration of the firewall behavior provided by DNS Firewall for a
-   * 			single VPC from Amazon Virtual Private Cloud (Amazon VPC). </p>
-   */
-  public getFirewallConfig(
-    args: GetFirewallConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetFirewallConfigCommandOutput>;
-  public getFirewallConfig(
-    args: GetFirewallConfigCommandInput,
-    cb: (err: any, data?: GetFirewallConfigCommandOutput) => void
-  ): void;
-  public getFirewallConfig(
-    args: GetFirewallConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetFirewallConfigCommandOutput) => void
-  ): void;
-  public getFirewallConfig(
-    args: GetFirewallConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFirewallConfigCommandOutput) => void),
-    cb?: (err: any, data?: GetFirewallConfigCommandOutput) => void
-  ): Promise<GetFirewallConfigCommandOutput> | void {
-    const command = new GetFirewallConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the specified firewall domain list.</p>
-   */
-  public getFirewallDomainList(
-    args: GetFirewallDomainListCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetFirewallDomainListCommandOutput>;
-  public getFirewallDomainList(
-    args: GetFirewallDomainListCommandInput,
-    cb: (err: any, data?: GetFirewallDomainListCommandOutput) => void
-  ): void;
-  public getFirewallDomainList(
-    args: GetFirewallDomainListCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetFirewallDomainListCommandOutput) => void
-  ): void;
-  public getFirewallDomainList(
-    args: GetFirewallDomainListCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFirewallDomainListCommandOutput) => void),
-    cb?: (err: any, data?: GetFirewallDomainListCommandOutput) => void
-  ): Promise<GetFirewallDomainListCommandOutput> | void {
-    const command = new GetFirewallDomainListCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the specified firewall rule group. </p>
-   */
-  public getFirewallRuleGroup(
-    args: GetFirewallRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetFirewallRuleGroupCommandOutput>;
-  public getFirewallRuleGroup(
-    args: GetFirewallRuleGroupCommandInput,
-    cb: (err: any, data?: GetFirewallRuleGroupCommandOutput) => void
-  ): void;
-  public getFirewallRuleGroup(
-    args: GetFirewallRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetFirewallRuleGroupCommandOutput) => void
-  ): void;
-  public getFirewallRuleGroup(
-    args: GetFirewallRuleGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFirewallRuleGroupCommandOutput) => void),
-    cb?: (err: any, data?: GetFirewallRuleGroupCommandOutput) => void
-  ): Promise<GetFirewallRuleGroupCommandOutput> | void {
-    const command = new GetFirewallRuleGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves a firewall rule group association, which enables DNS filtering for a VPC with one rule group. A VPC can have more than one firewall rule group association, and a rule group can be associated with more than one VPC.</p>
-   */
-  public getFirewallRuleGroupAssociation(
-    args: GetFirewallRuleGroupAssociationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetFirewallRuleGroupAssociationCommandOutput>;
-  public getFirewallRuleGroupAssociation(
-    args: GetFirewallRuleGroupAssociationCommandInput,
-    cb: (err: any, data?: GetFirewallRuleGroupAssociationCommandOutput) => void
-  ): void;
-  public getFirewallRuleGroupAssociation(
-    args: GetFirewallRuleGroupAssociationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetFirewallRuleGroupAssociationCommandOutput) => void
-  ): void;
-  public getFirewallRuleGroupAssociation(
-    args: GetFirewallRuleGroupAssociationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFirewallRuleGroupAssociationCommandOutput) => void),
-    cb?: (err: any, data?: GetFirewallRuleGroupAssociationCommandOutput) => void
-  ): Promise<GetFirewallRuleGroupAssociationCommandOutput> | void {
-    const command = new GetFirewallRuleGroupAssociationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Returns the Identity and Access Management (Amazon Web Services IAM) policy for sharing the
-   *        	specified rule group. You can use the policy to share the rule group using Resource Access Manager (RAM). </p>
-   */
-  public getFirewallRuleGroupPolicy(
-    args: GetFirewallRuleGroupPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetFirewallRuleGroupPolicyCommandOutput>;
-  public getFirewallRuleGroupPolicy(
-    args: GetFirewallRuleGroupPolicyCommandInput,
-    cb: (err: any, data?: GetFirewallRuleGroupPolicyCommandOutput) => void
-  ): void;
-  public getFirewallRuleGroupPolicy(
-    args: GetFirewallRuleGroupPolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetFirewallRuleGroupPolicyCommandOutput) => void
-  ): void;
-  public getFirewallRuleGroupPolicy(
-    args: GetFirewallRuleGroupPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFirewallRuleGroupPolicyCommandOutput) => void),
-    cb?: (err: any, data?: GetFirewallRuleGroupPolicyCommandOutput) => void
-  ): Promise<GetFirewallRuleGroupPolicyCommandOutput> | void {
-    const command = new GetFirewallRuleGroupPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the behavior configuration of Route 53 Resolver behavior for a single VPC from
-   * 				Amazon Virtual Private Cloud.</p>
-   */
-  public getResolverConfig(
-    args: GetResolverConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetResolverConfigCommandOutput>;
-  public getResolverConfig(
-    args: GetResolverConfigCommandInput,
-    cb: (err: any, data?: GetResolverConfigCommandOutput) => void
-  ): void;
-  public getResolverConfig(
-    args: GetResolverConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetResolverConfigCommandOutput) => void
-  ): void;
-  public getResolverConfig(
-    args: GetResolverConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResolverConfigCommandOutput) => void),
-    cb?: (err: any, data?: GetResolverConfigCommandOutput) => void
-  ): Promise<GetResolverConfigCommandOutput> | void {
-    const command = new GetResolverConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets DNSSEC validation information for a specified resource.</p>
-   */
-  public getResolverDnssecConfig(
-    args: GetResolverDnssecConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetResolverDnssecConfigCommandOutput>;
-  public getResolverDnssecConfig(
-    args: GetResolverDnssecConfigCommandInput,
-    cb: (err: any, data?: GetResolverDnssecConfigCommandOutput) => void
-  ): void;
-  public getResolverDnssecConfig(
-    args: GetResolverDnssecConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetResolverDnssecConfigCommandOutput) => void
-  ): void;
-  public getResolverDnssecConfig(
-    args: GetResolverDnssecConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResolverDnssecConfigCommandOutput) => void),
-    cb?: (err: any, data?: GetResolverDnssecConfigCommandOutput) => void
-  ): Promise<GetResolverDnssecConfigCommandOutput> | void {
-    const command = new GetResolverDnssecConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets information about a specified Resolver endpoint, such as whether it's an inbound or an outbound Resolver endpoint, and the
-   * 			current status of the endpoint.</p>
-   */
-  public getResolverEndpoint(
-    args: GetResolverEndpointCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetResolverEndpointCommandOutput>;
-  public getResolverEndpoint(
-    args: GetResolverEndpointCommandInput,
-    cb: (err: any, data?: GetResolverEndpointCommandOutput) => void
-  ): void;
-  public getResolverEndpoint(
-    args: GetResolverEndpointCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetResolverEndpointCommandOutput) => void
-  ): void;
-  public getResolverEndpoint(
-    args: GetResolverEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResolverEndpointCommandOutput) => void),
-    cb?: (err: any, data?: GetResolverEndpointCommandOutput) => void
-  ): Promise<GetResolverEndpointCommandOutput> | void {
-    const command = new GetResolverEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets information about a specified Resolver query logging configuration, such as the number of VPCs that the configuration
-   * 			is logging queries for and the location that logs are sent to. </p>
-   */
-  public getResolverQueryLogConfig(
-    args: GetResolverQueryLogConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetResolverQueryLogConfigCommandOutput>;
-  public getResolverQueryLogConfig(
-    args: GetResolverQueryLogConfigCommandInput,
-    cb: (err: any, data?: GetResolverQueryLogConfigCommandOutput) => void
-  ): void;
-  public getResolverQueryLogConfig(
-    args: GetResolverQueryLogConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetResolverQueryLogConfigCommandOutput) => void
-  ): void;
-  public getResolverQueryLogConfig(
-    args: GetResolverQueryLogConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResolverQueryLogConfigCommandOutput) => void),
-    cb?: (err: any, data?: GetResolverQueryLogConfigCommandOutput) => void
-  ): Promise<GetResolverQueryLogConfigCommandOutput> | void {
-    const command = new GetResolverQueryLogConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets information about a specified association between a Resolver query logging configuration and an Amazon VPC. When you associate a VPC
-   * 			with a query logging configuration, Resolver logs DNS queries that originate in that VPC.</p>
-   */
-  public getResolverQueryLogConfigAssociation(
-    args: GetResolverQueryLogConfigAssociationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetResolverQueryLogConfigAssociationCommandOutput>;
-  public getResolverQueryLogConfigAssociation(
-    args: GetResolverQueryLogConfigAssociationCommandInput,
-    cb: (err: any, data?: GetResolverQueryLogConfigAssociationCommandOutput) => void
-  ): void;
-  public getResolverQueryLogConfigAssociation(
-    args: GetResolverQueryLogConfigAssociationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetResolverQueryLogConfigAssociationCommandOutput) => void
-  ): void;
-  public getResolverQueryLogConfigAssociation(
-    args: GetResolverQueryLogConfigAssociationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResolverQueryLogConfigAssociationCommandOutput) => void),
-    cb?: (err: any, data?: GetResolverQueryLogConfigAssociationCommandOutput) => void
-  ): Promise<GetResolverQueryLogConfigAssociationCommandOutput> | void {
-    const command = new GetResolverQueryLogConfigAssociationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets information about a query logging policy. A query logging policy specifies the Resolver query logging
-   * 			operations and resources that you want to allow another Amazon Web Services account to be able to use.</p>
-   */
-  public getResolverQueryLogConfigPolicy(
-    args: GetResolverQueryLogConfigPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetResolverQueryLogConfigPolicyCommandOutput>;
-  public getResolverQueryLogConfigPolicy(
-    args: GetResolverQueryLogConfigPolicyCommandInput,
-    cb: (err: any, data?: GetResolverQueryLogConfigPolicyCommandOutput) => void
-  ): void;
-  public getResolverQueryLogConfigPolicy(
-    args: GetResolverQueryLogConfigPolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetResolverQueryLogConfigPolicyCommandOutput) => void
-  ): void;
-  public getResolverQueryLogConfigPolicy(
-    args: GetResolverQueryLogConfigPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResolverQueryLogConfigPolicyCommandOutput) => void),
-    cb?: (err: any, data?: GetResolverQueryLogConfigPolicyCommandOutput) => void
-  ): Promise<GetResolverQueryLogConfigPolicyCommandOutput> | void {
-    const command = new GetResolverQueryLogConfigPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets information about a specified Resolver rule, such as the domain name that the rule forwards DNS queries for and the ID of the
-   * 			outbound Resolver endpoint that the rule is associated with.</p>
-   */
-  public getResolverRule(
-    args: GetResolverRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetResolverRuleCommandOutput>;
-  public getResolverRule(
-    args: GetResolverRuleCommandInput,
-    cb: (err: any, data?: GetResolverRuleCommandOutput) => void
-  ): void;
-  public getResolverRule(
-    args: GetResolverRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetResolverRuleCommandOutput) => void
-  ): void;
-  public getResolverRule(
-    args: GetResolverRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResolverRuleCommandOutput) => void),
-    cb?: (err: any, data?: GetResolverRuleCommandOutput) => void
-  ): Promise<GetResolverRuleCommandOutput> | void {
-    const command = new GetResolverRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets information about an association between a specified Resolver rule and a VPC. You associate a Resolver rule and a VPC using
-   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html">AssociateResolverRule</a>. </p>
-   */
-  public getResolverRuleAssociation(
-    args: GetResolverRuleAssociationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetResolverRuleAssociationCommandOutput>;
-  public getResolverRuleAssociation(
-    args: GetResolverRuleAssociationCommandInput,
-    cb: (err: any, data?: GetResolverRuleAssociationCommandOutput) => void
-  ): void;
-  public getResolverRuleAssociation(
-    args: GetResolverRuleAssociationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetResolverRuleAssociationCommandOutput) => void
-  ): void;
-  public getResolverRuleAssociation(
-    args: GetResolverRuleAssociationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResolverRuleAssociationCommandOutput) => void),
-    cb?: (err: any, data?: GetResolverRuleAssociationCommandOutput) => void
-  ): Promise<GetResolverRuleAssociationCommandOutput> | void {
-    const command = new GetResolverRuleAssociationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets information about the Resolver rule policy for a specified rule. A Resolver rule policy includes the rule that you want to share
-   * 			with another account, the account that you want to share the rule with, and the Resolver operations that you want to allow the account to use. </p>
-   */
-  public getResolverRulePolicy(
-    args: GetResolverRulePolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetResolverRulePolicyCommandOutput>;
-  public getResolverRulePolicy(
-    args: GetResolverRulePolicyCommandInput,
-    cb: (err: any, data?: GetResolverRulePolicyCommandOutput) => void
-  ): void;
-  public getResolverRulePolicy(
-    args: GetResolverRulePolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetResolverRulePolicyCommandOutput) => void
-  ): void;
-  public getResolverRulePolicy(
-    args: GetResolverRulePolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResolverRulePolicyCommandOutput) => void),
-    cb?: (err: any, data?: GetResolverRulePolicyCommandOutput) => void
-  ): Promise<GetResolverRulePolicyCommandOutput> | void {
-    const command = new GetResolverRulePolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Imports domain names from a file into a domain list, for use in a DNS firewall rule group. </p>
-   *          <p>Each domain specification in your domain list must satisfy the following
-   * 	requirements: </p>
-   *          <ul>
-   *             <li>
-   *                <p>It can optionally start with <code>*</code> (asterisk).</p>
-   *             </li>
-   *             <li>
-   *                <p>With the exception of the optional starting asterisk, it must only contain
-   *       	   the following characters: <code>A-Z</code>, <code>a-z</code>,
-   *       	   <code>0-9</code>, <code>-</code> (hyphen).</p>
-   *             </li>
-   *             <li>
-   *                <p>It must be from 1-255 characters in length. </p>
-   *             </li>
-   *          </ul>
-   */
-  public importFirewallDomains(
-    args: ImportFirewallDomainsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ImportFirewallDomainsCommandOutput>;
-  public importFirewallDomains(
-    args: ImportFirewallDomainsCommandInput,
-    cb: (err: any, data?: ImportFirewallDomainsCommandOutput) => void
-  ): void;
-  public importFirewallDomains(
-    args: ImportFirewallDomainsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ImportFirewallDomainsCommandOutput) => void
-  ): void;
-  public importFirewallDomains(
-    args: ImportFirewallDomainsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportFirewallDomainsCommandOutput) => void),
-    cb?: (err: any, data?: ImportFirewallDomainsCommandOutput) => void
-  ): Promise<ImportFirewallDomainsCommandOutput> | void {
-    const command = new ImportFirewallDomainsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the firewall configurations that you have defined. DNS Firewall uses the configurations to manage firewall behavior for your VPCs. </p>
-   *          <p>A single call might return only a partial list of the configurations. For information, see <code>MaxResults</code>. </p>
-   */
-  public listFirewallConfigs(
-    args: ListFirewallConfigsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListFirewallConfigsCommandOutput>;
-  public listFirewallConfigs(
-    args: ListFirewallConfigsCommandInput,
-    cb: (err: any, data?: ListFirewallConfigsCommandOutput) => void
-  ): void;
-  public listFirewallConfigs(
-    args: ListFirewallConfigsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListFirewallConfigsCommandOutput) => void
-  ): void;
-  public listFirewallConfigs(
-    args: ListFirewallConfigsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFirewallConfigsCommandOutput) => void),
-    cb?: (err: any, data?: ListFirewallConfigsCommandOutput) => void
-  ): Promise<ListFirewallConfigsCommandOutput> | void {
-    const command = new ListFirewallConfigsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the firewall domain lists that you have defined. For each firewall domain list, you can retrieve the domains that are defined for a list by calling <a>ListFirewallDomains</a>. </p>
-   *          <p>A single call to this list operation might return only a partial list of the domain lists. For information, see <code>MaxResults</code>. </p>
-   */
-  public listFirewallDomainLists(
-    args: ListFirewallDomainListsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListFirewallDomainListsCommandOutput>;
-  public listFirewallDomainLists(
-    args: ListFirewallDomainListsCommandInput,
-    cb: (err: any, data?: ListFirewallDomainListsCommandOutput) => void
-  ): void;
-  public listFirewallDomainLists(
-    args: ListFirewallDomainListsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListFirewallDomainListsCommandOutput) => void
-  ): void;
-  public listFirewallDomainLists(
-    args: ListFirewallDomainListsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFirewallDomainListsCommandOutput) => void),
-    cb?: (err: any, data?: ListFirewallDomainListsCommandOutput) => void
-  ): Promise<ListFirewallDomainListsCommandOutput> | void {
-    const command = new ListFirewallDomainListsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the domains that you have defined for the specified firewall domain list.  </p>
-   *          <p>A single call might return only a partial list of the domains. For information, see <code>MaxResults</code>. </p>
-   */
-  public listFirewallDomains(
-    args: ListFirewallDomainsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListFirewallDomainsCommandOutput>;
-  public listFirewallDomains(
-    args: ListFirewallDomainsCommandInput,
-    cb: (err: any, data?: ListFirewallDomainsCommandOutput) => void
-  ): void;
-  public listFirewallDomains(
-    args: ListFirewallDomainsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListFirewallDomainsCommandOutput) => void
-  ): void;
-  public listFirewallDomains(
-    args: ListFirewallDomainsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFirewallDomainsCommandOutput) => void),
-    cb?: (err: any, data?: ListFirewallDomainsCommandOutput) => void
-  ): Promise<ListFirewallDomainsCommandOutput> | void {
-    const command = new ListFirewallDomainsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the firewall rule group associations that you have defined. Each association enables DNS filtering for a VPC with one rule group. </p>
-   *          <p>A single call might return only a partial list of the associations. For information, see <code>MaxResults</code>. </p>
-   */
-  public listFirewallRuleGroupAssociations(
-    args: ListFirewallRuleGroupAssociationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListFirewallRuleGroupAssociationsCommandOutput>;
-  public listFirewallRuleGroupAssociations(
-    args: ListFirewallRuleGroupAssociationsCommandInput,
-    cb: (err: any, data?: ListFirewallRuleGroupAssociationsCommandOutput) => void
-  ): void;
-  public listFirewallRuleGroupAssociations(
-    args: ListFirewallRuleGroupAssociationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListFirewallRuleGroupAssociationsCommandOutput) => void
-  ): void;
-  public listFirewallRuleGroupAssociations(
-    args: ListFirewallRuleGroupAssociationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFirewallRuleGroupAssociationsCommandOutput) => void),
-    cb?: (err: any, data?: ListFirewallRuleGroupAssociationsCommandOutput) => void
-  ): Promise<ListFirewallRuleGroupAssociationsCommandOutput> | void {
-    const command = new ListFirewallRuleGroupAssociationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the minimal high-level information for the rule groups that you have defined.  </p>
-   *          <p>A single call might return only a partial list of the rule groups. For information, see <code>MaxResults</code>. </p>
-   */
-  public listFirewallRuleGroups(
-    args: ListFirewallRuleGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListFirewallRuleGroupsCommandOutput>;
-  public listFirewallRuleGroups(
-    args: ListFirewallRuleGroupsCommandInput,
-    cb: (err: any, data?: ListFirewallRuleGroupsCommandOutput) => void
-  ): void;
-  public listFirewallRuleGroups(
-    args: ListFirewallRuleGroupsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListFirewallRuleGroupsCommandOutput) => void
-  ): void;
-  public listFirewallRuleGroups(
-    args: ListFirewallRuleGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFirewallRuleGroupsCommandOutput) => void),
-    cb?: (err: any, data?: ListFirewallRuleGroupsCommandOutput) => void
-  ): Promise<ListFirewallRuleGroupsCommandOutput> | void {
-    const command = new ListFirewallRuleGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the firewall rules that you have defined for the specified firewall rule group. DNS Firewall uses the rules in a rule group to filter DNS network traffic for a VPC. </p>
-   *          <p>A single call might return only a partial list of the rules. For information, see <code>MaxResults</code>. </p>
-   */
-  public listFirewallRules(
-    args: ListFirewallRulesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListFirewallRulesCommandOutput>;
-  public listFirewallRules(
-    args: ListFirewallRulesCommandInput,
-    cb: (err: any, data?: ListFirewallRulesCommandOutput) => void
-  ): void;
-  public listFirewallRules(
-    args: ListFirewallRulesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListFirewallRulesCommandOutput) => void
-  ): void;
-  public listFirewallRules(
-    args: ListFirewallRulesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFirewallRulesCommandOutput) => void),
-    cb?: (err: any, data?: ListFirewallRulesCommandOutput) => void
-  ): Promise<ListFirewallRulesCommandOutput> | void {
-    const command = new ListFirewallRulesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves the Resolver configurations that you have defined.
-   * 			Route 53 Resolver uses the configurations to manage DNS resolution behavior for your VPCs.</p>
-   */
-  public listResolverConfigs(
-    args: ListResolverConfigsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListResolverConfigsCommandOutput>;
-  public listResolverConfigs(
-    args: ListResolverConfigsCommandInput,
-    cb: (err: any, data?: ListResolverConfigsCommandOutput) => void
-  ): void;
-  public listResolverConfigs(
-    args: ListResolverConfigsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListResolverConfigsCommandOutput) => void
-  ): void;
-  public listResolverConfigs(
-    args: ListResolverConfigsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResolverConfigsCommandOutput) => void),
-    cb?: (err: any, data?: ListResolverConfigsCommandOutput) => void
-  ): Promise<ListResolverConfigsCommandOutput> | void {
-    const command = new ListResolverConfigsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the configurations for DNSSEC validation that are associated with the current Amazon Web Services account.</p>
-   */
-  public listResolverDnssecConfigs(
-    args: ListResolverDnssecConfigsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListResolverDnssecConfigsCommandOutput>;
-  public listResolverDnssecConfigs(
-    args: ListResolverDnssecConfigsCommandInput,
-    cb: (err: any, data?: ListResolverDnssecConfigsCommandOutput) => void
-  ): void;
-  public listResolverDnssecConfigs(
-    args: ListResolverDnssecConfigsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListResolverDnssecConfigsCommandOutput) => void
-  ): void;
-  public listResolverDnssecConfigs(
-    args: ListResolverDnssecConfigsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResolverDnssecConfigsCommandOutput) => void),
-    cb?: (err: any, data?: ListResolverDnssecConfigsCommandOutput) => void
-  ): Promise<ListResolverDnssecConfigsCommandOutput> | void {
-    const command = new ListResolverDnssecConfigsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets the IP addresses for a specified Resolver endpoint.</p>
-   */
-  public listResolverEndpointIpAddresses(
-    args: ListResolverEndpointIpAddressesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListResolverEndpointIpAddressesCommandOutput>;
-  public listResolverEndpointIpAddresses(
-    args: ListResolverEndpointIpAddressesCommandInput,
-    cb: (err: any, data?: ListResolverEndpointIpAddressesCommandOutput) => void
-  ): void;
-  public listResolverEndpointIpAddresses(
-    args: ListResolverEndpointIpAddressesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListResolverEndpointIpAddressesCommandOutput) => void
-  ): void;
-  public listResolverEndpointIpAddresses(
-    args: ListResolverEndpointIpAddressesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResolverEndpointIpAddressesCommandOutput) => void),
-    cb?: (err: any, data?: ListResolverEndpointIpAddressesCommandOutput) => void
-  ): Promise<ListResolverEndpointIpAddressesCommandOutput> | void {
-    const command = new ListResolverEndpointIpAddressesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all the Resolver endpoints that were created using the current Amazon Web Services account.</p>
-   */
-  public listResolverEndpoints(
-    args: ListResolverEndpointsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListResolverEndpointsCommandOutput>;
-  public listResolverEndpoints(
-    args: ListResolverEndpointsCommandInput,
-    cb: (err: any, data?: ListResolverEndpointsCommandOutput) => void
-  ): void;
-  public listResolverEndpoints(
-    args: ListResolverEndpointsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListResolverEndpointsCommandOutput) => void
-  ): void;
-  public listResolverEndpoints(
-    args: ListResolverEndpointsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResolverEndpointsCommandOutput) => void),
-    cb?: (err: any, data?: ListResolverEndpointsCommandOutput) => void
-  ): Promise<ListResolverEndpointsCommandOutput> | void {
-    const command = new ListResolverEndpointsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists information about associations between Amazon VPCs and query logging configurations.</p>
-   */
-  public listResolverQueryLogConfigAssociations(
-    args: ListResolverQueryLogConfigAssociationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListResolverQueryLogConfigAssociationsCommandOutput>;
-  public listResolverQueryLogConfigAssociations(
-    args: ListResolverQueryLogConfigAssociationsCommandInput,
-    cb: (err: any, data?: ListResolverQueryLogConfigAssociationsCommandOutput) => void
-  ): void;
-  public listResolverQueryLogConfigAssociations(
-    args: ListResolverQueryLogConfigAssociationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListResolverQueryLogConfigAssociationsCommandOutput) => void
-  ): void;
-  public listResolverQueryLogConfigAssociations(
-    args: ListResolverQueryLogConfigAssociationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResolverQueryLogConfigAssociationsCommandOutput) => void),
-    cb?: (err: any, data?: ListResolverQueryLogConfigAssociationsCommandOutput) => void
-  ): Promise<ListResolverQueryLogConfigAssociationsCommandOutput> | void {
-    const command = new ListResolverQueryLogConfigAssociationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists information about the specified query logging configurations. Each configuration defines where you want Resolver to save
-   * 			DNS query logs and specifies the VPCs that you want to log queries for.</p>
-   */
-  public listResolverQueryLogConfigs(
-    args: ListResolverQueryLogConfigsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListResolverQueryLogConfigsCommandOutput>;
-  public listResolverQueryLogConfigs(
-    args: ListResolverQueryLogConfigsCommandInput,
-    cb: (err: any, data?: ListResolverQueryLogConfigsCommandOutput) => void
-  ): void;
-  public listResolverQueryLogConfigs(
-    args: ListResolverQueryLogConfigsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListResolverQueryLogConfigsCommandOutput) => void
-  ): void;
-  public listResolverQueryLogConfigs(
-    args: ListResolverQueryLogConfigsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResolverQueryLogConfigsCommandOutput) => void),
-    cb?: (err: any, data?: ListResolverQueryLogConfigsCommandOutput) => void
-  ): Promise<ListResolverQueryLogConfigsCommandOutput> | void {
-    const command = new ListResolverQueryLogConfigsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the associations that were created between Resolver rules and VPCs using the current Amazon Web Services account.</p>
-   */
-  public listResolverRuleAssociations(
-    args: ListResolverRuleAssociationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListResolverRuleAssociationsCommandOutput>;
-  public listResolverRuleAssociations(
-    args: ListResolverRuleAssociationsCommandInput,
-    cb: (err: any, data?: ListResolverRuleAssociationsCommandOutput) => void
-  ): void;
-  public listResolverRuleAssociations(
-    args: ListResolverRuleAssociationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListResolverRuleAssociationsCommandOutput) => void
-  ): void;
-  public listResolverRuleAssociations(
-    args: ListResolverRuleAssociationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResolverRuleAssociationsCommandOutput) => void),
-    cb?: (err: any, data?: ListResolverRuleAssociationsCommandOutput) => void
-  ): Promise<ListResolverRuleAssociationsCommandOutput> | void {
-    const command = new ListResolverRuleAssociationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the Resolver rules that were created using the current Amazon Web Services account.</p>
-   */
-  public listResolverRules(
-    args: ListResolverRulesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListResolverRulesCommandOutput>;
-  public listResolverRules(
-    args: ListResolverRulesCommandInput,
-    cb: (err: any, data?: ListResolverRulesCommandOutput) => void
-  ): void;
-  public listResolverRules(
-    args: ListResolverRulesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListResolverRulesCommandOutput) => void
-  ): void;
-  public listResolverRules(
-    args: ListResolverRulesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResolverRulesCommandOutput) => void),
-    cb?: (err: any, data?: ListResolverRulesCommandOutput) => void
-  ): Promise<ListResolverRulesCommandOutput> | void {
-    const command = new ListResolverRulesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the tags that you associated with the specified resource.</p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Attaches an Identity and Access Management (Amazon Web Services IAM) policy for sharing the rule
-   * 			group. You can use the policy to share the rule group using Resource Access Manager
-   * 			(RAM). </p>
-   */
-  public putFirewallRuleGroupPolicy(
-    args: PutFirewallRuleGroupPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutFirewallRuleGroupPolicyCommandOutput>;
-  public putFirewallRuleGroupPolicy(
-    args: PutFirewallRuleGroupPolicyCommandInput,
-    cb: (err: any, data?: PutFirewallRuleGroupPolicyCommandOutput) => void
-  ): void;
-  public putFirewallRuleGroupPolicy(
-    args: PutFirewallRuleGroupPolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutFirewallRuleGroupPolicyCommandOutput) => void
-  ): void;
-  public putFirewallRuleGroupPolicy(
-    args: PutFirewallRuleGroupPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutFirewallRuleGroupPolicyCommandOutput) => void),
-    cb?: (err: any, data?: PutFirewallRuleGroupPolicyCommandOutput) => void
-  ): Promise<PutFirewallRuleGroupPolicyCommandOutput> | void {
-    const command = new PutFirewallRuleGroupPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Specifies an Amazon Web Services account that you want to share a query logging configuration with, the query logging configuration that you want to share,
-   * 			and the operations that you want the account to be able to perform on the configuration.</p>
-   */
-  public putResolverQueryLogConfigPolicy(
-    args: PutResolverQueryLogConfigPolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutResolverQueryLogConfigPolicyCommandOutput>;
-  public putResolverQueryLogConfigPolicy(
-    args: PutResolverQueryLogConfigPolicyCommandInput,
-    cb: (err: any, data?: PutResolverQueryLogConfigPolicyCommandOutput) => void
-  ): void;
-  public putResolverQueryLogConfigPolicy(
-    args: PutResolverQueryLogConfigPolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutResolverQueryLogConfigPolicyCommandOutput) => void
-  ): void;
-  public putResolverQueryLogConfigPolicy(
-    args: PutResolverQueryLogConfigPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResolverQueryLogConfigPolicyCommandOutput) => void),
-    cb?: (err: any, data?: PutResolverQueryLogConfigPolicyCommandOutput) => void
-  ): Promise<PutResolverQueryLogConfigPolicyCommandOutput> | void {
-    const command = new PutResolverQueryLogConfigPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Specifies an Amazon Web Services rule that you want to share with another account, the account that you want to share the rule with,
-   * 			and the operations that you want the account to be able to perform on the rule.</p>
-   */
-  public putResolverRulePolicy(
-    args: PutResolverRulePolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutResolverRulePolicyCommandOutput>;
-  public putResolverRulePolicy(
-    args: PutResolverRulePolicyCommandInput,
-    cb: (err: any, data?: PutResolverRulePolicyCommandOutput) => void
-  ): void;
-  public putResolverRulePolicy(
-    args: PutResolverRulePolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutResolverRulePolicyCommandOutput) => void
-  ): void;
-  public putResolverRulePolicy(
-    args: PutResolverRulePolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResolverRulePolicyCommandOutput) => void),
-    cb?: (err: any, data?: PutResolverRulePolicyCommandOutput) => void
-  ): Promise<PutResolverRulePolicyCommandOutput> | void {
-    const command = new PutResolverRulePolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds one or more tags to a specified resource.</p>
-   */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes one or more tags from a specified resource.</p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the configuration of the firewall behavior provided by DNS Firewall for a single
-   * 			VPC from Amazon Virtual Private Cloud (Amazon VPC). </p>
-   */
-  public updateFirewallConfig(
-    args: UpdateFirewallConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateFirewallConfigCommandOutput>;
-  public updateFirewallConfig(
-    args: UpdateFirewallConfigCommandInput,
-    cb: (err: any, data?: UpdateFirewallConfigCommandOutput) => void
-  ): void;
-  public updateFirewallConfig(
-    args: UpdateFirewallConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateFirewallConfigCommandOutput) => void
-  ): void;
-  public updateFirewallConfig(
-    args: UpdateFirewallConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFirewallConfigCommandOutput) => void),
-    cb?: (err: any, data?: UpdateFirewallConfigCommandOutput) => void
-  ): Promise<UpdateFirewallConfigCommandOutput> | void {
-    const command = new UpdateFirewallConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the firewall domain list from an array of domain specifications. </p>
-   */
-  public updateFirewallDomains(
-    args: UpdateFirewallDomainsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateFirewallDomainsCommandOutput>;
-  public updateFirewallDomains(
-    args: UpdateFirewallDomainsCommandInput,
-    cb: (err: any, data?: UpdateFirewallDomainsCommandOutput) => void
-  ): void;
-  public updateFirewallDomains(
-    args: UpdateFirewallDomainsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateFirewallDomainsCommandOutput) => void
-  ): void;
-  public updateFirewallDomains(
-    args: UpdateFirewallDomainsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFirewallDomainsCommandOutput) => void),
-    cb?: (err: any, data?: UpdateFirewallDomainsCommandOutput) => void
-  ): Promise<UpdateFirewallDomainsCommandOutput> | void {
-    const command = new UpdateFirewallDomainsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the specified firewall rule. </p>
-   */
-  public updateFirewallRule(
-    args: UpdateFirewallRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateFirewallRuleCommandOutput>;
-  public updateFirewallRule(
-    args: UpdateFirewallRuleCommandInput,
-    cb: (err: any, data?: UpdateFirewallRuleCommandOutput) => void
-  ): void;
-  public updateFirewallRule(
-    args: UpdateFirewallRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateFirewallRuleCommandOutput) => void
-  ): void;
-  public updateFirewallRule(
-    args: UpdateFirewallRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFirewallRuleCommandOutput) => void),
-    cb?: (err: any, data?: UpdateFirewallRuleCommandOutput) => void
-  ): Promise<UpdateFirewallRuleCommandOutput> | void {
-    const command = new UpdateFirewallRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Changes the association of a <a>FirewallRuleGroup</a> with a VPC. The association enables DNS filtering for the VPC. </p>
-   */
-  public updateFirewallRuleGroupAssociation(
-    args: UpdateFirewallRuleGroupAssociationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateFirewallRuleGroupAssociationCommandOutput>;
-  public updateFirewallRuleGroupAssociation(
-    args: UpdateFirewallRuleGroupAssociationCommandInput,
-    cb: (err: any, data?: UpdateFirewallRuleGroupAssociationCommandOutput) => void
-  ): void;
-  public updateFirewallRuleGroupAssociation(
-    args: UpdateFirewallRuleGroupAssociationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateFirewallRuleGroupAssociationCommandOutput) => void
-  ): void;
-  public updateFirewallRuleGroupAssociation(
-    args: UpdateFirewallRuleGroupAssociationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFirewallRuleGroupAssociationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateFirewallRuleGroupAssociationCommandOutput) => void
-  ): Promise<UpdateFirewallRuleGroupAssociationCommandOutput> | void {
-    const command = new UpdateFirewallRuleGroupAssociationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the behavior configuration of Route 53 Resolver behavior for a single VPC from
-   * 				Amazon Virtual Private Cloud.</p>
-   */
-  public updateResolverConfig(
-    args: UpdateResolverConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateResolverConfigCommandOutput>;
-  public updateResolverConfig(
-    args: UpdateResolverConfigCommandInput,
-    cb: (err: any, data?: UpdateResolverConfigCommandOutput) => void
-  ): void;
-  public updateResolverConfig(
-    args: UpdateResolverConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateResolverConfigCommandOutput) => void
-  ): void;
-  public updateResolverConfig(
-    args: UpdateResolverConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResolverConfigCommandOutput) => void),
-    cb?: (err: any, data?: UpdateResolverConfigCommandOutput) => void
-  ): Promise<UpdateResolverConfigCommandOutput> | void {
-    const command = new UpdateResolverConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates an existing DNSSEC validation configuration. If there is no existing DNSSEC validation configuration, one is created.</p>
-   */
-  public updateResolverDnssecConfig(
-    args: UpdateResolverDnssecConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateResolverDnssecConfigCommandOutput>;
-  public updateResolverDnssecConfig(
-    args: UpdateResolverDnssecConfigCommandInput,
-    cb: (err: any, data?: UpdateResolverDnssecConfigCommandOutput) => void
-  ): void;
-  public updateResolverDnssecConfig(
-    args: UpdateResolverDnssecConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateResolverDnssecConfigCommandOutput) => void
-  ): void;
-  public updateResolverDnssecConfig(
-    args: UpdateResolverDnssecConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResolverDnssecConfigCommandOutput) => void),
-    cb?: (err: any, data?: UpdateResolverDnssecConfigCommandOutput) => void
-  ): Promise<UpdateResolverDnssecConfigCommandOutput> | void {
-    const command = new UpdateResolverDnssecConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates the name, or enpoint type for an inbound or an outbound Resolver endpoint.
-   * 			You can only update between IPV4 and DUALSTACK, IPV6 endpoint type can't be updated to other type. </p>
-   */
-  public updateResolverEndpoint(
-    args: UpdateResolverEndpointCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateResolverEndpointCommandOutput>;
-  public updateResolverEndpoint(
-    args: UpdateResolverEndpointCommandInput,
-    cb: (err: any, data?: UpdateResolverEndpointCommandOutput) => void
-  ): void;
-  public updateResolverEndpoint(
-    args: UpdateResolverEndpointCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateResolverEndpointCommandOutput) => void
-  ): void;
-  public updateResolverEndpoint(
-    args: UpdateResolverEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResolverEndpointCommandOutput) => void),
-    cb?: (err: any, data?: UpdateResolverEndpointCommandOutput) => void
-  ): Promise<UpdateResolverEndpointCommandOutput> | void {
-    const command = new UpdateResolverEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates settings for a specified Resolver rule. <code>ResolverRuleId</code> is required, and all other parameters are optional.
-   * 			If you don't specify a parameter, it retains its current value.</p>
-   */
-  public updateResolverRule(
-    args: UpdateResolverRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateResolverRuleCommandOutput>;
-  public updateResolverRule(
-    args: UpdateResolverRuleCommandInput,
-    cb: (err: any, data?: UpdateResolverRuleCommandOutput) => void
-  ): void;
-  public updateResolverRule(
-    args: UpdateResolverRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateResolverRuleCommandOutput) => void
-  ): void;
-  public updateResolverRule(
-    args: UpdateResolverRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResolverRuleCommandOutput) => void),
-    cb?: (err: any, data?: UpdateResolverRuleCommandOutput) => void
-  ): Promise<UpdateResolverRuleCommandOutput> | void {
-    const command = new UpdateResolverRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class Route53Resolver extends Route53ResolverClient implements Route53Resolver {}
+createAggregatedClient(commands, Route53Resolver);

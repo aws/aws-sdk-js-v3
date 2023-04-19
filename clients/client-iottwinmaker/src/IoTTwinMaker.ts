@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
@@ -139,7 +140,501 @@ import {
   UpdateWorkspaceCommandInput,
   UpdateWorkspaceCommandOutput,
 } from "./commands/UpdateWorkspaceCommand";
-import { IoTTwinMakerClient } from "./IoTTwinMakerClient";
+import { IoTTwinMakerClient, IoTTwinMakerClientConfig } from "./IoTTwinMakerClient";
+
+const commands = {
+  BatchPutPropertyValuesCommand,
+  CreateComponentTypeCommand,
+  CreateEntityCommand,
+  CreateSceneCommand,
+  CreateSyncJobCommand,
+  CreateWorkspaceCommand,
+  DeleteComponentTypeCommand,
+  DeleteEntityCommand,
+  DeleteSceneCommand,
+  DeleteSyncJobCommand,
+  DeleteWorkspaceCommand,
+  ExecuteQueryCommand,
+  GetComponentTypeCommand,
+  GetEntityCommand,
+  GetPricingPlanCommand,
+  GetPropertyValueCommand,
+  GetPropertyValueHistoryCommand,
+  GetSceneCommand,
+  GetSyncJobCommand,
+  GetWorkspaceCommand,
+  ListComponentTypesCommand,
+  ListEntitiesCommand,
+  ListScenesCommand,
+  ListSyncJobsCommand,
+  ListSyncResourcesCommand,
+  ListTagsForResourceCommand,
+  ListWorkspacesCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
+  UpdateComponentTypeCommand,
+  UpdateEntityCommand,
+  UpdatePricingPlanCommand,
+  UpdateSceneCommand,
+  UpdateWorkspaceCommand,
+};
+
+export interface IoTTwinMaker {
+  /**
+   * @see {@link BatchPutPropertyValuesCommand}
+   */
+  batchPutPropertyValues(
+    args: BatchPutPropertyValuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchPutPropertyValuesCommandOutput>;
+  batchPutPropertyValues(
+    args: BatchPutPropertyValuesCommandInput,
+    cb: (err: any, data?: BatchPutPropertyValuesCommandOutput) => void
+  ): void;
+  batchPutPropertyValues(
+    args: BatchPutPropertyValuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchPutPropertyValuesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateComponentTypeCommand}
+   */
+  createComponentType(
+    args: CreateComponentTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateComponentTypeCommandOutput>;
+  createComponentType(
+    args: CreateComponentTypeCommandInput,
+    cb: (err: any, data?: CreateComponentTypeCommandOutput) => void
+  ): void;
+  createComponentType(
+    args: CreateComponentTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateComponentTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateEntityCommand}
+   */
+  createEntity(args: CreateEntityCommandInput, options?: __HttpHandlerOptions): Promise<CreateEntityCommandOutput>;
+  createEntity(args: CreateEntityCommandInput, cb: (err: any, data?: CreateEntityCommandOutput) => void): void;
+  createEntity(
+    args: CreateEntityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEntityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSceneCommand}
+   */
+  createScene(args: CreateSceneCommandInput, options?: __HttpHandlerOptions): Promise<CreateSceneCommandOutput>;
+  createScene(args: CreateSceneCommandInput, cb: (err: any, data?: CreateSceneCommandOutput) => void): void;
+  createScene(
+    args: CreateSceneCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSceneCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSyncJobCommand}
+   */
+  createSyncJob(args: CreateSyncJobCommandInput, options?: __HttpHandlerOptions): Promise<CreateSyncJobCommandOutput>;
+  createSyncJob(args: CreateSyncJobCommandInput, cb: (err: any, data?: CreateSyncJobCommandOutput) => void): void;
+  createSyncJob(
+    args: CreateSyncJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSyncJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateWorkspaceCommand}
+   */
+  createWorkspace(
+    args: CreateWorkspaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorkspaceCommandOutput>;
+  createWorkspace(args: CreateWorkspaceCommandInput, cb: (err: any, data?: CreateWorkspaceCommandOutput) => void): void;
+  createWorkspace(
+    args: CreateWorkspaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorkspaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteComponentTypeCommand}
+   */
+  deleteComponentType(
+    args: DeleteComponentTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteComponentTypeCommandOutput>;
+  deleteComponentType(
+    args: DeleteComponentTypeCommandInput,
+    cb: (err: any, data?: DeleteComponentTypeCommandOutput) => void
+  ): void;
+  deleteComponentType(
+    args: DeleteComponentTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteComponentTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteEntityCommand}
+   */
+  deleteEntity(args: DeleteEntityCommandInput, options?: __HttpHandlerOptions): Promise<DeleteEntityCommandOutput>;
+  deleteEntity(args: DeleteEntityCommandInput, cb: (err: any, data?: DeleteEntityCommandOutput) => void): void;
+  deleteEntity(
+    args: DeleteEntityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEntityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSceneCommand}
+   */
+  deleteScene(args: DeleteSceneCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSceneCommandOutput>;
+  deleteScene(args: DeleteSceneCommandInput, cb: (err: any, data?: DeleteSceneCommandOutput) => void): void;
+  deleteScene(
+    args: DeleteSceneCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSceneCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSyncJobCommand}
+   */
+  deleteSyncJob(args: DeleteSyncJobCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSyncJobCommandOutput>;
+  deleteSyncJob(args: DeleteSyncJobCommandInput, cb: (err: any, data?: DeleteSyncJobCommandOutput) => void): void;
+  deleteSyncJob(
+    args: DeleteSyncJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSyncJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteWorkspaceCommand}
+   */
+  deleteWorkspace(
+    args: DeleteWorkspaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkspaceCommandOutput>;
+  deleteWorkspace(args: DeleteWorkspaceCommandInput, cb: (err: any, data?: DeleteWorkspaceCommandOutput) => void): void;
+  deleteWorkspace(
+    args: DeleteWorkspaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorkspaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ExecuteQueryCommand}
+   */
+  executeQuery(args: ExecuteQueryCommandInput, options?: __HttpHandlerOptions): Promise<ExecuteQueryCommandOutput>;
+  executeQuery(args: ExecuteQueryCommandInput, cb: (err: any, data?: ExecuteQueryCommandOutput) => void): void;
+  executeQuery(
+    args: ExecuteQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExecuteQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetComponentTypeCommand}
+   */
+  getComponentType(
+    args: GetComponentTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetComponentTypeCommandOutput>;
+  getComponentType(
+    args: GetComponentTypeCommandInput,
+    cb: (err: any, data?: GetComponentTypeCommandOutput) => void
+  ): void;
+  getComponentType(
+    args: GetComponentTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetComponentTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEntityCommand}
+   */
+  getEntity(args: GetEntityCommandInput, options?: __HttpHandlerOptions): Promise<GetEntityCommandOutput>;
+  getEntity(args: GetEntityCommandInput, cb: (err: any, data?: GetEntityCommandOutput) => void): void;
+  getEntity(
+    args: GetEntityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEntityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPricingPlanCommand}
+   */
+  getPricingPlan(
+    args: GetPricingPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPricingPlanCommandOutput>;
+  getPricingPlan(args: GetPricingPlanCommandInput, cb: (err: any, data?: GetPricingPlanCommandOutput) => void): void;
+  getPricingPlan(
+    args: GetPricingPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPricingPlanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPropertyValueCommand}
+   */
+  getPropertyValue(
+    args: GetPropertyValueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPropertyValueCommandOutput>;
+  getPropertyValue(
+    args: GetPropertyValueCommandInput,
+    cb: (err: any, data?: GetPropertyValueCommandOutput) => void
+  ): void;
+  getPropertyValue(
+    args: GetPropertyValueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPropertyValueCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPropertyValueHistoryCommand}
+   */
+  getPropertyValueHistory(
+    args: GetPropertyValueHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPropertyValueHistoryCommandOutput>;
+  getPropertyValueHistory(
+    args: GetPropertyValueHistoryCommandInput,
+    cb: (err: any, data?: GetPropertyValueHistoryCommandOutput) => void
+  ): void;
+  getPropertyValueHistory(
+    args: GetPropertyValueHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPropertyValueHistoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSceneCommand}
+   */
+  getScene(args: GetSceneCommandInput, options?: __HttpHandlerOptions): Promise<GetSceneCommandOutput>;
+  getScene(args: GetSceneCommandInput, cb: (err: any, data?: GetSceneCommandOutput) => void): void;
+  getScene(
+    args: GetSceneCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSceneCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSyncJobCommand}
+   */
+  getSyncJob(args: GetSyncJobCommandInput, options?: __HttpHandlerOptions): Promise<GetSyncJobCommandOutput>;
+  getSyncJob(args: GetSyncJobCommandInput, cb: (err: any, data?: GetSyncJobCommandOutput) => void): void;
+  getSyncJob(
+    args: GetSyncJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSyncJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetWorkspaceCommand}
+   */
+  getWorkspace(args: GetWorkspaceCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkspaceCommandOutput>;
+  getWorkspace(args: GetWorkspaceCommandInput, cb: (err: any, data?: GetWorkspaceCommandOutput) => void): void;
+  getWorkspace(
+    args: GetWorkspaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWorkspaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListComponentTypesCommand}
+   */
+  listComponentTypes(
+    args: ListComponentTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComponentTypesCommandOutput>;
+  listComponentTypes(
+    args: ListComponentTypesCommandInput,
+    cb: (err: any, data?: ListComponentTypesCommandOutput) => void
+  ): void;
+  listComponentTypes(
+    args: ListComponentTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComponentTypesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEntitiesCommand}
+   */
+  listEntities(args: ListEntitiesCommandInput, options?: __HttpHandlerOptions): Promise<ListEntitiesCommandOutput>;
+  listEntities(args: ListEntitiesCommandInput, cb: (err: any, data?: ListEntitiesCommandOutput) => void): void;
+  listEntities(
+    args: ListEntitiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEntitiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListScenesCommand}
+   */
+  listScenes(args: ListScenesCommandInput, options?: __HttpHandlerOptions): Promise<ListScenesCommandOutput>;
+  listScenes(args: ListScenesCommandInput, cb: (err: any, data?: ListScenesCommandOutput) => void): void;
+  listScenes(
+    args: ListScenesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListScenesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSyncJobsCommand}
+   */
+  listSyncJobs(args: ListSyncJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListSyncJobsCommandOutput>;
+  listSyncJobs(args: ListSyncJobsCommandInput, cb: (err: any, data?: ListSyncJobsCommandOutput) => void): void;
+  listSyncJobs(
+    args: ListSyncJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSyncJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSyncResourcesCommand}
+   */
+  listSyncResources(
+    args: ListSyncResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSyncResourcesCommandOutput>;
+  listSyncResources(
+    args: ListSyncResourcesCommandInput,
+    cb: (err: any, data?: ListSyncResourcesCommandOutput) => void
+  ): void;
+  listSyncResources(
+    args: ListSyncResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSyncResourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListWorkspacesCommand}
+   */
+  listWorkspaces(
+    args: ListWorkspacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkspacesCommandOutput>;
+  listWorkspaces(args: ListWorkspacesCommandInput, cb: (err: any, data?: ListWorkspacesCommandOutput) => void): void;
+  listWorkspaces(
+    args: ListWorkspacesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkspacesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateComponentTypeCommand}
+   */
+  updateComponentType(
+    args: UpdateComponentTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateComponentTypeCommandOutput>;
+  updateComponentType(
+    args: UpdateComponentTypeCommandInput,
+    cb: (err: any, data?: UpdateComponentTypeCommandOutput) => void
+  ): void;
+  updateComponentType(
+    args: UpdateComponentTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateComponentTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateEntityCommand}
+   */
+  updateEntity(args: UpdateEntityCommandInput, options?: __HttpHandlerOptions): Promise<UpdateEntityCommandOutput>;
+  updateEntity(args: UpdateEntityCommandInput, cb: (err: any, data?: UpdateEntityCommandOutput) => void): void;
+  updateEntity(
+    args: UpdateEntityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEntityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePricingPlanCommand}
+   */
+  updatePricingPlan(
+    args: UpdatePricingPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePricingPlanCommandOutput>;
+  updatePricingPlan(
+    args: UpdatePricingPlanCommandInput,
+    cb: (err: any, data?: UpdatePricingPlanCommandOutput) => void
+  ): void;
+  updatePricingPlan(
+    args: UpdatePricingPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePricingPlanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSceneCommand}
+   */
+  updateScene(args: UpdateSceneCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSceneCommandOutput>;
+  updateScene(args: UpdateSceneCommandInput, cb: (err: any, data?: UpdateSceneCommandOutput) => void): void;
+  updateScene(
+    args: UpdateSceneCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSceneCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateWorkspaceCommand}
+   */
+  updateWorkspace(
+    args: UpdateWorkspaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorkspaceCommandOutput>;
+  updateWorkspace(args: UpdateWorkspaceCommandInput, cb: (err: any, data?: UpdateWorkspaceCommandOutput) => void): void;
+  updateWorkspace(
+    args: UpdateWorkspaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWorkspaceCommandOutput) => void
+  ): void;
+}
 
 /**
  * @public
@@ -151,1064 +646,5 @@ import { IoTTwinMakerClient } from "./IoTTwinMakerClient";
  *          You can use this real-world data to monitor operations and diagnose and repair
  *          errors.</p>
  */
-export class IoTTwinMaker extends IoTTwinMakerClient {
-  /**
-   * @public
-   * <p>Sets values for multiple time series properties.</p>
-   */
-  public batchPutPropertyValues(
-    args: BatchPutPropertyValuesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchPutPropertyValuesCommandOutput>;
-  public batchPutPropertyValues(
-    args: BatchPutPropertyValuesCommandInput,
-    cb: (err: any, data?: BatchPutPropertyValuesCommandOutput) => void
-  ): void;
-  public batchPutPropertyValues(
-    args: BatchPutPropertyValuesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchPutPropertyValuesCommandOutput) => void
-  ): void;
-  public batchPutPropertyValues(
-    args: BatchPutPropertyValuesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchPutPropertyValuesCommandOutput) => void),
-    cb?: (err: any, data?: BatchPutPropertyValuesCommandOutput) => void
-  ): Promise<BatchPutPropertyValuesCommandOutput> | void {
-    const command = new BatchPutPropertyValuesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a component type.</p>
-   */
-  public createComponentType(
-    args: CreateComponentTypeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateComponentTypeCommandOutput>;
-  public createComponentType(
-    args: CreateComponentTypeCommandInput,
-    cb: (err: any, data?: CreateComponentTypeCommandOutput) => void
-  ): void;
-  public createComponentType(
-    args: CreateComponentTypeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateComponentTypeCommandOutput) => void
-  ): void;
-  public createComponentType(
-    args: CreateComponentTypeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateComponentTypeCommandOutput) => void),
-    cb?: (err: any, data?: CreateComponentTypeCommandOutput) => void
-  ): Promise<CreateComponentTypeCommandOutput> | void {
-    const command = new CreateComponentTypeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates an entity.</p>
-   */
-  public createEntity(
-    args: CreateEntityCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateEntityCommandOutput>;
-  public createEntity(args: CreateEntityCommandInput, cb: (err: any, data?: CreateEntityCommandOutput) => void): void;
-  public createEntity(
-    args: CreateEntityCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateEntityCommandOutput) => void
-  ): void;
-  public createEntity(
-    args: CreateEntityCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEntityCommandOutput) => void),
-    cb?: (err: any, data?: CreateEntityCommandOutput) => void
-  ): Promise<CreateEntityCommandOutput> | void {
-    const command = new CreateEntityCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a scene.</p>
-   */
-  public createScene(args: CreateSceneCommandInput, options?: __HttpHandlerOptions): Promise<CreateSceneCommandOutput>;
-  public createScene(args: CreateSceneCommandInput, cb: (err: any, data?: CreateSceneCommandOutput) => void): void;
-  public createScene(
-    args: CreateSceneCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateSceneCommandOutput) => void
-  ): void;
-  public createScene(
-    args: CreateSceneCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSceneCommandOutput) => void),
-    cb?: (err: any, data?: CreateSceneCommandOutput) => void
-  ): Promise<CreateSceneCommandOutput> | void {
-    const command = new CreateSceneCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>This action creates a SyncJob.</p>
-   */
-  public createSyncJob(
-    args: CreateSyncJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateSyncJobCommandOutput>;
-  public createSyncJob(
-    args: CreateSyncJobCommandInput,
-    cb: (err: any, data?: CreateSyncJobCommandOutput) => void
-  ): void;
-  public createSyncJob(
-    args: CreateSyncJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateSyncJobCommandOutput) => void
-  ): void;
-  public createSyncJob(
-    args: CreateSyncJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSyncJobCommandOutput) => void),
-    cb?: (err: any, data?: CreateSyncJobCommandOutput) => void
-  ): Promise<CreateSyncJobCommandOutput> | void {
-    const command = new CreateSyncJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Creates a workplace.</p>
-   */
-  public createWorkspace(
-    args: CreateWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateWorkspaceCommandOutput>;
-  public createWorkspace(
-    args: CreateWorkspaceCommandInput,
-    cb: (err: any, data?: CreateWorkspaceCommandOutput) => void
-  ): void;
-  public createWorkspace(
-    args: CreateWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateWorkspaceCommandOutput) => void
-  ): void;
-  public createWorkspace(
-    args: CreateWorkspaceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkspaceCommandOutput) => void),
-    cb?: (err: any, data?: CreateWorkspaceCommandOutput) => void
-  ): Promise<CreateWorkspaceCommandOutput> | void {
-    const command = new CreateWorkspaceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a component type.</p>
-   */
-  public deleteComponentType(
-    args: DeleteComponentTypeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteComponentTypeCommandOutput>;
-  public deleteComponentType(
-    args: DeleteComponentTypeCommandInput,
-    cb: (err: any, data?: DeleteComponentTypeCommandOutput) => void
-  ): void;
-  public deleteComponentType(
-    args: DeleteComponentTypeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteComponentTypeCommandOutput) => void
-  ): void;
-  public deleteComponentType(
-    args: DeleteComponentTypeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteComponentTypeCommandOutput) => void),
-    cb?: (err: any, data?: DeleteComponentTypeCommandOutput) => void
-  ): Promise<DeleteComponentTypeCommandOutput> | void {
-    const command = new DeleteComponentTypeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes an entity.</p>
-   */
-  public deleteEntity(
-    args: DeleteEntityCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteEntityCommandOutput>;
-  public deleteEntity(args: DeleteEntityCommandInput, cb: (err: any, data?: DeleteEntityCommandOutput) => void): void;
-  public deleteEntity(
-    args: DeleteEntityCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteEntityCommandOutput) => void
-  ): void;
-  public deleteEntity(
-    args: DeleteEntityCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEntityCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEntityCommandOutput) => void
-  ): Promise<DeleteEntityCommandOutput> | void {
-    const command = new DeleteEntityCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a scene.</p>
-   */
-  public deleteScene(args: DeleteSceneCommandInput, options?: __HttpHandlerOptions): Promise<DeleteSceneCommandOutput>;
-  public deleteScene(args: DeleteSceneCommandInput, cb: (err: any, data?: DeleteSceneCommandOutput) => void): void;
-  public deleteScene(
-    args: DeleteSceneCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteSceneCommandOutput) => void
-  ): void;
-  public deleteScene(
-    args: DeleteSceneCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSceneCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSceneCommandOutput) => void
-  ): Promise<DeleteSceneCommandOutput> | void {
-    const command = new DeleteSceneCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Delete the SyncJob.</p>
-   */
-  public deleteSyncJob(
-    args: DeleteSyncJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteSyncJobCommandOutput>;
-  public deleteSyncJob(
-    args: DeleteSyncJobCommandInput,
-    cb: (err: any, data?: DeleteSyncJobCommandOutput) => void
-  ): void;
-  public deleteSyncJob(
-    args: DeleteSyncJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteSyncJobCommandOutput) => void
-  ): void;
-  public deleteSyncJob(
-    args: DeleteSyncJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSyncJobCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSyncJobCommandOutput) => void
-  ): Promise<DeleteSyncJobCommandOutput> | void {
-    const command = new DeleteSyncJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Deletes a workspace.</p>
-   */
-  public deleteWorkspace(
-    args: DeleteWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteWorkspaceCommandOutput>;
-  public deleteWorkspace(
-    args: DeleteWorkspaceCommandInput,
-    cb: (err: any, data?: DeleteWorkspaceCommandOutput) => void
-  ): void;
-  public deleteWorkspace(
-    args: DeleteWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteWorkspaceCommandOutput) => void
-  ): void;
-  public deleteWorkspace(
-    args: DeleteWorkspaceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkspaceCommandOutput) => void),
-    cb?: (err: any, data?: DeleteWorkspaceCommandOutput) => void
-  ): Promise<DeleteWorkspaceCommandOutput> | void {
-    const command = new DeleteWorkspaceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Run queries to access information from your knowledge graph of entities within
-   *          individual workspaces.</p>
-   */
-  public executeQuery(
-    args: ExecuteQueryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ExecuteQueryCommandOutput>;
-  public executeQuery(args: ExecuteQueryCommandInput, cb: (err: any, data?: ExecuteQueryCommandOutput) => void): void;
-  public executeQuery(
-    args: ExecuteQueryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ExecuteQueryCommandOutput) => void
-  ): void;
-  public executeQuery(
-    args: ExecuteQueryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExecuteQueryCommandOutput) => void),
-    cb?: (err: any, data?: ExecuteQueryCommandOutput) => void
-  ): Promise<ExecuteQueryCommandOutput> | void {
-    const command = new ExecuteQueryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about a component type.</p>
-   */
-  public getComponentType(
-    args: GetComponentTypeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetComponentTypeCommandOutput>;
-  public getComponentType(
-    args: GetComponentTypeCommandInput,
-    cb: (err: any, data?: GetComponentTypeCommandOutput) => void
-  ): void;
-  public getComponentType(
-    args: GetComponentTypeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetComponentTypeCommandOutput) => void
-  ): void;
-  public getComponentType(
-    args: GetComponentTypeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetComponentTypeCommandOutput) => void),
-    cb?: (err: any, data?: GetComponentTypeCommandOutput) => void
-  ): Promise<GetComponentTypeCommandOutput> | void {
-    const command = new GetComponentTypeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about an entity.</p>
-   */
-  public getEntity(args: GetEntityCommandInput, options?: __HttpHandlerOptions): Promise<GetEntityCommandOutput>;
-  public getEntity(args: GetEntityCommandInput, cb: (err: any, data?: GetEntityCommandOutput) => void): void;
-  public getEntity(
-    args: GetEntityCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetEntityCommandOutput) => void
-  ): void;
-  public getEntity(
-    args: GetEntityCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEntityCommandOutput) => void),
-    cb?: (err: any, data?: GetEntityCommandOutput) => void
-  ): Promise<GetEntityCommandOutput> | void {
-    const command = new GetEntityCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets the pricing plan.</p>
-   */
-  public getPricingPlan(
-    args: GetPricingPlanCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPricingPlanCommandOutput>;
-  public getPricingPlan(
-    args: GetPricingPlanCommandInput,
-    cb: (err: any, data?: GetPricingPlanCommandOutput) => void
-  ): void;
-  public getPricingPlan(
-    args: GetPricingPlanCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetPricingPlanCommandOutput) => void
-  ): void;
-  public getPricingPlan(
-    args: GetPricingPlanCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPricingPlanCommandOutput) => void),
-    cb?: (err: any, data?: GetPricingPlanCommandOutput) => void
-  ): Promise<GetPricingPlanCommandOutput> | void {
-    const command = new GetPricingPlanCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets the property values for a component, component type, entity, or workspace.</p>
-   *          <p>You must specify a value for either <code>componentName</code>,
-   *             <code>componentTypeId</code>, <code>entityId</code>, or <code>workspaceId</code>.</p>
-   */
-  public getPropertyValue(
-    args: GetPropertyValueCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPropertyValueCommandOutput>;
-  public getPropertyValue(
-    args: GetPropertyValueCommandInput,
-    cb: (err: any, data?: GetPropertyValueCommandOutput) => void
-  ): void;
-  public getPropertyValue(
-    args: GetPropertyValueCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetPropertyValueCommandOutput) => void
-  ): void;
-  public getPropertyValue(
-    args: GetPropertyValueCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPropertyValueCommandOutput) => void),
-    cb?: (err: any, data?: GetPropertyValueCommandOutput) => void
-  ): Promise<GetPropertyValueCommandOutput> | void {
-    const command = new GetPropertyValueCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about the history of a time series property value for a component,
-   *          component type, entity, or workspace.</p>
-   *          <p>You must specify a value for <code>workspaceId</code>. For entity-specific queries,
-   *          specify values for <code>componentName</code> and <code>entityId</code>. For cross-entity
-   *          quries, specify a value for <code>componentTypeId</code>.</p>
-   */
-  public getPropertyValueHistory(
-    args: GetPropertyValueHistoryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPropertyValueHistoryCommandOutput>;
-  public getPropertyValueHistory(
-    args: GetPropertyValueHistoryCommandInput,
-    cb: (err: any, data?: GetPropertyValueHistoryCommandOutput) => void
-  ): void;
-  public getPropertyValueHistory(
-    args: GetPropertyValueHistoryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetPropertyValueHistoryCommandOutput) => void
-  ): void;
-  public getPropertyValueHistory(
-    args: GetPropertyValueHistoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPropertyValueHistoryCommandOutput) => void),
-    cb?: (err: any, data?: GetPropertyValueHistoryCommandOutput) => void
-  ): Promise<GetPropertyValueHistoryCommandOutput> | void {
-    const command = new GetPropertyValueHistoryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about a scene.</p>
-   */
-  public getScene(args: GetSceneCommandInput, options?: __HttpHandlerOptions): Promise<GetSceneCommandOutput>;
-  public getScene(args: GetSceneCommandInput, cb: (err: any, data?: GetSceneCommandOutput) => void): void;
-  public getScene(
-    args: GetSceneCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSceneCommandOutput) => void
-  ): void;
-  public getScene(
-    args: GetSceneCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSceneCommandOutput) => void),
-    cb?: (err: any, data?: GetSceneCommandOutput) => void
-  ): Promise<GetSceneCommandOutput> | void {
-    const command = new GetSceneCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Gets the SyncJob.</p>
-   */
-  public getSyncJob(args: GetSyncJobCommandInput, options?: __HttpHandlerOptions): Promise<GetSyncJobCommandOutput>;
-  public getSyncJob(args: GetSyncJobCommandInput, cb: (err: any, data?: GetSyncJobCommandOutput) => void): void;
-  public getSyncJob(
-    args: GetSyncJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSyncJobCommandOutput) => void
-  ): void;
-  public getSyncJob(
-    args: GetSyncJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSyncJobCommandOutput) => void),
-    cb?: (err: any, data?: GetSyncJobCommandOutput) => void
-  ): Promise<GetSyncJobCommandOutput> | void {
-    const command = new GetSyncJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about a workspace.</p>
-   */
-  public getWorkspace(
-    args: GetWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetWorkspaceCommandOutput>;
-  public getWorkspace(args: GetWorkspaceCommandInput, cb: (err: any, data?: GetWorkspaceCommandOutput) => void): void;
-  public getWorkspace(
-    args: GetWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetWorkspaceCommandOutput) => void
-  ): void;
-  public getWorkspace(
-    args: GetWorkspaceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkspaceCommandOutput) => void),
-    cb?: (err: any, data?: GetWorkspaceCommandOutput) => void
-  ): Promise<GetWorkspaceCommandOutput> | void {
-    const command = new GetWorkspaceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all component types in a workspace.</p>
-   */
-  public listComponentTypes(
-    args: ListComponentTypesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListComponentTypesCommandOutput>;
-  public listComponentTypes(
-    args: ListComponentTypesCommandInput,
-    cb: (err: any, data?: ListComponentTypesCommandOutput) => void
-  ): void;
-  public listComponentTypes(
-    args: ListComponentTypesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListComponentTypesCommandOutput) => void
-  ): void;
-  public listComponentTypes(
-    args: ListComponentTypesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListComponentTypesCommandOutput) => void),
-    cb?: (err: any, data?: ListComponentTypesCommandOutput) => void
-  ): Promise<ListComponentTypesCommandOutput> | void {
-    const command = new ListComponentTypesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all entities in a workspace.</p>
-   */
-  public listEntities(
-    args: ListEntitiesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListEntitiesCommandOutput>;
-  public listEntities(args: ListEntitiesCommandInput, cb: (err: any, data?: ListEntitiesCommandOutput) => void): void;
-  public listEntities(
-    args: ListEntitiesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListEntitiesCommandOutput) => void
-  ): void;
-  public listEntities(
-    args: ListEntitiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEntitiesCommandOutput) => void),
-    cb?: (err: any, data?: ListEntitiesCommandOutput) => void
-  ): Promise<ListEntitiesCommandOutput> | void {
-    const command = new ListEntitiesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all scenes in a workspace.</p>
-   */
-  public listScenes(args: ListScenesCommandInput, options?: __HttpHandlerOptions): Promise<ListScenesCommandOutput>;
-  public listScenes(args: ListScenesCommandInput, cb: (err: any, data?: ListScenesCommandOutput) => void): void;
-  public listScenes(
-    args: ListScenesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListScenesCommandOutput) => void
-  ): void;
-  public listScenes(
-    args: ListScenesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListScenesCommandOutput) => void),
-    cb?: (err: any, data?: ListScenesCommandOutput) => void
-  ): Promise<ListScenesCommandOutput> | void {
-    const command = new ListScenesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>List all SyncJobs.</p>
-   */
-  public listSyncJobs(
-    args: ListSyncJobsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSyncJobsCommandOutput>;
-  public listSyncJobs(args: ListSyncJobsCommandInput, cb: (err: any, data?: ListSyncJobsCommandOutput) => void): void;
-  public listSyncJobs(
-    args: ListSyncJobsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSyncJobsCommandOutput) => void
-  ): void;
-  public listSyncJobs(
-    args: ListSyncJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSyncJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListSyncJobsCommandOutput) => void
-  ): Promise<ListSyncJobsCommandOutput> | void {
-    const command = new ListSyncJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists the sync resources.</p>
-   */
-  public listSyncResources(
-    args: ListSyncResourcesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSyncResourcesCommandOutput>;
-  public listSyncResources(
-    args: ListSyncResourcesCommandInput,
-    cb: (err: any, data?: ListSyncResourcesCommandOutput) => void
-  ): void;
-  public listSyncResources(
-    args: ListSyncResourcesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSyncResourcesCommandOutput) => void
-  ): void;
-  public listSyncResources(
-    args: ListSyncResourcesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSyncResourcesCommandOutput) => void),
-    cb?: (err: any, data?: ListSyncResourcesCommandOutput) => void
-  ): Promise<ListSyncResourcesCommandOutput> | void {
-    const command = new ListSyncResourcesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Lists all tags associated with a resource.</p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Retrieves information about workspaces in the current account.</p>
-   */
-  public listWorkspaces(
-    args: ListWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListWorkspacesCommandOutput>;
-  public listWorkspaces(
-    args: ListWorkspacesCommandInput,
-    cb: (err: any, data?: ListWorkspacesCommandOutput) => void
-  ): void;
-  public listWorkspaces(
-    args: ListWorkspacesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListWorkspacesCommandOutput) => void
-  ): void;
-  public listWorkspaces(
-    args: ListWorkspacesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkspacesCommandOutput) => void),
-    cb?: (err: any, data?: ListWorkspacesCommandOutput) => void
-  ): Promise<ListWorkspacesCommandOutput> | void {
-    const command = new ListWorkspacesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Adds tags to a resource.</p>
-   */
-  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
-  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Removes tags from a resource.</p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates information in a component type.</p>
-   */
-  public updateComponentType(
-    args: UpdateComponentTypeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateComponentTypeCommandOutput>;
-  public updateComponentType(
-    args: UpdateComponentTypeCommandInput,
-    cb: (err: any, data?: UpdateComponentTypeCommandOutput) => void
-  ): void;
-  public updateComponentType(
-    args: UpdateComponentTypeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateComponentTypeCommandOutput) => void
-  ): void;
-  public updateComponentType(
-    args: UpdateComponentTypeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateComponentTypeCommandOutput) => void),
-    cb?: (err: any, data?: UpdateComponentTypeCommandOutput) => void
-  ): Promise<UpdateComponentTypeCommandOutput> | void {
-    const command = new UpdateComponentTypeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates an entity.</p>
-   */
-  public updateEntity(
-    args: UpdateEntityCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateEntityCommandOutput>;
-  public updateEntity(args: UpdateEntityCommandInput, cb: (err: any, data?: UpdateEntityCommandOutput) => void): void;
-  public updateEntity(
-    args: UpdateEntityCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateEntityCommandOutput) => void
-  ): void;
-  public updateEntity(
-    args: UpdateEntityCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEntityCommandOutput) => void),
-    cb?: (err: any, data?: UpdateEntityCommandOutput) => void
-  ): Promise<UpdateEntityCommandOutput> | void {
-    const command = new UpdateEntityCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Update the pricing plan.</p>
-   */
-  public updatePricingPlan(
-    args: UpdatePricingPlanCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdatePricingPlanCommandOutput>;
-  public updatePricingPlan(
-    args: UpdatePricingPlanCommandInput,
-    cb: (err: any, data?: UpdatePricingPlanCommandOutput) => void
-  ): void;
-  public updatePricingPlan(
-    args: UpdatePricingPlanCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdatePricingPlanCommandOutput) => void
-  ): void;
-  public updatePricingPlan(
-    args: UpdatePricingPlanCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePricingPlanCommandOutput) => void),
-    cb?: (err: any, data?: UpdatePricingPlanCommandOutput) => void
-  ): Promise<UpdatePricingPlanCommandOutput> | void {
-    const command = new UpdatePricingPlanCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates a scene.</p>
-   */
-  public updateScene(args: UpdateSceneCommandInput, options?: __HttpHandlerOptions): Promise<UpdateSceneCommandOutput>;
-  public updateScene(args: UpdateSceneCommandInput, cb: (err: any, data?: UpdateSceneCommandOutput) => void): void;
-  public updateScene(
-    args: UpdateSceneCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateSceneCommandOutput) => void
-  ): void;
-  public updateScene(
-    args: UpdateSceneCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSceneCommandOutput) => void),
-    cb?: (err: any, data?: UpdateSceneCommandOutput) => void
-  ): Promise<UpdateSceneCommandOutput> | void {
-    const command = new UpdateSceneCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * @public
-   * <p>Updates a workspace.</p>
-   */
-  public updateWorkspace(
-    args: UpdateWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateWorkspaceCommandOutput>;
-  public updateWorkspace(
-    args: UpdateWorkspaceCommandInput,
-    cb: (err: any, data?: UpdateWorkspaceCommandOutput) => void
-  ): void;
-  public updateWorkspace(
-    args: UpdateWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateWorkspaceCommandOutput) => void
-  ): void;
-  public updateWorkspace(
-    args: UpdateWorkspaceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWorkspaceCommandOutput) => void),
-    cb?: (err: any, data?: UpdateWorkspaceCommandOutput) => void
-  ): Promise<UpdateWorkspaceCommandOutput> | void {
-    const command = new UpdateWorkspaceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-}
+export class IoTTwinMaker extends IoTTwinMakerClient implements IoTTwinMaker {}
+createAggregatedClient(commands, IoTTwinMaker);
