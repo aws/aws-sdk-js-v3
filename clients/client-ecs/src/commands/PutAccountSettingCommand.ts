@@ -56,6 +56,14 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * 			have Container Insights turned on unless you disable it during cluster creation. For
  * 			more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html">CloudWatch
  * 				Container Insights</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          <p>Amazon ECS is introducing tagging authorization for resource creation. Users must have
+ * 			permissions for actions that create the resource, such as <code>ecsCreateCluster</code>.
+ * 			If tags are specified when you create a resource, Amazon Web Services performs additional
+ * 			authorization to verify if users or roles have permissions to create tags. Therefore,
+ * 			you must grant explicit permissions to use the <code>ecs:TagResource</code> action. For
+ * 			more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/supported-iam-actions-tagging.html">Grant
+ * 				permission to tag resources on creation</a> in the <i>Amazon ECS Developer
+ * 					Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,7 +71,7 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * // const { ECSClient, PutAccountSettingCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // PutAccountSettingRequest
- *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode", // required
+ *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization", // required
  *   value: "STRING_VALUE", // required
  *   principalArn: "STRING_VALUE",
  * };

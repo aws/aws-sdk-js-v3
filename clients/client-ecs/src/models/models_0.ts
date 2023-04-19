@@ -3326,6 +3326,7 @@ export const SettingName = {
   CONTAINER_INSTANCE_LONG_ARN_FORMAT: "containerInstanceLongArnFormat",
   FARGATE_FIPS_MODE: "fargateFIPSMode",
   SERVICE_LONG_ARN_FORMAT: "serviceLongArnFormat",
+  TAG_RESOURCE_AUTHORIZATION: "tagResourceAuthorization",
   TASK_LONG_ARN_FORMAT: "taskLongArnFormat",
 } as const;
 
@@ -5305,6 +5306,9 @@ export interface ContainerDefinition {
  *             <ul>
  *                <li>
  *                   <p>Linux platform version <code>1.4.0</code> or later.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Windows platform version <code>1.0.0</code> or later.</p>
  *                </li>
  *             </ul>
  *          </note>
@@ -8888,7 +8892,10 @@ export interface PutAccountSettingRequest {
    * 			for your Amazon ECS container instances is affected. If <code>containerInsights</code> is
    * 			specified, the default setting for Amazon Web Services CloudWatch Container Insights for your clusters is
    * 			affected. If <code>fargateFIPSMode</code> is specified, Fargate FIPS 140 compliance is
-   * 			affected.</p>
+   * 			affected.  If <code>tagResourceAuthorization</code> is specified, the opt-in option for
+   * 			tagging resources on creation is affected. For information about the opt-in timeline,
+   * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#tag-resources">Tagging authorization timeline</a> in the <i>Amazon ECS Developer
+   * 					Guide</i>.</p>
    */
   name: SettingName | string | undefined;
 
@@ -8934,9 +8941,12 @@ export interface PutAccountSettingDefaultRequest {
    * 			specified, the ARN and resource ID for your Amazon ECS container instances is affected. If
    * 				<code>awsvpcTrunking</code> is specified, the ENI limit for your Amazon ECS container
    * 			instances is affected. If <code>containerInsights</code> is specified, the default
-   * 			setting for Amazon Web Services CloudWatch Container Insights for your clusters is affected. </p>
+   * 			setting for Amazon Web Services CloudWatch Container Insights for your clusters is affected. If
+   * 				<code>tagResourceAuthorization</code> is specified, the opt-in option for tagging
+   * 			resources on creation is affected. For information about the opt-in timeline, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#tag-resources">Tagging authorization timeline</a> in the <i>Amazon ECS Developer
+   * 				Guide</i>.</p>
    *          <p>When you specify <code>fargateFIPSMode</code> for the <code>name</code> and
-   * 				<code>enabled</code> for the <code>value</code>, Fargate uses FIPS-140 compliant
+   * 			<code>enabled</code> for the <code>value</code>, Fargate uses FIPS-140 compliant
    * 			cryptographic algorithms on your tasks. For more information about FIPS-140 compliance
    * 			with Fargate, see <a href="https://docs.aws.amazon.com/AWSEC2ContainerServiceDocs/build/server-root/AmazonECS/latest/developerguide/ecs-fips-compliance.html"> Amazon Web Services Fargate Federal Information Processing Standard (FIPS) 140-2
    * 				compliance</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -9517,6 +9527,9 @@ export interface RegisterTaskDefinitionRequest {
    *                <li>
    *                   <p>Linux platform version <code>1.4.0</code> or later.</p>
    *                </li>
+   *                <li>
+   *                   <p>Windows platform version <code>1.0.0</code> or later.</p>
+   *                </li>
    *             </ul>
    *          </note>
    */
@@ -9812,7 +9825,7 @@ export interface StartTaskRequest {
 
   /**
    * <p>Whether or not the execute command functionality is turned on for the task. If
-   * 				<code>true</code>, this enables execute command functionality on all containers in
+   * 				<code>true</code>, this turns on the execute command functionality on all containers in
    * 			the task.</p>
    */
   enableExecuteCommand?: boolean;
