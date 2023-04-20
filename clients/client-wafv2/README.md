@@ -282,6 +282,14 @@ CheckCapacity
 </details>
 <details>
 <summary>
+CreateAPIKey
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wafv2/classes/createapikeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wafv2/interfaces/createapikeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wafv2/interfaces/createapikeycommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateIPSet
 </summary>
 
@@ -394,6 +402,14 @@ GenerateMobileSdkReleaseUrl
 </details>
 <details>
 <summary>
+GetDecryptedAPIKey
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wafv2/classes/getdecryptedapikeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wafv2/interfaces/getdecryptedapikeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wafv2/interfaces/getdecryptedapikeycommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetIPSet
 </summary>
 
@@ -478,6 +494,14 @@ GetWebACLForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wafv2/classes/getwebaclforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wafv2/interfaces/getwebaclforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wafv2/interfaces/getwebaclforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAPIKeys
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wafv2/classes/listapikeyscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wafv2/interfaces/listapikeyscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wafv2/interfaces/listapikeyscommandoutput.html)
 
 </details>
 <details>

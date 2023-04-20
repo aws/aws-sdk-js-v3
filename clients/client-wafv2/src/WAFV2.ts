@@ -12,6 +12,11 @@ import {
   CheckCapacityCommandInput,
   CheckCapacityCommandOutput,
 } from "./commands/CheckCapacityCommand";
+import {
+  CreateAPIKeyCommand,
+  CreateAPIKeyCommandInput,
+  CreateAPIKeyCommandOutput,
+} from "./commands/CreateAPIKeyCommand";
 import { CreateIPSetCommand, CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand";
 import {
   CreateRegexPatternSetCommand,
@@ -74,6 +79,11 @@ import {
   GenerateMobileSdkReleaseUrlCommandInput,
   GenerateMobileSdkReleaseUrlCommandOutput,
 } from "./commands/GenerateMobileSdkReleaseUrlCommand";
+import {
+  GetDecryptedAPIKeyCommand,
+  GetDecryptedAPIKeyCommandInput,
+  GetDecryptedAPIKeyCommandOutput,
+} from "./commands/GetDecryptedAPIKeyCommand";
 import { GetIPSetCommand, GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
 import {
   GetLoggingConfigurationCommand,
@@ -121,6 +131,7 @@ import {
   GetWebACLForResourceCommandInput,
   GetWebACLForResourceCommandOutput,
 } from "./commands/GetWebACLForResourceCommand";
+import { ListAPIKeysCommand, ListAPIKeysCommandInput, ListAPIKeysCommandOutput } from "./commands/ListAPIKeysCommand";
 import {
   ListAvailableManagedRuleGroupsCommand,
   ListAvailableManagedRuleGroupsCommandInput,
@@ -215,6 +226,7 @@ import { WAFV2Client, WAFV2ClientConfig } from "./WAFV2Client";
 const commands = {
   AssociateWebACLCommand,
   CheckCapacityCommand,
+  CreateAPIKeyCommand,
   CreateIPSetCommand,
   CreateRegexPatternSetCommand,
   CreateRuleGroupCommand,
@@ -229,6 +241,7 @@ const commands = {
   DescribeManagedRuleGroupCommand,
   DisassociateWebACLCommand,
   GenerateMobileSdkReleaseUrlCommand,
+  GetDecryptedAPIKeyCommand,
   GetIPSetCommand,
   GetLoggingConfigurationCommand,
   GetManagedRuleSetCommand,
@@ -240,6 +253,7 @@ const commands = {
   GetSampledRequestsCommand,
   GetWebACLCommand,
   GetWebACLForResourceCommand,
+  ListAPIKeysCommand,
   ListAvailableManagedRuleGroupsCommand,
   ListAvailableManagedRuleGroupVersionsCommand,
   ListIPSetsCommand,
@@ -287,6 +301,17 @@ export interface WAFV2 {
     args: CheckCapacityCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CheckCapacityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAPIKeyCommand}
+   */
+  createAPIKey(args: CreateAPIKeyCommandInput, options?: __HttpHandlerOptions): Promise<CreateAPIKeyCommandOutput>;
+  createAPIKey(args: CreateAPIKeyCommandInput, cb: (err: any, data?: CreateAPIKeyCommandOutput) => void): void;
+  createAPIKey(
+    args: CreateAPIKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAPIKeyCommandOutput) => void
   ): void;
 
   /**
@@ -498,6 +523,23 @@ export interface WAFV2 {
   ): void;
 
   /**
+   * @see {@link GetDecryptedAPIKeyCommand}
+   */
+  getDecryptedAPIKey(
+    args: GetDecryptedAPIKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDecryptedAPIKeyCommandOutput>;
+  getDecryptedAPIKey(
+    args: GetDecryptedAPIKeyCommandInput,
+    cb: (err: any, data?: GetDecryptedAPIKeyCommandOutput) => void
+  ): void;
+  getDecryptedAPIKey(
+    args: GetDecryptedAPIKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDecryptedAPIKeyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetIPSetCommand}
    */
   getIPSet(args: GetIPSetCommandInput, options?: __HttpHandlerOptions): Promise<GetIPSetCommandOutput>;
@@ -664,6 +706,17 @@ export interface WAFV2 {
     args: GetWebACLForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetWebACLForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAPIKeysCommand}
+   */
+  listAPIKeys(args: ListAPIKeysCommandInput, options?: __HttpHandlerOptions): Promise<ListAPIKeysCommandOutput>;
+  listAPIKeys(args: ListAPIKeysCommandInput, cb: (err: any, data?: ListAPIKeysCommandOutput) => void): void;
+  listAPIKeys(
+    args: ListAPIKeysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAPIKeysCommandOutput) => void
   ): void;
 
   /**

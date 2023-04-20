@@ -51,6 +51,7 @@ import {
 
 import { AssociateWebACLCommandInput, AssociateWebACLCommandOutput } from "./commands/AssociateWebACLCommand";
 import { CheckCapacityCommandInput, CheckCapacityCommandOutput } from "./commands/CheckCapacityCommand";
+import { CreateAPIKeyCommandInput, CreateAPIKeyCommandOutput } from "./commands/CreateAPIKeyCommand";
 import { CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand";
 import {
   CreateRegexPatternSetCommandInput,
@@ -86,6 +87,7 @@ import {
   GenerateMobileSdkReleaseUrlCommandInput,
   GenerateMobileSdkReleaseUrlCommandOutput,
 } from "./commands/GenerateMobileSdkReleaseUrlCommand";
+import { GetDecryptedAPIKeyCommandInput, GetDecryptedAPIKeyCommandOutput } from "./commands/GetDecryptedAPIKeyCommand";
 import { GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
 import {
   GetLoggingConfigurationCommandInput,
@@ -112,6 +114,7 @@ import {
   GetWebACLForResourceCommandInput,
   GetWebACLForResourceCommandOutput,
 } from "./commands/GetWebACLForResourceCommand";
+import { ListAPIKeysCommandInput, ListAPIKeysCommandOutput } from "./commands/ListAPIKeysCommand";
 import {
   ListAvailableManagedRuleGroupsCommandInput,
   ListAvailableManagedRuleGroupsCommandOutput,
@@ -186,6 +189,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 export type ServiceInputTypes =
   | AssociateWebACLCommandInput
   | CheckCapacityCommandInput
+  | CreateAPIKeyCommandInput
   | CreateIPSetCommandInput
   | CreateRegexPatternSetCommandInput
   | CreateRuleGroupCommandInput
@@ -200,6 +204,7 @@ export type ServiceInputTypes =
   | DescribeManagedRuleGroupCommandInput
   | DisassociateWebACLCommandInput
   | GenerateMobileSdkReleaseUrlCommandInput
+  | GetDecryptedAPIKeyCommandInput
   | GetIPSetCommandInput
   | GetLoggingConfigurationCommandInput
   | GetManagedRuleSetCommandInput
@@ -211,6 +216,7 @@ export type ServiceInputTypes =
   | GetSampledRequestsCommandInput
   | GetWebACLCommandInput
   | GetWebACLForResourceCommandInput
+  | ListAPIKeysCommandInput
   | ListAvailableManagedRuleGroupVersionsCommandInput
   | ListAvailableManagedRuleGroupsCommandInput
   | ListIPSetsCommandInput
@@ -239,6 +245,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateWebACLCommandOutput
   | CheckCapacityCommandOutput
+  | CreateAPIKeyCommandOutput
   | CreateIPSetCommandOutput
   | CreateRegexPatternSetCommandOutput
   | CreateRuleGroupCommandOutput
@@ -253,6 +260,7 @@ export type ServiceOutputTypes =
   | DescribeManagedRuleGroupCommandOutput
   | DisassociateWebACLCommandOutput
   | GenerateMobileSdkReleaseUrlCommandOutput
+  | GetDecryptedAPIKeyCommandOutput
   | GetIPSetCommandOutput
   | GetLoggingConfigurationCommandOutput
   | GetManagedRuleSetCommandOutput
@@ -264,6 +272,7 @@ export type ServiceOutputTypes =
   | GetSampledRequestsCommandOutput
   | GetWebACLCommandOutput
   | GetWebACLForResourceCommandOutput
+  | ListAPIKeysCommandOutput
   | ListAvailableManagedRuleGroupVersionsCommandOutput
   | ListAvailableManagedRuleGroupsCommandOutput
   | ListIPSetsCommandOutput

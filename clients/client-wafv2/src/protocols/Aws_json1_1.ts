@@ -22,6 +22,7 @@ import {
 
 import { AssociateWebACLCommandInput, AssociateWebACLCommandOutput } from "../commands/AssociateWebACLCommand";
 import { CheckCapacityCommandInput, CheckCapacityCommandOutput } from "../commands/CheckCapacityCommand";
+import { CreateAPIKeyCommandInput, CreateAPIKeyCommandOutput } from "../commands/CreateAPIKeyCommand";
 import { CreateIPSetCommandInput, CreateIPSetCommandOutput } from "../commands/CreateIPSetCommand";
 import {
   CreateRegexPatternSetCommandInput,
@@ -57,6 +58,7 @@ import {
   GenerateMobileSdkReleaseUrlCommandInput,
   GenerateMobileSdkReleaseUrlCommandOutput,
 } from "../commands/GenerateMobileSdkReleaseUrlCommand";
+import { GetDecryptedAPIKeyCommandInput, GetDecryptedAPIKeyCommandOutput } from "../commands/GetDecryptedAPIKeyCommand";
 import { GetIPSetCommandInput, GetIPSetCommandOutput } from "../commands/GetIPSetCommand";
 import {
   GetLoggingConfigurationCommandInput,
@@ -83,6 +85,7 @@ import {
   GetWebACLForResourceCommandInput,
   GetWebACLForResourceCommandOutput,
 } from "../commands/GetWebACLForResourceCommand";
+import { ListAPIKeysCommandInput, ListAPIKeysCommandOutput } from "../commands/ListAPIKeysCommand";
 import {
   ListAvailableManagedRuleGroupsCommandInput,
   ListAvailableManagedRuleGroupsCommandOutput,
@@ -149,6 +152,7 @@ import {
   AllowAction,
   AllQueryArguments,
   AndStatement,
+  APIKeySummary,
   AssociateWebACLRequest,
   AssociationConfig,
   AWSManagedRulesATPRuleSet,
@@ -166,6 +170,7 @@ import {
   Cookies,
   CountAction,
   CountryCode,
+  CreateAPIKeyRequest,
   CreateIPSetRequest,
   CreateRegexPatternSetRequest,
   CreateRuleGroupRequest,
@@ -192,6 +197,8 @@ import {
   ForwardedIPConfig,
   GenerateMobileSdkReleaseUrlRequest,
   GeoMatchStatement,
+  GetDecryptedAPIKeyRequest,
+  GetDecryptedAPIKeyResponse,
   GetIPSetRequest,
   GetLoggingConfigurationRequest,
   GetManagedRuleSetRequest,
@@ -219,6 +226,8 @@ import {
   Label,
   LabelMatchStatement,
   LabelNameCondition,
+  ListAPIKeysRequest,
+  ListAPIKeysResponse,
   ListAvailableManagedRuleGroupsRequest,
   ListAvailableManagedRuleGroupVersionsRequest,
   ListAvailableManagedRuleGroupVersionsResponse,
@@ -334,6 +343,19 @@ export const se_CheckCapacityCommand = async (
   const headers: __HeaderBag = sharedHeaders("CheckCapacity");
   let body: any;
   body = JSON.stringify(se_CheckCapacityRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateAPIKeyCommand
+ */
+export const se_CreateAPIKeyCommand = async (
+  input: CreateAPIKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateAPIKey");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -520,6 +542,19 @@ export const se_GenerateMobileSdkReleaseUrlCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetDecryptedAPIKeyCommand
+ */
+export const se_GetDecryptedAPIKeyCommand = async (
+  input: GetDecryptedAPIKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetDecryptedAPIKey");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetIPSetCommand
  */
 export const se_GetIPSetCommand = async (
@@ -657,6 +692,19 @@ export const se_GetWebACLForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetWebACLForResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListAPIKeysCommand
+ */
+export const se_ListAPIKeysCommand = async (
+  input: ListAPIKeysCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListAPIKeys");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1053,6 +1101,61 @@ const de_CheckCapacityCommandError = async (
     case "WAFUnavailableEntityException":
     case "com.amazonaws.wafv2#WAFUnavailableEntityException":
       throw await de_WAFUnavailableEntityExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateAPIKeyCommand
+ */
+export const de_CreateAPIKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAPIKeyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateAPIKeyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateAPIKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateAPIKeyCommandError
+ */
+const de_CreateAPIKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAPIKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
+      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
+    case "WAFInvalidOperationException":
+    case "com.amazonaws.wafv2#WAFInvalidOperationException":
+      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
+    case "WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
+      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
+    case "WAFLimitsExceededException":
+    case "com.amazonaws.wafv2#WAFLimitsExceededException":
+      throw await de_WAFLimitsExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1966,6 +2069,61 @@ const de_GenerateMobileSdkReleaseUrlCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1GetDecryptedAPIKeyCommand
+ */
+export const de_GetDecryptedAPIKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDecryptedAPIKeyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetDecryptedAPIKeyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetDecryptedAPIKeyResponse(data, context);
+  const response: GetDecryptedAPIKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetDecryptedAPIKeyCommandError
+ */
+const de_GetDecryptedAPIKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDecryptedAPIKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
+      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
+    case "WAFInvalidOperationException":
+    case "com.amazonaws.wafv2#WAFInvalidOperationException":
+      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
+    case "WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
+      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
+    case "WAFInvalidResourceException":
+    case "com.amazonaws.wafv2#WAFInvalidResourceException":
+      throw await de_WAFInvalidResourceExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1GetIPSetCommand
  */
 export const de_GetIPSetCommand = async (
@@ -2557,6 +2715,61 @@ const de_GetWebACLForResourceCommandError = async (
     case "WAFUnavailableEntityException":
     case "com.amazonaws.wafv2#WAFUnavailableEntityException":
       throw await de_WAFUnavailableEntityExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListAPIKeysCommand
+ */
+export const de_ListAPIKeysCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAPIKeysCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListAPIKeysCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAPIKeysResponse(data, context);
+  const response: ListAPIKeysCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAPIKeysCommandError
+ */
+const de_ListAPIKeysCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAPIKeysCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
+      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
+    case "WAFInvalidOperationException":
+    case "com.amazonaws.wafv2#WAFInvalidOperationException":
+      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
+    case "WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
+      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
+    case "WAFInvalidResourceException":
+    case "com.amazonaws.wafv2#WAFInvalidResourceException":
+      throw await de_WAFInvalidResourceExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4102,6 +4315,8 @@ const se_AndStatement = (input: AndStatement, context: __SerdeContext): any => {
   });
 };
 
+// se_APIKeyTokenDomains omitted.
+
 // se_AssociateWebACLRequest omitted.
 
 // se_AssociationConfig omitted.
@@ -4157,6 +4372,8 @@ const se_CheckCapacityRequest = (input: CheckCapacityRequest, context: __SerdeCo
 // se_CountAction omitted.
 
 // se_CountryCodes omitted.
+
+// se_CreateAPIKeyRequest omitted.
 
 // se_CreateIPSetRequest omitted.
 
@@ -4246,6 +4463,8 @@ const se_CreateWebACLRequest = (input: CreateWebACLRequest, context: __SerdeCont
 
 // se_GeoMatchStatement omitted.
 
+// se_GetDecryptedAPIKeyRequest omitted.
+
 // se_GetIPSetRequest omitted.
 
 // se_GetLoggingConfigurationRequest omitted.
@@ -4306,6 +4525,8 @@ const se_GetSampledRequestsRequest = (input: GetSampledRequestsRequest, context:
 // se_LabelNameCondition omitted.
 
 // se_Labels omitted.
+
+// se_ListAPIKeysRequest omitted.
 
 // se_ListAvailableManagedRuleGroupsRequest omitted.
 
@@ -4633,6 +4854,30 @@ const de_AndStatement = (output: any, context: __SerdeContext): AndStatement => 
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_1APIKeySummaries
+ */
+const de_APIKeySummaries = (output: any, context: __SerdeContext): APIKeySummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_APIKeySummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1APIKeySummary
+ */
+const de_APIKeySummary = (output: any, context: __SerdeContext): APIKeySummary => {
+  return take(output, {
+    APIKey: __expectString,
+    CreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TokenDomains: _json,
+    Version: __expectInt32,
+  }) as any;
+};
+
 // de_AssociateWebACLResponse omitted.
 
 // de_AssociationConfig omitted.
@@ -4684,6 +4929,8 @@ const de_ByteMatchStatement = (output: any, context: __SerdeContext): ByteMatchS
 // de_CountAction omitted.
 
 // de_CountryCodes omitted.
+
+// de_CreateAPIKeyResponse omitted.
 
 // de_CreateIPSetResponse omitted.
 
@@ -4775,6 +5022,16 @@ const de_FirewallManagerStatement = (output: any, context: __SerdeContext): Fire
 // de_GenerateMobileSdkReleaseUrlResponse omitted.
 
 // de_GeoMatchStatement omitted.
+
+/**
+ * deserializeAws_json1_1GetDecryptedAPIKeyResponse
+ */
+const de_GetDecryptedAPIKeyResponse = (output: any, context: __SerdeContext): GetDecryptedAPIKeyResponse => {
+  return take(output, {
+    CreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TokenDomains: _json,
+  }) as any;
+};
 
 // de_GetIPSetResponse omitted.
 
@@ -4889,6 +5146,17 @@ const de_GetWebACLResponse = (output: any, context: __SerdeContext): GetWebACLRe
 // de_LabelSummaries omitted.
 
 // de_LabelSummary omitted.
+
+/**
+ * deserializeAws_json1_1ListAPIKeysResponse
+ */
+const de_ListAPIKeysResponse = (output: any, context: __SerdeContext): ListAPIKeysResponse => {
+  return take(output, {
+    APIKeySummaries: (_: any) => de_APIKeySummaries(_, context),
+    ApplicationIntegrationURL: __expectString,
+    NextMarker: __expectString,
+  }) as any;
+};
 
 // de_ListAvailableManagedRuleGroupsResponse omitted.
 

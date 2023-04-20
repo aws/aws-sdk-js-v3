@@ -2292,6 +2292,33 @@ export interface XssMatchStatement {
 
 /**
  * @public
+ * <p>Information for a single API key. </p>
+ */
+export interface APIKeySummary {
+  /**
+   * <p>The token domains that are defined in this API key. </p>
+   */
+  TokenDomains?: string[];
+
+  /**
+   * <p>The generated, encrypted API key. You can copy this for use in your JavaScript CAPTCHA integration.  </p>
+   *          <p>For information about how to use this in your CAPTCHA JavaScript integration, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>
+   */
+  APIKey?: string;
+
+  /**
+   * <p>The date and time that the key was created. </p>
+   */
+  CreationTimestamp?: Date;
+
+  /**
+   * <p>Internal value used by WAF to manage the key. </p>
+   */
+  Version?: number;
+}
+
+/**
+ * @public
  * @enum
  */
 export const AssociatedResourceType = {
@@ -2867,6 +2894,41 @@ export class WAFSubscriptionNotFoundException extends __BaseException {
     Object.setPrototypeOf(this, WAFSubscriptionNotFoundException.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * @public
+ */
+export interface CreateAPIKeyRequest {
+  /**
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
+   *             </li>
+   *          </ul>
+   */
+  Scope: Scope | string | undefined;
+
+  /**
+   * <p>The client application domains that you want to use this API key for.  </p>
+   */
+  TokenDomains: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAPIKeyResponse {
+  /**
+   * <p>The generated, encrypted API key. You can copy this for use in your JavaScript CAPTCHA integration.  </p>
+   *          <p>For information about how to use this in your CAPTCHA JavaScript integration, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>
+   */
+  APIKey?: string;
 }
 
 /**
@@ -3841,6 +3903,45 @@ export interface GenerateMobileSdkReleaseUrlResponse {
    * <p>The presigned download URL for the specified SDK release.</p>
    */
   Url?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetDecryptedAPIKeyRequest {
+  /**
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
+   *             </li>
+   *          </ul>
+   */
+  Scope: Scope | string | undefined;
+
+  /**
+   * <p>The encrypted API key. </p>
+   */
+  APIKey: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDecryptedAPIKeyResponse {
+  /**
+   * <p>The token domains that are defined in this API key. </p>
+   */
+  TokenDomains?: string[];
+
+  /**
+   * <p>The date and time that the key was created. </p>
+   */
+  CreationTimestamp?: Date;
 }
 
 /**
@@ -4974,6 +5075,62 @@ export interface GetWebACLForResourceRequest {
 /**
  * @public
  */
+export interface ListAPIKeysRequest {
+  /**
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
+   *          <ul>
+   *             <li>
+   *                <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p>
+   *             </li>
+   *          </ul>
+   */
+  Scope: Scope | string | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the limit, WAF returns a <code>NextMarker</code>
+   *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
+   */
+  NextMarker?: string;
+
+  /**
+   * <p>The maximum number of objects that you want WAF to return for this request. If more
+   *           objects are available, in the response, WAF provides a
+   *          <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   */
+  Limit?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListAPIKeysResponse {
+  /**
+   * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the limit, WAF returns a <code>NextMarker</code>
+   *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
+   */
+  NextMarker?: string;
+
+  /**
+   * <p>The array of key summaries. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
+   */
+  APIKeySummaries?: APIKeySummary[];
+
+  /**
+   * <p>The CAPTCHA application integration URL, for use in your JavaScript implementation. </p>
+   *          <p>For information about how to use this in your CAPTCHA JavaScript integration, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>
+   */
+  ApplicationIntegrationURL?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListAvailableManagedRuleGroupsRequest {
   /**
    * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
@@ -5043,7 +5200,7 @@ export interface ListAvailableManagedRuleGroupsResponse {
   NextMarker?: string;
 
   /**
-   * <p></p>
+   * <p>Array of managed rule groups that you can use. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    */
   ManagedRuleGroups?: ManagedRuleGroupSummary[];
 }
@@ -5120,7 +5277,7 @@ export interface ListAvailableManagedRuleGroupVersionsResponse {
   NextMarker?: string;
 
   /**
-   * <p>The versions that are currently available for the specified managed rule group. </p>
+   * <p>The versions that are currently available for the specified managed rule group. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    */
   Versions?: ManagedRuleGroupVersion[];
 
@@ -5175,8 +5332,7 @@ export interface ListIPSetsResponse {
   NextMarker?: string;
 
   /**
-   * <p>Array of IPSets. This may not be the full list of IPSets that you have defined. See the
-   *             <code>Limit</code> specification for this request.</p>
+   * <p>Array of IPSets. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    */
   IPSets?: IPSetSummary[];
 }
@@ -5219,7 +5375,7 @@ export interface ListLoggingConfigurationsRequest {
  */
 export interface ListLoggingConfigurationsResponse {
   /**
-   * <p></p>
+   * <p>Array of logging configurations. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    */
   LoggingConfigurations?: LoggingConfiguration[];
 
@@ -5330,7 +5486,7 @@ export interface ListManagedRuleSetsResponse {
   NextMarker?: string;
 
   /**
-   * <p>Your managed rule sets. </p>
+   * <p>Your managed rule sets. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    */
   ManagedRuleSets?: ManagedRuleSetSummary[];
 }
@@ -5380,7 +5536,7 @@ export interface ReleaseSummary {
  */
 export interface ListMobileSdkReleasesResponse {
   /**
-   * <p>High level information for the available SDK releases. </p>
+   * <p>The high level information for the available SDK releases. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    */
   ReleaseSummaries?: ReleaseSummary[];
 
@@ -5437,7 +5593,7 @@ export interface ListRegexPatternSetsResponse {
   NextMarker?: string;
 
   /**
-   * <p></p>
+   * <p>Array of regex pattern sets. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    */
   RegexPatternSets?: RegexPatternSetSummary[];
 }
@@ -5535,7 +5691,7 @@ export interface ListRuleGroupsResponse {
   NextMarker?: string;
 
   /**
-   * <p></p>
+   * <p>Array of rule groups. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    */
   RuleGroups?: RuleGroupSummary[];
 }
@@ -5601,7 +5757,7 @@ export interface ListTagsForResourceResponse {
   NextMarker?: string;
 
   /**
-   * <p>The collection of tagging definitions for the resource. </p>
+   * <p>The collection of tagging definitions for the resource. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    */
   TagInfoForResource?: TagInfoForResource;
 }
@@ -5651,7 +5807,7 @@ export interface ListWebACLsResponse {
   NextMarker?: string;
 
   /**
-   * <p></p>
+   * <p>Array of web ACLs. If you specified a <code>Limit</code> in your request, this might not be the full list. </p>
    */
   WebACLs?: WebACLSummary[];
 }
