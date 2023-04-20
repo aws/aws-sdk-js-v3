@@ -58,7 +58,7 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  *   Country: "STRING_VALUE",
  *   State: "STRING_VALUE",
  *   TollFreePrefix: "STRING_VALUE",
- *   PhoneNumberType: "STRING_VALUE",
+ *   PhoneNumberType: "Local" || "TollFree",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

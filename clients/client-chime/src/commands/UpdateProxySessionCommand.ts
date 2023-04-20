@@ -47,7 +47,7 @@ export interface UpdateProxySessionCommandOutput extends UpdateProxySessionRespo
  *   VoiceConnectorId: "STRING_VALUE", // required
  *   ProxySessionId: "STRING_VALUE", // required
  *   Capabilities: [ // CapabilityList // required
- *     "STRING_VALUE",
+ *     "Voice" || "SMS",
  *   ],
  *   ExpiryMinutes: Number("int"),
  * };

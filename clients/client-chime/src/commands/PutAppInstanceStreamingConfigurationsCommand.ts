@@ -54,7 +54,7 @@ export interface PutAppInstanceStreamingConfigurationsCommandOutput
  *   AppInstanceArn: "STRING_VALUE", // required
  *   AppInstanceStreamingConfigurations: [ // AppInstanceStreamingConfigurationList // required
  *     { // AppInstanceStreamingConfiguration
- *       AppInstanceDataType: "STRING_VALUE", // required
+ *       AppInstanceDataType: "Channel" || "ChannelMessage", // required
  *       ResourceArn: "STRING_VALUE", // required
  *     },
  *   ],

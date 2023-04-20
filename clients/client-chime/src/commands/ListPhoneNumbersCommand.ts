@@ -44,9 +44,9 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
  * // const { ChimeClient, ListPhoneNumbersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // ListPhoneNumbersRequest
- *   Status: "STRING_VALUE",
- *   ProductType: "STRING_VALUE",
- *   FilterName: "STRING_VALUE",
+ *   Status: "AcquireInProgress" || "AcquireFailed" || "Unassigned" || "Assigned" || "ReleaseInProgress" || "DeleteInProgress" || "ReleaseFailed" || "DeleteFailed",
+ *   ProductType: "BusinessCalling" || "VoiceConnector" || "SipMediaApplicationDialIn",
+ *   FilterName: "AccountId" || "UserId" || "VoiceConnectorId" || "VoiceConnectorGroupId" || "SipRuleId",
  *   FilterValue: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

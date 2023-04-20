@@ -49,7 +49,7 @@ export interface BatchUpdatePhoneNumberCommandOutput extends BatchUpdatePhoneNum
  *   UpdatePhoneNumberRequestItems: [ // UpdatePhoneNumberRequestItemList // required
  *     { // UpdatePhoneNumberRequestItem
  *       PhoneNumberId: "STRING_VALUE", // required
- *       ProductType: "STRING_VALUE",
+ *       ProductType: "BusinessCalling" || "VoiceConnector" || "SipMediaApplicationDialIn",
  *       CallingName: "STRING_VALUE",
  *     },
  *   ],

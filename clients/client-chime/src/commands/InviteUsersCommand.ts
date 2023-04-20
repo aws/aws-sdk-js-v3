@@ -51,7 +51,7 @@ export interface InviteUsersCommandOutput extends InviteUsersResponse, __Metadat
  *   UserEmailList: [ // UserEmailList // required
  *     "STRING_VALUE",
  *   ],
- *   UserType: "STRING_VALUE",
+ *   UserType: "PrivateUser" || "SharedDevice",
  * };
  * const command = new InviteUsersCommand(input);
  * const response = await client.send(command);

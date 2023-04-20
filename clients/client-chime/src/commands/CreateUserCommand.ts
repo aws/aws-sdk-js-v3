@@ -48,7 +48,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *   AccountId: "STRING_VALUE", // required
  *   Username: "STRING_VALUE",
  *   Email: "STRING_VALUE",
- *   UserType: "STRING_VALUE",
+ *   UserType: "PrivateUser" || "SharedDevice",
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);

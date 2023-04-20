@@ -39,9 +39,9 @@ export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __M
  * @public
  * <p>
  * Creates a new attendee for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
- * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
+ * <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
  * in the
- * <i>Amazon Chime Developer Guide</i>.
+ * <i>Amazon Chime SDK Developer Guide</i>.
  * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

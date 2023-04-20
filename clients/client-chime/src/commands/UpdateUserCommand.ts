@@ -47,8 +47,8 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * const input = { // UpdateUserRequest
  *   AccountId: "STRING_VALUE", // required
  *   UserId: "STRING_VALUE", // required
- *   LicenseType: "STRING_VALUE",
- *   UserType: "STRING_VALUE",
+ *   LicenseType: "Basic" || "Plus" || "Pro" || "ProTrial",
+ *   UserType: "PrivateUser" || "SharedDevice",
  *   AlexaForBusinessMetadata: { // AlexaForBusinessMetadata
  *     IsAlexaForBusinessEnabled: true || false,
  *     AlexaForBusinessRoomArn: "STRING_VALUE",

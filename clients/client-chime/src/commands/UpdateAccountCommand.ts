@@ -42,7 +42,7 @@ export interface UpdateAccountCommandOutput extends UpdateAccountResponse, __Met
  * const input = { // UpdateAccountRequest
  *   AccountId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
- *   DefaultLicense: "STRING_VALUE",
+ *   DefaultLicense: "Basic" || "Plus" || "Pro" || "ProTrial",
  * };
  * const command = new UpdateAccountCommand(input);
  * const response = await client.send(command);

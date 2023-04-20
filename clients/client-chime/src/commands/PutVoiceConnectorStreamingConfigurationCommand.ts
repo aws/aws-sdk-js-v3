@@ -57,7 +57,7 @@ export interface PutVoiceConnectorStreamingConfigurationCommandOutput
  *     Disabled: true || false,
  *     StreamingNotificationTargets: [ // StreamingNotificationTargetList
  *       { // StreamingNotificationTarget
- *         NotificationTarget: "STRING_VALUE", // required
+ *         NotificationTarget: "EventBridge" || "SNS" || "SQS", // required
  *       },
  *     ],
  *   },

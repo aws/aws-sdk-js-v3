@@ -391,12 +391,12 @@ export interface GetVoiceConnectorLoggingConfigurationRequest {
  */
 export interface LoggingConfiguration {
   /**
-   * <p>When true, enables SIP message logs for sending to Amazon CloudWatch Logs.</p>
+   * <p>Boolean that enables SIP message logs to Amazon CloudWatch logs.</p>
    */
   EnableSIPLogs?: boolean;
 
   /**
-   * <p>Boolean that enables the logging of Voice Connector metrics to Cloudwatch.</p>
+   * <p>Boolean that enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.</p>
    */
   EnableMediaMetricLogs?: boolean;
 }
@@ -1142,7 +1142,7 @@ export interface ListChannelMembershipsForAppInstanceUserRequest {
  */
 export interface ListChannelMembershipsForAppInstanceUserResponse {
   /**
-   * <p>The token passed by previous API calls until all requested users are returned.</p>
+   * <p>The information for the requested channel memberships.</p>
    */
   ChannelMemberships?: ChannelMembershipForAppInstanceUserSummary[];
 
@@ -1995,7 +1995,8 @@ export interface PutEventsConfigurationRequest {
  */
 export interface PutEventsConfigurationResponse {
   /**
-   * <p>The configuration that allows a bot to receive outgoing events. Can be either an HTTPS endpoint or a Lambda function ARN.</p>
+   * <p>The configuration that allows a bot to receive outgoing events. Can be an HTTPS endpoint or an
+   *             AWS Lambda function ARN.</p>
    */
   EventsConfiguration?: EventsConfiguration;
 }
@@ -2050,7 +2051,7 @@ export interface PutSipMediaApplicationLoggingConfigurationRequest {
  */
 export interface PutSipMediaApplicationLoggingConfigurationResponse {
   /**
-   * <p>Logging configuration of the SIP media application.</p>
+   * <p>The logging configuration of the SIP media application.</p>
    */
   SipMediaApplicationLoggingConfiguration?: SipMediaApplicationLoggingConfiguration;
 }
@@ -2340,7 +2341,7 @@ export interface RegenerateSecurityTokenRequest {
  */
 export interface RegenerateSecurityTokenResponse {
   /**
-   * <p>A resource that allows Enterprise account administrators to configure an interface to receive events from Amazon Chime.</p>
+   * <p>A resource that allows Enterprise account administrators to configure an interface that receives events from Amazon Chime.</p>
    */
   Bot?: Bot;
 }

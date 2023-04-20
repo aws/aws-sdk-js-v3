@@ -33,7 +33,6 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
 /**
  * @public
  * <p>Creates an Amazon Chime Voice Connector under the administrator's AWS account. You can choose to create an Amazon Chime Voice Connector in a specific AWS Region.</p>
- *
  *          <p>
  * Enabling
  * <a>CreateVoiceConnectorRequest$RequireEncryption</a>
@@ -47,7 +46,7 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
  * const client = new ChimeClient(config);
  * const input = { // CreateVoiceConnectorRequest
  *   Name: "STRING_VALUE", // required
- *   AwsRegion: "STRING_VALUE",
+ *   AwsRegion: "us-east-1" || "us-west-2",
  *   RequireEncryption: true || false, // required
  * };
  * const command = new CreateVoiceConnectorCommand(input);

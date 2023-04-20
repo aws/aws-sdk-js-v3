@@ -48,8 +48,8 @@ export interface BatchUpdateUserCommandOutput extends BatchUpdateUserResponse, _
  *   UpdateUserRequestItems: [ // UpdateUserRequestItemList // required
  *     { // UpdateUserRequestItem
  *       UserId: "STRING_VALUE", // required
- *       LicenseType: "STRING_VALUE",
- *       UserType: "STRING_VALUE",
+ *       LicenseType: "Basic" || "Plus" || "Pro" || "ProTrial",
+ *       UserType: "PrivateUser" || "SharedDevice",
  *       AlexaForBusinessMetadata: { // AlexaForBusinessMetadata
  *         IsAlexaForBusinessEnabled: true || false,
  *         AlexaForBusinessRoomArn: "STRING_VALUE",

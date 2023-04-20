@@ -48,7 +48,7 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * const client = new ChimeClient(config);
  * const input = { // UpdatePhoneNumberRequest
  *   PhoneNumberId: "STRING_VALUE", // required
- *   ProductType: "STRING_VALUE",
+ *   ProductType: "BusinessCalling" || "VoiceConnector" || "SipMediaApplicationDialIn",
  *   CallingName: "STRING_VALUE",
  * };
  * const command = new UpdatePhoneNumberCommand(input);

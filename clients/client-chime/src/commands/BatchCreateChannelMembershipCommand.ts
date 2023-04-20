@@ -50,7 +50,7 @@ export interface BatchCreateChannelMembershipCommandOutput
  * const client = new ChimeClient(config);
  * const input = { // BatchCreateChannelMembershipRequest
  *   ChannelArn: "STRING_VALUE", // required
- *   Type: "STRING_VALUE",
+ *   Type: "DEFAULT" || "HIDDEN",
  *   MemberArns: [ // MemberArns // required
  *     "STRING_VALUE",
  *   ],

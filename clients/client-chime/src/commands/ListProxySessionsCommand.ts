@@ -45,7 +45,7 @@ export interface ListProxySessionsCommandOutput extends ListProxySessionsRespons
  * const client = new ChimeClient(config);
  * const input = { // ListProxySessionsRequest
  *   VoiceConnectorId: "STRING_VALUE", // required
- *   Status: "STRING_VALUE",
+ *   Status: "Open" || "InProgress" || "Closed",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };

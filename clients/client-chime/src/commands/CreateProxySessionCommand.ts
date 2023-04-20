@@ -52,10 +52,10 @@ export interface CreateProxySessionCommandOutput extends CreateProxySessionRespo
  *   Name: "STRING_VALUE",
  *   ExpiryMinutes: Number("int"),
  *   Capabilities: [ // CapabilityList // required
- *     "STRING_VALUE",
+ *     "Voice" || "SMS",
  *   ],
- *   NumberSelectionBehavior: "STRING_VALUE",
- *   GeoMatchLevel: "STRING_VALUE",
+ *   NumberSelectionBehavior: "PreferSticky" || "AvoidSticky",
+ *   GeoMatchLevel: "Country" || "AreaCode",
  *   GeoMatchParams: { // GeoMatchParams
  *     Country: "STRING_VALUE", // required
  *     AreaCode: "STRING_VALUE", // required

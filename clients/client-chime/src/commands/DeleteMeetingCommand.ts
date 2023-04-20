@@ -34,8 +34,8 @@ export interface DeleteMeetingCommandOutput extends __MetadataBearer {}
  * @public
  * <p>Deletes the specified Amazon Chime SDK meeting. The operation deletes all attendees, disconnects all clients, and prevents new clients from
  *     joining the meeting. For more information about the Amazon Chime SDK, see
- *     <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the
- *     <i>Amazon Chime Developer Guide</i>.</p>
+ *     <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the
+ *     <i>Amazon Chime SDK Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

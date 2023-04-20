@@ -47,7 +47,7 @@ export interface CreateRoomMembershipCommandOutput extends CreateRoomMembershipR
  *   AccountId: "STRING_VALUE", // required
  *   RoomId: "STRING_VALUE", // required
  *   MemberId: "STRING_VALUE", // required
- *   Role: "STRING_VALUE",
+ *   Role: "Administrator" || "Member",
  * };
  * const command = new CreateRoomMembershipCommand(input);
  * const response = await client.send(command);

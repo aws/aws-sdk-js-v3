@@ -38,9 +38,7 @@ export interface ListChannelMembershipsCommandOutput extends ListChannelMembersh
 /**
  * @public
  * <p>Lists all channel memberships in a channel.</p>
- *
  *          <note>
- *
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
  *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
  *             the header.</p>
@@ -53,7 +51,7 @@ export interface ListChannelMembershipsCommandOutput extends ListChannelMembersh
  * const client = new ChimeClient(config);
  * const input = { // ListChannelMembershipsRequest
  *   ChannelArn: "STRING_VALUE", // required
- *   Type: "STRING_VALUE",
+ *   Type: "DEFAULT" || "HIDDEN",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   ChimeBearer: "STRING_VALUE",

@@ -39,7 +39,6 @@ export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserRespo
  *         Managing Your Amazon Chime Accounts
  *     </a> in the account types, in the <i>Amazon Chime Administration Guide</i>.
  * </p>
- *
  *          <p>
  * Previously suspended users who are unsuspended using this action are returned to
  * <code>Registered</code>

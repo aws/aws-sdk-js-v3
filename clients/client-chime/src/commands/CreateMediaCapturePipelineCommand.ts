@@ -45,9 +45,9 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  * // const { ChimeClient, CreateMediaCapturePipelineCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // CreateMediaCapturePipelineRequest
- *   SourceType: "STRING_VALUE", // required
+ *   SourceType: "ChimeSdkMeeting", // required
  *   SourceArn: "STRING_VALUE", // required
- *   SinkType: "STRING_VALUE", // required
+ *   SinkType: "S3Bucket", // required
  *   SinkArn: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE",
  *   ChimeSdkMeetingConfiguration: { // ChimeSdkMeetingConfiguration
@@ -63,15 +63,15 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  *     },
  *     ArtifactsConfiguration: { // ArtifactsConfiguration
  *       Audio: { // AudioArtifactsConfiguration
- *         MuxType: "STRING_VALUE", // required
+ *         MuxType: "AudioOnly" || "AudioWithActiveSpeakerVideo", // required
  *       },
  *       Video: { // VideoArtifactsConfiguration
- *         State: "STRING_VALUE", // required
- *         MuxType: "STRING_VALUE",
+ *         State: "Enabled" || "Disabled", // required
+ *         MuxType: "VideoOnly",
  *       },
  *       Content: { // ContentArtifactsConfiguration
- *         State: "STRING_VALUE", // required
- *         MuxType: "STRING_VALUE",
+ *         State: "Enabled" || "Disabled", // required
+ *         MuxType: "ContentOnly",
  *       },
  *     },
  *   },

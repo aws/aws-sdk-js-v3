@@ -35,7 +35,6 @@ export interface DeletePhoneNumberCommandOutput extends __MetadataBearer {}
  * <p>Moves the specified phone number into the <b>Deletion queue</b>. A
  *             phone number must be disassociated from any users or Amazon Chime Voice Connectors
  *             before it can be deleted.</p>
- *
  *          <p>Deleted phone numbers remain in the
  * <b>Deletion queue</b>
  * for 7 days before they are deleted permanently.</p>

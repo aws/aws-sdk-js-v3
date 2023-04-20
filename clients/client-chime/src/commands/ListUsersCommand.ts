@@ -48,7 +48,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * const input = { // ListUsersRequest
  *   AccountId: "STRING_VALUE", // required
  *   UserEmail: "STRING_VALUE",
- *   UserType: "STRING_VALUE",
+ *   UserType: "PrivateUser" || "SharedDevice",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

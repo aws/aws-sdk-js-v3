@@ -45,7 +45,7 @@ export interface BatchCreateRoomMembershipCommandOutput extends BatchCreateRoomM
  *   MembershipItemList: [ // MembershipItemList // required
  *     { // MembershipItem
  *       MemberId: "STRING_VALUE",
- *       Role: "STRING_VALUE",
+ *       Role: "Administrator" || "Member",
  *     },
  *   ],
  * };

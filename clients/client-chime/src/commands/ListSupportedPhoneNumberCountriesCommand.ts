@@ -48,7 +48,7 @@ export interface ListSupportedPhoneNumberCountriesCommandOutput
  * // const { ChimeClient, ListSupportedPhoneNumberCountriesCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const input = { // ListSupportedPhoneNumberCountriesRequest
- *   ProductType: "STRING_VALUE", // required
+ *   ProductType: "BusinessCalling" || "VoiceConnector" || "SipMediaApplicationDialIn", // required
  * };
  * const command = new ListSupportedPhoneNumberCountriesCommand(input);
  * const response = await client.send(command);

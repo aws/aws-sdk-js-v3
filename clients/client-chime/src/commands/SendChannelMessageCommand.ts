@@ -37,12 +37,10 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
 /**
  * @public
  * <p>Sends a message to a particular channel that the member is a part of.</p>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
  *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
  *             the header.</p>
- *
  *             <p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata.
  *                <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p>
  *          </note>
@@ -55,8 +53,8 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  * const input = { // SendChannelMessageRequest
  *   ChannelArn: "STRING_VALUE", // required
  *   Content: "STRING_VALUE", // required
- *   Type: "STRING_VALUE", // required
- *   Persistence: "STRING_VALUE", // required
+ *   Type: "STANDARD" || "CONTROL", // required
+ *   Persistence: "PERSISTENT" || "NON_PERSISTENT", // required
  *   Metadata: "STRING_VALUE",
  *   ClientRequestToken: "STRING_VALUE", // required
  *   ChimeBearer: "STRING_VALUE",

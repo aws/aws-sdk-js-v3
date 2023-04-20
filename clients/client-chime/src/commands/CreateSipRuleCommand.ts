@@ -41,7 +41,7 @@ export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __Met
  * const client = new ChimeClient(config);
  * const input = { // CreateSipRuleRequest
  *   Name: "STRING_VALUE", // required
- *   TriggerType: "STRING_VALUE", // required
+ *   TriggerType: "ToPhoneNumber" || "RequestUriHostname", // required
  *   TriggerValue: "STRING_VALUE", // required
  *   Disabled: true || false,
  *   TargetApplications: [ // SipRuleTargetApplicationList // required

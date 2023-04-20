@@ -38,7 +38,6 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
  * @public
  * <p>Adds a user to a channel. The <code>InvitedBy</code> response field is derived from the
  *          request header. A channel member can:</p>
- *
  *          <ul>
  *             <li>
  *                <p>List messages</p>
@@ -56,9 +55,7 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
  *                <p>Leave the channel</p>
  *             </li>
  *          </ul>
- *
  *          <p>Privacy settings impact this action as follows:</p>
- *
  *          <ul>
  *             <li>
  *                <p>Public Channels: You do not need to be a member to list messages, but you must be
@@ -68,7 +65,6 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
  *                <p>Private Channels: You must be a member to list or send messages.</p>
  *             </li>
  *          </ul>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
  *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
@@ -83,7 +79,7 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
  * const input = { // CreateChannelMembershipRequest
  *   ChannelArn: "STRING_VALUE", // required
  *   MemberArn: "STRING_VALUE", // required
- *   Type: "STRING_VALUE", // required
+ *   Type: "DEFAULT" || "HIDDEN", // required
  *   ChimeBearer: "STRING_VALUE",
  * };
  * const command = new CreateChannelMembershipCommand(input);

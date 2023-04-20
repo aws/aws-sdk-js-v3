@@ -53,7 +53,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * const input = { // UpdateChannelRequest
  *   ChannelArn: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
- *   Mode: "STRING_VALUE", // required
+ *   Mode: "UNRESTRICTED" || "RESTRICTED", // required
  *   Metadata: "STRING_VALUE",
  *   ChimeBearer: "STRING_VALUE",
  * };

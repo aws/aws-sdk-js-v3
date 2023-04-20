@@ -56,7 +56,7 @@ export interface ListChannelMessagesCommandOutput extends ListChannelMessagesRes
  * const client = new ChimeClient(config);
  * const input = { // ListChannelMessagesRequest
  *   ChannelArn: "STRING_VALUE", // required
- *   SortOrder: "STRING_VALUE",
+ *   SortOrder: "ASCENDING" || "DESCENDING",
  *   NotBefore: new Date("TIMESTAMP"),
  *   NotAfter: new Date("TIMESTAMP"),
  *   MaxResults: Number("int"),
