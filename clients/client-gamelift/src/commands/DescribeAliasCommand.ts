@@ -34,13 +34,13 @@ export interface DescribeAliasCommandOutput extends DescribeAliasOutput, __Metad
  * @public
  * <p>Retrieves properties for an alias. This operation returns all alias metadata and
  *             settings. To get an alias's target fleet ID only, use <code>ResolveAlias</code>. </p>
- *         <p>To get alias properties, specify the alias ID. If successful, the requested alias
+ *          <p>To get alias properties, specify the alias ID. If successful, the requested alias
  *             record is returned.</p>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

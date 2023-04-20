@@ -33,7 +33,7 @@ export interface ResumeGameServerGroupCommandOutput extends ResumeGameServerGrou
 /**
  * @public
  * <p>
- *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Reinstates activity on a game
  *             server group after it has been suspended. A game server group might be suspended by the
@@ -42,16 +42,16 @@ export interface ResumeGameServerGroupCommandOutput extends ResumeGameServerGrou
  *             the group once the configuration problem has been resolved. Refer to the game server
  *             group status and status reason for more information on why group activity is
  *             suspended.</p>
- *         <p>To resume activity, specify a game server group ARN and the type of activity to be
+ *          <p>To resume activity, specify a game server group ARN and the type of activity to be
  *             resumed. If successful, a <code>GameServerGroup</code> object is returned showing that
  *             the resumed activity is no longer listed in <code>SuspendedActions</code>. </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
  *                 Guide</a>
- *         </p>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

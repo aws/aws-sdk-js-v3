@@ -33,19 +33,19 @@ export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __Met
 /**
  * @public
  * <p>Retrieves properties for a Realtime script. </p>
- *         <p>To request a script record, specify the script ID. If successful, an object containing
+ *          <p>To request a script record, specify the script ID. If successful, an object containing
  *             the script properties is returned.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
- *         </p>
+ *          </p>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -33,9 +33,9 @@ export interface DeleteScalingPolicyCommandOutput extends __MetadataBearer {}
 /**
  * @public
  * <p>Deletes a fleet scaling policy. Once deleted, the policy is no longer in force and
- *             GameLift removes all record of it. To delete a scaling policy, specify both the scaling
+ *             Amazon GameLift removes all record of it. To delete a scaling policy, specify both the scaling
  *             policy name and the fleet ID it is associated with.</p>
- *         <p>To temporarily suspend scaling policies, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">StopFleetActions</a>. This operation suspends all policies for the
+ *          <p>To temporarily suspend scaling policies, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">StopFleetActions</a>. This operation suspends all policies for the
  *             fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

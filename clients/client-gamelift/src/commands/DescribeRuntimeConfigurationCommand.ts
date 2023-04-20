@@ -38,20 +38,20 @@ export interface DescribeRuntimeConfigurationCommandOutput
 /**
  * @public
  * <p>Retrieves a fleet's runtime configuration settings. The runtime configuration tells
- *             GameLift which server processes to run (and how) on each instance in the fleet.</p>
- *         <p>To get the runtime configuration that is currently in forces for a fleet, provide the
+ *             Amazon GameLift which server processes to run (and how) on each instance in the fleet.</p>
+ *          <p>To get the runtime configuration that is currently in forces for a fleet, provide the
  *             fleet ID. </p>
- *         <p>If successful, a <code>RuntimeConfiguration</code> object is returned for the
+ *          <p>If successful, a <code>RuntimeConfiguration</code> object is returned for the
  *             requested fleet. If the requested fleet has been deleted, the result set is
  *             empty.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 fleets</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html">Running multiple
  *                 processes on a fleet</a>
  *          </p>

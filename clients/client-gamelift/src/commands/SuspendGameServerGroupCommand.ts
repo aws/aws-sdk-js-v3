@@ -33,14 +33,14 @@ export interface SuspendGameServerGroupCommandOutput extends SuspendGameServerGr
 /**
  * @public
  * <p>
- *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Temporarily stops activity on
  *             a game server group without terminating instances or the game server group. You can
  *             restart activity by calling <a href="gamelift/latest/apireference/API_ResumeGameServerGroup.html">ResumeGameServerGroup</a>. You can suspend the following activity:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Instance type replacement</b> - This activity
  *                     evaluates the current game hosting viability of all Spot instance types that are
  *                     defined for the game server group. It updates the Auto Scaling group to remove
@@ -52,16 +52,16 @@ export interface SuspendGameServerGroupCommandOutput extends SuspendGameServerGr
  *                     active. </p>
  *             </li>
  *          </ul>
- *         <p>To suspend activity, specify a game server group ARN and the type of activity to be
+ *          <p>To suspend activity, specify a game server group ARN and the type of activity to be
  *             suspended. If successful, a <code>GameServerGroup</code> object is returned showing that
  *             the activity is listed in <code>SuspendedActions</code>.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
  *                 Guide</a>
- *         </p>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

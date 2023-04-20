@@ -33,28 +33,28 @@ export interface DescribeGameServerInstancesCommandOutput extends DescribeGameSe
 /**
  * @public
  * <p>
- *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Retrieves status
- *             information about the Amazon EC2 instances associated with a GameLift FleetIQ game server group.
+ *             information about the Amazon EC2 instances associated with a Amazon GameLift FleetIQ game server group.
  *             Use this operation to detect when instances are active or not available to host new game
  *             servers.</p>
- *         <p>To request status for all instances in the game server group, provide a game server
+ *          <p>To request status for all instances in the game server group, provide a game server
  *             group ID only. To request status for specific instances, provide the game server group
  *             ID and one or more instance IDs. Use the pagination parameters to retrieve results in
  *             sequential segments. If successful, a collection of <code>GameServerInstance</code>
  *             objects is returned. </p>
- *         <p>This operation is not designed to be called with every game server claim request; this
+ *          <p>This operation is not designed to be called with every game server claim request; this
  *             practice can cause you to exceed your API limit, which results in errors. Instead, as a
  *             best practice, cache the results and refresh your cache no more than once every 10
  *             seconds.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
  *                 Guide</a>
- *         </p>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

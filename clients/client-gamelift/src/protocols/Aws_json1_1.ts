@@ -2225,6 +2225,9 @@ const de_CreateFleetLocationsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.gamelift#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.gamelift#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.gamelift#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);

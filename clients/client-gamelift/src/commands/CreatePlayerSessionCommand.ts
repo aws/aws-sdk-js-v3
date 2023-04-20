@@ -36,19 +36,19 @@ export interface CreatePlayerSessionCommandOutput extends CreatePlayerSessionOut
  *             be created in any game session with an open slot that is in <code>ACTIVE</code> status
  *             and has a player creation policy of <code>ACCEPT_ALL</code>. You can add a group of
  *             players to a game session with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreatePlayerSessions.html">CreatePlayerSessions</a> . </p>
- *         <p>To create a player session, specify a game session ID, player ID, and optionally a set
+ *          <p>To create a player session, specify a game session ID, player ID, and optionally a set
  *             of player data. </p>
- *         <p>If successful, a slot is reserved in the game session for the player and a new
+ *          <p>If successful, a slot is reserved in the game session for the player and a new
  *                 <code>PlayerSessions</code> object is returned with a player session ID. The player
  *             references the player session ID when sending a connection request to the game session,
- *             and the game server can use it to validate the player reservation with the GameLift
+ *             and the game server can use it to validate the player reservation with the Amazon GameLift
  *             service. Player sessions cannot be updated. </p>
- *         <p>The maximum number of players per game session is 200. It is not adjustable. </p>
- *         <p>
+ *          <p>The maximum number of players per game session is 200. It is not adjustable. </p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

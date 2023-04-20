@@ -34,30 +34,30 @@ export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttri
  * @public
  * <p>Retrieves core fleet-wide properties, including the computing hardware and deployment
  *             configuration for all instances in the fleet.</p>
- *         <p>This operation can be used in the following ways: </p>
- *         <ul>
+ *          <p>This operation can be used in the following ways: </p>
+ *          <ul>
  *             <li>
- *                 <p>To get attributes for one or more specific fleets, provide a list of fleet IDs
+ *                <p>To get attributes for one or more specific fleets, provide a list of fleet IDs
  *                     or fleet ARNs. </p>
  *             </li>
  *             <li>
- *                 <p>To get attributes for all fleets, do not provide a fleet identifier. </p>
+ *                <p>To get attributes for all fleets, do not provide a fleet identifier. </p>
  *             </li>
  *          </ul>
- *         <p>When requesting attributes for multiple fleets, use the pagination parameters to
+ *          <p>When requesting attributes for multiple fleets, use the pagination parameters to
  *             retrieve results as a set of sequential pages. </p>
- *         <p>If successful, a <code>FleetAttributes</code> object is returned for each fleet
+ *          <p>If successful, a <code>FleetAttributes</code> object is returned for each fleet
  *             requested, unless the fleet identifier is not found. </p>
- *         <note>
+ *          <note>
  *             <p>Some API operations limit the number of fleet IDs that allowed in one request. If
  *                 a request exceeds this limit, the request fails and the error message contains the
  *                 maximum allowed number.</p>
- *         </note>
+ *          </note>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 fleets</a>
  *          </p>
  * @example

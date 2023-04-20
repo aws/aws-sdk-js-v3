@@ -36,18 +36,18 @@ export interface StopMatchmakingCommandOutput extends StopMatchmakingOutput, __M
  *             processed. To stop the matchmaking operation, specify the ticket ID. If successful, work
  *             on the ticket is stopped, and the ticket status is changed to
  *             <code>CANCELLED</code>.</p>
- *         <p>This call is also used to turn off automatic backfill for an individual game session.
+ *          <p>This call is also used to turn off automatic backfill for an individual game session.
  *             This is for game sessions that are created with a matchmaking configuration that has
  *             automatic backfill enabled. The ticket ID is included in the <code>MatchmakerData</code>
  *             of an updated game session object, which is provided to the game server.</p>
- *         <note>
+ *          <note>
  *             <p>If the operation is successful, the service sends back an empty JSON struct with
  *                 the HTTP 200 response (not an empty HTTP body).</p>
- *         </note>
- *         <p>
+ *          </note>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
  *                 Add FlexMatch to a game client</a>
  *          </p>

@@ -35,29 +35,29 @@ export interface CreateMatchmakingRuleSetCommandOutput extends CreateMatchmaking
  * <p>Creates a new rule set for FlexMatch matchmaking. A rule set describes the type of match
  *             to create, such as the number and size of teams. It also sets the parameters for
  *             acceptable player matches, such as minimum skill level or character type.</p>
- *         <p>To create a matchmaking rule set, provide unique rule set name and the rule set body
+ *          <p>To create a matchmaking rule set, provide unique rule set name and the rule set body
  *             in JSON format. Rule sets must be defined in the same Region as the matchmaking
  *             configuration they are used with.</p>
- *         <p>Since matchmaking rule sets cannot be edited, it is a good idea to check the rule set
+ *          <p>Since matchmaking rule sets cannot be edited, it is a good idea to check the rule set
  *             syntax using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ValidateMatchmakingRuleSet.html">ValidateMatchmakingRuleSet</a> before creating a new rule set.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html">Build a rule
  *                         set</a>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html">Design a
  *                         matchmaker</a>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-intro.html">Matchmaking with
  *                         FlexMatch</a>
  *                </p>

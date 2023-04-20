@@ -35,15 +35,15 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  * <p>Adds remote locations to a fleet and begins populating the new locations with EC2
  *             instances. The new instances conform to the fleet's instance type, auto-scaling, and
  *             other configuration settings. </p>
- *         <note>
+ *          <note>
  *             <p>This operation cannot be used with fleets that don't support remote locations.
  *                 Fleets can have multiple locations only if they reside in Amazon Web Services Regions that support
  *                 this feature and were created after the feature was released in March 2021.</p>
- *         </note>
- *         <p>To add fleet locations, specify the fleet to be updated and provide a list of one or
+ *          </note>
+ *          <p>To add fleet locations, specify the fleet to be updated and provide a list of one or
  *             more locations. </p>
- *         <p>If successful, this operation returns the list of added locations with their status
- *             set to <code>NEW</code>. GameLift initiates the process of starting an instance in each
+ *          <p>If successful, this operation returns the list of added locations with their status
+ *             set to <code>NEW</code>. Amazon GameLift initiates the process of starting an instance in each
  *             added location. You can track the status of each new location by monitoring location
  *             creation events using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html">DescribeFleetEvents</a>.</p>
  *          <p>
@@ -53,7 +53,7 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up
  *             fleets</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Multi-location fleets</a>
  *          </p>
  * @example
@@ -84,7 +84,7 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  *  <p>The requested operation would cause a conflict with the current state of a service
  *             resource associated with the request. Resolve the conflict before retrying this
  *             request.</p>
- *         <p></p>
+ *          <p></p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>The service encountered an unrecoverable internal failure while processing the
@@ -98,6 +98,10 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
  *             values before retrying.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested operation would cause the resource to exceed the allowed service limit.
+ *             Resolve the issue before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
  *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>

@@ -35,12 +35,12 @@ export interface DeleteMatchmakingRuleSetCommandOutput extends DeleteMatchmaking
  * <p>Deletes an existing matchmaking rule set. To delete the rule set, provide the rule set
  *             name. Rule sets cannot be deleted if they are currently being used by a matchmaking
  *             configuration. </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html">Build a rule
  *                         set</a>
  *                </p>

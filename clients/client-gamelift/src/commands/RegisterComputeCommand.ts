@@ -33,21 +33,21 @@ export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __M
 /**
  * @public
  * <p>Registers your compute resources in a fleet you previously created. After you register
- *             a compute to your fleet, you can monitor and manage your compute using GameLift. The
+ *             a compute to your fleet, you can monitor and manage your compute using Amazon GameLift. The
  *             operation returns the compute resource containing SDK endpoint you can use to connect
- *             your game server to GameLift.</p>
+ *             your game server to Amazon GameLift.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-anywhere.html">Create an
  *                         Anywhere fleet</a>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-testing.html">Test your
  *                         integration</a>
  *                </p>
@@ -81,7 +81,7 @@ export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __M
  *  <p>The requested operation would cause a conflict with the current state of a service
  *             resource associated with the request. Resolve the conflict before retrying this
  *             request.</p>
- *         <p></p>
+ *          <p></p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>The service encountered an unrecoverable internal failure while processing the

@@ -36,29 +36,29 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  *             matchmaking configuration may require player acceptance; if so, then matches built with
  *             that configuration cannot be completed unless all players accept the proposed match
  *             within a specified time limit. </p>
- *         <p>When FlexMatch builds a match, all the matchmaking tickets involved in the proposed
+ *          <p>When FlexMatch builds a match, all the matchmaking tickets involved in the proposed
  *             match are placed into status <code>REQUIRES_ACCEPTANCE</code>. This is a trigger for
  *             your game to get acceptance from all players in the ticket. Acceptances are only valid
  *             for tickets when they are in this status; all other acceptances result in an
  *             error.</p>
- *         <p>To register acceptance, specify the ticket ID, a response, and one or more players.
+ *          <p>To register acceptance, specify the ticket ID, a response, and one or more players.
  *             Once all players have registered acceptance, the matchmaking tickets advance to status
  *                 <code>PLACING</code>, where a new game session is created for the match. </p>
- *         <p>If any player rejects the match, or if acceptances are not received before a specified
+ *          <p>If any player rejects the match, or if acceptances are not received before a specified
  *             timeout, the proposed match is dropped. The matchmaking tickets are then handled in one
  *             of two ways: For tickets where one or more players rejected the match or failed to
  *             respond, the ticket status is set to <code>CANCELLED</code>, and processing is
  *             terminated. For tickets where players have accepted or not yet responded, the ticket
  *             status is returned to <code>SEARCHING</code> to find a new match. A new matchmaking
  *             request for these players can be submitted as needed. </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
  *                 Add FlexMatch to a game client</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html">
  *                 FlexMatch events</a> (reference)</p>
  * @example

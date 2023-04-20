@@ -36,18 +36,18 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  *             can limit results to builds that are in a specific status by using the
  *                 <code>Status</code> parameter. Use the pagination parameters to retrieve results in
  *             a set of sequential pages. </p>
- *         <note>
+ *          <note>
  *             <p>Build resources are not listed in any particular order.</p>
- *         </note>
- *         <p>
+ *          </note>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html"> Upload a Custom
  *                 Server Build</a>
  *          </p>
  *          <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

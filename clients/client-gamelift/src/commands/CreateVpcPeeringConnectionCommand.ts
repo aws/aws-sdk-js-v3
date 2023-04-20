@@ -38,12 +38,12 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  *             you have access to, including the account that you use to manage your Amazon GameLift fleets. You
  *             cannot peer with VPCs that are in different Regions. For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
  *                 Peering with Amazon GameLift Fleets</a>.</p>
- *         <p>Before calling this operation to establish the peering connection, you first need to
+ *          <p>Before calling this operation to establish the peering connection, you first need to
  *             use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.html">CreateVpcPeeringAuthorization</a> and identify the VPC you want to peer with.
  *             Once the authorization for the specified VPC is issued, you have 24 hours to establish
  *             the connection. These two operations handle all tasks necessary to peer the two VPCs,
  *             including acceptance, updating routing tables, etc. </p>
- *         <p>To establish the connection, call this operation from the Amazon Web Services account that is used
+ *          <p>To establish the connection, call this operation from the Amazon Web Services account that is used
  *             to manage the Amazon GameLift fleets. Identify the following values: (1) The ID of the fleet you
  *             want to be enable a VPC peering connection for; (2) The Amazon Web Services account with the VPC that
  *             you want to peer with; and (3) The ID of the VPC you want to peer with. This operation
@@ -53,7 +53,7 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example

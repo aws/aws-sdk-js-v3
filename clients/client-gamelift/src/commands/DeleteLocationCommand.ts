@@ -33,7 +33,7 @@ export interface DeleteLocationCommandOutput extends DeleteLocationOutput, __Met
 /**
  * @public
  * <p>Deletes a custom location.</p>
- *         <p>Before deleting a custom location, review any fleets currently using the custom
+ *          <p>Before deleting a custom location, review any fleets currently using the custom
  *             location and deregister the location if it is in use. For more information see, <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeregisterCompute.html">DeregisterCompute</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -35,15 +35,15 @@ export interface UpdateBuildCommandOutput extends UpdateBuildOutput, __MetadataB
  * <p>Updates metadata in a build resource, including the build name and version. To update
  *             the metadata, specify the build ID to update and provide the new values. If successful,
  *             a build object containing the updated metadata is returned.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html"> Upload a Custom
  *                 Server Build</a>
  *          </p>
  *          <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

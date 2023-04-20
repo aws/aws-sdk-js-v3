@@ -33,31 +33,31 @@ export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessi
 /**
  * @public
  * <p>Retrieves properties for one or more player sessions. </p>
- *         <p>This action can be used in the following ways: </p>
- *         <ul>
+ *          <p>This action can be used in the following ways: </p>
+ *          <ul>
  *             <li>
- *                 <p>To retrieve a specific player session, provide the player session ID
+ *                <p>To retrieve a specific player session, provide the player session ID
  *                     only.</p>
  *             </li>
  *             <li>
- *                 <p>To retrieve all player sessions in a game session, provide the game session ID
+ *                <p>To retrieve all player sessions in a game session, provide the game session ID
  *                     only.</p>
  *             </li>
  *             <li>
- *                 <p>To retrieve all player sessions for a specific player, provide a player ID
+ *                <p>To retrieve all player sessions for a specific player, provide a player ID
  *                     only.</p>
  *             </li>
  *          </ul>
- *         <p>To request player sessions, specify either a player session ID, game session ID, or
+ *          <p>To request player sessions, specify either a player session ID, game session ID, or
  *             player ID. You can filter this request by player session status. Use the pagination
  *             parameters to retrieve results as a set of sequential pages. </p>
- *         <p>If successful, a <code>PlayerSession</code> object is returned for each session that
+ *          <p>If successful, a <code>PlayerSession</code> object is returned for each session that
  *             matches the request.</p>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

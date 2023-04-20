@@ -33,11 +33,11 @@ export interface UpdateGameSessionCommandOutput extends UpdateGameSessionOutput,
 /**
  * @public
  * <p>Updates the mutable properties of a game session. </p>
- *         <p>To update a game session, specify the game session ID and the values you want to
+ *          <p>To update a game session, specify the game session ID and the values you want to
  *             change. </p>
- *         <p>If successful, the updated <code>GameSession</code> object is returned. </p>
- *         <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>If successful, the updated <code>GameSession</code> object is returned. </p>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,7 +66,7 @@ export interface UpdateGameSessionCommandOutput extends UpdateGameSessionOutput,
  *  <p>The requested operation would cause a conflict with the current state of a service
  *             resource associated with the request. Resolve the conflict before retrying this
  *             request.</p>
- *         <p></p>
+ *          <p></p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>The service encountered an unrecoverable internal failure while processing the

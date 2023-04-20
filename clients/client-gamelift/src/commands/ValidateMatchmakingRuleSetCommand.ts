@@ -35,12 +35,12 @@ export interface ValidateMatchmakingRuleSetCommandOutput extends ValidateMatchma
  * <p>Validates the syntax of a matchmaking rule or rule set. This operation checks that the
  *             rule set is using syntactically correct JSON and that it conforms to allowed property
  *             expressions. To validate syntax, provide a rule set JSON string.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html">Build a rule
  *                         set</a>
  *                </p>

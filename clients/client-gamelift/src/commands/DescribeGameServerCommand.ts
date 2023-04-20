@@ -33,20 +33,20 @@ export interface DescribeGameServerCommandOutput extends DescribeGameServerOutpu
 /**
  * @public
  * <p>
- *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Retrieves information for a
  *             registered game server. Information includes game server status, health check info, and
  *             the instance that the game server is running on. </p>
- *         <p>To retrieve game server information, specify the game server ID. If successful, the
+ *          <p>To retrieve game server information, specify the game server ID. If successful, the
  *             requested game server object is returned. </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
  *                 Guide</a>
- *         </p>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

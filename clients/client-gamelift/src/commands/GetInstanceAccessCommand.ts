@@ -38,32 +38,32 @@ export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput,
  * @public
  * <p>Requests remote access to a fleet instance. Remote access is useful for debugging,
  *             gathering benchmarking data, or observing activity in real time. </p>
- *         <p>To remotely access an instance, you need credentials that match the operating system
- *             of the instance. For a Windows instance, GameLift returns a user name and password as
- *             strings for use with a Windows Remote Desktop client. For a Linux instance, GameLift
+ *          <p>To remotely access an instance, you need credentials that match the operating system
+ *             of the instance. For a Windows instance, Amazon GameLift returns a user name and password as
+ *             strings for use with a Windows Remote Desktop client. For a Linux instance, Amazon GameLift
  *             returns a user name and RSA private key, also as strings, for use with an SSH client.
  *             The private key must be saved in the proper format to a <code>.pem</code> file before
  *             using. If you're making this request using the CLI, saving the secret can be handled
  *             as part of the <code>GetInstanceAccess</code> request, as shown in one of the examples
  *             for this operation. </p>
- *         <p>To request access to a specific instance, specify the IDs of both the instance and the
+ *          <p>To request access to a specific instance, specify the IDs of both the instance and the
  *             fleet it belongs to. You can retrieve a fleet's instance IDs by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeInstances.html">DescribeInstances</a>. </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely Access Fleet
  *                 Instances</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug Fleet
  *                 Issues</a>
  *          </p>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

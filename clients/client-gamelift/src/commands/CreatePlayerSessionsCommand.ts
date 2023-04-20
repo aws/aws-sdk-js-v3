@@ -36,20 +36,20 @@ export interface CreatePlayerSessionsCommandOutput extends CreatePlayerSessionsO
  *             be created in any game session with an open slot that is in <code>ACTIVE</code> status
  *             and has a player creation policy of <code>ACCEPT_ALL</code>. To add a single player to a
  *             game session, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreatePlayerSession.html">CreatePlayerSession</a>
- *         </p>
- *         <p>To create player sessions, specify a game session ID and a list of player IDs.
+ *          </p>
+ *          <p>To create player sessions, specify a game session ID and a list of player IDs.
  *             Optionally, provide a set of player data for each player ID. </p>
- *         <p>If successful, a slot is reserved in the game session for each player, and new
+ *          <p>If successful, a slot is reserved in the game session for each player, and new
  *                 <code>PlayerSession</code> objects are returned with player session IDs. Each player
  *             references their player session ID when sending a connection request to the game
  *             session, and the game server can use it to validate the player reservation with the
- *             GameLift service. Player sessions cannot be updated.</p>
- *         <p>The maximum number of players per game session is 200. It is not adjustable. </p>
- *         <p>
+ *             Amazon GameLift service. Player sessions cannot be updated.</p>
+ *          <p>The maximum number of players per game session is 200. It is not adjustable. </p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

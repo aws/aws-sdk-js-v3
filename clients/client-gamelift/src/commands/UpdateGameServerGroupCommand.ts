@@ -33,23 +33,23 @@ export interface UpdateGameServerGroupCommandOutput extends UpdateGameServerGrou
 /**
  * @public
  * <p>
- *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
  *          </p>
- *          <p>Updates GameLift FleetIQ-specific
+ *          <p>Updates Amazon GameLift FleetIQ-specific
  *             properties for a game server group. Many Auto Scaling group properties are updated on
  *             the Auto Scaling group directly, including the launch template, Auto Scaling policies,
  *             and maximum/minimum/desired instance counts.</p>
- *         <p>To update the game server group, specify the game server group ID and provide the
+ *          <p>To update the game server group, specify the game server group ID and provide the
  *             updated values. Before applying the updates, the new values are validated to ensure that
- *             GameLift FleetIQ can continue to perform instance balancing activity. If successful, a
+ *             Amazon GameLift FleetIQ can continue to perform instance balancing activity. If successful, a
  *                 <code>GameServerGroup</code> object is returned.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
  *                 Guide</a>
- *         </p>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

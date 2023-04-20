@@ -32,10 +32,10 @@ export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOut
 
 /**
  * @public
- * <p>Requests an authorization token from GameLift. The authorization token is used by your
- *             game server to authenticate with GameLift. Each authentication token has an expiration
- *             token. To continue using the compute resource to host your game server, regularly
- *             retrieve a new authorization token.</p>
+ * <p>Requests an authentication token from Amazon GameLift. The authentication token is used by
+ *             your game server to authenticate with Amazon GameLift. Each authentication token has an
+ *             expiration time. To continue using the compute resource to host your game server,
+ *             regularly retrieve a new authorization token.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

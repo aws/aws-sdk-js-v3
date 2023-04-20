@@ -33,15 +33,15 @@ export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlO
 /**
  * @public
  * <p>Retrieves the location of stored game session logs for a specified game session. When
- *             a game session is terminated, GameLift automatically stores the logs in Amazon S3 and
+ *             a game session is terminated, Amazon GameLift automatically stores the logs in Amazon S3 and
  *             retains them for 14 days. Use this URL to download the logs.</p>
- *         <note>
+ *          <note>
  *             <p>See the <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift">Amazon Web Services Service
  *                     Limits</a> page for maximum log file sizes. Log files that exceed this limit
  *                 are not saved.</p>
- *         </note>
+ *          </note>
  *          <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -35,28 +35,28 @@ export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, _
  * <p>Suspends certain types of activity in a fleet location. Currently, this operation is
  *             used to stop auto-scaling activity. For multi-location fleets, fleet actions are managed
  *             separately for each location. </p>
- *         <p>Stopping fleet actions has several potential purposes. It allows you to temporarily
+ *          <p>Stopping fleet actions has several potential purposes. It allows you to temporarily
  *             stop auto-scaling activity but retain your scaling policies for use in the future. For
  *             multi-location fleets, you can set up fleet-wide auto-scaling, and then opt out of it
  *             for certain locations. </p>
- *         <p>This operation can be used in the following ways: </p>
- *         <ul>
+ *          <p>This operation can be used in the following ways: </p>
+ *          <ul>
  *             <li>
- *                 <p>To stop actions on instances in the fleet's home Region, provide a fleet ID
+ *                <p>To stop actions on instances in the fleet's home Region, provide a fleet ID
  *                     and the type of actions to suspend. </p>
  *             </li>
  *             <li>
- *                 <p>To stop actions on instances in one of the fleet's remote locations, provide a
+ *                <p>To stop actions on instances in one of the fleet's remote locations, provide a
  *                     fleet ID, a location name, and the type of actions to suspend. </p>
  *             </li>
  *          </ul>
- *         <p>If successful, GameLift no longer initiates scaling events except in response to manual
+ *          <p>If successful, Amazon GameLift no longer initiates scaling events except in response to manual
  *             changes using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html">UpdateFleetCapacity</a>.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 Fleets</a>
  *          </p>
  * @example

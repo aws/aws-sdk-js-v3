@@ -33,28 +33,28 @@ export interface RegisterGameServerCommandOutput extends RegisterGameServerOutpu
 /**
  * @public
  * <p>
- *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Creates a new game server
- *             resource and notifies GameLift FleetIQ that the game server is ready to host gameplay and players.
+ *             resource and notifies Amazon GameLift FleetIQ that the game server is ready to host gameplay and players.
  *             This operation is called by a game server process that is running on an instance in a
- *             game server group. Registering game servers enables GameLift FleetIQ to track available game
+ *             game server group. Registering game servers enables Amazon GameLift FleetIQ to track available game
  *             servers and enables game clients and services to claim a game server for a new game
  *             session. </p>
- *         <p>To register a game server, identify the game server group and instance where the game
+ *          <p>To register a game server, identify the game server group and instance where the game
  *             server is running, and provide a unique identifier for the game server. You can also
  *             include connection and game server data.</p>
- *         <p>Once a game server is successfully registered, it is put in status
+ *          <p>Once a game server is successfully registered, it is put in status
  *                 <code>AVAILABLE</code>. A request to register a game server may fail if the instance
  *             it is running on is in the process of shutting down as part of instance balancing or
  *             scale-down activity. </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
  *                 Guide</a>
- *         </p>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,7 +82,7 @@ export interface RegisterGameServerCommandOutput extends RegisterGameServerOutpu
  *  <p>The requested operation would cause a conflict with the current state of a service
  *             resource associated with the request. Resolve the conflict before retrying this
  *             request.</p>
- *         <p></p>
+ *          <p></p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>The service encountered an unrecoverable internal failure while processing the

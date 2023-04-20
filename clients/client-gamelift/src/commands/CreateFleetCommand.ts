@@ -32,28 +32,28 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
 
 /**
  * @public
- * <p>Creates a fleet of Amazon Elastic Compute Cloud (Amazon Elastic Compute Cloud) instances to host your
- *             custom game server or Realtime Servers. Use this operation to configure the computing resources for
- *             your fleet and provide instructions for running game servers on each instance.</p>
- *         <p>Most GameLift fleets can deploy instances to multiple locations, including the home
+ * <p>Creates a fleet of Amazon Elastic Compute Cloud (Amazon EC2) instances to host your custom game server or
+ *             Realtime Servers. Use this operation to configure the computing resources for your fleet and
+ *             provide instructions for running game servers on each instance.</p>
+ *          <p>Most Amazon GameLift fleets can deploy instances to multiple locations, including the home
  *             Region (where the fleet is created) and an optional set of remote locations. Fleets that
  *             are created in the following Amazon Web Services Regions support multiple locations: us-east-1 (N.
  *             Virginia), us-west-2 (Oregon), eu-central-1 (Frankfurt), eu-west-1 (Ireland),
  *             ap-southeast-2 (Sydney), ap-northeast-1 (Tokyo), and ap-northeast-2 (Seoul). Fleets that
- *             are created in other GameLift Regions can deploy instances in the fleet's home Region
+ *             are created in other Amazon GameLift Regions can deploy instances in the fleet's home Region
  *             only. All fleet instances use the same configuration regardless of location; however,
  *             you can adjust capacity settings and turn auto-scaling on/off for each location.</p>
- *         <p>To create a fleet, choose the hardware for your instances, specify a game server build
- *             or Realtime script to deploy, and provide a runtime configuration to direct GameLift how
+ *          <p>To create a fleet, choose the hardware for your instances, specify a game server build
+ *             or Realtime script to deploy, and provide a runtime configuration to direct Amazon GameLift how
  *             to start and run game servers on each instance in the fleet. Set permissions for inbound
  *             traffic to your game servers, and enable optional features as needed. When creating a
  *             multi-location fleet, provide a list of additional remote locations.</p>
- *         <p>If you need to debug your fleet, fetch logs, view performance metrics or other actions
+ *          <p>If you need to debug your fleet, fetch logs, view performance metrics or other actions
  *             on the fleet, create the development fleet with port 22/3389 open. As a best practice,
  *             we recommend opening ports for remote access only when you need them and closing them
  *             when you're finished. </p>
- *         <p>If successful, this operation creates a new Fleet resource and places it in
- *                 <code>NEW</code> status, which prompts GameLift to initiate the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creation-workflow.html">fleet creation
+ *          <p>If successful, this operation creates a new Fleet resource and places it in
+ *                 <code>NEW</code> status, which prompts Amazon GameLift to initiate the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-all.html#fleets-creation-workflow">fleet creation
  *                 workflow</a>.</p>
  *          <p>
  *             <b>Learn more</b>
@@ -62,10 +62,10 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up
  *             fleets</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html#fleets-creating-debug-creation">Debug fleet creation issues</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Multi-location fleets</a>
  *          </p>
  * @example
@@ -149,7 +149,7 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  *  <p>The requested operation would cause a conflict with the current state of a service
  *             resource associated with the request. Resolve the conflict before retrying this
  *             request.</p>
- *         <p></p>
+ *          <p></p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>The service encountered an unrecoverable internal failure while processing the

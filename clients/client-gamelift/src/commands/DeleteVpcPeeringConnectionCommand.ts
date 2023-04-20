@@ -34,13 +34,13 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  * @public
  * <p>Removes a VPC peering connection. To delete the connection, you must have a valid
  *             authorization for the VPC peering connection that you want to delete.. </p>
- *         <p>Once a valid authorization exists, call this operation from the Amazon Web Services account that is
+ *          <p>Once a valid authorization exists, call this operation from the Amazon Web Services account that is
  *             used to manage the Amazon GameLift fleets. Identify the connection to delete by the connection ID
  *             and fleet ID. If successful, the connection is removed. </p>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example

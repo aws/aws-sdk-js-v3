@@ -33,11 +33,11 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
 /**
  * @public
  * <p>Retrieves all scaling policies applied to a fleet.</p>
- *         <p>To get a fleet's scaling policies, specify the fleet ID. You can filter this request
+ *          <p>To get a fleet's scaling policies, specify the fleet ID. You can filter this request
  *             by policy status, such as to retrieve only active scaling policies. Use the pagination
  *             parameters to retrieve results as a set of sequential pages. If successful, set of
  *                 <code>ScalingPolicy</code> objects is returned for the fleet.</p>
- *         <p>A fleet may have all of its scaling policies suspended. This operation does not affect
+ *          <p>A fleet may have all of its scaling policies suspended. This operation does not affect
  *             the status of the scaling policies, which remains ACTIVE.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

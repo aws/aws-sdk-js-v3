@@ -35,12 +35,12 @@ export interface DeleteFleetCommandOutput extends __MetadataBearer {}
  * <p>Deletes all resources and information related a fleet. Any current fleet instances,
  *             including those in remote locations, are shut down. You don't need to call
  *                 <code>DeleteFleetLocations</code> separately.</p>
- *         <note>
+ *          <note>
  *             <p>If the fleet being deleted has a VPC peering connection, you first need to get a
  *                 valid authorization (good for 24 hours) by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.html">CreateVpcPeeringAuthorization</a>. You do not need to explicitly delete the
  *                 VPC peering connection.</p>
- *         </note>
- *         <p>To delete a fleet, specify the fleet ID to be terminated. During the deletion process
+ *          </note>
+ *          <p>To delete a fleet, specify the fleet ID to be terminated. During the deletion process
  *             the fleet status is changed to <code>DELETING</code>. When completed, the status
  *             switches to <code>TERMINATED</code> and the fleet event <code>FLEET_DELETED</code> is
  *             sent.</p>
@@ -48,7 +48,7 @@ export interface DeleteFleetCommandOutput extends __MetadataBearer {}
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 Fleets</a>
  *          </p>
  * @example

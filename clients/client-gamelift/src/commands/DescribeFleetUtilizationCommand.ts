@@ -37,35 +37,35 @@ export interface DescribeFleetUtilizationCommandOutput extends DescribeFleetUtil
  *             remote locations, this operation retrieves data for the fleet's home Region only. See
  *                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationUtilization.html">DescribeFleetLocationUtilization</a> to get utilization statistics for a
  *             fleet's remote locations.</p>
- *         <p>This operation can be used in the following ways: </p>
- *         <ul>
+ *          <p>This operation can be used in the following ways: </p>
+ *          <ul>
  *             <li>
- *                 <p>To get utilization data for one or more specific fleets, provide a list of
+ *                <p>To get utilization data for one or more specific fleets, provide a list of
  *                     fleet IDs or fleet ARNs. </p>
  *             </li>
  *             <li>
- *                 <p>To get utilization data for all fleets, do not provide a fleet identifier.
+ *                <p>To get utilization data for all fleets, do not provide a fleet identifier.
  *                 </p>
  *             </li>
  *          </ul>
- *         <p>When requesting multiple fleets, use the pagination parameters to retrieve results as
+ *          <p>When requesting multiple fleets, use the pagination parameters to retrieve results as
  *             a set of sequential pages. </p>
- *         <p>If successful, a <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_FleetUtilization.html">FleetUtilization</a> object is returned for each requested fleet ID, unless the
+ *          <p>If successful, a <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_FleetUtilization.html">FleetUtilization</a> object is returned for each requested fleet ID, unless the
  *             fleet identifier is not found. Each fleet utilization object includes a
  *                 <code>Location</code> property, which is set to the fleet's home Region. </p>
- *         <note>
+ *          <note>
  *             <p>Some API operations may limit the number of fleet IDs allowed in one request. If a
  *                 request exceeds this limit, the request fails and the error message includes the
  *                 maximum allowed.</p>
- *         </note>
+ *          </note>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 Fleets</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift Metrics for Fleets</a>
  *          </p>
  * @example

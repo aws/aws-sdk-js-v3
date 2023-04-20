@@ -33,7 +33,7 @@ export interface DescribeComputeCommandOutput extends DescribeComputeOutput, __M
 /**
  * @public
  * <p>Retrieves properties for a compute resource. To request a compute resource specify the
- *             fleet ID and compute name. If successful, GameLift returns an object containing the build
+ *             fleet ID and compute name. If successful, Amazon GameLift returns an object containing the build
  *             properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

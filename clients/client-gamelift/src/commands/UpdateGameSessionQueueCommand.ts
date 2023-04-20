@@ -36,13 +36,13 @@ export interface UpdateGameSessionQueueCommandOutput extends UpdateGameSessionQu
  *             processes new game session requests. To update settings, specify the queue name to be
  *             updated and provide the new settings. When updating destinations, provide a complete
  *             list of destinations. </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html">
  *                 Using Multi-Region Queues</a>
- *         </p>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -35,14 +35,14 @@ export interface ListAliasesCommandOutput extends ListAliasesOutput, __MetadataB
  * <p>Retrieves all aliases for this Amazon Web Services account. You can filter the result set by alias
  *             name and/or routing strategy type. Use the pagination parameters to retrieve results in
  *             sequential pages.</p>
- *         <note>
+ *          <note>
  *             <p>Returned aliases are not listed in any particular order.</p>
- *         </note>
+ *          </note>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

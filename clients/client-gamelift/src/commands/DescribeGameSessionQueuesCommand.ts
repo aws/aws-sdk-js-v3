@@ -36,13 +36,13 @@ export interface DescribeGameSessionQueuesCommandOutput extends DescribeGameSess
  *             queues, use the pagination parameters to retrieve results as a set of sequential pages.
  *             When specifying a list of queues, objects are returned only for queues that currently
  *             exist in the Region.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-console.html">
  *                 View Your Queues</a>
- *         </p>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

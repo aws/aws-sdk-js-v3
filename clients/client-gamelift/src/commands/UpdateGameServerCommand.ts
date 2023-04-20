@@ -33,23 +33,23 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
 /**
  * @public
  * <p>
- *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Updates information about a
- *             registered game server to help GameLift FleetIQ to track game server availability. This operation
+ *             registered game server to help Amazon GameLift FleetIQ to track game server availability. This operation
  *             is called by a game server process that is running on an instance in a game server
  *             group. </p>
- *         <p>Use this operation to update the following types of game server information. You can
+ *          <p>Use this operation to update the following types of game server information. You can
  *             make all three types of updates in the same request:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>To update the game server's utilization status, identify the game server and
+ *                <p>To update the game server's utilization status, identify the game server and
  *                     game server group and specify the current utilization status. Use this status to
  *                     identify when game servers are currently hosting games and when they are
  *                     available to be claimed.</p>
  *             </li>
  *             <li>
- *                 <p>To report health status, identify the game server and game server group and
+ *                <p>To report health status, identify the game server and game server group and
  *                     set health check to <code>HEALTHY</code>. If a game server does not report
  *                     health status for a certain length of time, the game server is no longer
  *                     considered healthy. As a result, it will be eventually deregistered from the
@@ -57,18 +57,18 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
  *                     to report health every 60 seconds.</p>
  *             </li>
  *             <li>
- *                 <p>To change game server metadata, provide updated game server data.</p>
+ *                <p>To change game server metadata, provide updated game server data.</p>
  *             </li>
  *          </ul>
- *         <p>Once a game server is successfully updated, the relevant statuses and timestamps are
+ *          <p>Once a game server is successfully updated, the relevant statuses and timestamps are
  *             updated.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
  *                 Guide</a>
- *         </p>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

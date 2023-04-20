@@ -35,25 +35,25 @@ export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput,
  * <p>Resumes certain types of activity on fleet instances that were suspended with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">StopFleetActions</a>. For multi-location fleets, fleet actions are managed
  *             separately for each location. Currently, this operation is used to restart a fleet's
  *             auto-scaling activity.</p>
- *         <p>This operation can be used in the following ways: </p>
- *         <ul>
+ *          <p>This operation can be used in the following ways: </p>
+ *          <ul>
  *             <li>
- *                 <p>To restart actions on instances in the fleet's home Region, provide a fleet ID
+ *                <p>To restart actions on instances in the fleet's home Region, provide a fleet ID
  *                     and the type of actions to resume. </p>
  *             </li>
  *             <li>
- *                 <p>To restart actions on instances in one of the fleet's remote locations,
+ *                <p>To restart actions on instances in one of the fleet's remote locations,
  *                     provide a fleet ID, a location name, and the type of actions to resume. </p>
  *             </li>
  *          </ul>
- *         <p>If successful, GameLift once again initiates scaling events as triggered by the fleet's
+ *          <p>If successful, Amazon GameLift once again initiates scaling events as triggered by the fleet's
  *             scaling policies. If actions on the fleet location were never stopped, this operation
  *             will have no effect.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 fleets</a>
  *          </p>
  * @example

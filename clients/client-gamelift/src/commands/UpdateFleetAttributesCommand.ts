@@ -34,14 +34,14 @@ export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttribute
  * @public
  * <p>Updates a fleet's mutable attributes, including game session protection and resource
  *             creation limits.</p>
- *         <p>To update fleet attributes, specify the fleet ID and the property values that you want
+ *          <p>To update fleet attributes, specify the fleet ID and the property values that you want
  *             to change. </p>
- *         <p>If successful, an updated <code>FleetAttributes</code> object is returned.</p>
- *         <p>
+ *          <p>If successful, an updated <code>FleetAttributes</code> object is returned.</p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 fleets</a>
  *          </p>
  * @example
@@ -80,7 +80,7 @@ export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttribute
  *  <p>The requested operation would cause a conflict with the current state of a service
  *             resource associated with the request. Resolve the conflict before retrying this
  *             request.</p>
- *         <p></p>
+ *          <p></p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>The service encountered an unrecoverable internal failure while processing the

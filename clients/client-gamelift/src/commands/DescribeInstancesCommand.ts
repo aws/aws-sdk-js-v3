@@ -34,40 +34,40 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesOutput,
  * @public
  * <p>Retrieves information about a fleet's instances, including instance IDs, connection
  *             data, and status. </p>
- *         <p>This operation can be used in the following ways:</p>
- *         <ul>
+ *          <p>This operation can be used in the following ways:</p>
+ *          <ul>
  *             <li>
- *                 <p>To get information on all instances that are deployed to a fleet's home
+ *                <p>To get information on all instances that are deployed to a fleet's home
  *                     Region, provide the fleet ID.</p>
  *             </li>
  *             <li>
- *                 <p>To get information on all instances that are deployed to a fleet's remote
+ *                <p>To get information on all instances that are deployed to a fleet's remote
  *                     location, provide the fleet ID and location name.</p>
  *             </li>
  *             <li>
- *                 <p>To get information on a specific instance in a fleet, provide the fleet ID and
+ *                <p>To get information on a specific instance in a fleet, provide the fleet ID and
  *                     instance ID.</p>
  *             </li>
  *          </ul>
- *         <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
- *         <p>If successful, an <code>Instance</code> object is returned for each requested
+ *          <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
+ *          <p>If successful, an <code>Instance</code> object is returned for each requested
  *             instance. Instances are not returned in any particular order. </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely Access Fleet
  *                 Instances</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug Fleet
  *                 Issues</a>
  *          </p>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

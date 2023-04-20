@@ -32,14 +32,14 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
 
 /**
  * @public
- * <p>Updates the current runtime configuration for the specified fleet, which tells GameLift
+ * <p>Updates the current runtime configuration for the specified fleet, which tells Amazon GameLift
  *             how to launch server processes on all instances in the fleet. You can update a fleet's
  *             runtime configuration at any time after the fleet is created; it does not need to be in
  *                 <code>ACTIVE</code> status.</p>
- *         <p>To update runtime configuration, specify the fleet ID and provide a
+ *          <p>To update runtime configuration, specify the fleet ID and provide a
  *                 <code>RuntimeConfiguration</code> with an updated set of server process
  *             configurations.</p>
- *         <p>If successful, the fleet's runtime configuration settings are updated. Each instance
+ *          <p>If successful, the fleet's runtime configuration settings are updated. Each instance
  *             in the fleet regularly checks for and retrieves updated runtime configurations.
  *             Instances immediately begin complying with the new configuration by launching new server
  *             processes or not replacing existing processes when they shut down. Updating a fleet's
@@ -47,8 +47,8 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
  *          <p>
  *             <b>Learn more</b>
  *          </p>
- *                 <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
  *                 fleets</a>
  *          </p>
  * @example

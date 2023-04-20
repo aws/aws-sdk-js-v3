@@ -35,39 +35,39 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
  * <p>Creates a placement queue that processes requests for new game sessions. A queue uses
  *             FleetIQ algorithms to determine the best placement locations and find an available game
  *             server there, then prompts the game server process to start a new game session. </p>
- *         <p>A game session queue is configured with a set of destinations (GameLift fleets or
+ *          <p>A game session queue is configured with a set of destinations (Amazon GameLift fleets or
  *             aliases), which determine the locations where the queue can place new game sessions.
  *             These destinations can span multiple fleet types (Spot and On-Demand), instance types,
  *             and Amazon Web Services Regions. If the queue includes multi-location fleets, the queue is able to
  *             place game sessions in all of a fleet's remote locations. You can opt to filter out
  *             individual locations if needed.</p>
- *         <p>The queue configuration also determines how FleetIQ selects the best available placement
+ *          <p>The queue configuration also determines how FleetIQ selects the best available placement
  *             for a new game session. Before searching for an available game server, FleetIQ first
  *             prioritizes the queue's destinations and locations, with the best placement locations on
  *             top. You can set up the queue to use the FleetIQ default prioritization or provide an
  *             alternate set of priorities.</p>
- *         <p>To create a new queue, provide a name, timeout value, and a list of destinations.
+ *          <p>To create a new queue, provide a name, timeout value, and a list of destinations.
  *             Optionally, specify a sort configuration and/or a filter, and define a set of latency
  *             cap policies. You can also include the ARN for an Amazon Simple Notification Service
  *             (SNS) topic to receive notifications of game session placement activity. Notifications
  *             using SNS or CloudWatch events is the preferred way to track placement activity.</p>
- *         <p>If successful, a new <code>GameSessionQueue</code> object is returned with an assigned
+ *          <p>If successful, a new <code>GameSessionQueue</code> object is returned with an assigned
  *             queue ARN. New game session requests, which are submitted to queue with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a> or <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartMatchmaking.html">StartMatchmaking</a>, reference a queue's name or ARN. </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-design.html">
  *                 Design a game session queue</a>
- *         </p>
- *         <p>
+ *          </p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-creating.html">
  *                 Create a game session queue</a>
- *         </p>
+ *          </p>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
- *                     <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html">CreateGameSessionQueue</a>
  *                     |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html">DescribeGameSessionQueues</a>

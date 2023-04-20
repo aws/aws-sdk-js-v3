@@ -38,16 +38,16 @@ export interface DescribeMatchmakingConfigurationsCommandOutput
 /**
  * @public
  * <p>Retrieves the details of FlexMatch matchmaking configurations. </p>
- *         <p>This operation offers the following options: (1) retrieve all matchmaking
+ *          <p>This operation offers the following options: (1) retrieve all matchmaking
  *             configurations, (2) retrieve configurations for a specified list, or (3) retrieve all
  *             configurations that use a specified rule set name. When requesting multiple items, use
  *             the pagination parameters to retrieve results as a set of sequential pages. </p>
- *         <p>If successful, a configuration is returned for each requested name. When specifying a
+ *          <p>If successful, a configuration is returned for each requested name. When specifying a
  *             list of names, only configurations that currently exist are returned. </p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
+ *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/matchmaker-build.html"> Setting up FlexMatch matchmakers</a>
  *          </p>
  * @example

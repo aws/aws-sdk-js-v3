@@ -33,21 +33,21 @@ export interface DeregisterGameServerCommandOutput extends __MetadataBearer {}
 /**
  * @public
  * <p>
- *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Removes the game server from a
  *             game server group. As a result of this operation, the deregistered game server can no
  *             longer be claimed and will not be returned in a list of active game servers. </p>
- *         <p>To deregister a game server, specify the game server group and game server ID. If
+ *          <p>To deregister a game server, specify the game server group and game server ID. If
  *             successful, this operation emits a CloudWatch event with termination timestamp and
  *             reason.</p>
- *         <p>
+ *          <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
  *                 Guide</a>
- *         </p>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

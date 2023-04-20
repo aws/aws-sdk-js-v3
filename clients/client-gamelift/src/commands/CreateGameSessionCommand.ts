@@ -35,33 +35,33 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  * <p>Creates a multiplayer game session for players in a specific fleet location. This
  *             operation prompts an available server process to start a game session and retrieves
  *             connection information for the new game session. As an alternative, consider using the
- *             GameLift game session placement feature with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a> , which uses FleetIQ algorithms and queues to
+ *             Amazon GameLift game session placement feature with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a> , which uses FleetIQ algorithms and queues to
  *             optimize the placement process.</p>
- *         <p>When creating a game session, you specify exactly where you want to place it and
+ *          <p>When creating a game session, you specify exactly where you want to place it and
  *             provide a set of game session configuration settings. The fleet must be in
  *                 <code>ACTIVE</code> status before a game session can be created in it. </p>
- *         <p>This operation can be used in the following ways: </p>
- *         <ul>
+ *          <p>This operation can be used in the following ways: </p>
+ *          <ul>
  *             <li>
- *                 <p>To create a game session on an instance in a fleet's home Region, provide a
+ *                <p>To create a game session on an instance in a fleet's home Region, provide a
  *                     fleet or alias ID along with your game session configuration. </p>
  *             </li>
  *             <li>
- *                 <p>To create a game session on an instance in a fleet's remote location, provide
+ *                <p>To create a game session on an instance in a fleet's remote location, provide
  *                     a fleet or alias ID and a location name, along with your game session
  *                     configuration. </p>
  *             </li>
  *          </ul>
- *         <p>If successful, a workflow is initiated to start a new game session. A
+ *          <p>If successful, a workflow is initiated to start a new game session. A
  *                 <code>GameSession</code> object is returned containing the game session
  *             configuration and status. When the status is <code>ACTIVE</code>, game session
  *             connection information is provided and player sessions can be created for the game
  *             session. By default, newly created game sessions are open to new players. You can
  *             restrict new player access by using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a> to change the game session's player session creation
  *             policy.</p>
- *         <p>Game session logs are retained for all active game sessions for 14 days. To access the
+ *          <p>Game session logs are retained for all active game sessions for 14 days. To access the
  *             logs, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetGameSessionLogUrl.html">GetGameSessionLogUrl</a> to download the log files.</p>
- *         <p>
+ *          <p>
  *             <i>Available in Amazon GameLift Local.</i>
  *          </p>
  *          <p>
@@ -71,7 +71,7 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a game session</a>
  *          </p>
  *          <p>
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,7 +110,7 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  *  <p>The requested operation would cause a conflict with the current state of a service
  *             resource associated with the request. Resolve the conflict before retrying this
  *             request.</p>
- *         <p></p>
+ *          <p></p>
  *
  * @throws {@link FleetCapacityExceededException} (client fault)
  *  <p>The specified fleet has no available instances to fulfill a
