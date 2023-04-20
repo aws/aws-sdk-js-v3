@@ -43,7 +43,7 @@ export interface ListOTAUpdatesCommandOutput extends ListOTAUpdatesResponse, __M
  * const input = { // ListOTAUpdatesRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   otaUpdateStatus: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED",
+ *   otaUpdateStatus: "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_COMPLETE" || "CREATE_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED",
  * };
  * const command = new ListOTAUpdatesCommand(input);
  * const response = await client.send(command);
