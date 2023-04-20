@@ -97,11 +97,17 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  *       KubernetesVersion: "STRING_VALUE",
  *       EKSAnywhereVersion: "STRING_VALUE",
  *     },
+ *     S3OnDeviceService: { // S3OnDeviceServiceConfiguration
+ *       StorageLimit: Number("double"),
+ *       StorageUnit: "TB",
+ *       ServiceSize: Number("int"),
+ *       FaultTolerance: Number("int"),
+ *     },
  *   },
  *   AddressId: "STRING_VALUE",
  *   ShippingOption: "SECOND_DAY" || "NEXT_DAY" || "EXPRESS" || "STANDARD",
  *   Description: "STRING_VALUE",
- *   SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference",
+ *   SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference" || "T240",
  *   ForwardingAddressId: "STRING_VALUE",
  * };
  * const command = new UpdateJobCommand(input);
@@ -120,7 +126,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  *       create jobs until your cluster has exactly five nodes.</p>
  *
  * @throws {@link Ec2RequestFailedException} (client fault)
- *  <p>Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+ *  <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted
  *       action.</p>
  *
  * @throws {@link InvalidInputCombinationException} (client fault)

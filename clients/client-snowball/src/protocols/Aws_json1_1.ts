@@ -4,10 +4,13 @@ import {
   _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
+  serializeFloat as __serializeFloat,
   take,
   withBaseException,
 } from "@aws-sdk/smithy-client";
@@ -78,6 +81,7 @@ import {
   ConflictException,
   CreateAddressRequest,
   CreateClusterRequest,
+  CreateClusterResult,
   CreateJobRequest,
   CreateLongTermPricingRequest,
   CreateReturnShippingLabelRequest,
@@ -127,6 +131,7 @@ import {
   Notification,
   OnDeviceServiceConfiguration,
   ReturnShippingLabelAlreadyExistsException,
+  S3OnDeviceServiceConfiguration,
   S3Resource,
   ServiceVersion,
   SnowconeDeviceConfiguration,
@@ -190,7 +195,7 @@ export const se_CreateClusterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateCluster");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_CreateClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -203,7 +208,7 @@ export const se_CreateJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateJob");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_CreateJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -437,7 +442,7 @@ export const se_UpdateClusterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateCluster");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_UpdateClusterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -450,7 +455,7 @@ export const se_UpdateJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateJob");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_UpdateJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -645,7 +650,7 @@ export const de_CreateClusterCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_CreateClusterResult(data, context);
   const response: CreateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1959,9 +1964,55 @@ const de_UnsupportedAddressExceptionRes = async (
 
 // se_CreateAddressRequest omitted.
 
-// se_CreateClusterRequest omitted.
+/**
+ * serializeAws_json1_1CreateClusterRequest
+ */
+const se_CreateClusterRequest = (input: CreateClusterRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AddressId: [],
+    Description: [],
+    ForceCreateJobs: [],
+    ForwardingAddressId: [],
+    InitialClusterSize: [],
+    JobType: [],
+    KmsKeyARN: [],
+    LongTermPricingIds: _json,
+    Notification: _json,
+    OnDeviceServiceConfiguration: (_) => se_OnDeviceServiceConfiguration(_, context),
+    RemoteManagement: [],
+    Resources: _json,
+    RoleARN: [],
+    ShippingOption: [],
+    SnowballCapacityPreference: [],
+    SnowballType: [],
+    TaxDocuments: _json,
+  });
+};
 
-// se_CreateJobRequest omitted.
+/**
+ * serializeAws_json1_1CreateJobRequest
+ */
+const se_CreateJobRequest = (input: CreateJobRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AddressId: [],
+    ClusterId: [],
+    Description: [],
+    DeviceConfiguration: _json,
+    ForwardingAddressId: [],
+    JobType: [],
+    KmsKeyARN: [],
+    LongTermPricingId: [],
+    Notification: _json,
+    OnDeviceServiceConfiguration: (_) => se_OnDeviceServiceConfiguration(_, context),
+    RemoteManagement: [],
+    Resources: _json,
+    RoleARN: [],
+    ShippingOption: [],
+    SnowballCapacityPreference: [],
+    SnowballType: [],
+    TaxDocuments: _json,
+  });
+};
 
 // se_CreateLongTermPricingRequest omitted.
 
@@ -2025,11 +2076,35 @@ const de_UnsupportedAddressExceptionRes = async (
 
 // se_ListServiceVersionsRequest omitted.
 
+// se_LongTermPricingIdList omitted.
+
 // se_NFSOnDeviceServiceConfiguration omitted.
 
 // se_Notification omitted.
 
-// se_OnDeviceServiceConfiguration omitted.
+/**
+ * serializeAws_json1_1OnDeviceServiceConfiguration
+ */
+const se_OnDeviceServiceConfiguration = (input: OnDeviceServiceConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    EKSOnDeviceService: _json,
+    NFSOnDeviceService: _json,
+    S3OnDeviceService: (_) => se_S3OnDeviceServiceConfiguration(_, context),
+    TGWOnDeviceService: _json,
+  });
+};
+
+/**
+ * serializeAws_json1_1S3OnDeviceServiceConfiguration
+ */
+const se_S3OnDeviceServiceConfiguration = (input: S3OnDeviceServiceConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    FaultTolerance: [],
+    ServiceSize: [],
+    StorageLimit: __serializeFloat,
+    StorageUnit: [],
+  });
+};
 
 // se_S3Resource omitted.
 
@@ -2047,9 +2122,40 @@ const de_UnsupportedAddressExceptionRes = async (
 
 // se_TGWOnDeviceServiceConfiguration omitted.
 
-// se_UpdateClusterRequest omitted.
+/**
+ * serializeAws_json1_1UpdateClusterRequest
+ */
+const se_UpdateClusterRequest = (input: UpdateClusterRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AddressId: [],
+    ClusterId: [],
+    Description: [],
+    ForwardingAddressId: [],
+    Notification: _json,
+    OnDeviceServiceConfiguration: (_) => se_OnDeviceServiceConfiguration(_, context),
+    Resources: _json,
+    RoleARN: [],
+    ShippingOption: [],
+  });
+};
 
-// se_UpdateJobRequest omitted.
+/**
+ * serializeAws_json1_1UpdateJobRequest
+ */
+const se_UpdateJobRequest = (input: UpdateJobRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AddressId: [],
+    Description: [],
+    ForwardingAddressId: [],
+    JobId: [],
+    Notification: _json,
+    OnDeviceServiceConfiguration: (_) => se_OnDeviceServiceConfiguration(_, context),
+    Resources: _json,
+    RoleARN: [],
+    ShippingOption: [],
+    SnowballCapacityPreference: [],
+  });
+};
 
 // se_UpdateJobShipmentStateRequest omitted.
 
@@ -2105,7 +2211,7 @@ const de_ClusterMetadata = (output: any, context: __SerdeContext): ClusterMetada
     JobType: __expectString,
     KmsKeyARN: __expectString,
     Notification: _json,
-    OnDeviceServiceConfiguration: _json,
+    OnDeviceServiceConfiguration: (_: any) => de_OnDeviceServiceConfiguration(_, context),
     Resources: _json,
     RoleARN: __expectString,
     ShippingOption: __expectString,
@@ -2122,7 +2228,15 @@ const de_ClusterMetadata = (output: any, context: __SerdeContext): ClusterMetada
 
 // de_CreateAddressResult omitted.
 
-// de_CreateClusterResult omitted.
+/**
+ * deserializeAws_json1_1CreateClusterResult
+ */
+const de_CreateClusterResult = (output: any, context: __SerdeContext): CreateClusterResult => {
+  return take(output, {
+    ClusterId: __expectString,
+    JobListEntries: (_: any) => de_JobListEntryList(_, context),
+  }) as any;
+};
 
 // de_CreateJobResult omitted.
 
@@ -2255,7 +2369,7 @@ const de_JobMetadata = (output: any, context: __SerdeContext): JobMetadata => {
     KmsKeyARN: __expectString,
     LongTermPricingId: __expectString,
     Notification: _json,
-    OnDeviceServiceConfiguration: _json,
+    OnDeviceServiceConfiguration: (_: any) => de_OnDeviceServiceConfiguration(_, context),
     RemoteManagement: __expectString,
     Resources: _json,
     RoleARN: __expectString,
@@ -2370,9 +2484,31 @@ const de_LongTermPricingListEntry = (output: any, context: __SerdeContext): Long
 
 // de_Notification omitted.
 
-// de_OnDeviceServiceConfiguration omitted.
+/**
+ * deserializeAws_json1_1OnDeviceServiceConfiguration
+ */
+const de_OnDeviceServiceConfiguration = (output: any, context: __SerdeContext): OnDeviceServiceConfiguration => {
+  return take(output, {
+    EKSOnDeviceService: _json,
+    NFSOnDeviceService: _json,
+    S3OnDeviceService: (_: any) => de_S3OnDeviceServiceConfiguration(_, context),
+    TGWOnDeviceService: _json,
+  }) as any;
+};
 
 // de_ReturnShippingLabelAlreadyExistsException omitted.
+
+/**
+ * deserializeAws_json1_1S3OnDeviceServiceConfiguration
+ */
+const de_S3OnDeviceServiceConfiguration = (output: any, context: __SerdeContext): S3OnDeviceServiceConfiguration => {
+  return take(output, {
+    FaultTolerance: __expectInt32,
+    ServiceSize: __expectInt32,
+    StorageLimit: __limitedParseDouble,
+    StorageUnit: __expectString,
+  }) as any;
+};
 
 // de_S3Resource omitted.
 

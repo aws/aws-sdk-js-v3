@@ -49,7 +49,7 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *          </p>
  *          <ul>
  *             <li>
- *                <p>Snow Family device type: <b>SNC1_SSD</b>
+ *                <p>Device type: <b>SNC1_SSD</b>
  *                </p>
  *                <ul>
  *                   <li>
@@ -62,7 +62,7 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *                <p></p>
  *             </li>
  *             <li>
- *                <p>Snow Family device type: <b>SNC1_HDD</b>
+ *                <p>Device type: <b>SNC1_HDD</b>
  *                </p>
  *                <ul>
  *                   <li>
@@ -159,6 +159,32 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *                </ul>
  *                <p></p>
  *             </li>
+ *             <li>
+ *                <p>Device type: <b>V3_5C</b>
+ *                </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>Capacity: T32</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Description: Snowball Edge Compute Optimized without GPU</p>
+ *                   </li>
+ *                </ul>
+ *                <p></p>
+ *             </li>
+ *             <li>
+ *                <p>Device type: <b>V3_5S</b>
+ *                </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>Capacity: T240</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Description: Snowball Edge Storage Optimized 210TB</p>
+ *                   </li>
+ *                </ul>
+ *                <p></p>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -214,12 +240,18 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *       KubernetesVersion: "STRING_VALUE",
  *       EKSAnywhereVersion: "STRING_VALUE",
  *     },
+ *     S3OnDeviceService: { // S3OnDeviceServiceConfiguration
+ *       StorageLimit: Number("double"),
+ *       StorageUnit: "TB",
+ *       ServiceSize: Number("int"),
+ *       FaultTolerance: Number("int"),
+ *     },
  *   },
  *   Description: "STRING_VALUE",
  *   AddressId: "STRING_VALUE",
  *   KmsKeyARN: "STRING_VALUE",
  *   RoleARN: "STRING_VALUE",
- *   SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference",
+ *   SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference" || "T240",
  *   ShippingOption: "SECOND_DAY" || "NEXT_DAY" || "EXPRESS" || "STANDARD",
  *   Notification: { // Notification
  *     SnsTopicARN: "STRING_VALUE",
@@ -229,7 +261,7 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *     NotifyAll: true || false,
  *   },
  *   ClusterId: "STRING_VALUE",
- *   SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C",
+ *   SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S",
  *   ForwardingAddressId: "STRING_VALUE",
  *   TaxDocuments: { // TaxDocuments
  *     IND: { // INDTaxDocuments
@@ -262,7 +294,7 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *       create jobs until your cluster has exactly five nodes.</p>
  *
  * @throws {@link Ec2RequestFailedException} (client fault)
- *  <p>Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+ *  <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted
  *       action.</p>
  *
  * @throws {@link InvalidInputCombinationException} (client fault)

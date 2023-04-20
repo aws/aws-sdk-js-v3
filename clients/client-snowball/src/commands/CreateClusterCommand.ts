@@ -88,12 +88,18 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *       KubernetesVersion: "STRING_VALUE",
  *       EKSAnywhereVersion: "STRING_VALUE",
  *     },
+ *     S3OnDeviceService: { // S3OnDeviceServiceConfiguration
+ *       StorageLimit: Number("double"),
+ *       StorageUnit: "TB",
+ *       ServiceSize: Number("int"),
+ *       FaultTolerance: Number("int"),
+ *     },
  *   },
  *   Description: "STRING_VALUE",
  *   AddressId: "STRING_VALUE", // required
  *   KmsKeyARN: "STRING_VALUE",
- *   RoleARN: "STRING_VALUE", // required
- *   SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C", // required
+ *   RoleARN: "STRING_VALUE",
+ *   SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C" || "V3_5S", // required
  *   ShippingOption: "SECOND_DAY" || "NEXT_DAY" || "EXPRESS" || "STANDARD", // required
  *   Notification: { // Notification
  *     SnsTopicARN: "STRING_VALUE",
@@ -109,6 +115,12 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *     },
  *   },
  *   RemoteManagement: "INSTALLED_ONLY" || "INSTALLED_AUTOSTART",
+ *   InitialClusterSize: Number("int"),
+ *   ForceCreateJobs: true || false,
+ *   LongTermPricingIds: [ // LongTermPricingIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   SnowballCapacityPreference: "T50" || "T80" || "T100" || "T42" || "T98" || "T8" || "T14" || "T32" || "NoPreference" || "T240",
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -121,7 +133,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link Ec2RequestFailedException} (client fault)
- *  <p>Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+ *  <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted
  *       action.</p>
  *
  * @throws {@link InvalidInputCombinationException} (client fault)

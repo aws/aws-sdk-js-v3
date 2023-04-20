@@ -34,9 +34,8 @@ export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesR
  * @public
  * <p>This action returns a list of the different Amazon EC2 Amazon Machine Images (AMIs)
  *       that are owned by your Amazon Web Services accountthat would be supported for use on a Snow
- *       device. Currently, supported AMIs are based on the CentOS 7 (x86_64) - with Updates HVM,
- *       Ubuntu Server 14.04 LTS (HVM), and Ubuntu 16.04 LTS - Xenial (HVM) images, available on the
- *         Amazon Web Services Marketplace.</p>
+ *       device. Currently, supported AMIs are based on the Amazon Linux-2, Ubuntu 20.04 LTS - Focal, or Ubuntu 22.04 LTS - Jammy images, available on the
+ *       Amazon Web Services Marketplace. Ubuntu 16.04 LTS - Xenial (HVM) images are no longer supported in the Market, but still supported for use on devices through Amazon EC2 VM Import/Export and running locally in AMIs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,7 +57,7 @@ export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesR
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link Ec2RequestFailedException} (client fault)
- *  <p>Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+ *  <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted
  *       action.</p>
  *
  * @throws {@link InvalidNextTokenException} (client fault)

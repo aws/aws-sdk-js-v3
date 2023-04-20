@@ -384,6 +384,34 @@ export interface NFSOnDeviceServiceConfiguration {
 
 /**
  * @public
+ * <p>Amazon S3 compatible storage on Snow family devices configuration items.</p>
+ */
+export interface S3OnDeviceServiceConfiguration {
+  /**
+   * <p>If the specified storage limit value matches storage limit of one of the defined configurations, that configuration will be used.
+   *       If the specified storage limit value does not match any defined configuration, the request will fail. If more than one configuration has
+   *       the same storage limit as specified, the other input need to be provided.</p>
+   */
+  StorageLimit?: number;
+
+  /**
+   * <p>Storage unit. Currently the only supported unit is TB.</p>
+   */
+  StorageUnit?: StorageUnit | string;
+
+  /**
+   * <p>Applicable when creating a cluster. Specifies how many nodes are needed for Amazon S3 compatible storage on Snow family devices. If specified, the other input can be omitted.</p>
+   */
+  ServiceSize?: number;
+
+  /**
+   * <p>>Fault tolerance level of the cluster. This indicates the number of nodes that can go down without degrading the performance of the cluster. This additional input helps when the specified <code>StorageLimit</code> matches more than one Amazon S3 compatible storage on Snow family devices service configuration.</p>
+   */
+  FaultTolerance?: number;
+}
+
+/**
+ * @public
  * <p>An object that represents the metadata and configuration settings for the Storage Gateway
  *       service Tape Gateway type on an Amazon Web Services Snow Family device.</p>
  */
@@ -420,6 +448,11 @@ export interface OnDeviceServiceConfiguration {
    * <p>The configuration of EKS Anywhere on the Snow Family device.</p>
    */
   EKSOnDeviceService?: EKSOnDeviceServiceConfiguration;
+
+  /**
+   * <p>Configuration for Amazon S3 compatible storage on Snow family devices.</p>
+   */
+  S3OnDeviceService?: S3OnDeviceServiceConfiguration;
 }
 
 /**
@@ -625,6 +658,28 @@ export type ShippingOption = (typeof ShippingOption)[keyof typeof ShippingOption
  * @public
  * @enum
  */
+export const SnowballCapacity = {
+  NO_PREFERENCE: "NoPreference",
+  T100: "T100",
+  T14: "T14",
+  T240: "T240",
+  T32: "T32",
+  T42: "T42",
+  T50: "T50",
+  T8: "T8",
+  T80: "T80",
+  T98: "T98",
+} as const;
+
+/**
+ * @public
+ */
+export type SnowballCapacity = (typeof SnowballCapacity)[keyof typeof SnowballCapacity];
+
+/**
+ * @public
+ * @enum
+ */
 export const SnowballType = {
   EDGE: "EDGE",
   EDGE_C: "EDGE_C",
@@ -634,6 +689,7 @@ export const SnowballType = {
   SNC1_SSD: "SNC1_SSD",
   STANDARD: "STANDARD",
   V3_5C: "V3_5C",
+  V3_5S: "V3_5S",
 } as const;
 
 /**
@@ -684,7 +740,7 @@ export interface CreateClusterRequest {
    *       buckets and optional Lambda functions written in the Python language.
    *     </p>
    */
-  Resources: JobResource | undefined;
+  Resources?: JobResource;
 
   /**
    * <p>Specifies the service or services on the Snow Family device that your transferred data
@@ -714,7 +770,7 @@ export interface CreateClusterRequest {
    * <p>The <code>RoleARN</code> that you want to associate with this cluster.
    *         <code>RoleArn</code> values are created by using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a> API action in Identity and Access Management (IAM).</p>
    */
-  RoleARN: string | undefined;
+  RoleARN?: string;
 
   /**
    * <p>The type of Snow Family devices to use for this cluster. </p>
@@ -798,6 +854,82 @@ export interface CreateClusterRequest {
    *       use the Snowball Client to manage the device.</p>
    */
   RemoteManagement?: RemoteManagement | string;
+
+  /**
+   * <p>If provided, each job will be automatically created and associated with the new cluster. If not provided, will be treated as 0.</p>
+   */
+  InitialClusterSize?: number;
+
+  /**
+   * <p>Force to create cluster when user attempts to overprovision or underprovision a cluster. A cluster is overprovisioned or underprovisioned if the initial size of the cluster is more (overprovisioned) or less (underprovisioned) than what
+   *       needed to meet capacity requirement specified with <code>OnDeviceServiceConfiguration</code>.</p>
+   */
+  ForceCreateJobs?: boolean;
+
+  /**
+   * <p>Lists long-term pricing id that will be used to associate with jobs automatically created for the new cluster.</p>
+   */
+  LongTermPricingIds?: string[];
+
+  /**
+   * <p>If your job is being created in one of the US regions, you have the option of
+   *       specifying what size Snow device you'd like for this job. In all other regions, Snowballs come
+   *       with 80 TB in storage capacity.</p>
+   *          <p>For more information, see
+   *       "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow
+   *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
+   *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
+   *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
+   */
+  SnowballCapacityPreference?: SnowballCapacity | string;
+}
+
+/**
+ * @public
+ * <p>Each <code>JobListEntry</code> object contains a job's state, a job's ID, and a value
+ *       that indicates whether the job is a job part, in the case of an export job.</p>
+ */
+export interface JobListEntry {
+  /**
+   * <p>The automatically generated ID for a job, for example
+   *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>The current state of this job.</p>
+   */
+  JobState?: JobState | string;
+
+  /**
+   * <p>A value that indicates that this job is a main job. A main job represents a successful
+   *       request to create an export job. Main jobs aren't associated with any Snowballs. Instead, each
+   *       main job will have at least one job part, and each job part is associated with a Snowball. It
+   *       might take some time before the job parts associated with a particular main job are listed,
+   *       because they are created after the main job is created.</p>
+   */
+  IsMaster?: boolean;
+
+  /**
+   * <p>The type of job.</p>
+   */
+  JobType?: JobType | string;
+
+  /**
+   * <p>The type of device used with this job.</p>
+   */
+  SnowballType?: SnowballType | string;
+
+  /**
+   * <p>The creation date for this job.</p>
+   */
+  CreationDate?: Date;
+
+  /**
+   * <p>The optional description of this specific job, for example <code>Important Photos
+   *         2016-08-11</code>.</p>
+   */
+  Description?: string;
 }
 
 /**
@@ -808,11 +940,16 @@ export interface CreateClusterResult {
    * <p>The automatically generated ID for a cluster.</p>
    */
   ClusterId?: string;
+
+  /**
+   * <p>List of jobs created for this cluster. For syntax, see <a href="https://docs.aws.amazon.com/snowball/latest/api-reference/API_ListJobs.html#API_ListJobs_ResponseSyntax">ListJobsResult$JobListEntries</a> in this guide.</p>
+   */
+  JobListEntries?: JobListEntry[];
 }
 
 /**
  * @public
- * <p>Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+ * <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted
  *       action.</p>
  */
 export class Ec2RequestFailedException extends __BaseException {
@@ -912,27 +1049,6 @@ export interface DeviceConfiguration {
    */
   SnowconeDeviceConfiguration?: SnowconeDeviceConfiguration;
 }
-
-/**
- * @public
- * @enum
- */
-export const SnowballCapacity = {
-  NO_PREFERENCE: "NoPreference",
-  T100: "T100",
-  T14: "T14",
-  T32: "T32",
-  T42: "T42",
-  T50: "T50",
-  T8: "T8",
-  T80: "T80",
-  T98: "T98",
-} as const;
-
-/**
- * @public
- */
-export type SnowballCapacity = (typeof SnowballCapacity)[keyof typeof SnowballCapacity];
 
 /**
  * @public
@@ -1108,6 +1224,7 @@ export interface CreateJobResult {
  * @enum
  */
 export const LongTermPricingType = {
+  ONE_MONTH: "OneMonth",
   ONE_YEAR: "OneYear",
   THREE_YEAR: "ThreeYear",
 } as const;
@@ -1922,54 +2039,6 @@ export interface ListClusterJobsRequest {
    *       as the starting point for your returned list.</p>
    */
   NextToken?: string;
-}
-
-/**
- * @public
- * <p>Each <code>JobListEntry</code> object contains a job's state, a job's ID, and a value
- *       that indicates whether the job is a job part, in the case of an export job.</p>
- */
-export interface JobListEntry {
-  /**
-   * <p>The automatically generated ID for a job, for example
-   *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
-   */
-  JobId?: string;
-
-  /**
-   * <p>The current state of this job.</p>
-   */
-  JobState?: JobState | string;
-
-  /**
-   * <p>A value that indicates that this job is a main job. A main job represents a successful
-   *       request to create an export job. Main jobs aren't associated with any Snowballs. Instead, each
-   *       main job will have at least one job part, and each job part is associated with a Snowball. It
-   *       might take some time before the job parts associated with a particular main job are listed,
-   *       because they are created after the main job is created.</p>
-   */
-  IsMaster?: boolean;
-
-  /**
-   * <p>The type of job.</p>
-   */
-  JobType?: JobType | string;
-
-  /**
-   * <p>The type of device used with this job.</p>
-   */
-  SnowballType?: SnowballType | string;
-
-  /**
-   * <p>The creation date for this job.</p>
-   */
-  CreationDate?: Date;
-
-  /**
-   * <p>The optional description of this specific job, for example <code>Important Photos
-   *         2016-08-11</code>.</p>
-   */
-  Description?: string;
 }
 
 /**

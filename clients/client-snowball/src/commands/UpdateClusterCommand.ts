@@ -92,6 +92,12 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResult, __Metad
  *       KubernetesVersion: "STRING_VALUE",
  *       EKSAnywhereVersion: "STRING_VALUE",
  *     },
+ *     S3OnDeviceService: { // S3OnDeviceServiceConfiguration
+ *       StorageLimit: Number("double"),
+ *       StorageUnit: "TB",
+ *       ServiceSize: Number("int"),
+ *       FaultTolerance: Number("int"),
+ *     },
  *   },
  *   AddressId: "STRING_VALUE",
  *   ShippingOption: "SECOND_DAY" || "NEXT_DAY" || "EXPRESS" || "STANDARD",
@@ -115,7 +121,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResult, __Metad
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link Ec2RequestFailedException} (client fault)
- *  <p>Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+ *  <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted
  *       action.</p>
  *
  * @throws {@link InvalidInputCombinationException} (client fault)
