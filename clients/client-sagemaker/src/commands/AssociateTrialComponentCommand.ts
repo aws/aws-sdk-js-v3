@@ -33,7 +33,7 @@ export interface AssociateTrialComponentCommandOutput extends AssociateTrialComp
 /**
  * @public
  * <p>Associates a trial component with a trial. A trial component can be associated with
- *       multiple trials. To disassociate a trial component from a trial, call the <a>DisassociateTrialComponent</a> API.</p>
+ *       multiple trials. To disassociate a trial component from a trial, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html">DisassociateTrialComponent</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

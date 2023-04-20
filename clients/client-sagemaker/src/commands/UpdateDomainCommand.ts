@@ -117,6 +117,10 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *         Status: "ENABLED" || "DISABLED",
  *         AmazonForecastRoleArn: "STRING_VALUE",
  *       },
+ *       ModelRegisterSettings: { // ModelRegisterSettings
+ *         Status: "ENABLED" || "DISABLED",
+ *         CrossAccountModelRegisterRoleArn: "STRING_VALUE",
+ *       },
  *     },
  *   },
  *   DomainSettingsForUpdate: { // DomainSettingsForUpdate

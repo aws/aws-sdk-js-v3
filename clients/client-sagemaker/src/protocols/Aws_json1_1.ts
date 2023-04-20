@@ -882,7 +882,6 @@ import {
   CreateDomainRequest,
   CreateEdgeDeploymentPlanRequest,
   CreateEdgeDeploymentStageRequest,
-  CreateEdgePackagingJobRequest,
   CustomImage,
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
@@ -919,6 +918,7 @@ import {
   ModelDeployConfig,
   ModelInput,
   ModelPackageContainerDefinition,
+  ModelRegisterSettings,
   MonitoringClusterConfig,
   MonitoringConstraintsResource,
   MonitoringCsvDatasetFormat,
@@ -975,6 +975,7 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  CreateEdgePackagingJobRequest,
   CreateEndpointConfigInput,
   CreateEndpointInput,
   CreateExperimentRequest,
@@ -1059,7 +1060,6 @@ import {
   DeleteProjectInput,
   DeleteSpaceRequest,
   DeleteStudioLifecycleConfigRequest,
-  DeleteTagsInput,
   DeploymentConfig,
   DriftCheckBaselines,
   DriftCheckBias,
@@ -1194,6 +1194,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DeleteTagsInput,
   DeleteTrialComponentRequest,
   DeleteTrialRequest,
   DeleteUserProfileRequest,
@@ -1364,7 +1365,6 @@ import {
   InferenceRecommendation,
   InferenceRecommendationsJob,
   InferenceRecommendationsJobStep,
-  LabelingJobForWorkteamSummary,
   MetricData,
   MonitoringExecutionSummary,
   MonitoringSchedule,
@@ -1384,6 +1384,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  LabelingJobForWorkteamSummary,
   LabelingJobSummary,
   LineageGroupSummary,
   LineageType,
@@ -21231,6 +21232,8 @@ const se_ModelQualityJobInput = (input: ModelQualityJobInput, context: __SerdeCo
   });
 };
 
+// se_ModelRegisterSettings omitted.
+
 // se_ModelVariantActionMap omitted.
 
 // se_ModelVariantConfig omitted.
@@ -26447,6 +26450,8 @@ const de_ModelQualityJobInput = (output: any, context: __SerdeContext): ModelQua
     GroundTruthS3Input: _json,
   }) as any;
 };
+
+// de_ModelRegisterSettings omitted.
 
 // de_ModelStepMetadata omitted.
 

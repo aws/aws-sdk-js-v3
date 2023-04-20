@@ -61,9 +61,9 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  *             use and costs. The response body contains the
  *                 <code>CompilationJobArn</code>
  *             for the compiled job.</p>
- *          <p>To stop a model compilation job, use <a>StopCompilationJob</a>. To get
- *             information about a particular model compilation job, use <a>DescribeCompilationJob</a>. To get information about multiple model
- *             compilation jobs, use <a>ListCompilationJobs</a>.</p>
+ *          <p>To stop a model compilation job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopCompilationJob.html">StopCompilationJob</a>. To get
+ *             information about a particular model compilation job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCompilationJob.html">DescribeCompilationJob</a>. To get information about multiple model
+ *             compilation jobs, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCompilationJobs.html">ListCompilationJobs</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

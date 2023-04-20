@@ -13,8 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteTagsInput } from "../models/models_1";
-import { DeleteTagsOutput } from "../models/models_2";
+import { DeleteTagsInput, DeleteTagsOutput } from "../models/models_2";
 import { de_DeleteTagsCommand, se_DeleteTagsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

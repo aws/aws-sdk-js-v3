@@ -37,7 +37,7 @@ export interface ListHyperParameterTuningJobsCommandOutput
 
 /**
  * @public
- * <p>Gets a list of <a>HyperParameterTuningJobSummary</a> objects that
+ * <p>Gets a list of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobSummary.html">HyperParameterTuningJobSummary</a> objects that
  *             describe
  *             the hyperparameter tuning jobs launched in your account.</p>
  * @example

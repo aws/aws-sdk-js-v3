@@ -40,7 +40,7 @@ export interface CreateTrialComponentCommandOutput extends CreateTrialComponentR
  *          <p>When you use SageMaker Studio or the SageMaker Python SDK, all experiments, trials, and trial
  *       components are automatically tracked, logged, and indexed. When you use the Amazon Web Services SDK for Python (Boto), you
  *       must use the logging APIs provided by the SDK.</p>
- *          <p>You can add tags to a trial component and then use the <a>Search</a> API to
+ *          <p>You can add tags to a trial component and then use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to
  *       search for the tags.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateEdgePackagingJobRequest } from "../models/models_0";
+import { CreateEdgePackagingJobRequest } from "../models/models_1";
 import { de_CreateEdgePackagingJobCommand, se_CreateEdgePackagingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

@@ -37,7 +37,7 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  *             using the previous <code>EndpointConfig</code> (there is no availability loss). </p>
  *          <p>When SageMaker receives the request, it sets the endpoint status to
  *                 <code>Updating</code>. After updating the endpoint, it sets the status to
- *                 <code>InService</code>. To check the status of an endpoint, use the <a>DescribeEndpoint</a> API.
+ *             <code>InService</code>. To check the status of an endpoint, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a> API.
  *
  *         </p>
  *          <note>

@@ -179,6 +179,22 @@ import {
 /**
  * @public
  */
+export interface DeleteTagsInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to
+   *             delete.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>An array or one or more tag keys to delete.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteTagsOutput {}
 
 /**
@@ -274,7 +290,7 @@ export interface DeleteWorkteamResponse {
 
 /**
  * @public
- * <p>Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this <a>ProductionVariant</a>.</p>
+ * <p>Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariant.html">ProductionVariant</a>.</p>
  *          <p>If you used the <code>registry/repository[:tag]</code> form to specify the image path
  *             of the primary container when you created the model hosted in this
  *                 <code>ProductionVariant</code>, the path resolves to a path of the form
@@ -1141,7 +1157,7 @@ export interface DescribeCompilationJobResponse {
   /**
    * <p>The time when the model compilation job started the <code>CompilationJob</code>
    *             instances. </p>
-   *          <p>You are billed for the time between this timestamp and the timestamp in the <a>DescribeCompilationJobResponse$CompilationEndTime</a> field. In Amazon CloudWatch Logs,
+   *          <p>You are billed for the time between this timestamp and the timestamp in the <code>CompilationEndTime</code> field. In Amazon CloudWatch Logs,
    *             the start time might be later than this time. That's because it takes time to download
    *             the compilation job, which depends on the size of the compilation job container. </p>
    */
@@ -1221,7 +1237,7 @@ export interface DescribeCompilationJobResponse {
   OutputConfig: OutputConfig | undefined;
 
   /**
-   * <p>A <a>VpcConfig</a> object that specifies the VPC that you want your
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your
    *             compilation job to connect to. Control access to your models by
    *             configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Protect Compilation Jobs by Using an Amazon
    *                 Virtual Private Cloud</a>.</p>
@@ -2022,11 +2038,7 @@ export interface ProductionVariantStatus {
 /**
  * @public
  * <p>The production variant summary for a deployment when an endpoint is creating or
- *             updating with the <code>
- *                <a>CreateEndpoint</a>
- *             </code> or <code>
- *                <a>UpdateEndpoint</a>
- *             </code> operations. Describes the <code>VariantStatus
+ *             updating with the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpoint</a> operations. Describes the <code>VariantStatus
  *             </code>, weight and capacity for a production variant associated with an endpoint.
  *         </p>
  */
@@ -2050,9 +2062,7 @@ export interface PendingProductionVariantSummary {
 
   /**
    * <p>The requested weight for the variant in this deployment, as specified in the endpoint
-   *             configuration for the endpoint. The value is taken from the request to the <code>
-   *                <a>CreateEndpointConfig</a>
-   *             </code> operation.</p>
+   *             configuration for the endpoint. The value is taken from the request to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> operation.</p>
    */
   DesiredWeight?: number;
 
@@ -2063,9 +2073,7 @@ export interface PendingProductionVariantSummary {
 
   /**
    * <p>The number of instances requested in this deployment, as specified in the endpoint
-   *             configuration for the endpoint. The value is taken from the request to the <code>
-   *                <a>CreateEndpointConfig</a>
-   *             </code> operation.</p>
+   *             configuration for the endpoint. The value is taken from the request to the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a> operation.</p>
    */
   DesiredInstanceCount?: number;
 
@@ -2111,7 +2119,7 @@ export interface PendingDeploymentSummary {
   EndpointConfigName: string | undefined;
 
   /**
-   * <p>An array of <a>PendingProductionVariantSummary</a> objects, one for each
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html">PendingProductionVariantSummary</a> objects, one for each
    *             model hosted behind this endpoint for the in-progress deployment.</p>
    */
   ProductionVariants?: PendingProductionVariantSummary[];
@@ -2122,7 +2130,7 @@ export interface PendingDeploymentSummary {
   StartTime?: Date;
 
   /**
-   * <p>An array of <a>PendingProductionVariantSummary</a> objects, one for each
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html">PendingProductionVariantSummary</a> objects, one for each
    *             model hosted behind this endpoint in shadow mode with production traffic replicated from
    *             the model specified on <code>ProductionVariants</code> for the in-progress
    *             deployment.</p>
@@ -2208,7 +2216,7 @@ export interface DescribeEndpointOutput {
   EndpointConfigName: string | undefined;
 
   /**
-   * <p>An array of <a>ProductionVariantSummary</a> objects, one for each model
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariantSummary.html">ProductionVariantSummary</a> objects, one for each model
    *             hosted behind this endpoint.</p>
    */
   ProductionVariants?: ProductionVariantSummary[];
@@ -2228,11 +2236,11 @@ export interface DescribeEndpointOutput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Creating</code>: <a>CreateEndpoint</a> is executing.</p>
+   *                   <code>Creating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> is executing.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Updating</code>: <a>UpdateEndpoint</a> or <a>UpdateEndpointWeightsAndCapacities</a> is executing.</p>
+   *                   <code>Updating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpoint</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> is executing.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2248,7 +2256,7 @@ export interface DescribeEndpointOutput {
    *                     configuration. Once the rollback completes, endpoint returns to an
    *                         <code>InService</code> status. This transitional status only applies to an
    *                     endpoint that has autoscaling enabled and is undergoing variant weight or
-   *                     capacity changes as part of an <a>UpdateEndpointWeightsAndCapacities</a> call or when the <a>UpdateEndpointWeightsAndCapacities</a> operation is called
+   *                     capacity changes as part of an <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> call or when the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> operation is called
    *                     explicitly.</p>
    *             </li>
    *             <li>
@@ -2258,13 +2266,13 @@ export interface DescribeEndpointOutput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Deleting</code>: <a>DeleteEndpoint</a> is executing.</p>
+   *                   <code>Deleting</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is executing.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use
-   *                         <a>DescribeEndpointOutput$FailureReason</a> for information about
-   *                     the failure. <a>DeleteEndpoint</a> is the only operation that can be
+   *                   <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use the
+   *                     <code>FailureReason</code> value returned by <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a> for information about
+   *                     the failure. <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is the only operation that can be
    *                     performed on a failed endpoint.</p>
    *             </li>
    *          </ul>
@@ -2311,7 +2319,7 @@ export interface DescribeEndpointOutput {
   ExplainerConfig?: ExplainerConfig;
 
   /**
-   * <p>An array of <a>ProductionVariantSummary</a> objects, one for each model
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariantSummary.html">ProductionVariantSummary</a> objects, one for each model
    *             that you want to host at this endpoint in shadow mode with production traffic replicated
    *             from the model specified on <code>ProductionVariants</code>.</p>
    */
@@ -3156,7 +3164,7 @@ export interface DescribeHyperParameterTuningJobRequest {
  * @public
  * <p>Shows the latest objective metric emitted by a training job that was launched by a
  *             hyperparameter tuning job. You define the objective metric in the
- *                 <code>HyperParameterTuningJobObjective</code> parameter of <a>HyperParameterTuningJobConfig</a>.</p>
+ *             <code>HyperParameterTuningJobObjective</code> parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html">HyperParameterTuningJobConfig</a>.</p>
  */
 export interface FinalHyperParameterTuningJobObjectiveMetric {
   /**
@@ -3261,7 +3269,7 @@ export interface HyperParameterTrainingJobSummary {
   FailureReason?: string;
 
   /**
-   * <p>The <a>FinalHyperParameterTuningJobObjectiveMetric</a> object that
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_FinalHyperParameterTuningJobObjectiveMetric.html">FinalHyperParameterTuningJobObjectiveMetric</a> object that
    *             specifies the
    *             value
    *             of the
@@ -3433,19 +3441,19 @@ export interface DescribeHyperParameterTuningJobResponse {
   HyperParameterTuningJobArn: string | undefined;
 
   /**
-   * <p>The <a>HyperParameterTuningJobConfig</a> object that specifies the
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html">HyperParameterTuningJobConfig</a> object that specifies the
    *             configuration of the tuning job.</p>
    */
   HyperParameterTuningJobConfig: HyperParameterTuningJobConfig | undefined;
 
   /**
-   * <p>The <a>HyperParameterTrainingJobDefinition</a> object that specifies the
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a> object that specifies the
    *             definition of the training jobs that this tuning job launches.</p>
    */
   TrainingJobDefinition?: HyperParameterTrainingJobDefinition;
 
   /**
-   * <p>A list of the <a>HyperParameterTrainingJobDefinition</a> objects launched
+   * <p>A list of the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a> objects launched
    *             for this tuning job.</p>
    */
   TrainingJobDefinitions?: HyperParameterTrainingJobDefinition[];
@@ -3472,28 +3480,28 @@ export interface DescribeHyperParameterTuningJobResponse {
   LastModifiedTime?: Date;
 
   /**
-   * <p>The <a>TrainingJobStatusCounters</a> object that specifies the number of
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobStatusCounters.html">TrainingJobStatusCounters</a> object that specifies the number of
    *             training jobs, categorized by status, that this tuning job launched.</p>
    */
   TrainingJobStatusCounters: TrainingJobStatusCounters | undefined;
 
   /**
-   * <p>The <a>ObjectiveStatusCounters</a> object that specifies the number of
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ObjectiveStatusCounters.html">ObjectiveStatusCounters</a> object that specifies the number of
    *             training jobs, categorized by the status of their final objective metric, that this
    *             tuning job launched.</p>
    */
   ObjectiveStatusCounters: ObjectiveStatusCounters | undefined;
 
   /**
-   * <p>A <a>TrainingJobSummary</a> object that describes the training job that
-   *             completed with the best current <a>HyperParameterTuningJobObjective</a>.</p>
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html">TrainingJobSummary</a> object that describes the training job that
+   *             completed with the best current <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobObjective.html">HyperParameterTuningJobObjective</a>.</p>
    */
   BestTrainingJob?: HyperParameterTrainingJobSummary;
 
   /**
    * <p>If the hyperparameter tuning job is an warm start tuning job with a
    *                 <code>WarmStartType</code> of <code>IDENTICAL_DATA_AND_ALGORITHM</code>, this is the
-   *                 <a>TrainingJobSummary</a> for the training job with the best objective
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html">TrainingJobSummary</a> for the training job with the best objective
    *             metric value of all training jobs launched by this tuning job and all parent jobs
    *             specified for the warm start tuning job.</p>
    */
@@ -3796,7 +3804,7 @@ export interface EndpointMetadata {
 
   /**
    * <p>
-   *            The status of the endpoint. For possible values of the status of an endpoint, see <a>EndpointSummary$EndpointStatus</a>.
+   *            The status of the endpoint. For possible values of the status of an endpoint, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_EndpointSummary.html">EndpointSummary</a>.
    *        </p>
    */
   EndpointStatus?: EndpointStatus | string;
@@ -3969,7 +3977,7 @@ export interface DescribeInferenceExperimentResponse {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Cancelled</code> - When you conclude your experiment early using the <a>StopInferenceExperiment</a> API, or if any operation fails with an unexpected error, it shows
+   *                   <code>Cancelled</code> - When you conclude your experiment early using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopInferenceExperiment.html">StopInferenceExperiment</a> API, or if any operation fails with an unexpected error, it shows
    *                    as cancelled.
    *                </p>
    *             </li>
@@ -3979,7 +3987,7 @@ export interface DescribeInferenceExperimentResponse {
 
   /**
    * <p>
-   *            The error message or client-specified <code>Reason</code> from the <a>StopInferenceExperiment</a>
+   *            The error message or client-specified <code>Reason</code> from the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopInferenceExperiment.html">StopInferenceExperiment</a>
    *            API, that explains the status of the inference experiment.
    *        </p>
    */
@@ -4047,7 +4055,7 @@ export interface DescribeInferenceExperimentResponse {
    * <p>
    *            The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on
    *            the storage volume attached to the ML compute instance that hosts the endpoint. For more information, see
-   *            <a>CreateInferenceExperimentRequest$KmsKey</a>.
+   *            <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html">CreateInferenceExperiment</a>.
    *        </p>
    */
   KmsKey?: string;
@@ -4662,7 +4670,7 @@ export interface DescribeModelOutput {
   ExecutionRoleArn: string | undefined;
 
   /**
-   * <p>A <a>VpcConfig</a> object that specifies the VPC that this model has access
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that this model has access
    *             to. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual
    *                 Private Cloud</a>
    *          </p>
@@ -6621,7 +6629,7 @@ export type SecondaryStatus = (typeof SecondaryStatus)[keyof typeof SecondarySta
 
 /**
  * @public
- * <p>An array element of <a>DescribeTrainingJobResponse$SecondaryStatusTransitions</a>. It provides
+ * <p>An array element of <code>SecondaryStatusTransitions</code> for <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html">DescribeTrainingJob</a>. It provides
  *             additional details about a status that the training job has transitioned through. A
  *             training job can be in one of several states, for example, starting, downloading,
  *             training, or uploading. Within each state, there are a number of intermediate states.
@@ -6790,7 +6798,7 @@ export interface SecondaryStatusTransition {
    *                 messages in if statements.</p>
    *          </important>
    *          <p>To have an overview of your training job's progress, view
-   *                 <code>TrainingJobStatus</code> and <code>SecondaryStatus</code> in <a>DescribeTrainingJob</a>, and <code>StatusMessage</code> together. For
+   *             <code>TrainingJobStatus</code> and <code>SecondaryStatus</code> in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html">DescribeTrainingJob</a>, and <code>StatusMessage</code> together. For
    *             example, at the start of a training job, you might see the following:</p>
    *          <ul>
    *             <li>
@@ -6946,7 +6954,7 @@ export interface DescribeTrainingJobResponse {
   /**
    * <p> Provides detailed information about the state of the training job. For detailed
    *             information on the secondary status of the training job, see <code>StatusMessage</code>
-   *             under <a>SecondaryStatusTransition</a>.</p>
+   *             under <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SecondaryStatusTransition.html">SecondaryStatusTransition</a>.</p>
    *          <p>SageMaker provides primary statuses and secondary statuses that apply to each of
    *             them:</p>
    *          <dl>
@@ -7094,7 +7102,7 @@ export interface DescribeTrainingJobResponse {
   ResourceConfig: ResourceConfig | undefined;
 
   /**
-   * <p>A <a>VpcConfig</a> object that specifies the VPC that this training job has
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that this training job has
    *             access to. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon
    *                 Virtual Private Cloud</a>.</p>
    */
@@ -7213,17 +7221,17 @@ export interface DescribeTrainingJobResponse {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>CreateProcessingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTrainingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTransformJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -7464,17 +7472,17 @@ export interface DescribeTransformJobResponse {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>CreateProcessingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTrainingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTransformJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -7958,7 +7966,7 @@ export interface Workforce {
   WorkforceArn: string | undefined;
 
   /**
-   * <p>The most recent date that  was used to
+   * <p>The most recent date that <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateWorkforce.html">UpdateWorkforce</a> was used to
    *             successfully add one or more IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) to a private workforce's
    *             allow list.</p>
    */
@@ -8909,11 +8917,11 @@ export interface EndpointSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Creating</code>: <a>CreateEndpoint</a> is executing.</p>
+   *                   <code>Creating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> is executing.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Updating</code>: <a>UpdateEndpoint</a> or <a>UpdateEndpointWeightsAndCapacities</a> is executing.</p>
+   *                   <code>Updating</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html">UpdateEndpoint</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> is executing.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8929,7 +8937,7 @@ export interface EndpointSummary {
    *                     configuration. Once the rollback completes, endpoint returns to an
    *                         <code>InService</code> status. This transitional status only applies to an
    *                     endpoint that has autoscaling enabled and is undergoing variant weight or
-   *                     capacity changes as part of an <a>UpdateEndpointWeightsAndCapacities</a> call or when the <a>UpdateEndpointWeightsAndCapacities</a> operation is called
+   *                     capacity changes as part of an <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> call or when the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html">UpdateEndpointWeightsAndCapacities</a> operation is called
    *                     explicitly.</p>
    *             </li>
    *             <li>
@@ -8939,24 +8947,25 @@ export interface EndpointSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Deleting</code>: <a>DeleteEndpoint</a> is executing.</p>
+   *                   <code>Deleting</code>: <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is executing.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use
-   *                         <a>DescribeEndpointOutput$FailureReason</a> for information about
-   *                     the failure. <a>DeleteEndpoint</a> is the only operation that can be
+   *                     <code>DescribeEndpointOutput$FailureReason</code> for information about
+   *                     the failure. <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html">DeleteEndpoint</a> is the only operation that can be
    *                     performed on a failed endpoint.</p>
    *             </li>
    *          </ul>
-   *          <p>To get a list of endpoints with a specified status, use the <a>ListEndpointsInput$StatusEquals</a> filter.</p>
+   *          <p>To get a list of endpoints with a specified status, use the <code>StatusEquals</code>
+   *             filter with a call to <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListEndpoints.html">ListEndpoints</a>.</p>
    */
   EndpointStatus: EndpointStatus | string | undefined;
 }
 
 /**
  * @public
- * <p>The properties of an experiment as returned by the <a>Search</a> API.</p>
+ * <p>The properties of an experiment as returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
  */
 export interface Experiment {
   /**
@@ -9007,7 +9016,7 @@ export interface Experiment {
   LastModifiedBy?: UserContext;
 
   /**
-   * <p>The list of tags that are associated with the experiment. You can use <a>Search</a> API to search on the tags.</p>
+   * <p>The list of tags that are associated with the experiment. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to search on the tags.</p>
    */
   Tags?: Tag[];
 }
@@ -9015,7 +9024,7 @@ export interface Experiment {
 /**
  * @public
  * <p>A summary of the properties of an experiment. To get the complete set of properties, call
- *       the <a>DescribeExperiment</a> API and provide the
+ *       the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeExperiment.html">DescribeExperiment</a> API and provide the
  *       <code>ExperimentName</code>.</p>
  */
 export interface ExperimentSummary {
@@ -9125,7 +9134,8 @@ export interface FeatureGroup {
    * <p>Use this to specify the Amazon Web Services Key Management Service (KMS) Key ID, or
    *             <code>KMSKeyId</code>, for at rest data encryption. You can turn
    *             <code>OnlineStore</code> on or off by specifying the <code>EnableOnlineStore</code> flag
-   *          at General Assembly; the default value is <code>False</code>.</p>
+   *          at General Assembly.</p>
+   *          <p>The default value is <code>False</code>.</p>
    */
   OnlineStoreConfig?: OnlineStoreConfig;
 
@@ -9317,7 +9327,7 @@ export type Operator = (typeof Operator)[keyof typeof Operator];
  * @public
  * <p>A conditional statement for a search expression that includes a resource property, a
  *       Boolean operator, and a value. Resources that match the statement are returned in the
- *       results from the <a>Search</a> API.</p>
+ *       results from the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
  *          <p>If you specify a <code>Value</code>, but not an <code>Operator</code>, SageMaker uses the
  *       equals operator.</p>
  *          <p>In search, there are several property types:</p>
@@ -9381,7 +9391,7 @@ export type Operator = (typeof Operator)[keyof typeof Operator];
 export interface Filter {
   /**
    * <p>A resource property name. For example, <code>TrainingJobName</code>. For
-   *       valid property names, see <a>SearchRecord</a>.
+   *       valid property names, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchRecord.html">SearchRecord</a>.
    *       You must specify a valid property for the resource.</p>
    */
   Name: string | undefined;
@@ -9716,7 +9726,7 @@ export interface PropertyNameQuery {
 
 /**
  * @public
- * <p>Specified in the <a>GetSearchSuggestions</a> request.
+ * <p>Specified in the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_GetSearchSuggestions.html">GetSearchSuggestions</a> request.
  *       Limits the property names that are included in the response.</p>
  */
 export interface SuggestionQuery {
@@ -10120,20 +10130,20 @@ export interface HyperParameterTuningJobSummary {
   LastModifiedTime?: Date;
 
   /**
-   * <p>The <a>TrainingJobStatusCounters</a> object that specifies the numbers of
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobStatusCounters.html">TrainingJobStatusCounters</a> object that specifies the numbers of
    *             training jobs, categorized by status, that this tuning job launched.</p>
    */
   TrainingJobStatusCounters: TrainingJobStatusCounters | undefined;
 
   /**
-   * <p>The <a>ObjectiveStatusCounters</a> object that specifies the numbers of
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ObjectiveStatusCounters.html">ObjectiveStatusCounters</a> object that specifies the numbers of
    *             training jobs, categorized by objective metric status, that this tuning job
    *             launched.</p>
    */
   ObjectiveStatusCounters: ObjectiveStatusCounters | undefined;
 
   /**
-   * <p>The <a>ResourceLimits</a> object that specifies the maximum number of
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html">ResourceLimits</a> object that specifies the maximum number of
    *             training jobs and parallel training jobs allowed for this tuning job.</p>
    */
   ResourceLimits?: ResourceLimits;
@@ -10586,44 +10596,6 @@ export interface LabelCountersForWorkteam {
    * <p>The total number of tasks in the labeling job.</p>
    */
   Total?: number;
-}
-
-/**
- * @public
- * <p>Provides summary information for a work team.</p>
- */
-export interface LabelingJobForWorkteamSummary {
-  /**
-   * <p>The name of the labeling job that the work team is assigned to.</p>
-   */
-  LabelingJobName?: string;
-
-  /**
-   * <p>A unique identifier for a labeling job. You can use this to refer to a specific
-   *             labeling job.</p>
-   */
-  JobReferenceCode: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID of the account used to start the labeling
-   *             job.</p>
-   */
-  WorkRequesterAccountId: string | undefined;
-
-  /**
-   * <p>The date and time that the labeling job was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Provides information about the progress of a labeling job.</p>
-   */
-  LabelCounters?: LabelCountersForWorkteam;
-
-  /**
-   * <p>The configured number of workers per data object.</p>
-   */
-  NumberOfHumanWorkersPerDataObject?: number;
 }
 
 /**

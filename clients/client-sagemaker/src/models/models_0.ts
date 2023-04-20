@@ -534,7 +534,7 @@ export interface AdditionalInferenceSpecificationDefinition {
  *             for SageMaker Amazon Web Services resources.</p>
  *          <p>You can add tags to notebook instances, training jobs, hyperparameter tuning jobs,
  *             batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and
- *             endpoints. For more information on adding tags to SageMaker resources, see <a>AddTags</a>.</p>
+ *             endpoints. For more information on adding tags to SageMaker resources, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html">AddTags</a>.</p>
  *          <p>For more information on adding metadata to your Amazon Web Services resources with
  *             tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>. For advice on best practices for
  *             managing Amazon Web Services resources with tagging, see <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
@@ -710,7 +710,7 @@ export type TrainingInputMode = (typeof TrainingInputMode)[keyof typeof Training
 
 /**
  * @public
- * <p>Specifies the training algorithm to use in a <a>CreateTrainingJob</a>
+ * <p>Specifies the training algorithm to use in a <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
  *             request.</p>
  *          <p>For more information about algorithms provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. For
  *             information about using your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
@@ -821,7 +821,7 @@ export interface AlgorithmSpecification {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>You specify at least one <a>MetricDefinition</a>
+   *                <p>You specify at least one <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_MetricDefinition.html">MetricDefinition</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -1255,7 +1255,7 @@ export interface Channel {
    * <p>(Optional) The input mode to use for the data channel in a training job. If you don't
    *             set a value for <code>InputMode</code>, SageMaker uses the value set for
    *                 <code>TrainingInputMode</code>. Use this parameter to override the
-   *                 <code>TrainingInputMode</code> setting in a <a>AlgorithmSpecification</a>
+   *             <code>TrainingInputMode</code> setting in a <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html">AlgorithmSpecification</a>
    *             request when you have a channel that needs a different input mode from the training
    *             job's general setting. To download the data from Amazon Simple Storage Service (Amazon S3) to the provisioned ML
    *             storage volume, and mount the directory to a Docker volume, use <code>File</code> input
@@ -4149,6 +4149,9 @@ export interface AsyncInferenceNotificationConfig {
 
   /**
    * <p>The Amazon SNS topics where you want the inference response to be included.</p>
+   *          <note>
+   *             <p>The inference response is included only if the response size is less than or equal to 128 KB.</p>
+   *          </note>
    */
   IncludeInferenceResponseIn?: (AsyncNotificationTopicTypes | string)[];
 }
@@ -6265,36 +6268,60 @@ export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
 
 /**
  * @public
- * <p>Time series forecast settings for the SageMaker Canvas app.</p>
+ * <p>The model registry settings for the SageMaker Canvas application.</p>
  */
-export interface TimeSeriesForecastingSettings {
+export interface ModelRegisterSettings {
   /**
-   * <p>Describes whether time series forecasting is enabled or disabled in the Canvas app.</p>
+   * <p>Describes whether the integration to the model registry is enabled or disabled in the Canvas
+   *       application.</p>
    */
   Status?: FeatureStatus | string;
 
   /**
-   * <p>The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default,
-   *    Canvas uses the execution role specified in the <code>UserProfile</code> that launches the Canvas app.
-   *    If an execution role is not specified in the <code>UserProfile</code>, Canvas uses the execution
-   *    role specified in the Domain that owns the <code>UserProfile</code>.
-   *    To allow time series forecasting, this IAM role should have the
-   *    <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess">
-   *     AmazonSageMakerCanvasForecastAccess</a> policy attached and <code>forecast.amazonaws.com</code> added
-   *    in the trust relationship as a service principal.</p>
+   * <p>The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to
+   *    register model versions created by a different SageMaker Canvas AWS account than the AWS account
+   *    in which SageMaker model registry is set up.</p>
+   */
+  CrossAccountModelRegisterRoleArn?: string;
+}
+
+/**
+ * @public
+ * <p>Time series forecast settings for the SageMaker Canvas application.</p>
+ */
+export interface TimeSeriesForecastingSettings {
+  /**
+   * <p>Describes whether time series forecasting is enabled or disabled in the Canvas
+   *       application.</p>
+   */
+  Status?: FeatureStatus | string;
+
+  /**
+   * <p>The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas
+   *       uses the execution role specified in the <code>UserProfile</code> that launches the Canvas
+   *       application. If an execution role is not specified in the <code>UserProfile</code>, Canvas uses
+   *       the execution role specified in the Domain that owns the <code>UserProfile</code>. To allow
+   *       time series forecasting, this IAM role should have the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess"> AmazonSageMakerCanvasForecastAccess</a> policy attached and
+   *         <code>forecast.amazonaws.com</code> added in the trust relationship as a service
+   *       principal.</p>
    */
   AmazonForecastRoleArn?: string;
 }
 
 /**
  * @public
- * <p>The SageMaker Canvas app settings.</p>
+ * <p>The SageMaker Canvas application settings.</p>
  */
 export interface CanvasAppSettings {
   /**
-   * <p>Time series forecast settings for the Canvas app.</p>
+   * <p>Time series forecast settings for the Canvas application.</p>
    */
   TimeSeriesForecastingSettings?: TimeSeriesForecastingSettings;
+
+  /**
+   * <p>The model registry settings for the SageMaker Canvas application.</p>
+   */
+  ModelRegisterSettings?: ModelRegisterSettings;
 }
 
 /**
@@ -8517,7 +8544,7 @@ export interface InputConfig {
 
   /**
    * <p>Specifies the name and shape of the expected data inputs for your trained model with a
-   *             JSON dictionary form. The data inputs are <a>InputConfig$Framework</a>
+   *             JSON dictionary form. The data inputs are <code>Framework</code>
    *             specific. </p>
    *          <ul>
    *             <li>
@@ -8695,7 +8722,7 @@ export interface InputConfig {
    *          </ul>
    *          <p>
    *             <code>DataInputConfig</code> supports the following parameters for <code>CoreML</code>
-   *             <a>OutputConfig$TargetDevice</a> (ML Model format):</p>
+   *             <code>TargetDevice</code> (ML Model format):</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -8739,8 +8766,8 @@ export interface InputConfig {
    *                   <code>scale</code>: If the input type is an Image, you need to provide a scale factor.</p>
    *             </li>
    *          </ul>
-   *          <p>CoreML <code>ClassifierConfig</code> parameters can be specified using
-   *             <a>OutputConfig$CompilerOptions</a>. CoreML converter supports Tensorflow and PyTorch models.
+   *          <p>CoreML <code>ClassifierConfig</code> parameters can be specified using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html">OutputConfig</a>
+   *             <code>CompilerOptions</code>. CoreML converter supports Tensorflow and PyTorch models.
    *             CoreML conversion examples:</p>
    *          <ul>
    *             <li>
@@ -8958,7 +8985,7 @@ export interface OutputConfig {
   /**
    * <p>Identifies the target device or the machine learning instance that you want to run
    *             your model on after the compilation has completed. Alternatively, you can specify OS,
-   *             architecture, and accelerator using <a>TargetPlatform</a> fields. It can be
+   *             architecture, and accelerator using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TargetPlatform.html">TargetPlatform</a> fields. It can be
    *             used instead of <code>TargetPlatform</code>.</p>
    */
   TargetDevice?: TargetDevice | string;
@@ -9142,8 +9169,8 @@ export interface OutputConfig {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CoreML</code>: Compilation for the CoreML <a>OutputConfig$TargetDevice</a>
-   *                     supports the following compiler options:</p>
+   *                   <code>CoreML</code>: Compilation for the CoreML <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html">OutputConfig</a>
+   *                   <code>TargetDevice</code> supports the following compiler options:</p>
    *                <ul>
    *                   <li>
    *                      <p>
@@ -9218,7 +9245,7 @@ export interface OutputConfig {
 
 /**
  * @public
- * <p>The <a>VpcConfig</a> configuration object that specifies the VPC that you
+ * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> configuration object that specifies the VPC that you
  *             want the compilation jobs to connect to. For more information on
  *             controlling access to your Amazon S3 buckets used for compilation job, see
  *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Give Amazon SageMaker Compilation Jobs Access to Resources in Your Amazon VPC</a>.</p>
@@ -9294,7 +9321,7 @@ export interface CreateCompilationJobRequest {
   OutputConfig: OutputConfig | undefined;
 
   /**
-   * <p>A <a>VpcConfig</a> object that specifies the VPC that you want your
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your
    *             compilation job to connect to. Control access to your models by
    *             configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Protect Compilation Jobs by Using an Amazon
    *                 Virtual Private Cloud</a>.</p>
@@ -10018,12 +10045,12 @@ export interface KernelGatewayAppSettings {
  */
 export interface DefaultSpaceSettings {
   /**
-   * <p>The execution role for the space.</p>
+   * <p>The ARN of the execution role for the space.</p>
    */
   ExecutionRole?: string;
 
   /**
-   * <p>The security groups for the Amazon Virtual Private Cloud that the space uses for communication.</p>
+   * <p>The security group IDs for the Amazon Virtual Private Cloud that the space uses for communication.</p>
    */
   SecurityGroups?: string[];
 
@@ -10180,7 +10207,7 @@ export interface UserSettings {
    *          <p>Optional when the <code>CreateDomain.AppNetworkAccessType</code> parameter is set to
    *          <code>PublicInternetOnly</code>.</p>
    *          <p>Required when the <code>CreateDomain.AppNetworkAccessType</code> parameter is set to
-   *          <code>VpcOnly</code>.</p>
+   *           <code>VpcOnly</code>, unless specified as part of the <code>DefaultUserSettings</code> for the domain.</p>
    *          <p>Amazon SageMaker adds a security group to allow NFS traffic from SageMaker Studio. Therefore, the
    *          number of security groups that you can specify is one less than the maximum number shown.</p>
    */
@@ -10557,49 +10584,4 @@ export interface CreateEdgeDeploymentStageRequest {
    * <p>List of stages to be added to the edge deployment plan.</p>
    */
   Stages: DeploymentStage[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateEdgePackagingJobRequest {
-  /**
-   * <p>The name of the edge packaging job.</p>
-   */
-  EdgePackagingJobName: string | undefined;
-
-  /**
-   * <p>The name of the SageMaker Neo compilation job that will be used to locate model artifacts for packaging.</p>
-   */
-  CompilationJobName: string | undefined;
-
-  /**
-   * <p>The name of the model.</p>
-   */
-  ModelName: string | undefined;
-
-  /**
-   * <p>The version of the model.</p>
-   */
-  ModelVersion: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to download and upload the model, and to contact SageMaker Neo.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>Provides information about the output location for the packaged model.</p>
-   */
-  OutputConfig: EdgeOutputConfig | undefined;
-
-  /**
-   * <p>The Amazon Web Services KMS key to use when encrypting the EBS volume the edge packaging job runs on.</p>
-   */
-  ResourceKey?: string;
-
-  /**
-   * <p>Creates tags for the packaging job.</p>
-   */
-  Tags?: Tag[];
 }

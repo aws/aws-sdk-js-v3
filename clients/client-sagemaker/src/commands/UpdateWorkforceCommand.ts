@@ -54,10 +54,10 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  *             your own OIDC IdP. </p>
  *          <important>
  *             <p>You can only update your OIDC IdP configuration when there are no work teams
- *                 associated with your workforce. You can delete work teams using the  operation.</p>
+ *                 associated with your workforce. You can delete work teams using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkteam.html">DeleteWorkteam</a> operation.</p>
  *          </important>
  *          <p>After restricting access to a range of IP addresses or updating your OIDC IdP configuration with this operation, you
- *         can view details about your update workforce using the
+ *             can view details about your update workforce using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeWorkforce.html">DescribeWorkforce</a>
  *             operation.</p>
  *          <important>
  *             <p>This operation only applies to private workforces.</p>

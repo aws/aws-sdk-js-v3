@@ -41,7 +41,7 @@ export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
 
 /**
  * @public
- * <p>Gets a list of <a>TrainingJobSummary</a> objects that describe the training
+ * <p>Gets a list of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html">TrainingJobSummary</a> objects that describe the training
  *             jobs that a hyperparameter tuning job launched.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

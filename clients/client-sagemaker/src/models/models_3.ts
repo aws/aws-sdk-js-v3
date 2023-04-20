@@ -141,7 +141,7 @@ import {
   InferenceRecommendationsJob,
   InferenceRecommendationsJobStep,
   LabelCounters,
-  LabelingJobForWorkteamSummary,
+  LabelCountersForWorkteam,
   LabelingJobOutput,
   LabelingJobStatus,
   MetricData,
@@ -176,6 +176,44 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>Provides summary information for a work team.</p>
+ */
+export interface LabelingJobForWorkteamSummary {
+  /**
+   * <p>The name of the labeling job that the work team is assigned to.</p>
+   */
+  LabelingJobName?: string;
+
+  /**
+   * <p>A unique identifier for a labeling job. You can use this to refer to a specific
+   *             labeling job.</p>
+   */
+  JobReferenceCode: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the account used to start the labeling
+   *             job.</p>
+   */
+  WorkRequesterAccountId: string | undefined;
+
+  /**
+   * <p>The date and time that the labeling job was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Provides information about the progress of a labeling job.</p>
+   */
+  LabelCounters?: LabelCountersForWorkteam;
+
+  /**
+   * <p>The configured number of workers per data object.</p>
+   */
+  NumberOfHumanWorkersPerDataObject?: number;
+}
 
 /**
  * @public
@@ -1088,7 +1126,7 @@ export interface ListCompilationJobsRequest {
   NameContains?: string;
 
   /**
-   * <p>A filter that retrieves model compilation jobs with a specific <a>DescribeCompilationJobResponse$CompilationJobStatus</a> status.</p>
+   * <p>A filter that retrieves model compilation jobs with a specific <code>CompilationJobStatus</code> status.</p>
    */
   StatusEquals?: CompilationJobStatus | string;
 
@@ -1108,7 +1146,7 @@ export interface ListCompilationJobsRequest {
  */
 export interface ListCompilationJobsResponse {
   /**
-   * <p>An array of <a>CompilationJobSummary</a> objects, each describing a model
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CompilationJobSummary.html">CompilationJobSummary</a> objects, each describing a model
    *             compilation job. </p>
    */
   CompilationJobSummaries: CompilationJobSummary[] | undefined;
@@ -2299,7 +2337,7 @@ export interface ListHyperParameterTuningJobsRequest {
  */
 export interface ListHyperParameterTuningJobsResponse {
   /**
-   * <p>A list of <a>HyperParameterTuningJobSummary</a> objects that
+   * <p>A list of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobSummary.html">HyperParameterTuningJobSummary</a> objects that
    *             describe
    *             the tuning jobs that the <code>ListHyperParameterTuningJobs</code>
    *             request returned.</p>
@@ -2472,14 +2510,14 @@ export interface ListInferenceExperimentsRequest {
 
   /**
    * <p>
-   *            Selects inference experiments of this type. For the possible types of inference experiments, see <a>CreateInferenceExperimentRequest$Type</a>.
+   *            Selects inference experiments of this type. For the possible types of inference experiments, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html">CreateInferenceExperiment</a>.
    *        </p>
    */
   Type?: InferenceExperimentType | string;
 
   /**
    * <p>
-   *            Selects inference experiments which are in this status. For the possible statuses, see <a>DescribeInferenceExperimentResponse$Status</a>.
+   *            Selects inference experiments which are in this status. For the possible statuses, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceExperiment.html">DescribeInferenceExperiment</a>.
    *        </p>
    */
   StatusEquals?: InferenceExperimentStatus | string;
@@ -6318,7 +6356,7 @@ export interface ListTrainingJobsForHyperParameterTuningJobRequest {
  */
 export interface ListTrainingJobsForHyperParameterTuningJobResponse {
   /**
-   * <p>A list of <a>TrainingJobSummary</a> objects that
+   * <p>A list of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html">TrainingJobSummary</a> objects that
    *             describe
    *             the training jobs that the
    *                 <code>ListTrainingJobsForHyperParameterTuningJob</code> request returned.</p>
@@ -6396,7 +6434,7 @@ export interface ListTransformJobsRequest {
  * <p>Provides a
  *             summary
  *             of a transform job. Multiple <code>TransformJobSummary</code> objects are returned as a
- *             list after in response to a <a>ListTransformJobs</a> call.</p>
+ *             list after in response to a <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTransformJobs.html">ListTransformJobs</a> call.</p>
  */
 export interface TransformJobSummary {
   /**
@@ -6536,7 +6574,7 @@ export interface ListTrialComponentsRequest {
 /**
  * @public
  * <p>A summary of the properties of a trial component. To get all the properties, call the
- *         <a>DescribeTrialComponent</a> API and provide the
+ *       <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrialComponent.html">DescribeTrialComponent</a> API and provide the
  *       <code>TrialComponentName</code>.</p>
  */
 export interface TrialComponentSummary {
@@ -6687,7 +6725,7 @@ export interface ListTrialsRequest {
 /**
  * @public
  * <p>A summary of the properties of a trial. To get the complete set of properties, call the
- *         <a>DescribeTrial</a> API and provide the <code>TrialName</code>.</p>
+ *       <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrial.html">DescribeTrial</a> API and provide the <code>TrialName</code>.</p>
  */
 export interface TrialSummary {
   /**
@@ -6959,7 +6997,7 @@ export interface ListWorkteamsResponse {
 
 /**
  * @public
- * <p>The properties of a model as returned by the <a>Search</a> API.</p>
+ * <p>The properties of a model as returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
  */
 export interface Model {
   /**
@@ -7041,7 +7079,7 @@ export interface ModelCard {
   ModelCardVersion?: number;
 
   /**
-   * <p>The content of the model card. Content uses the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-api-json-schema.html">model card JSON schema</a> and provided as a string.</p>
+   * <p>The content of the model card. Content uses the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema">model card JSON schema</a> and provided as a string.</p>
    */
   Content?: string;
 
@@ -7301,17 +7339,17 @@ export interface TransformJob {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>CreateProcessingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTrainingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTransformJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -7753,8 +7791,8 @@ export type ModelVariantAction = (typeof ModelVariantAction)[keyof typeof ModelV
 
 /**
  * @public
- * <p>A list of nested <a>Filter</a> objects. A resource must satisfy the conditions
- *       of all filters to be included in the results returned from the <a>Search</a> API.</p>
+ * <p>A list of nested <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Filter.html">Filter</a> objects. A resource must satisfy the conditions
+ *       of all filters to be included in the results returned from the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
  *          <p>For example, to filter on a training job's <code>InputDataConfig</code> property with a
  *       specific channel name and <code>S3Uri</code> prefix, define the following filters:</p>
  *          <ul>
@@ -8014,17 +8052,17 @@ export interface ProcessingJob {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>CreateProcessingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTrainingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTransformJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -8450,7 +8488,7 @@ export interface RenderUiTemplateRequest {
    * <p>The <code>HumanTaskUiArn</code> of the worker UI that you want to render. Do not
    *             provide a <code>HumanTaskUiArn</code> if you use the <code>UiTemplate</code>
    *             parameter.</p>
-   *          <p>See a list of available Human Ui Amazon Resource Names (ARNs) in <a>UiConfig</a>.</p>
+   *          <p>See a list of available Human Ui Amazon Resource Names (ARNs) in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UiConfig.html">UiConfig</a>.</p>
    */
   HumanTaskUiArn?: string;
 }
@@ -8604,7 +8642,7 @@ export interface TrainingJob {
   /**
    * <p> Provides detailed information about the state of the training job. For detailed
    *             information about the secondary status of the training job, see
-   *                 <code>StatusMessage</code> under <a>SecondaryStatusTransition</a>.</p>
+   *             <code>StatusMessage</code> under <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SecondaryStatusTransition.html">SecondaryStatusTransition</a>.</p>
    *          <p>SageMaker provides primary statuses and secondary statuses that apply to each of
    *             them:</p>
    *          <dl>
@@ -8741,7 +8779,7 @@ export interface TrainingJob {
   ResourceConfig?: ResourceConfig;
 
   /**
-   * <p>A <a>VpcConfig</a> object that specifies the VPC that this training job has
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that this training job has
    *             access to. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon
    *                 Virtual Private Cloud</a>.</p>
    */
@@ -8848,17 +8886,17 @@ export interface TrainingJob {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>CreateProcessingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTrainingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTransformJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -8933,7 +8971,7 @@ export interface TrialComponentSimpleSummary {
 
 /**
  * @public
- * <p>The properties of a trial as returned by the <a>Search</a> API.</p>
+ * <p>The properties of a trial as returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
  */
 export interface Trial {
   /**
@@ -8989,7 +9027,7 @@ export interface Trial {
   MetadataProperties?: MetadataProperties;
 
   /**
-   * <p>The list of tags that are associated with the trial. You can use <a>Search</a>
+   * <p>The list of tags that are associated with the trial. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a>
    *       API to search on the tags.</p>
    */
   Tags?: Tag[];
@@ -9030,7 +9068,7 @@ export interface TrialComponentSourceDetail {
 
 /**
  * @public
- * <p>The properties of a trial component as returned by the <a>Search</a>
+ * <p>The properties of a trial component as returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a>
  *       API.</p>
  */
 export interface TrialComponent {
@@ -9127,7 +9165,7 @@ export interface TrialComponent {
   LineageGroupArn?: string;
 
   /**
-   * <p>The list of tags that are associated with the component. You can use <a>Search</a> API to search on the tags.</p>
+   * <p>The list of tags that are associated with the component. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to search on the tags.</p>
    */
   Tags?: Tag[];
 
@@ -9145,7 +9183,7 @@ export interface TrialComponent {
 
 /**
  * @public
- * <p>A single resource returned as part of the <a>Search</a> API response.</p>
+ * <p>A single resource returned as part of the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API response.</p>
  */
 export interface SearchRecord {
   /**
@@ -9659,16 +9697,6 @@ export interface UpdateActionRequest {
    * <p>A list of properties to remove.</p>
    */
   PropertiesToRemove?: string[];
-}
-
-/**
- * @public
- */
-export interface UpdateActionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the action.</p>
-   */
-  ActionArn?: string;
 }
 
 /**

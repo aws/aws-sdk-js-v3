@@ -35,7 +35,7 @@ export interface UpdateInferenceExperimentCommandOutput extends UpdateInferenceE
  * <p>
  *            Updates an inference experiment that you created. The status of the inference experiment has to be either
  *            <code>Created</code>, <code>Running</code>. For more information on the status of an inference experiment,
- *            see <a>DescribeInferenceExperimentResponse$Status</a>.
+ *            see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceExperiment.html">DescribeInferenceExperiment</a>.
  *        </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

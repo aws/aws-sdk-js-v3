@@ -162,6 +162,10 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *         Status: "ENABLED" || "DISABLED",
  *         AmazonForecastRoleArn: "STRING_VALUE",
  *       },
+ *       ModelRegisterSettings: { // ModelRegisterSettings
+ *         Status: "ENABLED" || "DISABLED",
+ *         CrossAccountModelRegisterRoleArn: "STRING_VALUE",
+ *       },
  *     },
  *   },
  *   SubnetIds: [ // Subnets // required

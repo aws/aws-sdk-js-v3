@@ -33,6 +33,7 @@ import {
   ContentClassifier,
   ContinuousParameterRange,
   ConvergenceDetected,
+  EdgeOutputConfig,
   EndpointInput,
   HyperParameterScalingType,
   HyperParameterTuningJobObjective,
@@ -70,6 +71,51 @@ import {
 
 /**
  * @public
+ */
+export interface CreateEdgePackagingJobRequest {
+  /**
+   * <p>The name of the edge packaging job.</p>
+   */
+  EdgePackagingJobName: string | undefined;
+
+  /**
+   * <p>The name of the SageMaker Neo compilation job that will be used to locate model artifacts for packaging.</p>
+   */
+  CompilationJobName: string | undefined;
+
+  /**
+   * <p>The name of the model.</p>
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>The version of the model.</p>
+   */
+  ModelVersion: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to download and upload the model, and to contact SageMaker Neo.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>Provides information about the output location for the packaged model.</p>
+   */
+  OutputConfig: EdgeOutputConfig | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key to use when encrypting the EBS volume the edge packaging job runs on.</p>
+   */
+  ResourceKey?: string;
+
+  /**
+   * <p>Creates tags for the packaging job.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
  * <p>The deployment configuration for an endpoint, which contains the desired deployment
  *             strategy and rollback configurations.</p>
  */
@@ -98,12 +144,12 @@ export interface CreateEndpointInput {
   /**
    * <p>The name of the endpoint.The name must be unique within an Amazon Web Services
    *             Region in your Amazon Web Services account. The name is case-insensitive in
-   *                 <code>CreateEndpoint</code>, but the case is preserved and must be matched in .</p>
+   *             <code>CreateEndpoint</code>, but the case is preserved and must be matched in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html">InvokeEndpoint</a>.</p>
    */
   EndpointName: string | undefined;
 
   /**
-   * <p>The name of an endpoint configuration. For more information, see <a>CreateEndpointConfig</a>. </p>
+   * <p>The name of an endpoint configuration. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a>. </p>
    */
   EndpointConfigName: string | undefined;
 
@@ -395,7 +441,7 @@ export interface ProductionVariant {
  */
 export interface CreateEndpointConfigInput {
   /**
-   * <p>The name of the endpoint configuration. You specify this name in a <a>CreateEndpoint</a> request. </p>
+   * <p>The name of the endpoint configuration. You specify this name in a <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a> request. </p>
    */
   EndpointConfigName: string | undefined;
 
@@ -517,7 +563,7 @@ export interface CreateExperimentRequest {
   Description?: string;
 
   /**
-   * <p>A list of tags to associate with the experiment. You can use <a>Search</a> API
+   * <p>A list of tags to associate with the experiment. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API
    *       to search on the tags.</p>
    */
   Tags?: Tag[];
@@ -654,7 +700,10 @@ export interface OfflineStoreConfig {
 
   /**
    * <p>Set to <code>True</code> to disable the automatic creation of an Amazon Web Services Glue table when
-   *        configuring an <code>OfflineStore</code>.</p>
+   *        configuring an <code>OfflineStore</code>. If set to <code>False</code>, Feature Store will name the
+   *          <code>OfflineStore</code> Glue table following
+   *          <a href="https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html">Athena's naming recommendations</a>.</p>
+   *          <p>The default value is <code>False</code>.</p>
    */
   DisableGlueTableCreation?: boolean;
 
@@ -757,7 +806,8 @@ export interface OnlineStoreSecurityConfig {
  * <p>Use this to specify the Amazon Web Services Key Management Service (KMS) Key ID, or
  *             <code>KMSKeyId</code>, for at rest data encryption. You can turn
  *             <code>OnlineStore</code> on or off by specifying the <code>EnableOnlineStore</code> flag
- *          at General Assembly; the default value is <code>False</code>.</p>
+ *          at General Assembly.</p>
+ *          <p>The default value is <code>False</code>.</p>
  */
 export interface OnlineStoreConfig {
   /**
@@ -860,10 +910,10 @@ export interface CreateFeatureGroupRequest {
 
   /**
    * <p>You can turn the <code>OnlineStore</code> on or off by specifying <code>True</code> for
-   *          the <code>EnableOnlineStore</code> flag in <code>OnlineStoreConfig</code>; the default
-   *          value is <code>False</code>.</p>
+   *          the <code>EnableOnlineStore</code> flag in <code>OnlineStoreConfig</code>.</p>
    *          <p>You can also include an Amazon Web Services KMS key ID (<code>KMSKeyId</code>) for at-rest encryption of
    *          the <code>OnlineStore</code>.</p>
+   *          <p>The default value is <code>False</code>.</p>
    */
   OnlineStoreConfig?: OnlineStoreConfig;
 
@@ -888,7 +938,7 @@ export interface CreateFeatureGroupRequest {
    *                <p>Format for the offline store table. Supported formats are Glue (Default) and <a href="https://iceberg.apache.org/">Apache Iceberg</a>.</p>
    *             </li>
    *          </ul>
-   *          <p>To learn more about this parameter, see <a>OfflineStoreConfig</a>.</p>
+   *          <p>To learn more about this parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OfflineStoreConfig.html">OfflineStoreConfig</a>.</p>
    */
   OfflineStoreConfig?: OfflineStoreConfig;
 
@@ -922,7 +972,7 @@ export interface CreateFeatureGroupResponse {
 
 /**
  * @public
- * <p>Defines under what conditions SageMaker creates a human loop. Used within . See  for the required
+ * <p>Defines under what conditions SageMaker creates a human loop. Used within <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateFlowDefinition.html">CreateFlowDefinition</a>. See <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HumanLoopActivationConditionsConfig.html">HumanLoopActivationConditionsConfig</a> for the required
  *          format of activation conditions.</p>
  */
 export interface HumanLoopActivationConditionsConfig {
@@ -1890,19 +1940,19 @@ export interface IntegerParameterRange {
  */
 export interface ParameterRanges {
   /**
-   * <p>The array of <a>IntegerParameterRange</a> objects that specify ranges of
+   * <p>The array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_IntegerParameterRange.html">IntegerParameterRange</a> objects that specify ranges of
    *             integer hyperparameters that a hyperparameter tuning job searches.</p>
    */
   IntegerParameterRanges?: IntegerParameterRange[];
 
   /**
-   * <p>The array of <a>ContinuousParameterRange</a> objects that specify ranges of
+   * <p>The array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContinuousParameterRange.html">ContinuousParameterRange</a> objects that specify ranges of
    *             continuous hyperparameters that a hyperparameter tuning job searches.</p>
    */
   ContinuousParameterRanges?: ContinuousParameterRange[];
 
   /**
-   * <p>The array of <a>CategoricalParameterRange</a> objects that specify ranges
+   * <p>The array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CategoricalParameterRange.html">CategoricalParameterRange</a> objects that specify ranges
    *             of categorical hyperparameters that a hyperparameter tuning job searches.</p>
    */
   CategoricalParameterRanges?: CategoricalParameterRange[];
@@ -2089,20 +2139,20 @@ export interface HyperParameterTuningJobConfig {
   StrategyConfig?: HyperParameterTuningJobStrategyConfig;
 
   /**
-   * <p>The <a>HyperParameterTuningJobObjective</a> specifies the objective metric
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobObjective.html">HyperParameterTuningJobObjective</a> specifies the objective metric
    *             used to evaluate the performance of training jobs launched by this tuning job.</p>
    */
   HyperParameterTuningJobObjective?: HyperParameterTuningJobObjective;
 
   /**
-   * <p>The <a>ResourceLimits</a> object that specifies the maximum number of
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html">ResourceLimits</a> object that specifies the maximum number of
    *             training and parallel training jobs that can be used for this hyperparameter tuning
    *             job.</p>
    */
   ResourceLimits: ResourceLimits | undefined;
 
   /**
-   * <p>The <a>ParameterRanges</a> object that specifies the ranges of
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ParameterRanges.html">ParameterRanges</a> object that specifies the ranges of
    *             hyperparameters that this tuning job searches over to find the optimal configuration for
    *             the highest model performance against your chosen objective metric. </p>
    */
@@ -2206,7 +2256,7 @@ export interface HyperParameterAlgorithmSpecification {
   AlgorithmName?: string;
 
   /**
-   * <p>An array of <a>MetricDefinition</a> objects that specify the
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_MetricDefinition.html">MetricDefinition</a> objects that specify the
    *             metrics
    *             that the algorithm emits.</p>
    */
@@ -2409,7 +2459,7 @@ export interface HyperParameterTrainingJobDefinition {
   StaticHyperParameters?: Record<string, string>;
 
   /**
-   * <p>The <a>HyperParameterAlgorithmSpecification</a> object that
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterAlgorithmSpecification.html">HyperParameterAlgorithmSpecification</a> object that
    *             specifies
    *             the resource algorithm to use for the training jobs that the tuning
    *             job launches.</p>
@@ -2425,14 +2475,14 @@ export interface HyperParameterTrainingJobDefinition {
   RoleArn: string | undefined;
 
   /**
-   * <p>An array of <a>Channel</a> objects that specify
+   * <p>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html">Channel</a> objects that specify
    *             the
    *             input for the training jobs that the tuning job launches.</p>
    */
   InputDataConfig?: Channel[];
 
   /**
-   * <p>The <a>VpcConfig</a> object that specifies the VPC that you want the
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want the
    *             training jobs that this hyperparameter tuning job launches to connect to. Control access
    *             to and from your training container by configuring the VPC. For more information, see
    *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect
@@ -2639,7 +2689,7 @@ export interface CreateHyperParameterTuningJobRequest {
   HyperParameterTuningJobName: string | undefined;
 
   /**
-   * <p>The <a>HyperParameterTuningJobConfig</a> object that describes the tuning
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html">HyperParameterTuningJobConfig</a> object that describes the tuning
    *             job, including the search strategy, the objective metric used to evaluate training jobs,
    *             ranges of parameters to search, and resource limits for the tuning job. For more
    *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html">How
@@ -2648,7 +2698,7 @@ export interface CreateHyperParameterTuningJobRequest {
   HyperParameterTuningJobConfig: HyperParameterTuningJobConfig | undefined;
 
   /**
-   * <p>The <a>HyperParameterTrainingJobDefinition</a> object that describes the
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a> object that describes the
    *             training jobs that this tuning job launches, including static hyperparameters, input
    *             data configuration, output data configuration, resource configuration, and stopping
    *             condition.</p>
@@ -2656,7 +2706,7 @@ export interface CreateHyperParameterTuningJobRequest {
   TrainingJobDefinition?: HyperParameterTrainingJobDefinition;
 
   /**
-   * <p>A list of the <a>HyperParameterTrainingJobDefinition</a> objects launched
+   * <p>A list of the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a> objects launched
    *             for this tuning job.</p>
    */
   TrainingJobDefinitions?: HyperParameterTrainingJobDefinition[];
@@ -3717,7 +3767,10 @@ export interface RecommendationJobStoppingConditions {
 export interface CreateInferenceRecommendationsJobRequest {
   /**
    * <p>A name for the recommendation job. The name must be unique within
-   *            the Amazon Web Services Region and within your Amazon Web Services account.</p>
+   *            the Amazon Web Services Region and within your Amazon Web Services account.
+   *           The job name is passed down to the resources created by the recommendation job.
+   *           The names of resources (such as the model, endpoint configuration, endpoint, and compilation)
+   *           that are prefixed with the job name are truncated at 40 characters.</p>
    */
   JobName: string | undefined;
 
@@ -5974,7 +6027,7 @@ export interface CreateModelInput {
   Tags?: Tag[];
 
   /**
-   * <p>A <a>VpcConfig</a> object that specifies the VPC that you want your model
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your model
    *             to connect to. Control access to and from your model container by configuring the VPC.
    *                 <code>VpcConfig</code> is used in hosting services and in batch transform. For more
    *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html">Protect Data in Batch
@@ -6184,7 +6237,7 @@ export interface CreateModelCardRequest {
   SecurityConfig?: ModelCardSecurityConfig;
 
   /**
-   * <p>The content of the model card. Content must be in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-api-json-schema.html">model card JSON schema</a> and provided as a string.</p>
+   * <p>The content of the model card. Content must be in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema">model card JSON schema</a> and provided as a string.</p>
    */
   Content: string | undefined;
 
@@ -7735,17 +7788,17 @@ export interface CreatePresignedNotebookInstanceUrlOutput {
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>CreateProcessingJob</a>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>CreateTrainingJob</a>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>CreateTransformJob</a>
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -8264,17 +8317,17 @@ export interface CreateProcessingJobRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>CreateProcessingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTrainingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTransformJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -8738,7 +8791,7 @@ export interface CreateTrainingJobRequest {
   ResourceConfig: ResourceConfig | undefined;
 
   /**
-   * <p>A <a>VpcConfig</a> object that specifies the VPC that you want your
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your
    *             training job to connect to. Control access to and from your training container by
    *             configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon
    *                 Virtual Private Cloud</a>.</p>
@@ -8823,17 +8876,17 @@ export interface CreateTrainingJobRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>CreateProcessingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTrainingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTransformJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -9089,17 +9142,17 @@ export interface CreateTransformJobRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>CreateProcessingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html">CreateProcessingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTrainingJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateTransformJob</a>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html">CreateTransformJob</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -9144,7 +9197,7 @@ export interface CreateTrialRequest {
   MetadataProperties?: MetadataProperties;
 
   /**
-   * <p>A list of tags to associate with the trial. You can use <a>Search</a> API to
+   * <p>A list of tags to associate with the trial. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to
    *       search on the tags.</p>
    */
   Tags?: Tag[];
@@ -9164,7 +9217,7 @@ export interface CreateTrialResponse {
  * @public
  * <p>Represents an input or output artifact of a trial component. You specify
  *         <code>TrialComponentArtifact</code> as part of the <code>InputArtifacts</code> and
- *         <code>OutputArtifacts</code> parameters in the <a>CreateTrialComponent</a>
+ *       <code>OutputArtifacts</code> parameters in the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrialComponent.html">CreateTrialComponent</a>
  *       request.</p>
  *          <p>Examples of input artifacts are datasets, algorithms, hyperparameters, source code, and
  *       instance types. Examples of output artifacts are metrics, snapshots, logs, and images.</p>
@@ -9188,7 +9241,7 @@ export interface TrialComponentArtifact {
  * @public
  * <p>The value of a hyperparameter. Only one of <code>NumberValue</code> or
  *         <code>StringValue</code> can be specified.</p>
- *          <p>This object is specified in the <a>CreateTrialComponent</a> request.</p>
+ *          <p>This object is specified in the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrialComponent.html">CreateTrialComponent</a> request.</p>
  */
 export type TrialComponentParameterValue =
   | TrialComponentParameterValue.NumberValueMember
@@ -9338,7 +9391,7 @@ export interface CreateTrialComponentRequest {
   MetadataProperties?: MetadataProperties;
 
   /**
-   * <p>A list of tags to associate with the component. You can use <a>Search</a> API
+   * <p>A list of tags to associate with the component. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API
    *       to search on the tags.</p>
    */
   Tags?: Tag[];
@@ -10346,22 +10399,6 @@ export interface DeleteStudioLifecycleConfigRequest {
    * <p>The name of the Studio Lifecycle Configuration to delete.</p>
    */
   StudioLifecycleConfigName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTagsInput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to
-   *             delete.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>An array or one or more tag keys to delete.</p>
-   */
-  TagKeys: string[] | undefined;
 }
 
 /**
