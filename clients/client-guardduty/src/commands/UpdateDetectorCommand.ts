@@ -63,7 +63,7 @@ export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __M
  *   },
  *   Features: [ // DetectorFeatureConfigurations
  *     { // DetectorFeatureConfiguration
- *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING",
+ *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS",
  *       Status: "ENABLED" || "DISABLED",
  *       AdditionalConfiguration: [ // DetectorAdditionalConfigurations
  *         { // DetectorAdditionalConfiguration

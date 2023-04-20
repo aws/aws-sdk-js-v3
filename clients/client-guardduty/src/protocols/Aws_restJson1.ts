@@ -265,6 +265,7 @@ import {
   KubernetesDetails,
   KubernetesUserDetails,
   KubernetesWorkloadDetails,
+  LambdaDetails,
   LineageObject,
   LocalIpDetails,
   LocalPortDetails,
@@ -345,6 +346,7 @@ import {
   Volume,
   VolumeDetail,
   VolumeMount,
+  VpcConfig,
 } from "../models/models_0";
 import {
   MemberAdditionalConfiguration,
@@ -7174,6 +7176,23 @@ const de_KubernetesWorkloadDetails = (output: any, context: __SerdeContext): Kub
 };
 
 /**
+ * deserializeAws_restJson1LambdaDetails
+ */
+const de_LambdaDetails = (output: any, context: __SerdeContext): LambdaDetails => {
+  return take(output, {
+    Description: [, __expectString, `description`],
+    FunctionArn: [, __expectString, `functionArn`],
+    FunctionName: [, __expectString, `functionName`],
+    FunctionVersion: [, __expectString, `functionVersion`],
+    LastModifiedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastModifiedAt`],
+    RevisionId: [, __expectString, `revisionId`],
+    Role: [, __expectString, `role`],
+    Tags: (_) => [, de_Tags(_, context), `tags`],
+    VpcConfig: (_) => [, de_VpcConfig(_, context), `vpcConfig`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Lineage
  */
 const de_Lineage = (output: any, context: __SerdeContext): LineageObject[] => {
@@ -7828,6 +7847,7 @@ const de_Resource = (output: any, context: __SerdeContext): Resource => {
     EksClusterDetails: (_) => [, de_EksClusterDetails(_, context), `eksClusterDetails`],
     InstanceDetails: (_) => [, de_InstanceDetails(_, context), `instanceDetails`],
     KubernetesDetails: (_) => [, de_KubernetesDetails(_, context), `kubernetesDetails`],
+    LambdaDetails: (_) => [, de_LambdaDetails(_, context), `lambdaDetails`],
     RdsDbInstanceDetails: (_) => [, de_RdsDbInstanceDetails(_, context), `rdsDbInstanceDetails`],
     RdsDbUserDetails: (_) => [, de_RdsDbUserDetails(_, context), `rdsDbUserDetails`],
     ResourceType: [, __expectString, `resourceType`],
@@ -8149,6 +8169,8 @@ const de_ServiceAdditionalInfo = (output: any, context: __SerdeContext): Service
 
 // de_Sources omitted.
 
+// de_SubnetIds omitted.
+
 /**
  * deserializeAws_restJson1Tag
  */
@@ -8441,6 +8463,17 @@ const de_Volumes = (output: any, context: __SerdeContext): Volume[] => {
       return de_Volume(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_restJson1VpcConfig
+ */
+const de_VpcConfig = (output: any, context: __SerdeContext): VpcConfig => {
+  return take(output, {
+    SecurityGroups: (_) => [, de_SecurityGroups(_, context), `securityGroups`],
+    SubnetIds: [, _json, `subnetIds`],
+    VpcId: [, __expectString, `vpcId`],
+  }) as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

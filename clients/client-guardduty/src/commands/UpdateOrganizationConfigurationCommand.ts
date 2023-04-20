@@ -70,7 +70,7 @@ export interface UpdateOrganizationConfigurationCommandOutput
  *   },
  *   Features: [ // OrganizationFeaturesConfigurations
  *     { // OrganizationFeatureConfiguration
- *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING",
+ *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "EKS_RUNTIME_MONITORING" || "LAMBDA_NETWORK_LOGS",
  *       AutoEnable: "NEW" || "NONE",
  *       AdditionalConfiguration: [ // OrganizationAdditionalConfigurations
  *         { // OrganizationAdditionalConfiguration

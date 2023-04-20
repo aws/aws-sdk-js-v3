@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { UnarchiveFindingsRequest, UnarchiveFindingsResponse } from "../models/models_0";
+import { UnarchiveFindingsRequest, UnarchiveFindingsResponse } from "../models/models_1";
 import { de_UnarchiveFindingsCommand, se_UnarchiveFindingsCommand } from "../protocols/Aws_restJson1";
 
 /**

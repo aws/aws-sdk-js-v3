@@ -20,6 +20,26 @@ import {
 /**
  * @public
  */
+export interface UnarchiveFindingsRequest {
+  /**
+   * <p>The ID of the detector associated with the findings to unarchive.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The IDs of the findings to unarchive.</p>
+   */
+  FindingIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UnarchiveFindingsResponse {}
+
+/**
+ * @public
+ */
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the resource to remove tags from.</p>

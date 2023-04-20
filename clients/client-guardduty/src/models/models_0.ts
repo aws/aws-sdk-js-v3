@@ -263,6 +263,7 @@ export const FreeTrialFeatureResult = {
   EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
   EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
   FLOW_LOGS: "FLOW_LOGS",
+  LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
   RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
   S3_DATA_EVENTS: "S3_DATA_EVENTS",
 } as const;
@@ -1527,6 +1528,7 @@ export const DetectorFeature = {
   EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
   EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
   EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
+  LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
   RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
   S3_DATA_EVENTS: "S3_DATA_EVENTS",
 } as const;
@@ -3027,6 +3029,7 @@ export const OrgFeature = {
   EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
   EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
   EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
+  LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
   RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
   S3_DATA_EVENTS: "S3_DATA_EVENTS",
 } as const;
@@ -3250,6 +3253,7 @@ export const DetectorFeatureResult = {
   EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
   EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
   FLOW_LOGS: "FLOW_LOGS",
+  LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
   RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
   S3_DATA_EVENTS: "S3_DATA_EVENTS",
 } as const;
@@ -4115,6 +4119,80 @@ export interface KubernetesDetails {
 
 /**
  * @public
+ * <p>Amazon Virtual Private Cloud configuration details associated with your Lambda function.</p>
+ */
+export interface VpcConfig {
+  /**
+   * <p>The identifiers of the subnets that are associated with your Lambda function.</p>
+   */
+  SubnetIds?: string[];
+
+  /**
+   * <p>The identifier of the Amazon Virtual Private Cloud.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The identifier of the security group attached to the Lambda function.</p>
+   */
+  SecurityGroups?: SecurityGroup[];
+}
+
+/**
+ * @public
+ * <p>Information about the Lambda function involved in the finding.</p>
+ */
+export interface LambdaDetails {
+  /**
+   * <p>Amazon Resource Name (ARN) of the Lambda function.</p>
+   */
+  FunctionArn?: string;
+
+  /**
+   * <p>Name of the Lambda function.</p>
+   */
+  FunctionName?: string;
+
+  /**
+   * <p>Description of the Lambda function.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The timestamp when the Lambda function was last modified. This field is in the UTC date string
+   *       format <code>(2023-03-22T19:37:20.168Z)</code>.</p>
+   */
+  LastModifiedAt?: Date;
+
+  /**
+   * <p>The revision ID of the Lambda function version.</p>
+   */
+  RevisionId?: string;
+
+  /**
+   * <p>The version of the Lambda function.</p>
+   */
+  FunctionVersion?: string;
+
+  /**
+   * <p>The execution role of the Lambda function.</p>
+   */
+  Role?: string;
+
+  /**
+   * <p>Amazon Virtual Private Cloud configuration details associated with your Lambda function.</p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>A list of tags attached to this resource, listed in the format of
+   *       <code>key</code>:<code>value</code> pair.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
  * <p>Contains information about the resource type <code>RDSDBInstance</code> involved in a
  *       GuardDuty finding.</p>
  */
@@ -4342,6 +4420,11 @@ export interface Resource {
    *       made.</p>
    */
   RdsDbUserDetails?: RdsDbUserDetails;
+
+  /**
+   * <p>Contains information about the Lambda function that was involved in a finding.</p>
+   */
+  LambdaDetails?: LambdaDetails;
 }
 
 /**
@@ -6479,23 +6562,3 @@ export interface TagResourceRequest {
  * @public
  */
 export interface TagResourceResponse {}
-
-/**
- * @public
- */
-export interface UnarchiveFindingsRequest {
-  /**
-   * <p>The ID of the detector associated with the findings to unarchive.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>The IDs of the findings to unarchive.</p>
-   */
-  FindingIds: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UnarchiveFindingsResponse {}
