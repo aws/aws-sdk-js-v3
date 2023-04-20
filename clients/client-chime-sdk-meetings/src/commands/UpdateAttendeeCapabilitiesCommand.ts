@@ -36,7 +36,7 @@ export interface UpdateAttendeeCapabilitiesCommandOutput extends UpdateAttendeeC
 
 /**
  * @public
- * <p>The capabilties that you want to update.</p>
+ * <p>The capabilities that you want to update.</p>
  *          <note>
  *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
  *             .</p>
@@ -54,7 +54,7 @@ export interface UpdateAttendeeCapabilitiesCommandOutput extends UpdateAttendeeC
  *             </li>
  *             <li>
  *                <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
- *                     and if the attendee turned on their video or content streams, remote attendess can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
+ *                     and if the attendee turned on their video or content streams, remote attendees can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
  *             </li>
  *          </ul>
  * @example
