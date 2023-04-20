@@ -125,6 +125,7 @@ export interface CreateMediaInsightsPipelineConfigurationCommandOutput
  *       },
  *       S3RecordingSinkConfiguration: { // S3RecordingSinkConfiguration
  *         Destination: "STRING_VALUE",
+ *         RecordingFileFormat: "Wav" || "Opus",
  *       },
  *       VoiceAnalyticsProcessorConfiguration: { // VoiceAnalyticsProcessorConfiguration
  *         SpeakerSearchStatus: "Enabled" || "Disabled",

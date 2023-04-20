@@ -68,7 +68,12 @@ export type ContentRedactionOutput = (typeof ContentRedactionOutput)[keyof typeo
 
 /**
  * @public
- * <p>The settings for a post-call voice analytics task.</p>
+ * <p>Allows you to specify additional settings for your Call Analytics post-call request, including output locations for your redacted transcript, which IAM role to use, and which encryption key to use.</p>
+ *          <p>
+ *             <code>DataAccessRoleArn</code> and <code>OutputLocation</code> are required fields.</p>
+ *          <p>
+ *             <code>PostCallAnalyticsSettings</code> provides the same insights as a Call Analytics post-call transcription. For more information, refer to
+ *          <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-post-call.html">Post-call analytics with real-time transcriptions</a> in the <i>Amazon Transcribe Developer Guide</i>.</p>
  */
 export interface PostCallAnalyticsSettings {
   /**
@@ -88,7 +93,7 @@ export interface PostCallAnalyticsSettings {
   ContentRedactionOutput?: ContentRedactionOutput | string;
 
   /**
-   * <p>The ID of the KMS (Key Management System) key used to encrypt the output.</p>
+   * <p>The ID of the KMS (Key Management Service) key used to encrypt the output.</p>
    */
   OutputEncryptionKMSKeyId?: string;
 }
@@ -211,7 +216,7 @@ export interface AmazonTranscribeCallAnalyticsProcessorConfiguration {
   PostCallAnalyticsSettings?: PostCallAnalyticsSettings;
 
   /**
-   * <p>By default, all <code>CategoryEvents</code> will be sent to the insights target. If this parameter is specified, only included categories will be sent to the insights target. </p>
+   * <p>By default, all <code>CategoryEvents</code> are sent to the insights target. If this parameter is specified, only included categories are sent to the insights target. </p>
    */
   CallAnalyticsStreamCategories?: string[];
 }
@@ -300,7 +305,7 @@ export interface AmazonTranscribeProcessorConfiguration {
    *          <p>Values must be comma-separated and can include: <code>ADDRESS</code>, <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING</code>, <code>CREDIT_DEBIT_CVV</code>,
    *          <code>CREDIT_DEBIT_EXPIRY</code>, <code>CREDIT_DEBIT_NUMBER</code>, <code>EMAIL</code>,
    *          <code>NAME</code>, <code>PHONE</code>, <code>PIN</code>, <code>SSN</code>, or <code>ALL</code>.</p>
-   *          <p>Length Constraints: Minimum length of 1. Maximum length of 300.</p>
+   *          <p>If you leave this parameter empty, the default behavior is equivalent to <code>ALL</code>.</p>
    */
   PiiEntityTypes?: string;
 
@@ -528,7 +533,7 @@ export type PresenterPosition = (typeof PresenterPosition)[keyof typeof Presente
 
 /**
  * @public
- * <p>Defines the configuration for a presenter only video tile.</p>
+ * <p>Defines the configuration for a presenter-only video tile.</p>
  */
 export interface PresenterOnlyConfiguration {
   /**
@@ -1424,7 +1429,7 @@ export interface FragmentSelector {
 
 /**
  * @public
- * <p>A structure the holds the settings for recording audio and video.</p>
+ * <p>A structure that holds the settings for recording media.</p>
  */
 export interface RecordingStreamConfiguration {
   /**
@@ -1540,16 +1545,16 @@ export type RecordingFileFormat = (typeof RecordingFileFormat)[keyof typeof Reco
 
 /**
  * @public
- * <p>A structure that holds the settings for transmitting audio and video recordings to the runtime Amazon S3 bucket.</p>
+ * <p>A structure that holds the settings for transmitting media files to the Amazon S3 bucket. If specified, the settings in this structure override any settings in <code>S3RecordingSinkConfiguration</code>.</p>
  */
 export interface S3RecordingSinkRuntimeConfiguration {
   /**
-   * <p>The URL of the S3 bucket used as the runtime sink.</p>
+   * <p>The URI of the S3 bucket used as the sink.</p>
    */
   Destination: string | undefined;
 
   /**
-   * <p>The file formats for the audio and video files sent to the Amazon S3 bucket.</p>
+   * <p>The file format for the media files sent to the Amazon S3 bucket.</p>
    */
   RecordingFileFormat: RecordingFileFormat | string | undefined;
 }
@@ -1691,7 +1696,7 @@ export class NotFoundException extends __BaseException {
  */
 export interface KinesisDataStreamSinkConfiguration {
   /**
-   * <p>The URL of the sink, <a href="https://aws.amazon.com/kinesis/data-streams/">https://aws.amazon.com/kinesis/data-streams/</a>.</p>
+   * <p>The ARN of the sink.</p>
    */
   InsightsTarget?: string;
 }
@@ -1702,20 +1707,25 @@ export interface KinesisDataStreamSinkConfiguration {
  */
 export interface LambdaFunctionSinkConfiguration {
   /**
-   * <p>The URL of the sink, <a href="https://aws.amazon.com/kinesis/data-streams/">https://aws.amazon.com/kinesis/data-streams/</a>.</p>
+   * <p>The ARN of the sink.</p>
    */
   InsightsTarget?: string;
 }
 
 /**
  * @public
- * <p>The structure that holds the settings for transmitting audio and video to the Amazon S3 bucket.</p>
+ * <p>The structure that holds the settings for transmitting media to the Amazon S3 bucket. These values are used as defaults if <code>S3RecordingSinkRuntimeConfiguration</code> is not specified.</p>
  */
 export interface S3RecordingSinkConfiguration {
   /**
-   * <p>The URL of the Amazon S3 bucket used as the recording sink.</p>
+   * <p>The default URI of the Amazon S3 bucket used as the recording sink.</p>
    */
   Destination?: string;
+
+  /**
+   * <p>The default file format for the media files sent to the Amazon S3 bucket.</p>
+   */
+  RecordingFileFormat?: RecordingFileFormat | string;
 }
 
 /**
@@ -1724,18 +1734,18 @@ export interface S3RecordingSinkConfiguration {
  */
 export interface SnsTopicSinkConfiguration {
   /**
-   * <p>The URL of the SNS sink, <a href="https://aws.amazon.com/kinesis/data-streams/">https://aws.amazon.com/kinesis/data-streams/</a>.</p>
+   * <p>The ARN of the SNS sink.</p>
    */
   InsightsTarget?: string;
 }
 
 /**
  * @public
- * <p>The URL of the SQS sink.</p>
+ * <p>The configuration settings for the SQS sink.</p>
  */
 export interface SqsQueueSinkConfiguration {
   /**
-   * <p>The URL of the SQS sink, <a href="https://aws.amazon.com/kinesis/data-streams/">https://aws.amazon.com/kinesis/data-streams/</a>.</p>
+   * <p>The ARN of the SQS sink.</p>
    */
   InsightsTarget?: string;
 }
