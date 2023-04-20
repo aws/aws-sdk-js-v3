@@ -323,6 +323,32 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To update an insight
+ * ```javascript
+ * // The following example updates the specified Security Hub insight.
+ * const input = {
+ *   "Filters": {
+ *     "ResourceType": [
+ *       {
+ *         "Comparison": "EQUALS",
+ *         "Value": "AwsIamRole"
+ *       }
+ *     ],
+ *     "SeverityLabel": [
+ *       {
+ *         "Comparison": "EQUALS",
+ *         "Value": "HIGH"
+ *       }
+ *     ]
+ *   },
+ *   "InsightArn": "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   "Name": "High severity role findings"
+ * };
+ * const command = new UpdateInsightCommand(input);
+ * await client.send(command);
+ * // example id: to-update-an-insight-1678816280498
+ * ```
+ *
  */
 export class UpdateInsightCommand extends $Command<
   UpdateInsightCommandInput,

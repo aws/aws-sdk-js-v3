@@ -74,6 +74,27 @@ export interface ListOrganizationAdminAccountsCommandOutput
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To list administrator acccounts for an organization
+ * ```javascript
+ * // The following example lists the Security  Hub administrator accounts for an organization. Only the organization management account can call this operation.
+ * const input = undefined;
+ * const command = new ListOrganizationAdminAccountsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AdminAccounts": [
+ *     {
+ *       "AccountId": "777788889999"
+ *     },
+ *     {
+ *       "Status": "ENABLED"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-list-administrator-acccounts-for-an-organization-1678386548110
+ * ```
+ *
  */
 export class ListOrganizationAdminAccountsCommand extends $Command<
   ListOrganizationAdminAccountsCommandInput,

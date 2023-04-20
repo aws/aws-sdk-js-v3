@@ -247,6 +247,55 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * // example id: to-modify-parameters-in-a-db-cluster-parameter-group-1680377584537
  * ```
  *
+ * @example To modify a DB instance
+ * ```javascript
+ * // The following example associates an option group and a parameter group with a compatible Microsoft SQL Server DB instance. The ApplyImmediately parameter causes the option and parameter groups to be associated immediately, instead of waiting until the next maintenance window.
+ * const input = {
+ *   "ApplyImmediately": true,
+ *   "DBInstanceIdentifier": "database-2",
+ *   "DBParameterGroupName": "test-sqlserver-se-2017",
+ *   "OptionGroupName": "test-se-2017"
+ * };
+ * const command = new ModifyDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DBInstance": {
+ *     "AssociatedRoles": [],
+ *     "AutoMinorVersionUpgrade": false,
+ *     "AvailabilityZone": "us-west-2d",
+ *     "CharacterSetName": "SQL_Latin1_General_CP1_CI_AS",
+ *     "DBInstanceClass": "db.r4.large",
+ *     "DBInstanceIdentifier": "database-2",
+ *     "DBInstanceStatus": "available",
+ *     "DBParameterGroups": [
+ *       {
+ *         "DBParameterGroupName": "test-sqlserver-se-2017",
+ *         "ParameterApplyStatus": "applying"
+ *       }
+ *     ],
+ *     "DeletionProtection": false,
+ *     "Engine": "sqlserver-se",
+ *     "EngineVersion": "14.00.3281.6.v1",
+ *     "LicenseModel": "license-included",
+ *     "MaxAllocatedStorage": 1000,
+ *     "MultiAZ": true,
+ *     "OptionGroupMemberships": [
+ *       {
+ *         "OptionGroupName": "test-se-2017",
+ *         "Status": "pending-apply"
+ *       }
+ *     ],
+ *     "PubliclyAccessible": true,
+ *     "ReadReplicaDBInstanceIdentifiers": [],
+ *     "SecondaryAvailabilityZone": "us-west-2c",
+ *     "StorageType": "gp2"
+ *   }
+ * }
+ * *\/
+ * // example id: to-modify-a-db-instance-1680377584537
+ * ```
+ *
  */
 export class ModifyDBInstanceCommand extends $Command<
   ModifyDBInstanceCommandInput,

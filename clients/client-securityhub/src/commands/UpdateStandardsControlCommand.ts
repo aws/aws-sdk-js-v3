@@ -69,6 +69,19 @@ export interface UpdateStandardsControlCommandOutput extends UpdateStandardsCont
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To update the enablement status of a standard control
+ * ```javascript
+ * // The following example disables the specified control in the specified security standard.
+ * const input = {
+ *   "ControlStatus": "DISABLED",
+ *   "DisabledReason": "Not applicable to my service",
+ *   "StandardsControlArn": "arn:aws:securityhub:us-west-1:123456789012:control/pci-dss/v/3.2.1/PCI.AutoScaling.1"
+ * };
+ * const command = new UpdateStandardsControlCommand(input);
+ * await client.send(command);
+ * // example id: to-update-the-enablement-status-of-a-standard-control-1678912506444
+ * ```
+ *
  */
 export class UpdateStandardsControlCommand extends $Command<
   UpdateStandardsControlCommandInput,

@@ -78,6 +78,22 @@ export interface EnableImportFindingsForProductCommandOutput
  *  <p>The resource specified in the request conflicts with an existing resource.</p>
  *
  *
+ * @example To activate an integration
+ * ```javascript
+ * // The following example activates an integration between Security Hub and a third party partner product that sends findings to Security Hub.
+ * const input = {
+ *   "ProductArn": "arn:aws:securityhub:us-east-1:517716713836:product/crowdstrike/crowdstrike-falcon"
+ * };
+ * const command = new EnableImportFindingsForProductCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ProductSubscriptionArn": "arn:aws:securityhub:us-east-1:517716713836:product-subscription/crowdstrike/crowdstrike-falcon"
+ * }
+ * *\/
+ * // example id: to-activate-an-integration-1676918918114
+ * ```
+ *
  */
 export class EnableImportFindingsForProductCommand extends $Command<
   EnableImportFindingsForProductCommandInput,

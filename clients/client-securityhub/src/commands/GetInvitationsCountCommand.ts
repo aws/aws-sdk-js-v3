@@ -66,6 +66,22 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To get a count of membership invitations
+ * ```javascript
+ * // The following example returns a count of invitations that the Security Hub administrator sent to the current member account, not including the currently accepted invitation.
+ * //
+ * //
+ * const input = undefined;
+ * const command = new GetInvitationsCountCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InvitationsCount": 3
+ * }
+ * *\/
+ * // example id: to-get-a-count-of-membership-invitations-1677774568793
+ * ```
+ *
  */
 export class GetInvitationsCountCommand extends $Command<
   GetInvitationsCountCommandInput,

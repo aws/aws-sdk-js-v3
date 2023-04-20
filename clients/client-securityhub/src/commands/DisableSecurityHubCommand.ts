@@ -72,6 +72,15 @@ export interface DisableSecurityHubCommandOutput extends DisableSecurityHubRespo
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To deactivate Security Hub
+ * ```javascript
+ * // The following example deactivates Security Hub for the current account and Region.
+ * const input = undefined;
+ * const command = new DisableSecurityHubCommand(input);
+ * await client.send(command);
+ * // example id: to-deactivate-security-hub-1676583894245
+ * ```
+ *
  */
 export class DisableSecurityHubCommand extends $Command<
   DisableSecurityHubCommandInput,

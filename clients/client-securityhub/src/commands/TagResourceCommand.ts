@@ -66,6 +66,21 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To tag a resource
+ * ```javascript
+ * // The following example adds the 'Department' and 'Area' tags to the specified resource.
+ * const input = {
+ *   "ResourceArn": "arn:aws:securityhub:us-west-1:123456789012:hub/default",
+ *   "Tags": {
+ *     "Area": "USMidwest",
+ *     "Department": "Operations"
+ *   }
+ * };
+ * const command = new TagResourceCommand(input);
+ * await client.send(command);
+ * // example id: to-tag-a-resource-1678478687320
+ * ```
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

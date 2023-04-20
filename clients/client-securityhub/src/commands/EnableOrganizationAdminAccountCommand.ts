@@ -73,6 +73,17 @@ export interface EnableOrganizationAdminAccountCommandOutput
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To designate a Security Hub administrator
+ * ```javascript
+ * // The following example designates the specified account as the Security Hub administrator account. The requesting account must be the organization management account.
+ * const input = {
+ *   "AdminAccountId": "123456789012"
+ * };
+ * const command = new EnableOrganizationAdminAccountCommand(input);
+ * await client.send(command);
+ * // example id: to-designate-a-security-hub-administrator-1676998319851
+ * ```
+ *
  */
 export class EnableOrganizationAdminAccountCommand extends $Command<
   EnableOrganizationAdminAccountCommandInput,

@@ -83,6 +83,37 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  * // example id: to-list-buckets-1481910996058
  * ```
  *
+ * @example To list object versions
+ * ```javascript
+ * // The following example return versions of an object with specific key name prefix. The request limits the number of items returned to two. If there are are more than two object version, S3 returns NextToken in the response. You can specify this token value in your next request to fetch next set of object versions.
+ * const input = undefined;
+ * const command = new ListBucketsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Buckets": [
+ *     {
+ *       "CreationDate": "2012-02-15T21: 03: 02.000Z",
+ *       "Name": "examplebucket"
+ *     },
+ *     {
+ *       "CreationDate": "2011-07-24T19: 33: 50.000Z",
+ *       "Name": "examplebucket2"
+ *     },
+ *     {
+ *       "CreationDate": "2010-12-17T00: 56: 49.000Z",
+ *       "Name": "examplebucket3"
+ *     }
+ *   ],
+ *   "Owner": {
+ *     "DisplayName": "own-display-name",
+ *     "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31"
+ *   }
+ * }
+ * *\/
+ * // example id: to-list-object-versions-1481910996058
+ * ```
+ *
  */
 export class ListBucketsCommand extends $Command<
   ListBucketsCommandInput,

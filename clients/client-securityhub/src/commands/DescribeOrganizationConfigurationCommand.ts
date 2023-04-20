@@ -74,6 +74,22 @@ export interface DescribeOrganizationConfigurationCommandOutput
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To get information about Organizations configuration
+ * ```javascript
+ * // The following example returns details about the way in which AWS Organizations is configured for a Security Hub account that belongs to an organization. Only a Security Hub administrator account can call this operation.
+ * const input = {};
+ * const command = new DescribeOrganizationConfigurationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AutoEnable": true,
+ *   "AutoEnableStandards": "DEFAULT",
+ *   "MemberAccountLimitReached": true
+ * }
+ * *\/
+ * // example id: to-get-information-about-organizations-configuration-1676059786304
+ * ```
+ *
  */
 export class DescribeOrganizationConfigurationCommand extends $Command<
   DescribeOrganizationConfigurationCommandInput,

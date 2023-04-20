@@ -78,6 +78,25 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To invite accounts to become members
+ * ```javascript
+ * // The following example invites the specified AWS accounts to become member accounts associated with the calling Security Hub administrator account. You only use this operation to invite accounts that don't belong to an AWS Organizations organization.
+ * const input = {
+ *   "AccountIds": [
+ *     "111122223333",
+ *     "444455556666"
+ *   ]
+ * };
+ * const command = new InviteMembersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "UnprocessedAccounts": []
+ * }
+ * *\/
+ * // example id: to-invite-accounts-to-become-members-1677775500860
+ * ```
+ *
  */
 export class InviteMembersCommand extends $Command<
   InviteMembersCommandInput,

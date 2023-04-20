@@ -74,6 +74,17 @@ export interface UpdateOrganizationConfigurationCommandOutput
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To update organization configuration
+ * ```javascript
+ * // The following example updates the configuration for an organization so that Security Hub is automatically activated for new member accounts. Only the Security Hub administrator account can call this operation.
+ * const input = {
+ *   "AutoEnable": true
+ * };
+ * const command = new UpdateOrganizationConfigurationCommand(input);
+ * await client.send(command);
+ * // example id: to-update-organization-configuration-1678911630846
+ * ```
+ *
  */
 export class UpdateOrganizationConfigurationCommand extends $Command<
   UpdateOrganizationConfigurationCommandInput,

@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.317.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.316.0...v3.317.0) (2023-04-20)
+
+
+### Features
+
+* **client-chime-sdk-media-pipelines:** This release adds support for specifying the recording file format in an S3 recording sink configuration. ([625ca4a](https://github.com/aws/aws-sdk-js-v3/commit/625ca4ab583a0baec5fae27d2f2a2cc62ac9c95e))
+* **client-chime-sdk-meetings:** Adds support for Hindi and Thai languages and additional Amazon Transcribe parameters to the StartMeetingTranscription API. ([0c389df](https://github.com/aws/aws-sdk-js-v3/commit/0c389dff8d047c427288be439c29c7b8864a5e27))
+* **client-chime:** Adds support for Hindi and Thai languages and additional Amazon Transcribe parameters to the StartMeetingTranscription API. ([d1e9bf8](https://github.com/aws/aws-sdk-js-v3/commit/d1e9bf8a0c57c7414b3aa95072deb12d0a4f89f4))
+* **client-gamelift:** Amazon GameLift supports creating Builds for Windows 2016 operating system. ([aa64742](https://github.com/aws/aws-sdk-js-v3/commit/aa64742c970ca45a23647b553f618d047ccfc8f4))
+* **client-guardduty:** This release adds support for the new Lambda Protection feature. ([3eb10b2](https://github.com/aws/aws-sdk-js-v3/commit/3eb10b2622c35ceafe8d714d11ea0f6935e8c344))
+* **client-iot:** Support additional OTA states in GetOTAUpdate API ([db884ae](https://github.com/aws/aws-sdk-js-v3/commit/db884ae5cd1750c4b98964969b39010c86f9d9c7))
+* **client-sagemaker:** Amazon SageMaker Canvas adds ModelRegisterSettings support for CanvasAppSettings. ([ebd11ca](https://github.com/aws/aws-sdk-js-v3/commit/ebd11cad4cfe8f16744612bd940648f77a7df186))
+* **client-snowball:** Adds support for Amazon S3 compatible storage. AWS Snow Family customers can now use Amazon S3 compatible storage on Snowball Edge devices. Also adds support for V3_5S. This is a refreshed AWS Snowball Edge Storage Optimized device type with 210TB SSD (customer usable). ([e7f97bf](https://github.com/aws/aws-sdk-js-v3/commit/e7f97bfc1f22e6bf3285b0ca0d19b72cfa8f59b1))
+* **client-wafv2:** You can now create encrypted API keys to use in a client application integration of the JavaScript CAPTCHA API . You can also retrieve a list of your API keys and the JavaScript application integration URL. ([8b07232](https://github.com/aws/aws-sdk-js-v3/commit/8b07232a23481cf2101758737640926300bf5dfb))
+* **clients:** update client endpoints as of 2023-04-20 ([25718eb](https://github.com/aws/aws-sdk-js-v3/commit/25718ebc205c72ec8382e3e7549c006178d71717))
+
+
+
+
+
 # [3.316.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.315.0...v3.316.0) (2023-04-19)
 
 

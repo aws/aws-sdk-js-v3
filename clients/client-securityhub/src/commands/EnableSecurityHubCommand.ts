@@ -92,6 +92,20 @@ export interface EnableSecurityHubCommandOutput extends EnableSecurityHubRespons
  *  <p>The resource specified in the request conflicts with an existing resource.</p>
  *
  *
+ * @example To activate Security Hub
+ * ```javascript
+ * // The following example activates the Security Hub service in the requesting AWS account. The service is activated in the current AWS Region or the Region that you specify in the request. Some standards are automatically turned on in your account unless you opt out. To determine which standards are automatically turned on, see the Security Hub documentation.
+ * const input = {
+ *   "EnableDefaultStandards": true,
+ *   "Tags": {
+ *     "Department": "Security"
+ *   }
+ * };
+ * const command = new EnableSecurityHubCommand(input);
+ * await client.send(command);
+ * // example id: to-activate-security-hub-1676998538599
+ * ```
+ *
  */
 export class EnableSecurityHubCommand extends $Command<
   EnableSecurityHubCommandInput,

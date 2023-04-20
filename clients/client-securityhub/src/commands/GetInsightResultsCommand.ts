@@ -70,6 +70,35 @@ export interface GetInsightResultsCommandOutput extends GetInsightResultsRespons
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To get the results of a Security Hub insight
+ * ```javascript
+ * // The following example returns the results of the Security Hub insight specified by the insight ARN.
+ * const input = {
+ *   "InsightArn": "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ * };
+ * const command = new GetInsightResultsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InsightResults": {
+ *     "GroupByAttribute": "ResourceId",
+ *     "InsightArn": "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *     "ResultValues": [
+ *       {
+ *         "Count": 10,
+ *         "GroupByAttributeValue": "AWS::::Account:111122223333"
+ *       },
+ *       {
+ *         "Count": 3,
+ *         "GroupByAttributeValue": "AWS::::Account:444455556666"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: to-get-the-results-of-a-security-hub-insight-1677182822019
+ * ```
+ *
  */
 export class GetInsightResultsCommand extends $Command<
   GetInsightResultsCommandInput,

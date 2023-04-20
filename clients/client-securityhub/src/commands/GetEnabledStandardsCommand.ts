@@ -71,6 +71,31 @@ export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsRes
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To return a list of enabled standards
+ * ```javascript
+ * // The following example returns a list of Security Hub standards that are currently enabled in your account.
+ * const input = {
+ *   "StandardsSubscriptionArns": [
+ *     "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
+ *   ]
+ * };
+ * const command = new GetEnabledStandardsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "StandardsSubscriptions": [
+ *     {
+ *       "StandardsArn": "arn:aws:securityhub:us-west-1::standards/pci-dss/v/3.2.1",
+ *       "StandardsInput": {},
+ *       "StandardsStatus": "READY",
+ *       "StandardsSubscriptionArn": "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-return-a-list-of-enabled-standards-1677090731129
+ * ```
+ *
  */
 export class GetEnabledStandardsCommand extends $Command<
   GetEnabledStandardsCommandInput,

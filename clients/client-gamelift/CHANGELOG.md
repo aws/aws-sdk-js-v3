@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.317.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.316.0...v3.317.0) (2023-04-20)
+
+
+### Features
+
+* **client-gamelift:** Amazon GameLift supports creating Builds for Windows 2016 operating system. ([aa64742](https://github.com/aws/aws-sdk-js-v3/commit/aa64742c970ca45a23647b553f618d047ccfc8f4))
+
+
+
+
+
 # [3.316.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.315.0...v3.316.0) (2023-04-19)
 
 

@@ -74,6 +74,25 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To delete a member account
+ * ```javascript
+ * // The following example deletes the specified member account from Security Hub. This operation can be used to delete member accounts that are part of an organization or that were invited manually.
+ * const input = {
+ *   "AccountIds": [
+ *     "123456789111",
+ *     "123456789222"
+ *   ]
+ * };
+ * const command = new DeleteMembersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "UnprocessedAccounts": []
+ * }
+ * *\/
+ * // example id: to-delete-a-member-account-1675883040513
+ * ```
+ *
  */
 export class DeleteMembersCommand extends $Command<
   DeleteMembersCommandInput,

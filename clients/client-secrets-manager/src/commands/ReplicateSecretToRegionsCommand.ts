@@ -94,6 +94,35 @@ export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretTo
  *  <p>Secrets Manager can't find the resource that you asked for.</p>
  *
  *
+ * @example Example
+ * ```javascript
+ * // The following example replicates a secret to eu-west-3. The replica is encrypted with the AWS managed key aws/secretsmanager.
+ * const input = {
+ *   "AddReplicaRegions": [
+ *     {
+ *       "Region": "eu-west-3"
+ *     }
+ *   ],
+ *   "ForceOverwriteReplicaSecret": true,
+ *   "SecretId": "MyTestSecret"
+ * };
+ * const command = new ReplicateSecretToRegionsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestSecret-1a2b3c",
+ *   "ReplicationStatus": [
+ *     {
+ *       "KmsKeyId": "alias/aws/secretsmanager",
+ *       "Region": "eu-west-3",
+ *       "Status": "InProgress"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: example-1679591984774
+ * ```
+ *
  */
 export class ReplicateSecretToRegionsCommand extends $Command<
   ReplicateSecretToRegionsCommandInput,

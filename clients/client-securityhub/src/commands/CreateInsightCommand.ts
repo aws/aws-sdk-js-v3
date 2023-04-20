@@ -325,6 +325,37 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  *  <p>The resource specified in the request conflicts with an existing resource.</p>
  *
  *
+ * @example To create a custom insight
+ * ```javascript
+ * // The following example creates a custom insight in Security Hub. An insight is a collection of findings that relate to a security issue.
+ * const input = {
+ *   "Filters": {
+ *     "ResourceType": [
+ *       {
+ *         "Comparison": "EQUALS",
+ *         "Value": "AwsIamRole"
+ *       }
+ *     ],
+ *     "SeverityLabel": [
+ *       {
+ *         "Comparison": "EQUALS",
+ *         "Value": "CRITICAL"
+ *       }
+ *     ]
+ *   },
+ *   "GroupByAttribute": "ResourceId",
+ *   "Name": "Critical role findings"
+ * };
+ * const command = new CreateInsightCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "InsightArn": "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ * }
+ * *\/
+ * // example id: to-create-a-custom-insight-1675354046628
+ * ```
+ *
  */
 export class CreateInsightCommand extends $Command<
   CreateInsightCommandInput,

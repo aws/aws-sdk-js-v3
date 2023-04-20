@@ -109,6 +109,29 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  *  <p>The resource specified in the request conflicts with an existing resource.</p>
  *
  *
+ * @example To add a member account
+ * ```javascript
+ * // The following example creates a member association between the specified accounts and the administrator account (the account that makes the request). This operation is used to add accounts that aren't part of an organization.
+ * const input = {
+ *   "AccountDetails": [
+ *     {
+ *       "AccountId": "123456789012"
+ *     },
+ *     {
+ *       "AccountId": "111122223333"
+ *     }
+ *   ]
+ * };
+ * const command = new CreateMembersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "UnprocessedAccounts": []
+ * }
+ * *\/
+ * // example id: to-add-a-member-account-1675354709996
+ * ```
+ *
  */
 export class CreateMembersCommand extends $Command<
   CreateMembersCommandInput,

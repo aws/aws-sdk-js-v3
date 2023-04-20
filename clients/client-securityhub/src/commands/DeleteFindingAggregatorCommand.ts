@@ -75,6 +75,17 @@ export interface DeleteFindingAggregatorCommandOutput extends DeleteFindingAggre
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To delete a finding aggregator
+ * ```javascript
+ * // The following example deletes a finding aggregator in Security Hub. Deleting the finding aggregator stops cross-Region aggregation. This operation produces no output.
+ * const input = {
+ *   "FindingAggregatorArn": "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ * };
+ * const command = new DeleteFindingAggregatorCommand(input);
+ * await client.send(command);
+ * // example id: to-delete-a-finding-aggregator-1675701750629
+ * ```
+ *
  */
 export class DeleteFindingAggregatorCommand extends $Command<
   DeleteFindingAggregatorCommandInput,

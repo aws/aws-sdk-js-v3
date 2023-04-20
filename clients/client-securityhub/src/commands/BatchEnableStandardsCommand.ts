@@ -78,6 +78,33 @@ export interface BatchEnableStandardsCommandOutput extends BatchEnableStandardsR
  *          account or throttling limits. The error code describes the limit exceeded.</p>
  *
  *
+ * @example To import security findings from a third party provider to Security Hub
+ * ```javascript
+ * // The following example imports findings from a third party provider to Security Hub.
+ * const input = {
+ *   "StandardsSubscriptionRequests": [
+ *     {
+ *       "StandardsArn": "arn:aws:securityhub:us-west-1::standards/pci-dss/v/3.2.1"
+ *     }
+ *   ]
+ * };
+ * const command = new BatchEnableStandardsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "StandardsSubscriptions": [
+ *     {
+ *       "StandardsArn": "arn:aws:securityhub:us-west-1::standards/pci-dss/v/3.2.1",
+ *       "StandardsInput": {},
+ *       "StandardsStatus": "PENDING",
+ *       "StandardsSubscriptionArn": "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-import-security-findings-from-a-third-party-provider-to-security-hub-1675090935260
+ * ```
+ *
  */
 export class BatchEnableStandardsCommand extends $Command<
   BatchEnableStandardsCommandInput,

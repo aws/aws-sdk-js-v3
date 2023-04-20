@@ -66,6 +66,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *  <p>The request was rejected because we can't find the specified resource.</p>
  *
  *
+ * @example To remove tags from a resource
+ * ```javascript
+ * // The following example removes the 'Department' tag from the specified resource.
+ * const input = {
+ *   "ResourceArn": "arn:aws:securityhub:us-west-1:123456789012:hub/default",
+ *   "TagKeys": [
+ *     "Department"
+ *   ]
+ * };
+ * const command = new UntagResourceCommand(input);
+ * await client.send(command);
+ * // example id: to-remove-tags-from-a-resource-1678478903748
+ * ```
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
