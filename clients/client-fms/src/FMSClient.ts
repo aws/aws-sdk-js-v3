@@ -85,6 +85,7 @@ import {
   DisassociateThirdPartyFirewallCommandOutput,
 } from "./commands/DisassociateThirdPartyFirewallCommand";
 import { GetAdminAccountCommandInput, GetAdminAccountCommandOutput } from "./commands/GetAdminAccountCommand";
+import { GetAdminScopeCommandInput, GetAdminScopeCommandOutput } from "./commands/GetAdminScopeCommand";
 import { GetAppsListCommandInput, GetAppsListCommandOutput } from "./commands/GetAppsListCommand";
 import {
   GetComplianceDetailCommandInput,
@@ -109,6 +110,14 @@ import {
   GetViolationDetailsCommandInput,
   GetViolationDetailsCommandOutput,
 } from "./commands/GetViolationDetailsCommand";
+import {
+  ListAdminAccountsForOrganizationCommandInput,
+  ListAdminAccountsForOrganizationCommandOutput,
+} from "./commands/ListAdminAccountsForOrganizationCommand";
+import {
+  ListAdminsManagingAccountCommandInput,
+  ListAdminsManagingAccountCommandOutput,
+} from "./commands/ListAdminsManagingAccountCommand";
 import { ListAppsListsCommandInput, ListAppsListsCommandOutput } from "./commands/ListAppsListsCommand";
 import {
   ListComplianceStatusCommandInput,
@@ -134,6 +143,7 @@ import {
   ListThirdPartyFirewallFirewallPoliciesCommandInput,
   ListThirdPartyFirewallFirewallPoliciesCommandOutput,
 } from "./commands/ListThirdPartyFirewallFirewallPoliciesCommand";
+import { PutAdminAccountCommandInput, PutAdminAccountCommandOutput } from "./commands/PutAdminAccountCommand";
 import { PutAppsListCommandInput, PutAppsListCommandOutput } from "./commands/PutAppsListCommand";
 import {
   PutNotificationChannelCommandInput,
@@ -168,6 +178,7 @@ export type ServiceInputTypes =
   | DisassociateAdminAccountCommandInput
   | DisassociateThirdPartyFirewallCommandInput
   | GetAdminAccountCommandInput
+  | GetAdminScopeCommandInput
   | GetAppsListCommandInput
   | GetComplianceDetailCommandInput
   | GetNotificationChannelCommandInput
@@ -177,6 +188,8 @@ export type ServiceInputTypes =
   | GetResourceSetCommandInput
   | GetThirdPartyFirewallAssociationStatusCommandInput
   | GetViolationDetailsCommandInput
+  | ListAdminAccountsForOrganizationCommandInput
+  | ListAdminsManagingAccountCommandInput
   | ListAppsListsCommandInput
   | ListComplianceStatusCommandInput
   | ListDiscoveredResourcesCommandInput
@@ -187,6 +200,7 @@ export type ServiceInputTypes =
   | ListResourceSetsCommandInput
   | ListTagsForResourceCommandInput
   | ListThirdPartyFirewallFirewallPoliciesCommandInput
+  | PutAdminAccountCommandInput
   | PutAppsListCommandInput
   | PutNotificationChannelCommandInput
   | PutPolicyCommandInput
@@ -211,6 +225,7 @@ export type ServiceOutputTypes =
   | DisassociateAdminAccountCommandOutput
   | DisassociateThirdPartyFirewallCommandOutput
   | GetAdminAccountCommandOutput
+  | GetAdminScopeCommandOutput
   | GetAppsListCommandOutput
   | GetComplianceDetailCommandOutput
   | GetNotificationChannelCommandOutput
@@ -220,6 +235,8 @@ export type ServiceOutputTypes =
   | GetResourceSetCommandOutput
   | GetThirdPartyFirewallAssociationStatusCommandOutput
   | GetViolationDetailsCommandOutput
+  | ListAdminAccountsForOrganizationCommandOutput
+  | ListAdminsManagingAccountCommandOutput
   | ListAppsListsCommandOutput
   | ListComplianceStatusCommandOutput
   | ListDiscoveredResourcesCommandOutput
@@ -230,6 +247,7 @@ export type ServiceOutputTypes =
   | ListResourceSetsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListThirdPartyFirewallFirewallPoliciesCommandOutput
+  | PutAdminAccountCommandOutput
   | PutAppsListCommandOutput
   | PutNotificationChannelCommandOutput
   | PutPolicyCommandOutput
@@ -407,7 +425,7 @@ export interface FMSClientResolvedConfig extends FMSClientResolvedConfigType {}
  *       types, and errors. For detailed information about Firewall Manager features, see the
  *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">Firewall Manager Developer Guide</a>.</p>
  *          <p>Some API actions require explicit resource permissions. For information, see the developer guide topic
- *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html">Firewall Manager required permissions for API actions</a>.
+ *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service">Service roles for Firewall Manager</a>.
  * </p>
  */
 export class FMSClient extends __Client<

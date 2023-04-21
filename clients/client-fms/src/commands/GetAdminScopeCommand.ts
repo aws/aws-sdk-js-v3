@@ -14,43 +14,42 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { AssociateAdminAccountRequest } from "../models/models_0";
-import { de_AssociateAdminAccountCommand, se_AssociateAdminAccountCommand } from "../protocols/Aws_json1_1";
+import { GetAdminScopeRequest, GetAdminScopeResponse } from "../models/models_0";
+import { de_GetAdminScopeCommand, se_GetAdminScopeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  *
- * The input for {@link AssociateAdminAccountCommand}.
+ * The input for {@link GetAdminScopeCommand}.
  */
-export interface AssociateAdminAccountCommandInput extends AssociateAdminAccountRequest {}
+export interface GetAdminScopeCommandInput extends GetAdminScopeRequest {}
 /**
  * @public
  *
- * The output of {@link AssociateAdminAccountCommand}.
+ * The output of {@link GetAdminScopeCommand}.
  */
-export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
+export interface GetAdminScopeCommandOutput extends GetAdminScopeResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Sets a Firewall Manager default administrator account. The Firewall Manager default administrator account can manage third-party firewalls and has full administrative scope that allows administration of all policy types, accounts, organizational units, and Regions. This account must be a member account of the organization in Organizations whose resources you want to protect.</p>
- *          <p>For information about working with Firewall Manager administrator accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/fms-administrators.html">Managing Firewall Manager administrators</a> in the <i>Firewall Manager Developer Guide</i>.</p>
+ * <p>Returns information about the specified account's administrative scope. The admistrative scope defines the resources that an Firewall Manager administrator can manage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, AssociateAdminAccountCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, AssociateAdminAccountCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, GetAdminScopeCommand } from "@aws-sdk/client-fms"; // ES Modules import
+ * // const { FMSClient, GetAdminScopeCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
- * const input = { // AssociateAdminAccountRequest
+ * const input = { // GetAdminScopeRequest
  *   AdminAccount: "STRING_VALUE", // required
  * };
- * const command = new AssociateAdminAccountCommand(input);
+ * const command = new GetAdminScopeCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param AssociateAdminAccountCommandInput - {@link AssociateAdminAccountCommandInput}
- * @returns {@link AssociateAdminAccountCommandOutput}
- * @see {@link AssociateAdminAccountCommandInput} for command's `input` shape.
- * @see {@link AssociateAdminAccountCommandOutput} for command's `response` shape.
+ * @param GetAdminScopeCommandInput - {@link GetAdminScopeCommandInput}
+ * @returns {@link GetAdminScopeCommandOutput}
+ * @see {@link GetAdminScopeCommandInput} for command's `input` shape.
+ * @see {@link GetAdminScopeCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (client fault)
@@ -67,20 +66,14 @@ export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
  *   that's disabled by default, and that you need to enable for the Firewall Manager
  *   administrator account and for Organizations before you can access it.</p>
  *
- * @throws {@link LimitExceededException} (client fault)
- *  <p>The operation exceeds a resource limit, for example, the maximum number of
- *         <code>policy</code> objects that you can create for an Amazon Web Services account. For more information,
- *       see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html">Firewall
- *         Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
- *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
  *
  */
-export class AssociateAdminAccountCommand extends $Command<
-  AssociateAdminAccountCommandInput,
-  AssociateAdminAccountCommandOutput,
+export class GetAdminScopeCommand extends $Command<
+  GetAdminScopeCommandInput,
+  GetAdminScopeCommandOutput,
   FMSClientResolvedConfig
 > {
   // Start section: command_properties
@@ -98,7 +91,7 @@ export class AssociateAdminAccountCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: AssociateAdminAccountCommandInput) {
+  constructor(readonly input: GetAdminScopeCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -111,17 +104,15 @@ export class AssociateAdminAccountCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<AssociateAdminAccountCommandInput, AssociateAdminAccountCommandOutput> {
+  ): Handler<GetAdminScopeCommandInput, GetAdminScopeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, AssociateAdminAccountCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetAdminScopeCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "FMSClient";
-    const commandName = "AssociateAdminAccountCommand";
+    const commandName = "GetAdminScopeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -140,15 +131,15 @@ export class AssociateAdminAccountCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: AssociateAdminAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_AssociateAdminAccountCommand(input, context);
+  private serialize(input: GetAdminScopeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetAdminScopeCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateAdminAccountCommandOutput> {
-    return de_AssociateAdminAccountCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAdminScopeCommandOutput> {
+    return de_GetAdminScopeCommand(output, context);
   }
 
   // Start section: command_body_extra

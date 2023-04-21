@@ -22,6 +22,27 @@ export type AccountRoleStatus = (typeof AccountRoleStatus)[keyof typeof AccountR
 
 /**
  * @public
+ * <p>Configures the accounts within the administrator's Organizations organization that the specified Firewall Manager administrator can apply policies to.</p>
+ */
+export interface AccountScope {
+  /**
+   * <p>The list of accounts within the organization that the specified Firewall Manager administrator either can or cannot apply policies to, based on the value of <code>ExcludeSpecifiedAccounts</code>. If <code>ExcludeSpecifiedAccounts</code> is set to <code>true</code>, then the Firewall Manager administrator can apply policies to all members of the organization except for the accounts in this list. If <code>ExcludeSpecifiedAccounts</code> is set to <code>false</code>, then the Firewall Manager administrator can only apply policies to the accounts in this list.</p>
+   */
+  Accounts?: string[];
+
+  /**
+   * <p>A boolean value that indicates if the administrator can apply policies to all accounts within an organization. If true, the administrator can apply policies to all accounts within the organization. You can either enable management of all accounts through this operation, or you can specify a list of accounts to manage in <code>AccountScope$Accounts</code>. You cannot specify both.</p>
+   */
+  AllAccountsEnabled?: boolean;
+
+  /**
+   * <p>A boolean value that excludes the accounts in <code>AccountScope$Accounts</code> from the administrator's scope. If true, the Firewall Manager administrator can apply policies to all members of the organization except for the accounts listed in <code>AccountScope$Accounts</code>. You can either specify a list of accounts to exclude by <code>AccountScope$Accounts</code>, or you can enable management of all accounts by <code>AccountScope$AllAccountsEnabled</code>. You cannot specify both.</p>
+   */
+  ExcludeSpecifiedAccounts?: boolean;
+}
+
+/**
+ * @public
  * <p>Describes a remediation action target.</p>
  */
 export interface ActionTarget {
@@ -34,6 +55,164 @@ export interface ActionTarget {
    * <p>A description of the remediation action target.</p>
    */
   Description?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OrganizationStatus = {
+  Offboarding: "OFFBOARDING",
+  OffboardingComplete: "OFFBOARDING_COMPLETE",
+  Onboarding: "ONBOARDING",
+  OnboardingComplete: "ONBOARDING_COMPLETE",
+} as const;
+
+/**
+ * @public
+ */
+export type OrganizationStatus = (typeof OrganizationStatus)[keyof typeof OrganizationStatus];
+
+/**
+ * @public
+ * <p>Contains high level information about the Firewall Manager administrator account.</p>
+ */
+export interface AdminAccountSummary {
+  /**
+   * <p>The Amazon Web Services account ID of the Firewall Manager administrator's account.</p>
+   */
+  AdminAccount?: string;
+
+  /**
+   * <p>A boolean value that indicates if the administrator is the default administrator. If true, then this is the default administrator account. The default administrator can manage third-party firewalls and has full administrative scope. There is only one default administrator account per organization. For information about Firewall Manager default administrator accounts, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-administrators.html">Managing Firewall Manager administrators</a> in the <i>Firewall Manager Developer Guide</i>.</p>
+   */
+  DefaultAdmin?: boolean;
+
+  /**
+   * <p>The current status of the request to onboard a member account as an Firewall Manager administator.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ONBOARDING</code> - The account is onboarding to Firewall Manager as an administrator.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ONBOARDING_COMPLETE</code> - Firewall Manager The account is onboarded to Firewall Manager as an administrator, and can perform actions on the resources defined in their <a>AdminScope</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OFFBOARDING</code> - The account is being removed as an Firewall Manager administrator.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OFFBOARDING_COMPLETE</code> - The account has been removed as an Firewall Manager administrator.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: OrganizationStatus | string;
+}
+
+/**
+ * @public
+ * <p>Defines the Organizations organizational units (OUs) that the specified Firewall Manager administrator can apply policies to. For more information about OUs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html">Managing organizational units (OUs)
+ * </a> in the <i>Organizations User Guide</i>.</p>
+ */
+export interface OrganizationalUnitScope {
+  /**
+   * <p>The list of OUs within the organization that the specified Firewall Manager administrator either can or cannot apply policies to, based on the value of <code>OrganizationalUnitScope$ExcludeSpecifiedOrganizationalUnits</code>. If <code>OrganizationalUnitScope$ExcludeSpecifiedOrganizationalUnits</code> is set to <code>true</code>, then the Firewall Manager administrator can apply policies to all OUs in the organization except for the OUs in this list. If <code>OrganizationalUnitScope$ExcludeSpecifiedOrganizationalUnits</code> is set to <code>false</code>, then the Firewall Manager administrator can only apply policies to the OUs in this list.</p>
+   */
+  OrganizationalUnits?: string[];
+
+  /**
+   * <p>A boolean value that indicates if the administrator can apply policies to all OUs within an organization. If true, the administrator can manage all OUs within the organization. You can either enable management of all OUs through this operation, or you can specify OUs to manage in <code>OrganizationalUnitScope$OrganizationalUnits</code>. You cannot specify both.</p>
+   */
+  AllOrganizationalUnitsEnabled?: boolean;
+
+  /**
+   * <p>A boolean value that excludes the OUs in <code>OrganizationalUnitScope$OrganizationalUnits</code> from the administrator's scope. If true, the Firewall Manager administrator can apply policies to all OUs in the organization except for the OUs listed in <code>OrganizationalUnitScope$OrganizationalUnits</code>. You can either specify a list of OUs to exclude by <code>OrganizationalUnitScope$OrganizationalUnits</code>, or you can enable management of all OUs by <code>OrganizationalUnitScope$AllOrganizationalUnitsEnabled</code>. You cannot specify both.</p>
+   */
+  ExcludeSpecifiedOrganizationalUnits?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SecurityServiceType = {
+  DNS_FIREWALL: "DNS_FIREWALL",
+  IMPORT_NETWORK_FIREWALL: "IMPORT_NETWORK_FIREWALL",
+  NETWORK_FIREWALL: "NETWORK_FIREWALL",
+  SECURITY_GROUPS_COMMON: "SECURITY_GROUPS_COMMON",
+  SECURITY_GROUPS_CONTENT_AUDIT: "SECURITY_GROUPS_CONTENT_AUDIT",
+  SECURITY_GROUPS_USAGE_AUDIT: "SECURITY_GROUPS_USAGE_AUDIT",
+  SHIELD_ADVANCED: "SHIELD_ADVANCED",
+  THIRD_PARTY_FIREWALL: "THIRD_PARTY_FIREWALL",
+  WAF: "WAF",
+  WAFV2: "WAFV2",
+} as const;
+
+/**
+ * @public
+ */
+export type SecurityServiceType = (typeof SecurityServiceType)[keyof typeof SecurityServiceType];
+
+/**
+ * @public
+ * <p>Defines the policy types that the specified Firewall Manager administrator can manage.</p>
+ */
+export interface PolicyTypeScope {
+  /**
+   * <p>The list of policy types that the specified Firewall Manager administrator can manage.</p>
+   */
+  PolicyTypes?: (SecurityServiceType | string)[];
+
+  /**
+   * <p>Allows the specified Firewall Manager administrator to manage all Firewall Manager policy types, except for third-party policy types. Third-party policy types can only be managed by the Firewall Manager default administrator.</p>
+   */
+  AllPolicyTypesEnabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>Defines the Amazon Web Services Regions that the specified Firewall Manager administrator can manage.</p>
+ */
+export interface RegionScope {
+  /**
+   * <p>The Amazon Web Services Regions that the specified Firewall Manager administrator can perform actions in.</p>
+   */
+  Regions?: string[];
+
+  /**
+   * <p>Allows the specified Firewall Manager administrator to manage all Amazon Web Services Regions.</p>
+   */
+  AllRegionsEnabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>Defines the resources that the Firewall Manager administrator can manage. For more information about administrative scope, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-administrators.html">Managing Firewall Manager administrators</a> in the <i>Firewall Manager Developer Guide</i>.</p>
+ */
+export interface AdminScope {
+  /**
+   * <p>Defines the accounts that the specified Firewall Manager administrator can apply policies to.</p>
+   */
+  AccountScope?: AccountScope;
+
+  /**
+   * <p>Defines the Organizations organizational units that the specified Firewall Manager administrator can apply policies to. For more information about OUs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html">Managing organizational units (OUs)
+   * </a> in the <i>Organizations User Guide</i>.</p>
+   */
+  OrganizationalUnitScope?: OrganizationalUnitScope;
+
+  /**
+   * <p>Defines the Amazon Web Services Regions that the specified Firewall Manager administrator can perform actions in.</p>
+   */
+  RegionScope?: RegionScope;
+
+  /**
+   * <p>Defines the Firewall Manager policy types that the specified Firewall Manager administrator can create and manage.</p>
+   */
+  PolicyTypeScope?: PolicyTypeScope;
 }
 
 /**
@@ -132,7 +311,8 @@ export interface AppsListDataSummary {
 export interface AssociateAdminAccountRequest {
   /**
    * <p>The Amazon Web Services account ID to associate with Firewall Manager as the Firewall Manager
-   *       administrator account. This must be an Organizations member account.
+   *       default administrator account. This account must be
+   *       a member account of the organization in Organizations whose resources you want to protect.
    *         For more information about Organizations, see
    *         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html">Managing the Amazon Web Services Accounts in Your Organization</a>.  </p>
    */
@@ -305,27 +485,27 @@ export type ThirdPartyFirewallAssociationStatus =
 export interface AssociateThirdPartyFirewallResponse {
   /**
    * <p>The current status for setting a Firewall Manager policy administrator's account as an administrator of the third-party firewall tenant.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>ONBOARDING</code> - The Firewall Manager policy administrator is being designated as a tenant administrator.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>ONBOARD_COMPLETE</code> - The Firewall Manager policy administrator is designated as a tenant administrator.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>OFFBOARDING</code> - The Firewall Manager policy administrator is being removed as a tenant administrator.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>OFFBOARD_COMPLETE</code> - The Firewall Manager policy administrator has been removed as a tenant administrator.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>NOT_EXIST</code> - The Firewall Manager policy administrator doesn't exist as a tenant administrator.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ThirdPartyFirewallStatus?: ThirdPartyFirewallAssociationStatus | string;
@@ -368,7 +548,7 @@ export interface AwsEc2InstanceViolation {
  */
 export interface BatchAssociateResourceRequest {
   /**
-   * <p>A unique identifier for the resource set, used in a TODO to refer to the resource set.</p>
+   * <p>A unique identifier for the resource set, used in a request to refer to the resource set.</p>
    */
   ResourceSetIdentifier: string | undefined;
 
@@ -417,7 +597,7 @@ export interface FailedItem {
  */
 export interface BatchAssociateResourceResponse {
   /**
-   * <p>A unique identifier for the resource set, used in a TODO to refer to the resource set.</p>
+   * <p>A unique identifier for the resource set, used in a request to refer to the resource set.</p>
    */
   ResourceSetIdentifier: string | undefined;
 
@@ -432,7 +612,7 @@ export interface BatchAssociateResourceResponse {
  */
 export interface BatchDisassociateResourceRequest {
   /**
-   * <p>A unique identifier for the resource set, used in a TODO to refer to the resource set.</p>
+   * <p>A unique identifier for the resource set, used in a request to refer to the resource set.</p>
    */
   ResourceSetIdentifier: string | undefined;
 
@@ -447,7 +627,7 @@ export interface BatchDisassociateResourceRequest {
  */
 export interface BatchDisassociateResourceResponse {
   /**
-   * <p>A unique identifier for the resource set, used in a TODO to refer to the resource set.</p>
+   * <p>A unique identifier for the resource set, used in a request to refer to the resource set.</p>
    */
   ResourceSetIdentifier: string | undefined;
 
@@ -534,7 +714,7 @@ export interface DeleteProtocolsListRequest {
  */
 export interface DeleteResourceSetRequest {
   /**
-   * <p>A unique identifier for the resource set, used in a TODO to refer to the resource set.</p>
+   * <p>A unique identifier for the resource set, used in a request to refer to the resource set.</p>
    */
   Identifier: string | undefined;
 }
@@ -574,15 +754,58 @@ export interface GetAdminAccountRequest {}
  */
 export interface GetAdminAccountResponse {
   /**
-   * <p>The Amazon Web Services account that is set as the Firewall Manager administrator.</p>
+   * <p>The account that is set as the Firewall Manager default administrator.</p>
    */
   AdminAccount?: string;
 
   /**
-   * <p>The status of the Amazon Web Services account that you set as the Firewall Manager
-   *       administrator.</p>
+   * <p>The status of the account that you set as the Firewall Manager
+   *       default administrator.</p>
    */
   RoleStatus?: AccountRoleStatus | string;
+}
+
+/**
+ * @public
+ */
+export interface GetAdminScopeRequest {
+  /**
+   * <p>The administator account that you want to get the details for.</p>
+   */
+  AdminAccount: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAdminScopeResponse {
+  /**
+   * <p>Contains details about the administrative scope of the requested account.</p>
+   */
+  AdminScope?: AdminScope;
+
+  /**
+   * <p>The current status of the request to onboard a member account as an Firewall Manager administator.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ONBOARDING</code> - The account is onboarding to Firewall Manager as an administrator.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ONBOARDING_COMPLETE</code> - Firewall Manager The account is onboarded to Firewall Manager as an administrator, and can perform actions on the resources defined in their <a>AdminScope</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OFFBOARDING</code> - The account is being removed as an Firewall Manager administrator.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OFFBOARDING_COMPLETE</code> - The account has been removed as an Firewall Manager administrator.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: OrganizationStatus | string;
 }
 
 /**
@@ -820,6 +1043,20 @@ export type CustomerPolicyScopeIdType = (typeof CustomerPolicyScopeIdType)[keyof
 
 /**
  * @public
+ * @enum
+ */
+export const CustomerPolicyStatus = {
+  ACTIVE: "ACTIVE",
+  OUT_OF_ADMIN_SCOPE: "OUT_OF_ADMIN_SCOPE",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomerPolicyStatus = (typeof CustomerPolicyStatus)[keyof typeof CustomerPolicyStatus];
+
+/**
+ * @public
  * <p>The resource tags that Firewall Manager uses to determine if a particular resource
  *       should be included or excluded from the Firewall Manager policy. Tags enable you to
  *       categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or
@@ -898,28 +1135,6 @@ export interface PolicyOption {
 
 /**
  * @public
- * @enum
- */
-export const SecurityServiceType = {
-  DNS_FIREWALL: "DNS_FIREWALL",
-  IMPORT_NETWORK_FIREWALL: "IMPORT_NETWORK_FIREWALL",
-  NETWORK_FIREWALL: "NETWORK_FIREWALL",
-  SECURITY_GROUPS_COMMON: "SECURITY_GROUPS_COMMON",
-  SECURITY_GROUPS_CONTENT_AUDIT: "SECURITY_GROUPS_CONTENT_AUDIT",
-  SECURITY_GROUPS_USAGE_AUDIT: "SECURITY_GROUPS_USAGE_AUDIT",
-  SHIELD_ADVANCED: "SHIELD_ADVANCED",
-  THIRD_PARTY_FIREWALL: "THIRD_PARTY_FIREWALL",
-  WAF: "WAF",
-  WAFV2: "WAFV2",
-} as const;
-
-/**
- * @public
- */
-export type SecurityServiceType = (typeof SecurityServiceType)[keyof typeof SecurityServiceType];
-
-/**
- * @public
  * <p>Details about the security service that is being used to protect the resources.</p>
  */
 export interface SecurityServicePolicyData {
@@ -937,6 +1152,18 @@ export interface SecurityServicePolicyData {
    *          <ul>
    *             <li>
    *                <p>Example: <code>DNS_FIREWALL</code>
+   *                </p>
+   *                <p>
+   *                   <code>"\{\"type\":\"DNS_FIREWALL\",\"preProcessRuleGroups\":[\{\"ruleGroupId\":\"rslvr-frg-1\",\"priority\":10\}],\"postProcessRuleGroups\":[\{\"ruleGroupId\":\"rslvr-frg-2\",\"priority\":9911\}]\}"</code>
+   *                </p>
+   *                <note>
+   *                   <p>Valid values for <code>preProcessRuleGroups</code> are between 1 and 99. Valid
+   *                  values for <code>postProcessRuleGroups</code> are between 9901 and 10000.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>Example: <code>IMPORT_NETWORK_FIREWALL</code>
+   *                   <code>"\{\"type\":\"IMPORT_NETWORK_FIREWALL\",\"awsNetworkFirewallConfig\":\{\"networkFirewallStatelessRuleGroupReferences\":[\{\"resourceARN\":\"arn:aws:network-firewall:us-west-2:000000000000:stateless-rulegroup\/rg1\",\"priority\":1\}],\"networkFirewallStatelessDefaultActions\":[\"aws:drop\"],\"networkFirewallStatelessFragmentDefaultActions\":[\"aws:pass\"],\"networkFirewallStatelessCustomActions\":[],\"networkFirewallStatefulRuleGroupReferences\":[\{\"resourceARN\":\"arn:aws:network-firewall:us-west-2:aws-managed:stateful-rulegroup\/ThreatSignaturesEmergingEventsStrictOrder\",\"priority\":8\}],\"networkFirewallStatefulEngineOptions\":\{\"ruleOrder\":\"STRICT_ORDER\"\},\"networkFirewallStatefulDefaultActions\":[\"aws:drop_strict\"]\}\}"</code>
    *                </p>
    *                <p>
    *                   <code>"\{\"type\":\"DNS_FIREWALL\",\"preProcessRuleGroups\":[\{\"ruleGroupId\":\"rslvr-frg-1\",\"priority\":10\}],\"postProcessRuleGroups\":[\{\"ruleGroupId\":\"rslvr-frg-2\",\"priority\":9911\}]\}"</code>
@@ -1104,16 +1331,30 @@ export interface SecurityServicePolicyData {
    *                  <code>ManagedServiceData</code> configuration is an empty string.</p>
    *             </li>
    *             <li>
-   *                <p>Example: <code>WAFV2</code>
-   *                </p>
+   *                <p>Example: <code>WAFV2</code> - Account takeover prevention and Bot Control managed rule groups, and rule action override
+   *            </p>
    *                <p>
-   *                   <code>"\{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[\{\"ruleGroupArn\":null,\"overrideAction\":\{\"type\":\"NONE\"\},\"managedRuleGroupIdentifier\":\{\"version\":null,\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesAmazonIpReputationList\"\},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[\{\"name\":\"NoUserAgent_HEADER\"\}]\}],\"postProcessRuleGroups\":[],\"defaultAction\":\{\"type\":\"ALLOW\"\},\"overrideCustomerWebACLAssociation\":false,\"loggingConfiguration\":\{\"logDestinationConfigs\":[\"arn:aws:firehose:us-west-2:12345678912:deliverystream/aws-waf-logs-fms-admin-destination\"],\"redactedFields\":[\{\"redactedFieldType\":\"SingleHeader\",\"redactedFieldValue\":\"Cookies\"\},\{\"redactedFieldType\":\"Method\"\}]\}\}"</code>
+   *                   <code>"\{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[\{\"ruleGroupArn\":null,\"overrideAction\":\{\"type\":\"NONE\"\},\"managedRuleGroupIdentifier\":\{\"versionEnabled\":null,\"version\":null,\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesATPRuleSet\",\"managedRuleGroupConfigs\":[\{\"awsmanagedRulesATPRuleSet\":\{\"loginPath\":\"/loginpath\",\"requestInspection\":\{\"payloadType\":\"FORM_ENCODED|JSON\",\"usernameField\":\{\"identifier\":\"/form/username\"\},\"passwordField\":\{\"identifier\":\"/form/password\"\}\}\}\}]\},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[],\"sampledRequestsEnabled\":true\},\{\"ruleGroupArn\":null,\"overrideAction\":\{\"type\":\"NONE\"\},\"managedRuleGroupIdentifier\":\{\"versionEnabled\":null,\"version\":null,\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesBotControlRuleSet\",\"managedRuleGroupConfigs\":[\{\"awsmanagedRulesBotControlRuleSet\":\{\"inspectionLevel\":\"TARGETED|COMMON\"\}\}]\},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[],\"sampledRequestsEnabled\":true,\"ruleActionOverrides\":[\{\"name\":\"Rule1\",\"actionToUse\":\{\"allow|block|count|captcha|challenge\":\{\}\}\},\{\"name\":\"Rule2\",\"actionToUse\":\{\"allow|block|count|captcha|challenge\":\{\}\}\}]\}],\"postProcessRuleGroups\":[],\"defaultAction\":\{\"type\":\"ALLOW\"\},\"customRequestHandling\":null,\"customResponse\":null,\"overrideCustomerWebACLAssociation\":false,\"loggingConfiguration\":null,\"sampledRequestsEnabledForDefaultActions\":true\}"</code>
    *                </p>
-   *                <p>In the <code>loggingConfiguration</code>, you can specify one
-   *                  <code>logDestinationConfigs</code>, you can optionally provide up to 20
-   *                  <code>redactedFields</code>, and the <code>RedactedFieldType</code> must be one of
-   *                  <code>URI</code>, <code>QUERY_STRING</code>, <code>HEADER</code>, or
-   *                  <code>METHOD</code>.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Fraud Control account takeover prevention (ATP) - For information about the properties available for <code>AWSManagedRulesATPRuleSet</code> managed rule groups, see <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_AWSManagedRulesATPRuleSet.html">AWSManagedRulesATPRuleSet</a> in the <i>WAF API Reference</i>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Bot Control - For information about <code>AWSManagedRulesBotControlRuleSet</code> managed rule groups, see <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_AWSManagedRulesBotControlRuleSet.html">AWSManagedRulesBotControlRuleSet</a> in the <i>WAF API Reference</i>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Rule action overrides - Firewall Manager supports rule action overrides only for managed rule groups. To configure a <code>RuleActionOverrides</code> add the <code>Name</code> of the rule to override, and <code>ActionToUse</code>, which is the new action to use for the rule. For information about using rule action override, see <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleActionOverride.html">RuleActionOverride</a> in the <i>WAF API Reference</i>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Example: <code>WAFV2</code> -  <code>CAPTCHA</code> and <code>Challenge</code> configs
+   *            </p>
+   *                <p>
+   *                   <code>"\{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[\{\"ruleGroupArn\":null,\"overrideAction\":\{\"type\":\"NONE\"\},\"managedRuleGroupIdentifier\":\{\"versionEnabled\":null,\"version\":null,\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesAdminProtectionRuleSet\"\},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[],\"sampledRequestsEnabled\":true\}],\"postProcessRuleGroups\":[],\"defaultAction\":\{\"type\":\"ALLOW\"\},\"customRequestHandling\":null,\"customResponse\":null,\"overrideCustomerWebACLAssociation\":false,\"loggingConfiguration\":null,\"sampledRequestsEnabledForDefaultActions\":true,\"captchaConfig\":\{\"immunityTimeProperty\":\{\"immunityTime\":500\}\},\"challengeConfig\":\{\"immunityTimeProperty\":\{\"immunityTime\":800\}\},\"tokenDomains\":[\"google.com\",\"amazon.com\"]\}"</code>
+   *                </p>
+   *                <p>If you update the policy's values for <code>captchaConfig</code>, <code>challengeConfig</code>, or <code>tokenDomains</code>, Firewall Manager will overwrite your local web ACLs to contain the new value(s). However, if you don't update the policy's <code>captchaConfig</code>, <code>challengeConfig</code>, or <code>tokenDomains</code> values, the values in your local web ACLs will remain unchanged. For information about CAPTCHA and Challenge configs, see <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_CaptchaConfig.html">CaptchaConfig</a> and <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_ChallengeConfig.html">ChallengeConfig</a> in the <i>WAF API Reference</i>.</p>
    *             </li>
    *             <li>
    *                <p>Example: <code>WAFV2</code> -  Firewall Manager support for WAF managed rule group versioning
@@ -1124,6 +1365,20 @@ export interface SecurityServicePolicyData {
    *                <p>
    *             To use a specific version of a WAF managed rule group in your Firewall Manager policy, you must set <code>versionEnabled</code> to <code>true</code>, and set <code>version</code> to the version you'd like to use. If you don't set <code>versionEnabled</code> to <code>true</code>, or if you omit <code>versionEnabled</code>, then Firewall Manager uses the default version of the WAF managed rule group.
    *           </p>
+   *             </li>
+   *             <li>
+   *                <p>Example: <code>WAFV2</code> - Logging configurations
+   *            </p>
+   *                <p>
+   *                   <code>"\{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[\{\"ruleGroupArn\":null, \"overrideAction\":\{\"type\":\"NONE\"\},\"managedRuleGroupIdentifier\": \{\"versionEnabled\":null,\"version\":null,\"vendorName\":\"AWS\", \"managedRuleGroupName\":\"AWSManagedRulesAdminProtectionRuleSet\"\} ,\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[], \"sampledRequestsEnabled\":true\}],\"postProcessRuleGroups\":[], \"defaultAction\":\{\"type\":\"ALLOW\"\},\"customRequestHandling\" :null,\"customResponse\":null,\"overrideCustomerWebACLAssociation\" :false,\"loggingConfiguration\":\{\"logDestinationConfigs\": [\"arn:aws:s3:::aws-waf-logs-example-bucket\"] ,\"redactedFields\":[],\"loggingFilterConfigs\":\{\"defaultBehavior\":\"KEEP\", \"filters\":[\{\"behavior\":\"KEEP\",\"requirement\":\"MEETS_ALL\", \"conditions\":[\{\"actionCondition\":\"CAPTCHA\"\},\{\"actionCondition\": \"CHALLENGE\"\}, \{\"actionCondition\":\"EXCLUDED_AS_COUNT\"\}]\}]\}\},\"sampledRequestsEnabledForDefaultActions\":true\}"</code>
+   *                </p>
+   *                <p>Firewall Manager supports Amazon Kinesis Data Firehose and Amazon S3 as the <code>logDestinationConfigs</code> in your <code>loggingConfiguration</code>. For information about WAF logging configurations, see <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_LoggingConfiguration.html">LoggingConfiguration</a> in the <i>WAF API Reference</i>
+   *                </p>
+   *                <p>In the <code>loggingConfiguration</code>, you can specify one
+   *                  <code>logDestinationConfigs</code>. Optionally provide as many as 20
+   *                  <code>redactedFields</code>. The <code>RedactedFieldType</code> must be one of
+   *                  <code>URI</code>, <code>QUERY_STRING</code>, <code>HEADER</code>, or
+   *                  <code>METHOD</code>.</p>
    *             </li>
    *             <li>
    *                <p>Example: <code>WAF Classic</code>
@@ -1178,7 +1433,7 @@ export interface Policy {
    * <p>The type of resource protected by or in scope of the policy. This is in the format shown
    *         in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types Reference</a>.
    *                     To apply this policy to multiple resource types, specify a resource type of <code>ResourceTypeList</code> and then specify the resource types in a <code>ResourceTypeList</code>.</p>
-   *                 <p>For WAF and Shield Advanced, resource types include
+   *          <p>For WAF and Shield Advanced, resource types include
    *                 <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>, <code>AWS::ElasticLoadBalancing::LoadBalancer</code>, <code>AWS::EC2::EIP</code>, and
    *         <code>AWS::CloudFront::Distribution</code>. For a security group common policy, valid values
    *       are <code>AWS::EC2::NetworkInterface</code> and <code>AWS::EC2::Instance</code>. For a
@@ -1224,7 +1479,7 @@ export interface Policy {
   /**
    * <p>Specifies the Amazon Web Services account IDs and Organizations organizational units (OUs) to include in the policy.
    *           Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.</p>
-   *               <p>You can specify inclusions or exclusions, but not both. If you specify an <code>IncludeMap</code>, Firewall Manager
+   *          <p>You can specify inclusions or exclusions, but not both. If you specify an <code>IncludeMap</code>, Firewall Manager
    *           applies the policy to all accounts specified by the <code>IncludeMap</code>, and
    *           does not evaluate any <code>ExcludeMap</code> specifications. If you do not specify an <code>IncludeMap</code>, then Firewall Manager
    *             applies the policy to all accounts except for those specified by the <code>ExcludeMap</code>.</p>
@@ -1249,7 +1504,7 @@ export interface Policy {
   /**
    * <p>Specifies the Amazon Web Services account IDs and Organizations organizational units (OUs) to exclude from the policy.
    *           Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.</p>
-   *               <p>You can specify inclusions or exclusions, but not both. If you specify an <code>IncludeMap</code>, Firewall Manager
+   *          <p>You can specify inclusions or exclusions, but not both. If you specify an <code>IncludeMap</code>, Firewall Manager
    *           applies the policy to all accounts specified by the <code>IncludeMap</code>, and
    *           does not evaluate any <code>ExcludeMap</code> specifications. If you do not specify an <code>IncludeMap</code>, then Firewall Manager
    *             applies the policy to all accounts except for those specified by the <code>ExcludeMap</code>.</p>
@@ -1280,6 +1535,21 @@ export interface Policy {
    * <p>The definition of the Network Firewall firewall policy.</p>
    */
   PolicyDescription?: string;
+
+  /**
+   * <p>Indicates whether the policy is in or out of an admin's policy or Region scope.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> - The administrator can manage and delete the policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OUT_OF_ADMIN_SCOPE</code> - The administrator can view the policy, but they can't edit or delete the policy. Existing policy protections stay in place. Any new resources that come into scope of the policy won't be protected.</p>
+   *             </li>
+   *          </ul>
+   */
+  PolicyStatus?: CustomerPolicyStatus | string;
 }
 
 /**
@@ -1493,10 +1763,24 @@ export interface GetProtocolsListResponse {
  */
 export interface GetResourceSetRequest {
   /**
-   * <p>A unique identifier for the resource set, used in a TODO to refer to the resource set.</p>
+   * <p>A unique identifier for the resource set, used in a request to refer to the resource set.</p>
    */
   Identifier: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceSetStatus = {
+  ACTIVE: "ACTIVE",
+  OUT_OF_ADMIN_SCOPE: "OUT_OF_ADMIN_SCOPE",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceSetStatus = (typeof ResourceSetStatus)[keyof typeof ResourceSetStatus];
 
 /**
  * @public
@@ -1537,6 +1821,21 @@ export interface ResourceSet {
    * <p>The last time that the resource set was changed.</p>
    */
   LastUpdateTime?: Date;
+
+  /**
+   * <p>Indicates whether the resource set is in or out of an admin's Region scope.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> - The administrator can manage and delete the resource set.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OUT_OF_ADMIN_SCOPE</code> - The administrator can view the resource set, but they can't edit or delete the resource set. Existing protections stay in place. Any new resource that come into scope of the resource set won't be protected.</p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceSetStatus?: ResourceSetStatus | string;
 }
 
 /**
@@ -1613,19 +1912,19 @@ export interface GetThirdPartyFirewallAssociationStatusResponse {
 
   /**
    * <p>The status for subscribing to the third-party firewall vendor in the Amazon Web Services Marketplace.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>NO_SUBSCRIPTION</code> - The Firewall Manager policy administrator isn't subscribed to the third-party firewall service in the Amazon Web Services Marketplace.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>NOT_COMPLETE</code> - The Firewall Manager policy administrator is in the process of subscribing to the third-party firewall service in the Amazon Web Services Marketplace, but doesn't yet have an active subscription.</p>
-   *            </li>
+   *             </li>
    *             <li>
-   *               <p>
+   *                <p>
    *                   <code>COMPLETE</code> - The Firewall Manager policy administrator has an active subscription to the third-party firewall service in the Amazon Web Services Marketplace.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   MarketplaceOnboardingStatus?: MarketplaceSubscriptionOnboardingStatus | string;
@@ -3224,6 +3523,78 @@ export interface GetViolationDetailsResponse {
 /**
  * @public
  */
+export interface ListAdminAccountsForOrganizationRequest {
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of objects that you want Firewall Manager to return for this request. If more
+   *           objects are available, in the response, Firewall Manager provides a
+   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListAdminAccountsForOrganizationResponse {
+  /**
+   * <p>A list of Firewall Manager administrator accounts within the organization that were onboarded as administrators by <a>AssociateAdminAccount</a> or <a>PutAdminAccount</a>.</p>
+   */
+  AdminAccounts?: AdminAccountSummary[];
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAdminsManagingAccountRequest {
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of objects that you want Firewall Manager to return for this request. If more
+   *           objects are available, in the response, Firewall Manager provides a
+   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListAdminsManagingAccountResponse {
+  /**
+   * <p>The list of accounts who manage member accounts within their <a>AdminScope</a>.</p>
+   */
+  AdminAccounts?: string[];
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Firewall Manager returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListAppsListsRequest {
   /**
    * <p>Specifies whether the lists to retrieve are default lists owned by Firewall Manager.</p>
@@ -3590,6 +3961,21 @@ export interface PolicySummary {
    *          <p>This option is not available for Shield Advanced or WAF Classic policies.</p>
    */
   DeleteUnusedFMManagedResources?: boolean;
+
+  /**
+   * <p>Indicates whether the policy is in or out of an admin's policy or Region scope.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> - The administrator can manage and delete the policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OUT_OF_ADMIN_SCOPE</code> - The administrator can view the policy, but they can't edit or delete the policy. Existing policy protections stay in place. Any new resources that come into scope of the policy won't be protected.</p>
+   *             </li>
+   *          </ul>
+   */
+  PolicyStatus?: CustomerPolicyStatus | string;
 }
 
 /**
@@ -3683,7 +4069,7 @@ export interface ListProtocolsListsResponse {
  */
 export interface ListResourceSetResourcesRequest {
   /**
-   * <p>A unique identifier for the resource set, used in a TODO to refer to the resource set.</p>
+   * <p>A unique identifier for the resource set, used in a request to refer to the resource set.</p>
    */
   Identifier: string | undefined;
 
@@ -3778,6 +4164,21 @@ export interface ResourceSetSummary {
    * <p>The last time that the resource set was changed.</p>
    */
   LastUpdateTime?: Date;
+
+  /**
+   * <p>Indicates whether the resource set is in or out of an admin's Region scope.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> - The administrator can manage and delete the resource set.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OUT_OF_ADMIN_SCOPE</code> - The administrator can view the resource set, but they can't edit or delete the resource set. Existing protections stay in place. Any new resource that come into scope of the resource set won't be protected.</p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceSetStatus?: ResourceSetStatus | string;
 }
 
 /**
@@ -3876,6 +4277,22 @@ export interface ListThirdPartyFirewallFirewallPoliciesResponse {
    * <p>The value that you will use for <code>NextToken</code> in the next <code>ListThirdPartyFirewallFirewallPolicies</code> request.</p>
    */
   NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface PutAdminAccountRequest {
+  /**
+   * <p>The Amazon Web Services account ID to add as an Firewall Manager administrator account. The account must be a member of the organization that was onboarded to Firewall Manager by <a>AssociateAdminAccount</a>. For more information about Organizations, see
+   *         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html">Managing the Amazon Web Services Accounts in Your Organization</a>.</p>
+   */
+  AdminAccount: string | undefined;
+
+  /**
+   * <p>Configures the resources that the specified Firewall Manager administrator can manage. As a best practice, set the administrative scope according to the principles of least privilege. Only grant the administrator the specific resources or permissions that they need to perform the duties of their role.</p>
+   */
+  AdminScope?: AdminScope;
 }
 
 /**

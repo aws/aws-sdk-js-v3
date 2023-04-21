@@ -14,43 +14,71 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { AssociateAdminAccountRequest } from "../models/models_0";
-import { de_AssociateAdminAccountCommand, se_AssociateAdminAccountCommand } from "../protocols/Aws_json1_1";
+import { PutAdminAccountRequest } from "../models/models_0";
+import { de_PutAdminAccountCommand, se_PutAdminAccountCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  *
- * The input for {@link AssociateAdminAccountCommand}.
+ * The input for {@link PutAdminAccountCommand}.
  */
-export interface AssociateAdminAccountCommandInput extends AssociateAdminAccountRequest {}
+export interface PutAdminAccountCommandInput extends PutAdminAccountRequest {}
 /**
  * @public
  *
- * The output of {@link AssociateAdminAccountCommand}.
+ * The output of {@link PutAdminAccountCommand}.
  */
-export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
+export interface PutAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Sets a Firewall Manager default administrator account. The Firewall Manager default administrator account can manage third-party firewalls and has full administrative scope that allows administration of all policy types, accounts, organizational units, and Regions. This account must be a member account of the organization in Organizations whose resources you want to protect.</p>
- *          <p>For information about working with Firewall Manager administrator accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/fms-administrators.html">Managing Firewall Manager administrators</a> in the <i>Firewall Manager Developer Guide</i>.</p>
+ * <p>Creates or updates an Firewall Manager administrator account. The account must be a member of the organization that was onboarded to Firewall Manager by <a>AssociateAdminAccount</a>. Only the organization's management account can create an Firewall Manager administrator account. When you create an Firewall Manager administrator account, the service checks to see if the account is already a delegated administrator within Organizations. If the account isn't a delegated administrator, Firewall Manager calls Organizations to delegate the account within Organizations. For more information about administrator accounts within Organizations, see
+ *         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html">Managing the Amazon Web Services Accounts in Your Organization</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, AssociateAdminAccountCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, AssociateAdminAccountCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, PutAdminAccountCommand } from "@aws-sdk/client-fms"; // ES Modules import
+ * // const { FMSClient, PutAdminAccountCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
- * const input = { // AssociateAdminAccountRequest
+ * const input = { // PutAdminAccountRequest
  *   AdminAccount: "STRING_VALUE", // required
+ *   AdminScope: { // AdminScope
+ *     AccountScope: { // AccountScope
+ *       Accounts: [ // AccountIdList
+ *         "STRING_VALUE",
+ *       ],
+ *       AllAccountsEnabled: true || false,
+ *       ExcludeSpecifiedAccounts: true || false,
+ *     },
+ *     OrganizationalUnitScope: { // OrganizationalUnitScope
+ *       OrganizationalUnits: [ // OrganizationalUnitIdList
+ *         "STRING_VALUE",
+ *       ],
+ *       AllOrganizationalUnitsEnabled: true || false,
+ *       ExcludeSpecifiedOrganizationalUnits: true || false,
+ *     },
+ *     RegionScope: { // RegionScope
+ *       Regions: [ // AWSRegionList
+ *         "STRING_VALUE",
+ *       ],
+ *       AllRegionsEnabled: true || false,
+ *     },
+ *     PolicyTypeScope: { // PolicyTypeScope
+ *       PolicyTypes: [ // SecurityServiceTypeList
+ *         "WAF" || "WAFV2" || "SHIELD_ADVANCED" || "SECURITY_GROUPS_COMMON" || "SECURITY_GROUPS_CONTENT_AUDIT" || "SECURITY_GROUPS_USAGE_AUDIT" || "NETWORK_FIREWALL" || "DNS_FIREWALL" || "THIRD_PARTY_FIREWALL" || "IMPORT_NETWORK_FIREWALL",
+ *       ],
+ *       AllPolicyTypesEnabled: true || false,
+ *     },
+ *   },
  * };
- * const command = new AssociateAdminAccountCommand(input);
+ * const command = new PutAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param AssociateAdminAccountCommandInput - {@link AssociateAdminAccountCommandInput}
- * @returns {@link AssociateAdminAccountCommandOutput}
- * @see {@link AssociateAdminAccountCommandInput} for command's `input` shape.
- * @see {@link AssociateAdminAccountCommandOutput} for command's `response` shape.
+ * @param PutAdminAccountCommandInput - {@link PutAdminAccountCommandInput}
+ * @returns {@link PutAdminAccountCommandOutput}
+ * @see {@link PutAdminAccountCommandInput} for command's `input` shape.
+ * @see {@link PutAdminAccountCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (client fault)
@@ -73,14 +101,11 @@ export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
  *       see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html">Firewall
  *         Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
  *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
- *
  *
  */
-export class AssociateAdminAccountCommand extends $Command<
-  AssociateAdminAccountCommandInput,
-  AssociateAdminAccountCommandOutput,
+export class PutAdminAccountCommand extends $Command<
+  PutAdminAccountCommandInput,
+  PutAdminAccountCommandOutput,
   FMSClientResolvedConfig
 > {
   // Start section: command_properties
@@ -98,7 +123,7 @@ export class AssociateAdminAccountCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: AssociateAdminAccountCommandInput) {
+  constructor(readonly input: PutAdminAccountCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -111,17 +136,17 @@ export class AssociateAdminAccountCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<AssociateAdminAccountCommandInput, AssociateAdminAccountCommandOutput> {
+  ): Handler<PutAdminAccountCommandInput, PutAdminAccountCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, AssociateAdminAccountCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, PutAdminAccountCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "FMSClient";
-    const commandName = "AssociateAdminAccountCommand";
+    const commandName = "PutAdminAccountCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -140,15 +165,15 @@ export class AssociateAdminAccountCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: AssociateAdminAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_AssociateAdminAccountCommand(input, context);
+  private serialize(input: PutAdminAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_PutAdminAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateAdminAccountCommandOutput> {
-    return de_AssociateAdminAccountCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAdminAccountCommandOutput> {
+    return de_PutAdminAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

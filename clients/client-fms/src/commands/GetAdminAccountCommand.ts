@@ -33,7 +33,7 @@ export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, _
 /**
  * @public
  * <p>Returns the Organizations account that is associated with Firewall Manager
- *       as the Firewall Manager administrator.</p>
+ *       as the Firewall Manager default administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

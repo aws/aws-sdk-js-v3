@@ -14,59 +14,60 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { ListMemberAccountsRequest, ListMemberAccountsResponse } from "../models/models_0";
-import { de_ListMemberAccountsCommand, se_ListMemberAccountsCommand } from "../protocols/Aws_json1_1";
+import { ListAdminsManagingAccountRequest, ListAdminsManagingAccountResponse } from "../models/models_0";
+import { de_ListAdminsManagingAccountCommand, se_ListAdminsManagingAccountCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  *
- * The input for {@link ListMemberAccountsCommand}.
+ * The input for {@link ListAdminsManagingAccountCommand}.
  */
-export interface ListMemberAccountsCommandInput extends ListMemberAccountsRequest {}
+export interface ListAdminsManagingAccountCommandInput extends ListAdminsManagingAccountRequest {}
 /**
  * @public
  *
- * The output of {@link ListMemberAccountsCommand}.
+ * The output of {@link ListAdminsManagingAccountCommand}.
  */
-export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResponse, __MetadataBearer {}
+export interface ListAdminsManagingAccountCommandOutput extends ListAdminsManagingAccountResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns a <code>MemberAccounts</code> object that lists the member accounts in the
- *       administrator's Amazon Web Services organization.</p>
- *          <p>Either an Firewall Manager administrator or the organization's management account can make this request.</p>
+ * <p>Lists the accounts that are managing the specified Organizations member account. This is useful for any member account so that they can view the accounts who are managing their account. This operation only returns the managing administrators that have the requested account within their <a>AdminScope</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FMSClient, ListMemberAccountsCommand } from "@aws-sdk/client-fms"; // ES Modules import
- * // const { FMSClient, ListMemberAccountsCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * import { FMSClient, ListAdminsManagingAccountCommand } from "@aws-sdk/client-fms"; // ES Modules import
+ * // const { FMSClient, ListAdminsManagingAccountCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
- * const input = { // ListMemberAccountsRequest
+ * const input = { // ListAdminsManagingAccountRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
- * const command = new ListMemberAccountsCommand(input);
+ * const command = new ListAdminsManagingAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param ListMemberAccountsCommandInput - {@link ListMemberAccountsCommandInput}
- * @returns {@link ListMemberAccountsCommandOutput}
- * @see {@link ListMemberAccountsCommandInput} for command's `input` shape.
- * @see {@link ListMemberAccountsCommandOutput} for command's `response` shape.
+ * @param ListAdminsManagingAccountCommandInput - {@link ListAdminsManagingAccountCommandInput}
+ * @returns {@link ListAdminsManagingAccountCommandOutput}
+ * @see {@link ListAdminsManagingAccountCommandInput} for command's `input` shape.
+ * @see {@link ListAdminsManagingAccountCommandOutput} for command's `response` shape.
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (client fault)
  *  <p>The operation failed because of a system problem, even though the request was valid. Retry
  *       your request.</p>
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The parameters of the request were invalid.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
  *
  */
-export class ListMemberAccountsCommand extends $Command<
-  ListMemberAccountsCommandInput,
-  ListMemberAccountsCommandOutput,
+export class ListAdminsManagingAccountCommand extends $Command<
+  ListAdminsManagingAccountCommandInput,
+  ListAdminsManagingAccountCommandOutput,
   FMSClientResolvedConfig
 > {
   // Start section: command_properties
@@ -84,7 +85,7 @@ export class ListMemberAccountsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListMemberAccountsCommandInput) {
+  constructor(readonly input: ListAdminsManagingAccountCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -97,17 +98,17 @@ export class ListMemberAccountsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListMemberAccountsCommandInput, ListMemberAccountsCommandOutput> {
+  ): Handler<ListAdminsManagingAccountCommandInput, ListAdminsManagingAccountCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListMemberAccountsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListAdminsManagingAccountCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "FMSClient";
-    const commandName = "ListMemberAccountsCommand";
+    const commandName = "ListAdminsManagingAccountCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -126,15 +127,18 @@ export class ListMemberAccountsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListMemberAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListMemberAccountsCommand(input, context);
+  private serialize(input: ListAdminsManagingAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListAdminsManagingAccountCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMemberAccountsCommandOutput> {
-    return de_ListMemberAccountsCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<ListAdminsManagingAccountCommandOutput> {
+    return de_ListAdminsManagingAccountCommand(output, context);
   }
 
   // Start section: command_body_extra
