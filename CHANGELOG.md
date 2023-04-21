@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.318.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.317.0...v3.318.0) (2023-04-21)
+
+
+### Features
+
+* **client-connect:** This release adds a new API CreateParticipant. For Amazon Connect Chat, you can use this new API to customize chat flow experiences. ([257af63](https://github.com/aws/aws-sdk-js-v3/commit/257af63e876d3077f5b3be5f0089483622f6df90))
+* **client-fms:** AWS Firewall Manager adds support for multiple administrators. You can now delegate more than one administrator per organization. ([960ae09](https://github.com/aws/aws-sdk-js-v3/commit/960ae09b1a12be4f986d5098e01548078be3b32a))
+* **clients:** update client endpoints as of 2023-04-21 ([2710706](https://github.com/aws/aws-sdk-js-v3/commit/2710706902fb9ad0befd2eb9ccfff3eda0aa1110))
+
+
+
+
+
 # [3.317.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.316.0...v3.317.0) (2023-04-20)
 
 

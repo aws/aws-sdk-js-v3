@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.318.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.317.0...v3.318.0) (2023-04-21)
+
+
+### Features
+
+* **client-fms:** AWS Firewall Manager adds support for multiple administrators. You can now delegate more than one administrator per organization. ([960ae09](https://github.com/aws/aws-sdk-js-v3/commit/960ae09b1a12be4f986d5098e01548078be3b32a))
+
+
+
+
+
 # [3.316.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.315.0...v3.316.0) (2023-04-19)
 
 
