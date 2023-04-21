@@ -4191,6 +4191,7 @@ export interface LinuxParameters {
    *          <note>
    *             <p>If you're using tasks that use the Fargate launch type, the
    * 					<code>maxSwap</code> parameter isn't supported.</p>
+   *             <p>If you're using tasks on Amazon Linux 2023 the <code>swappiness</code> parameter isn't supported.</p>
    *          </note>
    */
   maxSwap?: number;
@@ -4207,6 +4208,7 @@ export interface LinuxParameters {
    *          <note>
    *             <p>If you're using tasks that use the Fargate launch type, the
    * 					<code>swappiness</code> parameter isn't supported.</p>
+   *             <p>If you're using tasks on Amazon Linux 2023 the <code>swappiness</code> parameter isn't supported.</p>
    *          </note>
    */
   swappiness?: number;
@@ -4274,6 +4276,15 @@ export type TransportProtocol = (typeof TransportProtocol)[keyof typeof Transpor
  * 			network mode, specify the exposed ports using <code>containerPort</code>. The
  * 				<code>hostPort</code> can be left blank or it must be the same value as the
  * 				<code>containerPort</code>.</p>
+ *          <p>Most fields of this parameter (<code>containerPort</code>, <code>hostPort</code>,
+ * 				<code>protocol</code>) maps to <code>PortBindings</code> in the
+ * 			<a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
+ * 				<code>--publish</code> option to <a href="https://docs.docker.com/engine/reference/commandline/run/">
+ *                <code>docker
+ * 					run</code>
+ *             </a>. If the network mode of a task definition is set to
+ * 				<code>host</code>, host ports must either be undefined or match the container port
+ * 			in the port mapping.</p>
  *          <note>
  *             <p>You can't expose the same container port for multiple protocols. If you attempt
  * 				this, an error is returned.</p>
@@ -8948,7 +8959,7 @@ export interface PutAccountSettingDefaultRequest {
    *          <p>When you specify <code>fargateFIPSMode</code> for the <code>name</code> and
    * 			<code>enabled</code> for the <code>value</code>, Fargate uses FIPS-140 compliant
    * 			cryptographic algorithms on your tasks. For more information about FIPS-140 compliance
-   * 			with Fargate, see <a href="https://docs.aws.amazon.com/AWSEC2ContainerServiceDocs/build/server-root/AmazonECS/latest/developerguide/ecs-fips-compliance.html"> Amazon Web Services Fargate Federal Information Processing Standard (FIPS) 140-2
+   * 			with Fargate, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-fips-compliance.html"> Amazon Web Services Fargate Federal Information Processing Standard (FIPS) 140-2
    * 				compliance</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   name: SettingName | string | undefined;
