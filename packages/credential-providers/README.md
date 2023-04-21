@@ -7,6 +7,7 @@ A collection of all credential providers, with default clients.
 
 # Table of Contents
 
+1. [From Arguments](#fromarguments)
 1. [From Cognito Identity](#fromcognitoidentity)
 1. [From Cognito Identity Pool](#fromcognitoidentitypool)
 1. [From Temporary Credentials](#fromtemporarycredentials)
@@ -24,6 +25,36 @@ A collection of all credential providers, with default clients.
    1. [SSO login with AWS CLI](#sso-login-with-the-aws-cli)
    1. [Sample Files](#sample-files-2)
 1. [From Node.js default credentials provider chain](#fromNodeProviderChain)
+
+## `fromEnv()`
+
+```javascript
+import { fromArgs } from "@aws-sdk/credential-providers"; // ES6 import
+// const { fromArgs } = require("@aws-sdk/credential-providers"); // CommonJS import
+
+const client = new FooClient({
+  credentials: fromArgs({
+    accessKeyId,
+    secretAccessKey,
+    sessionToken,
+    expiry,
+  }),
+});
+```
+
+`fromArgs` returns a `AwsCredentialIdentityProvider` function, that reads credentials from the following
+arguments:
+
+- `accessKeyId` - The access key for your AWS account.
+- `secretAccessKey` - The secret key for your AWS account.
+- `sessionToken` - The session key for your AWS account. This is only needed when you are using
+  temporarycredentials.
+- `expiry` - The expiration time of the credentials contained in the arguments
+  described above. This value must be in a format compatible with the
+  [ISO-8601 standard][iso8601_standard] and is only needed when you are using temporary credentials.
+
+If either the `accessKeyId` or `secretAccessKey` argument is not set or
+contains a falsy value, the promise returned by the `fromArgs` function will be rejected.
 
 ## `fromCognitoIdentity()`
 

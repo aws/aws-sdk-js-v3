@@ -1,3 +1,4 @@
+import { fromArgs } from "@aws-sdk/credential-provider-args";
 import { fromEnv } from "@aws-sdk/credential-provider-env";
 import { fromIni } from "@aws-sdk/credential-provider-ini";
 import { fromProcess } from "@aws-sdk/credential-provider-process";
@@ -9,6 +10,7 @@ import { ENV_PROFILE, loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loa
 import { defaultProvider } from "./defaultProvider";
 import { remoteProvider } from "./remoteProvider";
 
+jest.mock("@aws-sdk/credential-provider-args");
 jest.mock("@aws-sdk/credential-provider-env");
 jest.mock("@aws-sdk/credential-provider-imds");
 jest.mock("@aws-sdk/credential-provider-ini");
@@ -29,6 +31,7 @@ describe(defaultProvider.name, () => {
     profile: "mockProfile",
   };
 
+  const mockArgsFn = jest.fn().mockResolvedValue(mockCreds);
   const mockEnvFn = jest.fn();
   const mockSsoFn = jest.fn();
   const mockIniFn = jest.fn();
@@ -41,6 +44,7 @@ describe(defaultProvider.name, () => {
 
   beforeEach(() => {
     [
+      [fromArgs, mockArgsFn],
       [fromEnv, mockEnvFn],
       [fromSSO, mockSsoFn],
       [fromIni, mockIniFn],
@@ -70,7 +74,7 @@ describe(defaultProvider.name, () => {
     jest.clearAllMocks();
   });
 
-  describe("without fromEnv", () => {
+  describe("without fromEnv and fromArgs", () => {
     afterEach(() => {
       expect(chain).toHaveBeenCalledWith(
         mockSsoFn,
@@ -86,6 +90,7 @@ describe(defaultProvider.name, () => {
       const receivedCreds = await defaultProvider(mockInit)();
       expect(receivedCreds).toStrictEqual(mockCreds);
 
+      expect(fromArgs).not.toHaveBeenCalled();
       expect(fromEnv).not.toHaveBeenCalled();
       for (const fromFn of [fromSSO, fromIni, fromProcess, fromTokenFile, remoteProvider]) {
         expect(fromFn).toHaveBeenCalledWith(mockInit);
@@ -105,6 +110,7 @@ describe(defaultProvider.name, () => {
       const receivedCreds = await defaultProvider(mockInitWithoutProfile)();
       expect(receivedCreds).toStrictEqual(mockCreds);
 
+      expect(fromArgs).not.toHaveBeenCalled();
       expect(fromEnv).not.toHaveBeenCalled();
       for (const fromFn of [fromSSO, fromIni, fromProcess, fromTokenFile, remoteProvider]) {
         expect(fromFn).toHaveBeenCalledWith(mockInitWithoutProfile);
@@ -112,6 +118,27 @@ describe(defaultProvider.name, () => {
 
       process.env = ORIGINAL_ENV;
     });
+  });
+
+  it(`If accessKeyId and secretAccessKey are available, add the fromArgs call.`, async () => {
+    const receivedCreds = await defaultProvider(mockCreds)();
+    expect(receivedCreds).toStrictEqual(mockCreds);
+
+    expect(fromArgs).toHaveBeenCalledTimes(1);
+    for (const fromFn of [fromSSO, fromIni, fromProcess, fromTokenFile, remoteProvider]) {
+      expect(fromFn).toHaveBeenCalledWith(mockCreds);
+    }
+
+    expect(chain).toHaveBeenCalledWith(
+      mockArgsFn,
+      mockEnvFn,
+      mockSsoFn,
+      mockIniFn,
+      mockProcessFn,
+      mockTokenFileFn,
+      mockRemoteProviderFn,
+      expect.any(Function)
+    );
   });
 
   it(`adds fromEnv call if profile is not available`, async () => {

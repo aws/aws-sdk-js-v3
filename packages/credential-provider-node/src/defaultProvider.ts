@@ -1,3 +1,4 @@
+import { fromArgs, FromArgsInit } from "@aws-sdk/credential-provider-args";
 import { fromEnv } from "@aws-sdk/credential-provider-env";
 import { RemoteProviderInit } from "@aws-sdk/credential-provider-imds";
 import { fromIni, FromIniInit } from "@aws-sdk/credential-provider-ini";
@@ -10,11 +11,12 @@ import { AwsCredentialIdentity, MemoizedProvider } from "@aws-sdk/types";
 
 import { remoteProvider } from "./remoteProvider";
 
-export type DefaultProviderInit = FromIniInit & RemoteProviderInit & FromProcessInit & FromSSOInit & FromTokenFileInit;
+export type DefaultProviderInit = FromArgsInit & FromIniInit & RemoteProviderInit & FromProcessInit & FromSSOInit & FromTokenFileInit;
 
 /**
  * Creates a credential provider that will attempt to find credentials from the
  * following sources (listed in order of precedence):
+ *   * Credentials from arguments
  *   * Environment variables exposed via `process.env`
  *   * SSO credentials from token cache
  *   * Web identity token credentials
@@ -31,6 +33,8 @@ export type DefaultProviderInit = FromIniInit & RemoteProviderInit & FromProcess
  * @param init                  Configuration that is passed to each individual
  *                              provider
  *
+ * @see {@link fromArgs}                 The function used to source credentials from
+ *                              arguments
  * @see {@link fromEnv}                 The function used to source credentials from
  *                              environment variables
  * @see {@link fromSSO}                 The function used to source credentials from
@@ -49,6 +53,7 @@ export type DefaultProviderInit = FromIniInit & RemoteProviderInit & FromProcess
 export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvider<AwsCredentialIdentity> =>
   memoize(
     chain(
+      ...(init.accessKeyId && init.secretAccessKey ? [fromArgs(init)] : []),
       ...(init.profile || process.env[ENV_PROFILE] ? [] : [fromEnv()]),
       fromSSO(init),
       fromIni(init),
