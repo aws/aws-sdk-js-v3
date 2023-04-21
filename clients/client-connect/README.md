@@ -354,6 +354,14 @@ CreateIntegrationAssociation
 </details>
 <details>
 <summary>
+CreateParticipant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/classes/createparticipantcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/createparticipantcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-connect/interfaces/createparticipantcommandoutput.html)
+
+</details>
+<details>
+<summary>
 CreateQueue
 </summary>
 

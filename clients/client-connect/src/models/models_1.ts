@@ -5,6 +5,7 @@ import { ConnectServiceException as __BaseException } from "./ConnectServiceExce
 import {
   ActionSummary,
   AgentStatusState,
+  AgentStatusSummary,
   Attribute,
   Channel,
   ContactFlowModuleState,
@@ -49,6 +50,97 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListAgentStatusResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A summary of agent statuses.</p>
+   */
+  AgentStatusSummaryList?: AgentStatusSummary[];
+}
+
+/**
+ * @public
+ */
+export interface ListApprovedOriginsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListApprovedOriginsResponse {
+  /**
+   * <p>The approved origins.</p>
+   */
+  Origins?: string[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LexVersion = {
+  V1: "V1",
+  V2: "V2",
+} as const;
+
+/**
+ * @public
+ */
+export type LexVersion = (typeof LexVersion)[keyof typeof LexVersion];
+
+/**
+ * @public
+ */
+export interface ListBotsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The version of Amazon Lex or Amazon Lex V2.</p>
+   */
+  LexVersion: LexVersion | string | undefined;
+}
 
 /**
  * @public
@@ -2903,8 +2995,8 @@ export interface SearchVocabulariesResponse {
 export interface ChatMessage {
   /**
    * <p>The type of the content. Supported types are <code>text/plain</code>,
-   *    <code>text/markdown</code>, <code>application/json</code>, and
-   *    <code>application/vnd.amazonaws.connect.message.interactive.response</code>.</p>
+   *     <code>text/markdown</code>, <code>application/json</code>, and
+   *     <code>application/vnd.amazonaws.connect.message.interactive.response</code>.</p>
    */
   ContentType: string | undefined;
 
@@ -2920,8 +3012,8 @@ export interface ChatMessage {
    *      12000. </p>
    *             </li>
    *             <li>
-   *                <p>For <code>application/vnd.amazonaws.connect.message.interactive.response</code>, the Length
-   *      Constraints are Minimum of 1, Maximum of 12288.</p>
+   *                <p>For <code>application/vnd.amazonaws.connect.message.interactive.response</code>, the
+   *      Length Constraints are Minimum of 1, Maximum of 12288.</p>
    *             </li>
    *          </ul>
    */
@@ -3043,15 +3135,14 @@ export interface StartChatContactRequest {
   ChatDurationInMinutes?: number;
 
   /**
-   * <p>The supported chat message content types.
-   *    Supported types are <code>text/plain</code>,
-   *    <code>text/markdown</code>, <code>application/json</code>,  <code>application/vnd.amazonaws.connect.message.interactive</code>, and
-   *    <code>application/vnd.amazonaws.connect.message.interactive.response</code>. </p>
-   *          <p>Content types must always contain
-   *     <code>text/plain</code>. You can then put any other supported type in the list. For example, all
-   *    the following lists are valid because they contain <code>text/plain</code>: <code>[text/plain,
-   *     text/markdown, application/json]</code>, <code>[text/markdown, text/plain]</code>,
-   *     <code>[text/plain, application/json,
+   * <p>The supported chat message content types. Supported types are <code>text/plain</code>,
+   *     <code>text/markdown</code>, <code>application/json</code>,
+   *     <code>application/vnd.amazonaws.connect.message.interactive</code>, and
+   *     <code>application/vnd.amazonaws.connect.message.interactive.response</code>. </p>
+   *          <p>Content types must always contain <code>text/plain</code>. You can then put any other
+   *    supported type in the list. For example, all the following lists are valid because they contain
+   *     <code>text/plain</code>: <code>[text/plain, text/markdown, application/json]</code>,
+   *     <code>[text/markdown, text/plain]</code>, <code>[text/plain, application/json,
    *     application/vnd.amazonaws.connect.message.interactive.response]</code>. </p>
    *          <note>
    *             <p>The type <code>application/vnd.amazonaws.connect.message.interactive</code> is required to

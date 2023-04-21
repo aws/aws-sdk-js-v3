@@ -87,6 +87,11 @@ import {
   CreateIntegrationAssociationCommandInput,
   CreateIntegrationAssociationCommandOutput,
 } from "./commands/CreateIntegrationAssociationCommand";
+import {
+  CreateParticipantCommand,
+  CreateParticipantCommandInput,
+  CreateParticipantCommandOutput,
+} from "./commands/CreateParticipantCommand";
 import { CreateQueueCommand, CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
 import {
   CreateQuickConnectCommand,
@@ -812,6 +817,7 @@ const commands = {
   CreateHoursOfOperationCommand,
   CreateInstanceCommand,
   CreateIntegrationAssociationCommand,
+  CreateParticipantCommand,
   CreateQueueCommand,
   CreateQuickConnectCommand,
   CreateRoutingProfileCommand,
@@ -1243,6 +1249,23 @@ export interface Connect {
     args: CreateIntegrationAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateIntegrationAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateParticipantCommand}
+   */
+  createParticipant(
+    args: CreateParticipantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateParticipantCommandOutput>;
+  createParticipant(
+    args: CreateParticipantCommandInput,
+    cb: (err: any, data?: CreateParticipantCommandOutput) => void
+  ): void;
+  createParticipant(
+    args: CreateParticipantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateParticipantCommandOutput) => void
   ): void;
 
   /**

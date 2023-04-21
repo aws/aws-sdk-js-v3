@@ -16,6 +16,7 @@ export * from "./CreateContactFlowModuleCommand";
 export * from "./CreateHoursOfOperationCommand";
 export * from "./CreateInstanceCommand";
 export * from "./CreateIntegrationAssociationCommand";
+export * from "./CreateParticipantCommand";
 export * from "./CreateQueueCommand";
 export * from "./CreateQuickConnectCommand";
 export * from "./CreateRoutingProfileCommand";

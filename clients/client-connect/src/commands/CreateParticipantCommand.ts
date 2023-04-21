@@ -14,45 +14,49 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ListApprovedOriginsRequest, ListApprovedOriginsResponse } from "../models/models_1";
-import { de_ListApprovedOriginsCommand, se_ListApprovedOriginsCommand } from "../protocols/Aws_restJson1";
+import { CreateParticipantRequest, CreateParticipantResponse } from "../models/models_0";
+import { de_CreateParticipantCommand, se_CreateParticipantCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link ListApprovedOriginsCommand}.
+ * The input for {@link CreateParticipantCommand}.
  */
-export interface ListApprovedOriginsCommandInput extends ListApprovedOriginsRequest {}
+export interface CreateParticipantCommandInput extends CreateParticipantRequest {}
 /**
  * @public
  *
- * The output of {@link ListApprovedOriginsCommand}.
+ * The output of {@link CreateParticipantCommand}.
  */
-export interface ListApprovedOriginsCommandOutput extends ListApprovedOriginsResponse, __MetadataBearer {}
+export interface CreateParticipantCommandOutput extends CreateParticipantResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Returns a paginated list of all approved origins associated with the instance.</p>
+ * <p>Adds a new participant into an on-going chat contact. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html">Customize chat
+ *     flow experiences by integrating custom participants</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, ListApprovedOriginsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, ListApprovedOriginsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateParticipantCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, CreateParticipantCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // ListApprovedOriginsRequest
+ * const input = { // CreateParticipantRequest
  *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
+ *   ContactId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ *   ParticipantDetails: { // ParticipantDetailsToAdd
+ *     ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM" || "CUSTOM_BOT",
+ *     DisplayName: "STRING_VALUE",
+ *   },
  * };
- * const command = new ListApprovedOriginsCommand(input);
+ * const command = new CreateParticipantCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param ListApprovedOriginsCommandInput - {@link ListApprovedOriginsCommandInput}
- * @returns {@link ListApprovedOriginsCommandOutput}
- * @see {@link ListApprovedOriginsCommandInput} for command's `input` shape.
- * @see {@link ListApprovedOriginsCommandOutput} for command's `response` shape.
+ * @param CreateParticipantCommandInput - {@link CreateParticipantCommandInput}
+ * @returns {@link CreateParticipantCommandOutput}
+ * @see {@link CreateParticipantCommandInput} for command's `input` shape.
+ * @see {@link CreateParticipantCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
@@ -67,14 +71,17 @@ export interface ListApprovedOriginsCommandOutput extends ListApprovedOriginsRes
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota has been exceeded.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
  *
  */
-export class ListApprovedOriginsCommand extends $Command<
-  ListApprovedOriginsCommandInput,
-  ListApprovedOriginsCommandOutput,
+export class CreateParticipantCommand extends $Command<
+  CreateParticipantCommandInput,
+  CreateParticipantCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
@@ -92,7 +99,7 @@ export class ListApprovedOriginsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListApprovedOriginsCommandInput) {
+  constructor(readonly input: CreateParticipantCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -105,17 +112,17 @@ export class ListApprovedOriginsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListApprovedOriginsCommandInput, ListApprovedOriginsCommandOutput> {
+  ): Handler<CreateParticipantCommandInput, CreateParticipantCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListApprovedOriginsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateParticipantCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "ListApprovedOriginsCommand";
+    const commandName = "CreateParticipantCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -134,15 +141,15 @@ export class ListApprovedOriginsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListApprovedOriginsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListApprovedOriginsCommand(input, context);
+  private serialize(input: CreateParticipantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateParticipantCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApprovedOriginsCommandOutput> {
-    return de_ListApprovedOriginsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateParticipantCommandOutput> {
+    return de_CreateParticipantCommand(output, context);
   }
 
   // Start section: command_body_extra

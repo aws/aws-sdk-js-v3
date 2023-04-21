@@ -14,7 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ListAgentStatusRequest, ListAgentStatusResponse } from "../models/models_0";
+import { ListAgentStatusRequest } from "../models/models_0";
+import { ListAgentStatusResponse } from "../models/models_1";
 import { de_ListAgentStatusesCommand, se_ListAgentStatusesCommand } from "../protocols/Aws_restJson1";
 
 /**

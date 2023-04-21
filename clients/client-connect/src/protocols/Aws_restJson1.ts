@@ -75,6 +75,7 @@ import {
   CreateIntegrationAssociationCommandInput,
   CreateIntegrationAssociationCommandOutput,
 } from "../commands/CreateIntegrationAssociationCommand";
+import { CreateParticipantCommandInput, CreateParticipantCommandOutput } from "../commands/CreateParticipantCommand";
 import { CreateQueueCommandInput, CreateQueueCommandOutput } from "../commands/CreateQueueCommand";
 import { CreateQuickConnectCommandInput, CreateQuickConnectCommandOutput } from "../commands/CreateQuickConnectCommand";
 import {
@@ -548,6 +549,7 @@ import {
   MonitorCapability,
   NotificationRecipientType,
   OutboundCallerConfig,
+  ParticipantDetailsToAdd,
   PhoneNumberCountryCode,
   PhoneNumberQuickConnectConfig,
   PhoneNumberType,
@@ -1202,6 +1204,39 @@ export const se_CreateIntegrationAssociationCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateParticipantCommand
+ */
+export const se_CreateParticipantCommand = async (
+  input: CreateParticipantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/create-participant";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      ContactId: [],
+      InstanceId: [],
+      ParticipantDetails: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -7348,6 +7383,69 @@ const de_CreateIntegrationAssociationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateParticipantCommand
+ */
+export const de_CreateParticipantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateParticipantCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateParticipantCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ParticipantCredentials: _json,
+    ParticipantId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateParticipantCommandError
+ */
+const de_CreateParticipantCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateParticipantCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.connect#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -16893,6 +16991,8 @@ const se_MetricV2 = (input: MetricV2, context: __SerdeContext): any => {
 
 // se_ParticipantDetails omitted.
 
+// se_ParticipantDetailsToAdd omitted.
+
 // se_ParticipantTimerConfigList omitted.
 
 // se_ParticipantTimerConfiguration omitted.
@@ -17568,6 +17668,8 @@ const de_MetricV2 = (output: any, context: __SerdeContext): MetricV2 => {
 // de_OriginsList omitted.
 
 // de_OutboundCallerConfig omitted.
+
+// de_ParticipantTokenCredentials omitted.
 
 // de_PermissionsList omitted.
 

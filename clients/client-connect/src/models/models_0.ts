@@ -1591,6 +1591,106 @@ export interface CreateIntegrationAssociationResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const ParticipantRole = {
+  AGENT: "AGENT",
+  CUSTOMER: "CUSTOMER",
+  CUSTOM_BOT: "CUSTOM_BOT",
+  SYSTEM: "SYSTEM",
+} as const;
+
+/**
+ * @public
+ */
+export type ParticipantRole = (typeof ParticipantRole)[keyof typeof ParticipantRole];
+
+/**
+ * @public
+ * <p>The details to add for the participant.</p>
+ */
+export interface ParticipantDetailsToAdd {
+  /**
+   * <p>The role of the participant being added.</p>
+   */
+  ParticipantRole?: ParticipantRole | string;
+
+  /**
+   * <p>The display name of the participant.</p>
+   */
+  DisplayName?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateParticipantRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. </p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Amazon Connect.  Only contacts in the CHAT channel are supported.</p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Information identifying the participant.</p>
+   *          <important>
+   *             <p>The only Valid value for <code>ParticipantRole</code> is <code>CUSTOM_BOT</code>. </p>
+   *             <p>
+   *                <code>DisplayName</code> is <b>Required</b>.</p>
+   *          </important>
+   */
+  ParticipantDetails: ParticipantDetailsToAdd | undefined;
+}
+
+/**
+ * @public
+ * <p>The credentials used by the participant.</p>
+ */
+export interface ParticipantTokenCredentials {
+  /**
+   * <p>The token used by the chat participant to call <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>. The participant token is valid for the lifetime of a chat
+   *    participant. </p>
+   */
+  ParticipantToken?: string;
+
+  /**
+   * <p>The expiration of the token. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ.
+   *    For example, 2019-11-08T02:41:28.172Z.</p>
+   */
+  Expiry?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateParticipantResponse {
+  /**
+   * <p>The token used by the chat participant to call <code>CreateParticipantConnection</code>. The participant
+   *    token is valid for the lifetime of a chat participant.</p>
+   */
+  ParticipantCredentials?: ParticipantTokenCredentials;
+
+  /**
+   * <p>The identifier for a chat participant. The participantId for a chat participant is the same
+   *    throughout the chat lifecycle.</p>
+   */
+  ParticipantId?: string;
+}
+
+/**
+ * @public
  * <p>The outbound caller ID name, number, and outbound whisper flow.</p>
  */
 export interface OutboundCallerConfig {
@@ -1818,12 +1918,13 @@ export type BehaviorType = (typeof BehaviorType)[keyof typeof BehaviorType];
 
 /**
  * @public
- * <p>Defines the cross-channel routing behavior that allows an agent working on a contact in
- *    one channel to be offered a contact from a different channel.</p>
+ * <p>Defines the cross-channel routing behavior that allows an agent working on a contact in one
+ *    channel to be offered a contact from a different channel.</p>
  */
 export interface CrossChannelBehavior {
   /**
-   * <p>Specifies the other channels that can be routed to an agent handling their current channel.</p>
+   * <p>Specifies the other channels that can be routed to an agent handling their current
+   *    channel.</p>
    */
   BehaviorType: BehaviorType | string | undefined;
 }
@@ -6511,9 +6612,9 @@ export interface FilterV2 {
 export interface MetricFilterV2 {
   /**
    * <p>The key to use for filtering data. </p>
-   *          <p>Valid metric filter keys: <code>INITIATION_METHOD</code>,
-   *    <code>DISCONNECT_REASON</code>
-   *          </p>
+   *          <p>Valid metric filter keys: <code>INITIATION_METHOD</code>, <code>DISCONNECT_REASON</code>.
+   *    These are the same values as the <code>InitiationMethod</code> and <code>DisconnectReason</code>
+   *    in the contact record. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/ctr-data-model.html#ctr-ContactTraceRecord">ContactTraceRecord</a> in the <i>Amazon Connect Administrator's Guide</i>. </p>
    */
   MetricFilterKey?: string;
 
@@ -6590,8 +6691,8 @@ export interface GetMetricDataV2Request {
 
   /**
    * <p>The timestamp, in UNIX Epoch time format, at which to end the reporting interval for the
-   *    retrieval of historical metrics data. The time must be later than the start time
-   *    timestamp.  It cannot be later than the current timestamp.</p>
+   *    retrieval of historical metrics data. The time must be later than the start time timestamp. It
+   *    cannot be later than the current timestamp.</p>
    *          <p>The time range between the start and end time must be less than 24 hours.</p>
    */
   EndTime: Date | undefined;
@@ -7060,97 +7161,6 @@ export interface ListAgentStatusRequest {
    * <p>Available agent status types.</p>
    */
   AgentStatusTypes?: (AgentStatusType | string)[];
-}
-
-/**
- * @public
- */
-export interface ListAgentStatusResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A summary of agent statuses.</p>
-   */
-  AgentStatusSummaryList?: AgentStatusSummary[];
-}
-
-/**
- * @public
- */
-export interface ListApprovedOriginsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListApprovedOriginsResponse {
-  /**
-   * <p>The approved origins.</p>
-   */
-  Origins?: string[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const LexVersion = {
-  V1: "V1",
-  V2: "V2",
-} as const;
-
-/**
- * @public
- */
-export type LexVersion = (typeof LexVersion)[keyof typeof LexVersion];
-
-/**
- * @public
- */
-export interface ListBotsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The version of Amazon Lex or Amazon Lex V2.</p>
-   */
-  LexVersion: LexVersion | string | undefined;
 }
 
 /**
