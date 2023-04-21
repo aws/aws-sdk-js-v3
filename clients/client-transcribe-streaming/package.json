@@ -13,7 +13,7 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
     "generate:client": "node ../../scripts/generate-clients/single-service --solo transcribe-streaming",
-    "test:integration": "jest --config jest.integ.config.js"
+    "test:integration": "jest --config jest.config.integ.js"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",

@@ -33,7 +33,7 @@
     "lint:ci": "lerna exec --since origin/main --exclude-dependents --ignore '@aws-sdk/client-*' --ignore '@aws-sdk/aws-*' 'eslint --quiet src/**/*.ts'",
     "lint:release": "lerna exec --ignore '@aws-sdk/client-*' --ignore '@aws-sdk/aws-*' 'eslint --quiet src/**/*.ts'",
     "local-publish": "node ./scripts/verdaccio-publish/index.js",
-    "test:all": "yarn build:all && jest --coverage --passWithNoTests && lerna run test --scope '@aws-sdk/{fetch-http-handler,hash-blob-browser}' && yarn test:versions",
+    "test:all": "yarn build:all && jest --coverage --passWithNoTests && lerna run test --scope '@aws-sdk/{fetch-http-handler,hash-blob-browser}' && yarn test:versions && yarn test:integration",
     "test:ci": "lerna run test --since origin/main",
     "test:e2e": "yarn build:e2e && node ./tests/e2e/index.js",
     "test:functional": "jest --passWithNoTests --config tests/functional/jest.config.js && lerna run test:unit --scope \"@aws-sdk/client-*\"",

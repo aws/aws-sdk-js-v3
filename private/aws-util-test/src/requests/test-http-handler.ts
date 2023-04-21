@@ -49,7 +49,7 @@ export class TestHttpHandler implements HttpHandler {
       const originalSend = (this.originalSend = client.send as any);
       client.send = async function (...args: any[]) {
         return originalSend.apply(client, args).catch((e: unknown) => {
-          if (e instanceof TestHttpHandlerSuccess) {
+          if ((e as any).id === TestHttpHandlerSuccess.ID) {
           } else {
             throw e;
           }
@@ -149,4 +149,7 @@ export class TestHttpHandler implements HttpHandler {
  * This is used as an interrupt signal for success.
  * It does not indicate a true error.
  */
-export class TestHttpHandlerSuccess extends Error {}
+export class TestHttpHandlerSuccess extends Error {
+  public static readonly ID = Symbol("TestHttpHandlerSuccess");
+  public readonly id = TestHttpHandlerSuccess.ID;
+}
