@@ -138,18 +138,14 @@ describe(resolveEndpoint.name, () => {
 
     expect(mockLogger.debug).nthCalledWith(
       1,
-      "endpoints",
-      "Initial EndpointParams: " +
+      "endpoints " +
+        "Initial EndpointParams: " +
         "{\n" +
         '  "boolParamKey": true,\n' +
         '  "stringParamKey": "stringParamValue",\n' +
         '  "requiredParamKey": "requiredParamValue"\n' +
         "}"
     );
-    expect(mockLogger.debug).nthCalledWith(
-      2,
-      "endpoints",
-      "Resolved endpoint: " + '{\n  "url": "http://example.com/"\n}'
-    );
+    expect(mockLogger.debug).nthCalledWith(2, `endpoints Resolved endpoint: {\n  "url": "http://example.com/"\n}`);
   });
 });
