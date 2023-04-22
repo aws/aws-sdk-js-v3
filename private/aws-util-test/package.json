@@ -6,6 +6,7 @@
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "prepack": "yarn run clean && yarn run build",
     "test:integration": "jest --coverage --passWithNoTests --config jest.config.integ.js"
