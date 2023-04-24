@@ -1890,7 +1890,7 @@ export interface LivenessOutputConfig {
   S3Bucket: string | undefined;
 
   /**
-   * <p>The prefix appended to the output files for the Face Liveness session results.</p>
+   * <p>The prefix prepended to the output files for the Face Liveness session results.</p>
    */
   S3KeyPrefix?: string;
 }
@@ -4799,6 +4799,7 @@ export interface GetFaceLivenessSessionResultsRequest {
  */
 export const LivenessSessionStatus = {
   CREATED: "CREATED",
+  EXPIRED: "EXPIRED",
   FAILED: "FAILED",
   IN_PROGRESS: "IN_PROGRESS",
   SUCCEEDED: "SUCCEEDED",
