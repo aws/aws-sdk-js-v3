@@ -17,6 +17,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeVerifiedAccessTrustProvidersRequest,
   DescribeVerifiedAccessTrustProvidersResult,
+  DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
   de_DescribeVerifiedAccessTrustProvidersCommand,
@@ -40,7 +41,7 @@ export interface DescribeVerifiedAccessTrustProvidersCommandOutput
 
 /**
  * @public
- * <p>Describe details of existing Verified Access trust providers.</p>
+ * <p>Describes the specified Amazon Web Services Verified Access trust providers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -124,7 +125,7 @@ export class DescribeVerifiedAccessTrustProvidersCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

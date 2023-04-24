@@ -37,7 +37,7 @@ export interface DescribeVerifiedAccessEndpointsCommandOutput
 
 /**
  * @public
- * <p>Describe Amazon Web Services Verified Access endpoints.</p>
+ * <p>Describes the specified Amazon Web Services Verified Access endpoints.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

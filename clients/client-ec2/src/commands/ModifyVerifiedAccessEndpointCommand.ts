@@ -34,7 +34,7 @@ export interface ModifyVerifiedAccessEndpointCommandOutput
 
 /**
  * @public
- * <p>Modifies the configuration of an Amazon Web Services Verified Access endpoint.</p>
+ * <p>Modifies the configuration of the specified Amazon Web Services Verified Access endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

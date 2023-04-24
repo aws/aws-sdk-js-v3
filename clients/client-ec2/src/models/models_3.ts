@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
 import {
   _InstanceType,
   AccountAttribute,
@@ -33,6 +35,7 @@ import {
   UnsuccessfulItem,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
+  VerifiedAccessTrustProviderFilterSensitiveLog,
 } from "./models_0";
 import {
   AttributeValue,
@@ -579,7 +582,7 @@ export interface DeleteTransitGatewayVpcAttachmentResult {
  */
 export interface DeleteVerifiedAccessEndpointRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   * <p>The ID of the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpointId: string | undefined;
 
@@ -602,7 +605,7 @@ export interface DeleteVerifiedAccessEndpointRequest {
  */
 export interface DeleteVerifiedAccessEndpointResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   * <p>The ID of the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpoint?: VerifiedAccessEndpoint;
 }
@@ -612,7 +615,7 @@ export interface DeleteVerifiedAccessEndpointResult {
  */
 export interface DeleteVerifiedAccessGroupRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   * <p>The ID of the Verified Access group.</p>
    */
   VerifiedAccessGroupId: string | undefined;
 
@@ -635,7 +638,7 @@ export interface DeleteVerifiedAccessGroupRequest {
  */
 export interface DeleteVerifiedAccessGroupResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   * <p>The ID of the Verified Access group.</p>
    */
   VerifiedAccessGroup?: VerifiedAccessGroup;
 }
@@ -645,7 +648,7 @@ export interface DeleteVerifiedAccessGroupResult {
  */
 export interface DeleteVerifiedAccessInstanceRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstanceId: string | undefined;
 
@@ -668,7 +671,7 @@ export interface DeleteVerifiedAccessInstanceRequest {
  */
 export interface DeleteVerifiedAccessInstanceResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
@@ -678,7 +681,7 @@ export interface DeleteVerifiedAccessInstanceResult {
  */
 export interface DeleteVerifiedAccessTrustProviderRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   * <p>The ID of the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProviderId: string | undefined;
 
@@ -701,7 +704,7 @@ export interface DeleteVerifiedAccessTrustProviderRequest {
  */
 export interface DeleteVerifiedAccessTrustProviderResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   * <p>The ID of the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 }
@@ -9151,3 +9154,66 @@ export const MonitoringState = {
  * @public
  */
 export type MonitoringState = (typeof MonitoringState)[keyof typeof MonitoringState];
+
+/**
+ * @internal
+ */
+export const DeleteVerifiedAccessTrustProviderResultFilterSensitiveLog = (
+  obj: DeleteVerifiedAccessTrustProviderResult
+): any => ({
+  ...obj,
+  ...(obj.VerifiedAccessTrustProvider && {
+    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DiskImageDescriptionFilterSensitiveLog = (obj: DiskImageDescription): any => ({
+  ...obj,
+  ...(obj.ImportManifestUrl && { ImportManifestUrl: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ImportInstanceVolumeDetailItemFilterSensitiveLog = (obj: ImportInstanceVolumeDetailItem): any => ({
+  ...obj,
+  ...(obj.Image && { Image: DiskImageDescriptionFilterSensitiveLog(obj.Image) }),
+});
+
+/**
+ * @internal
+ */
+export const ImportInstanceTaskDetailsFilterSensitiveLog = (obj: ImportInstanceTaskDetails): any => ({
+  ...obj,
+  ...(obj.Volumes && { Volumes: obj.Volumes.map((item) => ImportInstanceVolumeDetailItemFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ImportVolumeTaskDetailsFilterSensitiveLog = (obj: ImportVolumeTaskDetails): any => ({
+  ...obj,
+  ...(obj.Image && { Image: DiskImageDescriptionFilterSensitiveLog(obj.Image) }),
+});
+
+/**
+ * @internal
+ */
+export const ConversionTaskFilterSensitiveLog = (obj: ConversionTask): any => ({
+  ...obj,
+  ...(obj.ImportInstance && { ImportInstance: ImportInstanceTaskDetailsFilterSensitiveLog(obj.ImportInstance) }),
+  ...(obj.ImportVolume && { ImportVolume: ImportVolumeTaskDetailsFilterSensitiveLog(obj.ImportVolume) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeConversionTasksResultFilterSensitiveLog = (obj: DescribeConversionTasksResult): any => ({
+  ...obj,
+  ...(obj.ConversionTasks && {
+    ConversionTasks: obj.ConversionTasks.map((item) => ConversionTaskFilterSensitiveLog(item)),
+  }),
+});

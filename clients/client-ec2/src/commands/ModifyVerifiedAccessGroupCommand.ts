@@ -32,7 +32,7 @@ export interface ModifyVerifiedAccessGroupCommandOutput extends ModifyVerifiedAc
 
 /**
  * @public
- * <p>Modifies the specified Verified Access group configuration.</p>
+ * <p>Modifies the specified Amazon Web Services Verified Access group configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

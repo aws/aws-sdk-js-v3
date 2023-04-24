@@ -37,7 +37,7 @@ export interface ModifyVerifiedAccessGroupPolicyCommandOutput
 
 /**
  * @public
- * <p>Modifies the specified Verified Access group policy.</p>
+ * <p>Modifies the specified Amazon Web Services Verified Access group policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

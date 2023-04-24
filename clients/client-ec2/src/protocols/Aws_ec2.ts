@@ -57894,6 +57894,24 @@ const se_ModifyVerifiedAccessTrustProviderOidcOptions = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.Issuer != null) {
+    entries["Issuer"] = input.Issuer;
+  }
+  if (input.AuthorizationEndpoint != null) {
+    entries["AuthorizationEndpoint"] = input.AuthorizationEndpoint;
+  }
+  if (input.TokenEndpoint != null) {
+    entries["TokenEndpoint"] = input.TokenEndpoint;
+  }
+  if (input.UserInfoEndpoint != null) {
+    entries["UserInfoEndpoint"] = input.UserInfoEndpoint;
+  }
+  if (input.ClientId != null) {
+    entries["ClientId"] = input.ClientId;
+  }
+  if (input.ClientSecret != null) {
+    entries["ClientSecret"] = input.ClientSecret;
+  }
   if (input.Scope != null) {
     entries["Scope"] = input.Scope;
   }

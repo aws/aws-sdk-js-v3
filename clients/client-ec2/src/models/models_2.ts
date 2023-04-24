@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
 import {
   ApplianceModeSupportValue,
   CarrierGateway,
@@ -21,6 +23,7 @@ import {
   UserTrustProviderType,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
+  VerifiedAccessTrustProviderFilterSensitiveLog,
   VolumeAttachment,
   VpcAttachment,
   VpcPeeringConnection,
@@ -3371,7 +3374,7 @@ export type VerifiedAccessEndpointProtocol =
 
 /**
  * @public
- * <p>Describes a load balancer when creating an Amazon Web Services Verified Access endpoint using the
+ * <p>Describes the load balancer options when creating an Amazon Web Services Verified Access endpoint using the
  *             <code>load-balancer</code> type.</p>
  */
 export interface CreateVerifiedAccessEndpointLoadBalancerOptions {
@@ -3398,7 +3401,8 @@ export interface CreateVerifiedAccessEndpointLoadBalancerOptions {
 
 /**
  * @public
- * <p>Options for a network interface-type endpoint.</p>
+ * <p>Describes the network interface options when creating an Amazon Web Services Verified Access endpoint using the
+ *             <code>network-interface</code> type.</p>
  */
 export interface CreateVerifiedAccessEndpointEniOptions {
   /**
@@ -3427,12 +3431,12 @@ export interface CreateVerifiedAccessEndpointRequest {
   VerifiedAccessGroupId: string | undefined;
 
   /**
-   * <p>The type of Amazon Web Services Verified Access endpoint to create.</p>
+   * <p>The type of Verified Access endpoint to create.</p>
    */
   EndpointType: VerifiedAccessEndpointType | string | undefined;
 
   /**
-   * <p>The Amazon Web Services network component Verified Access attaches to.</p>
+   * <p>The type of attachment.</p>
    */
   AttachmentType: VerifiedAccessEndpointAttachmentType | string | undefined;
 
@@ -3449,39 +3453,40 @@ export interface CreateVerifiedAccessEndpointRequest {
   ApplicationDomain: string | undefined;
 
   /**
-   * <p>A custom identifier that gets prepended to a DNS name that is generated for the endpoint.</p>
+   * <p>A custom identifier that is prepended to the DNS name that is generated for the
+   *          endpoint.</p>
    */
   EndpointDomainPrefix: string | undefined;
 
   /**
-   * <p>The Amazon EC2 security groups to associate with the Amazon Web Services Verified Access endpoint.</p>
+   * <p>The IDs of the security groups to associate with the Verified Access endpoint.</p>
    */
   SecurityGroupIds?: string[];
 
   /**
-   * <p>The load balancer details if creating the Amazon Web Services Verified Access endpoint as
-   *          <code>load-balancer</code>type.</p>
+   * <p>The load balancer details. This parameter is required if the endpoint type is
+   *             <code>load-balancer</code>.</p>
    */
   LoadBalancerOptions?: CreateVerifiedAccessEndpointLoadBalancerOptions;
 
   /**
-   * <p>The network interface details if creating the Amazon Web Services Verified Access endpoint as
-   *             <code>network-interface</code>type.</p>
+   * <p>The network interface details. This parameter is required if the endpoint type is
+   *             <code>network-interface</code>.</p>
    */
   NetworkInterfaceOptions?: CreateVerifiedAccessEndpointEniOptions;
 
   /**
-   * <p>A description for the Amazon Web Services Verified Access endpoint.</p>
+   * <p>A description for the Verified Access endpoint.</p>
    */
   Description?: string;
 
   /**
-   * <p>The Amazon Web Services Verified Access policy document.</p>
+   * <p>The Verified Access policy document.</p>
    */
   PolicyDocument?: string;
 
   /**
-   * <p>The tags to assign to the Amazon Web Services Verified Access endpoint.</p>
+   * <p>The tags to assign to the Verified Access endpoint.</p>
    */
   TagSpecifications?: TagSpecification[];
 
@@ -3688,7 +3693,7 @@ export interface VerifiedAccessEndpoint {
  */
 export interface CreateVerifiedAccessEndpointResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   * <p>The ID of the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpoint?: VerifiedAccessEndpoint;
 }
@@ -3698,22 +3703,22 @@ export interface CreateVerifiedAccessEndpointResult {
  */
 export interface CreateVerifiedAccessGroupRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstanceId: string | undefined;
 
   /**
-   * <p>A description for the Amazon Web Services Verified Access group.</p>
+   * <p>A description for the Verified Access group.</p>
    */
   Description?: string;
 
   /**
-   * <p>The Amazon Web Services Verified Access policy document.</p>
+   * <p>The Verified Access policy document.</p>
    */
   PolicyDocument?: string;
 
   /**
-   * <p>The tags to assign to the Amazon Web Services Verified Access group.</p>
+   * <p>The tags to assign to the Verified Access group.</p>
    */
   TagSpecifications?: TagSpecification[];
 
@@ -3797,12 +3802,12 @@ export interface CreateVerifiedAccessGroupResult {
  */
 export interface CreateVerifiedAccessInstanceRequest {
   /**
-   * <p>A description for the Amazon Web Services Verified Access instance.</p>
+   * <p>A description for the Verified Access instance.</p>
    */
   Description?: string;
 
   /**
-   * <p>The tags to assign to the Amazon Web Services Verified Access instance.</p>
+   * <p>The tags to assign to the Verified Access instance.</p>
    */
   TagSpecifications?: TagSpecification[];
 
@@ -3825,14 +3830,15 @@ export interface CreateVerifiedAccessInstanceRequest {
  */
 export interface CreateVerifiedAccessInstanceResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
 
 /**
  * @public
- * <p>Options for a device-identity type trust provider.</p>
+ * <p>Describes the options when creating an Amazon Web Services Verified Access trust provider using the
+ *             <code>device</code> type.</p>
  */
 export interface CreateVerifiedAccessTrustProviderDeviceOptions {
   /**
@@ -3843,7 +3849,8 @@ export interface CreateVerifiedAccessTrustProviderDeviceOptions {
 
 /**
  * @public
- * <p>Options for an OIDC-based, user-identity type trust provider.</p>
+ * <p>Describes the options when creating an Amazon Web Services Verified Access trust provider using the <code>user</code>
+ *          type.</p>
  */
 export interface CreateVerifiedAccessTrustProviderOidcOptions {
   /**
@@ -3887,27 +3894,31 @@ export interface CreateVerifiedAccessTrustProviderOidcOptions {
  */
 export interface CreateVerifiedAccessTrustProviderRequest {
   /**
-   * <p>The type of trust provider can be either user or device-based.</p>
+   * <p>The type of trust provider.</p>
    */
   TrustProviderType: TrustProviderType | string | undefined;
 
   /**
-   * <p>The type of user-based trust provider.</p>
+   * <p>The type of user-based trust provider. This parameter is required when the provider type
+   *          is <code>user</code>.</p>
    */
   UserTrustProviderType?: UserTrustProviderType | string;
 
   /**
-   * <p>The type of device-based trust provider.</p>
+   * <p>The type of device-based trust provider. This parameter is required when the provider
+   *          type is <code>device</code>.</p>
    */
   DeviceTrustProviderType?: DeviceTrustProviderType | string;
 
   /**
-   * <p>The OpenID Connect details for an <code>oidc</code>-type, user-identity based trust provider.</p>
+   * <p>The options for a OpenID Connect-compatible user-identity trust provider. This parameter
+   *          is required when the provider type is <code>user</code>.</p>
    */
   OidcOptions?: CreateVerifiedAccessTrustProviderOidcOptions;
 
   /**
-   * <p>The options for device identity based trust providers.</p>
+   * <p>The options for a device-based trust provider. This parameter is required when the
+   *          provider type is <code>device</code>.</p>
    */
   DeviceOptions?: CreateVerifiedAccessTrustProviderDeviceOptions;
 
@@ -3917,12 +3928,12 @@ export interface CreateVerifiedAccessTrustProviderRequest {
   PolicyReferenceName: string | undefined;
 
   /**
-   * <p>A description for the Amazon Web Services Verified Access trust provider.</p>
+   * <p>A description for the Verified Access trust provider.</p>
    */
   Description?: string;
 
   /**
-   * <p>The tags to assign to the Amazon Web Services Verified Access trust provider.</p>
+   * <p>The tags to assign to the Verified Access trust provider.</p>
    */
   TagSpecifications?: TagSpecification[];
 
@@ -3945,7 +3956,7 @@ export interface CreateVerifiedAccessTrustProviderRequest {
  */
 export interface CreateVerifiedAccessTrustProviderResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   * <p>The ID of the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 }
@@ -7625,3 +7636,37 @@ export interface DeleteSpotDatafeedSubscriptionRequest {
    */
   DryRun?: boolean;
 }
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog = (
+  obj: CreateVerifiedAccessTrustProviderOidcOptions
+): any => ({
+  ...obj,
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
+  obj: CreateVerifiedAccessTrustProviderRequest
+): any => ({
+  ...obj,
+  ...(obj.OidcOptions && {
+    OidcOptions: CreateVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog(obj.OidcOptions),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessTrustProviderResultFilterSensitiveLog = (
+  obj: CreateVerifiedAccessTrustProviderResult
+): any => ({
+  ...obj,
+  ...(obj.VerifiedAccessTrustProvider && {
+    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
+  }),
+});

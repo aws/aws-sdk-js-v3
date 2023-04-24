@@ -14,7 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyVerifiedAccessTrustProviderRequest, ModifyVerifiedAccessTrustProviderResult } from "../models/models_6";
+import {
+  ModifyVerifiedAccessTrustProviderRequest,
+  ModifyVerifiedAccessTrustProviderRequestFilterSensitiveLog,
+  ModifyVerifiedAccessTrustProviderResult,
+  ModifyVerifiedAccessTrustProviderResultFilterSensitiveLog,
+} from "../models/models_6";
 import {
   de_ModifyVerifiedAccessTrustProviderCommand,
   se_ModifyVerifiedAccessTrustProviderCommand,
@@ -47,6 +52,12 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  * const input = { // ModifyVerifiedAccessTrustProviderRequest
  *   VerifiedAccessTrustProviderId: "STRING_VALUE", // required
  *   OidcOptions: { // ModifyVerifiedAccessTrustProviderOidcOptions
+ *     Issuer: "STRING_VALUE",
+ *     AuthorizationEndpoint: "STRING_VALUE",
+ *     TokenEndpoint: "STRING_VALUE",
+ *     UserInfoEndpoint: "STRING_VALUE",
+ *     ClientId: "STRING_VALUE",
+ *     ClientSecret: "STRING_VALUE",
  *     Scope: "STRING_VALUE",
  *   },
  *   Description: "STRING_VALUE",
@@ -113,8 +124,8 @@ export class ModifyVerifiedAccessTrustProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: ModifyVerifiedAccessTrustProviderRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyVerifiedAccessTrustProviderResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

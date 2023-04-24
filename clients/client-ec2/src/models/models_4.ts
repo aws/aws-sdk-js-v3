@@ -30,6 +30,7 @@ import {
   UserIdGroupPair,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
+  VerifiedAccessTrustProviderFilterSensitiveLog,
 } from "./models_0";
 import {
   AttributeValue,
@@ -10700,17 +10701,17 @@ export interface DescribeTrunkInterfaceAssociationsResult {
  */
 export interface DescribeVerifiedAccessEndpointsRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   * <p>The ID of the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpointIds?: string[];
 
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstanceId?: string;
 
   /**
-   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   * <p>The ID of the Verified Access group.</p>
    */
   VerifiedAccessGroupId?: string;
 
@@ -10743,7 +10744,7 @@ export interface DescribeVerifiedAccessEndpointsRequest {
  */
 export interface DescribeVerifiedAccessEndpointsResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   * <p>The ID of the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpoints?: VerifiedAccessEndpoint[];
 
@@ -10758,12 +10759,12 @@ export interface DescribeVerifiedAccessEndpointsResult {
  */
 export interface DescribeVerifiedAccessGroupsRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access groups.</p>
+   * <p>The ID of the Verified Access groups.</p>
    */
   VerifiedAccessGroupIds?: string[];
 
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstanceId?: string;
 
@@ -10811,7 +10812,7 @@ export interface DescribeVerifiedAccessGroupsResult {
  */
 export interface DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {
   /**
-   * <p>The IDs of the Amazon Web Services Verified Access instances.</p>
+   * <p>The IDs of the Verified Access instances.</p>
    */
   VerifiedAccessInstanceIds?: string[];
 
@@ -10985,7 +10986,7 @@ export interface VerifiedAccessInstanceLoggingConfiguration {
  */
 export interface DescribeVerifiedAccessInstanceLoggingConfigurationsResult {
   /**
-   * <p>The current logging configuration for the Amazon Web Services Verified Access instances.</p>
+   * <p>The current logging configuration for the Verified Access instances.</p>
    */
   LoggingConfigurations?: VerifiedAccessInstanceLoggingConfiguration[];
 
@@ -11000,7 +11001,7 @@ export interface DescribeVerifiedAccessInstanceLoggingConfigurationsResult {
  */
 export interface DescribeVerifiedAccessInstancesRequest {
   /**
-   * <p>The IDs of the Amazon Web Services Verified Access instances.</p>
+   * <p>The IDs of the Verified Access instances.</p>
    */
   VerifiedAccessInstanceIds?: string[];
 
@@ -11033,7 +11034,7 @@ export interface DescribeVerifiedAccessInstancesRequest {
  */
 export interface DescribeVerifiedAccessInstancesResult {
   /**
-   * <p>The IDs of the Amazon Web Services Verified Access instances.</p>
+   * <p>The IDs of the Verified Access instances.</p>
    */
   VerifiedAccessInstances?: VerifiedAccessInstance[];
 
@@ -11048,7 +11049,7 @@ export interface DescribeVerifiedAccessInstancesResult {
  */
 export interface DescribeVerifiedAccessTrustProvidersRequest {
   /**
-   * <p>The IDs of the Amazon Web Services Verified Access trust providers.</p>
+   * <p>The IDs of the Verified Access trust providers.</p>
    */
   VerifiedAccessTrustProviderIds?: string[];
 
@@ -11081,7 +11082,7 @@ export interface DescribeVerifiedAccessTrustProvidersRequest {
  */
 export interface DescribeVerifiedAccessTrustProvidersResult {
   /**
-   * <p>The IDs of the Amazon Web Services Verified Access trust providers.</p>
+   * <p>The IDs of the Verified Access trust providers.</p>
    */
   VerifiedAccessTrustProviders?: VerifiedAccessTrustProvider[];
 
@@ -11339,5 +11340,19 @@ export const DescribeSpotInstanceRequestsResultFilterSensitiveLog = (obj: Descri
   ...obj,
   ...(obj.SpotInstanceRequests && {
     SpotInstanceRequests: obj.SpotInstanceRequests.map((item) => SpotInstanceRequestFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog = (
+  obj: DescribeVerifiedAccessTrustProvidersResult
+): any => ({
+  ...obj,
+  ...(obj.VerifiedAccessTrustProviders && {
+    VerifiedAccessTrustProviders: obj.VerifiedAccessTrustProviders.map((item) =>
+      VerifiedAccessTrustProviderFilterSensitiveLog(item)
+    ),
   }),
 });

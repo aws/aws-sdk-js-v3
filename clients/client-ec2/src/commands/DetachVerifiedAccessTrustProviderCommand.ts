@@ -14,7 +14,11 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DetachVerifiedAccessTrustProviderRequest, DetachVerifiedAccessTrustProviderResult } from "../models/models_5";
+import {
+  DetachVerifiedAccessTrustProviderRequest,
+  DetachVerifiedAccessTrustProviderResult,
+  DetachVerifiedAccessTrustProviderResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   de_DetachVerifiedAccessTrustProviderCommand,
   se_DetachVerifiedAccessTrustProviderCommand,
@@ -37,7 +41,7 @@ export interface DetachVerifiedAccessTrustProviderCommandOutput
 
 /**
  * @public
- * <p>Detach a trust provider from an Amazon Web Services Verified Access instance.</p>
+ * <p>Detaches the specified Amazon Web Services Verified Access trust provider from the specified Amazon Web Services Verified Access instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,7 +115,7 @@ export class DetachVerifiedAccessTrustProviderCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DetachVerifiedAccessTrustProviderResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

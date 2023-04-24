@@ -33,9 +33,9 @@ export interface CreateVerifiedAccessGroupCommandOutput extends CreateVerifiedAc
 /**
  * @public
  * <p>An Amazon Web Services Verified Access group is a collection of Amazon Web Services Verified Access endpoints who's associated applications have
- *          similar security requirements. Each instance within an Amazon Web Services Verified Access group shares an Amazon Web Services Verified Access policy. For
- *          example, you can group all Amazon Web Services Verified Access instances associated with “sales” applications together and
- *          use one common Amazon Web Services Verified Access policy.</p>
+ *          similar security requirements. Each instance within a Verified Access group shares an Verified Access policy. For
+ *          example, you can group all Verified Access instances associated with "sales" applications together and
+ *          use one common Verified Access policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

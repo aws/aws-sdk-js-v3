@@ -14,7 +14,11 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AttachVerifiedAccessTrustProviderRequest, AttachVerifiedAccessTrustProviderResult } from "../models/models_0";
+import {
+  AttachVerifiedAccessTrustProviderRequest,
+  AttachVerifiedAccessTrustProviderResult,
+  AttachVerifiedAccessTrustProviderResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   de_AttachVerifiedAccessTrustProviderCommand,
   se_AttachVerifiedAccessTrustProviderCommand,
@@ -37,9 +41,7 @@ export interface AttachVerifiedAccessTrustProviderCommandOutput
 
 /**
  * @public
- * <p>A trust provider is a third-party entity that creates, maintains, and manages identity
- *          information for users and devices. One or more trust providers can be attached to an Amazon Web Services Verified Access
- *          instance.</p>
+ * <p>Attaches the specified Amazon Web Services Verified Access trust provider to the specified Amazon Web Services Verified Access instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -113,7 +115,7 @@ export class AttachVerifiedAccessTrustProviderCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: AttachVerifiedAccessTrustProviderResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

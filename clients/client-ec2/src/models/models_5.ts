@@ -26,6 +26,7 @@ import {
   TransitGatewayPolicyTableAssociation,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
+  VerifiedAccessTrustProviderFilterSensitiveLog,
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
   VpcPeeringConnection,
@@ -67,6 +68,7 @@ import {
   AttributeBooleanValue,
   BootModeValues,
   ConversionTask,
+  ConversionTaskFilterSensitiveLog,
   ExportTaskS3Location,
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchResourceType,
@@ -1917,12 +1919,12 @@ export interface DetachNetworkInterfaceRequest {
  */
 export interface DetachVerifiedAccessTrustProviderRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstanceId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   * <p>The ID of the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProviderId: string | undefined;
 
@@ -1945,12 +1947,12 @@ export interface DetachVerifiedAccessTrustProviderRequest {
  */
 export interface DetachVerifiedAccessTrustProviderResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   * <p>The ID of the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
@@ -6929,7 +6931,7 @@ export interface GetTransitGatewayRouteTablePropagationsResult {
  */
 export interface GetVerifiedAccessEndpointPolicyRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   * <p>The ID of the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpointId: string | undefined;
 
@@ -6951,7 +6953,7 @@ export interface GetVerifiedAccessEndpointPolicyResult {
   PolicyEnabled?: boolean;
 
   /**
-   * <p>The Amazon Web Services Verified Access policy document.</p>
+   * <p>The Verified Access policy document.</p>
    */
   PolicyDocument?: string;
 }
@@ -6961,7 +6963,7 @@ export interface GetVerifiedAccessEndpointPolicyResult {
  */
 export interface GetVerifiedAccessGroupPolicyRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   * <p>The ID of the Verified Access group.</p>
    */
   VerifiedAccessGroupId: string | undefined;
 
@@ -6983,7 +6985,7 @@ export interface GetVerifiedAccessGroupPolicyResult {
   PolicyEnabled?: boolean;
 
   /**
-   * <p>The Amazon Web Services Verified Access policy document.</p>
+   * <p>The Verified Access policy document.</p>
    */
   PolicyDocument?: string;
 }
@@ -7757,6 +7759,18 @@ export interface ImportKeyPairResult {
 /**
  * @internal
  */
+export const DetachVerifiedAccessTrustProviderResultFilterSensitiveLog = (
+  obj: DetachVerifiedAccessTrustProviderResult
+): any => ({
+  ...obj,
+  ...(obj.VerifiedAccessTrustProvider && {
+    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const GetLaunchTemplateDataResultFilterSensitiveLog = (obj: GetLaunchTemplateDataResult): any => ({
   ...obj,
   ...(obj.LaunchTemplateData && {
@@ -7814,4 +7828,12 @@ export const ImportInstanceRequestFilterSensitiveLog = (obj: ImportInstanceReque
   ...(obj.LaunchSpecification && {
     LaunchSpecification: ImportInstanceLaunchSpecificationFilterSensitiveLog(obj.LaunchSpecification),
   }),
+});
+
+/**
+ * @internal
+ */
+export const ImportInstanceResultFilterSensitiveLog = (obj: ImportInstanceResult): any => ({
+  ...obj,
+  ...(obj.ConversionTask && { ConversionTask: ConversionTaskFilterSensitiveLog(obj.ConversionTask) }),
 });

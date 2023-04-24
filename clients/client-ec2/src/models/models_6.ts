@@ -35,6 +35,7 @@ import {
   UnsuccessfulItem,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
+  VerifiedAccessTrustProviderFilterSensitiveLog,
 } from "./models_0";
 import {
   AttributeValue,
@@ -107,6 +108,7 @@ import {
   AttributeBooleanValue,
   BootModeValues,
   ConversionTask,
+  ConversionTaskFilterSensitiveLog,
   Filter,
   FpgaImageAttribute,
   FpgaImageAttributeName,
@@ -3371,7 +3373,8 @@ export interface ModifyVerifiedAccessEndpointLoadBalancerOptions {
 
 /**
  * @public
- * <p>Options for a network-interface type Verified Access endpoint.</p>
+ * <p>Describes the options when modifying a Verified Access endpoint with the
+ *             <code>network-interface</code> type.</p>
  */
 export interface ModifyVerifiedAccessEndpointEniOptions {
   /**
@@ -3390,17 +3393,17 @@ export interface ModifyVerifiedAccessEndpointEniOptions {
  */
 export interface ModifyVerifiedAccessEndpointRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   * <p>The ID of the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpointId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   * <p>The ID of the Verified Access group.</p>
    */
   VerifiedAccessGroupId?: string;
 
   /**
-   * <p>The load balancer details if creating the Amazon Web Services Verified Access endpoint as
+   * <p>The load balancer details if creating the Verified Access endpoint as
    *          <code>load-balancer</code>type.</p>
    */
   LoadBalancerOptions?: ModifyVerifiedAccessEndpointLoadBalancerOptions;
@@ -3411,7 +3414,7 @@ export interface ModifyVerifiedAccessEndpointRequest {
   NetworkInterfaceOptions?: ModifyVerifiedAccessEndpointEniOptions;
 
   /**
-   * <p>A description for the Amazon Web Services Verified Access endpoint.</p>
+   * <p>A description for the Verified Access endpoint.</p>
    */
   Description?: string;
 
@@ -3434,7 +3437,7 @@ export interface ModifyVerifiedAccessEndpointRequest {
  */
 export interface ModifyVerifiedAccessEndpointResult {
   /**
-   * <p>The Amazon Web Services Verified Access endpoint details.</p>
+   * <p>The Verified Access endpoint details.</p>
    */
   VerifiedAccessEndpoint?: VerifiedAccessEndpoint;
 }
@@ -3444,7 +3447,7 @@ export interface ModifyVerifiedAccessEndpointResult {
  */
 export interface ModifyVerifiedAccessEndpointPolicyRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   * <p>The ID of the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpointId: string | undefined;
 
@@ -3454,7 +3457,7 @@ export interface ModifyVerifiedAccessEndpointPolicyRequest {
   PolicyEnabled: boolean | undefined;
 
   /**
-   * <p>The Amazon Web Services Verified Access policy document.</p>
+   * <p>The Verified Access policy document.</p>
    */
   PolicyDocument?: string;
 
@@ -3482,7 +3485,7 @@ export interface ModifyVerifiedAccessEndpointPolicyResult {
   PolicyEnabled?: boolean;
 
   /**
-   * <p>The Amazon Web Services Verified Access policy document.</p>
+   * <p>The Verified Access policy document.</p>
    */
   PolicyDocument?: string;
 }
@@ -3492,17 +3495,17 @@ export interface ModifyVerifiedAccessEndpointPolicyResult {
  */
 export interface ModifyVerifiedAccessGroupRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   * <p>The ID of the Verified Access group.</p>
    */
   VerifiedAccessGroupId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstanceId?: string;
 
   /**
-   * <p>A description for the Amazon Web Services Verified Access group.</p>
+   * <p>A description for the Verified Access group.</p>
    */
   Description?: string;
 
@@ -3525,7 +3528,7 @@ export interface ModifyVerifiedAccessGroupRequest {
  */
 export interface ModifyVerifiedAccessGroupResult {
   /**
-   * <p>Details of Amazon Web Services Verified Access group.</p>
+   * <p>Details of Verified Access group.</p>
    */
   VerifiedAccessGroup?: VerifiedAccessGroup;
 }
@@ -3535,7 +3538,7 @@ export interface ModifyVerifiedAccessGroupResult {
  */
 export interface ModifyVerifiedAccessGroupPolicyRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   * <p>The ID of the Verified Access group.</p>
    */
   VerifiedAccessGroupId: string | undefined;
 
@@ -3545,7 +3548,7 @@ export interface ModifyVerifiedAccessGroupPolicyRequest {
   PolicyEnabled: boolean | undefined;
 
   /**
-   * <p>The Amazon Web Services Verified Access policy document.</p>
+   * <p>The Verified Access policy document.</p>
    */
   PolicyDocument?: string;
 
@@ -3573,7 +3576,7 @@ export interface ModifyVerifiedAccessGroupPolicyResult {
   PolicyEnabled?: boolean;
 
   /**
-   * <p>The Amazon Web Services Verified Access policy document.</p>
+   * <p>The Verified Access policy document.</p>
    */
   PolicyDocument?: string;
 }
@@ -3583,12 +3586,12 @@ export interface ModifyVerifiedAccessGroupPolicyResult {
  */
 export interface ModifyVerifiedAccessInstanceRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstanceId: string | undefined;
 
   /**
-   * <p>A description for the Amazon Web Services Verified Access instance.</p>
+   * <p>A description for the Verified Access instance.</p>
    */
   Description?: string;
 
@@ -3611,7 +3614,7 @@ export interface ModifyVerifiedAccessInstanceRequest {
  */
 export interface ModifyVerifiedAccessInstanceResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
@@ -3700,12 +3703,12 @@ export interface VerifiedAccessLogOptions {
  */
 export interface ModifyVerifiedAccessInstanceLoggingConfigurationRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstanceId: string | undefined;
 
   /**
-   * <p>The configuration options for Amazon Web Services Verified Access instances.</p>
+   * <p>The configuration options for Verified Access instances.</p>
    */
   AccessLogs: VerifiedAccessLogOptions | undefined;
 
@@ -3728,17 +3731,46 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationRequest {
  */
 export interface ModifyVerifiedAccessInstanceLoggingConfigurationResult {
   /**
-   * <p>The logging configuration for Amazon Web Services Verified Access instance.</p>
+   * <p>The logging configuration for the Verified Access instance.</p>
    */
   LoggingConfiguration?: VerifiedAccessInstanceLoggingConfiguration;
 }
 
 /**
  * @public
- * <p>OpenID Connect options for an <code>oidc</code>-type, user-identity based trust
- *          provider.</p>
+ * <p>Options for an OpenID Connect-compatible user-identity trust provider.</p>
  */
 export interface ModifyVerifiedAccessTrustProviderOidcOptions {
+  /**
+   * <p>The OIDC issuer.</p>
+   */
+  Issuer?: string;
+
+  /**
+   * <p>The OIDC authorization endpoint.</p>
+   */
+  AuthorizationEndpoint?: string;
+
+  /**
+   * <p>The OIDC token endpoint.</p>
+   */
+  TokenEndpoint?: string;
+
+  /**
+   * <p>The OIDC user info endpoint.</p>
+   */
+  UserInfoEndpoint?: string;
+
+  /**
+   * <p>The client identifier.</p>
+   */
+  ClientId?: string;
+
+  /**
+   * <p>The client secret.</p>
+   */
+  ClientSecret?: string;
+
   /**
    * <p>OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details. Each scope returns a specific set of user attributes.</p>
    */
@@ -3750,17 +3782,17 @@ export interface ModifyVerifiedAccessTrustProviderOidcOptions {
  */
 export interface ModifyVerifiedAccessTrustProviderRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   * <p>The ID of the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProviderId: string | undefined;
 
   /**
-   * <p>The OpenID Connect details for an <code>oidc</code>-type, user-identity based trust provider.</p>
+   * <p>The options for an OpenID Connect-compatible user-identity trust provider.</p>
    */
   OidcOptions?: ModifyVerifiedAccessTrustProviderOidcOptions;
 
   /**
-   * <p>A description for the Amazon Web Services Verified Access trust provider.</p>
+   * <p>A description for the Verified Access trust provider.</p>
    */
   Description?: string;
 
@@ -3783,7 +3815,7 @@ export interface ModifyVerifiedAccessTrustProviderRequest {
  */
 export interface ModifyVerifiedAccessTrustProviderResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   * <p>The ID of the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 }
@@ -8526,6 +8558,48 @@ export interface StartInstancesRequest {
 export const ImportVolumeRequestFilterSensitiveLog = (obj: ImportVolumeRequest): any => ({
   ...obj,
   ...(obj.Image && { Image: DiskImageDetailFilterSensitiveLog(obj.Image) }),
+});
+
+/**
+ * @internal
+ */
+export const ImportVolumeResultFilterSensitiveLog = (obj: ImportVolumeResult): any => ({
+  ...obj,
+  ...(obj.ConversionTask && { ConversionTask: ConversionTaskFilterSensitiveLog(obj.ConversionTask) }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog = (
+  obj: ModifyVerifiedAccessTrustProviderOidcOptions
+): any => ({
+  ...obj,
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
+  obj: ModifyVerifiedAccessTrustProviderRequest
+): any => ({
+  ...obj,
+  ...(obj.OidcOptions && {
+    OidcOptions: ModifyVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog(obj.OidcOptions),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVerifiedAccessTrustProviderResultFilterSensitiveLog = (
+  obj: ModifyVerifiedAccessTrustProviderResult
+): any => ({
+  ...obj,
+  ...(obj.VerifiedAccessTrustProvider && {
+    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
+  }),
 });
 
 /**
