@@ -32,7 +32,7 @@ export interface ListAccessTokensCommandOutput extends ListAccessTokensResponse,
 
 /**
  * @public
- * <p>Lists all personal access tokens (PATs) associated with the user who calls the API. You can only list PATs associated with your user account.</p>
+ * <p>Lists all personal access tokens (PATs) associated with the user who calls the API. You can only list PATs associated with your Amazon Web Services Builder ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

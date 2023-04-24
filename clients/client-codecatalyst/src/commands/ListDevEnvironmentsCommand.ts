@@ -32,7 +32,7 @@ export interface ListDevEnvironmentsCommandOutput extends ListDevEnvironmentsRes
 
 /**
  * @public
- * <p>Retrives a list of Dev Environments in a project.</p>
+ * <p>Retrieves a list of Dev Environments in a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
