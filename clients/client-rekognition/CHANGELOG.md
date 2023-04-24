@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.319.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.318.0...v3.319.0) (2023-04-24)
+
+
+### Features
+
+* **client-rekognition:** Added new status result to Liveness session status. ([4e3e36f](https://github.com/aws/aws-sdk-js-v3/commit/4e3e36fa92f5bee61ac125a29b4214a7c08a2baa))
+
+
+
+
+
 # [3.316.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.315.0...v3.316.0) (2023-04-19)
 
 

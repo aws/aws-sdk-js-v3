@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.319.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.318.0...v3.319.0) (2023-04-24)
+
+
+### Features
+
+* **client-ec2:** API changes to AWS Verified Access related to identity providers' information. ([5e3d812](https://github.com/aws/aws-sdk-js-v3/commit/5e3d812ccab033ba391ad1b6e0f6907650e1c39f))
+
+
+
+
+
 # [3.316.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.315.0...v3.316.0) (2023-04-19)
 
 

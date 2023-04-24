@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.319.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.318.0...v3.319.0) (2023-04-24)
+
+
+### Bug Fixes
+
+* **aws-util-test:** add downlevel script ([2ef9890](https://github.com/aws/aws-sdk-js-v3/commit/2ef9890435b530f7b7d1cc7f622826f895418ea1))
+
+
+### Features
+
+* **client-appflow:** Increased the max length for RefreshToken and AuthCode from 2048 to 4096. ([a0ab81d](https://github.com/aws/aws-sdk-js-v3/commit/a0ab81d3ecac3af2362e90892b06f07eda8b1d5d))
+* **client-ec2:** API changes to AWS Verified Access related to identity providers' information. ([5e3d812](https://github.com/aws/aws-sdk-js-v3/commit/5e3d812ccab033ba391ad1b6e0f6907650e1c39f))
+* **client-mediaconvert:** This release introduces a noise reduction pre-filter, linear interpolation deinterlace mode, video pass-through, updated default job settings, and expanded LC-AAC Stereo audio bitrate ranges. ([9f22239](https://github.com/aws/aws-sdk-js-v3/commit/9f22239a6cc8b6186db90d4809ec88fecbc675cf))
+* **client-rekognition:** Added new status result to Liveness session status. ([4e3e36f](https://github.com/aws/aws-sdk-js-v3/commit/4e3e36fa92f5bee61ac125a29b4214a7c08a2baa))
+* **clients:** update client endpoints as of 2023-04-24 ([8f7cbae](https://github.com/aws/aws-sdk-js-v3/commit/8f7cbae39f84aab26d08811ad55427f84e321117))
+
+
+
+
+
 # [3.318.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.317.0...v3.318.0) (2023-04-21)
 
 
