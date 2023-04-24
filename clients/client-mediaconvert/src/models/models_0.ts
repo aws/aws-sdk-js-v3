@@ -170,7 +170,7 @@ export interface AudioNormalizationSettings {
   TargetLkfs?: number;
 
   /**
-   * Specify the True-peak limiter threshold in decibels relative to full scale (dBFS). The peak inter-audio sample loudness in your output will be limited to the value that you specify, without affecting the overall target LKFS. Enter a value from 0 to -20. Leave blank to use the default value 0.
+   * Specify the True-peak limiter threshold in decibels relative to full scale (dBFS). The peak inter-audio sample loudness in your output will be limited to the value that you specify, without affecting the overall target LKFS. Enter a value from 0 to -8. Leave blank to use the default value 0.
    */
   TruePeakLimiterThreshold?: number;
 }
@@ -2437,7 +2437,7 @@ export type ImscStylePassthrough = (typeof ImscStylePassthrough)[keyof typeof Im
  */
 export interface ImscDestinationSettings {
   /**
-   * Set Accessibility subtitles to Enabled if the ISMC or WebVTT captions track is intended to provide accessibility for people who are deaf or hard of hearing. When you enable this feature, MediaConvert adds the following attributes under EXT-X-MEDIA in the HLS or CMAF manifest for this track: CHARACTERISTICS="public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound" and AUTOSELECT="YES". Keep the default value, Disabled, if the captions track is not intended to provide such accessibility. MediaConvert will not add the above attributes.
+   * If the IMSC captions track is intended to provide accessibility for people who are deaf or hard of hearing: Set Accessibility subtitles to Enabled. When you do, MediaConvert adds accessibility attributes to your output HLS or DASH manifest. For HLS manifests, MediaConvert adds the following accessibility attributes under EXT-X-MEDIA for this track: CHARACTERISTICS="public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound" and AUTOSELECT="YES". For DASH manifests, MediaConvert adds the following in the adaptation set for this track: <Accessibility schemeIdUri="urn:mpeg:dash:role:2011" value="caption"/>. If the captions track is not intended to provide such accessibility: Keep the default value, Disabled. When you do, for DASH manifests, MediaConvert instead adds the following in the adaptation set for this track: <Role schemeIDUri="urn:mpeg:dash:role:2011" value="subtitle"/>.
    */
   Accessibility?: ImscAccessibilitySubs | string;
 
@@ -2593,7 +2593,7 @@ export type WebvttStylePassthrough = (typeof WebvttStylePassthrough)[keyof typeo
  */
 export interface WebvttDestinationSettings {
   /**
-   * Set Accessibility subtitles to Enabled if the ISMC or WebVTT captions track is intended to provide accessibility for people who are deaf or hard of hearing. When you enable this feature, MediaConvert adds the following attributes under EXT-X-MEDIA in the HLS or CMAF manifest for this track: CHARACTERISTICS="public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound" and AUTOSELECT="YES". Keep the default value, Disabled, if the captions track is not intended to provide such accessibility. MediaConvert will not add the above attributes.
+   * If the WebVTT captions track is intended to provide accessibility for people who are deaf or hard of hearing: Set Accessibility subtitles to Enabled. When you do, MediaConvert adds accessibility attributes to your output HLS or DASH manifest. For HLS manifests, MediaConvert adds the following accessibility attributes under EXT-X-MEDIA for this track: CHARACTERISTICS="public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound" and AUTOSELECT="YES". For DASH manifests, MediaConvert adds the following in the adaptation set for this track: <Accessibility schemeIdUri="urn:mpeg:dash:role:2011" value="caption"/>. If the captions track is not intended to provide such accessibility: Keep the default value, Disabled. When you do, for DASH manifests, MediaConvert instead adds the following in the adaptation set for this track: <Role schemeIDUri="urn:mpeg:dash:role:2011" value="subtitle"/>.
    */
   Accessibility?: WebvttAccessibilitySubs | string;
 
@@ -2850,6 +2850,66 @@ export interface Id3Insertion {
    * Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.
    */
   Timecode?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AdvancedInputFilter = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AdvancedInputFilter = (typeof AdvancedInputFilter)[keyof typeof AdvancedInputFilter];
+
+/**
+ * @public
+ * @enum
+ */
+export const AdvancedInputFilterAddTexture = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AdvancedInputFilterAddTexture =
+  (typeof AdvancedInputFilterAddTexture)[keyof typeof AdvancedInputFilterAddTexture];
+
+/**
+ * @public
+ * @enum
+ */
+export const AdvancedInputFilterSharpen = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  OFF: "OFF",
+} as const;
+
+/**
+ * @public
+ */
+export type AdvancedInputFilterSharpen = (typeof AdvancedInputFilterSharpen)[keyof typeof AdvancedInputFilterSharpen];
+
+/**
+ * @public
+ * Optional settings for Advanced input filter when you set Advanced input filter to Enabled.
+ */
+export interface AdvancedInputFilterSettings {
+  /**
+   * Add texture and detail to areas of your input video content that were lost after applying the Advanced input filter. To adaptively add texture and reduce softness: Choose Enabled. To not add any texture: Keep the default value, Disabled. We recommend that you choose Disabled for input video content that doesn't have texture, including screen recordings, computer graphics, or cartoons.
+   */
+  AddTexture?: AdvancedInputFilterAddTexture | string;
+
+  /**
+   * Optionally specify the amount of sharpening to apply when you use the Advanced input filter. Sharpening adds contrast to the edges of your video content and can reduce softness. To apply no sharpening: Keep the default value, Off. To apply a minimal amount of sharpening choose Low, or for the maximum choose High.
+   */
+  Sharpening?: AdvancedInputFilterSharpen | string;
 }
 
 /**
@@ -3126,6 +3186,21 @@ export type FileSourceConvert608To708 = (typeof FileSourceConvert608To708)[keyof
 
 /**
  * @public
+ * @enum
+ */
+export const CaptionSourceConvertPaintOnToPopOn = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type CaptionSourceConvertPaintOnToPopOn =
+  (typeof CaptionSourceConvertPaintOnToPopOn)[keyof typeof CaptionSourceConvertPaintOnToPopOn];
+
+/**
+ * @public
  * Ignore this setting unless your input captions format is SCC. To have the service compensate for differing frame rates between your input captions and input video, specify the frame rate of the captions file. Specify this value as a fraction. When you work directly in your JSON job specification, use the settings framerateNumerator and framerateDenominator. For example, you might specify 24 / 1 for 24 fps, 25 / 1 for 25 fps, 24000 / 1001 for 23.976 fps, or 30000 / 1001 for 29.97 fps.
  */
 export interface CaptionSourceFramerate {
@@ -3163,6 +3238,11 @@ export interface FileSourceSettings {
    * Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert (UPCONVERT), MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
    */
   Convert608To708?: FileSourceConvert608To708 | string;
+
+  /**
+   * Choose the presentation style of your input SCC captions. To use the same presentation style as your input: Keep the default value, Disabled. To convert paint-on captions to pop-on: Choose Enabled. We also recommend that you choose Enabled if you notice additional repeated lines in your output captions.
+   */
+  ConvertPaintToPop?: CaptionSourceConvertPaintOnToPopOn | string;
 
   /**
    * Ignore this setting unless your input captions format is SCC. To have the service compensate for differing frame rates between your input captions and input video, specify the frame rate of the captions file. Specify this value as a fraction. When you work directly in your JSON job specification, use the settings framerateNumerator and framerateDenominator. For example, you might specify 24 / 1 for 24 fps, 25 / 1 for 25 fps, 24000 / 1001 for 23.976 fps, or 30000 / 1001 for 29.97 fps.
@@ -3819,6 +3899,16 @@ export interface VideoSelector {
  */
 export interface Input {
   /**
+   * Use to remove noise, blocking, blurriness, or ringing from your input as a pre-filter step before encoding. The Advanced input filter removes more types of compression artifacts and is an improvement when compared to basic Deblock and Denoise filters. To remove video compression artifacts from your input and improve the video quality: Choose Enabled. Additionally, this filter can help increase the video quality of your output relative to its bitrate, since noisy inputs are more complex and require more bits to encode. To help restore loss of detail after applying the filter, you can optionally add texture or sharpening as an additional step.Jobs that use this feature incur pro-tier pricing. To not apply advanced input filtering: Choose Disabled. Note that you can still apply basic filtering with Deblock and Denoise.
+   */
+  AdvancedInputFilter?: AdvancedInputFilter | string;
+
+  /**
+   * Optional settings for Advanced input filter when you set Advanced input filter to Enabled.
+   */
+  AdvancedInputFilterSettings?: AdvancedInputFilterSettings;
+
+  /**
    * Use audio selector groups to combine multiple sidecar audio inputs so that you can assign them to a single output audio tab (AudioDescription). Note that, if you're working with embedded audio, it's simpler to assign multiple input tracks into a single audio selector rather than use an audio selector group.
    */
   AudioSelectorGroups?: Record<string, AudioSelectorGroup>;
@@ -3864,12 +3954,12 @@ export interface Input {
   FileInput?: string;
 
   /**
-   * Specify how the transcoding service applies the denoise and deblock filters. You must also enable the filters separately, with Denoise (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The transcoding service determines whether to apply filtering, depending on input type and quality. * Disable - The input is not filtered. This is true even if you use the API to enable them in (InputDeblockFilter) and (InputDeblockFilter). * Force - The input is filtered regardless of input type.
+   * Specify whether to apply input filtering to improve the video quality of your input. To apply filtering depending on your input type and quality: Choose Auto. To apply no filtering: Choose Disable. To apply filtering regardless of your input type and quality: Choose Force. When you do, you must also specify a value for Filter strength.
    */
   FilterEnable?: InputFilterEnable | string;
 
   /**
-   * Use Filter strength (FilterStrength) to adjust the magnitude the input filter settings (Deblock and Denoise). The range is 0 to 5. Default is 0.
+   * Specify the strength of the input filter. To apply an automatic amount of filtering based the compression artifacts measured in your input: We recommend that you leave Filter strength blank and set Filter enable to Auto. To manually apply filtering: Enter a value from 1 to 5, where 1 is the least amount of filtering and 5 is the most. The value that you enter applies to the strength of the Deblock or Denoise filters, or to the strength of the Advanced input filter.
    */
   FilterStrength?: number;
 
@@ -3935,6 +4025,16 @@ export interface Input {
  */
 export interface InputTemplate {
   /**
+   * Use to remove noise, blocking, blurriness, or ringing from your input as a pre-filter step before encoding. The Advanced input filter removes more types of compression artifacts and is an improvement when compared to basic Deblock and Denoise filters. To remove video compression artifacts from your input and improve the video quality: Choose Enabled. Additionally, this filter can help increase the video quality of your output relative to its bitrate, since noisy inputs are more complex and require more bits to encode. To help restore loss of detail after applying the filter, you can optionally add texture or sharpening as an additional step.Jobs that use this feature incur pro-tier pricing. To not apply advanced input filtering: Choose Disabled. Note that you can still apply basic filtering with Deblock and Denoise.
+   */
+  AdvancedInputFilter?: AdvancedInputFilter | string;
+
+  /**
+   * Optional settings for Advanced input filter when you set Advanced input filter to Enabled.
+   */
+  AdvancedInputFilterSettings?: AdvancedInputFilterSettings;
+
+  /**
    * Use audio selector groups to combine multiple sidecar audio inputs so that you can assign them to a single output audio tab (AudioDescription). Note that, if you're working with embedded audio, it's simpler to assign multiple input tracks into a single audio selector rather than use an audio selector group.
    */
   AudioSelectorGroups?: Record<string, AudioSelectorGroup>;
@@ -3970,12 +4070,12 @@ export interface InputTemplate {
   DolbyVisionMetadataXml?: string;
 
   /**
-   * Specify how the transcoding service applies the denoise and deblock filters. You must also enable the filters separately, with Denoise (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The transcoding service determines whether to apply filtering, depending on input type and quality. * Disable - The input is not filtered. This is true even if you use the API to enable them in (InputDeblockFilter) and (InputDeblockFilter). * Force - The input is filtered regardless of input type.
+   * Specify whether to apply input filtering to improve the video quality of your input. To apply filtering depending on your input type and quality: Choose Auto. To apply no filtering: Choose Disable. To apply filtering regardless of your input type and quality: Choose Force. When you do, you must also specify a value for Filter strength.
    */
   FilterEnable?: InputFilterEnable | string;
 
   /**
-   * Use Filter strength (FilterStrength) to adjust the magnitude the input filter settings (Deblock and Denoise). The range is 0 to 5. Default is 0.
+   * Specify the strength of the input filter. To apply an automatic amount of filtering based the compression artifacts measured in your input: We recommend that you leave Filter strength blank and set Filter enable to Auto. To manually apply filtering: Enter a value from 1 to 5, where 1 is the least amount of filtering and 5 is the most. The value that you enter applies to the strength of the Deblock or Denoise filters, or to the strength of the Advanced input filter.
    */
   FilterStrength?: number;
 
@@ -6625,81 +6725,4 @@ export interface F4vSettings {
    * If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
    */
   MoovPlacement?: F4vMoovPlacement | string;
-}
-
-/**
- * @public
- * @enum
- */
-export const M2tsAudioBufferModel = {
-  ATSC: "ATSC",
-  DVB: "DVB",
-} as const;
-
-/**
- * @public
- */
-export type M2tsAudioBufferModel = (typeof M2tsAudioBufferModel)[keyof typeof M2tsAudioBufferModel];
-
-/**
- * @public
- * @enum
- */
-export const M2tsAudioDuration = {
-  DEFAULT_CODEC_DURATION: "DEFAULT_CODEC_DURATION",
-  MATCH_VIDEO_DURATION: "MATCH_VIDEO_DURATION",
-} as const;
-
-/**
- * @public
- */
-export type M2tsAudioDuration = (typeof M2tsAudioDuration)[keyof typeof M2tsAudioDuration];
-
-/**
- * @public
- * @enum
- */
-export const M2tsBufferModel = {
-  MULTIPLEX: "MULTIPLEX",
-  NONE: "NONE",
-} as const;
-
-/**
- * @public
- */
-export type M2tsBufferModel = (typeof M2tsBufferModel)[keyof typeof M2tsBufferModel];
-
-/**
- * @public
- * @enum
- */
-export const M2tsDataPtsControl = {
-  ALIGN_TO_VIDEO: "ALIGN_TO_VIDEO",
-  AUTO: "AUTO",
-} as const;
-
-/**
- * @public
- */
-export type M2tsDataPtsControl = (typeof M2tsDataPtsControl)[keyof typeof M2tsDataPtsControl];
-
-/**
- * @public
- * Use these settings to insert a DVB Network Information Table (NIT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
- */
-export interface DvbNitSettings {
-  /**
-   * The numeric value placed in the Network Information Table (NIT).
-   */
-  NetworkId?: number;
-
-  /**
-   * The network name text placed in the network_name_descriptor inside the Network Information Table. Maximum length is 256 characters.
-   */
-  NetworkName?: string;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream.
-   */
-  NitInterval?: number;
 }

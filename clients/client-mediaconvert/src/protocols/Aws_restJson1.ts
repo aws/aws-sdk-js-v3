@@ -66,6 +66,7 @@ import {
   AacSettings,
   Ac3Settings,
   AccelerationSettings,
+  AdvancedInputFilterSettings,
   AiffSettings,
   AllowedRenditionSize,
   AncillarySourceSettings,
@@ -97,7 +98,6 @@ import {
   DashIsoGroupSettings,
   DashIsoImageBasedTrickPlaySettings,
   DestinationSettings,
-  DvbNitSettings,
   DvbSubDestinationSettings,
   DvbSubSourceSettings,
   Eac3AtmosSettings,
@@ -187,6 +187,7 @@ import {
   Deinterlacer,
   DolbyVision,
   DolbyVisionLevel6Metadata,
+  DvbNitSettings,
   DvbSdtSettings,
   DvbTdtSettings,
   ForbiddenException,
@@ -3201,6 +3202,16 @@ const se_AccelerationSettings = (input: AccelerationSettings, context: __SerdeCo
 };
 
 /**
+ * serializeAws_restJson1AdvancedInputFilterSettings
+ */
+const se_AdvancedInputFilterSettings = (input: AdvancedInputFilterSettings, context: __SerdeContext): any => {
+  return take(input, {
+    addTexture: [, , `AddTexture`],
+    sharpening: [, , `Sharpening`],
+  });
+};
+
+/**
  * serializeAws_restJson1AiffSettings
  */
 const se_AiffSettings = (input: AiffSettings, context: __SerdeContext): any => {
@@ -4038,6 +4049,7 @@ const se_FileGroupSettings = (input: FileGroupSettings, context: __SerdeContext)
 const se_FileSourceSettings = (input: FileSourceSettings, context: __SerdeContext): any => {
   return take(input, {
     convert608To708: [, , `Convert608To708`],
+    convertPaintToPop: [, , `ConvertPaintToPop`],
     framerate: [, (_) => se_CaptionSourceFramerate(_, context), `Framerate`],
     sourceFile: [, , `SourceFile`],
     timeDelta: [, , `TimeDelta`],
@@ -4384,6 +4396,8 @@ const se_ImscDestinationSettings = (input: ImscDestinationSettings, context: __S
  */
 const se_Input = (input: Input, context: __SerdeContext): any => {
   return take(input, {
+    advancedInputFilter: [, , `AdvancedInputFilter`],
+    advancedInputFilterSettings: [, (_) => se_AdvancedInputFilterSettings(_, context), `AdvancedInputFilterSettings`],
     audioSelectorGroups: [, (_) => se___mapOfAudioSelectorGroup(_, context), `AudioSelectorGroups`],
     audioSelectors: [, (_) => se___mapOfAudioSelector(_, context), `AudioSelectors`],
     captionSelectors: [, (_) => se___mapOfCaptionSelector(_, context), `CaptionSelectors`],
@@ -4436,6 +4450,8 @@ const se_InputDecryptionSettings = (input: InputDecryptionSettings, context: __S
  */
 const se_InputTemplate = (input: InputTemplate, context: __SerdeContext): any => {
   return take(input, {
+    advancedInputFilter: [, , `AdvancedInputFilter`],
+    advancedInputFilterSettings: [, (_) => se_AdvancedInputFilterSettings(_, context), `AdvancedInputFilterSettings`],
     audioSelectorGroups: [, (_) => se___mapOfAudioSelectorGroup(_, context), `AudioSelectorGroups`],
     audioSelectors: [, (_) => se___mapOfAudioSelector(_, context), `AudioSelectors`],
     captionSelectors: [, (_) => se___mapOfCaptionSelector(_, context), `CaptionSelectors`],
@@ -6001,6 +6017,16 @@ const de_AccelerationSettings = (output: any, context: __SerdeContext): Accelera
 };
 
 /**
+ * deserializeAws_restJson1AdvancedInputFilterSettings
+ */
+const de_AdvancedInputFilterSettings = (output: any, context: __SerdeContext): AdvancedInputFilterSettings => {
+  return take(output, {
+    AddTexture: [, __expectString, `addTexture`],
+    Sharpening: [, __expectString, `sharpening`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1AiffSettings
  */
 const de_AiffSettings = (output: any, context: __SerdeContext): AiffSettings => {
@@ -6850,6 +6876,7 @@ const de_FileGroupSettings = (output: any, context: __SerdeContext): FileGroupSe
 const de_FileSourceSettings = (output: any, context: __SerdeContext): FileSourceSettings => {
   return take(output, {
     Convert608To708: [, __expectString, `convert608To708`],
+    ConvertPaintToPop: [, __expectString, `convertPaintToPop`],
     Framerate: (_) => [, de_CaptionSourceFramerate(_, context), `framerate`],
     SourceFile: [, __expectString, `sourceFile`],
     TimeDelta: [, __expectInt32, `timeDelta`],
@@ -7196,6 +7223,8 @@ const de_ImscDestinationSettings = (output: any, context: __SerdeContext): ImscD
  */
 const de_Input = (output: any, context: __SerdeContext): Input => {
   return take(output, {
+    AdvancedInputFilter: [, __expectString, `advancedInputFilter`],
+    AdvancedInputFilterSettings: (_) => [, de_AdvancedInputFilterSettings(_, context), `advancedInputFilterSettings`],
     AudioSelectorGroups: (_) => [, de___mapOfAudioSelectorGroup(_, context), `audioSelectorGroups`],
     AudioSelectors: (_) => [, de___mapOfAudioSelector(_, context), `audioSelectors`],
     CaptionSelectors: (_) => [, de___mapOfCaptionSelector(_, context), `captionSelectors`],
@@ -7248,6 +7277,8 @@ const de_InputDecryptionSettings = (output: any, context: __SerdeContext): Input
  */
 const de_InputTemplate = (output: any, context: __SerdeContext): InputTemplate => {
   return take(output, {
+    AdvancedInputFilter: [, __expectString, `advancedInputFilter`],
+    AdvancedInputFilterSettings: (_) => [, de_AdvancedInputFilterSettings(_, context), `advancedInputFilterSettings`],
     AudioSelectorGroups: (_) => [, de___mapOfAudioSelectorGroup(_, context), `audioSelectorGroups`],
     AudioSelectors: (_) => [, de___mapOfAudioSelector(_, context), `audioSelectors`],
     CaptionSelectors: (_) => [, de___mapOfCaptionSelector(_, context), `captionSelectors`],

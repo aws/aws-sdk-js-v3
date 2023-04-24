@@ -14,8 +14,6 @@ import {
   CmfcAudioDuration,
   CmfcSettings,
   ContainerType,
-  DvbNitSettings,
-  Endpoint,
   EsamSettings,
   ExtendedDataServices,
   F4vSettings,
@@ -28,10 +26,6 @@ import {
   JobMessages,
   JobPhase,
   KantarWatermarkSettings,
-  M2tsAudioBufferModel,
-  M2tsAudioDuration,
-  M2tsBufferModel,
-  M2tsDataPtsControl,
   MotionImageInserter,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
@@ -40,6 +34,83 @@ import {
   QueueTransition,
   Rectangle,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsAudioBufferModel = {
+  ATSC: "ATSC",
+  DVB: "DVB",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsAudioBufferModel = (typeof M2tsAudioBufferModel)[keyof typeof M2tsAudioBufferModel];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsAudioDuration = {
+  DEFAULT_CODEC_DURATION: "DEFAULT_CODEC_DURATION",
+  MATCH_VIDEO_DURATION: "MATCH_VIDEO_DURATION",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsAudioDuration = (typeof M2tsAudioDuration)[keyof typeof M2tsAudioDuration];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsBufferModel = {
+  MULTIPLEX: "MULTIPLEX",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsBufferModel = (typeof M2tsBufferModel)[keyof typeof M2tsBufferModel];
+
+/**
+ * @public
+ * @enum
+ */
+export const M2tsDataPtsControl = {
+  ALIGN_TO_VIDEO: "ALIGN_TO_VIDEO",
+  AUTO: "AUTO",
+} as const;
+
+/**
+ * @public
+ */
+export type M2tsDataPtsControl = (typeof M2tsDataPtsControl)[keyof typeof M2tsDataPtsControl];
+
+/**
+ * @public
+ * Use these settings to insert a DVB Network Information Table (NIT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
+ */
+export interface DvbNitSettings {
+  /**
+   * The numeric value placed in the Network Information Table (NIT).
+   */
+  NetworkId?: number;
+
+  /**
+   * The network name text placed in the network_name_descriptor inside the Network Information Table. Maximum length is 256 characters.
+   */
+  NetworkName?: string;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream.
+   */
+  NitInterval?: number;
+}
 
 /**
  * @public
@@ -1419,7 +1490,7 @@ export interface Av1Settings {
   FramerateControl?: Av1FramerateControl | string;
 
   /**
-   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. We recommend using drop duplicate (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to 30 fps. For numerically complex conversions, you can use interpolate (INTERPOLATE) to avoid stutter. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence, use FrameFormer (FRAMEFORMER) to do motion-compensated interpolation. FrameFormer chooses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost.
+   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96.
    */
   FramerateConversionAlgorithm?: Av1FramerateConversionAlgorithm | string;
 
@@ -1622,7 +1693,7 @@ export interface AvcIntraSettings {
   FramerateControl?: AvcIntraFramerateControl | string;
 
   /**
-   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. We recommend using drop duplicate (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to 30 fps. For numerically complex conversions, you can use interpolate (INTERPOLATE) to avoid stutter. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence, use FrameFormer (FRAMEFORMER) to do motion-compensated interpolation. FrameFormer chooses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost.
+   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96.
    */
   FramerateConversionAlgorithm?: AvcIntraFramerateConversionAlgorithm | string;
 
@@ -1668,6 +1739,7 @@ export const VideoCodec = {
   H_264: "H_264",
   H_265: "H_265",
   MPEG2: "MPEG2",
+  PASSTHROUGH: "PASSTHROUGH",
   PRORES: "PRORES",
   VC3: "VC3",
   VP8: "VP8",
@@ -1766,7 +1838,7 @@ export type BandwidthReductionFilterStrength =
  */
 export interface BandwidthReductionFilter {
   /**
-   * Optionally specify the level of sharpening to apply when you use the Bandwidth reduction filter.  Sharpening adds contrast to the edges of your video content and can reduce softness. Keep the default value Off to apply no sharpening. Set Sharpening strength to Low to apply a minimal amount of sharpening, or High to apply a maximum amount of sharpening.
+   * Optionally specify the level of sharpening to apply when you use the Bandwidth reduction filter. Sharpening adds contrast to the edges of your video content and can reduce softness. Keep the default value Off to apply no sharpening. Set Sharpening strength to Low to apply a minimal amount of sharpening, or High to apply a maximum amount of sharpening.
    */
   Sharpening?: BandwidthReductionFilterSharpening | string;
 
@@ -2184,7 +2256,7 @@ export interface H264Settings {
   CodecProfile?: H264CodecProfile | string;
 
   /**
-   * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+   * Specify whether to allow the number of B-frames in your output GOP structure to vary or not depending on your input video content. To improve the subjective video quality of your output that has high-motion content: Leave blank or keep the default value Adaptive. MediaConvert will use fewer B-frames for high-motion video content than low-motion content. The maximum number of B- frames is limited by the value that you choose for B-frames between reference frames. To use the same number B-frames for all types of content: Choose Static.
    */
   DynamicSubGop?: H264DynamicSubGop | string;
 
@@ -2209,7 +2281,7 @@ export interface H264Settings {
   FramerateControl?: H264FramerateControl | string;
 
   /**
-   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. We recommend using drop duplicate (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to 30 fps. For numerically complex conversions, you can use interpolate (INTERPOLATE) to avoid stutter. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence, use FrameFormer (FRAMEFORMER) to do motion-compensated interpolation. FrameFormer chooses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost.
+   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96.
    */
   FramerateConversionAlgorithm?: H264FramerateConversionAlgorithm | string;
 
@@ -2224,7 +2296,7 @@ export interface H264Settings {
   FramerateNumerator?: number;
 
   /**
-   * If enable, use reference B frames for GOP structures that have B frames > 1.
+   * Specify whether to allow B-frames to be referenced by other frame types. To use reference B-frames when your GOP structure has 1 or more B-frames: Leave blank or keep the default value Enabled. We recommend that you choose Enabled to help improve the video quality of your output relative to its bitrate. To not use reference B-frames: Choose Disabled.
    */
   GopBReference?: H264GopBReference | string;
 
@@ -2274,7 +2346,7 @@ export interface H264Settings {
   MinIInterval?: number;
 
   /**
-   * This setting to determines the number of B-frames that MediaConvert puts between reference frames in this output. We recommend that you use automatic behavior to allow the transcoder to choose the best value based on characteristics of your input video. In the console, choose AUTO to select this automatic behavior. When you manually edit your JSON job specification, leave this setting out to choose automatic behavior. When you want to specify this number explicitly, choose a whole number from 0 through 7.
+   * Specify the number of B-frames between reference frames in this output. For the best video quality: Leave blank. MediaConvert automatically determines the number of B-frames to use based on the characteristics of your input video. To manually specify the number of B-frames between reference frames: Enter an integer from 0 to 7.
    */
   NumberBFramesBetweenReferenceFrames?: number;
 
@@ -2299,7 +2371,7 @@ export interface H264Settings {
   ParNumerator?: number;
 
   /**
-   * Optional. Use Quality tuning level (qualityTuningLevel) to choose how you want to trade off encoding speed for output video quality. The default behavior is faster, lower quality, single-pass encoding.
+   * The Quality tuning level you choose represents a trade-off between the encoding speed of your job and the output video quality. For the fastest encoding speed at the cost of video quality: Choose Single pass. For a good balance between encoding speed and video quality: Leave blank or keep the default value Single pass HQ. For the best video quality, at the cost of encoding speed: Choose Multi pass HQ. MediaConvert performs an analysis pass on your input followed by an encoding pass. Outputs that use this feature incur pro-tier pricing.
    */
   QualityTuningLevel?: H264QualityTuningLevel | string;
 
@@ -2811,7 +2883,7 @@ export interface H265Settings {
   CodecProfile?: H265CodecProfile | string;
 
   /**
-   * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+   * Specify whether to allow the number of B-frames in your output GOP structure to vary or not depending on your input video content. To improve the subjective video quality of your output that has high-motion content: Leave blank or keep the default value Adaptive. MediaConvert will use fewer B-frames for high-motion video content than low-motion content. The maximum number of B- frames is limited by the value that you choose for B-frames between reference frames. To use the same number B-frames for all types of content: Choose Static.
    */
   DynamicSubGop?: H265DynamicSubGop | string;
 
@@ -2826,7 +2898,7 @@ export interface H265Settings {
   FramerateControl?: H265FramerateControl | string;
 
   /**
-   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. We recommend using drop duplicate (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to 30 fps. For numerically complex conversions, you can use interpolate (INTERPOLATE) to avoid stutter. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence, use FrameFormer (FRAMEFORMER) to do motion-compensated interpolation. FrameFormer chooses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost.
+   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96.
    */
   FramerateConversionAlgorithm?: H265FramerateConversionAlgorithm | string;
 
@@ -2841,7 +2913,7 @@ export interface H265Settings {
   FramerateNumerator?: number;
 
   /**
-   * If enable, use reference B frames for GOP structures that have B frames > 1.
+   * Specify whether to allow B-frames to be referenced by other frame types. To use reference B-frames when your GOP structure has 1 or more B-frames: Leave blank or keep the default value Enabled. We recommend that you choose Enabled to help improve the video quality of your output relative to its bitrate. To not use reference B-frames: Choose Disabled.
    */
   GopBReference?: H265GopBReference | string;
 
@@ -2891,7 +2963,7 @@ export interface H265Settings {
   MinIInterval?: number;
 
   /**
-   * Specify the number of B-frames that MediaConvert puts between reference frames in this output. Valid values are whole numbers from 0 through 7. When you don't specify a value, MediaConvert defaults to 2.
+   * Specify the number of B-frames between reference frames in this output. For the best video quality: Leave blank. MediaConvert automatically determines the number of B-frames to use based on the characteristics of your input video. To manually specify the number of B-frames between reference frames: Enter an integer from 0 to 7.
    */
   NumberBFramesBetweenReferenceFrames?: number;
 
@@ -3310,7 +3382,7 @@ export interface Mpeg2Settings {
   FramerateControl?: Mpeg2FramerateControl | string;
 
   /**
-   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. We recommend using drop duplicate (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to 30 fps. For numerically complex conversions, you can use interpolate (INTERPOLATE) to avoid stutter. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence, use FrameFormer (FRAMEFORMER) to do motion-compensated interpolation. FrameFormer chooses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost.
+   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96.
    */
   FramerateConversionAlgorithm?: Mpeg2FramerateConversionAlgorithm | string;
 
@@ -3602,7 +3674,7 @@ export interface ProresSettings {
   FramerateControl?: ProresFramerateControl | string;
 
   /**
-   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. We recommend using drop duplicate (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to 30 fps. For numerically complex conversions, you can use interpolate (INTERPOLATE) to avoid stutter. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence, use FrameFormer (FRAMEFORMER) to do motion-compensated interpolation. FrameFormer chooses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost.
+   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96.
    */
   FramerateConversionAlgorithm?: ProresFramerateConversionAlgorithm | string;
 
@@ -3764,7 +3836,7 @@ export interface Vc3Settings {
   FramerateControl?: Vc3FramerateControl | string;
 
   /**
-   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. We recommend using drop duplicate (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to 30 fps. For numerically complex conversions, you can use interpolate (INTERPOLATE) to avoid stutter. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence, use FrameFormer (FRAMEFORMER) to do motion-compensated interpolation. FrameFormer chooses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost.
+   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96.
    */
   FramerateConversionAlgorithm?: Vc3FramerateConversionAlgorithm | string;
 
@@ -3891,7 +3963,7 @@ export interface Vp8Settings {
   FramerateControl?: Vp8FramerateControl | string;
 
   /**
-   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. We recommend using drop duplicate (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to 30 fps. For numerically complex conversions, you can use interpolate (INTERPOLATE) to avoid stutter. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence, use FrameFormer (FRAMEFORMER) to do motion-compensated interpolation. FrameFormer chooses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost.
+   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96.
    */
   FramerateConversionAlgorithm?: Vp8FramerateConversionAlgorithm | string;
 
@@ -4033,7 +4105,7 @@ export interface Vp9Settings {
   FramerateControl?: Vp9FramerateControl | string;
 
   /**
-   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. We recommend using drop duplicate (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to 30 fps. For numerically complex conversions, you can use interpolate (INTERPOLATE) to avoid stutter. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence, use FrameFormer (FRAMEFORMER) to do motion-compensated interpolation. FrameFormer chooses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost.
+   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96.
    */
   FramerateConversionAlgorithm?: Vp9FramerateConversionAlgorithm | string;
 
@@ -4545,7 +4617,7 @@ export interface XavcSettings {
   FramerateControl?: XavcFramerateControl | string;
 
   /**
-   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. We recommend using drop duplicate (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to 30 fps. For numerically complex conversions, you can use interpolate (INTERPOLATE) to avoid stutter. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence, use FrameFormer (FRAMEFORMER) to do motion-compensated interpolation. FrameFormer chooses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost.
+   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. For numerically simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose Interpolate. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence: Choose FrameFormer to do motion-compensated interpolation. FrameFormer uses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost. When you choose FrameFormer, your input video resolution must be at least 128x96.
    */
   FramerateConversionAlgorithm?: XavcFramerateConversionAlgorithm | string;
 
@@ -4626,7 +4698,7 @@ export interface VideoCodecSettings {
   AvcIntraSettings?: AvcIntraSettings;
 
   /**
-   * Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec.
+   * Specifies the video codec. This must be equal to one of the enum values defined by the object VideoCodec. To passthrough the video stream of your input JPEG2000, VC-3, AVC-INTRA or Apple ProRes  video without any video encoding: Choose Passthrough. If you have multiple input videos, note that they must have identical encoding attributes. When you choose Passthrough, your output container must be MXF or QuickTime MOV.
    */
   Codec?: VideoCodec | string;
 
@@ -4892,6 +4964,7 @@ export const DeinterlaceAlgorithm = {
   BLEND_TICKER: "BLEND_TICKER",
   INTERPOLATE: "INTERPOLATE",
   INTERPOLATE_TICKER: "INTERPOLATE_TICKER",
+  LINEAR_INTERPOLATION: "LINEAR_INTERPOLATION",
 } as const;
 
 /**
@@ -4934,7 +5007,7 @@ export type DeinterlacerMode = (typeof DeinterlacerMode)[keyof typeof Deinterlac
  */
 export interface Deinterlacer {
   /**
-   * Only applies when you set Deinterlacer (DeinterlaceMode) to Deinterlace (DEINTERLACE) or Adaptive (ADAPTIVE). Motion adaptive interpolate (INTERPOLATE) produces sharper pictures, while blend (BLEND) produces smoother motion. Use (INTERPOLATE_TICKER) OR (BLEND_TICKER) if your source file includes a ticker, such as a scrolling headline at the bottom of the frame.
+   * Only applies when you set Deinterlace mode to Deinterlace or Adaptive. Interpolate produces sharper pictures, while blend produces smoother motion. If your source file includes a ticker, such as a scrolling headline at the bottom of the frame: Choose Interpolate ticker or Blend ticker. To apply field doubling: Choose Linear interpolation. Note that Linear interpolation may introduce video artifacts into your output.
    */
   Algorithm?: DeinterlaceAlgorithm | string;
 
@@ -6701,68 +6774,3 @@ export interface DeleteQueueRequest {
  * @public
  */
 export interface DeleteQueueResponse {}
-
-/**
- * @public
- * @enum
- */
-export const DescribeEndpointsMode = {
-  DEFAULT: "DEFAULT",
-  GET_ONLY: "GET_ONLY",
-} as const;
-
-/**
- * @public
- */
-export type DescribeEndpointsMode = (typeof DescribeEndpointsMode)[keyof typeof DescribeEndpointsMode];
-
-/**
- * @public
- * DescribeEndpointsRequest
- */
-export interface DescribeEndpointsRequest {
-  /**
-   * Optional. Max number of endpoints, up to twenty, that will be returned at one time.
-   */
-  MaxResults?: number;
-
-  /**
-   * Optional field, defaults to DEFAULT. Specify DEFAULT for this operation to return your endpoints if any exist, or to create an endpoint for you and return it if one doesn't already exist. Specify GET_ONLY to return your endpoints if any exist, or an empty list if none exist.
-   */
-  Mode?: DescribeEndpointsMode | string;
-
-  /**
-   * Use this string, provided with the response to a previous request, to request the next batch of endpoints.
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeEndpointsResponse {
-  /**
-   * List of endpoints
-   */
-  Endpoints?: Endpoint[];
-
-  /**
-   * Use this string to request the next batch of endpoints.
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DisassociateCertificateRequest {
-  /**
-   * The ARN of the ACM certificate that you want to disassociate from your MediaConvert resource.
-   */
-  Arn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateCertificateResponse {}

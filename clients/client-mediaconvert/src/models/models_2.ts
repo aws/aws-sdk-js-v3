@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { AccelerationSettings, HopDestination } from "./models_0";
+import { AccelerationSettings, Endpoint, HopDestination } from "./models_0";
 import {
   Job,
   JobStatus,
@@ -12,6 +12,71 @@ import {
   ReservationPlanSettings,
   StatusUpdateInterval,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const DescribeEndpointsMode = {
+  DEFAULT: "DEFAULT",
+  GET_ONLY: "GET_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type DescribeEndpointsMode = (typeof DescribeEndpointsMode)[keyof typeof DescribeEndpointsMode];
+
+/**
+ * @public
+ * DescribeEndpointsRequest
+ */
+export interface DescribeEndpointsRequest {
+  /**
+   * Optional. Max number of endpoints, up to twenty, that will be returned at one time.
+   */
+  MaxResults?: number;
+
+  /**
+   * Optional field, defaults to DEFAULT. Specify DEFAULT for this operation to return your endpoints if any exist, or to create an endpoint for you and return it if one doesn't already exist. Specify GET_ONLY to return your endpoints if any exist, or an empty list if none exist.
+   */
+  Mode?: DescribeEndpointsMode | string;
+
+  /**
+   * Use this string, provided with the response to a previous request, to request the next batch of endpoints.
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEndpointsResponse {
+  /**
+   * List of endpoints
+   */
+  Endpoints?: Endpoint[];
+
+  /**
+   * Use this string to request the next batch of endpoints.
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateCertificateRequest {
+  /**
+   * The ARN of the ACM certificate that you want to disassociate from your MediaConvert resource.
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateCertificateResponse {}
 
 /**
  * @public
