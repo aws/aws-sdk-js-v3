@@ -274,7 +274,7 @@ class SdkThemeContext extends DefaultThemeRenderContext {
           <div class="documentation-developer-preview">
             <h2>New API Documentation - Developer Preview Available</h2>
             <p>
-              We are excited to introduce the <a href="/dev-preview">Developer Preview</a> of our new API documentation
+              We are excited to announce the <a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/preview/">developer preview</a> of our new API documentation
               for AWS SDK for JavaScript v3. Please follow instructions on the landing page to leave us your feedback.
             </p>
           </div>
