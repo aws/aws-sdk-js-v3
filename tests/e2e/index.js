@@ -6,7 +6,7 @@ const { spawnProcess } = require("../../scripts/utils/spawn-process");
 const run = async () => {
   try {
     const integTestResourcesEnv = await getIntegTestResources();
-    await spawnProcess("lerna", ["run", "test:e2e", "--concurrency", "1"], {
+    await spawnProcess("yarn", ["lerna", "run", "test:e2e", "--concurrency", "1"], {
       cwd: join(__dirname, "..", ".."),
       env: {
         ...process.env,
