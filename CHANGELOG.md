@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.320.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.319.0...v3.320.0) (2023-04-25)
+
+
+### Features
+
+* **client-chime-sdk-messaging:** Remove non actionable field from UpdateChannelReadMarker and DeleteChannelRequest.  Add precise exceptions to DeleteChannel and DeleteStreamingConfigurations error cases. ([66d271f](https://github.com/aws/aws-sdk-js-v3/commit/66d271f492cd5627a4ea72bf85b4583652587585))
+* **client-connect:** Amazon Connect, Contact Lens Evaluation API release including ability to manage forms and to submit contact evaluations. ([9ab9bfb](https://github.com/aws/aws-sdk-js-v3/commit/9ab9bfb7fc94b981ed83a5b641fc21b7a64616e2))
+* **client-datasync:** This release adds 13 new APIs to support AWS DataSync Discovery GA. ([ff9754a](https://github.com/aws/aws-sdk-js-v3/commit/ff9754a2ed3fda573f1f91865928336d919fde37))
+* **client-directory-service:** New field added in AWS Managed Microsoft AD DescribeSettings response and regex pattern update for UpdateSettings value.  Added length validation to RemoteDomainName. ([6664a0e](https://github.com/aws/aws-sdk-js-v3/commit/6664a0e830d3c73643d4bd648e9cf8710fb2e39e))
+* **client-pinpoint:** Adds support for journey runs and querying journey execution metrics based on journey runs. Adds execution metrics to campaign activities. Updates docs for Advanced Quiet Time. ([914700e](https://github.com/aws/aws-sdk-js-v3/commit/914700ed4378cdd7edafaca2a94051caf82a1c1d))
+* **clients:** update client endpoints as of 2023-04-25 ([f678d63](https://github.com/aws/aws-sdk-js-v3/commit/f678d6311dddc39e376e9423a9e1cda4d7076c37))
+
+
+
+
+
 # [3.319.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.318.0...v3.319.0) (2023-04-24)
 
 
