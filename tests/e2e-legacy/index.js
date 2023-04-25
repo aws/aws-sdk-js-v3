@@ -15,7 +15,7 @@ const execOptions = {
 
 const allTags = execSync(`grep -h ^@ ${join(FEATURES_FOLDER, "**", "*.feature")}`, execOptions).split(/[\n ]/g);
 
-console.info(`Looking for changed clients that has the legacy integration test tag: ${allTags}`);
+console.info(`Looking for changed clients that has the legacy e2e test tag: ${allTags}`);
 
 let changedPackages = [];
 try {
