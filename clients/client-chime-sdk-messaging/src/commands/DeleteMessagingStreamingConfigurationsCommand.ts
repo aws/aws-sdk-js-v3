@@ -61,6 +61,9 @@ export interface DeleteMessagingStreamingConfigurationsCommandOutput extends __M
  * @see {@link DeleteMessagingStreamingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input parameters don't match the service's restrictions.</p>
+ *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The client is permanently forbidden from making the request.</p>
  *

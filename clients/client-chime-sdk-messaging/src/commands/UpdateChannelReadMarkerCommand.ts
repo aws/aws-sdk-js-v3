@@ -51,7 +51,6 @@ export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadM
  * const input = { // UpdateChannelReadMarkerRequest
  *   ChannelArn: "STRING_VALUE", // required
  *   ChimeBearer: "STRING_VALUE", // required
- *   SubChannelId: "STRING_VALUE",
  * };
  * const command = new UpdateChannelReadMarkerCommand(input);
  * const response = await client.send(command);

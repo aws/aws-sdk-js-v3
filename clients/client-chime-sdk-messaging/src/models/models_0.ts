@@ -1471,7 +1471,7 @@ export interface CreateChannelFlowRequest {
   /**
    * <p>The client token for the request. An Idempotency token.</p>
    */
-  ClientRequestToken: string | undefined;
+  ClientRequestToken?: string;
 }
 
 /**
@@ -1592,11 +1592,6 @@ export interface DeleteChannelRequest {
    *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
-
-  /**
-   * <p>The ID of the SubChannel in the request.</p>
-   */
-  SubChannelId?: string;
 }
 
 /**
@@ -3190,11 +3185,6 @@ export interface UpdateChannelReadMarkerRequest {
    *          that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
-
-  /**
-   * <p>The ID of the SubChannel in the request.</p>
-   */
-  SubChannelId?: string;
 }
 
 /**
@@ -3205,11 +3195,6 @@ export interface UpdateChannelReadMarkerResponse {
    * <p>The ARN of the channel.</p>
    */
   ChannelArn?: string;
-
-  /**
-   * <p>The ID of the SubChannel in the response.</p>
-   */
-  SubChannelId?: string;
 }
 
 /**

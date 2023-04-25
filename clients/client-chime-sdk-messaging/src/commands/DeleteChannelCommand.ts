@@ -52,7 +52,6 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  * const input = { // DeleteChannelRequest
  *   ChannelArn: "STRING_VALUE", // required
  *   ChimeBearer: "STRING_VALUE", // required
- *   SubChannelId: "STRING_VALUE",
  * };
  * const command = new DeleteChannelCommand(input);
  * const response = await client.send(command);
@@ -66,6 +65,10 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link BadRequestException} (client fault)
  *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The client is permanently forbidden from making the request.</p>
