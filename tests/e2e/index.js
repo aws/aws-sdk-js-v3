@@ -1,15 +1,17 @@
+const { join } = require("path");
+
 const { getIntegTestResources } = require("./get-integ-test-resources");
-const execa = require("execa");
+const { spawnProcess } = require("../../scripts/utils/spawn-process");
 
 const run = async () => {
   try {
     const integTestResourcesEnv = await getIntegTestResources();
-    await execa("yarn", ["lerna", "run", "test:e2e", "--since", "--concurrency", "1"], {
+    await spawnProcess("lerna", ["run", "test:e2e", "--concurrency", "1"], {
+      cwd: join(__dirname, "..", ".."),
       env: {
-        ...integTestResourcesEnv,
         ...process.env,
+        ...integTestResourcesEnv,
       },
-      stdio: "inherit",
     });
     process.exit(0);
   } catch (e) {

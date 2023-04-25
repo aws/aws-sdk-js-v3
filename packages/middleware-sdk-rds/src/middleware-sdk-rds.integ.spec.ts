@@ -6,7 +6,7 @@ describe(RDS.name, () => {
   describe("middleware-sdk-rds", () => {
     it("copyDBClusterSnapshot without KMS key", async () => {
       const client = new RDS({
-        region: "us-destination-region-1",
+        region: "us-east-1",
       });
 
       new TestHttpHandler({
@@ -18,7 +18,7 @@ describe(RDS.name, () => {
         body: (body) => {
           const parse = new URLSearchParams(body);
           expect(parse.get("SourceDBClusterSnapshotIdentifier")).toEqual(
-            "arn:aws:rds:us-source-region-1:1234567890:my-db-cluster-snapshot-id"
+            "arn:aws:rds:us-west-2:1234567890:my-db-cluster-snapshot-id"
           );
           expect(parse.get("TargetDBClusterSnapshotIdentifier")).toEqual("my-target-db-cluster-snapshot-id");
           expect(parse.get("Action")).toEqual("CopyDBClusterSnapshot");
@@ -40,7 +40,7 @@ describe(RDS.name, () => {
       }).watch(client);
 
       await client.copyDBClusterSnapshot({
-        SourceDBClusterSnapshotIdentifier: "arn:aws:rds:us-source-region-1:1234567890:my-db-cluster-snapshot-id",
+        SourceDBClusterSnapshotIdentifier: "arn:aws:rds:us-west-2:1234567890:my-db-cluster-snapshot-id",
         TargetDBClusterSnapshotIdentifier: "my-target-db-cluster-snapshot-id",
       });
 
@@ -49,7 +49,7 @@ describe(RDS.name, () => {
 
     it("copyDBSnapshot with KMS key", async () => {
       const client = new RDS({
-        region: "us-destination-region-1",
+        region: "us-east-1",
       });
 
       new TestHttpHandler({
@@ -60,9 +60,7 @@ describe(RDS.name, () => {
         headers: {},
         body: (body) => {
           const parse = new URLSearchParams(body);
-          expect(parse.get("SourceDBSnapshotIdentifier")).toEqual(
-            "arn:aws:rds:us-source-region-1:1234567890:my-db-snapshot-id"
-          );
+          expect(parse.get("SourceDBSnapshotIdentifier")).toEqual("arn:aws:rds:us-west-2:1234567890:my-db-snapshot-id");
           expect(parse.get("TargetDBSnapshotIdentifier")).toEqual("my-target-snapshot-id");
           expect(parse.get("Action")).toEqual("CopyDBSnapshot");
           expect(parse.get("Version")).toEqual("2014-10-31");
@@ -84,7 +82,7 @@ describe(RDS.name, () => {
       }).watch(client);
 
       await client.copyDBSnapshot({
-        SourceDBSnapshotIdentifier: "arn:aws:rds:us-source-region-1:1234567890:my-db-snapshot-id",
+        SourceDBSnapshotIdentifier: "arn:aws:rds:us-west-2:1234567890:my-db-snapshot-id",
         TargetDBSnapshotIdentifier: "my-target-snapshot-id",
         KmsKeyId: "my-kms-key",
       });
@@ -94,7 +92,7 @@ describe(RDS.name, () => {
 
     it("startDBInstanceAutomatedBackupsReplication with KMS key", async () => {
       const client = new RDS({
-        region: "us-destination-region-1",
+        region: "us-east-1",
       });
 
       new TestHttpHandler({
@@ -105,9 +103,7 @@ describe(RDS.name, () => {
         headers: {},
         body: (body) => {
           const parse = new URLSearchParams(body);
-          expect(parse.get("SourceDBInstanceArn")).toEqual(
-            "arn:aws:rds:us-source-region-1:1234567890:my-db-instance-id"
-          );
+          expect(parse.get("SourceDBInstanceArn")).toEqual("arn:aws:rds:us-west-2:1234567890:my-db-instance-id");
           expect(parse.get("Action")).toEqual("StartDBInstanceAutomatedBackupsReplication");
           expect(parse.get("Version")).toEqual("2014-10-31");
           expect(parse.get("KmsKeyId")).toEqual("my-kms-key");
@@ -128,7 +124,7 @@ describe(RDS.name, () => {
       }).watch(client);
 
       await client.startDBInstanceAutomatedBackupsReplication({
-        SourceDBInstanceArn: "arn:aws:rds:us-source-region-1:1234567890:my-db-instance-id",
+        SourceDBInstanceArn: "arn:aws:rds:us-west-2:1234567890:my-db-instance-id",
         KmsKeyId: "my-kms-key",
       });
 

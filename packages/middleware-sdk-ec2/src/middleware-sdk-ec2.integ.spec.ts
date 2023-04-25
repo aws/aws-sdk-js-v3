@@ -6,7 +6,7 @@ describe("EC2", () => {
   describe("middleware-sdk-ec2", () => {
     it("serializes PSU and DestinationRegion", async () => {
       const client = new EC2({
-        region: "us-destination-region-1",
+        region: "us-east-1",
       });
 
       new TestHttpHandler({
@@ -17,14 +17,14 @@ describe("EC2", () => {
         headers: {},
         body: (body) => {
           const parse = new URLSearchParams(body);
-          expect(parse.get("DestinationRegion")).toEqual("us-destination-region-1");
-          expect(parse.get("SourceRegion")).toEqual("us-source-region-1");
+          expect(parse.get("DestinationRegion")).toEqual("us-east-1");
+          expect(parse.get("SourceRegion")).toEqual("us-west-2");
           expect(parse.get("SourceSnapshotId")).toEqual("my-snapshot-id");
           expect(parse.get("Action")).toEqual("CopySnapshot");
           expect(parse.get("Version")).toEqual("2016-11-15");
           const psu = parse.get("PresignedUrl") as string;
           const matcher =
-            /https\:\/\/ec2\.us-source-region-1\.amazonaws\.com\/\?Action=CopySnapshot&DestinationRegion=us-destination-region-1&SourceRegion=us-source-region-1&SourceSnapshotId=my-snapshot-id&Version=2016-11-15&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=(.+)\%2Fus-source-region-1\%2Fec2\%2Faws4_request&X-Amz-Date=(\d{8})T(\d{6})Z&X-Amz-Expires=3600&X-Amz-Security-Token=(.+)&X-Amz-Signature=(.+)&X-Amz-SignedHeaders=host/;
+            /https\:\/\/ec2\.us-west-2\.amazonaws\.com\/\?Action=CopySnapshot&DestinationRegion=us-east-1&SourceRegion=us-west-2&SourceSnapshotId=my-snapshot-id&Version=2016-11-15&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=(.+)\%2Fus-west-2\%2Fec2\%2Faws4_request&X-Amz-Date=(\d{8})T(\d{6})Z&X-Amz-Expires=3600&X-Amz-Security-Token=(.+)&X-Amz-Signature=(.+)&X-Amz-SignedHeaders=host/;
 
           expect(psu).toMatch(matcher);
         },
@@ -32,7 +32,7 @@ describe("EC2", () => {
 
       await client.copySnapshot({
         SourceSnapshotId: "my-snapshot-id",
-        SourceRegion: "us-source-region-1",
+        SourceRegion: "us-west-2",
       });
 
       expect.hasAssertions();
@@ -40,7 +40,7 @@ describe("EC2", () => {
 
     it("serializes PSU and DestinationRegion when Encrypted=true and KmsKeyId present", async () => {
       const client = new EC2({
-        region: "us-destination-region-1",
+        region: "us-east-1",
       });
 
       new TestHttpHandler({
@@ -51,16 +51,16 @@ describe("EC2", () => {
         headers: {},
         body: (body) => {
           const parse = new URLSearchParams(body);
-          expect(parse.get("DestinationRegion")).toEqual("us-destination-region-1");
+          expect(parse.get("DestinationRegion")).toEqual("us-east-1");
           expect(parse.get("Encrypted")).toEqual("true");
           expect(parse.get("KmsKeyId")).toEqual("my-kms-key");
-          expect(parse.get("SourceRegion")).toEqual("us-source-region-1");
+          expect(parse.get("SourceRegion")).toEqual("us-west-2");
           expect(parse.get("SourceSnapshotId")).toEqual("my-snapshot-id");
           expect(parse.get("Action")).toEqual("CopySnapshot");
           expect(parse.get("Version")).toEqual("2016-11-15");
           const psu = parse.get("PresignedUrl") as string;
           const matcher =
-            /https\:\/\/ec2\.us-source-region-1\.amazonaws\.com\/\?Action=CopySnapshot&DestinationRegion=us-destination-region-1&Encrypted=true&KmsKeyId=my-kms-key&SourceRegion=us-source-region-1&SourceSnapshotId=my-snapshot-id&Version=2016-11-15&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=(.+)\%2Fus-source-region-1\%2Fec2\%2Faws4_request&X-Amz-Date=(\d{8})T(\d{6})Z&X-Amz-Expires=3600&X-Amz-Security-Token=(.+)&X-Amz-Signature=(.+)&X-Amz-SignedHeaders=host/;
+            /https\:\/\/ec2\.us-west-2\.amazonaws\.com\/\?Action=CopySnapshot&DestinationRegion=us-east-1&Encrypted=true&KmsKeyId=my-kms-key&SourceRegion=us-west-2&SourceSnapshotId=my-snapshot-id&Version=2016-11-15&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=(.+)\%2Fus-west-2\%2Fec2\%2Faws4_request&X-Amz-Date=(\d{8})T(\d{6})Z&X-Amz-Expires=3600&X-Amz-Security-Token=(.+)&X-Amz-Signature=(.+)&X-Amz-SignedHeaders=host/;
 
           expect(psu).toMatch(matcher);
         },
@@ -68,7 +68,7 @@ describe("EC2", () => {
 
       await client.copySnapshot({
         SourceSnapshotId: "my-snapshot-id",
-        SourceRegion: "us-source-region-1",
+        SourceRegion: "us-west-2",
         Encrypted: true,
         KmsKeyId: "my-kms-key",
       });
