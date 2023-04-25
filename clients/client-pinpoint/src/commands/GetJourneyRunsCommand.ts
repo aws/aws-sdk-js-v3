@@ -13,86 +13,46 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateEndpointRequest, UpdateEndpointResponse } from "../models/models_1";
+import { GetJourneyRunsRequest, GetJourneyRunsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
-import { de_UpdateEndpointCommand, se_UpdateEndpointCommand } from "../protocols/Aws_restJson1";
+import { de_GetJourneyRunsCommand, se_GetJourneyRunsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link UpdateEndpointCommand}.
+ * The input for {@link GetJourneyRunsCommand}.
  */
-export interface UpdateEndpointCommandInput extends UpdateEndpointRequest {}
+export interface GetJourneyRunsCommandInput extends GetJourneyRunsRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateEndpointCommand}.
+ * The output of {@link GetJourneyRunsCommand}.
  */
-export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __MetadataBearer {}
+export interface GetJourneyRunsCommandOutput extends GetJourneyRunsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates a new endpoint for an application or updates the settings and attributes of an existing endpoint for an application. You can also use this operation to define custom attributes for an endpoint. If an update includes one or more values for a custom attribute, Amazon Pinpoint replaces (overwrites) any existing values with the new values.</p>
+ * <p>Provides information about the runs of a journey.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PinpointClient, UpdateEndpointCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
- * // const { PinpointClient, UpdateEndpointCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * import { PinpointClient, GetJourneyRunsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, GetJourneyRunsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
- * const input = { // UpdateEndpointRequest
+ * const input = { // GetJourneyRunsRequest
  *   ApplicationId: "STRING_VALUE", // required
- *   EndpointId: "STRING_VALUE", // required
- *   EndpointRequest: { // EndpointRequest
- *     Address: "STRING_VALUE",
- *     Attributes: { // MapOfListOf__string
- *       "<keys>": [ // ListOf__string
- *         "STRING_VALUE",
- *       ],
- *     },
- *     ChannelType: "PUSH" || "GCM" || "APNS" || "APNS_SANDBOX" || "APNS_VOIP" || "APNS_VOIP_SANDBOX" || "ADM" || "SMS" || "VOICE" || "EMAIL" || "BAIDU" || "CUSTOM" || "IN_APP",
- *     Demographic: { // EndpointDemographic
- *       AppVersion: "STRING_VALUE",
- *       Locale: "STRING_VALUE",
- *       Make: "STRING_VALUE",
- *       Model: "STRING_VALUE",
- *       ModelVersion: "STRING_VALUE",
- *       Platform: "STRING_VALUE",
- *       PlatformVersion: "STRING_VALUE",
- *       Timezone: "STRING_VALUE",
- *     },
- *     EffectiveDate: "STRING_VALUE",
- *     EndpointStatus: "STRING_VALUE",
- *     Location: { // EndpointLocation
- *       City: "STRING_VALUE",
- *       Country: "STRING_VALUE",
- *       Latitude: Number("double"),
- *       Longitude: Number("double"),
- *       PostalCode: "STRING_VALUE",
- *       Region: "STRING_VALUE",
- *     },
- *     Metrics: { // MapOf__double
- *       "<keys>": Number("double"),
- *     },
- *     OptOut: "STRING_VALUE",
- *     RequestId: "STRING_VALUE",
- *     User: { // EndpointUser
- *       UserAttributes: {
- *         "<keys>": [
- *           "STRING_VALUE",
- *         ],
- *       },
- *       UserId: "STRING_VALUE",
- *     },
- *   },
+ *   JourneyId: "STRING_VALUE", // required
+ *   PageSize: "STRING_VALUE",
+ *   Token: "STRING_VALUE",
  * };
- * const command = new UpdateEndpointCommand(input);
+ * const command = new GetJourneyRunsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param UpdateEndpointCommandInput - {@link UpdateEndpointCommandInput}
- * @returns {@link UpdateEndpointCommandOutput}
- * @see {@link UpdateEndpointCommandInput} for command's `input` shape.
- * @see {@link UpdateEndpointCommandOutput} for command's `response` shape.
+ * @param GetJourneyRunsCommandInput - {@link GetJourneyRunsCommandInput}
+ * @returns {@link GetJourneyRunsCommandOutput}
+ * @see {@link GetJourneyRunsCommandInput} for command's `input` shape.
+ * @see {@link GetJourneyRunsCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -118,9 +78,9 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  *
  *
  */
-export class UpdateEndpointCommand extends $Command<
-  UpdateEndpointCommandInput,
-  UpdateEndpointCommandOutput,
+export class GetJourneyRunsCommand extends $Command<
+  GetJourneyRunsCommandInput,
+  GetJourneyRunsCommandOutput,
   PinpointClientResolvedConfig
 > {
   // Start section: command_properties
@@ -138,7 +98,7 @@ export class UpdateEndpointCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateEndpointCommandInput) {
+  constructor(readonly input: GetJourneyRunsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -151,17 +111,17 @@ export class UpdateEndpointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateEndpointCommandInput, UpdateEndpointCommandOutput> {
+  ): Handler<GetJourneyRunsCommandInput, GetJourneyRunsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateEndpointCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetJourneyRunsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "PinpointClient";
-    const commandName = "UpdateEndpointCommand";
+    const commandName = "GetJourneyRunsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -180,15 +140,15 @@ export class UpdateEndpointCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateEndpointCommand(input, context);
+  private serialize(input: GetJourneyRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetJourneyRunsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEndpointCommandOutput> {
-    return de_UpdateEndpointCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJourneyRunsCommandOutput> {
+    return de_GetJourneyRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

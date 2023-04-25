@@ -306,6 +306,21 @@ import {
   GetJourneyExecutionMetricsCommandOutput,
 } from "./commands/GetJourneyExecutionMetricsCommand";
 import {
+  GetJourneyRunExecutionActivityMetricsCommand,
+  GetJourneyRunExecutionActivityMetricsCommandInput,
+  GetJourneyRunExecutionActivityMetricsCommandOutput,
+} from "./commands/GetJourneyRunExecutionActivityMetricsCommand";
+import {
+  GetJourneyRunExecutionMetricsCommand,
+  GetJourneyRunExecutionMetricsCommandInput,
+  GetJourneyRunExecutionMetricsCommandOutput,
+} from "./commands/GetJourneyRunExecutionMetricsCommand";
+import {
+  GetJourneyRunsCommand,
+  GetJourneyRunsCommandInput,
+  GetJourneyRunsCommandOutput,
+} from "./commands/GetJourneyRunsCommand";
+import {
   GetPushTemplateCommand,
   GetPushTemplateCommandInput,
   GetPushTemplateCommandOutput,
@@ -619,6 +634,9 @@ const commands = {
   GetJourneyDateRangeKpiCommand,
   GetJourneyExecutionActivityMetricsCommand,
   GetJourneyExecutionMetricsCommand,
+  GetJourneyRunExecutionActivityMetricsCommand,
+  GetJourneyRunExecutionMetricsCommand,
+  GetJourneyRunsCommand,
   GetPushTemplateCommand,
   GetRecommenderConfigurationCommand,
   GetRecommenderConfigurationsCommand,
@@ -1670,6 +1688,54 @@ export interface Pinpoint {
     args: GetJourneyExecutionMetricsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetJourneyExecutionMetricsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetJourneyRunExecutionActivityMetricsCommand}
+   */
+  getJourneyRunExecutionActivityMetrics(
+    args: GetJourneyRunExecutionActivityMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJourneyRunExecutionActivityMetricsCommandOutput>;
+  getJourneyRunExecutionActivityMetrics(
+    args: GetJourneyRunExecutionActivityMetricsCommandInput,
+    cb: (err: any, data?: GetJourneyRunExecutionActivityMetricsCommandOutput) => void
+  ): void;
+  getJourneyRunExecutionActivityMetrics(
+    args: GetJourneyRunExecutionActivityMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetJourneyRunExecutionActivityMetricsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetJourneyRunExecutionMetricsCommand}
+   */
+  getJourneyRunExecutionMetrics(
+    args: GetJourneyRunExecutionMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJourneyRunExecutionMetricsCommandOutput>;
+  getJourneyRunExecutionMetrics(
+    args: GetJourneyRunExecutionMetricsCommandInput,
+    cb: (err: any, data?: GetJourneyRunExecutionMetricsCommandOutput) => void
+  ): void;
+  getJourneyRunExecutionMetrics(
+    args: GetJourneyRunExecutionMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetJourneyRunExecutionMetricsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetJourneyRunsCommand}
+   */
+  getJourneyRuns(
+    args: GetJourneyRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJourneyRunsCommandOutput>;
+  getJourneyRuns(args: GetJourneyRunsCommandInput, cb: (err: any, data?: GetJourneyRunsCommandOutput) => void): void;
+  getJourneyRuns(
+    args: GetJourneyRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetJourneyRunsCommandOutput) => void
   ): void;
 
   /**

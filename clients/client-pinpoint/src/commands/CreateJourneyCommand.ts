@@ -47,7 +47,7 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *         CUSTOM: { // CustomMessageActivity
  *           DeliveryUri: "STRING_VALUE",
  *           EndpointTypes: [ // ListOf__EndpointTypesElement
- *             "STRING_VALUE",
+ *             "PUSH" || "GCM" || "APNS" || "APNS_SANDBOX" || "APNS_VOIP" || "APNS_VOIP_SANDBOX" || "ADM" || "SMS" || "VOICE" || "EMAIL" || "BAIDU" || "CUSTOM" || "IN_APP",
  *           ],
  *           MessageConfig: { // JourneyCustomMessage
  *             Data: "STRING_VALUE",
@@ -64,14 +64,14 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *                   Dimensions: { // EventDimensions
  *                     Attributes: { // MapOfAttributeDimension
  *                       "<keys>": { // AttributeDimension
- *                         AttributeType: "STRING_VALUE",
+ *                         AttributeType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEFORE" || "AFTER" || "ON" || "BETWEEN",
  *                         Values: [ // ListOf__string // required
  *                           "STRING_VALUE",
  *                         ],
  *                       },
  *                     },
  *                     EventType: { // SetDimension
- *                       DimensionType: "STRING_VALUE",
+ *                       DimensionType: "INCLUSIVE" || "EXCLUSIVE",
  *                       Values: [ // required
  *                         "STRING_VALUE",
  *                       ],
@@ -91,7 +91,7 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *                 SegmentDimensions: { // SegmentDimensions
  *                   Attributes: {
  *                     "<keys>": {
- *                       AttributeType: "STRING_VALUE",
+ *                       AttributeType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEFORE" || "AFTER" || "ON" || "BETWEEN",
  *                       Values: [ // required
  *                         "STRING_VALUE",
  *                       ],
@@ -99,29 +99,29 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *                   },
  *                   Behavior: { // SegmentBehaviors
  *                     Recency: { // RecencyDimension
- *                       Duration: "STRING_VALUE", // required
- *                       RecencyType: "STRING_VALUE", // required
+ *                       Duration: "HR_24" || "DAY_7" || "DAY_14" || "DAY_30", // required
+ *                       RecencyType: "ACTIVE" || "INACTIVE", // required
  *                     },
  *                   },
  *                   Demographic: { // SegmentDemographics
  *                     AppVersion: {
- *                       DimensionType: "STRING_VALUE",
+ *                       DimensionType: "INCLUSIVE" || "EXCLUSIVE",
  *                       Values: [ // required
  *                         "STRING_VALUE",
  *                       ],
  *                     },
  *                     Channel: {
- *                       DimensionType: "STRING_VALUE",
+ *                       DimensionType: "INCLUSIVE" || "EXCLUSIVE",
  *                       Values: [ // required
  *                         "STRING_VALUE",
  *                       ],
  *                     },
  *                     DeviceType: {
- *                       DimensionType: "STRING_VALUE",
+ *                       DimensionType: "INCLUSIVE" || "EXCLUSIVE",
  *                       Values: "<ListOf__string>", // required
  *                     },
  *                     Make: {
- *                       DimensionType: "STRING_VALUE",
+ *                       DimensionType: "INCLUSIVE" || "EXCLUSIVE",
  *                       Values: "<ListOf__string>", // required
  *                     },
  *                     Model: "<SetDimension>",
@@ -145,14 +145,14 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *                   },
  *                   UserAttributes: {
  *                     "<keys>": {
- *                       AttributeType: "STRING_VALUE",
+ *                       AttributeType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEFORE" || "AFTER" || "ON" || "BETWEEN",
  *                       Values: "<ListOf__string>", // required
  *                     },
  *                   },
  *                 },
  *               },
  *             ],
- *             Operator: "STRING_VALUE",
+ *             Operator: "ALL" || "ANY",
  *           },
  *           EvaluationWaitTime: { // WaitTime
  *             WaitFor: "STRING_VALUE",
@@ -182,7 +182,7 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *                   Dimensions: {
  *                     Attributes: {
  *                       "<keys>": {
- *                         AttributeType: "STRING_VALUE",
+ *                         AttributeType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEFORE" || "AFTER" || "ON" || "BETWEEN",
  *                         Values: "<ListOf__string>", // required
  *                       },
  *                     },
@@ -202,14 +202,14 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *                 SegmentDimensions: {
  *                   Attributes: {
  *                     "<keys>": {
- *                       AttributeType: "STRING_VALUE",
+ *                       AttributeType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEFORE" || "AFTER" || "ON" || "BETWEEN",
  *                       Values: "<ListOf__string>", // required
  *                     },
  *                   },
  *                   Behavior: {
  *                     Recency: {
- *                       Duration: "STRING_VALUE", // required
- *                       RecencyType: "STRING_VALUE", // required
+ *                       Duration: "HR_24" || "DAY_7" || "DAY_14" || "DAY_30", // required
+ *                       RecencyType: "ACTIVE" || "INACTIVE", // required
  *                     },
  *                   },
  *                   Demographic: {
@@ -266,7 +266,7 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *         },
  *         SMS: { // SMSMessageActivity
  *           MessageConfig: { // JourneySMSMessage
- *             MessageType: "STRING_VALUE",
+ *             MessageType: "TRANSACTIONAL" || "PROMOTIONAL",
  *             OriginationNumber: "STRING_VALUE",
  *             SenderId: "STRING_VALUE",
  *             EntityId: "STRING_VALUE",
@@ -318,7 +318,7 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *             EventType: "<SetDimension>",
  *             Metrics: "<MapOfMetricDimension>",
  *           },
- *           FilterType: "STRING_VALUE", // required
+ *           FilterType: "SYSTEM" || "ENDPOINT", // required
  *         },
  *         SegmentId: "STRING_VALUE",
  *       },
@@ -326,7 +326,7 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *         SegmentId: "STRING_VALUE", // required
  *       },
  *     },
- *     State: "STRING_VALUE",
+ *     State: "DRAFT" || "ACTIVE" || "COMPLETED" || "CANCELLED" || "CLOSED" || "PAUSED",
  *     WaitForQuietTime: true || false,
  *     RefreshOnSegmentUpdate: true || false,
  *     JourneyChannelSettings: { // JourneyChannelSettings

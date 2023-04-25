@@ -47,7 +47,7 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
  *     },
  *     MessageConfiguration: { // DirectMessageConfiguration
  *       ADMMessage: { // ADMMessage
- *         Action: "STRING_VALUE",
+ *         Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *         Body: "STRING_VALUE",
  *         ConsolidationKey: "STRING_VALUE",
  *         Data: {
@@ -72,7 +72,7 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
  *       },
  *       APNSMessage: { // APNSMessage
  *         APNSPushType: "STRING_VALUE",
- *         Action: "STRING_VALUE",
+ *         Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *         Badge: Number("int"),
  *         Body: "STRING_VALUE",
  *         Category: "STRING_VALUE",
@@ -97,7 +97,7 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
  *         Url: "STRING_VALUE",
  *       },
  *       BaiduMessage: { // BaiduMessage
- *         Action: "STRING_VALUE",
+ *         Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *         Body: "STRING_VALUE",
  *         Data: {
  *           "<keys>": "STRING_VALUE",
@@ -127,7 +127,7 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
  *         },
  *       },
  *       DefaultPushNotificationMessage: { // DefaultPushNotificationMessage
- *         Action: "STRING_VALUE",
+ *         Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *         Body: "STRING_VALUE",
  *         Data: {
  *           "<keys>": "STRING_VALUE",
@@ -166,7 +166,7 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
  *         Substitutions: "<MapOfListOf__string>",
  *       },
  *       GCMMessage: { // GCMMessage
- *         Action: "STRING_VALUE",
+ *         Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *         Body: "STRING_VALUE",
  *         CollapseKey: "STRING_VALUE",
  *         Data: "<MapOf__string>",
@@ -188,7 +188,7 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
  *         Body: "STRING_VALUE",
  *         Keyword: "STRING_VALUE",
  *         MediaUrl: "STRING_VALUE",
- *         MessageType: "STRING_VALUE",
+ *         MessageType: "TRANSACTIONAL" || "PROMOTIONAL",
  *         OriginationNumber: "STRING_VALUE",
  *         SenderId: "STRING_VALUE",
  *         Substitutions: "<MapOfListOf__string>",

@@ -667,7 +667,7 @@ export interface GetJourneyExecutionActivityMetricsRequest {
   JourneyId: string | undefined;
 
   /**
-   * <p>The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+   * <p>The <code/> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    */
   NextToken?: string;
 
@@ -683,7 +683,7 @@ export interface GetJourneyExecutionActivityMetricsRequest {
  */
 export interface JourneyExecutionActivityMetricsResponse {
   /**
-   * <p>The type of activity that the metric applies to. Possible values are:</p> <ul><li><p>CONDITIONAL_SPLIT - For a yes/no split activity, which is an activity that sends participants down one of two paths in a journey.</p></li> <li><p>HOLDOUT - For a holdout activity, which is an activity that stops a journey for a specified percentage of participants.</p></li> <li><p>MESSAGE - For an email activity, which is an activity that sends an email message to participants.</p></li> <li><p>MULTI_CONDITIONAL_SPLIT - For a multivariate split activity, which is an activity that sends participants down one of as many as five paths in a journey.</p></li> <li><p>RANDOM_SPLIT - For a random split activity, which is an activity that sends specified percentages of participants down one of as many as five paths in a journey.</p></li> <li><p>WAIT - For a wait activity, which is an activity that waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.</p></li></ul>
+   * <p>The type of activity that the metric applies to. Possible values are:</p> <ul><li><p>CONDITIONAL_SPLIT – For a yes/no split activity, which is an activity that sends participants down one of two paths in a journey.</p></li> <li><p>HOLDOUT – For a holdout activity, which is an activity that stops a journey for a specified percentage of participants.</p></li> <li><p>MESSAGE – For an email activity, which is an activity that sends an email message to participants.</p></li> <li><p>MULTI_CONDITIONAL_SPLIT – For a multivariate split activity, which is an activity that sends participants down one of as many as five paths in a journey.</p></li> <li><p>RANDOM_SPLIT – For a random split activity, which is an activity that sends specified percentages of participants down one of as many as five paths in a journey.</p></li> <li><p>WAIT – For a wait activity, which is an activity that waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.</p></li></ul>
    */
   ActivityType: string | undefined;
 
@@ -738,7 +738,7 @@ export interface GetJourneyExecutionMetricsRequest {
   JourneyId: string | undefined;
 
   /**
-   * <p>The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+   * <p>The <code/> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    */
   NextToken?: string;
 
@@ -782,6 +782,256 @@ export interface GetJourneyExecutionMetricsResponse {
    * <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey, and provides information about that query.</p>
    */
   JourneyExecutionMetricsResponse: JourneyExecutionMetricsResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetJourneyRunExecutionActivityMetricsRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the journey activity.</p>
+   */
+  JourneyActivityId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the journey.</p>
+   */
+  JourneyId: string | undefined;
+
+  /**
+   * <p>The <code/> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+   */
+  PageSize?: string;
+
+  /**
+   * <p>The unique identifier for the journey run.</p>
+   */
+  RunId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey activity for a particular journey run, and provides information about that query.</p>
+ */
+export interface JourneyRunExecutionActivityMetricsResponse {
+  /**
+   * <p>The type of activity that the metric applies to. Possible values are:</p> <ul><li><p>CONDITIONAL_SPLIT – For a yes/no split activity, which is an activity that sends participants down one of two paths in a journey.</p></li> <li><p>HOLDOUT – For a holdout activity, which is an activity that stops a journey for a specified percentage of participants.</p></li> <li><p>MESSAGE – For an email activity, which is an activity that sends an email message to participants.</p></li> <li><p>MULTI_CONDITIONAL_SPLIT – For a multivariate split activity, which is an activity that sends participants down one of as many as five paths in a journey.</p></li> <li><p>RANDOM_SPLIT – For a random split activity, which is an activity that sends specified percentages of participants down one of as many as five paths in a journey.</p></li> <li><p>WAIT – For a wait activity, which is an activity that waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.</p></li></ul>
+   */
+  ActivityType: string | undefined;
+
+  /**
+   * <p>The unique identifier for the application that the metric applies to.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the activity that the metric applies to.</p>
+   */
+  JourneyActivityId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the journey that the metric applies to.</p>
+   */
+  JourneyId: string | undefined;
+
+  /**
+   * <p>The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the execution status of the activity for this journey run and updated the data for the metric.</p>
+   */
+  LastEvaluatedTime: string | undefined;
+
+  /**
+   * <p>A JSON object that contains the results of the query. For information about the structure and contents of the results, see see <a href="https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html">Standard Amazon Pinpoint analytics metrics</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p>
+   */
+  Metrics: Record<string, string> | undefined;
+
+  /**
+   * <p>The unique identifier for the journey run that the metric applies to.</p>
+   */
+  RunId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetJourneyRunExecutionActivityMetricsResponse {
+  /**
+   * <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey activity for a particular journey run, and provides information about that query.</p>
+   */
+  JourneyRunExecutionActivityMetricsResponse: JourneyRunExecutionActivityMetricsResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetJourneyRunExecutionMetricsRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the journey.</p>
+   */
+  JourneyId: string | undefined;
+
+  /**
+   * <p>The <code/> string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+   */
+  PageSize?: string;
+
+  /**
+   * <p>The unique identifier for the journey run.</p>
+   */
+  RunId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey run, and provides information about that query.</p>
+ */
+export interface JourneyRunExecutionMetricsResponse {
+  /**
+   * <p>The unique identifier for the application that the metric applies to.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the journey that the metric applies to.</p>
+   */
+  JourneyId: string | undefined;
+
+  /**
+   * <p>The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the journey run and updated the data for the metric.</p>
+   */
+  LastEvaluatedTime: string | undefined;
+
+  /**
+   * <p>A JSON object that contains the results of the query. For information about the structure and contents of the results, see the <a href="https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html">Standard Amazon Pinpoint analytics metrics</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p>
+   */
+  Metrics: Record<string, string> | undefined;
+
+  /**
+   * <p>The unique identifier for the journey run that the metric applies to.</p>
+   */
+  RunId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetJourneyRunExecutionMetricsResponse {
+  /**
+   * <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey run, and provides information about that query.</p>
+   */
+  JourneyRunExecutionMetricsResponse: JourneyRunExecutionMetricsResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetJourneyRunsRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the journey.</p>
+   */
+  JourneyId: string | undefined;
+
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+   */
+  PageSize?: string;
+
+  /**
+   * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+   */
+  Token?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const JourneyRunStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  RUNNING: "RUNNING",
+  SCHEDULED: "SCHEDULED",
+} as const;
+
+/**
+ * @public
+ */
+export type JourneyRunStatus = (typeof JourneyRunStatus)[keyof typeof JourneyRunStatus];
+
+/**
+ * @public
+ * <p>Provides information from a specified run of a journey.</p>
+ */
+export interface JourneyRunResponse {
+  /**
+   * <p>The time when the journey run was created or scheduled, in ISO 8601 format.</p>
+   */
+  CreationTime: string | undefined;
+
+  /**
+   * <p>The last time the journey run was updated, in ISO 8601 format..</p>
+   */
+  LastUpdateTime: string | undefined;
+
+  /**
+   * <p>The unique identifier for the run.</p>
+   */
+  RunId: string | undefined;
+
+  /**
+   * <p>The current status of the journey run.</p>
+   */
+  Status: JourneyRunStatus | string | undefined;
+}
+
+/**
+ * @public
+ * <p>Provides information from all runs of a journey.</p>
+ */
+export interface JourneyRunsResponse {
+  /**
+   * <p>An array of responses, one for each run of the journey</p>
+   */
+  Item: JourneyRunResponse[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetJourneyRunsResponse {
+  /**
+   * <p>Provides information from all runs of a journey.</p>
+   */
+  JourneyRunsResponse: JourneyRunsResponse | undefined;
 }
 
 /**

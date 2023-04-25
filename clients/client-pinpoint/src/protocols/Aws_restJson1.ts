@@ -156,6 +156,15 @@ import {
   GetJourneyExecutionMetricsCommandInput,
   GetJourneyExecutionMetricsCommandOutput,
 } from "../commands/GetJourneyExecutionMetricsCommand";
+import {
+  GetJourneyRunExecutionActivityMetricsCommandInput,
+  GetJourneyRunExecutionActivityMetricsCommandOutput,
+} from "../commands/GetJourneyRunExecutionActivityMetricsCommand";
+import {
+  GetJourneyRunExecutionMetricsCommandInput,
+  GetJourneyRunExecutionMetricsCommandOutput,
+} from "../commands/GetJourneyRunExecutionMetricsCommand";
+import { GetJourneyRunsCommandInput, GetJourneyRunsCommandOutput } from "../commands/GetJourneyRunsCommand";
 import { GetPushTemplateCommandInput, GetPushTemplateCommandOutput } from "../commands/GetPushTemplateCommand";
 import {
   GetRecommenderConfigurationCommandInput,
@@ -2719,6 +2728,130 @@ export const se_GetJourneyExecutionMetricsCommand = async (
   const query: any = map({
     "next-token": [, input.NextToken!],
     "page-size": [, input.PageSize!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetJourneyRunExecutionActivityMetricsCommand
+ */
+export const se_GetJourneyRunExecutionActivityMetricsCommand = async (
+  input: GetJourneyRunExecutionActivityMetricsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/apps/{ApplicationId}/journeys/{JourneyId}/runs/{RunId}/activities/{JourneyActivityId}/execution-metrics";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "JourneyActivityId",
+    () => input.JourneyActivityId!,
+    "{JourneyActivityId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "JourneyId", () => input.JourneyId!, "{JourneyId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "RunId", () => input.RunId!, "{RunId}", false);
+  const query: any = map({
+    "next-token": [, input.NextToken!],
+    "page-size": [, input.PageSize!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetJourneyRunExecutionMetricsCommand
+ */
+export const se_GetJourneyRunExecutionMetricsCommand = async (
+  input: GetJourneyRunExecutionMetricsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/apps/{ApplicationId}/journeys/{JourneyId}/runs/{RunId}/execution-metrics";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "JourneyId", () => input.JourneyId!, "{JourneyId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "RunId", () => input.RunId!, "{RunId}", false);
+  const query: any = map({
+    "next-token": [, input.NextToken!],
+    "page-size": [, input.PageSize!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetJourneyRunsCommand
+ */
+export const se_GetJourneyRunsCommand = async (
+  input: GetJourneyRunsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/apps/{ApplicationId}/journeys/{JourneyId}/runs";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ApplicationId",
+    () => input.ApplicationId!,
+    "{ApplicationId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "JourneyId", () => input.JourneyId!, "{JourneyId}", false);
+  const query: any = map({
+    "page-size": [, input.PageSize!],
+    token: [, input.Token!],
   });
   let body: any;
   return new __HttpRequest({
@@ -8852,6 +8985,192 @@ const de_GetJourneyExecutionMetricsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetJourneyRunExecutionActivityMetricsCommand
+ */
+export const de_GetJourneyRunExecutionActivityMetricsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetJourneyRunExecutionActivityMetricsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetJourneyRunExecutionActivityMetricsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.JourneyRunExecutionActivityMetricsResponse = _json(data);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetJourneyRunExecutionActivityMetricsCommandError
+ */
+const de_GetJourneyRunExecutionActivityMetricsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetJourneyRunExecutionActivityMetricsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.pinpoint#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.pinpoint#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.pinpoint#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "MethodNotAllowedException":
+    case "com.amazonaws.pinpoint#MethodNotAllowedException":
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.pinpoint#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.pinpoint#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetJourneyRunExecutionMetricsCommand
+ */
+export const de_GetJourneyRunExecutionMetricsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetJourneyRunExecutionMetricsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetJourneyRunExecutionMetricsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.JourneyRunExecutionMetricsResponse = _json(data);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetJourneyRunExecutionMetricsCommandError
+ */
+const de_GetJourneyRunExecutionMetricsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetJourneyRunExecutionMetricsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.pinpoint#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.pinpoint#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.pinpoint#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "MethodNotAllowedException":
+    case "com.amazonaws.pinpoint#MethodNotAllowedException":
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.pinpoint#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.pinpoint#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetJourneyRunsCommand
+ */
+export const de_GetJourneyRunsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetJourneyRunsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetJourneyRunsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.JourneyRunsResponse = _json(data);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetJourneyRunsCommandError
+ */
+const de_GetJourneyRunsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetJourneyRunsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.pinpoint#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.pinpoint#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.pinpoint#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "MethodNotAllowedException":
+    case "com.amazonaws.pinpoint#MethodNotAllowedException":
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.pinpoint#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "PayloadTooLargeException":
+    case "com.amazonaws.pinpoint#PayloadTooLargeException":
+      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.pinpoint#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetPushTemplateCommand
  */
 export const de_GetPushTemplateCommand = async (
@@ -13569,6 +13888,14 @@ const de_JourneyResponse = (output: any, context: __SerdeContext): JourneyRespon
   }) as any;
 };
 
+// de_JourneyRunExecutionActivityMetricsResponse omitted.
+
+// de_JourneyRunExecutionMetricsResponse omitted.
+
+// de_JourneyRunResponse omitted.
+
+// de_JourneyRunsResponse omitted.
+
 /**
  * deserializeAws_restJson1JourneySchedule
  */
@@ -13665,6 +13992,8 @@ const de_ListOfJourneyResponse = (output: any, context: __SerdeContext): Journey
     });
   return retVal;
 };
+
+// de_ListOfJourneyRunResponse omitted.
 
 /**
  * deserializeAws_restJson1ListOfMultiConditionalBranch

@@ -182,6 +182,15 @@ import {
   GetJourneyExecutionMetricsCommandInput,
   GetJourneyExecutionMetricsCommandOutput,
 } from "./commands/GetJourneyExecutionMetricsCommand";
+import {
+  GetJourneyRunExecutionActivityMetricsCommandInput,
+  GetJourneyRunExecutionActivityMetricsCommandOutput,
+} from "./commands/GetJourneyRunExecutionActivityMetricsCommand";
+import {
+  GetJourneyRunExecutionMetricsCommandInput,
+  GetJourneyRunExecutionMetricsCommandOutput,
+} from "./commands/GetJourneyRunExecutionMetricsCommand";
+import { GetJourneyRunsCommandInput, GetJourneyRunsCommandOutput } from "./commands/GetJourneyRunsCommand";
 import { GetPushTemplateCommandInput, GetPushTemplateCommandOutput } from "./commands/GetPushTemplateCommand";
 import {
   GetRecommenderConfigurationCommandInput,
@@ -364,6 +373,9 @@ export type ServiceInputTypes =
   | GetJourneyDateRangeKpiCommandInput
   | GetJourneyExecutionActivityMetricsCommandInput
   | GetJourneyExecutionMetricsCommandInput
+  | GetJourneyRunExecutionActivityMetricsCommandInput
+  | GetJourneyRunExecutionMetricsCommandInput
+  | GetJourneyRunsCommandInput
   | GetPushTemplateCommandInput
   | GetRecommenderConfigurationCommandInput
   | GetRecommenderConfigurationsCommandInput
@@ -488,6 +500,9 @@ export type ServiceOutputTypes =
   | GetJourneyDateRangeKpiCommandOutput
   | GetJourneyExecutionActivityMetricsCommandOutput
   | GetJourneyExecutionMetricsCommandOutput
+  | GetJourneyRunExecutionActivityMetricsCommandOutput
+  | GetJourneyRunExecutionMetricsCommandOutput
+  | GetJourneyRunsCommandOutput
   | GetPushTemplateCommandOutput
   | GetRecommenderConfigurationCommandOutput
   | GetRecommenderConfigurationsCommandOutput
