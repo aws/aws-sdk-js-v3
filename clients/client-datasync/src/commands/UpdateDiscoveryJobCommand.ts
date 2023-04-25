@@ -14,53 +14,43 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { ListAgentsRequest, ListAgentsResponse } from "../models/models_0";
-import { de_ListAgentsCommand, se_ListAgentsCommand } from "../protocols/Aws_json1_1";
+import { UpdateDiscoveryJobRequest, UpdateDiscoveryJobResponse } from "../models/models_0";
+import { de_UpdateDiscoveryJobCommand, se_UpdateDiscoveryJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  *
- * The input for {@link ListAgentsCommand}.
+ * The input for {@link UpdateDiscoveryJobCommand}.
  */
-export interface ListAgentsCommandInput extends ListAgentsRequest {}
+export interface UpdateDiscoveryJobCommandInput extends UpdateDiscoveryJobRequest {}
 /**
  * @public
  *
- * The output of {@link ListAgentsCommand}.
+ * The output of {@link UpdateDiscoveryJobCommand}.
  */
-export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataBearer {}
+export interface UpdateDiscoveryJobCommandOutput extends UpdateDiscoveryJobResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns a list of DataSync agents that belong to an Amazon Web Services account in the Amazon Web Services Region specified in the request.</p>
- *          <p>With pagination, you can reduce the number of agents returned in a response. If you get
- *       a truncated list of agents in a response, the response contains a marker that you can specify
- *       in your next request to fetch the next page of agents.</p>
- *          <p>
- *             <code>ListAgents</code> is eventually consistent. This means the result of running the
- *       operation might not reflect that you just created or deleted an agent. For example, if you
- *       create an agent with <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateAgent.html">CreateAgent</a> and then
- *       immediately run <code>ListAgents</code>, that agent might not show up in the list right away.
- *       In situations like this, you can always confirm whether an agent has been created (or deleted)
- *       by using <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeAgent.html">DescribeAgent</a>.</p>
+ * <p>Edits a DataSync discovery job configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, ListAgentsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, ListAgentsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, UpdateDiscoveryJobCommand } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, UpdateDiscoveryJobCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = { // ListAgentsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ * const input = { // UpdateDiscoveryJobRequest
+ *   DiscoveryJobArn: "STRING_VALUE", // required
+ *   CollectionDurationMinutes: Number("int"), // required
  * };
- * const command = new ListAgentsCommand(input);
+ * const command = new UpdateDiscoveryJobCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param ListAgentsCommandInput - {@link ListAgentsCommandInput}
- * @returns {@link ListAgentsCommandOutput}
- * @see {@link ListAgentsCommandInput} for command's `input` shape.
- * @see {@link ListAgentsCommandOutput} for command's `response` shape.
+ * @param UpdateDiscoveryJobCommandInput - {@link UpdateDiscoveryJobCommandInput}
+ * @returns {@link UpdateDiscoveryJobCommandOutput}
+ * @see {@link UpdateDiscoveryJobCommandInput} for command's `input` shape.
+ * @see {@link UpdateDiscoveryJobCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
@@ -72,9 +62,9 @@ export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataB
  *
  *
  */
-export class ListAgentsCommand extends $Command<
-  ListAgentsCommandInput,
-  ListAgentsCommandOutput,
+export class UpdateDiscoveryJobCommand extends $Command<
+  UpdateDiscoveryJobCommandInput,
+  UpdateDiscoveryJobCommandOutput,
   DataSyncClientResolvedConfig
 > {
   // Start section: command_properties
@@ -92,7 +82,7 @@ export class ListAgentsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListAgentsCommandInput) {
+  constructor(readonly input: UpdateDiscoveryJobCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -105,15 +95,17 @@ export class ListAgentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListAgentsCommandInput, ListAgentsCommandOutput> {
+  ): Handler<UpdateDiscoveryJobCommandInput, UpdateDiscoveryJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListAgentsCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateDiscoveryJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "DataSyncClient";
-    const commandName = "ListAgentsCommand";
+    const commandName = "UpdateDiscoveryJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -132,15 +124,15 @@ export class ListAgentsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListAgentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListAgentsCommand(input, context);
+  private serialize(input: UpdateDiscoveryJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateDiscoveryJobCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAgentsCommandOutput> {
-    return de_ListAgentsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDiscoveryJobCommandOutput> {
+    return de_UpdateDiscoveryJobCommand(output, context);
   }
 
   // Start section: command_body_extra

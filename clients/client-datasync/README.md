@@ -12,7 +12,8 @@ AWS SDK for JavaScript DataSync Client for Node.js, Browser and React Native.
 <fullname>DataSync</fullname>
 
 <p>DataSync is a managed data transfer service that makes it simpler for you
-to automate moving data between on-premises storage and Amazon Web Services storage services. You also can use DataSync to transfer data between other cloud providers and Amazon Web Services storage services.</p>
+to automate moving data between on-premises storage and Amazon Web Services storage services.
+You also can use DataSync to transfer data between other cloud providers and Amazon Web Services storage services.</p>
 <p>This API interface reference includes documentation for using DataSync
 programmatically. For complete information, see the <i>
 <a href="https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html">DataSync User
@@ -34,16 +35,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DataSyncClient` and
-the commands you need, for example `CancelTaskExecutionCommand`:
+the commands you need, for example `AddStorageSystemCommand`:
 
 ```js
 // ES5 example
-const { DataSyncClient, CancelTaskExecutionCommand } = require("@aws-sdk/client-datasync");
+const { DataSyncClient, AddStorageSystemCommand } = require("@aws-sdk/client-datasync");
 ```
 
 ```ts
 // ES6+ example
-import { DataSyncClient, CancelTaskExecutionCommand } from "@aws-sdk/client-datasync";
+import { DataSyncClient, AddStorageSystemCommand } from "@aws-sdk/client-datasync";
 ```
 
 ### Usage
@@ -62,7 +63,7 @@ const client = new DataSyncClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CancelTaskExecutionCommand(params);
+const command = new AddStorageSystemCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +142,7 @@ const client = new AWS.DataSync({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.cancelTaskExecution(params);
+  const data = await client.addStorageSystem(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +150,7 @@ try {
 
 // Promises.
 client
-  .cancelTaskExecution(params)
+  .addStorageSystem(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +159,7 @@ client
   });
 
 // callbacks.
-client.cancelTaskExecution(params, (err, data) => {
+client.addStorageSystem(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -214,6 +215,14 @@ see LICENSE for more information.
 
 ## Client Commands (Operations List)
 
+<details>
+<summary>
+AddStorageSystem
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/addstoragesystemcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/addstoragesystemcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/addstoragesystemcommandoutput.html)
+
+</details>
 <details>
 <summary>
 CancelTaskExecution
@@ -352,6 +361,14 @@ DescribeAgent
 </details>
 <details>
 <summary>
+DescribeDiscoveryJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/describediscoveryjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/describediscoveryjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/describediscoveryjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeLocationEfs
 </summary>
 
@@ -432,6 +449,30 @@ DescribeLocationSmb
 </details>
 <details>
 <summary>
+DescribeStorageSystem
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/describestoragesystemcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/describestoragesystemcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/describestoragesystemcommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeStorageSystemResourceMetrics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/describestoragesystemresourcemetricscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/describestoragesystemresourcemetricscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/describestoragesystemresourcemetricscommandoutput.html)
+
+</details>
+<details>
+<summary>
+DescribeStorageSystemResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/describestoragesystemresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/describestoragesystemresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/describestoragesystemresourcescommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeTask
 </summary>
 
@@ -448,6 +489,14 @@ DescribeTaskExecution
 </details>
 <details>
 <summary>
+GenerateRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/generaterecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/generaterecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/generaterecommendationscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListAgents
 </summary>
 
@@ -456,10 +505,26 @@ ListAgents
 </details>
 <details>
 <summary>
+ListDiscoveryJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/listdiscoveryjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/listdiscoveryjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/listdiscoveryjobscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListLocations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/listlocationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/listlocationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/listlocationscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListStorageSystems
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/liststoragesystemscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/liststoragesystemscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/liststoragesystemscommandoutput.html)
 
 </details>
 <details>
@@ -488,10 +553,34 @@ ListTasks
 </details>
 <details>
 <summary>
+RemoveStorageSystem
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/removestoragesystemcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/removestoragesystemcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/removestoragesystemcommandoutput.html)
+
+</details>
+<details>
+<summary>
+StartDiscoveryJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/startdiscoveryjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/startdiscoveryjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/startdiscoveryjobcommandoutput.html)
+
+</details>
+<details>
+<summary>
 StartTaskExecution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/starttaskexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/starttaskexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/starttaskexecutioncommandoutput.html)
+
+</details>
+<details>
+<summary>
+StopDiscoveryJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/stopdiscoveryjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/stopdiscoveryjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/stopdiscoveryjobcommandoutput.html)
 
 </details>
 <details>
@@ -516,6 +605,14 @@ UpdateAgent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/updateagentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/updateagentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/updateagentcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateDiscoveryJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/updatediscoveryjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/updatediscoveryjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/updatediscoveryjobcommandoutput.html)
 
 </details>
 <details>
@@ -548,6 +645,14 @@ UpdateLocationSmb
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/updatelocationsmbcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/updatelocationsmbcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/updatelocationsmbcommandoutput.html)
+
+</details>
+<details>
+<summary>
+UpdateStorageSystem
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/classes/updatestoragesystemcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/updatestoragesystemcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-datasync/interfaces/updatestoragesystemcommandoutput.html)
 
 </details>
 <details>

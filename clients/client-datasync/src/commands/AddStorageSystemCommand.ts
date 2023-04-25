@@ -14,53 +14,67 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { ListAgentsRequest, ListAgentsResponse } from "../models/models_0";
-import { de_ListAgentsCommand, se_ListAgentsCommand } from "../protocols/Aws_json1_1";
+import {
+  AddStorageSystemRequest,
+  AddStorageSystemRequestFilterSensitiveLog,
+  AddStorageSystemResponse,
+} from "../models/models_0";
+import { de_AddStorageSystemCommand, se_AddStorageSystemCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  *
- * The input for {@link ListAgentsCommand}.
+ * The input for {@link AddStorageSystemCommand}.
  */
-export interface ListAgentsCommandInput extends ListAgentsRequest {}
+export interface AddStorageSystemCommandInput extends AddStorageSystemRequest {}
 /**
  * @public
  *
- * The output of {@link ListAgentsCommand}.
+ * The output of {@link AddStorageSystemCommand}.
  */
-export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataBearer {}
+export interface AddStorageSystemCommandOutput extends AddStorageSystemResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns a list of DataSync agents that belong to an Amazon Web Services account in the Amazon Web Services Region specified in the request.</p>
- *          <p>With pagination, you can reduce the number of agents returned in a response. If you get
- *       a truncated list of agents in a response, the response contains a marker that you can specify
- *       in your next request to fetch the next page of agents.</p>
- *          <p>
- *             <code>ListAgents</code> is eventually consistent. This means the result of running the
- *       operation might not reflect that you just created or deleted an agent. For example, if you
- *       create an agent with <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateAgent.html">CreateAgent</a> and then
- *       immediately run <code>ListAgents</code>, that agent might not show up in the list right away.
- *       In situations like this, you can always confirm whether an agent has been created (or deleted)
- *       by using <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeAgent.html">DescribeAgent</a>.</p>
+ * <p>Creates an Amazon Web Services resource for an on-premises storage system that you want DataSync Discovery to collect
+ *       information about.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, ListAgentsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, ListAgentsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, AddStorageSystemCommand } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, AddStorageSystemCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const input = { // ListAgentsRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
+ * const input = { // AddStorageSystemRequest
+ *   ServerConfiguration: { // DiscoveryServerConfiguration
+ *     ServerHostname: "STRING_VALUE", // required
+ *     ServerPort: Number("int"),
+ *   },
+ *   SystemType: "NetAppONTAP", // required
+ *   AgentArns: [ // DiscoveryAgentArnList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   CloudWatchLogGroupArn: "STRING_VALUE",
+ *   Tags: [ // InputTagList
+ *     { // TagListEntry
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Name: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE", // required
+ *   Credentials: { // Credentials
+ *     Username: "STRING_VALUE", // required
+ *     Password: "STRING_VALUE", // required
+ *   },
  * };
- * const command = new ListAgentsCommand(input);
+ * const command = new AddStorageSystemCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param ListAgentsCommandInput - {@link ListAgentsCommandInput}
- * @returns {@link ListAgentsCommandOutput}
- * @see {@link ListAgentsCommandInput} for command's `input` shape.
- * @see {@link ListAgentsCommandOutput} for command's `response` shape.
+ * @param AddStorageSystemCommandInput - {@link AddStorageSystemCommandInput}
+ * @returns {@link AddStorageSystemCommandOutput}
+ * @see {@link AddStorageSystemCommandInput} for command's `input` shape.
+ * @see {@link AddStorageSystemCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
@@ -72,9 +86,9 @@ export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataB
  *
  *
  */
-export class ListAgentsCommand extends $Command<
-  ListAgentsCommandInput,
-  ListAgentsCommandOutput,
+export class AddStorageSystemCommand extends $Command<
+  AddStorageSystemCommandInput,
+  AddStorageSystemCommandOutput,
   DataSyncClientResolvedConfig
 > {
   // Start section: command_properties
@@ -92,7 +106,7 @@ export class ListAgentsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListAgentsCommandInput) {
+  constructor(readonly input: AddStorageSystemCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -105,20 +119,22 @@ export class ListAgentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListAgentsCommandInput, ListAgentsCommandOutput> {
+  ): Handler<AddStorageSystemCommandInput, AddStorageSystemCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListAgentsCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, AddStorageSystemCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "DataSyncClient";
-    const commandName = "ListAgentsCommand";
+    const commandName = "AddStorageSystemCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: AddStorageSystemRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
@@ -132,15 +148,15 @@ export class ListAgentsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListAgentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListAgentsCommand(input, context);
+  private serialize(input: AddStorageSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_AddStorageSystemCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAgentsCommandOutput> {
-    return de_ListAgentsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddStorageSystemCommandOutput> {
+    return de_AddStorageSystemCommand(output, context);
   }
 
   // Start section: command_body_extra

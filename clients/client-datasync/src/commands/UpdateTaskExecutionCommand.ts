@@ -32,14 +32,13 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
 
 /**
  * @public
- * <p>Updates execution of a task.</p>
- *          <p>You can modify bandwidth throttling for a task execution that is running or queued.
- *       For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#adjust-bandwidth-throttling">Adjusting Bandwidth Throttling for a Task Execution</a>.</p>
+ * <p>Modifies a running DataSync task.</p>
  *          <note>
- *             <p>The only <code>Option</code> that can be modified by <code>UpdateTaskExecution</code>
- *         is <code>
+ *             <p>Currently, the only <code>Option</code> that you can modify with
+ *           <code>UpdateTaskExecution</code> is <code>
  *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond">BytesPerSecond</a>
- *                </code>.</p>
+ *                </code>, which throttles bandwidth for a running or queued
+ *         task.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,7 +77,8 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>

@@ -49,6 +49,7 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import { AddStorageSystemCommandInput, AddStorageSystemCommandOutput } from "./commands/AddStorageSystemCommand";
 import {
   CancelTaskExecutionCommandInput,
   CancelTaskExecutionCommandOutput,
@@ -84,6 +85,10 @@ import { DeleteAgentCommandInput, DeleteAgentCommandOutput } from "./commands/De
 import { DeleteLocationCommandInput, DeleteLocationCommandOutput } from "./commands/DeleteLocationCommand";
 import { DeleteTaskCommandInput, DeleteTaskCommandOutput } from "./commands/DeleteTaskCommand";
 import { DescribeAgentCommandInput, DescribeAgentCommandOutput } from "./commands/DescribeAgentCommand";
+import {
+  DescribeDiscoveryJobCommandInput,
+  DescribeDiscoveryJobCommandOutput,
+} from "./commands/DescribeDiscoveryJobCommand";
 import {
   DescribeLocationEfsCommandInput,
   DescribeLocationEfsCommandOutput,
@@ -121,23 +126,48 @@ import {
   DescribeLocationSmbCommandInput,
   DescribeLocationSmbCommandOutput,
 } from "./commands/DescribeLocationSmbCommand";
+import {
+  DescribeStorageSystemCommandInput,
+  DescribeStorageSystemCommandOutput,
+} from "./commands/DescribeStorageSystemCommand";
+import {
+  DescribeStorageSystemResourceMetricsCommandInput,
+  DescribeStorageSystemResourceMetricsCommandOutput,
+} from "./commands/DescribeStorageSystemResourceMetricsCommand";
+import {
+  DescribeStorageSystemResourcesCommandInput,
+  DescribeStorageSystemResourcesCommandOutput,
+} from "./commands/DescribeStorageSystemResourcesCommand";
 import { DescribeTaskCommandInput, DescribeTaskCommandOutput } from "./commands/DescribeTaskCommand";
 import {
   DescribeTaskExecutionCommandInput,
   DescribeTaskExecutionCommandOutput,
 } from "./commands/DescribeTaskExecutionCommand";
+import {
+  GenerateRecommendationsCommandInput,
+  GenerateRecommendationsCommandOutput,
+} from "./commands/GenerateRecommendationsCommand";
 import { ListAgentsCommandInput, ListAgentsCommandOutput } from "./commands/ListAgentsCommand";
+import { ListDiscoveryJobsCommandInput, ListDiscoveryJobsCommandOutput } from "./commands/ListDiscoveryJobsCommand";
 import { ListLocationsCommandInput, ListLocationsCommandOutput } from "./commands/ListLocationsCommand";
+import { ListStorageSystemsCommandInput, ListStorageSystemsCommandOutput } from "./commands/ListStorageSystemsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListTaskExecutionsCommandInput, ListTaskExecutionsCommandOutput } from "./commands/ListTaskExecutionsCommand";
 import { ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
+import {
+  RemoveStorageSystemCommandInput,
+  RemoveStorageSystemCommandOutput,
+} from "./commands/RemoveStorageSystemCommand";
+import { StartDiscoveryJobCommandInput, StartDiscoveryJobCommandOutput } from "./commands/StartDiscoveryJobCommand";
 import { StartTaskExecutionCommandInput, StartTaskExecutionCommandOutput } from "./commands/StartTaskExecutionCommand";
+import { StopDiscoveryJobCommandInput, StopDiscoveryJobCommandOutput } from "./commands/StopDiscoveryJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand";
+import { UpdateDiscoveryJobCommandInput, UpdateDiscoveryJobCommandOutput } from "./commands/UpdateDiscoveryJobCommand";
 import { UpdateLocationHdfsCommandInput, UpdateLocationHdfsCommandOutput } from "./commands/UpdateLocationHdfsCommand";
 import { UpdateLocationNfsCommandInput, UpdateLocationNfsCommandOutput } from "./commands/UpdateLocationNfsCommand";
 import {
@@ -145,6 +175,10 @@ import {
   UpdateLocationObjectStorageCommandOutput,
 } from "./commands/UpdateLocationObjectStorageCommand";
 import { UpdateLocationSmbCommandInput, UpdateLocationSmbCommandOutput } from "./commands/UpdateLocationSmbCommand";
+import {
+  UpdateStorageSystemCommandInput,
+  UpdateStorageSystemCommandOutput,
+} from "./commands/UpdateStorageSystemCommand";
 import { UpdateTaskCommandInput, UpdateTaskCommandOutput } from "./commands/UpdateTaskCommand";
 import {
   UpdateTaskExecutionCommandInput,
@@ -162,6 +196,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
  * @public
  */
 export type ServiceInputTypes =
+  | AddStorageSystemCommandInput
   | CancelTaskExecutionCommandInput
   | CreateAgentCommandInput
   | CreateLocationEfsCommandInput
@@ -179,6 +214,7 @@ export type ServiceInputTypes =
   | DeleteLocationCommandInput
   | DeleteTaskCommandInput
   | DescribeAgentCommandInput
+  | DescribeDiscoveryJobCommandInput
   | DescribeLocationEfsCommandInput
   | DescribeLocationFsxLustreCommandInput
   | DescribeLocationFsxOntapCommandInput
@@ -189,21 +225,32 @@ export type ServiceInputTypes =
   | DescribeLocationObjectStorageCommandInput
   | DescribeLocationS3CommandInput
   | DescribeLocationSmbCommandInput
+  | DescribeStorageSystemCommandInput
+  | DescribeStorageSystemResourceMetricsCommandInput
+  | DescribeStorageSystemResourcesCommandInput
   | DescribeTaskCommandInput
   | DescribeTaskExecutionCommandInput
+  | GenerateRecommendationsCommandInput
   | ListAgentsCommandInput
+  | ListDiscoveryJobsCommandInput
   | ListLocationsCommandInput
+  | ListStorageSystemsCommandInput
   | ListTagsForResourceCommandInput
   | ListTaskExecutionsCommandInput
   | ListTasksCommandInput
+  | RemoveStorageSystemCommandInput
+  | StartDiscoveryJobCommandInput
   | StartTaskExecutionCommandInput
+  | StopDiscoveryJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAgentCommandInput
+  | UpdateDiscoveryJobCommandInput
   | UpdateLocationHdfsCommandInput
   | UpdateLocationNfsCommandInput
   | UpdateLocationObjectStorageCommandInput
   | UpdateLocationSmbCommandInput
+  | UpdateStorageSystemCommandInput
   | UpdateTaskCommandInput
   | UpdateTaskExecutionCommandInput;
 
@@ -211,6 +258,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AddStorageSystemCommandOutput
   | CancelTaskExecutionCommandOutput
   | CreateAgentCommandOutput
   | CreateLocationEfsCommandOutput
@@ -228,6 +276,7 @@ export type ServiceOutputTypes =
   | DeleteLocationCommandOutput
   | DeleteTaskCommandOutput
   | DescribeAgentCommandOutput
+  | DescribeDiscoveryJobCommandOutput
   | DescribeLocationEfsCommandOutput
   | DescribeLocationFsxLustreCommandOutput
   | DescribeLocationFsxOntapCommandOutput
@@ -238,21 +287,32 @@ export type ServiceOutputTypes =
   | DescribeLocationObjectStorageCommandOutput
   | DescribeLocationS3CommandOutput
   | DescribeLocationSmbCommandOutput
+  | DescribeStorageSystemCommandOutput
+  | DescribeStorageSystemResourceMetricsCommandOutput
+  | DescribeStorageSystemResourcesCommandOutput
   | DescribeTaskCommandOutput
   | DescribeTaskExecutionCommandOutput
+  | GenerateRecommendationsCommandOutput
   | ListAgentsCommandOutput
+  | ListDiscoveryJobsCommandOutput
   | ListLocationsCommandOutput
+  | ListStorageSystemsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTaskExecutionsCommandOutput
   | ListTasksCommandOutput
+  | RemoveStorageSystemCommandOutput
+  | StartDiscoveryJobCommandOutput
   | StartTaskExecutionCommandOutput
+  | StopDiscoveryJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAgentCommandOutput
+  | UpdateDiscoveryJobCommandOutput
   | UpdateLocationHdfsCommandOutput
   | UpdateLocationNfsCommandOutput
   | UpdateLocationObjectStorageCommandOutput
   | UpdateLocationSmbCommandOutput
+  | UpdateStorageSystemCommandOutput
   | UpdateTaskCommandOutput
   | UpdateTaskExecutionCommandOutput;
 
@@ -422,11 +482,12 @@ export interface DataSyncClientResolvedConfig extends DataSyncClientResolvedConf
  * @public
  * <fullname>DataSync</fullname>
  *          <p>DataSync is a managed data transfer service that makes it simpler for you
- *       to automate moving data between on-premises storage and Amazon Web Services storage services. You also can use DataSync to transfer data between other cloud providers and Amazon Web Services storage services.</p>
+ *       to automate moving data between on-premises storage and Amazon Web Services storage services.
+ *       You also can use DataSync to transfer data between other cloud providers and Amazon Web Services storage services.</p>
  *          <p>This API interface reference includes documentation for using DataSync
  *       programmatically. For complete information, see the <i>
  *                <a href="https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html">DataSync User
- *         Guide</a>
+ *           Guide</a>
  *             </i>.</p>
  */
 export class DataSyncClient extends __Client<
