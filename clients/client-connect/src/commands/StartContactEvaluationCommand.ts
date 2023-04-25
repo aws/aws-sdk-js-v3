@@ -14,49 +14,52 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { CreateParticipantRequest, CreateParticipantResponse } from "../models/models_0";
-import { de_CreateParticipantCommand, se_CreateParticipantCommand } from "../protocols/Aws_restJson1";
+import { StartContactEvaluationRequest, StartContactEvaluationResponse } from "../models/models_1";
+import { de_StartContactEvaluationCommand, se_StartContactEvaluationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link CreateParticipantCommand}.
+ * The input for {@link StartContactEvaluationCommand}.
  */
-export interface CreateParticipantCommandInput extends CreateParticipantRequest {}
+export interface StartContactEvaluationCommandInput extends StartContactEvaluationRequest {}
 /**
  * @public
  *
- * The output of {@link CreateParticipantCommand}.
+ * The output of {@link StartContactEvaluationCommand}.
  */
-export interface CreateParticipantCommandOutput extends CreateParticipantResponse, __MetadataBearer {}
+export interface StartContactEvaluationCommandOutput extends StartContactEvaluationResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Adds a new participant into an on-going chat contact. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html">Customize chat
- *    flow experiences by integrating custom participants</a>.</p>
+ * <p>Starts an empty evaluation in the specified Amazon Connect instance, using the given
+ *    evaluation form for the particular contact. The evaluation form version used for the contact
+ *    evaluation corresponds to the currently activated version. If no version is activated for the
+ *    evaluation form, the contact evaluation cannot be started. </p>
+ *          <note>
+ *             <p>Evaluations created through the public API do not contain answer values suggested from
+ *     automation.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateParticipantCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateParticipantCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, StartContactEvaluationCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, StartContactEvaluationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // CreateParticipantRequest
+ * const input = { // StartContactEvaluationRequest
  *   InstanceId: "STRING_VALUE", // required
  *   ContactId: "STRING_VALUE", // required
+ *   EvaluationFormId: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",
- *   ParticipantDetails: { // ParticipantDetailsToAdd
- *     ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM" || "CUSTOM_BOT",
- *     DisplayName: "STRING_VALUE",
- *   },
  * };
- * const command = new CreateParticipantCommand(input);
+ * const command = new StartContactEvaluationCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param CreateParticipantCommandInput - {@link CreateParticipantCommandInput}
- * @returns {@link CreateParticipantCommandOutput}
- * @see {@link CreateParticipantCommandInput} for command's `input` shape.
- * @see {@link CreateParticipantCommandOutput} for command's `response` shape.
+ * @param StartContactEvaluationCommandInput - {@link StartContactEvaluationCommandInput}
+ * @returns {@link StartContactEvaluationCommandOutput}
+ * @see {@link StartContactEvaluationCommandInput} for command's `input` shape.
+ * @see {@link StartContactEvaluationCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
@@ -65,8 +68,8 @@ export interface CreateParticipantCommandOutput extends CreateParticipantRespons
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more of the specified parameters are not valid.</p>
  *
- * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>A resource already has that name.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
@@ -79,9 +82,9 @@ export interface CreateParticipantCommandOutput extends CreateParticipantRespons
  *
  *
  */
-export class CreateParticipantCommand extends $Command<
-  CreateParticipantCommandInput,
-  CreateParticipantCommandOutput,
+export class StartContactEvaluationCommand extends $Command<
+  StartContactEvaluationCommandInput,
+  StartContactEvaluationCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
@@ -99,7 +102,7 @@ export class CreateParticipantCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateParticipantCommandInput) {
+  constructor(readonly input: StartContactEvaluationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -112,17 +115,17 @@ export class CreateParticipantCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateParticipantCommandInput, CreateParticipantCommandOutput> {
+  ): Handler<StartContactEvaluationCommandInput, StartContactEvaluationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateParticipantCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, StartContactEvaluationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "CreateParticipantCommand";
+    const commandName = "StartContactEvaluationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -141,15 +144,15 @@ export class CreateParticipantCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateParticipantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateParticipantCommand(input, context);
+  private serialize(input: StartContactEvaluationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_StartContactEvaluationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateParticipantCommandOutput> {
-    return de_CreateParticipantCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartContactEvaluationCommandOutput> {
+    return de_StartContactEvaluationCommand(output, context);
   }
 
   // Start section: command_body_extra

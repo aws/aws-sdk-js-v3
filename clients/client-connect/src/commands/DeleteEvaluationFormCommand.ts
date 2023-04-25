@@ -14,49 +14,53 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { CreateParticipantRequest, CreateParticipantResponse } from "../models/models_0";
-import { de_CreateParticipantCommand, se_CreateParticipantCommand } from "../protocols/Aws_restJson1";
+import { DeleteEvaluationFormRequest } from "../models/models_0";
+import { de_DeleteEvaluationFormCommand, se_DeleteEvaluationFormCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link CreateParticipantCommand}.
+ * The input for {@link DeleteEvaluationFormCommand}.
  */
-export interface CreateParticipantCommandInput extends CreateParticipantRequest {}
+export interface DeleteEvaluationFormCommandInput extends DeleteEvaluationFormRequest {}
 /**
  * @public
  *
- * The output of {@link CreateParticipantCommand}.
+ * The output of {@link DeleteEvaluationFormCommand}.
  */
-export interface CreateParticipantCommandOutput extends CreateParticipantResponse, __MetadataBearer {}
+export interface DeleteEvaluationFormCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Adds a new participant into an on-going chat contact. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html">Customize chat
- *    flow experiences by integrating custom participants</a>.</p>
+ * <p>Deletes an evaluation form in the specified Amazon Connect instance. </p>
+ *          <ul>
+ *             <li>
+ *                <p>If the version
+ *     property is provided, only the specified version of the evaluation form is deleted.</p>
+ *             </li>
+ *             <li>
+ *                <p>If no version is provided, then the full form (all versions) is deleted.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateParticipantCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateParticipantCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DeleteEvaluationFormCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DeleteEvaluationFormCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // CreateParticipantRequest
+ * const input = { // DeleteEvaluationFormRequest
  *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
- *   ParticipantDetails: { // ParticipantDetailsToAdd
- *     ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM" || "CUSTOM_BOT",
- *     DisplayName: "STRING_VALUE",
- *   },
+ *   EvaluationFormId: "STRING_VALUE", // required
+ *   EvaluationFormVersion: Number("int"),
  * };
- * const command = new CreateParticipantCommand(input);
+ * const command = new DeleteEvaluationFormCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param CreateParticipantCommandInput - {@link CreateParticipantCommandInput}
- * @returns {@link CreateParticipantCommandOutput}
- * @see {@link CreateParticipantCommandInput} for command's `input` shape.
- * @see {@link CreateParticipantCommandOutput} for command's `response` shape.
+ * @param DeleteEvaluationFormCommandInput - {@link DeleteEvaluationFormCommandInput}
+ * @returns {@link DeleteEvaluationFormCommandOutput}
+ * @see {@link DeleteEvaluationFormCommandInput} for command's `input` shape.
+ * @see {@link DeleteEvaluationFormCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
@@ -65,23 +69,20 @@ export interface CreateParticipantCommandOutput extends CreateParticipantRespons
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more of the specified parameters are not valid.</p>
  *
- * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>A resource already has that name.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
- *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
  *
  */
-export class CreateParticipantCommand extends $Command<
-  CreateParticipantCommandInput,
-  CreateParticipantCommandOutput,
+export class DeleteEvaluationFormCommand extends $Command<
+  DeleteEvaluationFormCommandInput,
+  DeleteEvaluationFormCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
@@ -99,7 +100,7 @@ export class CreateParticipantCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateParticipantCommandInput) {
+  constructor(readonly input: DeleteEvaluationFormCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -112,17 +113,17 @@ export class CreateParticipantCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateParticipantCommandInput, CreateParticipantCommandOutput> {
+  ): Handler<DeleteEvaluationFormCommandInput, DeleteEvaluationFormCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateParticipantCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteEvaluationFormCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "CreateParticipantCommand";
+    const commandName = "DeleteEvaluationFormCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -141,15 +142,15 @@ export class CreateParticipantCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateParticipantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateParticipantCommand(input, context);
+  private serialize(input: DeleteEvaluationFormCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteEvaluationFormCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateParticipantCommandOutput> {
-    return de_CreateParticipantCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEvaluationFormCommandOutput> {
+    return de_DeleteEvaluationFormCommand(output, context);
   }
 
   // Start section: command_body_extra

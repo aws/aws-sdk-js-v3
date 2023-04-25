@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { GetTrafficDistributionRequest, GetTrafficDistributionResponse } from "../models/models_0";
+import { GetTrafficDistributionRequest, GetTrafficDistributionResponse } from "../models/models_1";
 import { de_GetTrafficDistributionCommand, se_GetTrafficDistributionCommand } from "../protocols/Aws_restJson1";
 
 /**

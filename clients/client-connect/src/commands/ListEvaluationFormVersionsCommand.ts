@@ -14,49 +14,45 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { CreateParticipantRequest, CreateParticipantResponse } from "../models/models_0";
-import { de_CreateParticipantCommand, se_CreateParticipantCommand } from "../protocols/Aws_restJson1";
+import { ListEvaluationFormVersionsRequest, ListEvaluationFormVersionsResponse } from "../models/models_1";
+import { de_ListEvaluationFormVersionsCommand, se_ListEvaluationFormVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link CreateParticipantCommand}.
+ * The input for {@link ListEvaluationFormVersionsCommand}.
  */
-export interface CreateParticipantCommandInput extends CreateParticipantRequest {}
+export interface ListEvaluationFormVersionsCommandInput extends ListEvaluationFormVersionsRequest {}
 /**
  * @public
  *
- * The output of {@link CreateParticipantCommand}.
+ * The output of {@link ListEvaluationFormVersionsCommand}.
  */
-export interface CreateParticipantCommandOutput extends CreateParticipantResponse, __MetadataBearer {}
+export interface ListEvaluationFormVersionsCommandOutput extends ListEvaluationFormVersionsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Adds a new participant into an on-going chat contact. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html">Customize chat
- *    flow experiences by integrating custom participants</a>.</p>
+ * <p>Lists versions of an evaluation form in the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, CreateParticipantCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, CreateParticipantCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListEvaluationFormVersionsCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, ListEvaluationFormVersionsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // CreateParticipantRequest
+ * const input = { // ListEvaluationFormVersionsRequest
  *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
- *   ClientToken: "STRING_VALUE",
- *   ParticipantDetails: { // ParticipantDetailsToAdd
- *     ParticipantRole: "AGENT" || "CUSTOMER" || "SYSTEM" || "CUSTOM_BOT",
- *     DisplayName: "STRING_VALUE",
- *   },
+ *   EvaluationFormId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
  * };
- * const command = new CreateParticipantCommand(input);
+ * const command = new ListEvaluationFormVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param CreateParticipantCommandInput - {@link CreateParticipantCommandInput}
- * @returns {@link CreateParticipantCommandOutput}
- * @see {@link CreateParticipantCommandInput} for command's `input` shape.
- * @see {@link CreateParticipantCommandOutput} for command's `response` shape.
+ * @param ListEvaluationFormVersionsCommandInput - {@link ListEvaluationFormVersionsCommandInput}
+ * @returns {@link ListEvaluationFormVersionsCommandOutput}
+ * @see {@link ListEvaluationFormVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListEvaluationFormVersionsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
@@ -65,23 +61,17 @@ export interface CreateParticipantCommandOutput extends CreateParticipantRespons
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>One or more of the specified parameters are not valid.</p>
  *
- * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
- *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
- *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
  *
  */
-export class CreateParticipantCommand extends $Command<
-  CreateParticipantCommandInput,
-  CreateParticipantCommandOutput,
+export class ListEvaluationFormVersionsCommand extends $Command<
+  ListEvaluationFormVersionsCommandInput,
+  ListEvaluationFormVersionsCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
@@ -99,7 +89,7 @@ export class CreateParticipantCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateParticipantCommandInput) {
+  constructor(readonly input: ListEvaluationFormVersionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -112,17 +102,17 @@ export class CreateParticipantCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateParticipantCommandInput, CreateParticipantCommandOutput> {
+  ): Handler<ListEvaluationFormVersionsCommandInput, ListEvaluationFormVersionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateParticipantCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListEvaluationFormVersionsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "CreateParticipantCommand";
+    const commandName = "ListEvaluationFormVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -141,15 +131,18 @@ export class CreateParticipantCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateParticipantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateParticipantCommand(input, context);
+  private serialize(input: ListEvaluationFormVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListEvaluationFormVersionsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateParticipantCommandOutput> {
-    return de_CreateParticipantCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<ListEvaluationFormVersionsCommandOutput> {
+    return de_ListEvaluationFormVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

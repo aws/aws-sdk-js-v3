@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { GetTaskTemplateRequest, GetTaskTemplateResponse } from "../models/models_0";
+import { GetTaskTemplateRequest, GetTaskTemplateResponse } from "../models/models_1";
 import { de_GetTaskTemplateCommand, se_GetTaskTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**

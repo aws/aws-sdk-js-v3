@@ -4,11 +4,13 @@ import {
   _json,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   map,
@@ -25,6 +27,10 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import {
+  ActivateEvaluationFormCommandInput,
+  ActivateEvaluationFormCommandOutput,
+} from "../commands/ActivateEvaluationFormCommand";
 import {
   AssociateApprovedOriginCommandInput,
   AssociateApprovedOriginCommandOutput,
@@ -67,6 +73,10 @@ import {
   CreateContactFlowModuleCommandOutput,
 } from "../commands/CreateContactFlowModuleCommand";
 import {
+  CreateEvaluationFormCommandInput,
+  CreateEvaluationFormCommandOutput,
+} from "../commands/CreateEvaluationFormCommand";
+import {
   CreateHoursOfOperationCommandInput,
   CreateHoursOfOperationCommandOutput,
 } from "../commands/CreateHoursOfOperationCommand";
@@ -99,11 +109,23 @@ import {
   CreateUserHierarchyGroupCommandOutput,
 } from "../commands/CreateUserHierarchyGroupCommand";
 import { CreateVocabularyCommandInput, CreateVocabularyCommandOutput } from "../commands/CreateVocabularyCommand";
+import {
+  DeactivateEvaluationFormCommandInput,
+  DeactivateEvaluationFormCommandOutput,
+} from "../commands/DeactivateEvaluationFormCommand";
+import {
+  DeleteContactEvaluationCommandInput,
+  DeleteContactEvaluationCommandOutput,
+} from "../commands/DeleteContactEvaluationCommand";
 import { DeleteContactFlowCommandInput, DeleteContactFlowCommandOutput } from "../commands/DeleteContactFlowCommand";
 import {
   DeleteContactFlowModuleCommandInput,
   DeleteContactFlowModuleCommandOutput,
 } from "../commands/DeleteContactFlowModuleCommand";
+import {
+  DeleteEvaluationFormCommandInput,
+  DeleteEvaluationFormCommandOutput,
+} from "../commands/DeleteEvaluationFormCommand";
 import {
   DeleteHoursOfOperationCommandInput,
   DeleteHoursOfOperationCommandOutput,
@@ -137,6 +159,10 @@ import {
 } from "../commands/DescribeAgentStatusCommand";
 import { DescribeContactCommandInput, DescribeContactCommandOutput } from "../commands/DescribeContactCommand";
 import {
+  DescribeContactEvaluationCommandInput,
+  DescribeContactEvaluationCommandOutput,
+} from "../commands/DescribeContactEvaluationCommand";
+import {
   DescribeContactFlowCommandInput,
   DescribeContactFlowCommandOutput,
 } from "../commands/DescribeContactFlowCommand";
@@ -144,6 +170,10 @@ import {
   DescribeContactFlowModuleCommandInput,
   DescribeContactFlowModuleCommandOutput,
 } from "../commands/DescribeContactFlowModuleCommand";
+import {
+  DescribeEvaluationFormCommandInput,
+  DescribeEvaluationFormCommandOutput,
+} from "../commands/DescribeEvaluationFormCommand";
 import {
   DescribeHoursOfOperationCommandInput,
   DescribeHoursOfOperationCommandOutput,
@@ -244,6 +274,10 @@ import {
 } from "../commands/ListApprovedOriginsCommand";
 import { ListBotsCommandInput, ListBotsCommandOutput } from "../commands/ListBotsCommand";
 import {
+  ListContactEvaluationsCommandInput,
+  ListContactEvaluationsCommandOutput,
+} from "../commands/ListContactEvaluationsCommand";
+import {
   ListContactFlowModulesCommandInput,
   ListContactFlowModulesCommandOutput,
 } from "../commands/ListContactFlowModulesCommand";
@@ -256,6 +290,14 @@ import {
   ListDefaultVocabulariesCommandInput,
   ListDefaultVocabulariesCommandOutput,
 } from "../commands/ListDefaultVocabulariesCommand";
+import {
+  ListEvaluationFormsCommandInput,
+  ListEvaluationFormsCommandOutput,
+} from "../commands/ListEvaluationFormsCommand";
+import {
+  ListEvaluationFormVersionsCommandInput,
+  ListEvaluationFormVersionsCommandOutput,
+} from "../commands/ListEvaluationFormVersionsCommand";
 import {
   ListHoursOfOperationsCommandInput,
   ListHoursOfOperationsCommandOutput,
@@ -345,6 +387,10 @@ import { SearchUsersCommandInput, SearchUsersCommandOutput } from "../commands/S
 import { SearchVocabulariesCommandInput, SearchVocabulariesCommandOutput } from "../commands/SearchVocabulariesCommand";
 import { StartChatContactCommandInput, StartChatContactCommandOutput } from "../commands/StartChatContactCommand";
 import {
+  StartContactEvaluationCommandInput,
+  StartContactEvaluationCommandOutput,
+} from "../commands/StartContactEvaluationCommand";
+import {
   StartContactRecordingCommandInput,
   StartContactRecordingCommandOutput,
 } from "../commands/StartContactRecordingCommand";
@@ -367,6 +413,10 @@ import {
   StopContactStreamingCommandOutput,
 } from "../commands/StopContactStreamingCommand";
 import {
+  SubmitContactEvaluationCommandInput,
+  SubmitContactEvaluationCommandOutput,
+} from "../commands/SubmitContactEvaluationCommand";
+import {
   SuspendContactRecordingCommandInput,
   SuspendContactRecordingCommandOutput,
 } from "../commands/SuspendContactRecordingCommand";
@@ -379,6 +429,10 @@ import {
   UpdateContactAttributesCommandOutput,
 } from "../commands/UpdateContactAttributesCommand";
 import { UpdateContactCommandInput, UpdateContactCommandOutput } from "../commands/UpdateContactCommand";
+import {
+  UpdateContactEvaluationCommandInput,
+  UpdateContactEvaluationCommandOutput,
+} from "../commands/UpdateContactEvaluationCommand";
 import {
   UpdateContactFlowContentCommandInput,
   UpdateContactFlowContentCommandOutput,
@@ -403,6 +457,10 @@ import {
   UpdateContactScheduleCommandInput,
   UpdateContactScheduleCommandOutput,
 } from "../commands/UpdateContactScheduleCommand";
+import {
+  UpdateEvaluationFormCommandInput,
+  UpdateEvaluationFormCommandOutput,
+} from "../commands/UpdateEvaluationFormCommand";
 import {
   UpdateHoursOfOperationCommandInput,
   UpdateHoursOfOperationCommandOutput,
@@ -508,22 +566,32 @@ import {
   ContactFilter,
   ContactFlowNotPublishedException,
   ContactState,
-  Credentials,
   CrossChannelBehavior,
   CurrentMetric,
   CurrentMetricData,
   CurrentMetricResult,
   CurrentMetricSortCriteria,
-  Distribution,
   DuplicateResourceException,
   EncryptionConfig,
+  Evaluation,
+  EvaluationAnswerData,
+  EvaluationAnswerOutput,
+  EvaluationFormNumericQuestionAutomation,
+  EvaluationFormNumericQuestionOption,
+  EvaluationFormNumericQuestionProperties,
+  EvaluationFormQuestion,
+  EvaluationFormQuestionTypeProperties,
+  EvaluationFormScoringStrategy,
+  EvaluationFormSingleSelectQuestionAutomation,
+  EvaluationFormSingleSelectQuestionAutomationOption,
+  EvaluationFormSingleSelectQuestionOption,
+  EvaluationFormSingleSelectQuestionProperties,
+  EvaluationMetadata,
+  EvaluationNote,
+  EvaluationScore,
   EventBridgeActionDefinition,
   Filters,
-  FilterV2,
   Grouping,
-  HistoricalMetric,
-  HistoricalMetricData,
-  HistoricalMetricResult,
   HoursOfOperationConfig,
   HoursOfOperationTimeSlice,
   IdempotencyException,
@@ -542,12 +610,9 @@ import {
   LexV2Bot,
   LimitExceededException,
   MediaConcurrency,
-  MetricDataV2,
-  MetricFilterV2,
-  MetricResultV2,
-  MetricV2,
   MonitorCapability,
   NotificationRecipientType,
+  NumericQuestionPropertyValueAutomation,
   OutboundCallerConfig,
   ParticipantDetailsToAdd,
   PhoneNumberCountryCode,
@@ -572,20 +637,15 @@ import {
   S3Config,
   SendNotificationActionDefinition,
   ServiceQuotaExceededException,
+  SingleSelectQuestionRuleCategoryAutomation,
   TaskActionDefinition,
   TaskTemplateConstraints,
   TaskTemplateDefaultFieldValue,
   TaskTemplateDefaults,
   TaskTemplateField,
   TaskTemplateFieldIdentifier,
-  TelephonyConfig,
-  Threshold,
-  ThresholdV2,
   ThrottlingException,
-  UserData,
-  UserDataFilters,
   UserIdentityInfo,
-  UserNotFoundException,
   UserPhoneConfig,
   UserQuickConnectConfig,
   Vocabulary,
@@ -597,11 +657,29 @@ import {
   ChatStreamingConfiguration,
   ContactNotFoundException,
   ControlPlaneTagFilter,
+  Credentials,
   DestinationNotAllowedException,
+  Distribution,
+  EvaluationAnswerInput,
+  EvaluationForm,
+  EvaluationFormContent,
+  EvaluationFormItem,
+  EvaluationFormSection,
+  EvaluationFormSummary,
+  EvaluationFormVersionSummary,
+  EvaluationSummary,
+  FilterV2,
   HierarchyGroupCondition,
   HierarchyLevelUpdate,
   HierarchyStructureUpdate,
+  HistoricalMetric,
+  HistoricalMetricData,
+  HistoricalMetricResult,
   InstanceSummary,
+  MetricDataV2,
+  MetricFilterV2,
+  MetricResultV2,
+  MetricV2,
   OutboundContactNotPermittedException,
   ParticipantDetails,
   ParticipantTimerConfiguration,
@@ -618,12 +696,58 @@ import {
   StringCondition,
   TagCondition,
   TaskTemplateMetadata,
+  TelephonyConfig,
+  Threshold,
+  ThresholdV2,
   UpdateParticipantRoleConfigChannelInfo,
+  UserData,
+  UserDataFilters,
+  UserNotFoundException,
   UserSearchCriteria,
   UserSearchFilter,
   VocabularySummary,
   VoiceRecordingConfiguration,
 } from "../models/models_1";
+
+/**
+ * serializeAws_restJson1ActivateEvaluationFormCommand
+ */
+export const se_ActivateEvaluationFormCommand = async (
+  input: ActivateEvaluationFormCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/evaluation-forms/{InstanceId}/{EvaluationFormId}/activate";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EvaluationFormId",
+    () => input.EvaluationFormId!,
+    "{EvaluationFormId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      EvaluationFormVersion: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 /**
  * serializeAws_restJson1AssociateApprovedOriginCommand
@@ -1091,6 +1215,41 @@ export const se_CreateContactFlowModuleCommand = async (
       Description: [],
       Name: [],
       Tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateEvaluationFormCommand
+ */
+export const se_CreateEvaluationFormCommand = async (
+  input: CreateEvaluationFormCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/evaluation-forms/{InstanceId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      Description: [],
+      Items: (_) => se_EvaluationFormItemsList(_, context),
+      ScoringStrategy: (_) => _json(_),
+      Title: [],
     })
   );
   return new __HttpRequest({
@@ -1639,6 +1798,79 @@ export const se_CreateVocabularyCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeactivateEvaluationFormCommand
+ */
+export const se_DeactivateEvaluationFormCommand = async (
+  input: DeactivateEvaluationFormCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/evaluation-forms/{InstanceId}/{EvaluationFormId}/deactivate";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EvaluationFormId",
+    () => input.EvaluationFormId!,
+    "{EvaluationFormId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      EvaluationFormVersion: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteContactEvaluationCommand
+ */
+export const se_DeleteContactEvaluationCommand = async (
+  input: DeleteContactEvaluationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/contact-evaluations/{InstanceId}/{EvaluationId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EvaluationId",
+    () => input.EvaluationId!,
+    "{EvaluationId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DeleteContactFlowCommand
  */
 export const se_DeleteContactFlowCommand = async (
@@ -1700,6 +1932,43 @@ export const se_DeleteContactFlowModuleCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteEvaluationFormCommand
+ */
+export const se_DeleteEvaluationFormCommand = async (
+  input: DeleteEvaluationFormCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/evaluation-forms/{InstanceId}/{EvaluationFormId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EvaluationFormId",
+    () => input.EvaluationFormId!,
+    "{EvaluationFormId}",
+    false
+  );
+  const query: any = map({
+    version: [() => input.EvaluationFormVersion !== void 0, () => input.EvaluationFormVersion!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -2133,6 +2402,39 @@ export const se_DescribeContactCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeContactEvaluationCommand
+ */
+export const se_DescribeContactEvaluationCommand = async (
+  input: DescribeContactEvaluationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/contact-evaluations/{InstanceId}/{EvaluationId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EvaluationId",
+    () => input.EvaluationId!,
+    "{EvaluationId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DescribeContactFlowCommand
  */
 export const se_DescribeContactFlowCommand = async (
@@ -2194,6 +2496,43 @@ export const se_DescribeContactFlowModuleCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeEvaluationFormCommand
+ */
+export const se_DescribeEvaluationFormCommand = async (
+  input: DescribeEvaluationFormCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/evaluation-forms/{InstanceId}/{EvaluationFormId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EvaluationFormId",
+    () => input.EvaluationFormId!,
+    "{EvaluationFormId}",
+    false
+  );
+  const query: any = map({
+    version: [() => input.EvaluationFormVersion !== void 0, () => input.EvaluationFormVersion!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -3331,6 +3670,35 @@ export const se_ListBotsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListContactEvaluationsCommand
+ */
+export const se_ListContactEvaluationsCommand = async (
+  input: ListContactEvaluationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact-evaluations/{InstanceId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    contactId: [, __expectNonNull(input.ContactId!, `ContactId`)],
+    nextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListContactFlowModulesCommand
  */
 export const se_ListContactFlowModulesCommand = async (
@@ -3457,6 +3825,73 @@ export const se_ListDefaultVocabulariesCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListEvaluationFormsCommand
+ */
+export const se_ListEvaluationFormsCommand = async (
+  input: ListEvaluationFormsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/evaluation-forms/{InstanceId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListEvaluationFormVersionsCommand
+ */
+export const se_ListEvaluationFormVersionsCommand = async (
+  input: ListEvaluationFormVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/evaluation-forms/{InstanceId}/{EvaluationFormId}/versions";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EvaluationFormId",
+    () => input.EvaluationFormId!,
+    "{EvaluationFormId}",
+    false
+  );
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -4640,6 +5075,39 @@ export const se_StartChatContactCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartContactEvaluationCommand
+ */
+export const se_StartContactEvaluationCommand = async (
+  input: StartContactEvaluationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact-evaluations/{InstanceId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      ContactId: [],
+      EvaluationFormId: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1StartContactRecordingCommand
  */
 export const se_StartContactRecordingCommand = async (
@@ -4865,6 +5333,47 @@ export const se_StopContactStreamingCommand = async (
       ContactId: [],
       InstanceId: [],
       StreamingId: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1SubmitContactEvaluationCommand
+ */
+export const se_SubmitContactEvaluationCommand = async (
+  input: SubmitContactEvaluationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/contact-evaluations/{InstanceId}/{EvaluationId}/submit";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EvaluationId",
+    () => input.EvaluationId!,
+    "{EvaluationId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Answers: (_) => se_EvaluationAnswersInputMap(_, context),
+      Notes: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -5114,6 +5623,47 @@ export const se_UpdateContactAttributesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateContactEvaluationCommand
+ */
+export const se_UpdateContactEvaluationCommand = async (
+  input: UpdateContactEvaluationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/contact-evaluations/{InstanceId}/{EvaluationId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EvaluationId",
+    () => input.EvaluationId!,
+    "{EvaluationId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Answers: (_) => se_EvaluationAnswersInputMap(_, context),
+      Notes: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1UpdateContactFlowContentCommand
  */
 export const se_UpdateContactFlowContentCommand = async (
@@ -5343,6 +5893,52 @@ export const se_UpdateContactScheduleCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateEvaluationFormCommand
+ */
+export const se_UpdateEvaluationFormCommand = async (
+  input: UpdateEvaluationFormCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/evaluation-forms/{InstanceId}/{EvaluationFormId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EvaluationFormId",
+    () => input.EvaluationFormId!,
+    "{EvaluationFormId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      CreateNewVersion: [],
+      Description: [],
+      EvaluationFormVersion: [],
+      Items: (_) => se_EvaluationFormItemsList(_, context),
+      ScoringStrategy: (_) => _json(_),
+      Title: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -6344,6 +6940,67 @@ export const se_UpdateUserSecurityProfilesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ActivateEvaluationFormCommand
+ */
+export const de_ActivateEvaluationFormCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ActivateEvaluationFormCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ActivateEvaluationFormCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EvaluationFormArn: __expectString,
+    EvaluationFormId: __expectString,
+    EvaluationFormVersion: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ActivateEvaluationFormCommandError
+ */
+const de_ActivateEvaluationFormCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ActivateEvaluationFormCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.connect#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1AssociateApprovedOriginCommand
  */
 export const de_AssociateApprovedOriginCommand = async (
@@ -7197,6 +7854,69 @@ const de_CreateContactFlowModuleCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateEvaluationFormCommand
+ */
+export const de_CreateEvaluationFormCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEvaluationFormCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateEvaluationFormCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EvaluationFormArn: __expectString,
+    EvaluationFormId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateEvaluationFormCommandError
+ */
+const de_CreateEvaluationFormCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEvaluationFormCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.connect#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.connect#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -8181,6 +8901,122 @@ const de_CreateVocabularyCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeactivateEvaluationFormCommand
+ */
+export const de_DeactivateEvaluationFormCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeactivateEvaluationFormCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeactivateEvaluationFormCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EvaluationFormArn: __expectString,
+    EvaluationFormId: __expectString,
+    EvaluationFormVersion: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeactivateEvaluationFormCommandError
+ */
+const de_DeactivateEvaluationFormCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeactivateEvaluationFormCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.connect#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteContactEvaluationCommand
+ */
+export const de_DeleteContactEvaluationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteContactEvaluationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteContactEvaluationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteContactEvaluationCommandError
+ */
+const de_DeleteContactEvaluationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteContactEvaluationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.connect#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteContactFlowCommand
  */
 export const de_DeleteContactFlowCommand = async (
@@ -8280,6 +9116,61 @@ const de_DeleteContactFlowModuleCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.connect#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteEvaluationFormCommand
+ */
+export const de_DeleteEvaluationFormCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEvaluationFormCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteEvaluationFormCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteEvaluationFormCommandError
+ */
+const de_DeleteEvaluationFormCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEvaluationFormCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.connect#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -9081,6 +9972,63 @@ const de_DescribeContactCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeContactEvaluationCommand
+ */
+export const de_DescribeContactEvaluationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeContactEvaluationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeContactEvaluationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Evaluation: (_) => de_Evaluation(_, context),
+    EvaluationForm: (_) => de_EvaluationFormContent(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeContactEvaluationCommandError
+ */
+const de_DescribeContactEvaluationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeContactEvaluationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DescribeContactFlowCommand
  */
 export const de_DescribeContactFlowCommand = async (
@@ -9188,6 +10136,62 @@ const de_DescribeContactFlowModuleCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.connect#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeEvaluationFormCommand
+ */
+export const de_DescribeEvaluationFormCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEvaluationFormCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeEvaluationFormCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EvaluationForm: (_) => de_EvaluationForm(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeEvaluationFormCommandError
+ */
+const de_DescribeEvaluationFormCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEvaluationFormCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -11304,6 +12308,63 @@ const de_ListBotsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListContactEvaluationsCommand
+ */
+export const de_ListContactEvaluationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListContactEvaluationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListContactEvaluationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EvaluationSummaryList: (_) => de_EvaluationSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListContactEvaluationsCommandError
+ */
+const de_ListContactEvaluationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListContactEvaluationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListContactFlowModulesCommand
  */
 export const de_ListContactFlowModulesCommand = async (
@@ -11530,6 +12591,120 @@ const de_ListDefaultVocabulariesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.connect#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListEvaluationFormsCommand
+ */
+export const de_ListEvaluationFormsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEvaluationFormsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListEvaluationFormsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EvaluationFormSummaryList: (_) => de_EvaluationFormSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListEvaluationFormsCommandError
+ */
+const de_ListEvaluationFormsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEvaluationFormsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListEvaluationFormVersionsCommand
+ */
+export const de_ListEvaluationFormVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEvaluationFormVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListEvaluationFormVersionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EvaluationFormVersionSummaryList: (_) => de_EvaluationFormVersionSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListEvaluationFormVersionsCommandError
+ */
+const de_ListEvaluationFormVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEvaluationFormVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -13748,6 +14923,69 @@ const de_StartChatContactCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1StartContactEvaluationCommand
+ */
+export const de_StartContactEvaluationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartContactEvaluationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartContactEvaluationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EvaluationArn: __expectString,
+    EvaluationId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartContactEvaluationCommandError
+ */
+const de_StartContactEvaluationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartContactEvaluationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.connect#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.connect#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1StartContactRecordingCommand
  */
 export const de_StartContactRecordingCommand = async (
@@ -14131,6 +15369,66 @@ const de_StopContactStreamingCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1SubmitContactEvaluationCommand
+ */
+export const de_SubmitContactEvaluationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SubmitContactEvaluationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SubmitContactEvaluationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EvaluationArn: __expectString,
+    EvaluationId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SubmitContactEvaluationCommandError
+ */
+const de_SubmitContactEvaluationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SubmitContactEvaluationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.connect#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -14535,6 +15833,66 @@ const de_UpdateContactAttributesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateContactEvaluationCommand
+ */
+export const de_UpdateContactEvaluationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContactEvaluationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateContactEvaluationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EvaluationArn: __expectString,
+    EvaluationId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateContactEvaluationCommandError
+ */
+const de_UpdateContactEvaluationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContactEvaluationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.connect#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateContactFlowContentCommand
  */
 export const de_UpdateContactFlowContentCommand = async (
@@ -14872,6 +16230,70 @@ const de_UpdateContactScheduleCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateEvaluationFormCommand
+ */
+export const de_UpdateEvaluationFormCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEvaluationFormCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateEvaluationFormCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EvaluationFormArn: __expectString,
+    EvaluationFormId: __expectString,
+    EvaluationFormVersion: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateEvaluationFormCommandError
+ */
+const de_UpdateEvaluationFormCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEvaluationFormCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.connect#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.connect#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -16888,6 +18310,118 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_EncryptionConfig omitted.
 
+/**
+ * serializeAws_restJson1EvaluationAnswerData
+ */
+const se_EvaluationAnswerData = (input: EvaluationAnswerData, context: __SerdeContext): any => {
+  return EvaluationAnswerData.visit(input, {
+    NotApplicable: (value) => ({ NotApplicable: value }),
+    NumericValue: (value) => ({ NumericValue: __serializeFloat(value) }),
+    StringValue: (value) => ({ StringValue: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+/**
+ * serializeAws_restJson1EvaluationAnswerInput
+ */
+const se_EvaluationAnswerInput = (input: EvaluationAnswerInput, context: __SerdeContext): any => {
+  return take(input, {
+    Value: (_) => se_EvaluationAnswerData(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1EvaluationAnswersInputMap
+ */
+const se_EvaluationAnswersInputMap = (input: Record<string, EvaluationAnswerInput>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_EvaluationAnswerInput(value, context);
+    return acc;
+  }, {});
+};
+
+/**
+ * serializeAws_restJson1EvaluationFormItem
+ */
+const se_EvaluationFormItem = (input: EvaluationFormItem, context: __SerdeContext): any => {
+  return EvaluationFormItem.visit(input, {
+    Question: (value) => ({ Question: se_EvaluationFormQuestion(value, context) }),
+    Section: (value) => ({ Section: se_EvaluationFormSection(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+/**
+ * serializeAws_restJson1EvaluationFormItemsList
+ */
+const se_EvaluationFormItemsList = (input: EvaluationFormItem[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_EvaluationFormItem(entry, context);
+    });
+};
+
+// se_EvaluationFormNumericQuestionAutomation omitted.
+
+// se_EvaluationFormNumericQuestionOption omitted.
+
+// se_EvaluationFormNumericQuestionOptionList omitted.
+
+// se_EvaluationFormNumericQuestionProperties omitted.
+
+/**
+ * serializeAws_restJson1EvaluationFormQuestion
+ */
+const se_EvaluationFormQuestion = (input: EvaluationFormQuestion, context: __SerdeContext): any => {
+  return take(input, {
+    Instructions: [],
+    NotApplicableEnabled: [],
+    QuestionType: [],
+    QuestionTypeProperties: _json,
+    RefId: [],
+    Title: [],
+    Weight: __serializeFloat,
+  });
+};
+
+// se_EvaluationFormQuestionTypeProperties omitted.
+
+// se_EvaluationFormScoringStrategy omitted.
+
+/**
+ * serializeAws_restJson1EvaluationFormSection
+ */
+const se_EvaluationFormSection = (input: EvaluationFormSection, context: __SerdeContext): any => {
+  return take(input, {
+    Instructions: [],
+    Items: (_) => se_EvaluationFormItemsList(_, context),
+    RefId: [],
+    Title: [],
+    Weight: __serializeFloat,
+  });
+};
+
+// se_EvaluationFormSingleSelectQuestionAutomation omitted.
+
+// se_EvaluationFormSingleSelectQuestionAutomationOption omitted.
+
+// se_EvaluationFormSingleSelectQuestionAutomationOptionList omitted.
+
+// se_EvaluationFormSingleSelectQuestionOption omitted.
+
+// se_EvaluationFormSingleSelectQuestionOptionList omitted.
+
+// se_EvaluationFormSingleSelectQuestionProperties omitted.
+
+// se_EvaluationNote omitted.
+
+// se_EvaluationNotesMap omitted.
+
 // se_EventBridgeActionDefinition omitted.
 
 // se_Filters omitted.
@@ -16986,6 +18520,8 @@ const se_MetricV2 = (input: MetricV2, context: __SerdeContext): any => {
 };
 
 // se_NotificationRecipientType omitted.
+
+// se_NumericQuestionPropertyValueAutomation omitted.
 
 // se_OutboundCallerConfig omitted.
 
@@ -17126,6 +18662,8 @@ const se_SecurityProfileSearchCriteria = (input: SecurityProfileSearchCriteria, 
 // se_SendNotificationActionDefinition omitted.
 
 // se_SingleSelectOptions omitted.
+
+// se_SingleSelectQuestionRuleCategoryAutomation omitted.
 
 // se_StringCondition omitted.
 
@@ -17427,6 +18965,313 @@ const de_CurrentMetricResults = (output: any, context: __SerdeContext): CurrentM
 
 // de_EncryptionConfig omitted.
 
+/**
+ * deserializeAws_restJson1Evaluation
+ */
+const de_Evaluation = (output: any, context: __SerdeContext): Evaluation => {
+  return take(output, {
+    Answers: (_: any) => de_EvaluationAnswersOutputMap(_, context),
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EvaluationArn: __expectString,
+    EvaluationId: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Metadata: (_: any) => de_EvaluationMetadata(_, context),
+    Notes: _json,
+    Scores: (_: any) => de_EvaluationScoresMap(_, context),
+    Status: __expectString,
+    Tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationAnswerData
+ */
+const de_EvaluationAnswerData = (output: any, context: __SerdeContext): EvaluationAnswerData => {
+  if (__expectBoolean(output.NotApplicable) !== undefined) {
+    return { NotApplicable: __expectBoolean(output.NotApplicable) as any };
+  }
+  if (__limitedParseDouble(output.NumericValue) !== undefined) {
+    return { NumericValue: __limitedParseDouble(output.NumericValue) as any };
+  }
+  if (__expectString(output.StringValue) !== undefined) {
+    return { StringValue: __expectString(output.StringValue) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1EvaluationAnswerOutput
+ */
+const de_EvaluationAnswerOutput = (output: any, context: __SerdeContext): EvaluationAnswerOutput => {
+  return take(output, {
+    SystemSuggestedValue: (_: any) => de_EvaluationAnswerData(__expectUnion(_), context),
+    Value: (_: any) => de_EvaluationAnswerData(__expectUnion(_), context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationAnswersOutputMap
+ */
+const de_EvaluationAnswersOutputMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, EvaluationAnswerOutput> => {
+  return Object.entries(output).reduce((acc: Record<string, EvaluationAnswerOutput>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = de_EvaluationAnswerOutput(value, context);
+    return acc;
+  }, {});
+};
+
+/**
+ * deserializeAws_restJson1EvaluationForm
+ */
+const de_EvaluationForm = (output: any, context: __SerdeContext): EvaluationForm => {
+  return take(output, {
+    CreatedBy: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    EvaluationFormArn: __expectString,
+    EvaluationFormId: __expectString,
+    EvaluationFormVersion: __expectInt32,
+    Items: (_: any) => de_EvaluationFormItemsList(_, context),
+    LastModifiedBy: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Locked: __expectBoolean,
+    ScoringStrategy: _json,
+    Status: __expectString,
+    Tags: _json,
+    Title: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationFormContent
+ */
+const de_EvaluationFormContent = (output: any, context: __SerdeContext): EvaluationFormContent => {
+  return take(output, {
+    Description: __expectString,
+    EvaluationFormArn: __expectString,
+    EvaluationFormId: __expectString,
+    EvaluationFormVersion: __expectInt32,
+    Items: (_: any) => de_EvaluationFormItemsList(_, context),
+    ScoringStrategy: _json,
+    Title: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationFormItem
+ */
+const de_EvaluationFormItem = (output: any, context: __SerdeContext): EvaluationFormItem => {
+  if (output.Question != null) {
+    return {
+      Question: de_EvaluationFormQuestion(output.Question, context),
+    };
+  }
+  if (output.Section != null) {
+    return {
+      Section: de_EvaluationFormSection(output.Section, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1EvaluationFormItemsList
+ */
+const de_EvaluationFormItemsList = (output: any, context: __SerdeContext): EvaluationFormItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EvaluationFormItem(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+// de_EvaluationFormNumericQuestionAutomation omitted.
+
+// de_EvaluationFormNumericQuestionOption omitted.
+
+// de_EvaluationFormNumericQuestionOptionList omitted.
+
+// de_EvaluationFormNumericQuestionProperties omitted.
+
+/**
+ * deserializeAws_restJson1EvaluationFormQuestion
+ */
+const de_EvaluationFormQuestion = (output: any, context: __SerdeContext): EvaluationFormQuestion => {
+  return take(output, {
+    Instructions: __expectString,
+    NotApplicableEnabled: __expectBoolean,
+    QuestionType: __expectString,
+    QuestionTypeProperties: (_: any) => _json(__expectUnion(_)),
+    RefId: __expectString,
+    Title: __expectString,
+    Weight: __limitedParseDouble,
+  }) as any;
+};
+
+// de_EvaluationFormQuestionTypeProperties omitted.
+
+// de_EvaluationFormScoringStrategy omitted.
+
+/**
+ * deserializeAws_restJson1EvaluationFormSection
+ */
+const de_EvaluationFormSection = (output: any, context: __SerdeContext): EvaluationFormSection => {
+  return take(output, {
+    Instructions: __expectString,
+    Items: (_: any) => de_EvaluationFormItemsList(_, context),
+    RefId: __expectString,
+    Title: __expectString,
+    Weight: __limitedParseDouble,
+  }) as any;
+};
+
+// de_EvaluationFormSingleSelectQuestionAutomation omitted.
+
+// de_EvaluationFormSingleSelectQuestionAutomationOption omitted.
+
+// de_EvaluationFormSingleSelectQuestionAutomationOptionList omitted.
+
+// de_EvaluationFormSingleSelectQuestionOption omitted.
+
+// de_EvaluationFormSingleSelectQuestionOptionList omitted.
+
+// de_EvaluationFormSingleSelectQuestionProperties omitted.
+
+/**
+ * deserializeAws_restJson1EvaluationFormSummary
+ */
+const de_EvaluationFormSummary = (output: any, context: __SerdeContext): EvaluationFormSummary => {
+  return take(output, {
+    ActiveVersion: __expectInt32,
+    CreatedBy: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EvaluationFormArn: __expectString,
+    EvaluationFormId: __expectString,
+    LastActivatedBy: __expectString,
+    LastActivatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModifiedBy: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LatestVersion: __expectInt32,
+    Title: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationFormSummaryList
+ */
+const de_EvaluationFormSummaryList = (output: any, context: __SerdeContext): EvaluationFormSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EvaluationFormSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationFormVersionSummary
+ */
+const de_EvaluationFormVersionSummary = (output: any, context: __SerdeContext): EvaluationFormVersionSummary => {
+  return take(output, {
+    CreatedBy: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EvaluationFormArn: __expectString,
+    EvaluationFormId: __expectString,
+    EvaluationFormVersion: __expectInt32,
+    LastModifiedBy: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Locked: __expectBoolean,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationFormVersionSummaryList
+ */
+const de_EvaluationFormVersionSummaryList = (output: any, context: __SerdeContext): EvaluationFormVersionSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EvaluationFormVersionSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationMetadata
+ */
+const de_EvaluationMetadata = (output: any, context: __SerdeContext): EvaluationMetadata => {
+  return take(output, {
+    ContactAgentId: __expectString,
+    ContactId: __expectString,
+    EvaluatorArn: __expectString,
+    Score: (_: any) => de_EvaluationScore(_, context),
+  }) as any;
+};
+
+// de_EvaluationNote omitted.
+
+// de_EvaluationNotesMap omitted.
+
+/**
+ * deserializeAws_restJson1EvaluationScore
+ */
+const de_EvaluationScore = (output: any, context: __SerdeContext): EvaluationScore => {
+  return take(output, {
+    AutomaticFail: __expectBoolean,
+    NotApplicable: __expectBoolean,
+    Percentage: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationScoresMap
+ */
+const de_EvaluationScoresMap = (output: any, context: __SerdeContext): Record<string, EvaluationScore> => {
+  return Object.entries(output).reduce((acc: Record<string, EvaluationScore>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = de_EvaluationScore(value, context);
+    return acc;
+  }, {});
+};
+
+/**
+ * deserializeAws_restJson1EvaluationSummary
+ */
+const de_EvaluationSummary = (output: any, context: __SerdeContext): EvaluationSummary => {
+  return take(output, {
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EvaluationArn: __expectString,
+    EvaluationFormId: __expectString,
+    EvaluationFormTitle: __expectString,
+    EvaluationId: __expectString,
+    EvaluatorArn: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Score: (_: any) => de_EvaluationScore(_, context),
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EvaluationSummaryList
+ */
+const de_EvaluationSummaryList = (output: any, context: __SerdeContext): EvaluationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EvaluationSummary(entry, context);
+    });
+  return retVal;
+};
+
 // de_EventBridgeActionDefinition omitted.
 
 // de_FunctionArnsList omitted.
@@ -17665,6 +19510,8 @@ const de_MetricV2 = (output: any, context: __SerdeContext): MetricV2 => {
 
 // de_NumberReference omitted.
 
+// de_NumericQuestionPropertyValueAutomation omitted.
+
 // de_OriginsList omitted.
 
 // de_OutboundCallerConfig omitted.
@@ -17844,6 +19691,8 @@ const de_SecurityKeysList = (output: any, context: __SerdeContext): SecurityKey[
 // de_SendNotificationActionDefinition omitted.
 
 // de_SingleSelectOptions omitted.
+
+// de_SingleSelectQuestionRuleCategoryAutomation omitted.
 
 // de_StringReference omitted.
 
