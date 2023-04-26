@@ -5939,15 +5939,15 @@ const de___listOfVpcInterface = (output: any, context: __SerdeContext): VpcInter
 const de_Bridge = (output: any, context: __SerdeContext): Bridge => {
   return take(output, {
     BridgeArn: [, __expectString, `bridgeArn`],
-    BridgeMessages: (_) => [, de___listOfMessageDetail(_, context), `bridgeMessages`],
+    BridgeMessages: [, (_: any) => de___listOfMessageDetail(_, context), `bridgeMessages`],
     BridgeState: [, __expectString, `bridgeState`],
-    EgressGatewayBridge: (_) => [, de_EgressGatewayBridge(_, context), `egressGatewayBridge`],
-    IngressGatewayBridge: (_) => [, de_IngressGatewayBridge(_, context), `ingressGatewayBridge`],
+    EgressGatewayBridge: [, (_: any) => de_EgressGatewayBridge(_, context), `egressGatewayBridge`],
+    IngressGatewayBridge: [, (_: any) => de_IngressGatewayBridge(_, context), `ingressGatewayBridge`],
     Name: [, __expectString, `name`],
-    Outputs: (_) => [, de___listOfBridgeOutput(_, context), `outputs`],
+    Outputs: [, (_: any) => de___listOfBridgeOutput(_, context), `outputs`],
     PlacementArn: [, __expectString, `placementArn`],
-    SourceFailoverConfig: (_) => [, de_FailoverConfig(_, context), `sourceFailoverConfig`],
-    Sources: (_) => [, de___listOfBridgeSource(_, context), `sources`],
+    SourceFailoverConfig: [, (_: any) => de_FailoverConfig(_, context), `sourceFailoverConfig`],
+    Sources: [, (_: any) => de___listOfBridgeSource(_, context), `sources`],
   }) as any;
 };
 
@@ -5968,7 +5968,7 @@ const de_BridgeFlowOutput = (output: any, context: __SerdeContext): BridgeFlowOu
 const de_BridgeFlowSource = (output: any, context: __SerdeContext): BridgeFlowSource => {
   return take(output, {
     FlowArn: [, __expectString, `flowArn`],
-    FlowVpcInterfaceAttachment: (_) => [, de_VpcInterfaceAttachment(_, context), `flowVpcInterfaceAttachment`],
+    FlowVpcInterfaceAttachment: [, (_: any) => de_VpcInterfaceAttachment(_, context), `flowVpcInterfaceAttachment`],
     Name: [, __expectString, `name`],
     OutputArn: [, __expectString, `outputArn`],
   }) as any;
@@ -6006,8 +6006,8 @@ const de_BridgeNetworkSource = (output: any, context: __SerdeContext): BridgeNet
  */
 const de_BridgeOutput = (output: any, context: __SerdeContext): BridgeOutput => {
   return take(output, {
-    FlowOutput: (_) => [, de_BridgeFlowOutput(_, context), `flowOutput`],
-    NetworkOutput: (_) => [, de_BridgeNetworkOutput(_, context), `networkOutput`],
+    FlowOutput: [, (_: any) => de_BridgeFlowOutput(_, context), `flowOutput`],
+    NetworkOutput: [, (_: any) => de_BridgeNetworkOutput(_, context), `networkOutput`],
   }) as any;
 };
 
@@ -6016,8 +6016,8 @@ const de_BridgeOutput = (output: any, context: __SerdeContext): BridgeOutput => 
  */
 const de_BridgeSource = (output: any, context: __SerdeContext): BridgeSource => {
   return take(output, {
-    FlowSource: (_) => [, de_BridgeFlowSource(_, context), `flowSource`],
-    NetworkSource: (_) => [, de_BridgeNetworkSource(_, context), `networkSource`],
+    FlowSource: [, (_: any) => de_BridgeFlowSource(_, context), `flowSource`],
+    NetworkSource: [, (_: any) => de_BridgeNetworkSource(_, context), `networkSource`],
   }) as any;
 };
 
@@ -6028,7 +6028,7 @@ const de_DestinationConfiguration = (output: any, context: __SerdeContext): Dest
   return take(output, {
     DestinationIp: [, __expectString, `destinationIp`],
     DestinationPort: [, __expectInt32, `destinationPort`],
-    Interface: (_) => [, de_Interface(_, context), `interface`],
+    Interface: [, (_: any) => de_Interface(_, context), `interface`],
     OutboundIp: [, __expectString, `outboundIp`],
   }) as any;
 };
@@ -6077,7 +6077,7 @@ const de_Entitlement = (output: any, context: __SerdeContext): Entitlement => {
   return take(output, {
     DataTransferSubscriberFeePercent: [, __expectInt32, `dataTransferSubscriberFeePercent`],
     Description: [, __expectString, `description`],
-    Encryption: (_) => [, de_Encryption(_, context), `encryption`],
+    Encryption: [, (_: any) => de_Encryption(_, context), `encryption`],
     EntitlementArn: [, __expectString, `entitlementArn`],
     EntitlementStatus: [, __expectString, `entitlementStatus`],
     Name: [, __expectString, `name`],
@@ -6092,7 +6092,7 @@ const de_FailoverConfig = (output: any, context: __SerdeContext): FailoverConfig
   return take(output, {
     FailoverMode: [, __expectString, `failoverMode`],
     RecoveryWindow: [, __expectInt32, `recoveryWindow`],
-    SourcePriority: (_) => [, de_SourcePriority(_, context), `sourcePriority`],
+    SourcePriority: [, (_: any) => de_SourcePriority(_, context), `sourcePriority`],
     State: [, __expectString, `state`],
   }) as any;
 };
@@ -6105,17 +6105,17 @@ const de_Flow = (output: any, context: __SerdeContext): Flow => {
     AvailabilityZone: [, __expectString, `availabilityZone`],
     Description: [, __expectString, `description`],
     EgressIp: [, __expectString, `egressIp`],
-    Entitlements: (_) => [, de___listOfEntitlement(_, context), `entitlements`],
+    Entitlements: [, (_: any) => de___listOfEntitlement(_, context), `entitlements`],
     FlowArn: [, __expectString, `flowArn`],
-    Maintenance: (_) => [, de_Maintenance(_, context), `maintenance`],
-    MediaStreams: (_) => [, de___listOfMediaStream(_, context), `mediaStreams`],
+    Maintenance: [, (_: any) => de_Maintenance(_, context), `maintenance`],
+    MediaStreams: [, (_: any) => de___listOfMediaStream(_, context), `mediaStreams`],
     Name: [, __expectString, `name`],
-    Outputs: (_) => [, de___listOfOutput(_, context), `outputs`],
-    Source: (_) => [, de_Source(_, context), `source`],
-    SourceFailoverConfig: (_) => [, de_FailoverConfig(_, context), `sourceFailoverConfig`],
-    Sources: (_) => [, de___listOfSource(_, context), `sources`],
+    Outputs: [, (_: any) => de___listOfOutput(_, context), `outputs`],
+    Source: [, (_: any) => de_Source(_, context), `source`],
+    SourceFailoverConfig: [, (_: any) => de_FailoverConfig(_, context), `sourceFailoverConfig`],
+    Sources: [, (_: any) => de___listOfSource(_, context), `sources`],
     Status: [, __expectString, `status`],
-    VpcInterfaces: (_) => [, de___listOfVpcInterface(_, context), `vpcInterfaces`],
+    VpcInterfaces: [, (_: any) => de___listOfVpcInterface(_, context), `vpcInterfaces`],
   }) as any;
 };
 
@@ -6141,10 +6141,10 @@ const de_Gateway = (output: any, context: __SerdeContext): Gateway => {
   return take(output, {
     EgressCidrBlocks: [, _json, `egressCidrBlocks`],
     GatewayArn: [, __expectString, `gatewayArn`],
-    GatewayMessages: (_) => [, de___listOfMessageDetail(_, context), `gatewayMessages`],
+    GatewayMessages: [, (_: any) => de___listOfMessageDetail(_, context), `gatewayMessages`],
     GatewayState: [, __expectString, `gatewayState`],
     Name: [, __expectString, `name`],
-    Networks: (_) => [, de___listOfGatewayNetwork(_, context), `networks`],
+    Networks: [, (_: any) => de___listOfGatewayNetwork(_, context), `networks`],
   }) as any;
 };
 
@@ -6154,7 +6154,7 @@ const de_Gateway = (output: any, context: __SerdeContext): Gateway => {
 const de_GatewayBridgeSource = (output: any, context: __SerdeContext): GatewayBridgeSource => {
   return take(output, {
     BridgeArn: [, __expectString, `bridgeArn`],
-    VpcInterfaceAttachment: (_) => [, de_VpcInterfaceAttachment(_, context), `vpcInterfaceAttachment`],
+    VpcInterfaceAttachment: [, (_: any) => de_VpcInterfaceAttachment(_, context), `vpcInterfaceAttachment`],
   }) as any;
 };
 
@@ -6168,7 +6168,7 @@ const de_GatewayInstance = (output: any, context: __SerdeContext): GatewayInstan
     GatewayArn: [, __expectString, `gatewayArn`],
     GatewayInstanceArn: [, __expectString, `gatewayInstanceArn`],
     InstanceId: [, __expectString, `instanceId`],
-    InstanceMessages: (_) => [, de___listOfMessageDetail(_, context), `instanceMessages`],
+    InstanceMessages: [, (_: any) => de___listOfMessageDetail(_, context), `instanceMessages`],
     InstanceState: [, __expectString, `instanceState`],
     RunningBridgeCount: [, __expectInt32, `runningBridgeCount`],
   }) as any;
@@ -6202,7 +6202,7 @@ const de_InputConfiguration = (output: any, context: __SerdeContext): InputConfi
   return take(output, {
     InputIp: [, __expectString, `inputIp`],
     InputPort: [, __expectInt32, `inputPort`],
-    Interface: (_) => [, de_Interface(_, context), `interface`],
+    Interface: [, (_: any) => de_Interface(_, context), `interface`],
   }) as any;
 };
 
@@ -6247,7 +6247,7 @@ const de_ListedFlow = (output: any, context: __SerdeContext): ListedFlow => {
     AvailabilityZone: [, __expectString, `availabilityZone`],
     Description: [, __expectString, `description`],
     FlowArn: [, __expectString, `flowArn`],
-    Maintenance: (_) => [, de_Maintenance(_, context), `maintenance`],
+    Maintenance: [, (_: any) => de_Maintenance(_, context), `maintenance`],
     Name: [, __expectString, `name`],
     SourceType: [, __expectString, `sourceType`],
     Status: [, __expectString, `status`],
@@ -6294,7 +6294,7 @@ const de_Maintenance = (output: any, context: __SerdeContext): Maintenance => {
  */
 const de_MediaStream = (output: any, context: __SerdeContext): MediaStream => {
   return take(output, {
-    Attributes: (_) => [, de_MediaStreamAttributes(_, context), `attributes`],
+    Attributes: [, (_: any) => de_MediaStreamAttributes(_, context), `attributes`],
     ClockRate: [, __expectInt32, `clockRate`],
     Description: [, __expectString, `description`],
     Fmt: [, __expectInt32, `fmt`],
@@ -6310,7 +6310,7 @@ const de_MediaStream = (output: any, context: __SerdeContext): MediaStream => {
  */
 const de_MediaStreamAttributes = (output: any, context: __SerdeContext): MediaStreamAttributes => {
   return take(output, {
-    Fmtp: (_) => [, de_Fmtp(_, context), `fmtp`],
+    Fmtp: [, (_: any) => de_Fmtp(_, context), `fmtp`],
     Lang: [, __expectString, `lang`],
   }) as any;
 };
@@ -6320,9 +6320,13 @@ const de_MediaStreamAttributes = (output: any, context: __SerdeContext): MediaSt
  */
 const de_MediaStreamOutputConfiguration = (output: any, context: __SerdeContext): MediaStreamOutputConfiguration => {
   return take(output, {
-    DestinationConfigurations: (_) => [, de___listOfDestinationConfiguration(_, context), `destinationConfigurations`],
+    DestinationConfigurations: [
+      ,
+      (_: any) => de___listOfDestinationConfiguration(_, context),
+      `destinationConfigurations`,
+    ],
     EncodingName: [, __expectString, `encodingName`],
-    EncodingParameters: (_) => [, de_EncodingParameters(_, context), `encodingParameters`],
+    EncodingParameters: [, (_: any) => de_EncodingParameters(_, context), `encodingParameters`],
     MediaStreamName: [, __expectString, `mediaStreamName`],
   }) as any;
 };
@@ -6333,7 +6337,7 @@ const de_MediaStreamOutputConfiguration = (output: any, context: __SerdeContext)
 const de_MediaStreamSourceConfiguration = (output: any, context: __SerdeContext): MediaStreamSourceConfiguration => {
   return take(output, {
     EncodingName: [, __expectString, `encodingName`],
-    InputConfigurations: (_) => [, de___listOfInputConfiguration(_, context), `inputConfigurations`],
+    InputConfigurations: [, (_: any) => de___listOfInputConfiguration(_, context), `inputConfigurations`],
     MediaStreamName: [, __expectString, `mediaStreamName`],
   }) as any;
 };
@@ -6370,7 +6374,7 @@ const de_Offering = (output: any, context: __SerdeContext): Offering => {
     OfferingDescription: [, __expectString, `offeringDescription`],
     PricePerUnit: [, __expectString, `pricePerUnit`],
     PriceUnits: [, __expectString, `priceUnits`],
-    ResourceSpecification: (_) => [, de_ResourceSpecification(_, context), `resourceSpecification`],
+    ResourceSpecification: [, (_: any) => de_ResourceSpecification(_, context), `resourceSpecification`],
   }) as any;
 };
 
@@ -6384,20 +6388,20 @@ const de_Output = (output: any, context: __SerdeContext): Output => {
     DataTransferSubscriberFeePercent: [, __expectInt32, `dataTransferSubscriberFeePercent`],
     Description: [, __expectString, `description`],
     Destination: [, __expectString, `destination`],
-    Encryption: (_) => [, de_Encryption(_, context), `encryption`],
+    Encryption: [, (_: any) => de_Encryption(_, context), `encryption`],
     EntitlementArn: [, __expectString, `entitlementArn`],
     ListenerAddress: [, __expectString, `listenerAddress`],
     MediaLiveInputArn: [, __expectString, `mediaLiveInputArn`],
-    MediaStreamOutputConfigurations: (_) => [
+    MediaStreamOutputConfigurations: [
       ,
-      de___listOfMediaStreamOutputConfiguration(_, context),
+      (_: any) => de___listOfMediaStreamOutputConfiguration(_, context),
       `mediaStreamOutputConfigurations`,
     ],
     Name: [, __expectString, `name`],
     OutputArn: [, __expectString, `outputArn`],
     Port: [, __expectInt32, `port`],
-    Transport: (_) => [, de_Transport(_, context), `transport`],
-    VpcInterfaceAttachment: (_) => [, de_VpcInterfaceAttachment(_, context), `vpcInterfaceAttachment`],
+    Transport: [, (_: any) => de_Transport(_, context), `transport`],
+    VpcInterfaceAttachment: [, (_: any) => de_VpcInterfaceAttachment(_, context), `vpcInterfaceAttachment`],
   }) as any;
 };
 
@@ -6417,7 +6421,7 @@ const de_Reservation = (output: any, context: __SerdeContext): Reservation => {
     ReservationArn: [, __expectString, `reservationArn`],
     ReservationName: [, __expectString, `reservationName`],
     ReservationState: [, __expectString, `reservationState`],
-    ResourceSpecification: (_) => [, de_ResourceSpecification(_, context), `resourceSpecification`],
+    ResourceSpecification: [, (_: any) => de_ResourceSpecification(_, context), `resourceSpecification`],
     Start: [, __expectString, `start`],
   }) as any;
 };
@@ -6438,22 +6442,22 @@ const de_ResourceSpecification = (output: any, context: __SerdeContext): Resourc
 const de_Source = (output: any, context: __SerdeContext): Source => {
   return take(output, {
     DataTransferSubscriberFeePercent: [, __expectInt32, `dataTransferSubscriberFeePercent`],
-    Decryption: (_) => [, de_Encryption(_, context), `decryption`],
+    Decryption: [, (_: any) => de_Encryption(_, context), `decryption`],
     Description: [, __expectString, `description`],
     EntitlementArn: [, __expectString, `entitlementArn`],
-    GatewayBridgeSource: (_) => [, de_GatewayBridgeSource(_, context), `gatewayBridgeSource`],
+    GatewayBridgeSource: [, (_: any) => de_GatewayBridgeSource(_, context), `gatewayBridgeSource`],
     IngestIp: [, __expectString, `ingestIp`],
     IngestPort: [, __expectInt32, `ingestPort`],
-    MediaStreamSourceConfigurations: (_) => [
+    MediaStreamSourceConfigurations: [
       ,
-      de___listOfMediaStreamSourceConfiguration(_, context),
+      (_: any) => de___listOfMediaStreamSourceConfiguration(_, context),
       `mediaStreamSourceConfigurations`,
     ],
     Name: [, __expectString, `name`],
     SenderControlPort: [, __expectInt32, `senderControlPort`],
     SenderIpAddress: [, __expectString, `senderIpAddress`],
     SourceArn: [, __expectString, `sourceArn`],
-    Transport: (_) => [, de_Transport(_, context), `transport`],
+    Transport: [, (_: any) => de_Transport(_, context), `transport`],
     VpcInterfaceName: [, __expectString, `vpcInterfaceName`],
     WhitelistCidr: [, __expectString, `whitelistCidr`],
   }) as any;

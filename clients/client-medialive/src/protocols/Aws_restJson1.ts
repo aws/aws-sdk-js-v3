@@ -9621,7 +9621,7 @@ const de_AncillarySourceSettings = (output: any, context: __SerdeContext): Ancil
  */
 const de_ArchiveCdnSettings = (output: any, context: __SerdeContext): ArchiveCdnSettings => {
   return take(output, {
-    ArchiveS3Settings: (_) => [, de_ArchiveS3Settings(_, context), `archiveS3Settings`],
+    ArchiveS3Settings: [, (_: any) => de_ArchiveS3Settings(_, context), `archiveS3Settings`],
   }) as any;
 };
 
@@ -9630,7 +9630,7 @@ const de_ArchiveCdnSettings = (output: any, context: __SerdeContext): ArchiveCdn
  */
 const de_ArchiveContainerSettings = (output: any, context: __SerdeContext): ArchiveContainerSettings => {
   return take(output, {
-    M2tsSettings: (_) => [, de_M2tsSettings(_, context), `m2tsSettings`],
+    M2tsSettings: [, (_: any) => de_M2tsSettings(_, context), `m2tsSettings`],
     RawSettings: [, _json, `rawSettings`],
   }) as any;
 };
@@ -9640,8 +9640,8 @@ const de_ArchiveContainerSettings = (output: any, context: __SerdeContext): Arch
  */
 const de_ArchiveGroupSettings = (output: any, context: __SerdeContext): ArchiveGroupSettings => {
   return take(output, {
-    ArchiveCdnSettings: (_) => [, de_ArchiveCdnSettings(_, context), `archiveCdnSettings`],
-    Destination: (_) => [, de_OutputLocationRef(_, context), `destination`],
+    ArchiveCdnSettings: [, (_: any) => de_ArchiveCdnSettings(_, context), `archiveCdnSettings`],
+    Destination: [, (_: any) => de_OutputLocationRef(_, context), `destination`],
     RolloverInterval: [, __expectInt32, `rolloverInterval`],
   }) as any;
 };
@@ -9651,7 +9651,7 @@ const de_ArchiveGroupSettings = (output: any, context: __SerdeContext): ArchiveG
  */
 const de_ArchiveOutputSettings = (output: any, context: __SerdeContext): ArchiveOutputSettings => {
   return take(output, {
-    ContainerSettings: (_) => [, de_ArchiveContainerSettings(_, context), `containerSettings`],
+    ContainerSettings: [, (_: any) => de_ArchiveContainerSettings(_, context), `containerSettings`],
     Extension: [, __expectString, `extension`],
     NameModifier: [, __expectString, `nameModifier`],
   }) as any;
@@ -9675,7 +9675,7 @@ const de_ArchiveS3Settings = (output: any, context: __SerdeContext): ArchiveS3Se
  */
 const de_AudioChannelMapping = (output: any, context: __SerdeContext): AudioChannelMapping => {
   return take(output, {
-    InputChannelLevels: (_) => [, de___listOfInputChannelLevel(_, context), `inputChannelLevels`],
+    InputChannelLevels: [, (_: any) => de___listOfInputChannelLevel(_, context), `inputChannelLevels`],
     OutputChannel: [, __expectInt32, `outputChannel`],
   }) as any;
 };
@@ -9685,13 +9685,13 @@ const de_AudioChannelMapping = (output: any, context: __SerdeContext): AudioChan
  */
 const de_AudioCodecSettings = (output: any, context: __SerdeContext): AudioCodecSettings => {
   return take(output, {
-    AacSettings: (_) => [, de_AacSettings(_, context), `aacSettings`],
-    Ac3Settings: (_) => [, de_Ac3Settings(_, context), `ac3Settings`],
-    Eac3AtmosSettings: (_) => [, de_Eac3AtmosSettings(_, context), `eac3AtmosSettings`],
-    Eac3Settings: (_) => [, de_Eac3Settings(_, context), `eac3Settings`],
-    Mp2Settings: (_) => [, de_Mp2Settings(_, context), `mp2Settings`],
+    AacSettings: [, (_: any) => de_AacSettings(_, context), `aacSettings`],
+    Ac3Settings: [, (_: any) => de_Ac3Settings(_, context), `ac3Settings`],
+    Eac3AtmosSettings: [, (_: any) => de_Eac3AtmosSettings(_, context), `eac3AtmosSettings`],
+    Eac3Settings: [, (_: any) => de_Eac3Settings(_, context), `eac3Settings`],
+    Mp2Settings: [, (_: any) => de_Mp2Settings(_, context), `mp2Settings`],
     PassThroughSettings: [, _json, `passThroughSettings`],
-    WavSettings: (_) => [, de_WavSettings(_, context), `wavSettings`],
+    WavSettings: [, (_: any) => de_WavSettings(_, context), `wavSettings`],
   }) as any;
 };
 
@@ -9700,16 +9700,16 @@ const de_AudioCodecSettings = (output: any, context: __SerdeContext): AudioCodec
  */
 const de_AudioDescription = (output: any, context: __SerdeContext): AudioDescription => {
   return take(output, {
-    AudioNormalizationSettings: (_) => [, de_AudioNormalizationSettings(_, context), `audioNormalizationSettings`],
+    AudioNormalizationSettings: [, (_: any) => de_AudioNormalizationSettings(_, context), `audioNormalizationSettings`],
     AudioSelectorName: [, __expectString, `audioSelectorName`],
     AudioType: [, __expectString, `audioType`],
     AudioTypeControl: [, __expectString, `audioTypeControl`],
-    AudioWatermarkingSettings: (_) => [, de_AudioWatermarkSettings(_, context), `audioWatermarkingSettings`],
-    CodecSettings: (_) => [, de_AudioCodecSettings(_, context), `codecSettings`],
+    AudioWatermarkingSettings: [, (_: any) => de_AudioWatermarkSettings(_, context), `audioWatermarkingSettings`],
+    CodecSettings: [, (_: any) => de_AudioCodecSettings(_, context), `codecSettings`],
     LanguageCode: [, __expectString, `languageCode`],
     LanguageCodeControl: [, __expectString, `languageCodeControl`],
     Name: [, __expectString, `name`],
-    RemixSettings: (_) => [, de_RemixSettings(_, context), `remixSettings`],
+    RemixSettings: [, (_: any) => de_RemixSettings(_, context), `remixSettings`],
     StreamName: [, __expectString, `streamName`],
   }) as any;
 };
@@ -9760,7 +9760,7 @@ const de_AudioNormalizationSettings = (output: any, context: __SerdeContext): Au
 const de_AudioOnlyHlsSettings = (output: any, context: __SerdeContext): AudioOnlyHlsSettings => {
   return take(output, {
     AudioGroupId: [, __expectString, `audioGroupId`],
-    AudioOnlyImage: (_) => [, de_InputLocation(_, context), `audioOnlyImage`],
+    AudioOnlyImage: [, (_: any) => de_InputLocation(_, context), `audioOnlyImage`],
     AudioTrackType: [, __expectString, `audioTrackType`],
     SegmentType: [, __expectString, `segmentType`],
   }) as any;
@@ -9781,7 +9781,7 @@ const de_AudioPidSelection = (output: any, context: __SerdeContext): AudioPidSel
 const de_AudioSelector = (output: any, context: __SerdeContext): AudioSelector => {
   return take(output, {
     Name: [, __expectString, `name`],
-    SelectorSettings: (_) => [, de_AudioSelectorSettings(_, context), `selectorSettings`],
+    SelectorSettings: [, (_: any) => de_AudioSelectorSettings(_, context), `selectorSettings`],
   }) as any;
 };
 
@@ -9790,10 +9790,10 @@ const de_AudioSelector = (output: any, context: __SerdeContext): AudioSelector =
  */
 const de_AudioSelectorSettings = (output: any, context: __SerdeContext): AudioSelectorSettings => {
   return take(output, {
-    AudioHlsRenditionSelection: (_) => [, de_AudioHlsRenditionSelection(_, context), `audioHlsRenditionSelection`],
-    AudioLanguageSelection: (_) => [, de_AudioLanguageSelection(_, context), `audioLanguageSelection`],
-    AudioPidSelection: (_) => [, de_AudioPidSelection(_, context), `audioPidSelection`],
-    AudioTrackSelection: (_) => [, de_AudioTrackSelection(_, context), `audioTrackSelection`],
+    AudioHlsRenditionSelection: [, (_: any) => de_AudioHlsRenditionSelection(_, context), `audioHlsRenditionSelection`],
+    AudioLanguageSelection: [, (_: any) => de_AudioLanguageSelection(_, context), `audioLanguageSelection`],
+    AudioPidSelection: [, (_: any) => de_AudioPidSelection(_, context), `audioPidSelection`],
+    AudioTrackSelection: [, (_: any) => de_AudioTrackSelection(_, context), `audioTrackSelection`],
   }) as any;
 };
 
@@ -9821,8 +9821,8 @@ const de_AudioTrack = (output: any, context: __SerdeContext): AudioTrack => {
  */
 const de_AudioTrackSelection = (output: any, context: __SerdeContext): AudioTrackSelection => {
   return take(output, {
-    DolbyEDecode: (_) => [, de_AudioDolbyEDecode(_, context), `dolbyEDecode`],
-    Tracks: (_) => [, de___listOfAudioTrack(_, context), `tracks`],
+    DolbyEDecode: [, (_: any) => de_AudioDolbyEDecode(_, context), `dolbyEDecode`],
+    Tracks: [, (_: any) => de___listOfAudioTrack(_, context), `tracks`],
   }) as any;
 };
 
@@ -9831,7 +9831,7 @@ const de_AudioTrackSelection = (output: any, context: __SerdeContext): AudioTrac
  */
 const de_AudioWatermarkSettings = (output: any, context: __SerdeContext): AudioWatermarkSettings => {
   return take(output, {
-    NielsenWatermarksSettings: (_) => [, de_NielsenWatermarksSettings(_, context), `nielsenWatermarksSettings`],
+    NielsenWatermarksSettings: [, (_: any) => de_NielsenWatermarksSettings(_, context), `nielsenWatermarksSettings`],
   }) as any;
 };
 
@@ -9841,7 +9841,7 @@ const de_AudioWatermarkSettings = (output: any, context: __SerdeContext): AudioW
 const de_AutomaticInputFailoverSettings = (output: any, context: __SerdeContext): AutomaticInputFailoverSettings => {
   return take(output, {
     ErrorClearTimeMsec: [, __expectInt32, `errorClearTimeMsec`],
-    FailoverConditions: (_) => [, de___listOfFailoverCondition(_, context), `failoverConditions`],
+    FailoverConditions: [, (_: any) => de___listOfFailoverCondition(_, context), `failoverConditions`],
     InputPreference: [, __expectString, `inputPreference`],
     SecondaryInputId: [, __expectString, `secondaryInputId`],
   }) as any;
@@ -9852,7 +9852,7 @@ const de_AutomaticInputFailoverSettings = (output: any, context: __SerdeContext)
  */
 const de_AvailBlanking = (output: any, context: __SerdeContext): AvailBlanking => {
   return take(output, {
-    AvailBlankingImage: (_) => [, de_InputLocation(_, context), `availBlankingImage`],
+    AvailBlankingImage: [, (_: any) => de_InputLocation(_, context), `availBlankingImage`],
     State: [, __expectString, `state`],
   }) as any;
 };
@@ -9862,7 +9862,7 @@ const de_AvailBlanking = (output: any, context: __SerdeContext): AvailBlanking =
  */
 const de_AvailConfiguration = (output: any, context: __SerdeContext): AvailConfiguration => {
   return take(output, {
-    AvailSettings: (_) => [, de_AvailSettings(_, context), `availSettings`],
+    AvailSettings: [, (_: any) => de_AvailSettings(_, context), `availSettings`],
   }) as any;
 };
 
@@ -9871,9 +9871,9 @@ const de_AvailConfiguration = (output: any, context: __SerdeContext): AvailConfi
  */
 const de_AvailSettings = (output: any, context: __SerdeContext): AvailSettings => {
   return take(output, {
-    Esam: (_) => [, de_Esam(_, context), `esam`],
-    Scte35SpliceInsert: (_) => [, de_Scte35SpliceInsert(_, context), `scte35SpliceInsert`],
-    Scte35TimeSignalApos: (_) => [, de_Scte35TimeSignalApos(_, context), `scte35TimeSignalApos`],
+    Esam: [, (_: any) => de_Esam(_, context), `esam`],
+    Scte35SpliceInsert: [, (_: any) => de_Scte35SpliceInsert(_, context), `scte35SpliceInsert`],
+    Scte35TimeSignalApos: [, (_: any) => de_Scte35TimeSignalApos(_, context), `scte35TimeSignalApos`],
   }) as any;
 };
 
@@ -9894,7 +9894,7 @@ const de_BatchFailedResultModel = (output: any, context: __SerdeContext): BatchF
  */
 const de_BatchScheduleActionCreateResult = (output: any, context: __SerdeContext): BatchScheduleActionCreateResult => {
   return take(output, {
-    ScheduleActions: (_) => [, de___listOfScheduleAction(_, context), `scheduleActions`],
+    ScheduleActions: [, (_: any) => de___listOfScheduleAction(_, context), `scheduleActions`],
   }) as any;
 };
 
@@ -9903,7 +9903,7 @@ const de_BatchScheduleActionCreateResult = (output: any, context: __SerdeContext
  */
 const de_BatchScheduleActionDeleteResult = (output: any, context: __SerdeContext): BatchScheduleActionDeleteResult => {
   return take(output, {
-    ScheduleActions: (_) => [, de___listOfScheduleAction(_, context), `scheduleActions`],
+    ScheduleActions: [, (_: any) => de___listOfScheduleAction(_, context), `scheduleActions`],
   }) as any;
 };
 
@@ -9923,9 +9923,9 @@ const de_BatchSuccessfulResultModel = (output: any, context: __SerdeContext): Ba
  */
 const de_BlackoutSlate = (output: any, context: __SerdeContext): BlackoutSlate => {
   return take(output, {
-    BlackoutSlateImage: (_) => [, de_InputLocation(_, context), `blackoutSlateImage`],
+    BlackoutSlateImage: [, (_: any) => de_InputLocation(_, context), `blackoutSlateImage`],
     NetworkEndBlackout: [, __expectString, `networkEndBlackout`],
-    NetworkEndBlackoutImage: (_) => [, de_InputLocation(_, context), `networkEndBlackoutImage`],
+    NetworkEndBlackoutImage: [, (_: any) => de_InputLocation(_, context), `networkEndBlackoutImage`],
     NetworkId: [, __expectString, `networkId`],
     State: [, __expectString, `state`],
   }) as any;
@@ -9939,7 +9939,7 @@ const de_BurnInDestinationSettings = (output: any, context: __SerdeContext): Bur
     Alignment: [, __expectString, `alignment`],
     BackgroundColor: [, __expectString, `backgroundColor`],
     BackgroundOpacity: [, __expectInt32, `backgroundOpacity`],
-    Font: (_) => [, de_InputLocation(_, context), `font`],
+    Font: [, (_: any) => de_InputLocation(_, context), `font`],
     FontColor: [, __expectString, `fontColor`],
     FontOpacity: [, __expectInt32, `fontOpacity`],
     FontResolution: [, __expectInt32, `fontResolution`],
@@ -9963,7 +9963,7 @@ const de_CaptionDescription = (output: any, context: __SerdeContext): CaptionDes
   return take(output, {
     Accessibility: [, __expectString, `accessibility`],
     CaptionSelectorName: [, __expectString, `captionSelectorName`],
-    DestinationSettings: (_) => [, de_CaptionDestinationSettings(_, context), `destinationSettings`],
+    DestinationSettings: [, (_: any) => de_CaptionDestinationSettings(_, context), `destinationSettings`],
     LanguageCode: [, __expectString, `languageCode`],
     LanguageDescription: [, __expectString, `languageDescription`],
     Name: [, __expectString, `name`],
@@ -9976,9 +9976,9 @@ const de_CaptionDescription = (output: any, context: __SerdeContext): CaptionDes
 const de_CaptionDestinationSettings = (output: any, context: __SerdeContext): CaptionDestinationSettings => {
   return take(output, {
     AribDestinationSettings: [, _json, `aribDestinationSettings`],
-    BurnInDestinationSettings: (_) => [, de_BurnInDestinationSettings(_, context), `burnInDestinationSettings`],
-    DvbSubDestinationSettings: (_) => [, de_DvbSubDestinationSettings(_, context), `dvbSubDestinationSettings`],
-    EbuTtDDestinationSettings: (_) => [, de_EbuTtDDestinationSettings(_, context), `ebuTtDDestinationSettings`],
+    BurnInDestinationSettings: [, (_: any) => de_BurnInDestinationSettings(_, context), `burnInDestinationSettings`],
+    DvbSubDestinationSettings: [, (_: any) => de_DvbSubDestinationSettings(_, context), `dvbSubDestinationSettings`],
+    EbuTtDDestinationSettings: [, (_: any) => de_EbuTtDDestinationSettings(_, context), `ebuTtDDestinationSettings`],
     EmbeddedDestinationSettings: [, _json, `embeddedDestinationSettings`],
     EmbeddedPlusScte20DestinationSettings: [, _json, `embeddedPlusScte20DestinationSettings`],
     RtmpCaptionInfoDestinationSettings: [, _json, `rtmpCaptionInfoDestinationSettings`],
@@ -9986,8 +9986,8 @@ const de_CaptionDestinationSettings = (output: any, context: __SerdeContext): Ca
     Scte27DestinationSettings: [, _json, `scte27DestinationSettings`],
     SmpteTtDestinationSettings: [, _json, `smpteTtDestinationSettings`],
     TeletextDestinationSettings: [, _json, `teletextDestinationSettings`],
-    TtmlDestinationSettings: (_) => [, de_TtmlDestinationSettings(_, context), `ttmlDestinationSettings`],
-    WebvttDestinationSettings: (_) => [, de_WebvttDestinationSettings(_, context), `webvttDestinationSettings`],
+    TtmlDestinationSettings: [, (_: any) => de_TtmlDestinationSettings(_, context), `ttmlDestinationSettings`],
+    WebvttDestinationSettings: [, (_: any) => de_WebvttDestinationSettings(_, context), `webvttDestinationSettings`],
   }) as any;
 };
 
@@ -10021,7 +10021,7 @@ const de_CaptionSelector = (output: any, context: __SerdeContext): CaptionSelect
   return take(output, {
     LanguageCode: [, __expectString, `languageCode`],
     Name: [, __expectString, `name`],
-    SelectorSettings: (_) => [, de_CaptionSelectorSettings(_, context), `selectorSettings`],
+    SelectorSettings: [, (_: any) => de_CaptionSelectorSettings(_, context), `selectorSettings`],
   }) as any;
 };
 
@@ -10030,13 +10030,13 @@ const de_CaptionSelector = (output: any, context: __SerdeContext): CaptionSelect
  */
 const de_CaptionSelectorSettings = (output: any, context: __SerdeContext): CaptionSelectorSettings => {
   return take(output, {
-    AncillarySourceSettings: (_) => [, de_AncillarySourceSettings(_, context), `ancillarySourceSettings`],
+    AncillarySourceSettings: [, (_: any) => de_AncillarySourceSettings(_, context), `ancillarySourceSettings`],
     AribSourceSettings: [, _json, `aribSourceSettings`],
-    DvbSubSourceSettings: (_) => [, de_DvbSubSourceSettings(_, context), `dvbSubSourceSettings`],
-    EmbeddedSourceSettings: (_) => [, de_EmbeddedSourceSettings(_, context), `embeddedSourceSettings`],
-    Scte20SourceSettings: (_) => [, de_Scte20SourceSettings(_, context), `scte20SourceSettings`],
-    Scte27SourceSettings: (_) => [, de_Scte27SourceSettings(_, context), `scte27SourceSettings`],
-    TeletextSourceSettings: (_) => [, de_TeletextSourceSettings(_, context), `teletextSourceSettings`],
+    DvbSubSourceSettings: [, (_: any) => de_DvbSubSourceSettings(_, context), `dvbSubSourceSettings`],
+    EmbeddedSourceSettings: [, (_: any) => de_EmbeddedSourceSettings(_, context), `embeddedSourceSettings`],
+    Scte20SourceSettings: [, (_: any) => de_Scte20SourceSettings(_, context), `scte20SourceSettings`],
+    Scte27SourceSettings: [, (_: any) => de_Scte27SourceSettings(_, context), `scte27SourceSettings`],
+    TeletextSourceSettings: [, (_: any) => de_TeletextSourceSettings(_, context), `teletextSourceSettings`],
   }) as any;
 };
 
@@ -10055,23 +10055,23 @@ const de_CdiInputSpecification = (output: any, context: __SerdeContext): CdiInpu
 const de_Channel = (output: any, context: __SerdeContext): Channel => {
   return take(output, {
     Arn: [, __expectString, `arn`],
-    CdiInputSpecification: (_) => [, de_CdiInputSpecification(_, context), `cdiInputSpecification`],
+    CdiInputSpecification: [, (_: any) => de_CdiInputSpecification(_, context), `cdiInputSpecification`],
     ChannelClass: [, __expectString, `channelClass`],
-    Destinations: (_) => [, de___listOfOutputDestination(_, context), `destinations`],
-    EgressEndpoints: (_) => [, de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
-    EncoderSettings: (_) => [, de_EncoderSettings(_, context), `encoderSettings`],
+    Destinations: [, (_: any) => de___listOfOutputDestination(_, context), `destinations`],
+    EgressEndpoints: [, (_: any) => de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
+    EncoderSettings: [, (_: any) => de_EncoderSettings(_, context), `encoderSettings`],
     Id: [, __expectString, `id`],
-    InputAttachments: (_) => [, de___listOfInputAttachment(_, context), `inputAttachments`],
-    InputSpecification: (_) => [, de_InputSpecification(_, context), `inputSpecification`],
+    InputAttachments: [, (_: any) => de___listOfInputAttachment(_, context), `inputAttachments`],
+    InputSpecification: [, (_: any) => de_InputSpecification(_, context), `inputSpecification`],
     LogLevel: [, __expectString, `logLevel`],
-    Maintenance: (_) => [, de_MaintenanceStatus(_, context), `maintenance`],
+    Maintenance: [, (_: any) => de_MaintenanceStatus(_, context), `maintenance`],
     Name: [, __expectString, `name`],
-    PipelineDetails: (_) => [, de___listOfPipelineDetail(_, context), `pipelineDetails`],
+    PipelineDetails: [, (_: any) => de___listOfPipelineDetail(_, context), `pipelineDetails`],
     PipelinesRunningCount: [, __expectInt32, `pipelinesRunningCount`],
     RoleArn: [, __expectString, `roleArn`],
     State: [, __expectString, `state`],
     Tags: [, _json, `tags`],
-    Vpc: (_) => [, de_VpcOutputSettingsDescription(_, context), `vpc`],
+    Vpc: [, (_: any) => de_VpcOutputSettingsDescription(_, context), `vpc`],
   }) as any;
 };
 
@@ -10090,21 +10090,21 @@ const de_ChannelEgressEndpoint = (output: any, context: __SerdeContext): Channel
 const de_ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary => {
   return take(output, {
     Arn: [, __expectString, `arn`],
-    CdiInputSpecification: (_) => [, de_CdiInputSpecification(_, context), `cdiInputSpecification`],
+    CdiInputSpecification: [, (_: any) => de_CdiInputSpecification(_, context), `cdiInputSpecification`],
     ChannelClass: [, __expectString, `channelClass`],
-    Destinations: (_) => [, de___listOfOutputDestination(_, context), `destinations`],
-    EgressEndpoints: (_) => [, de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
+    Destinations: [, (_: any) => de___listOfOutputDestination(_, context), `destinations`],
+    EgressEndpoints: [, (_: any) => de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
     Id: [, __expectString, `id`],
-    InputAttachments: (_) => [, de___listOfInputAttachment(_, context), `inputAttachments`],
-    InputSpecification: (_) => [, de_InputSpecification(_, context), `inputSpecification`],
+    InputAttachments: [, (_: any) => de___listOfInputAttachment(_, context), `inputAttachments`],
+    InputSpecification: [, (_: any) => de_InputSpecification(_, context), `inputSpecification`],
     LogLevel: [, __expectString, `logLevel`],
-    Maintenance: (_) => [, de_MaintenanceStatus(_, context), `maintenance`],
+    Maintenance: [, (_: any) => de_MaintenanceStatus(_, context), `maintenance`],
     Name: [, __expectString, `name`],
     PipelinesRunningCount: [, __expectInt32, `pipelinesRunningCount`],
     RoleArn: [, __expectString, `roleArn`],
     State: [, __expectString, `state`],
     Tags: [, _json, `tags`],
-    Vpc: (_) => [, de_VpcOutputSettingsDescription(_, context), `vpc`],
+    Vpc: [, (_: any) => de_VpcOutputSettingsDescription(_, context), `vpc`],
   }) as any;
 };
 
@@ -10143,7 +10143,7 @@ const de_DvbSubDestinationSettings = (output: any, context: __SerdeContext): Dvb
     Alignment: [, __expectString, `alignment`],
     BackgroundColor: [, __expectString, `backgroundColor`],
     BackgroundOpacity: [, __expectInt32, `backgroundOpacity`],
-    Font: (_) => [, de_InputLocation(_, context), `font`],
+    Font: [, (_: any) => de_InputLocation(_, context), `font`],
     FontColor: [, __expectString, `fontColor`],
     FontOpacity: [, __expectInt32, `fontOpacity`],
     FontResolution: [, __expectInt32, `fontResolution`],
@@ -10255,18 +10255,22 @@ const de_EmbeddedSourceSettings = (output: any, context: __SerdeContext): Embedd
  */
 const de_EncoderSettings = (output: any, context: __SerdeContext): EncoderSettings => {
   return take(output, {
-    AudioDescriptions: (_) => [, de___listOfAudioDescription(_, context), `audioDescriptions`],
-    AvailBlanking: (_) => [, de_AvailBlanking(_, context), `availBlanking`],
-    AvailConfiguration: (_) => [, de_AvailConfiguration(_, context), `availConfiguration`],
-    BlackoutSlate: (_) => [, de_BlackoutSlate(_, context), `blackoutSlate`],
-    CaptionDescriptions: (_) => [, de___listOfCaptionDescription(_, context), `captionDescriptions`],
-    FeatureActivations: (_) => [, de_FeatureActivations(_, context), `featureActivations`],
-    GlobalConfiguration: (_) => [, de_GlobalConfiguration(_, context), `globalConfiguration`],
-    MotionGraphicsConfiguration: (_) => [, de_MotionGraphicsConfiguration(_, context), `motionGraphicsConfiguration`],
-    NielsenConfiguration: (_) => [, de_NielsenConfiguration(_, context), `nielsenConfiguration`],
-    OutputGroups: (_) => [, de___listOfOutputGroup(_, context), `outputGroups`],
-    TimecodeConfig: (_) => [, de_TimecodeConfig(_, context), `timecodeConfig`],
-    VideoDescriptions: (_) => [, de___listOfVideoDescription(_, context), `videoDescriptions`],
+    AudioDescriptions: [, (_: any) => de___listOfAudioDescription(_, context), `audioDescriptions`],
+    AvailBlanking: [, (_: any) => de_AvailBlanking(_, context), `availBlanking`],
+    AvailConfiguration: [, (_: any) => de_AvailConfiguration(_, context), `availConfiguration`],
+    BlackoutSlate: [, (_: any) => de_BlackoutSlate(_, context), `blackoutSlate`],
+    CaptionDescriptions: [, (_: any) => de___listOfCaptionDescription(_, context), `captionDescriptions`],
+    FeatureActivations: [, (_: any) => de_FeatureActivations(_, context), `featureActivations`],
+    GlobalConfiguration: [, (_: any) => de_GlobalConfiguration(_, context), `globalConfiguration`],
+    MotionGraphicsConfiguration: [
+      ,
+      (_: any) => de_MotionGraphicsConfiguration(_, context),
+      `motionGraphicsConfiguration`,
+    ],
+    NielsenConfiguration: [, (_: any) => de_NielsenConfiguration(_, context), `nielsenConfiguration`],
+    OutputGroups: [, (_: any) => de___listOfOutputGroup(_, context), `outputGroups`],
+    TimecodeConfig: [, (_: any) => de_TimecodeConfig(_, context), `timecodeConfig`],
+    VideoDescriptions: [, (_: any) => de___listOfVideoDescription(_, context), `videoDescriptions`],
   }) as any;
 };
 
@@ -10289,7 +10293,7 @@ const de_Esam = (output: any, context: __SerdeContext): Esam => {
  */
 const de_FailoverCondition = (output: any, context: __SerdeContext): FailoverCondition => {
   return take(output, {
-    FailoverConditionSettings: (_) => [, de_FailoverConditionSettings(_, context), `failoverConditionSettings`],
+    FailoverConditionSettings: [, (_: any) => de_FailoverConditionSettings(_, context), `failoverConditionSettings`],
   }) as any;
 };
 
@@ -10298,9 +10302,9 @@ const de_FailoverCondition = (output: any, context: __SerdeContext): FailoverCon
  */
 const de_FailoverConditionSettings = (output: any, context: __SerdeContext): FailoverConditionSettings => {
   return take(output, {
-    AudioSilenceSettings: (_) => [, de_AudioSilenceFailoverSettings(_, context), `audioSilenceSettings`],
-    InputLossSettings: (_) => [, de_InputLossFailoverSettings(_, context), `inputLossSettings`],
-    VideoBlackSettings: (_) => [, de_VideoBlackFailoverSettings(_, context), `videoBlackSettings`],
+    AudioSilenceSettings: [, (_: any) => de_AudioSilenceFailoverSettings(_, context), `audioSilenceSettings`],
+    InputLossSettings: [, (_: any) => de_InputLossFailoverSettings(_, context), `inputLossSettings`],
+    VideoBlackSettings: [, (_: any) => de_VideoBlackFailoverSettings(_, context), `videoBlackSettings`],
   }) as any;
 };
 
@@ -10365,7 +10369,7 @@ const de_FollowModeScheduleActionStartSettings = (
  */
 const de_FrameCaptureCdnSettings = (output: any, context: __SerdeContext): FrameCaptureCdnSettings => {
   return take(output, {
-    FrameCaptureS3Settings: (_) => [, de_FrameCaptureS3Settings(_, context), `frameCaptureS3Settings`],
+    FrameCaptureS3Settings: [, (_: any) => de_FrameCaptureS3Settings(_, context), `frameCaptureS3Settings`],
   }) as any;
 };
 
@@ -10374,8 +10378,8 @@ const de_FrameCaptureCdnSettings = (output: any, context: __SerdeContext): Frame
  */
 const de_FrameCaptureGroupSettings = (output: any, context: __SerdeContext): FrameCaptureGroupSettings => {
   return take(output, {
-    Destination: (_) => [, de_OutputLocationRef(_, context), `destination`],
-    FrameCaptureCdnSettings: (_) => [, de_FrameCaptureCdnSettings(_, context), `frameCaptureCdnSettings`],
+    Destination: [, (_: any) => de_OutputLocationRef(_, context), `destination`],
+    FrameCaptureCdnSettings: [, (_: any) => de_FrameCaptureCdnSettings(_, context), `frameCaptureCdnSettings`],
   }) as any;
 };
 
@@ -10406,7 +10410,7 @@ const de_FrameCaptureSettings = (output: any, context: __SerdeContext): FrameCap
   return take(output, {
     CaptureInterval: [, __expectInt32, `captureInterval`],
     CaptureIntervalUnits: [, __expectString, `captureIntervalUnits`],
-    TimecodeBurninSettings: (_) => [, de_TimecodeBurninSettings(_, context), `timecodeBurninSettings`],
+    TimecodeBurninSettings: [, (_: any) => de_TimecodeBurninSettings(_, context), `timecodeBurninSettings`],
   }) as any;
 };
 
@@ -10417,7 +10421,7 @@ const de_GlobalConfiguration = (output: any, context: __SerdeContext): GlobalCon
   return take(output, {
     InitialAudioGain: [, __expectInt32, `initialAudioGain`],
     InputEndAction: [, __expectString, `inputEndAction`],
-    InputLossBehavior: (_) => [, de_InputLossBehavior(_, context), `inputLossBehavior`],
+    InputLossBehavior: [, (_: any) => de_InputLossBehavior(_, context), `inputLossBehavior`],
     OutputLockingMode: [, __expectString, `outputLockingMode`],
     OutputTimingSource: [, __expectString, `outputTimingSource`],
     SupportLowFramerateInputs: [, __expectString, `supportLowFramerateInputs`],
@@ -10440,7 +10444,7 @@ const de_H264ColorSpaceSettings = (output: any, context: __SerdeContext): H264Co
  */
 const de_H264FilterSettings = (output: any, context: __SerdeContext): H264FilterSettings => {
   return take(output, {
-    TemporalFilterSettings: (_) => [, de_TemporalFilterSettings(_, context), `temporalFilterSettings`],
+    TemporalFilterSettings: [, (_: any) => de_TemporalFilterSettings(_, context), `temporalFilterSettings`],
   }) as any;
 };
 
@@ -10455,9 +10459,9 @@ const de_H264Settings = (output: any, context: __SerdeContext): H264Settings => 
     BufFillPct: [, __expectInt32, `bufFillPct`],
     BufSize: [, __expectInt32, `bufSize`],
     ColorMetadata: [, __expectString, `colorMetadata`],
-    ColorSpaceSettings: (_) => [, de_H264ColorSpaceSettings(_, context), `colorSpaceSettings`],
+    ColorSpaceSettings: [, (_: any) => de_H264ColorSpaceSettings(_, context), `colorSpaceSettings`],
     EntropyEncoding: [, __expectString, `entropyEncoding`],
-    FilterSettings: (_) => [, de_H264FilterSettings(_, context), `filterSettings`],
+    FilterSettings: [, (_: any) => de_H264FilterSettings(_, context), `filterSettings`],
     FixedAfd: [, __expectString, `fixedAfd`],
     FlickerAq: [, __expectString, `flickerAq`],
     ForceFieldPictures: [, __expectString, `forceFieldPictures`],
@@ -10489,7 +10493,7 @@ const de_H264Settings = (output: any, context: __SerdeContext): H264Settings => 
     SubgopLength: [, __expectString, `subgopLength`],
     Syntax: [, __expectString, `syntax`],
     TemporalAq: [, __expectString, `temporalAq`],
-    TimecodeBurninSettings: (_) => [, de_TimecodeBurninSettings(_, context), `timecodeBurninSettings`],
+    TimecodeBurninSettings: [, (_: any) => de_TimecodeBurninSettings(_, context), `timecodeBurninSettings`],
     TimecodeInsertion: [, __expectString, `timecodeInsertion`],
   }) as any;
 };
@@ -10501,7 +10505,7 @@ const de_H265ColorSpaceSettings = (output: any, context: __SerdeContext): H265Co
   return take(output, {
     ColorSpacePassthroughSettings: [, _json, `colorSpacePassthroughSettings`],
     DolbyVision81Settings: [, _json, `dolbyVision81Settings`],
-    Hdr10Settings: (_) => [, de_Hdr10Settings(_, context), `hdr10Settings`],
+    Hdr10Settings: [, (_: any) => de_Hdr10Settings(_, context), `hdr10Settings`],
     Rec601Settings: [, _json, `rec601Settings`],
     Rec709Settings: [, _json, `rec709Settings`],
   }) as any;
@@ -10512,7 +10516,7 @@ const de_H265ColorSpaceSettings = (output: any, context: __SerdeContext): H265Co
  */
 const de_H265FilterSettings = (output: any, context: __SerdeContext): H265FilterSettings => {
   return take(output, {
-    TemporalFilterSettings: (_) => [, de_TemporalFilterSettings(_, context), `temporalFilterSettings`],
+    TemporalFilterSettings: [, (_: any) => de_TemporalFilterSettings(_, context), `temporalFilterSettings`],
   }) as any;
 };
 
@@ -10527,8 +10531,8 @@ const de_H265Settings = (output: any, context: __SerdeContext): H265Settings => 
     Bitrate: [, __expectInt32, `bitrate`],
     BufSize: [, __expectInt32, `bufSize`],
     ColorMetadata: [, __expectString, `colorMetadata`],
-    ColorSpaceSettings: (_) => [, de_H265ColorSpaceSettings(_, context), `colorSpaceSettings`],
-    FilterSettings: (_) => [, de_H265FilterSettings(_, context), `filterSettings`],
+    ColorSpaceSettings: [, (_: any) => de_H265ColorSpaceSettings(_, context), `colorSpaceSettings`],
+    FilterSettings: [, (_: any) => de_H265FilterSettings(_, context), `filterSettings`],
     FixedAfd: [, __expectString, `fixedAfd`],
     FlickerAq: [, __expectString, `flickerAq`],
     FramerateDenominator: [, __expectInt32, `framerateDenominator`],
@@ -10549,7 +10553,7 @@ const de_H265Settings = (output: any, context: __SerdeContext): H265Settings => 
     SceneChangeDetect: [, __expectString, `sceneChangeDetect`],
     Slices: [, __expectInt32, `slices`],
     Tier: [, __expectString, `tier`],
-    TimecodeBurninSettings: (_) => [, de_TimecodeBurninSettings(_, context), `timecodeBurninSettings`],
+    TimecodeBurninSettings: [, (_: any) => de_TimecodeBurninSettings(_, context), `timecodeBurninSettings`],
     TimecodeInsertion: [, __expectString, `timecodeInsertion`],
   }) as any;
 };
@@ -10596,11 +10600,11 @@ const de_HlsBasicPutSettings = (output: any, context: __SerdeContext): HlsBasicP
  */
 const de_HlsCdnSettings = (output: any, context: __SerdeContext): HlsCdnSettings => {
   return take(output, {
-    HlsAkamaiSettings: (_) => [, de_HlsAkamaiSettings(_, context), `hlsAkamaiSettings`],
-    HlsBasicPutSettings: (_) => [, de_HlsBasicPutSettings(_, context), `hlsBasicPutSettings`],
-    HlsMediaStoreSettings: (_) => [, de_HlsMediaStoreSettings(_, context), `hlsMediaStoreSettings`],
-    HlsS3Settings: (_) => [, de_HlsS3Settings(_, context), `hlsS3Settings`],
-    HlsWebdavSettings: (_) => [, de_HlsWebdavSettings(_, context), `hlsWebdavSettings`],
+    HlsAkamaiSettings: [, (_: any) => de_HlsAkamaiSettings(_, context), `hlsAkamaiSettings`],
+    HlsBasicPutSettings: [, (_: any) => de_HlsBasicPutSettings(_, context), `hlsBasicPutSettings`],
+    HlsMediaStoreSettings: [, (_: any) => de_HlsMediaStoreSettings(_, context), `hlsMediaStoreSettings`],
+    HlsS3Settings: [, (_: any) => de_HlsS3Settings(_, context), `hlsS3Settings`],
+    HlsWebdavSettings: [, (_: any) => de_HlsWebdavSettings(_, context), `hlsWebdavSettings`],
   }) as any;
 };
 
@@ -10614,16 +10618,16 @@ const de_HlsGroupSettings = (output: any, context: __SerdeContext): HlsGroupSett
     BaseUrlContent1: [, __expectString, `baseUrlContent1`],
     BaseUrlManifest: [, __expectString, `baseUrlManifest`],
     BaseUrlManifest1: [, __expectString, `baseUrlManifest1`],
-    CaptionLanguageMappings: (_) => [, de___listOfCaptionLanguageMapping(_, context), `captionLanguageMappings`],
+    CaptionLanguageMappings: [, (_: any) => de___listOfCaptionLanguageMapping(_, context), `captionLanguageMappings`],
     CaptionLanguageSetting: [, __expectString, `captionLanguageSetting`],
     ClientCache: [, __expectString, `clientCache`],
     CodecSpecification: [, __expectString, `codecSpecification`],
     ConstantIv: [, __expectString, `constantIv`],
-    Destination: (_) => [, de_OutputLocationRef(_, context), `destination`],
+    Destination: [, (_: any) => de_OutputLocationRef(_, context), `destination`],
     DirectoryStructure: [, __expectString, `directoryStructure`],
     DiscontinuityTags: [, __expectString, `discontinuityTags`],
     EncryptionType: [, __expectString, `encryptionType`],
-    HlsCdnSettings: (_) => [, de_HlsCdnSettings(_, context), `hlsCdnSettings`],
+    HlsCdnSettings: [, (_: any) => de_HlsCdnSettings(_, context), `hlsCdnSettings`],
     HlsId3SegmentTagging: [, __expectString, `hlsId3SegmentTagging`],
     IFrameOnlyPlaylists: [, __expectString, `iFrameOnlyPlaylists`],
     IncompleteSegmentBehavior: [, __expectString, `incompleteSegmentBehavior`],
@@ -10634,7 +10638,7 @@ const de_HlsGroupSettings = (output: any, context: __SerdeContext): HlsGroupSett
     KeepSegments: [, __expectInt32, `keepSegments`],
     KeyFormat: [, __expectString, `keyFormat`],
     KeyFormatVersions: [, __expectString, `keyFormatVersions`],
-    KeyProviderSettings: (_) => [, de_KeyProviderSettings(_, context), `keyProviderSettings`],
+    KeyProviderSettings: [, (_: any) => de_KeyProviderSettings(_, context), `keyProviderSettings`],
     ManifestCompression: [, __expectString, `manifestCompression`],
     ManifestDurationFormat: [, __expectString, `manifestDurationFormat`],
     MinSegmentLength: [, __expectInt32, `minSegmentLength`],
@@ -10700,7 +10704,7 @@ const de_HlsMediaStoreSettings = (output: any, context: __SerdeContext): HlsMedi
 const de_HlsOutputSettings = (output: any, context: __SerdeContext): HlsOutputSettings => {
   return take(output, {
     H265PackagingType: [, __expectString, `h265PackagingType`],
-    HlsSettings: (_) => [, de_HlsSettings(_, context), `hlsSettings`],
+    HlsSettings: [, (_: any) => de_HlsSettings(_, context), `hlsSettings`],
     NameModifier: [, __expectString, `nameModifier`],
     SegmentModifier: [, __expectString, `segmentModifier`],
   }) as any;
@@ -10720,10 +10724,10 @@ const de_HlsS3Settings = (output: any, context: __SerdeContext): HlsS3Settings =
  */
 const de_HlsSettings = (output: any, context: __SerdeContext): HlsSettings => {
   return take(output, {
-    AudioOnlyHlsSettings: (_) => [, de_AudioOnlyHlsSettings(_, context), `audioOnlyHlsSettings`],
-    Fmp4HlsSettings: (_) => [, de_Fmp4HlsSettings(_, context), `fmp4HlsSettings`],
+    AudioOnlyHlsSettings: [, (_: any) => de_AudioOnlyHlsSettings(_, context), `audioOnlyHlsSettings`],
+    Fmp4HlsSettings: [, (_: any) => de_Fmp4HlsSettings(_, context), `fmp4HlsSettings`],
     FrameCaptureHlsSettings: [, _json, `frameCaptureHlsSettings`],
-    StandardHlsSettings: (_) => [, de_StandardHlsSettings(_, context), `standardHlsSettings`],
+    StandardHlsSettings: [, (_: any) => de_StandardHlsSettings(_, context), `standardHlsSettings`],
   }) as any;
 };
 
@@ -10763,17 +10767,17 @@ const de_Input = (output: any, context: __SerdeContext): Input => {
   return take(output, {
     Arn: [, __expectString, `arn`],
     AttachedChannels: [, _json, `attachedChannels`],
-    Destinations: (_) => [, de___listOfInputDestination(_, context), `destinations`],
+    Destinations: [, (_: any) => de___listOfInputDestination(_, context), `destinations`],
     Id: [, __expectString, `id`],
     InputClass: [, __expectString, `inputClass`],
-    InputDevices: (_) => [, de___listOfInputDeviceSettings(_, context), `inputDevices`],
+    InputDevices: [, (_: any) => de___listOfInputDeviceSettings(_, context), `inputDevices`],
     InputPartnerIds: [, _json, `inputPartnerIds`],
     InputSourceType: [, __expectString, `inputSourceType`],
-    MediaConnectFlows: (_) => [, de___listOfMediaConnectFlow(_, context), `mediaConnectFlows`],
+    MediaConnectFlows: [, (_: any) => de___listOfMediaConnectFlow(_, context), `mediaConnectFlows`],
     Name: [, __expectString, `name`],
     RoleArn: [, __expectString, `roleArn`],
     SecurityGroups: [, _json, `securityGroups`],
-    Sources: (_) => [, de___listOfInputSource(_, context), `sources`],
+    Sources: [, (_: any) => de___listOfInputSource(_, context), `sources`],
     State: [, __expectString, `state`],
     Tags: [, _json, `tags`],
     Type: [, __expectString, `type`],
@@ -10785,14 +10789,14 @@ const de_Input = (output: any, context: __SerdeContext): Input => {
  */
 const de_InputAttachment = (output: any, context: __SerdeContext): InputAttachment => {
   return take(output, {
-    AutomaticInputFailoverSettings: (_) => [
+    AutomaticInputFailoverSettings: [
       ,
-      de_AutomaticInputFailoverSettings(_, context),
+      (_: any) => de_AutomaticInputFailoverSettings(_, context),
       `automaticInputFailoverSettings`,
     ],
     InputAttachmentName: [, __expectString, `inputAttachmentName`],
     InputId: [, __expectString, `inputId`],
-    InputSettings: (_) => [, de_InputSettings(_, context), `inputSettings`],
+    InputSettings: [, (_: any) => de_InputSettings(_, context), `inputSettings`],
   }) as any;
 };
 
@@ -10812,8 +10816,8 @@ const de_InputChannelLevel = (output: any, context: __SerdeContext): InputChanne
 const de_InputClippingSettings = (output: any, context: __SerdeContext): InputClippingSettings => {
   return take(output, {
     InputTimecodeSource: [, __expectString, `inputTimecodeSource`],
-    StartTimecode: (_) => [, de_StartTimecode(_, context), `startTimecode`],
-    StopTimecode: (_) => [, de_StopTimecode(_, context), `stopTimecode`],
+    StartTimecode: [, (_: any) => de_StartTimecode(_, context), `startTimecode`],
+    StopTimecode: [, (_: any) => de_StopTimecode(_, context), `stopTimecode`],
   }) as any;
 };
 
@@ -10825,7 +10829,7 @@ const de_InputDestination = (output: any, context: __SerdeContext): InputDestina
     Ip: [, __expectString, `ip`],
     Port: [, __expectString, `port`],
     Url: [, __expectString, `url`],
-    Vpc: (_) => [, de_InputDestinationVpc(_, context), `vpc`],
+    Vpc: [, (_: any) => de_InputDestinationVpc(_, context), `vpc`],
   }) as any;
 };
 
@@ -10887,15 +10891,15 @@ const de_InputDeviceSummary = (output: any, context: __SerdeContext): InputDevic
     ConnectionState: [, __expectString, `connectionState`],
     DeviceSettingsSyncState: [, __expectString, `deviceSettingsSyncState`],
     DeviceUpdateStatus: [, __expectString, `deviceUpdateStatus`],
-    HdDeviceSettings: (_) => [, de_InputDeviceHdSettings(_, context), `hdDeviceSettings`],
+    HdDeviceSettings: [, (_: any) => de_InputDeviceHdSettings(_, context), `hdDeviceSettings`],
     Id: [, __expectString, `id`],
     MacAddress: [, __expectString, `macAddress`],
     Name: [, __expectString, `name`],
-    NetworkSettings: (_) => [, de_InputDeviceNetworkSettings(_, context), `networkSettings`],
+    NetworkSettings: [, (_: any) => de_InputDeviceNetworkSettings(_, context), `networkSettings`],
     SerialNumber: [, __expectString, `serialNumber`],
     Tags: [, _json, `tags`],
     Type: [, __expectString, `type`],
-    UhdDeviceSettings: (_) => [, de_InputDeviceUhdSettings(_, context), `uhdDeviceSettings`],
+    UhdDeviceSettings: [, (_: any) => de_InputDeviceUhdSettings(_, context), `uhdDeviceSettings`],
   }) as any;
 };
 
@@ -10934,7 +10938,7 @@ const de_InputLossBehavior = (output: any, context: __SerdeContext): InputLossBe
   return take(output, {
     BlackFrameMsec: [, __expectInt32, `blackFrameMsec`],
     InputLossImageColor: [, __expectString, `inputLossImageColor`],
-    InputLossImageSlate: (_) => [, de_InputLocation(_, context), `inputLossImageSlate`],
+    InputLossImageSlate: [, (_: any) => de_InputLocation(_, context), `inputLossImageSlate`],
     InputLossImageType: [, __expectString, `inputLossImageType`],
     RepeatFrameMsec: [, __expectInt32, `repeatFrameMsec`],
   }) as any;
@@ -10958,7 +10962,7 @@ const de_InputPrepareScheduleActionSettings = (
 ): InputPrepareScheduleActionSettings => {
   return take(output, {
     InputAttachmentNameReference: [, __expectString, `inputAttachmentNameReference`],
-    InputClippingSettings: (_) => [, de_InputClippingSettings(_, context), `inputClippingSettings`],
+    InputClippingSettings: [, (_: any) => de_InputClippingSettings(_, context), `inputClippingSettings`],
     UrlPath: [, _json, `urlPath`],
   }) as any;
 };
@@ -10973,7 +10977,7 @@ const de_InputSecurityGroup = (output: any, context: __SerdeContext): InputSecur
     Inputs: [, _json, `inputs`],
     State: [, __expectString, `state`],
     Tags: [, _json, `tags`],
-    WhitelistRules: (_) => [, de___listOfInputWhitelistRule(_, context), `whitelistRules`],
+    WhitelistRules: [, (_: any) => de___listOfInputWhitelistRule(_, context), `whitelistRules`],
   }) as any;
 };
 
@@ -10982,17 +10986,17 @@ const de_InputSecurityGroup = (output: any, context: __SerdeContext): InputSecur
  */
 const de_InputSettings = (output: any, context: __SerdeContext): InputSettings => {
   return take(output, {
-    AudioSelectors: (_) => [, de___listOfAudioSelector(_, context), `audioSelectors`],
-    CaptionSelectors: (_) => [, de___listOfCaptionSelector(_, context), `captionSelectors`],
+    AudioSelectors: [, (_: any) => de___listOfAudioSelector(_, context), `audioSelectors`],
+    CaptionSelectors: [, (_: any) => de___listOfCaptionSelector(_, context), `captionSelectors`],
     DeblockFilter: [, __expectString, `deblockFilter`],
     DenoiseFilter: [, __expectString, `denoiseFilter`],
     FilterStrength: [, __expectInt32, `filterStrength`],
     InputFilter: [, __expectString, `inputFilter`],
-    NetworkInputSettings: (_) => [, de_NetworkInputSettings(_, context), `networkInputSettings`],
+    NetworkInputSettings: [, (_: any) => de_NetworkInputSettings(_, context), `networkInputSettings`],
     Scte35Pid: [, __expectInt32, `scte35Pid`],
     Smpte2038DataPreference: [, __expectString, `smpte2038DataPreference`],
     SourceEndBehavior: [, __expectString, `sourceEndBehavior`],
-    VideoSelector: (_) => [, de_VideoSelector(_, context), `videoSelector`],
+    VideoSelector: [, (_: any) => de_VideoSelector(_, context), `videoSelector`],
   }) as any;
 };
 
@@ -11027,7 +11031,7 @@ const de_InputSwitchScheduleActionSettings = (
 ): InputSwitchScheduleActionSettings => {
   return take(output, {
     InputAttachmentNameReference: [, __expectString, `inputAttachmentNameReference`],
-    InputClippingSettings: (_) => [, de_InputClippingSettings(_, context), `inputClippingSettings`],
+    InputClippingSettings: [, (_: any) => de_InputClippingSettings(_, context), `inputClippingSettings`],
     UrlPath: [, _json, `urlPath`],
   }) as any;
 };
@@ -11046,7 +11050,7 @@ const de_InputWhitelistRule = (output: any, context: __SerdeContext): InputWhite
  */
 const de_KeyProviderSettings = (output: any, context: __SerdeContext): KeyProviderSettings => {
   return take(output, {
-    StaticKeySettings: (_) => [, de_StaticKeySettings(_, context), `staticKeySettings`],
+    StaticKeySettings: [, (_: any) => de_StaticKeySettings(_, context), `staticKeySettings`],
   }) as any;
 };
 
@@ -11066,10 +11070,10 @@ const de_M2tsSettings = (output: any, context: __SerdeContext): M2tsSettings => 
     Bitrate: [, __expectInt32, `bitrate`],
     BufferModel: [, __expectString, `bufferModel`],
     CcDescriptor: [, __expectString, `ccDescriptor`],
-    DvbNitSettings: (_) => [, de_DvbNitSettings(_, context), `dvbNitSettings`],
-    DvbSdtSettings: (_) => [, de_DvbSdtSettings(_, context), `dvbSdtSettings`],
+    DvbNitSettings: [, (_: any) => de_DvbNitSettings(_, context), `dvbNitSettings`],
+    DvbSdtSettings: [, (_: any) => de_DvbSdtSettings(_, context), `dvbSdtSettings`],
     DvbSubPids: [, __expectString, `dvbSubPids`],
-    DvbTdtSettings: (_) => [, de_DvbTdtSettings(_, context), `dvbTdtSettings`],
+    DvbTdtSettings: [, (_: any) => de_DvbTdtSettings(_, context), `dvbTdtSettings`],
     DvbTeletextPid: [, __expectString, `dvbTeletextPid`],
     Ebif: [, __expectString, `ebif`],
     EbpAudioInterval: [, __expectString, `ebpAudioInterval`],
@@ -11157,7 +11161,7 @@ const de_MediaConnectFlow = (output: any, context: __SerdeContext): MediaConnect
  */
 const de_MediaPackageGroupSettings = (output: any, context: __SerdeContext): MediaPackageGroupSettings => {
   return take(output, {
-    Destination: (_) => [, de_OutputLocationRef(_, context), `destination`],
+    Destination: [, (_: any) => de_OutputLocationRef(_, context), `destination`],
   }) as any;
 };
 
@@ -11196,7 +11200,7 @@ const de_MotionGraphicsActivateScheduleActionSettings = (
 const de_MotionGraphicsConfiguration = (output: any, context: __SerdeContext): MotionGraphicsConfiguration => {
   return take(output, {
     MotionGraphicsInsertion: [, __expectString, `motionGraphicsInsertion`],
-    MotionGraphicsSettings: (_) => [, de_MotionGraphicsSettings(_, context), `motionGraphicsSettings`],
+    MotionGraphicsSettings: [, (_: any) => de_MotionGraphicsSettings(_, context), `motionGraphicsSettings`],
   }) as any;
 };
 
@@ -11227,7 +11231,7 @@ const de_Mp2Settings = (output: any, context: __SerdeContext): Mp2Settings => {
  */
 const de_Mpeg2FilterSettings = (output: any, context: __SerdeContext): Mpeg2FilterSettings => {
   return take(output, {
-    TemporalFilterSettings: (_) => [, de_TemporalFilterSettings(_, context), `temporalFilterSettings`],
+    TemporalFilterSettings: [, (_: any) => de_TemporalFilterSettings(_, context), `temporalFilterSettings`],
   }) as any;
 };
 
@@ -11241,7 +11245,7 @@ const de_Mpeg2Settings = (output: any, context: __SerdeContext): Mpeg2Settings =
     ColorMetadata: [, __expectString, `colorMetadata`],
     ColorSpace: [, __expectString, `colorSpace`],
     DisplayAspectRatio: [, __expectString, `displayAspectRatio`],
-    FilterSettings: (_) => [, de_Mpeg2FilterSettings(_, context), `filterSettings`],
+    FilterSettings: [, (_: any) => de_Mpeg2FilterSettings(_, context), `filterSettings`],
     FixedAfd: [, __expectString, `fixedAfd`],
     FramerateDenominator: [, __expectInt32, `framerateDenominator`],
     FramerateNumerator: [, __expectInt32, `framerateNumerator`],
@@ -11251,7 +11255,7 @@ const de_Mpeg2Settings = (output: any, context: __SerdeContext): Mpeg2Settings =
     GopSizeUnits: [, __expectString, `gopSizeUnits`],
     ScanType: [, __expectString, `scanType`],
     SubgopLength: [, __expectString, `subgopLength`],
-    TimecodeBurninSettings: (_) => [, de_TimecodeBurninSettings(_, context), `timecodeBurninSettings`],
+    TimecodeBurninSettings: [, (_: any) => de_TimecodeBurninSettings(_, context), `timecodeBurninSettings`],
     TimecodeInsertion: [, __expectString, `timecodeInsertion`],
   }) as any;
 };
@@ -11265,7 +11269,7 @@ const de_MsSmoothGroupSettings = (output: any, context: __SerdeContext): MsSmoot
     AudioOnlyTimecodeControl: [, __expectString, `audioOnlyTimecodeControl`],
     CertificateMode: [, __expectString, `certificateMode`],
     ConnectionRetryInterval: [, __expectInt32, `connectionRetryInterval`],
-    Destination: (_) => [, de_OutputLocationRef(_, context), `destination`],
+    Destination: [, (_: any) => de_OutputLocationRef(_, context), `destination`],
     EventId: [, __expectString, `eventId`],
     EventIdMode: [, __expectString, `eventIdMode`],
     EventStopBehavior: [, __expectString, `eventStopBehavior`],
@@ -11300,9 +11304,9 @@ const de_Multiplex = (output: any, context: __SerdeContext): Multiplex => {
   return take(output, {
     Arn: [, __expectString, `arn`],
     AvailabilityZones: [, _json, `availabilityZones`],
-    Destinations: (_) => [, de___listOfMultiplexOutputDestination(_, context), `destinations`],
+    Destinations: [, (_: any) => de___listOfMultiplexOutputDestination(_, context), `destinations`],
     Id: [, __expectString, `id`],
-    MultiplexSettings: (_) => [, de_MultiplexSettings(_, context), `multiplexSettings`],
+    MultiplexSettings: [, (_: any) => de_MultiplexSettings(_, context), `multiplexSettings`],
     Name: [, __expectString, `name`],
     PipelinesRunningCount: [, __expectInt32, `pipelinesRunningCount`],
     ProgramCount: [, __expectInt32, `programCount`],
@@ -11330,9 +11334,9 @@ const de_MultiplexMediaConnectOutputDestinationSettings = (
  */
 const de_MultiplexOutputDestination = (output: any, context: __SerdeContext): MultiplexOutputDestination => {
   return take(output, {
-    MediaConnectSettings: (_) => [
+    MediaConnectSettings: [
       ,
-      de_MultiplexMediaConnectOutputDestinationSettings(_, context),
+      (_: any) => de_MultiplexMediaConnectOutputDestinationSettings(_, context),
       `mediaConnectSettings`,
     ],
   }) as any;
@@ -11343,7 +11347,7 @@ const de_MultiplexOutputDestination = (output: any, context: __SerdeContext): Mu
  */
 const de_MultiplexOutputSettings = (output: any, context: __SerdeContext): MultiplexOutputSettings => {
   return take(output, {
-    Destination: (_) => [, de_OutputLocationRef(_, context), `destination`],
+    Destination: [, (_: any) => de_OutputLocationRef(_, context), `destination`],
   }) as any;
 };
 
@@ -11353,9 +11357,9 @@ const de_MultiplexOutputSettings = (output: any, context: __SerdeContext): Multi
 const de_MultiplexProgram = (output: any, context: __SerdeContext): MultiplexProgram => {
   return take(output, {
     ChannelId: [, __expectString, `channelId`],
-    MultiplexProgramSettings: (_) => [, de_MultiplexProgramSettings(_, context), `multiplexProgramSettings`],
-    PacketIdentifiersMap: (_) => [, de_MultiplexProgramPacketIdentifiersMap(_, context), `packetIdentifiersMap`],
-    PipelineDetails: (_) => [, de___listOfMultiplexProgramPipelineDetail(_, context), `pipelineDetails`],
+    MultiplexProgramSettings: [, (_: any) => de_MultiplexProgramSettings(_, context), `multiplexProgramSettings`],
+    PacketIdentifiersMap: [, (_: any) => de_MultiplexProgramPacketIdentifiersMap(_, context), `packetIdentifiersMap`],
+    PipelineDetails: [, (_: any) => de___listOfMultiplexProgramPipelineDetail(_, context), `pipelineDetails`],
     ProgramName: [, __expectString, `programName`],
   }) as any;
 };
@@ -11427,8 +11431,8 @@ const de_MultiplexProgramSettings = (output: any, context: __SerdeContext): Mult
   return take(output, {
     PreferredChannelPipeline: [, __expectString, `preferredChannelPipeline`],
     ProgramNumber: [, __expectInt32, `programNumber`],
-    ServiceDescriptor: (_) => [, de_MultiplexProgramServiceDescriptor(_, context), `serviceDescriptor`],
-    VideoSettings: (_) => [, de_MultiplexVideoSettings(_, context), `videoSettings`],
+    ServiceDescriptor: [, (_: any) => de_MultiplexProgramServiceDescriptor(_, context), `serviceDescriptor`],
+    VideoSettings: [, (_: any) => de_MultiplexVideoSettings(_, context), `videoSettings`],
   }) as any;
 };
 
@@ -11482,7 +11486,7 @@ const de_MultiplexSummary = (output: any, context: __SerdeContext): MultiplexSum
     Arn: [, __expectString, `arn`],
     AvailabilityZones: [, _json, `availabilityZones`],
     Id: [, __expectString, `id`],
-    MultiplexSettings: (_) => [, de_MultiplexSettingsSummary(_, context), `multiplexSettings`],
+    MultiplexSettings: [, (_: any) => de_MultiplexSettingsSummary(_, context), `multiplexSettings`],
     Name: [, __expectString, `name`],
     PipelinesRunningCount: [, __expectInt32, `pipelinesRunningCount`],
     ProgramCount: [, __expectInt32, `programCount`],
@@ -11497,7 +11501,7 @@ const de_MultiplexSummary = (output: any, context: __SerdeContext): MultiplexSum
 const de_MultiplexVideoSettings = (output: any, context: __SerdeContext): MultiplexVideoSettings => {
   return take(output, {
     ConstantBitrate: [, __expectInt32, `constantBitrate`],
-    StatmuxSettings: (_) => [, de_MultiplexStatmuxVideoSettings(_, context), `statmuxSettings`],
+    StatmuxSettings: [, (_: any) => de_MultiplexStatmuxVideoSettings(_, context), `statmuxSettings`],
   }) as any;
 };
 
@@ -11506,7 +11510,7 @@ const de_MultiplexVideoSettings = (output: any, context: __SerdeContext): Multip
  */
 const de_NetworkInputSettings = (output: any, context: __SerdeContext): NetworkInputSettings => {
   return take(output, {
-    HlsInputSettings: (_) => [, de_HlsInputSettings(_, context), `hlsInputSettings`],
+    HlsInputSettings: [, (_: any) => de_HlsInputSettings(_, context), `hlsInputSettings`],
     ServerValidation: [, __expectString, `serverValidation`],
   }) as any;
 };
@@ -11548,9 +11552,9 @@ const de_NielsenNaesIiNw = (output: any, context: __SerdeContext): NielsenNaesIi
  */
 const de_NielsenWatermarksSettings = (output: any, context: __SerdeContext): NielsenWatermarksSettings => {
   return take(output, {
-    NielsenCbetSettings: (_) => [, de_NielsenCBET(_, context), `nielsenCbetSettings`],
+    NielsenCbetSettings: [, (_: any) => de_NielsenCBET(_, context), `nielsenCbetSettings`],
     NielsenDistributionType: [, __expectString, `nielsenDistributionType`],
-    NielsenNaesIiNwSettings: (_) => [, de_NielsenNaesIiNw(_, context), `nielsenNaesIiNwSettings`],
+    NielsenNaesIiNwSettings: [, (_: any) => de_NielsenNaesIiNw(_, context), `nielsenNaesIiNwSettings`],
   }) as any;
 };
 
@@ -11568,7 +11572,7 @@ const de_Offering = (output: any, context: __SerdeContext): Offering => {
     OfferingId: [, __expectString, `offeringId`],
     OfferingType: [, __expectString, `offeringType`],
     Region: [, __expectString, `region`],
-    ResourceSpecification: (_) => [, de_ReservationResourceSpecification(_, context), `resourceSpecification`],
+    ResourceSpecification: [, (_: any) => de_ReservationResourceSpecification(_, context), `resourceSpecification`],
     UsagePrice: [, __limitedParseDouble, `usagePrice`],
   }) as any;
 };
@@ -11581,7 +11585,7 @@ const de_Output = (output: any, context: __SerdeContext): Output => {
     AudioDescriptionNames: [, _json, `audioDescriptionNames`],
     CaptionDescriptionNames: [, _json, `captionDescriptionNames`],
     OutputName: [, __expectString, `outputName`],
-    OutputSettings: (_) => [, de_OutputSettings(_, context), `outputSettings`],
+    OutputSettings: [, (_: any) => de_OutputSettings(_, context), `outputSettings`],
     VideoDescriptionName: [, __expectString, `videoDescriptionName`],
   }) as any;
 };
@@ -11592,13 +11596,13 @@ const de_Output = (output: any, context: __SerdeContext): Output => {
 const de_OutputDestination = (output: any, context: __SerdeContext): OutputDestination => {
   return take(output, {
     Id: [, __expectString, `id`],
-    MediaPackageSettings: (_) => [
+    MediaPackageSettings: [
       ,
-      de___listOfMediaPackageOutputDestinationSettings(_, context),
+      (_: any) => de___listOfMediaPackageOutputDestinationSettings(_, context),
       `mediaPackageSettings`,
     ],
-    MultiplexSettings: (_) => [, de_MultiplexProgramChannelDestinationSettings(_, context), `multiplexSettings`],
-    Settings: (_) => [, de___listOfOutputDestinationSettings(_, context), `settings`],
+    MultiplexSettings: [, (_: any) => de_MultiplexProgramChannelDestinationSettings(_, context), `multiplexSettings`],
+    Settings: [, (_: any) => de___listOfOutputDestinationSettings(_, context), `settings`],
   }) as any;
 };
 
@@ -11620,8 +11624,8 @@ const de_OutputDestinationSettings = (output: any, context: __SerdeContext): Out
 const de_OutputGroup = (output: any, context: __SerdeContext): OutputGroup => {
   return take(output, {
     Name: [, __expectString, `name`],
-    OutputGroupSettings: (_) => [, de_OutputGroupSettings(_, context), `outputGroupSettings`],
-    Outputs: (_) => [, de___listOfOutput(_, context), `outputs`],
+    OutputGroupSettings: [, (_: any) => de_OutputGroupSettings(_, context), `outputGroupSettings`],
+    Outputs: [, (_: any) => de___listOfOutput(_, context), `outputs`],
   }) as any;
 };
 
@@ -11630,14 +11634,14 @@ const de_OutputGroup = (output: any, context: __SerdeContext): OutputGroup => {
  */
 const de_OutputGroupSettings = (output: any, context: __SerdeContext): OutputGroupSettings => {
   return take(output, {
-    ArchiveGroupSettings: (_) => [, de_ArchiveGroupSettings(_, context), `archiveGroupSettings`],
-    FrameCaptureGroupSettings: (_) => [, de_FrameCaptureGroupSettings(_, context), `frameCaptureGroupSettings`],
-    HlsGroupSettings: (_) => [, de_HlsGroupSettings(_, context), `hlsGroupSettings`],
-    MediaPackageGroupSettings: (_) => [, de_MediaPackageGroupSettings(_, context), `mediaPackageGroupSettings`],
-    MsSmoothGroupSettings: (_) => [, de_MsSmoothGroupSettings(_, context), `msSmoothGroupSettings`],
+    ArchiveGroupSettings: [, (_: any) => de_ArchiveGroupSettings(_, context), `archiveGroupSettings`],
+    FrameCaptureGroupSettings: [, (_: any) => de_FrameCaptureGroupSettings(_, context), `frameCaptureGroupSettings`],
+    HlsGroupSettings: [, (_: any) => de_HlsGroupSettings(_, context), `hlsGroupSettings`],
+    MediaPackageGroupSettings: [, (_: any) => de_MediaPackageGroupSettings(_, context), `mediaPackageGroupSettings`],
+    MsSmoothGroupSettings: [, (_: any) => de_MsSmoothGroupSettings(_, context), `msSmoothGroupSettings`],
     MultiplexGroupSettings: [, _json, `multiplexGroupSettings`],
-    RtmpGroupSettings: (_) => [, de_RtmpGroupSettings(_, context), `rtmpGroupSettings`],
-    UdpGroupSettings: (_) => [, de_UdpGroupSettings(_, context), `udpGroupSettings`],
+    RtmpGroupSettings: [, (_: any) => de_RtmpGroupSettings(_, context), `rtmpGroupSettings`],
+    UdpGroupSettings: [, (_: any) => de_UdpGroupSettings(_, context), `udpGroupSettings`],
   }) as any;
 };
 
@@ -11655,14 +11659,14 @@ const de_OutputLocationRef = (output: any, context: __SerdeContext): OutputLocat
  */
 const de_OutputSettings = (output: any, context: __SerdeContext): OutputSettings => {
   return take(output, {
-    ArchiveOutputSettings: (_) => [, de_ArchiveOutputSettings(_, context), `archiveOutputSettings`],
-    FrameCaptureOutputSettings: (_) => [, de_FrameCaptureOutputSettings(_, context), `frameCaptureOutputSettings`],
-    HlsOutputSettings: (_) => [, de_HlsOutputSettings(_, context), `hlsOutputSettings`],
+    ArchiveOutputSettings: [, (_: any) => de_ArchiveOutputSettings(_, context), `archiveOutputSettings`],
+    FrameCaptureOutputSettings: [, (_: any) => de_FrameCaptureOutputSettings(_, context), `frameCaptureOutputSettings`],
+    HlsOutputSettings: [, (_: any) => de_HlsOutputSettings(_, context), `hlsOutputSettings`],
     MediaPackageOutputSettings: [, _json, `mediaPackageOutputSettings`],
-    MsSmoothOutputSettings: (_) => [, de_MsSmoothOutputSettings(_, context), `msSmoothOutputSettings`],
-    MultiplexOutputSettings: (_) => [, de_MultiplexOutputSettings(_, context), `multiplexOutputSettings`],
-    RtmpOutputSettings: (_) => [, de_RtmpOutputSettings(_, context), `rtmpOutputSettings`],
-    UdpOutputSettings: (_) => [, de_UdpOutputSettings(_, context), `udpOutputSettings`],
+    MsSmoothOutputSettings: [, (_: any) => de_MsSmoothOutputSettings(_, context), `msSmoothOutputSettings`],
+    MultiplexOutputSettings: [, (_: any) => de_MultiplexOutputSettings(_, context), `multiplexOutputSettings`],
+    RtmpOutputSettings: [, (_: any) => de_RtmpOutputSettings(_, context), `rtmpOutputSettings`],
+    UdpOutputSettings: [, (_: any) => de_UdpOutputSettings(_, context), `udpOutputSettings`],
   }) as any;
 };
 
@@ -11676,7 +11680,7 @@ const de_PauseStateScheduleActionSettings = (
   context: __SerdeContext
 ): PauseStateScheduleActionSettings => {
   return take(output, {
-    Pipelines: (_) => [, de___listOfPipelinePauseStateSettings(_, context), `pipelines`],
+    Pipelines: [, (_: any) => de___listOfPipelinePauseStateSettings(_, context), `pipelines`],
   }) as any;
 };
 
@@ -11713,7 +11717,7 @@ const de_PipelinePauseStateSettings = (output: any, context: __SerdeContext): Pi
  */
 const de_RemixSettings = (output: any, context: __SerdeContext): RemixSettings => {
   return take(output, {
-    ChannelMappings: (_) => [, de___listOfAudioChannelMapping(_, context), `channelMappings`],
+    ChannelMappings: [, (_: any) => de___listOfAudioChannelMapping(_, context), `channelMappings`],
     ChannelsIn: [, __expectInt32, `channelsIn`],
     ChannelsOut: [, __expectInt32, `channelsOut`],
   }) as any;
@@ -11746,9 +11750,9 @@ const de_Reservation = (output: any, context: __SerdeContext): Reservation => {
     OfferingId: [, __expectString, `offeringId`],
     OfferingType: [, __expectString, `offeringType`],
     Region: [, __expectString, `region`],
-    RenewalSettings: (_) => [, de_RenewalSettings(_, context), `renewalSettings`],
+    RenewalSettings: [, (_: any) => de_RenewalSettings(_, context), `renewalSettings`],
     ReservationId: [, __expectString, `reservationId`],
-    ResourceSpecification: (_) => [, de_ReservationResourceSpecification(_, context), `resourceSpecification`],
+    ResourceSpecification: [, (_: any) => de_ReservationResourceSpecification(_, context), `resourceSpecification`],
     Start: [, __expectString, `start`],
     State: [, __expectString, `state`],
     Tags: [, _json, `tags`],
@@ -11799,7 +11803,7 @@ const de_RtmpOutputSettings = (output: any, context: __SerdeContext): RtmpOutput
   return take(output, {
     CertificateMode: [, __expectString, `certificateMode`],
     ConnectionRetryInterval: [, __expectInt32, `connectionRetryInterval`],
-    Destination: (_) => [, de_OutputLocationRef(_, context), `destination`],
+    Destination: [, (_: any) => de_OutputLocationRef(_, context), `destination`],
     NumRetries: [, __expectInt32, `numRetries`],
   }) as any;
 };
@@ -11810,8 +11814,12 @@ const de_RtmpOutputSettings = (output: any, context: __SerdeContext): RtmpOutput
 const de_ScheduleAction = (output: any, context: __SerdeContext): ScheduleAction => {
   return take(output, {
     ActionName: [, __expectString, `actionName`],
-    ScheduleActionSettings: (_) => [, de_ScheduleActionSettings(_, context), `scheduleActionSettings`],
-    ScheduleActionStartSettings: (_) => [, de_ScheduleActionStartSettings(_, context), `scheduleActionStartSettings`],
+    ScheduleActionSettings: [, (_: any) => de_ScheduleActionSettings(_, context), `scheduleActionSettings`],
+    ScheduleActionStartSettings: [
+      ,
+      (_: any) => de_ScheduleActionStartSettings(_, context),
+      `scheduleActionStartSettings`,
+    ],
   }) as any;
 };
 
@@ -11820,49 +11828,49 @@ const de_ScheduleAction = (output: any, context: __SerdeContext): ScheduleAction
  */
 const de_ScheduleActionSettings = (output: any, context: __SerdeContext): ScheduleActionSettings => {
   return take(output, {
-    HlsId3SegmentTaggingSettings: (_) => [
+    HlsId3SegmentTaggingSettings: [
       ,
-      de_HlsId3SegmentTaggingScheduleActionSettings(_, context),
+      (_: any) => de_HlsId3SegmentTaggingScheduleActionSettings(_, context),
       `hlsId3SegmentTaggingSettings`,
     ],
-    HlsTimedMetadataSettings: (_) => [
+    HlsTimedMetadataSettings: [
       ,
-      de_HlsTimedMetadataScheduleActionSettings(_, context),
+      (_: any) => de_HlsTimedMetadataScheduleActionSettings(_, context),
       `hlsTimedMetadataSettings`,
     ],
-    InputPrepareSettings: (_) => [, de_InputPrepareScheduleActionSettings(_, context), `inputPrepareSettings`],
-    InputSwitchSettings: (_) => [, de_InputSwitchScheduleActionSettings(_, context), `inputSwitchSettings`],
-    MotionGraphicsImageActivateSettings: (_) => [
+    InputPrepareSettings: [, (_: any) => de_InputPrepareScheduleActionSettings(_, context), `inputPrepareSettings`],
+    InputSwitchSettings: [, (_: any) => de_InputSwitchScheduleActionSettings(_, context), `inputSwitchSettings`],
+    MotionGraphicsImageActivateSettings: [
       ,
-      de_MotionGraphicsActivateScheduleActionSettings(_, context),
+      (_: any) => de_MotionGraphicsActivateScheduleActionSettings(_, context),
       `motionGraphicsImageActivateSettings`,
     ],
     MotionGraphicsImageDeactivateSettings: [, _json, `motionGraphicsImageDeactivateSettings`],
-    PauseStateSettings: (_) => [, de_PauseStateScheduleActionSettings(_, context), `pauseStateSettings`],
-    Scte35InputSettings: (_) => [, de_Scte35InputScheduleActionSettings(_, context), `scte35InputSettings`],
-    Scte35ReturnToNetworkSettings: (_) => [
+    PauseStateSettings: [, (_: any) => de_PauseStateScheduleActionSettings(_, context), `pauseStateSettings`],
+    Scte35InputSettings: [, (_: any) => de_Scte35InputScheduleActionSettings(_, context), `scte35InputSettings`],
+    Scte35ReturnToNetworkSettings: [
       ,
-      de_Scte35ReturnToNetworkScheduleActionSettings(_, context),
+      (_: any) => de_Scte35ReturnToNetworkScheduleActionSettings(_, context),
       `scte35ReturnToNetworkSettings`,
     ],
-    Scte35SpliceInsertSettings: (_) => [
+    Scte35SpliceInsertSettings: [
       ,
-      de_Scte35SpliceInsertScheduleActionSettings(_, context),
+      (_: any) => de_Scte35SpliceInsertScheduleActionSettings(_, context),
       `scte35SpliceInsertSettings`,
     ],
-    Scte35TimeSignalSettings: (_) => [
+    Scte35TimeSignalSettings: [
       ,
-      de_Scte35TimeSignalScheduleActionSettings(_, context),
+      (_: any) => de_Scte35TimeSignalScheduleActionSettings(_, context),
       `scte35TimeSignalSettings`,
     ],
-    StaticImageActivateSettings: (_) => [
+    StaticImageActivateSettings: [
       ,
-      de_StaticImageActivateScheduleActionSettings(_, context),
+      (_: any) => de_StaticImageActivateScheduleActionSettings(_, context),
       `staticImageActivateSettings`,
     ],
-    StaticImageDeactivateSettings: (_) => [
+    StaticImageDeactivateSettings: [
       ,
-      de_StaticImageDeactivateScheduleActionSettings(_, context),
+      (_: any) => de_StaticImageDeactivateScheduleActionSettings(_, context),
       `staticImageDeactivateSettings`,
     ],
   }) as any;
@@ -11873,14 +11881,14 @@ const de_ScheduleActionSettings = (output: any, context: __SerdeContext): Schedu
  */
 const de_ScheduleActionStartSettings = (output: any, context: __SerdeContext): ScheduleActionStartSettings => {
   return take(output, {
-    FixedModeScheduleActionStartSettings: (_) => [
+    FixedModeScheduleActionStartSettings: [
       ,
-      de_FixedModeScheduleActionStartSettings(_, context),
+      (_: any) => de_FixedModeScheduleActionStartSettings(_, context),
       `fixedModeScheduleActionStartSettings`,
     ],
-    FollowModeScheduleActionStartSettings: (_) => [
+    FollowModeScheduleActionStartSettings: [
       ,
-      de_FollowModeScheduleActionStartSettings(_, context),
+      (_: any) => de_FollowModeScheduleActionStartSettings(_, context),
       `followModeScheduleActionStartSettings`,
     ],
     ImmediateModeScheduleActionStartSettings: [, _json, `immediateModeScheduleActionStartSettings`],
@@ -11928,7 +11936,7 @@ const de_Scte35DeliveryRestrictions = (output: any, context: __SerdeContext): Sc
  */
 const de_Scte35Descriptor = (output: any, context: __SerdeContext): Scte35Descriptor => {
   return take(output, {
-    Scte35DescriptorSettings: (_) => [, de_Scte35DescriptorSettings(_, context), `scte35DescriptorSettings`],
+    Scte35DescriptorSettings: [, (_: any) => de_Scte35DescriptorSettings(_, context), `scte35DescriptorSettings`],
   }) as any;
 };
 
@@ -11937,9 +11945,9 @@ const de_Scte35Descriptor = (output: any, context: __SerdeContext): Scte35Descri
  */
 const de_Scte35DescriptorSettings = (output: any, context: __SerdeContext): Scte35DescriptorSettings => {
   return take(output, {
-    SegmentationDescriptorScte35DescriptorSettings: (_) => [
+    SegmentationDescriptorScte35DescriptorSettings: [
       ,
-      de_Scte35SegmentationDescriptor(_, context),
+      (_: any) => de_Scte35SegmentationDescriptor(_, context),
       `segmentationDescriptorScte35DescriptorSettings`,
     ],
   }) as any;
@@ -11975,7 +11983,7 @@ const de_Scte35ReturnToNetworkScheduleActionSettings = (
  */
 const de_Scte35SegmentationDescriptor = (output: any, context: __SerdeContext): Scte35SegmentationDescriptor => {
   return take(output, {
-    DeliveryRestrictions: (_) => [, de_Scte35DeliveryRestrictions(_, context), `deliveryRestrictions`],
+    DeliveryRestrictions: [, (_: any) => de_Scte35DeliveryRestrictions(_, context), `deliveryRestrictions`],
     SegmentNum: [, __expectInt32, `segmentNum`],
     SegmentationCancelIndicator: [, __expectString, `segmentationCancelIndicator`],
     SegmentationDuration: [, __expectLong, `segmentationDuration`],
@@ -12032,7 +12040,7 @@ const de_Scte35TimeSignalScheduleActionSettings = (
   context: __SerdeContext
 ): Scte35TimeSignalScheduleActionSettings => {
   return take(output, {
-    Scte35Descriptors: (_) => [, de___listOfScte35Descriptor(_, context), `scte35Descriptors`],
+    Scte35Descriptors: [, (_: any) => de___listOfScte35Descriptor(_, context), `scte35Descriptors`],
   }) as any;
 };
 
@@ -12044,7 +12052,7 @@ const de_Scte35TimeSignalScheduleActionSettings = (
 const de_StandardHlsSettings = (output: any, context: __SerdeContext): StandardHlsSettings => {
   return take(output, {
     AudioRenditionSets: [, __expectString, `audioRenditionSets`],
-    M3u8Settings: (_) => [, de_M3u8Settings(_, context), `m3u8Settings`],
+    M3u8Settings: [, (_: any) => de_M3u8Settings(_, context), `m3u8Settings`],
   }) as any;
 };
 
@@ -12069,7 +12077,7 @@ const de_StaticImageActivateScheduleActionSettings = (
     FadeIn: [, __expectInt32, `fadeIn`],
     FadeOut: [, __expectInt32, `fadeOut`],
     Height: [, __expectInt32, `height`],
-    Image: (_) => [, de_InputLocation(_, context), `image`],
+    Image: [, (_: any) => de_InputLocation(_, context), `image`],
     ImageX: [, __expectInt32, `imageX`],
     ImageY: [, __expectInt32, `imageY`],
     Layer: [, __expectInt32, `layer`],
@@ -12096,7 +12104,7 @@ const de_StaticImageDeactivateScheduleActionSettings = (
  */
 const de_StaticKeySettings = (output: any, context: __SerdeContext): StaticKeySettings => {
   return take(output, {
-    KeyProviderServer: (_) => [, de_InputLocation(_, context), `keyProviderServer`],
+    KeyProviderServer: [, (_: any) => de_InputLocation(_, context), `keyProviderServer`],
     StaticKeyValue: [, __expectString, `staticKeyValue`],
   }) as any;
 };
@@ -12120,7 +12128,7 @@ const de_StopTimecode = (output: any, context: __SerdeContext): StopTimecode => 
  */
 const de_TeletextSourceSettings = (output: any, context: __SerdeContext): TeletextSourceSettings => {
   return take(output, {
-    OutputRectangle: (_) => [, de_CaptionRectangle(_, context), `outputRectangle`],
+    OutputRectangle: [, (_: any) => de_CaptionRectangle(_, context), `outputRectangle`],
     PageNumber: [, __expectString, `pageNumber`],
   }) as any;
 };
@@ -12182,7 +12190,7 @@ const de_TtmlDestinationSettings = (output: any, context: __SerdeContext): TtmlD
  */
 const de_UdpContainerSettings = (output: any, context: __SerdeContext): UdpContainerSettings => {
   return take(output, {
-    M2tsSettings: (_) => [, de_M2tsSettings(_, context), `m2tsSettings`],
+    M2tsSettings: [, (_: any) => de_M2tsSettings(_, context), `m2tsSettings`],
   }) as any;
 };
 
@@ -12203,9 +12211,9 @@ const de_UdpGroupSettings = (output: any, context: __SerdeContext): UdpGroupSett
 const de_UdpOutputSettings = (output: any, context: __SerdeContext): UdpOutputSettings => {
   return take(output, {
     BufferMsec: [, __expectInt32, `bufferMsec`],
-    ContainerSettings: (_) => [, de_UdpContainerSettings(_, context), `containerSettings`],
-    Destination: (_) => [, de_OutputLocationRef(_, context), `destination`],
-    FecOutputSettings: (_) => [, de_FecOutputSettings(_, context), `fecOutputSettings`],
+    ContainerSettings: [, (_: any) => de_UdpContainerSettings(_, context), `containerSettings`],
+    Destination: [, (_: any) => de_OutputLocationRef(_, context), `destination`],
+    FecOutputSettings: [, (_: any) => de_FecOutputSettings(_, context), `fecOutputSettings`],
   }) as any;
 };
 
@@ -12234,10 +12242,10 @@ const de_VideoBlackFailoverSettings = (output: any, context: __SerdeContext): Vi
  */
 const de_VideoCodecSettings = (output: any, context: __SerdeContext): VideoCodecSettings => {
   return take(output, {
-    FrameCaptureSettings: (_) => [, de_FrameCaptureSettings(_, context), `frameCaptureSettings`],
-    H264Settings: (_) => [, de_H264Settings(_, context), `h264Settings`],
-    H265Settings: (_) => [, de_H265Settings(_, context), `h265Settings`],
-    Mpeg2Settings: (_) => [, de_Mpeg2Settings(_, context), `mpeg2Settings`],
+    FrameCaptureSettings: [, (_: any) => de_FrameCaptureSettings(_, context), `frameCaptureSettings`],
+    H264Settings: [, (_: any) => de_H264Settings(_, context), `h264Settings`],
+    H265Settings: [, (_: any) => de_H265Settings(_, context), `h265Settings`],
+    Mpeg2Settings: [, (_: any) => de_Mpeg2Settings(_, context), `mpeg2Settings`],
   }) as any;
 };
 
@@ -12246,7 +12254,7 @@ const de_VideoCodecSettings = (output: any, context: __SerdeContext): VideoCodec
  */
 const de_VideoDescription = (output: any, context: __SerdeContext): VideoDescription => {
   return take(output, {
-    CodecSettings: (_) => [, de_VideoCodecSettings(_, context), `codecSettings`],
+    CodecSettings: [, (_: any) => de_VideoCodecSettings(_, context), `codecSettings`],
     Height: [, __expectInt32, `height`],
     Name: [, __expectString, `name`],
     RespondToAfd: [, __expectString, `respondToAfd`],
@@ -12262,9 +12270,9 @@ const de_VideoDescription = (output: any, context: __SerdeContext): VideoDescrip
 const de_VideoSelector = (output: any, context: __SerdeContext): VideoSelector => {
   return take(output, {
     ColorSpace: [, __expectString, `colorSpace`],
-    ColorSpaceSettings: (_) => [, de_VideoSelectorColorSpaceSettings(_, context), `colorSpaceSettings`],
+    ColorSpaceSettings: [, (_: any) => de_VideoSelectorColorSpaceSettings(_, context), `colorSpaceSettings`],
     ColorSpaceUsage: [, __expectString, `colorSpaceUsage`],
-    SelectorSettings: (_) => [, de_VideoSelectorSettings(_, context), `selectorSettings`],
+    SelectorSettings: [, (_: any) => de_VideoSelectorSettings(_, context), `selectorSettings`],
   }) as any;
 };
 
@@ -12273,7 +12281,7 @@ const de_VideoSelector = (output: any, context: __SerdeContext): VideoSelector =
  */
 const de_VideoSelectorColorSpaceSettings = (output: any, context: __SerdeContext): VideoSelectorColorSpaceSettings => {
   return take(output, {
-    Hdr10Settings: (_) => [, de_Hdr10Settings(_, context), `hdr10Settings`],
+    Hdr10Settings: [, (_: any) => de_Hdr10Settings(_, context), `hdr10Settings`],
   }) as any;
 };
 
@@ -12300,8 +12308,8 @@ const de_VideoSelectorProgramId = (output: any, context: __SerdeContext): VideoS
  */
 const de_VideoSelectorSettings = (output: any, context: __SerdeContext): VideoSelectorSettings => {
   return take(output, {
-    VideoSelectorPid: (_) => [, de_VideoSelectorPid(_, context), `videoSelectorPid`],
-    VideoSelectorProgramId: (_) => [, de_VideoSelectorProgramId(_, context), `videoSelectorProgramId`],
+    VideoSelectorPid: [, (_: any) => de_VideoSelectorPid(_, context), `videoSelectorPid`],
+    VideoSelectorProgramId: [, (_: any) => de_VideoSelectorProgramId(_, context), `videoSelectorProgramId`],
   }) as any;
 };
 

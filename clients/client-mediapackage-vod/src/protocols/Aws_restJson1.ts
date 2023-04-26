@@ -2062,7 +2062,7 @@ const de_Authorization = (output: any, context: __SerdeContext): Authorization =
 const de_CmafEncryption = (output: any, context: __SerdeContext): CmafEncryption => {
   return take(output, {
     ConstantInitializationVector: [, __expectString, `constantInitializationVector`],
-    SpekeKeyProvider: (_) => [, de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
+    SpekeKeyProvider: [, (_: any) => de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
   }) as any;
 };
 
@@ -2071,8 +2071,8 @@ const de_CmafEncryption = (output: any, context: __SerdeContext): CmafEncryption
  */
 const de_CmafPackage = (output: any, context: __SerdeContext): CmafPackage => {
   return take(output, {
-    Encryption: (_) => [, de_CmafEncryption(_, context), `encryption`],
-    HlsManifests: (_) => [, de___listOfHlsManifest(_, context), `hlsManifests`],
+    Encryption: [, (_: any) => de_CmafEncryption(_, context), `encryption`],
+    HlsManifests: [, (_: any) => de___listOfHlsManifest(_, context), `hlsManifests`],
     IncludeEncoderConfigurationInSegments: [, __expectBoolean, `includeEncoderConfigurationInSegments`],
     SegmentDurationSeconds: [, __expectInt32, `segmentDurationSeconds`],
   }) as any;
@@ -2083,7 +2083,7 @@ const de_CmafPackage = (output: any, context: __SerdeContext): CmafPackage => {
  */
 const de_DashEncryption = (output: any, context: __SerdeContext): DashEncryption => {
   return take(output, {
-    SpekeKeyProvider: (_) => [, de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
+    SpekeKeyProvider: [, (_: any) => de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
   }) as any;
 };
 
@@ -2097,7 +2097,7 @@ const de_DashManifest = (output: any, context: __SerdeContext): DashManifest => 
     MinBufferTimeSeconds: [, __expectInt32, `minBufferTimeSeconds`],
     Profile: [, __expectString, `profile`],
     ScteMarkersSource: [, __expectString, `scteMarkersSource`],
-    StreamSelection: (_) => [, de_StreamSelection(_, context), `streamSelection`],
+    StreamSelection: [, (_: any) => de_StreamSelection(_, context), `streamSelection`],
   }) as any;
 };
 
@@ -2106,8 +2106,8 @@ const de_DashManifest = (output: any, context: __SerdeContext): DashManifest => 
  */
 const de_DashPackage = (output: any, context: __SerdeContext): DashPackage => {
   return take(output, {
-    DashManifests: (_) => [, de___listOfDashManifest(_, context), `dashManifests`],
-    Encryption: (_) => [, de_DashEncryption(_, context), `encryption`],
+    DashManifests: [, (_: any) => de___listOfDashManifest(_, context), `dashManifests`],
+    Encryption: [, (_: any) => de_DashEncryption(_, context), `encryption`],
     IncludeEncoderConfigurationInSegments: [, __expectBoolean, `includeEncoderConfigurationInSegments`],
     IncludeIframeOnlyStream: [, __expectBoolean, `includeIframeOnlyStream`],
     PeriodTriggers: [, _json, `periodTriggers`],
@@ -2153,7 +2153,7 @@ const de_HlsEncryption = (output: any, context: __SerdeContext): HlsEncryption =
   return take(output, {
     ConstantInitializationVector: [, __expectString, `constantInitializationVector`],
     EncryptionMethod: [, __expectString, `encryptionMethod`],
-    SpekeKeyProvider: (_) => [, de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
+    SpekeKeyProvider: [, (_: any) => de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
   }) as any;
 };
 
@@ -2167,7 +2167,7 @@ const de_HlsManifest = (output: any, context: __SerdeContext): HlsManifest => {
     ManifestName: [, __expectString, `manifestName`],
     ProgramDateTimeIntervalSeconds: [, __expectInt32, `programDateTimeIntervalSeconds`],
     RepeatExtXKey: [, __expectBoolean, `repeatExtXKey`],
-    StreamSelection: (_) => [, de_StreamSelection(_, context), `streamSelection`],
+    StreamSelection: [, (_: any) => de_StreamSelection(_, context), `streamSelection`],
   }) as any;
 };
 
@@ -2176,8 +2176,8 @@ const de_HlsManifest = (output: any, context: __SerdeContext): HlsManifest => {
  */
 const de_HlsPackage = (output: any, context: __SerdeContext): HlsPackage => {
   return take(output, {
-    Encryption: (_) => [, de_HlsEncryption(_, context), `encryption`],
-    HlsManifests: (_) => [, de___listOfHlsManifest(_, context), `hlsManifests`],
+    Encryption: [, (_: any) => de_HlsEncryption(_, context), `encryption`],
+    HlsManifests: [, (_: any) => de___listOfHlsManifest(_, context), `hlsManifests`],
     IncludeDvbSubtitles: [, __expectBoolean, `includeDvbSubtitles`],
     SegmentDurationSeconds: [, __expectInt32, `segmentDurationSeconds`],
     UseAudioRenditionGroup: [, __expectBoolean, `useAudioRenditionGroup`],
@@ -2189,7 +2189,7 @@ const de_HlsPackage = (output: any, context: __SerdeContext): HlsPackage => {
  */
 const de_MssEncryption = (output: any, context: __SerdeContext): MssEncryption => {
   return take(output, {
-    SpekeKeyProvider: (_) => [, de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
+    SpekeKeyProvider: [, (_: any) => de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
   }) as any;
 };
 
@@ -2199,7 +2199,7 @@ const de_MssEncryption = (output: any, context: __SerdeContext): MssEncryption =
 const de_MssManifest = (output: any, context: __SerdeContext): MssManifest => {
   return take(output, {
     ManifestName: [, __expectString, `manifestName`],
-    StreamSelection: (_) => [, de_StreamSelection(_, context), `streamSelection`],
+    StreamSelection: [, (_: any) => de_StreamSelection(_, context), `streamSelection`],
   }) as any;
 };
 
@@ -2208,8 +2208,8 @@ const de_MssManifest = (output: any, context: __SerdeContext): MssManifest => {
  */
 const de_MssPackage = (output: any, context: __SerdeContext): MssPackage => {
   return take(output, {
-    Encryption: (_) => [, de_MssEncryption(_, context), `encryption`],
-    MssManifests: (_) => [, de___listOfMssManifest(_, context), `mssManifests`],
+    Encryption: [, (_: any) => de_MssEncryption(_, context), `encryption`],
+    MssManifests: [, (_: any) => de___listOfMssManifest(_, context), `mssManifests`],
     SegmentDurationSeconds: [, __expectInt32, `segmentDurationSeconds`],
   }) as any;
 };
@@ -2220,12 +2220,12 @@ const de_MssPackage = (output: any, context: __SerdeContext): MssPackage => {
 const de_PackagingConfiguration = (output: any, context: __SerdeContext): PackagingConfiguration => {
   return take(output, {
     Arn: [, __expectString, `arn`],
-    CmafPackage: (_) => [, de_CmafPackage(_, context), `cmafPackage`],
+    CmafPackage: [, (_: any) => de_CmafPackage(_, context), `cmafPackage`],
     CreatedAt: [, __expectString, `createdAt`],
-    DashPackage: (_) => [, de_DashPackage(_, context), `dashPackage`],
-    HlsPackage: (_) => [, de_HlsPackage(_, context), `hlsPackage`],
+    DashPackage: [, (_: any) => de_DashPackage(_, context), `dashPackage`],
+    HlsPackage: [, (_: any) => de_HlsPackage(_, context), `hlsPackage`],
     Id: [, __expectString, `id`],
-    MssPackage: (_) => [, de_MssPackage(_, context), `mssPackage`],
+    MssPackage: [, (_: any) => de_MssPackage(_, context), `mssPackage`],
     PackagingGroupId: [, __expectString, `packagingGroupId`],
     Tags: [, _json, `tags`],
   }) as any;
@@ -2238,10 +2238,10 @@ const de_PackagingGroup = (output: any, context: __SerdeContext): PackagingGroup
   return take(output, {
     ApproximateAssetCount: [, __expectInt32, `approximateAssetCount`],
     Arn: [, __expectString, `arn`],
-    Authorization: (_) => [, de_Authorization(_, context), `authorization`],
+    Authorization: [, (_: any) => de_Authorization(_, context), `authorization`],
     CreatedAt: [, __expectString, `createdAt`],
     DomainName: [, __expectString, `domainName`],
-    EgressAccessLogs: (_) => [, de_EgressAccessLogs(_, context), `egressAccessLogs`],
+    EgressAccessLogs: [, (_: any) => de_EgressAccessLogs(_, context), `egressAccessLogs`],
     Id: [, __expectString, `id`],
     Tags: [, _json, `tags`],
   }) as any;
@@ -2252,9 +2252,9 @@ const de_PackagingGroup = (output: any, context: __SerdeContext): PackagingGroup
  */
 const de_SpekeKeyProvider = (output: any, context: __SerdeContext): SpekeKeyProvider => {
   return take(output, {
-    EncryptionContractConfiguration: (_) => [
+    EncryptionContractConfiguration: [
       ,
-      de_EncryptionContractConfiguration(_, context),
+      (_: any) => de_EncryptionContractConfiguration(_, context),
       `encryptionContractConfiguration`,
     ],
     RoleArn: [, __expectString, `roleArn`],

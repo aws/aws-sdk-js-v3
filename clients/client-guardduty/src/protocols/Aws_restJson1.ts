@@ -6336,8 +6336,8 @@ const de_AccessKeyDetails = (output: any, context: __SerdeContext): AccessKeyDet
 const de_AccountFreeTrialInfo = (output: any, context: __SerdeContext): AccountFreeTrialInfo => {
   return take(output, {
     AccountId: [, __expectString, `accountId`],
-    DataSources: (_) => [, de_DataSourcesFreeTrial(_, context), `dataSources`],
-    Features: (_) => [, de_FreeTrialFeatureConfigurationsResults(_, context), `features`],
+    DataSources: [, (_: any) => de_DataSourcesFreeTrial(_, context), `dataSources`],
+    Features: [, (_: any) => de_FreeTrialFeatureConfigurationsResults(_, context), `features`],
   }) as any;
 };
 
@@ -6358,7 +6358,7 @@ const de_AccountFreeTrialInfos = (output: any, context: __SerdeContext): Account
  */
 const de_AccountLevelPermissions = (output: any, context: __SerdeContext): AccountLevelPermissions => {
   return take(output, {
-    BlockPublicAccess: (_) => [, de_BlockPublicAccess(_, context), `blockPublicAccess`],
+    BlockPublicAccess: [, (_: any) => de_BlockPublicAccess(_, context), `blockPublicAccess`],
   }) as any;
 };
 
@@ -6368,12 +6368,12 @@ const de_AccountLevelPermissions = (output: any, context: __SerdeContext): Accou
 const de_Action = (output: any, context: __SerdeContext): Action => {
   return take(output, {
     ActionType: [, __expectString, `actionType`],
-    AwsApiCallAction: (_) => [, de_AwsApiCallAction(_, context), `awsApiCallAction`],
-    DnsRequestAction: (_) => [, de_DnsRequestAction(_, context), `dnsRequestAction`],
-    KubernetesApiCallAction: (_) => [, de_KubernetesApiCallAction(_, context), `kubernetesApiCallAction`],
-    NetworkConnectionAction: (_) => [, de_NetworkConnectionAction(_, context), `networkConnectionAction`],
-    PortProbeAction: (_) => [, de_PortProbeAction(_, context), `portProbeAction`],
-    RdsLoginAttemptAction: (_) => [, de_RdsLoginAttemptAction(_, context), `rdsLoginAttemptAction`],
+    AwsApiCallAction: [, (_: any) => de_AwsApiCallAction(_, context), `awsApiCallAction`],
+    DnsRequestAction: [, (_: any) => de_DnsRequestAction(_, context), `dnsRequestAction`],
+    KubernetesApiCallAction: [, (_: any) => de_KubernetesApiCallAction(_, context), `kubernetesApiCallAction`],
+    NetworkConnectionAction: [, (_: any) => de_NetworkConnectionAction(_, context), `networkConnectionAction`],
+    PortProbeAction: [, (_: any) => de_PortProbeAction(_, context), `portProbeAction`],
+    RdsLoginAttemptAction: [, (_: any) => de_RdsLoginAttemptAction(_, context), `rdsLoginAttemptAction`],
   }) as any;
 };
 
@@ -6431,10 +6431,10 @@ const de_AwsApiCallAction = (output: any, context: __SerdeContext): AwsApiCallAc
     AffectedResources: [, _json, `affectedResources`],
     Api: [, __expectString, `api`],
     CallerType: [, __expectString, `callerType`],
-    DomainDetails: (_) => [, de_DomainDetails(_, context), `domainDetails`],
+    DomainDetails: [, (_: any) => de_DomainDetails(_, context), `domainDetails`],
     ErrorCode: [, __expectString, `errorCode`],
-    RemoteAccountDetails: (_) => [, de_RemoteAccountDetails(_, context), `remoteAccountDetails`],
-    RemoteIpDetails: (_) => [, de_RemoteIpDetails(_, context), `remoteIpDetails`],
+    RemoteAccountDetails: [, (_: any) => de_RemoteAccountDetails(_, context), `remoteAccountDetails`],
+    RemoteIpDetails: [, (_: any) => de_RemoteIpDetails(_, context), `remoteIpDetails`],
     ServiceName: [, __expectString, `serviceName`],
     UserAgent: [, __expectString, `userAgent`],
   }) as any;
@@ -6457,9 +6457,9 @@ const de_BlockPublicAccess = (output: any, context: __SerdeContext): BlockPublic
  */
 const de_BucketLevelPermissions = (output: any, context: __SerdeContext): BucketLevelPermissions => {
   return take(output, {
-    AccessControlList: (_) => [, de_AccessControlList(_, context), `accessControlList`],
-    BlockPublicAccess: (_) => [, de_BlockPublicAccess(_, context), `blockPublicAccess`],
-    BucketPolicy: (_) => [, de_BucketPolicy(_, context), `bucketPolicy`],
+    AccessControlList: [, (_: any) => de_AccessControlList(_, context), `accessControlList`],
+    BlockPublicAccess: [, (_: any) => de_BlockPublicAccess(_, context), `blockPublicAccess`],
+    BucketPolicy: [, (_: any) => de_BucketPolicy(_, context), `bucketPolicy`],
   }) as any;
 };
 
@@ -6521,8 +6521,8 @@ const de_Container = (output: any, context: __SerdeContext): Container => {
     Image: [, __expectString, `image`],
     ImagePrefix: [, __expectString, `imagePrefix`],
     Name: [, __expectString, `name`],
-    SecurityContext: (_) => [, de_SecurityContext(_, context), `securityContext`],
-    VolumeMounts: (_) => [, de_VolumeMounts(_, context), `volumeMounts`],
+    SecurityContext: [, (_: any) => de_SecurityContext(_, context), `securityContext`],
+    VolumeMounts: [, (_: any) => de_VolumeMounts(_, context), `volumeMounts`],
   }) as any;
 };
 
@@ -6559,7 +6559,7 @@ const de_Country = (output: any, context: __SerdeContext): Country => {
  */
 const de_CoverageEksClusterDetails = (output: any, context: __SerdeContext): CoverageEksClusterDetails => {
   return take(output, {
-    AddonDetails: (_) => [, de_AddonDetails(_, context), `addonDetails`],
+    AddonDetails: [, (_: any) => de_AddonDetails(_, context), `addonDetails`],
     ClusterName: [, __expectString, `clusterName`],
     CompatibleNodes: [, __expectLong, `compatibleNodes`],
     CoveredNodes: [, __expectLong, `coveredNodes`],
@@ -6575,9 +6575,9 @@ const de_CoverageResource = (output: any, context: __SerdeContext): CoverageReso
     CoverageStatus: [, __expectString, `coverageStatus`],
     DetectorId: [, __expectString, `detectorId`],
     Issue: [, __expectString, `issue`],
-    ResourceDetails: (_) => [, de_CoverageResourceDetails(_, context), `resourceDetails`],
+    ResourceDetails: [, (_: any) => de_CoverageResourceDetails(_, context), `resourceDetails`],
     ResourceId: [, __expectString, `resourceId`],
-    UpdatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `updatedAt`],
+    UpdatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `updatedAt`],
   }) as any;
 };
 
@@ -6586,7 +6586,7 @@ const de_CoverageResource = (output: any, context: __SerdeContext): CoverageReso
  */
 const de_CoverageResourceDetails = (output: any, context: __SerdeContext): CoverageResourceDetails => {
   return take(output, {
-    EksClusterDetails: (_) => [, de_CoverageEksClusterDetails(_, context), `eksClusterDetails`],
+    EksClusterDetails: [, (_: any) => de_CoverageEksClusterDetails(_, context), `eksClusterDetails`],
     ResourceType: [, __expectString, `resourceType`],
   }) as any;
 };
@@ -6631,12 +6631,12 @@ const de_Criterion = (output: any, context: __SerdeContext): Record<string, Cond
  */
 const de_DataSourceConfigurationsResult = (output: any, context: __SerdeContext): DataSourceConfigurationsResult => {
   return take(output, {
-    CloudTrail: (_) => [, de_CloudTrailConfigurationResult(_, context), `cloudTrail`],
-    DNSLogs: (_) => [, de_DNSLogsConfigurationResult(_, context), `dnsLogs`],
-    FlowLogs: (_) => [, de_FlowLogsConfigurationResult(_, context), `flowLogs`],
-    Kubernetes: (_) => [, de_KubernetesConfigurationResult(_, context), `kubernetes`],
-    MalwareProtection: (_) => [, de_MalwareProtectionConfigurationResult(_, context), `malwareProtection`],
-    S3Logs: (_) => [, de_S3LogsConfigurationResult(_, context), `s3Logs`],
+    CloudTrail: [, (_: any) => de_CloudTrailConfigurationResult(_, context), `cloudTrail`],
+    DNSLogs: [, (_: any) => de_DNSLogsConfigurationResult(_, context), `dnsLogs`],
+    FlowLogs: [, (_: any) => de_FlowLogsConfigurationResult(_, context), `flowLogs`],
+    Kubernetes: [, (_: any) => de_KubernetesConfigurationResult(_, context), `kubernetes`],
+    MalwareProtection: [, (_: any) => de_MalwareProtectionConfigurationResult(_, context), `malwareProtection`],
+    S3Logs: [, (_: any) => de_S3LogsConfigurationResult(_, context), `s3Logs`],
   }) as any;
 };
 
@@ -6654,12 +6654,12 @@ const de_DataSourceFreeTrial = (output: any, context: __SerdeContext): DataSourc
  */
 const de_DataSourcesFreeTrial = (output: any, context: __SerdeContext): DataSourcesFreeTrial => {
   return take(output, {
-    CloudTrail: (_) => [, de_DataSourceFreeTrial(_, context), `cloudTrail`],
-    DnsLogs: (_) => [, de_DataSourceFreeTrial(_, context), `dnsLogs`],
-    FlowLogs: (_) => [, de_DataSourceFreeTrial(_, context), `flowLogs`],
-    Kubernetes: (_) => [, de_KubernetesDataSourceFreeTrial(_, context), `kubernetes`],
-    MalwareProtection: (_) => [, de_MalwareProtectionDataSourceFreeTrial(_, context), `malwareProtection`],
-    S3Logs: (_) => [, de_DataSourceFreeTrial(_, context), `s3Logs`],
+    CloudTrail: [, (_: any) => de_DataSourceFreeTrial(_, context), `cloudTrail`],
+    DnsLogs: [, (_: any) => de_DataSourceFreeTrial(_, context), `dnsLogs`],
+    FlowLogs: [, (_: any) => de_DataSourceFreeTrial(_, context), `flowLogs`],
+    Kubernetes: [, (_: any) => de_KubernetesDataSourceFreeTrial(_, context), `kubernetes`],
+    MalwareProtection: [, (_: any) => de_MalwareProtectionDataSourceFreeTrial(_, context), `malwareProtection`],
+    S3Logs: [, (_: any) => de_DataSourceFreeTrial(_, context), `s3Logs`],
   }) as any;
 };
 
@@ -6716,7 +6716,7 @@ const de_DetectorAdditionalConfigurationResult = (
   return take(output, {
     Name: [, __expectString, `name`],
     Status: [, __expectString, `status`],
-    UpdatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `updatedAt`],
+    UpdatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `updatedAt`],
   }) as any;
 };
 
@@ -6743,14 +6743,14 @@ const de_DetectorFeatureConfigurationResult = (
   context: __SerdeContext
 ): DetectorFeatureConfigurationResult => {
   return take(output, {
-    AdditionalConfiguration: (_) => [
+    AdditionalConfiguration: [
       ,
-      de_DetectorAdditionalConfigurationResults(_, context),
+      (_: any) => de_DetectorAdditionalConfigurationResults(_, context),
       `additionalConfiguration`,
     ],
     Name: [, __expectString, `name`],
     Status: [, __expectString, `status`],
-    UpdatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `updatedAt`],
+    UpdatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `updatedAt`],
   }) as any;
 };
 
@@ -6805,8 +6805,8 @@ const de_DomainDetails = (output: any, context: __SerdeContext): DomainDetails =
  */
 const de_EbsVolumeDetails = (output: any, context: __SerdeContext): EbsVolumeDetails => {
   return take(output, {
-    ScannedVolumeDetails: (_) => [, de_VolumeDetails(_, context), `scannedVolumeDetails`],
-    SkippedVolumeDetails: (_) => [, de_VolumeDetails(_, context), `skippedVolumeDetails`],
+    ScannedVolumeDetails: [, (_: any) => de_VolumeDetails(_, context), `scannedVolumeDetails`],
+    SkippedVolumeDetails: [, (_: any) => de_VolumeDetails(_, context), `skippedVolumeDetails`],
   }) as any;
 };
 
@@ -6815,10 +6815,10 @@ const de_EbsVolumeDetails = (output: any, context: __SerdeContext): EbsVolumeDet
  */
 const de_EbsVolumeScanDetails = (output: any, context: __SerdeContext): EbsVolumeScanDetails => {
   return take(output, {
-    ScanCompletedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `scanCompletedAt`],
-    ScanDetections: (_) => [, de_ScanDetections(_, context), `scanDetections`],
+    ScanCompletedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `scanCompletedAt`],
+    ScanDetections: [, (_: any) => de_ScanDetections(_, context), `scanDetections`],
     ScanId: [, __expectString, `scanId`],
-    ScanStartedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `scanStartedAt`],
+    ScanStartedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `scanStartedAt`],
     Sources: [, _json, `sources`],
     TriggerFindingId: [, __expectString, `triggerFindingId`],
   }) as any;
@@ -6845,8 +6845,8 @@ const de_EcsClusterDetails = (output: any, context: __SerdeContext): EcsClusterD
     RegisteredContainerInstancesCount: [, __expectInt32, `registeredContainerInstancesCount`],
     RunningTasksCount: [, __expectInt32, `runningTasksCount`],
     Status: [, __expectString, `status`],
-    Tags: (_) => [, de_Tags(_, context), `tags`],
-    TaskDetails: (_) => [, de_EcsTaskDetails(_, context), `taskDetails`],
+    Tags: [, (_: any) => de_Tags(_, context), `tags`],
+    TaskDetails: [, (_: any) => de_EcsTaskDetails(_, context), `taskDetails`],
   }) as any;
 };
 
@@ -6856,15 +6856,15 @@ const de_EcsClusterDetails = (output: any, context: __SerdeContext): EcsClusterD
 const de_EcsTaskDetails = (output: any, context: __SerdeContext): EcsTaskDetails => {
   return take(output, {
     Arn: [, __expectString, `arn`],
-    Containers: (_) => [, de_Containers(_, context), `containers`],
+    Containers: [, (_: any) => de_Containers(_, context), `containers`],
     DefinitionArn: [, __expectString, `definitionArn`],
     Group: [, __expectString, `group`],
-    StartedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `startedAt`],
+    StartedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `startedAt`],
     StartedBy: [, __expectString, `startedBy`],
-    Tags: (_) => [, de_Tags(_, context), `tags`],
-    TaskCreatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
+    Tags: [, (_: any) => de_Tags(_, context), `tags`],
+    TaskCreatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
     Version: [, __expectString, `version`],
-    Volumes: (_) => [, de_Volumes(_, context), `volumes`],
+    Volumes: [, (_: any) => de_Volumes(_, context), `volumes`],
   }) as any;
 };
 
@@ -6874,10 +6874,10 @@ const de_EcsTaskDetails = (output: any, context: __SerdeContext): EcsTaskDetails
 const de_EksClusterDetails = (output: any, context: __SerdeContext): EksClusterDetails => {
   return take(output, {
     Arn: [, __expectString, `arn`],
-    CreatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
+    CreatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
     Name: [, __expectString, `name`],
     Status: [, __expectString, `status`],
-    Tags: (_) => [, de_Tags(_, context), `tags`],
+    Tags: [, (_: any) => de_Tags(_, context), `tags`],
     VpcId: [, __expectString, `vpcId`],
   }) as any;
 };
@@ -6891,7 +6891,7 @@ const de_EksClusterDetails = (output: any, context: __SerdeContext): EksClusterD
  */
 const de_Evidence = (output: any, context: __SerdeContext): Evidence => {
   return take(output, {
-    ThreatIntelligenceDetails: (_) => [, de_ThreatIntelligenceDetails(_, context), `threatIntelligenceDetails`],
+    ThreatIntelligenceDetails: [, (_: any) => de_ThreatIntelligenceDetails(_, context), `threatIntelligenceDetails`],
   }) as any;
 };
 
@@ -6922,9 +6922,9 @@ const de_Finding = (output: any, context: __SerdeContext): Finding => {
     Id: [, __expectString, `id`],
     Partition: [, __expectString, `partition`],
     Region: [, __expectString, `region`],
-    Resource: (_) => [, de_Resource(_, context), `resource`],
+    Resource: [, (_: any) => de_Resource(_, context), `resource`],
     SchemaVersion: [, __expectString, `schemaVersion`],
-    Service: (_) => [, de_Service(_, context), `service`],
+    Service: [, (_: any) => de_Service(_, context), `service`],
     Severity: [, __limitedParseDouble, `severity`],
     Title: [, __expectString, `title`],
     Type: [, __expectString, `type`],
@@ -6937,7 +6937,7 @@ const de_Finding = (output: any, context: __SerdeContext): Finding => {
  */
 const de_FindingCriteria = (output: any, context: __SerdeContext): FindingCriteria => {
   return take(output, {
-    Criterion: (_) => [, de_Criterion(_, context), `criterion`],
+    Criterion: [, (_: any) => de_Criterion(_, context), `criterion`],
   }) as any;
 };
 
@@ -7051,18 +7051,18 @@ const de_IamInstanceProfile = (output: any, context: __SerdeContext): IamInstanc
 const de_InstanceDetails = (output: any, context: __SerdeContext): InstanceDetails => {
   return take(output, {
     AvailabilityZone: [, __expectString, `availabilityZone`],
-    IamInstanceProfile: (_) => [, de_IamInstanceProfile(_, context), `iamInstanceProfile`],
+    IamInstanceProfile: [, (_: any) => de_IamInstanceProfile(_, context), `iamInstanceProfile`],
     ImageDescription: [, __expectString, `imageDescription`],
     ImageId: [, __expectString, `imageId`],
     InstanceId: [, __expectString, `instanceId`],
     InstanceState: [, __expectString, `instanceState`],
     InstanceType: [, __expectString, `instanceType`],
     LaunchTime: [, __expectString, `launchTime`],
-    NetworkInterfaces: (_) => [, de_NetworkInterfaces(_, context), `networkInterfaces`],
+    NetworkInterfaces: [, (_: any) => de_NetworkInterfaces(_, context), `networkInterfaces`],
     OutpostArn: [, __expectString, `outpostArn`],
     Platform: [, __expectString, `platform`],
-    ProductCodes: (_) => [, de_ProductCodes(_, context), `productCodes`],
-    Tags: (_) => [, de_Tags(_, context), `tags`],
+    ProductCodes: [, (_: any) => de_ProductCodes(_, context), `productCodes`],
+    Tags: [, (_: any) => de_Tags(_, context), `tags`],
   }) as any;
 };
 
@@ -7100,7 +7100,7 @@ const de_Invitations = (output: any, context: __SerdeContext): Invitation[] => {
 const de_KubernetesApiCallAction = (output: any, context: __SerdeContext): KubernetesApiCallAction => {
   return take(output, {
     Parameters: [, __expectString, `parameters`],
-    RemoteIpDetails: (_) => [, de_RemoteIpDetails(_, context), `remoteIpDetails`],
+    RemoteIpDetails: [, (_: any) => de_RemoteIpDetails(_, context), `remoteIpDetails`],
     RequestUri: [, __expectString, `requestUri`],
     SourceIps: [, _json, `sourceIps`],
     StatusCode: [, __expectInt32, `statusCode`],
@@ -7126,7 +7126,7 @@ const de_KubernetesAuditLogsConfigurationResult = (
  */
 const de_KubernetesConfigurationResult = (output: any, context: __SerdeContext): KubernetesConfigurationResult => {
   return take(output, {
-    AuditLogs: (_) => [, de_KubernetesAuditLogsConfigurationResult(_, context), `auditLogs`],
+    AuditLogs: [, (_: any) => de_KubernetesAuditLogsConfigurationResult(_, context), `auditLogs`],
   }) as any;
 };
 
@@ -7135,7 +7135,7 @@ const de_KubernetesConfigurationResult = (output: any, context: __SerdeContext):
  */
 const de_KubernetesDataSourceFreeTrial = (output: any, context: __SerdeContext): KubernetesDataSourceFreeTrial => {
   return take(output, {
-    AuditLogs: (_) => [, de_DataSourceFreeTrial(_, context), `auditLogs`],
+    AuditLogs: [, (_: any) => de_DataSourceFreeTrial(_, context), `auditLogs`],
   }) as any;
 };
 
@@ -7144,8 +7144,8 @@ const de_KubernetesDataSourceFreeTrial = (output: any, context: __SerdeContext):
  */
 const de_KubernetesDetails = (output: any, context: __SerdeContext): KubernetesDetails => {
   return take(output, {
-    KubernetesUserDetails: (_) => [, de_KubernetesUserDetails(_, context), `kubernetesUserDetails`],
-    KubernetesWorkloadDetails: (_) => [, de_KubernetesWorkloadDetails(_, context), `kubernetesWorkloadDetails`],
+    KubernetesUserDetails: [, (_: any) => de_KubernetesUserDetails(_, context), `kubernetesUserDetails`],
+    KubernetesWorkloadDetails: [, (_: any) => de_KubernetesWorkloadDetails(_, context), `kubernetesWorkloadDetails`],
   }) as any;
 };
 
@@ -7165,13 +7165,13 @@ const de_KubernetesUserDetails = (output: any, context: __SerdeContext): Kuberne
  */
 const de_KubernetesWorkloadDetails = (output: any, context: __SerdeContext): KubernetesWorkloadDetails => {
   return take(output, {
-    Containers: (_) => [, de_Containers(_, context), `containers`],
+    Containers: [, (_: any) => de_Containers(_, context), `containers`],
     HostNetwork: [, __expectBoolean, `hostNetwork`],
     Name: [, __expectString, `name`],
     Namespace: [, __expectString, `namespace`],
     Type: [, __expectString, `type`],
     Uid: [, __expectString, `uid`],
-    Volumes: (_) => [, de_Volumes(_, context), `volumes`],
+    Volumes: [, (_: any) => de_Volumes(_, context), `volumes`],
   }) as any;
 };
 
@@ -7184,11 +7184,11 @@ const de_LambdaDetails = (output: any, context: __SerdeContext): LambdaDetails =
     FunctionArn: [, __expectString, `functionArn`],
     FunctionName: [, __expectString, `functionName`],
     FunctionVersion: [, __expectString, `functionVersion`],
-    LastModifiedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastModifiedAt`],
+    LastModifiedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastModifiedAt`],
     RevisionId: [, __expectString, `revisionId`],
     Role: [, __expectString, `role`],
-    Tags: (_) => [, de_Tags(_, context), `tags`],
-    VpcConfig: (_) => [, de_VpcConfig(_, context), `vpcConfig`],
+    Tags: [, (_: any) => de_Tags(_, context), `tags`],
+    VpcConfig: [, (_: any) => de_VpcConfig(_, context), `vpcConfig`],
   }) as any;
 };
 
@@ -7215,7 +7215,7 @@ const de_LineageObject = (output: any, context: __SerdeContext): LineageObject =
     NamespacePid: [, __expectInt32, `namespacePid`],
     ParentUuid: [, __expectString, `parentUuid`],
     Pid: [, __expectInt32, `pid`],
-    StartTime: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `startTime`],
+    StartTime: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `startTime`],
     UserId: [, __expectInt32, `userId`],
     Uuid: [, __expectString, `uuid`],
   }) as any;
@@ -7272,9 +7272,9 @@ const de_MalwareProtectionConfigurationResult = (
   context: __SerdeContext
 ): MalwareProtectionConfigurationResult => {
   return take(output, {
-    ScanEc2InstanceWithFindings: (_) => [
+    ScanEc2InstanceWithFindings: [
       ,
-      de_ScanEc2InstanceWithFindingsResult(_, context),
+      (_: any) => de_ScanEc2InstanceWithFindingsResult(_, context),
       `scanEc2InstanceWithFindings`,
     ],
     ServiceRole: [, __expectString, `serviceRole`],
@@ -7289,7 +7289,7 @@ const de_MalwareProtectionDataSourceFreeTrial = (
   context: __SerdeContext
 ): MalwareProtectionDataSourceFreeTrial => {
   return take(output, {
-    ScanEc2InstanceWithFindings: (_) => [, de_DataSourceFreeTrial(_, context), `scanEc2InstanceWithFindings`],
+    ScanEc2InstanceWithFindings: [, (_: any) => de_DataSourceFreeTrial(_, context), `scanEc2InstanceWithFindings`],
   }) as any;
 };
 
@@ -7343,7 +7343,7 @@ const de_MemberAdditionalConfigurationResult = (
   return take(output, {
     Name: [, __expectString, `name`],
     Status: [, __expectString, `status`],
-    UpdatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `updatedAt`],
+    UpdatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `updatedAt`],
   }) as any;
 };
 
@@ -7368,8 +7368,8 @@ const de_MemberAdditionalConfigurationResults = (
 const de_MemberDataSourceConfiguration = (output: any, context: __SerdeContext): MemberDataSourceConfiguration => {
   return take(output, {
     AccountId: [, __expectString, `accountId`],
-    DataSources: (_) => [, de_DataSourceConfigurationsResult(_, context), `dataSources`],
-    Features: (_) => [, de_MemberFeaturesConfigurationsResults(_, context), `features`],
+    DataSources: [, (_: any) => de_DataSourceConfigurationsResult(_, context), `dataSources`],
+    Features: [, (_: any) => de_MemberFeaturesConfigurationsResults(_, context), `features`],
   }) as any;
 };
 
@@ -7393,10 +7393,14 @@ const de_MemberFeaturesConfigurationResult = (
   context: __SerdeContext
 ): MemberFeaturesConfigurationResult => {
   return take(output, {
-    AdditionalConfiguration: (_) => [, de_MemberAdditionalConfigurationResults(_, context), `additionalConfiguration`],
+    AdditionalConfiguration: [
+      ,
+      (_: any) => de_MemberAdditionalConfigurationResults(_, context),
+      `additionalConfiguration`,
+    ],
     Name: [, __expectString, `name`],
     Status: [, __expectString, `status`],
-    UpdatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `updatedAt`],
+    UpdatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `updatedAt`],
   }) as any;
 };
 
@@ -7438,11 +7442,11 @@ const de_NetworkConnectionAction = (output: any, context: __SerdeContext): Netwo
   return take(output, {
     Blocked: [, __expectBoolean, `blocked`],
     ConnectionDirection: [, __expectString, `connectionDirection`],
-    LocalIpDetails: (_) => [, de_LocalIpDetails(_, context), `localIpDetails`],
-    LocalPortDetails: (_) => [, de_LocalPortDetails(_, context), `localPortDetails`],
+    LocalIpDetails: [, (_: any) => de_LocalIpDetails(_, context), `localIpDetails`],
+    LocalPortDetails: [, (_: any) => de_LocalPortDetails(_, context), `localPortDetails`],
     Protocol: [, __expectString, `protocol`],
-    RemoteIpDetails: (_) => [, de_RemoteIpDetails(_, context), `remoteIpDetails`],
-    RemotePortDetails: (_) => [, de_RemotePortDetails(_, context), `remotePortDetails`],
+    RemoteIpDetails: [, (_: any) => de_RemoteIpDetails(_, context), `remoteIpDetails`],
+    RemotePortDetails: [, (_: any) => de_RemotePortDetails(_, context), `remotePortDetails`],
   }) as any;
 };
 
@@ -7455,10 +7459,10 @@ const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInter
     NetworkInterfaceId: [, __expectString, `networkInterfaceId`],
     PrivateDnsName: [, __expectString, `privateDnsName`],
     PrivateIpAddress: [, __expectString, `privateIpAddress`],
-    PrivateIpAddresses: (_) => [, de_PrivateIpAddresses(_, context), `privateIpAddresses`],
+    PrivateIpAddresses: [, (_: any) => de_PrivateIpAddresses(_, context), `privateIpAddresses`],
     PublicDnsName: [, __expectString, `publicDnsName`],
     PublicIp: [, __expectString, `publicIp`],
-    SecurityGroups: (_) => [, de_SecurityGroups(_, context), `securityGroups`],
+    SecurityGroups: [, (_: any) => de_SecurityGroups(_, context), `securityGroups`],
     SubnetId: [, __expectString, `subnetId`],
     VpcId: [, __expectString, `vpcId`],
   }) as any;
@@ -7526,9 +7530,13 @@ const de_OrganizationDataSourceConfigurationsResult = (
   context: __SerdeContext
 ): OrganizationDataSourceConfigurationsResult => {
   return take(output, {
-    Kubernetes: (_) => [, de_OrganizationKubernetesConfigurationResult(_, context), `kubernetes`],
-    MalwareProtection: (_) => [, de_OrganizationMalwareProtectionConfigurationResult(_, context), `malwareProtection`],
-    S3Logs: (_) => [, de_OrganizationS3LogsConfigurationResult(_, context), `s3Logs`],
+    Kubernetes: [, (_: any) => de_OrganizationKubernetesConfigurationResult(_, context), `kubernetes`],
+    MalwareProtection: [
+      ,
+      (_: any) => de_OrganizationMalwareProtectionConfigurationResult(_, context),
+      `malwareProtection`,
+    ],
+    S3Logs: [, (_: any) => de_OrganizationS3LogsConfigurationResult(_, context), `s3Logs`],
   }) as any;
 };
 
@@ -7549,9 +7557,9 @@ const de_OrganizationFeatureConfigurationResult = (
   context: __SerdeContext
 ): OrganizationFeatureConfigurationResult => {
   return take(output, {
-    AdditionalConfiguration: (_) => [
+    AdditionalConfiguration: [
       ,
-      de_OrganizationAdditionalConfigurationResults(_, context),
+      (_: any) => de_OrganizationAdditionalConfigurationResults(_, context),
       `additionalConfiguration`,
     ],
     AutoEnable: [, __expectString, `autoEnable`],
@@ -7594,7 +7602,7 @@ const de_OrganizationKubernetesConfigurationResult = (
   context: __SerdeContext
 ): OrganizationKubernetesConfigurationResult => {
   return take(output, {
-    AuditLogs: (_) => [, de_OrganizationKubernetesAuditLogsConfigurationResult(_, context), `auditLogs`],
+    AuditLogs: [, (_: any) => de_OrganizationKubernetesAuditLogsConfigurationResult(_, context), `auditLogs`],
   }) as any;
 };
 
@@ -7606,9 +7614,9 @@ const de_OrganizationMalwareProtectionConfigurationResult = (
   context: __SerdeContext
 ): OrganizationMalwareProtectionConfigurationResult => {
   return take(output, {
-    ScanEc2InstanceWithFindings: (_) => [
+    ScanEc2InstanceWithFindings: [
       ,
-      de_OrganizationScanEc2InstanceWithFindingsResult(_, context),
+      (_: any) => de_OrganizationScanEc2InstanceWithFindingsResult(_, context),
       `scanEc2InstanceWithFindings`,
     ],
   }) as any;
@@ -7634,7 +7642,7 @@ const de_OrganizationScanEc2InstanceWithFindingsResult = (
   context: __SerdeContext
 ): OrganizationScanEc2InstanceWithFindingsResult => {
   return take(output, {
-    EbsVolumes: (_) => [, de_OrganizationEbsVolumesResult(_, context), `ebsVolumes`],
+    EbsVolumes: [, (_: any) => de_OrganizationEbsVolumesResult(_, context), `ebsVolumes`],
   }) as any;
 };
 
@@ -7652,8 +7660,8 @@ const de_Owner = (output: any, context: __SerdeContext): Owner => {
  */
 const de_PermissionConfiguration = (output: any, context: __SerdeContext): PermissionConfiguration => {
   return take(output, {
-    AccountLevelPermissions: (_) => [, de_AccountLevelPermissions(_, context), `accountLevelPermissions`],
-    BucketLevelPermissions: (_) => [, de_BucketLevelPermissions(_, context), `bucketLevelPermissions`],
+    AccountLevelPermissions: [, (_: any) => de_AccountLevelPermissions(_, context), `accountLevelPermissions`],
+    BucketLevelPermissions: [, (_: any) => de_BucketLevelPermissions(_, context), `bucketLevelPermissions`],
   }) as any;
 };
 
@@ -7663,7 +7671,7 @@ const de_PermissionConfiguration = (output: any, context: __SerdeContext): Permi
 const de_PortProbeAction = (output: any, context: __SerdeContext): PortProbeAction => {
   return take(output, {
     Blocked: [, __expectBoolean, `blocked`],
-    PortProbeDetails: (_) => [, de_PortProbeDetails(_, context), `portProbeDetails`],
+    PortProbeDetails: [, (_: any) => de_PortProbeDetails(_, context), `portProbeDetails`],
   }) as any;
 };
 
@@ -7672,9 +7680,9 @@ const de_PortProbeAction = (output: any, context: __SerdeContext): PortProbeActi
  */
 const de_PortProbeDetail = (output: any, context: __SerdeContext): PortProbeDetail => {
   return take(output, {
-    LocalIpDetails: (_) => [, de_LocalIpDetails(_, context), `localIpDetails`],
-    LocalPortDetails: (_) => [, de_LocalPortDetails(_, context), `localPortDetails`],
-    RemoteIpDetails: (_) => [, de_RemoteIpDetails(_, context), `remoteIpDetails`],
+    LocalIpDetails: [, (_: any) => de_LocalIpDetails(_, context), `localIpDetails`],
+    LocalPortDetails: [, (_: any) => de_LocalPortDetails(_, context), `localPortDetails`],
+    RemoteIpDetails: [, (_: any) => de_RemoteIpDetails(_, context), `remoteIpDetails`],
   }) as any;
 };
 
@@ -7720,13 +7728,13 @@ const de_ProcessDetails = (output: any, context: __SerdeContext): ProcessDetails
     Euid: [, __expectInt32, `euid`],
     ExecutablePath: [, __expectString, `executablePath`],
     ExecutableSha256: [, __expectString, `executableSha256`],
-    Lineage: (_) => [, de_Lineage(_, context), `lineage`],
+    Lineage: [, (_: any) => de_Lineage(_, context), `lineage`],
     Name: [, __expectString, `name`],
     NamespacePid: [, __expectInt32, `namespacePid`],
     ParentUuid: [, __expectString, `parentUuid`],
     Pid: [, __expectInt32, `pid`],
     Pwd: [, __expectString, `pwd`],
-    StartTime: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `startTime`],
+    StartTime: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `startTime`],
     User: [, __expectString, `user`],
     UserId: [, __expectInt32, `userId`],
     Uuid: [, __expectString, `uuid`],
@@ -7761,7 +7769,7 @@ const de_ProductCodes = (output: any, context: __SerdeContext): ProductCode[] =>
 const de_PublicAccess = (output: any, context: __SerdeContext): PublicAccess => {
   return take(output, {
     EffectivePermission: [, __expectString, `effectivePermission`],
-    PermissionConfiguration: (_) => [, de_PermissionConfiguration(_, context), `permissionConfiguration`],
+    PermissionConfiguration: [, (_: any) => de_PermissionConfiguration(_, context), `permissionConfiguration`],
   }) as any;
 };
 
@@ -7775,7 +7783,7 @@ const de_RdsDbInstanceDetails = (output: any, context: __SerdeContext): RdsDbIns
     DbInstanceIdentifier: [, __expectString, `dbInstanceIdentifier`],
     Engine: [, __expectString, `engine`],
     EngineVersion: [, __expectString, `engineVersion`],
-    Tags: (_) => [, de_Tags(_, context), `tags`],
+    Tags: [, (_: any) => de_Tags(_, context), `tags`],
   }) as any;
 };
 
@@ -7798,7 +7806,7 @@ const de_RdsDbUserDetails = (output: any, context: __SerdeContext): RdsDbUserDet
 const de_RdsLoginAttemptAction = (output: any, context: __SerdeContext): RdsLoginAttemptAction => {
   return take(output, {
     LoginAttributes: (_: any) => de_LoginAttributes(_, context),
-    RemoteIpDetails: (_) => [, de_RemoteIpDetails(_, context), `remoteIpDetails`],
+    RemoteIpDetails: [, (_: any) => de_RemoteIpDetails(_, context), `remoteIpDetails`],
   }) as any;
 };
 
@@ -7817,11 +7825,11 @@ const de_RemoteAccountDetails = (output: any, context: __SerdeContext): RemoteAc
  */
 const de_RemoteIpDetails = (output: any, context: __SerdeContext): RemoteIpDetails => {
   return take(output, {
-    City: (_) => [, de_City(_, context), `city`],
-    Country: (_) => [, de_Country(_, context), `country`],
-    GeoLocation: (_) => [, de_GeoLocation(_, context), `geoLocation`],
+    City: [, (_: any) => de_City(_, context), `city`],
+    Country: [, (_: any) => de_Country(_, context), `country`],
+    GeoLocation: [, (_: any) => de_GeoLocation(_, context), `geoLocation`],
     IpAddressV4: [, __expectString, `ipAddressV4`],
-    Organization: (_) => [, de_Organization(_, context), `organization`],
+    Organization: [, (_: any) => de_Organization(_, context), `organization`],
   }) as any;
 };
 
@@ -7840,18 +7848,18 @@ const de_RemotePortDetails = (output: any, context: __SerdeContext): RemotePortD
  */
 const de_Resource = (output: any, context: __SerdeContext): Resource => {
   return take(output, {
-    AccessKeyDetails: (_) => [, de_AccessKeyDetails(_, context), `accessKeyDetails`],
-    ContainerDetails: (_) => [, de_Container(_, context), `containerDetails`],
-    EbsVolumeDetails: (_) => [, de_EbsVolumeDetails(_, context), `ebsVolumeDetails`],
-    EcsClusterDetails: (_) => [, de_EcsClusterDetails(_, context), `ecsClusterDetails`],
-    EksClusterDetails: (_) => [, de_EksClusterDetails(_, context), `eksClusterDetails`],
-    InstanceDetails: (_) => [, de_InstanceDetails(_, context), `instanceDetails`],
-    KubernetesDetails: (_) => [, de_KubernetesDetails(_, context), `kubernetesDetails`],
-    LambdaDetails: (_) => [, de_LambdaDetails(_, context), `lambdaDetails`],
-    RdsDbInstanceDetails: (_) => [, de_RdsDbInstanceDetails(_, context), `rdsDbInstanceDetails`],
-    RdsDbUserDetails: (_) => [, de_RdsDbUserDetails(_, context), `rdsDbUserDetails`],
+    AccessKeyDetails: [, (_: any) => de_AccessKeyDetails(_, context), `accessKeyDetails`],
+    ContainerDetails: [, (_: any) => de_Container(_, context), `containerDetails`],
+    EbsVolumeDetails: [, (_: any) => de_EbsVolumeDetails(_, context), `ebsVolumeDetails`],
+    EcsClusterDetails: [, (_: any) => de_EcsClusterDetails(_, context), `ecsClusterDetails`],
+    EksClusterDetails: [, (_: any) => de_EksClusterDetails(_, context), `eksClusterDetails`],
+    InstanceDetails: [, (_: any) => de_InstanceDetails(_, context), `instanceDetails`],
+    KubernetesDetails: [, (_: any) => de_KubernetesDetails(_, context), `kubernetesDetails`],
+    LambdaDetails: [, (_: any) => de_LambdaDetails(_, context), `lambdaDetails`],
+    RdsDbInstanceDetails: [, (_: any) => de_RdsDbInstanceDetails(_, context), `rdsDbInstanceDetails`],
+    RdsDbUserDetails: [, (_: any) => de_RdsDbUserDetails(_, context), `rdsDbUserDetails`],
     ResourceType: [, __expectString, `resourceType`],
-    S3BucketDetails: (_) => [, de_S3BucketDetails(_, context), `s3BucketDetails`],
+    S3BucketDetails: [, (_: any) => de_S3BucketDetails(_, context), `s3BucketDetails`],
   }) as any;
 };
 
@@ -7876,8 +7884,8 @@ const de_RuntimeContext = (output: any, context: __SerdeContext): RuntimeContext
     LdPreloadValue: [, __expectString, `ldPreloadValue`],
     LibraryPath: [, __expectString, `libraryPath`],
     MemoryRegions: [, _json, `memoryRegions`],
-    ModifiedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `modifiedAt`],
-    ModifyingProcess: (_) => [, de_ProcessDetails(_, context), `modifyingProcess`],
+    ModifiedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `modifiedAt`],
+    ModifyingProcess: [, (_: any) => de_ProcessDetails(_, context), `modifyingProcess`],
     ModuleFilePath: [, __expectString, `moduleFilePath`],
     ModuleName: [, __expectString, `moduleName`],
     ModuleSha256: [, __expectString, `moduleSha256`],
@@ -7888,7 +7896,7 @@ const de_RuntimeContext = (output: any, context: __SerdeContext): RuntimeContext
     ScriptPath: [, __expectString, `scriptPath`],
     ShellHistoryFilePath: [, __expectString, `shellHistoryFilePath`],
     SocketPath: [, __expectString, `socketPath`],
-    TargetProcess: (_) => [, de_ProcessDetails(_, context), `targetProcess`],
+    TargetProcess: [, (_: any) => de_ProcessDetails(_, context), `targetProcess`],
   }) as any;
 };
 
@@ -7897,8 +7905,8 @@ const de_RuntimeContext = (output: any, context: __SerdeContext): RuntimeContext
  */
 const de_RuntimeDetails = (output: any, context: __SerdeContext): RuntimeDetails => {
   return take(output, {
-    Context: (_) => [, de_RuntimeContext(_, context), `context`],
-    Process: (_) => [, de_ProcessDetails(_, context), `process`],
+    Context: [, (_: any) => de_RuntimeContext(_, context), `context`],
+    Process: [, (_: any) => de_ProcessDetails(_, context), `process`],
   }) as any;
 };
 
@@ -7908,12 +7916,16 @@ const de_RuntimeDetails = (output: any, context: __SerdeContext): RuntimeDetails
 const de_S3BucketDetail = (output: any, context: __SerdeContext): S3BucketDetail => {
   return take(output, {
     Arn: [, __expectString, `arn`],
-    CreatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
-    DefaultServerSideEncryption: (_) => [, de_DefaultServerSideEncryption(_, context), `defaultServerSideEncryption`],
+    CreatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
+    DefaultServerSideEncryption: [
+      ,
+      (_: any) => de_DefaultServerSideEncryption(_, context),
+      `defaultServerSideEncryption`,
+    ],
     Name: [, __expectString, `name`],
-    Owner: (_) => [, de_Owner(_, context), `owner`],
-    PublicAccess: (_) => [, de_PublicAccess(_, context), `publicAccess`],
-    Tags: (_) => [, de_Tags(_, context), `tags`],
+    Owner: [, (_: any) => de_Owner(_, context), `owner`],
+    PublicAccess: [, (_: any) => de_PublicAccess(_, context), `publicAccess`],
+    Tags: [, (_: any) => de_Tags(_, context), `tags`],
     Type: [, __expectString, `type`],
   }) as any;
 };
@@ -7946,18 +7958,18 @@ const de_Scan = (output: any, context: __SerdeContext): Scan => {
   return take(output, {
     AccountId: [, __expectString, `accountId`],
     AdminDetectorId: [, __expectString, `adminDetectorId`],
-    AttachedVolumes: (_) => [, de_VolumeDetails(_, context), `attachedVolumes`],
+    AttachedVolumes: [, (_: any) => de_VolumeDetails(_, context), `attachedVolumes`],
     DetectorId: [, __expectString, `detectorId`],
     FailureReason: [, __expectString, `failureReason`],
     FileCount: [, __expectLong, `fileCount`],
-    ResourceDetails: (_) => [, de_ResourceDetails(_, context), `resourceDetails`],
-    ScanEndTime: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `scanEndTime`],
+    ResourceDetails: [, (_: any) => de_ResourceDetails(_, context), `resourceDetails`],
+    ScanEndTime: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `scanEndTime`],
     ScanId: [, __expectString, `scanId`],
-    ScanResultDetails: (_) => [, de_ScanResultDetails(_, context), `scanResultDetails`],
-    ScanStartTime: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `scanStartTime`],
+    ScanResultDetails: [, (_: any) => de_ScanResultDetails(_, context), `scanResultDetails`],
+    ScanStartTime: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `scanStartTime`],
     ScanStatus: [, __expectString, `scanStatus`],
     TotalBytes: [, __expectLong, `totalBytes`],
-    TriggerDetails: (_) => [, de_TriggerDetails(_, context), `triggerDetails`],
+    TriggerDetails: [, (_: any) => de_TriggerDetails(_, context), `triggerDetails`],
   }) as any;
 };
 
@@ -7966,7 +7978,7 @@ const de_Scan = (output: any, context: __SerdeContext): Scan => {
  */
 const de_ScanCondition = (output: any, context: __SerdeContext): ScanCondition => {
   return take(output, {
-    MapEquals: (_) => [, de_MapEquals(_, context), `mapEquals`],
+    MapEquals: [, (_: any) => de_MapEquals(_, context), `mapEquals`],
   }) as any;
 };
 
@@ -8001,14 +8013,14 @@ const de_ScanCriterion = (output: any, context: __SerdeContext): Record<string, 
  */
 const de_ScanDetections = (output: any, context: __SerdeContext): ScanDetections => {
   return take(output, {
-    HighestSeverityThreatDetails: (_) => [
+    HighestSeverityThreatDetails: [
       ,
-      de_HighestSeverityThreatDetails(_, context),
+      (_: any) => de_HighestSeverityThreatDetails(_, context),
       `highestSeverityThreatDetails`,
     ],
-    ScannedItemCount: (_) => [, de_ScannedItemCount(_, context), `scannedItemCount`],
-    ThreatDetectedByName: (_) => [, de_ThreatDetectedByName(_, context), `threatDetectedByName`],
-    ThreatsDetectedItemCount: (_) => [, de_ThreatsDetectedItemCount(_, context), `threatsDetectedItemCount`],
+    ScannedItemCount: [, (_: any) => de_ScannedItemCount(_, context), `scannedItemCount`],
+    ThreatDetectedByName: [, (_: any) => de_ThreatDetectedByName(_, context), `threatDetectedByName`],
+    ThreatsDetectedItemCount: [, (_: any) => de_ThreatsDetectedItemCount(_, context), `threatsDetectedItemCount`],
   }) as any;
 };
 
@@ -8020,7 +8032,7 @@ const de_ScanEc2InstanceWithFindingsResult = (
   context: __SerdeContext
 ): ScanEc2InstanceWithFindingsResult => {
   return take(output, {
-    EbsVolumes: (_) => [, de_EbsVolumesResult(_, context), `ebsVolumes`],
+    EbsVolumes: [, (_: any) => de_EbsVolumesResult(_, context), `ebsVolumes`],
   }) as any;
 };
 
@@ -8052,8 +8064,8 @@ const de_ScannedItemCount = (output: any, context: __SerdeContext): ScannedItemC
  */
 const de_ScanResourceCriteria = (output: any, context: __SerdeContext): ScanResourceCriteria => {
   return take(output, {
-    Exclude: (_) => [, de_ScanCriterion(_, context), `exclude`],
-    Include: (_) => [, de_ScanCriterion(_, context), `include`],
+    Exclude: [, (_: any) => de_ScanCriterion(_, context), `exclude`],
+    Include: [, (_: any) => de_ScanCriterion(_, context), `include`],
   }) as any;
 };
 
@@ -8083,7 +8095,7 @@ const de_Scans = (output: any, context: __SerdeContext): Scan[] => {
  */
 const de_ScanThreatName = (output: any, context: __SerdeContext): ScanThreatName => {
   return take(output, {
-    FilePaths: (_) => [, de_FilePaths(_, context), `filePaths`],
+    FilePaths: [, (_: any) => de_FilePaths(_, context), `filePaths`],
     ItemCount: [, __expectInt32, `itemCount`],
     Name: [, __expectString, `name`],
     Severity: [, __expectString, `severity`],
@@ -8138,18 +8150,18 @@ const de_SecurityGroups = (output: any, context: __SerdeContext): SecurityGroup[
  */
 const de_Service = (output: any, context: __SerdeContext): Service => {
   return take(output, {
-    Action: (_) => [, de_Action(_, context), `action`],
-    AdditionalInfo: (_) => [, de_ServiceAdditionalInfo(_, context), `additionalInfo`],
+    Action: [, (_: any) => de_Action(_, context), `action`],
+    AdditionalInfo: [, (_: any) => de_ServiceAdditionalInfo(_, context), `additionalInfo`],
     Archived: [, __expectBoolean, `archived`],
     Count: [, __expectInt32, `count`],
     DetectorId: [, __expectString, `detectorId`],
-    EbsVolumeScanDetails: (_) => [, de_EbsVolumeScanDetails(_, context), `ebsVolumeScanDetails`],
+    EbsVolumeScanDetails: [, (_: any) => de_EbsVolumeScanDetails(_, context), `ebsVolumeScanDetails`],
     EventFirstSeen: [, __expectString, `eventFirstSeen`],
     EventLastSeen: [, __expectString, `eventLastSeen`],
-    Evidence: (_) => [, de_Evidence(_, context), `evidence`],
+    Evidence: [, (_: any) => de_Evidence(_, context), `evidence`],
     FeatureName: [, __expectString, `featureName`],
     ResourceRole: [, __expectString, `resourceRole`],
-    RuntimeDetails: (_) => [, de_RuntimeDetails(_, context), `runtimeDetails`],
+    RuntimeDetails: [, (_: any) => de_RuntimeDetails(_, context), `runtimeDetails`],
     ServiceName: [, __expectString, `serviceName`],
     UserFeedback: [, __expectString, `userFeedback`],
   }) as any;
@@ -8202,7 +8214,7 @@ const de_ThreatDetectedByName = (output: any, context: __SerdeContext): ThreatDe
   return take(output, {
     ItemCount: [, __expectInt32, `itemCount`],
     Shortened: [, __expectBoolean, `shortened`],
-    ThreatNames: (_) => [, de_ScanThreatNames(_, context), `threatNames`],
+    ThreatNames: [, (_: any) => de_ScanThreatNames(_, context), `threatNames`],
     UniqueThreatNameCount: [, __expectInt32, `uniqueThreatNameCount`],
   }) as any;
 };
@@ -8289,7 +8301,7 @@ const de_UnprocessedAccounts = (output: any, context: __SerdeContext): Unprocess
  */
 const de_UnprocessedDataSourcesResult = (output: any, context: __SerdeContext): UnprocessedDataSourcesResult => {
   return take(output, {
-    MalwareProtection: (_) => [, de_MalwareProtectionConfigurationResult(_, context), `malwareProtection`],
+    MalwareProtection: [, (_: any) => de_MalwareProtectionConfigurationResult(_, context), `malwareProtection`],
   }) as any;
 };
 
@@ -8299,7 +8311,7 @@ const de_UnprocessedDataSourcesResult = (output: any, context: __SerdeContext): 
 const de_UsageAccountResult = (output: any, context: __SerdeContext): UsageAccountResult => {
   return take(output, {
     AccountId: [, __expectString, `accountId`],
-    Total: (_) => [, de_Total(_, context), `total`],
+    Total: [, (_: any) => de_Total(_, context), `total`],
   }) as any;
 };
 
@@ -8321,7 +8333,7 @@ const de_UsageAccountResultList = (output: any, context: __SerdeContext): UsageA
 const de_UsageDataSourceResult = (output: any, context: __SerdeContext): UsageDataSourceResult => {
   return take(output, {
     DataSource: [, __expectString, `dataSource`],
-    Total: (_) => [, de_Total(_, context), `total`],
+    Total: [, (_: any) => de_Total(_, context), `total`],
   }) as any;
 };
 
@@ -8343,7 +8355,7 @@ const de_UsageDataSourceResultList = (output: any, context: __SerdeContext): Usa
 const de_UsageFeatureResult = (output: any, context: __SerdeContext): UsageFeatureResult => {
   return take(output, {
     Feature: [, __expectString, `feature`],
-    Total: (_) => [, de_Total(_, context), `total`],
+    Total: [, (_: any) => de_Total(_, context), `total`],
   }) as any;
 };
 
@@ -8365,7 +8377,7 @@ const de_UsageFeatureResultList = (output: any, context: __SerdeContext): UsageF
 const de_UsageResourceResult = (output: any, context: __SerdeContext): UsageResourceResult => {
   return take(output, {
     Resource: [, __expectString, `resource`],
-    Total: (_) => [, de_Total(_, context), `total`],
+    Total: [, (_: any) => de_Total(_, context), `total`],
   }) as any;
 };
 
@@ -8386,11 +8398,11 @@ const de_UsageResourceResultList = (output: any, context: __SerdeContext): Usage
  */
 const de_UsageStatistics = (output: any, context: __SerdeContext): UsageStatistics => {
   return take(output, {
-    SumByAccount: (_) => [, de_UsageAccountResultList(_, context), `sumByAccount`],
-    SumByDataSource: (_) => [, de_UsageDataSourceResultList(_, context), `sumByDataSource`],
-    SumByFeature: (_) => [, de_UsageFeatureResultList(_, context), `sumByFeature`],
-    SumByResource: (_) => [, de_UsageResourceResultList(_, context), `sumByResource`],
-    TopResources: (_) => [, de_UsageResourceResultList(_, context), `topResources`],
+    SumByAccount: [, (_: any) => de_UsageAccountResultList(_, context), `sumByAccount`],
+    SumByDataSource: [, (_: any) => de_UsageDataSourceResultList(_, context), `sumByDataSource`],
+    SumByFeature: [, (_: any) => de_UsageFeatureResultList(_, context), `sumByFeature`],
+    SumByResource: [, (_: any) => de_UsageResourceResultList(_, context), `sumByResource`],
+    TopResources: [, (_: any) => de_UsageResourceResultList(_, context), `topResources`],
   }) as any;
 };
 
@@ -8399,7 +8411,7 @@ const de_UsageStatistics = (output: any, context: __SerdeContext): UsageStatisti
  */
 const de_Volume = (output: any, context: __SerdeContext): Volume => {
   return take(output, {
-    HostPath: (_) => [, de_HostPath(_, context), `hostPath`],
+    HostPath: [, (_: any) => de_HostPath(_, context), `hostPath`],
     Name: [, __expectString, `name`],
   }) as any;
 };
@@ -8470,7 +8482,7 @@ const de_Volumes = (output: any, context: __SerdeContext): Volume[] => {
  */
 const de_VpcConfig = (output: any, context: __SerdeContext): VpcConfig => {
   return take(output, {
-    SecurityGroups: (_) => [, de_SecurityGroups(_, context), `securityGroups`],
+    SecurityGroups: [, (_: any) => de_SecurityGroups(_, context), `securityGroups`],
     SubnetIds: [, _json, `subnetIds`],
     VpcId: [, __expectString, `vpcId`],
   }) as any;

@@ -8783,7 +8783,7 @@ const de_AccessControlList = (output: any, context: __SerdeContext): AccessContr
  */
 const de_AccountLevelPermissions = (output: any, context: __SerdeContext): AccountLevelPermissions => {
   return take(output, {
-    blockPublicAccess: (_) => [, de_BlockPublicAccess(_, context), `blockPublicAccess`],
+    blockPublicAccess: [, (_: any) => de_BlockPublicAccess(_, context), `blockPublicAccess`],
   }) as any;
 };
 
@@ -8803,7 +8803,7 @@ const de_AdminAccount = (output: any, context: __SerdeContext): AdminAccount => 
 const de_AllowListCriteria = (output: any, context: __SerdeContext): AllowListCriteria => {
   return take(output, {
     regex: [, __expectString, `regex`],
-    s3WordsList: (_) => [, de_S3WordsList(_, context), `s3WordsList`],
+    s3WordsList: [, (_: any) => de_S3WordsList(_, context), `s3WordsList`],
   }) as any;
 };
 
@@ -8823,11 +8823,11 @@ const de_AllowListStatus = (output: any, context: __SerdeContext): AllowListStat
 const de_AllowListSummary = (output: any, context: __SerdeContext): AllowListSummary => {
   return take(output, {
     arn: [, __expectString, `arn`],
-    createdAt: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    createdAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
     description: [, __expectString, `description`],
     id: [, __expectString, `id`],
     name: [, __expectString, `name`],
-    updatedAt: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `updatedAt`],
+    updatedAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `updatedAt`],
   }) as any;
 };
 
@@ -8838,8 +8838,8 @@ const de_ApiCallDetails = (output: any, context: __SerdeContext): ApiCallDetails
   return take(output, {
     api: [, __expectString, `api`],
     apiServiceName: [, __expectString, `apiServiceName`],
-    firstSeen: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `firstSeen`],
-    lastSeen: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastSeen`],
+    firstSeen: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `firstSeen`],
+    lastSeen: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastSeen`],
   }) as any;
 };
 
@@ -8852,7 +8852,7 @@ const de_AssumedRole = (output: any, context: __SerdeContext): AssumedRole => {
     accountId: [, __expectString, `accountId`],
     arn: [, __expectString, `arn`],
     principalId: [, __expectString, `principalId`],
-    sessionContext: (_) => [, de_SessionContext(_, context), `sessionContext`],
+    sessionContext: [, (_: any) => de_SessionContext(_, context), `sessionContext`],
   }) as any;
 };
 
@@ -8884,7 +8884,7 @@ const de_BatchGetCustomDataIdentifierSummary = (
 ): BatchGetCustomDataIdentifierSummary => {
   return take(output, {
     arn: [, __expectString, `arn`],
-    createdAt: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    createdAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
     deleted: [, __expectBoolean, `deleted`],
     description: [, __expectString, `description`],
     id: [, __expectString, `id`],
@@ -8962,9 +8962,9 @@ const de_BucketCountPolicyAllowsUnencryptedObjectUploads = (
  */
 const de_BucketLevelPermissions = (output: any, context: __SerdeContext): BucketLevelPermissions => {
   return take(output, {
-    accessControlList: (_) => [, de_AccessControlList(_, context), `accessControlList`],
-    blockPublicAccess: (_) => [, de_BlockPublicAccess(_, context), `blockPublicAccess`],
-    bucketPolicy: (_) => [, de_BucketPolicy(_, context), `bucketPolicy`],
+    accessControlList: [, (_: any) => de_AccessControlList(_, context), `accessControlList`],
+    blockPublicAccess: [, (_: any) => de_BlockPublicAccess(_, context), `blockPublicAccess`],
+    bucketPolicy: [, (_: any) => de_BucketPolicy(_, context), `bucketPolicy`],
   }) as any;
 };
 
@@ -8976,32 +8976,40 @@ const de_BucketMetadata = (output: any, context: __SerdeContext): BucketMetadata
     accountId: [, __expectString, `accountId`],
     allowsUnencryptedObjectUploads: [, __expectString, `allowsUnencryptedObjectUploads`],
     bucketArn: [, __expectString, `bucketArn`],
-    bucketCreatedAt: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `bucketCreatedAt`],
+    bucketCreatedAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `bucketCreatedAt`],
     bucketName: [, __expectString, `bucketName`],
     classifiableObjectCount: [, __expectLong, `classifiableObjectCount`],
     classifiableSizeInBytes: [, __expectLong, `classifiableSizeInBytes`],
     errorCode: [, __expectString, `errorCode`],
     errorMessage: [, __expectString, `errorMessage`],
-    jobDetails: (_) => [, de_JobDetails(_, context), `jobDetails`],
-    lastAutomatedDiscoveryTime: (_) => [
+    jobDetails: [, (_: any) => de_JobDetails(_, context), `jobDetails`],
+    lastAutomatedDiscoveryTime: [
       ,
-      __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+      (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
       `lastAutomatedDiscoveryTime`,
     ],
-    lastUpdated: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastUpdated`],
+    lastUpdated: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastUpdated`],
     objectCount: [, __expectLong, `objectCount`],
-    objectCountByEncryptionType: (_) => [, de_ObjectCountByEncryptionType(_, context), `objectCountByEncryptionType`],
-    publicAccess: (_) => [, de_BucketPublicAccess(_, context), `publicAccess`],
+    objectCountByEncryptionType: [
+      ,
+      (_: any) => de_ObjectCountByEncryptionType(_, context),
+      `objectCountByEncryptionType`,
+    ],
+    publicAccess: [, (_: any) => de_BucketPublicAccess(_, context), `publicAccess`],
     region: [, __expectString, `region`],
-    replicationDetails: (_) => [, de_ReplicationDetails(_, context), `replicationDetails`],
+    replicationDetails: [, (_: any) => de_ReplicationDetails(_, context), `replicationDetails`],
     sensitivityScore: [, __expectInt32, `sensitivityScore`],
-    serverSideEncryption: (_) => [, de_BucketServerSideEncryption(_, context), `serverSideEncryption`],
+    serverSideEncryption: [, (_: any) => de_BucketServerSideEncryption(_, context), `serverSideEncryption`],
     sharedAccess: [, __expectString, `sharedAccess`],
     sizeInBytes: [, __expectLong, `sizeInBytes`],
     sizeInBytesCompressed: [, __expectLong, `sizeInBytesCompressed`],
-    tags: (_) => [, de___listOfKeyValuePair(_, context), `tags`],
-    unclassifiableObjectCount: (_) => [, de_ObjectLevelStatistics(_, context), `unclassifiableObjectCount`],
-    unclassifiableObjectSizeInBytes: (_) => [, de_ObjectLevelStatistics(_, context), `unclassifiableObjectSizeInBytes`],
+    tags: [, (_: any) => de___listOfKeyValuePair(_, context), `tags`],
+    unclassifiableObjectCount: [, (_: any) => de_ObjectLevelStatistics(_, context), `unclassifiableObjectCount`],
+    unclassifiableObjectSizeInBytes: [
+      ,
+      (_: any) => de_ObjectLevelStatistics(_, context),
+      `unclassifiableObjectSizeInBytes`,
+    ],
     versioning: [, __expectBoolean, `versioning`],
   }) as any;
 };
@@ -9011,8 +9019,8 @@ const de_BucketMetadata = (output: any, context: __SerdeContext): BucketMetadata
  */
 const de_BucketPermissionConfiguration = (output: any, context: __SerdeContext): BucketPermissionConfiguration => {
   return take(output, {
-    accountLevelPermissions: (_) => [, de_AccountLevelPermissions(_, context), `accountLevelPermissions`],
-    bucketLevelPermissions: (_) => [, de_BucketLevelPermissions(_, context), `bucketLevelPermissions`],
+    accountLevelPermissions: [, (_: any) => de_AccountLevelPermissions(_, context), `accountLevelPermissions`],
+    bucketLevelPermissions: [, (_: any) => de_BucketLevelPermissions(_, context), `bucketLevelPermissions`],
   }) as any;
 };
 
@@ -9032,7 +9040,7 @@ const de_BucketPolicy = (output: any, context: __SerdeContext): BucketPolicy => 
 const de_BucketPublicAccess = (output: any, context: __SerdeContext): BucketPublicAccess => {
   return take(output, {
     effectivePermission: [, __expectString, `effectivePermission`],
-    permissionConfiguration: (_) => [, de_BucketPermissionConfiguration(_, context), `permissionConfiguration`],
+    permissionConfiguration: [, (_: any) => de_BucketPermissionConfiguration(_, context), `permissionConfiguration`],
   }) as any;
 };
 
@@ -9051,10 +9059,10 @@ const de_BucketServerSideEncryption = (output: any, context: __SerdeContext): Bu
  */
 const de_BucketStatisticsBySensitivity = (output: any, context: __SerdeContext): BucketStatisticsBySensitivity => {
   return take(output, {
-    classificationError: (_) => [, de_SensitivityAggregations(_, context), `classificationError`],
-    notClassified: (_) => [, de_SensitivityAggregations(_, context), `notClassified`],
-    notSensitive: (_) => [, de_SensitivityAggregations(_, context), `notSensitive`],
-    sensitive: (_) => [, de_SensitivityAggregations(_, context), `sensitive`],
+    classificationError: [, (_: any) => de_SensitivityAggregations(_, context), `classificationError`],
+    notClassified: [, (_: any) => de_SensitivityAggregations(_, context), `notClassified`],
+    notSensitive: [, (_: any) => de_SensitivityAggregations(_, context), `notSensitive`],
+    sensitive: [, (_: any) => de_SensitivityAggregations(_, context), `sensitive`],
   }) as any;
 };
 
@@ -9091,7 +9099,7 @@ const de_ClassificationDetails = (output: any, context: __SerdeContext): Classif
     jobArn: [, __expectString, `jobArn`],
     jobId: [, __expectString, `jobId`],
     originType: [, __expectString, `originType`],
-    result: (_) => [, de_ClassificationResult(_, context), `result`],
+    result: [, (_: any) => de_ClassificationResult(_, context), `result`],
   }) as any;
 };
 
@@ -9103,7 +9111,7 @@ const de_ClassificationExportConfiguration = (
   context: __SerdeContext
 ): ClassificationExportConfiguration => {
   return take(output, {
-    s3Destination: (_) => [, de_S3Destination(_, context), `s3Destination`],
+    s3Destination: [, (_: any) => de_S3Destination(_, context), `s3Destination`],
   }) as any;
 };
 
@@ -9113,11 +9121,11 @@ const de_ClassificationExportConfiguration = (
 const de_ClassificationResult = (output: any, context: __SerdeContext): ClassificationResult => {
   return take(output, {
     additionalOccurrences: [, __expectBoolean, `additionalOccurrences`],
-    customDataIdentifiers: (_) => [, de_CustomDataIdentifiers(_, context), `customDataIdentifiers`],
+    customDataIdentifiers: [, (_: any) => de_CustomDataIdentifiers(_, context), `customDataIdentifiers`],
     mimeType: [, __expectString, `mimeType`],
-    sensitiveData: (_) => [, de_SensitiveData(_, context), `sensitiveData`],
+    sensitiveData: [, (_: any) => de_SensitiveData(_, context), `sensitiveData`],
     sizeClassified: [, __expectLong, `sizeClassified`],
-    status: (_) => [, de_ClassificationResultStatus(_, context), `status`],
+    status: [, (_: any) => de_ClassificationResultStatus(_, context), `status`],
   }) as any;
 };
 
@@ -9146,7 +9154,7 @@ const de_ClassificationScopeSummary = (output: any, context: __SerdeContext): Cl
  */
 const de_CriteriaBlockForJob = (output: any, context: __SerdeContext): CriteriaBlockForJob => {
   return take(output, {
-    and: (_) => [, de___listOfCriteriaForJob(_, context), `and`],
+    and: [, (_: any) => de___listOfCriteriaForJob(_, context), `and`],
   }) as any;
 };
 
@@ -9155,8 +9163,8 @@ const de_CriteriaBlockForJob = (output: any, context: __SerdeContext): CriteriaB
  */
 const de_CriteriaForJob = (output: any, context: __SerdeContext): CriteriaForJob => {
   return take(output, {
-    simpleCriterion: (_) => [, de_SimpleCriterionForJob(_, context), `simpleCriterion`],
-    tagCriterion: (_) => [, de_TagCriterionForJob(_, context), `tagCriterion`],
+    simpleCriterion: [, (_: any) => de_SimpleCriterionForJob(_, context), `simpleCriterion`],
+    tagCriterion: [, (_: any) => de_TagCriterionForJob(_, context), `tagCriterion`],
   }) as any;
 };
 
@@ -9196,7 +9204,7 @@ const de_CriterionAdditionalProperties = (output: any, context: __SerdeContext):
  */
 const de_CustomDataIdentifiers = (output: any, context: __SerdeContext): CustomDataIdentifiers => {
   return take(output, {
-    detections: (_) => [, de_CustomDetections(_, context), `detections`],
+    detections: [, (_: any) => de_CustomDetections(_, context), `detections`],
     totalCount: [, __expectLong, `totalCount`],
   }) as any;
 };
@@ -9207,7 +9215,7 @@ const de_CustomDataIdentifiers = (output: any, context: __SerdeContext): CustomD
 const de_CustomDataIdentifierSummary = (output: any, context: __SerdeContext): CustomDataIdentifierSummary => {
   return take(output, {
     arn: [, __expectString, `arn`],
-    createdAt: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    createdAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
     description: [, __expectString, `description`],
     id: [, __expectString, `id`],
     name: [, __expectString, `name`],
@@ -9222,7 +9230,7 @@ const de_CustomDetection = (output: any, context: __SerdeContext): CustomDetecti
     arn: [, __expectString, `arn`],
     count: [, __expectLong, `count`],
     name: [, __expectString, `name`],
-    occurrences: (_) => [, de_Occurrences(_, context), `occurrences`],
+    occurrences: [, (_: any) => de_Occurrences(_, context), `occurrences`],
   }) as any;
 };
 
@@ -9246,7 +9254,7 @@ const de_CustomDetections = (output: any, context: __SerdeContext): CustomDetect
 const de_DefaultDetection = (output: any, context: __SerdeContext): DefaultDetection => {
   return take(output, {
     count: [, __expectLong, `count`],
-    occurrences: (_) => [, de_Occurrences(_, context), `occurrences`],
+    occurrences: [, (_: any) => de_Occurrences(_, context), `occurrences`],
     type: [, __expectString, `type`],
   }) as any;
 };
@@ -9304,7 +9312,7 @@ const de_FederatedUser = (output: any, context: __SerdeContext): FederatedUser =
     accountId: [, __expectString, `accountId`],
     arn: [, __expectString, `arn`],
     principalId: [, __expectString, `principalId`],
-    sessionContext: (_) => [, de_SessionContext(_, context), `sessionContext`],
+    sessionContext: [, (_: any) => de_SessionContext(_, context), `sessionContext`],
   }) as any;
 };
 
@@ -9316,21 +9324,21 @@ const de_Finding = (output: any, context: __SerdeContext): Finding => {
     accountId: [, __expectString, `accountId`],
     archived: [, __expectBoolean, `archived`],
     category: [, __expectString, `category`],
-    classificationDetails: (_) => [, de_ClassificationDetails(_, context), `classificationDetails`],
+    classificationDetails: [, (_: any) => de_ClassificationDetails(_, context), `classificationDetails`],
     count: [, __expectLong, `count`],
-    createdAt: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    createdAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
     description: [, __expectString, `description`],
     id: [, __expectString, `id`],
     partition: [, __expectString, `partition`],
-    policyDetails: (_) => [, de_PolicyDetails(_, context), `policyDetails`],
+    policyDetails: [, (_: any) => de_PolicyDetails(_, context), `policyDetails`],
     region: [, __expectString, `region`],
-    resourcesAffected: (_) => [, de_ResourcesAffected(_, context), `resourcesAffected`],
+    resourcesAffected: [, (_: any) => de_ResourcesAffected(_, context), `resourcesAffected`],
     sample: [, __expectBoolean, `sample`],
     schemaVersion: [, __expectString, `schemaVersion`],
-    severity: (_) => [, de_Severity(_, context), `severity`],
+    severity: [, (_: any) => de_Severity(_, context), `severity`],
     title: [, __expectString, `title`],
     type: [, __expectString, `type`],
-    updatedAt: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `updatedAt`],
+    updatedAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `updatedAt`],
   }) as any;
 };
 
@@ -9340,7 +9348,7 @@ const de_Finding = (output: any, context: __SerdeContext): Finding => {
 const de_FindingAction = (output: any, context: __SerdeContext): FindingAction => {
   return take(output, {
     actionType: [, __expectString, `actionType`],
-    apiCallDetails: (_) => [, de_ApiCallDetails(_, context), `apiCallDetails`],
+    apiCallDetails: [, (_: any) => de_ApiCallDetails(_, context), `apiCallDetails`],
   }) as any;
 };
 
@@ -9349,9 +9357,9 @@ const de_FindingAction = (output: any, context: __SerdeContext): FindingAction =
  */
 const de_FindingActor = (output: any, context: __SerdeContext): FindingActor => {
   return take(output, {
-    domainDetails: (_) => [, de_DomainDetails(_, context), `domainDetails`],
-    ipAddressDetails: (_) => [, de_IpAddressDetails(_, context), `ipAddressDetails`],
-    userIdentity: (_) => [, de_UserIdentity(_, context), `userIdentity`],
+    domainDetails: [, (_: any) => de_DomainDetails(_, context), `domainDetails`],
+    ipAddressDetails: [, (_: any) => de_IpAddressDetails(_, context), `ipAddressDetails`],
+    userIdentity: [, (_: any) => de_UserIdentity(_, context), `userIdentity`],
   }) as any;
 };
 
@@ -9360,7 +9368,7 @@ const de_FindingActor = (output: any, context: __SerdeContext): FindingActor => 
  */
 const de_FindingCriteria = (output: any, context: __SerdeContext): FindingCriteria => {
   return take(output, {
-    criterion: (_) => [, de_Criterion(_, context), `criterion`],
+    criterion: [, (_: any) => de_Criterion(_, context), `criterion`],
   }) as any;
 };
 
@@ -9406,7 +9414,7 @@ const de_Invitation = (output: any, context: __SerdeContext): Invitation => {
   return take(output, {
     accountId: [, __expectString, `accountId`],
     invitationId: [, __expectString, `invitationId`],
-    invitedAt: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `invitedAt`],
+    invitedAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `invitedAt`],
     relationshipStatus: [, __expectString, `relationshipStatus`],
   }) as any;
 };
@@ -9417,10 +9425,10 @@ const de_Invitation = (output: any, context: __SerdeContext): Invitation => {
 const de_IpAddressDetails = (output: any, context: __SerdeContext): IpAddressDetails => {
   return take(output, {
     ipAddressV4: [, __expectString, `ipAddressV4`],
-    ipCity: (_) => [, de_IpCity(_, context), `ipCity`],
-    ipCountry: (_) => [, de_IpCountry(_, context), `ipCountry`],
-    ipGeoLocation: (_) => [, de_IpGeoLocation(_, context), `ipGeoLocation`],
-    ipOwner: (_) => [, de_IpOwner(_, context), `ipOwner`],
+    ipCity: [, (_: any) => de_IpCity(_, context), `ipCity`],
+    ipCountry: [, (_: any) => de_IpCountry(_, context), `ipCountry`],
+    ipGeoLocation: [, (_: any) => de_IpGeoLocation(_, context), `ipGeoLocation`],
+    ipOwner: [, (_: any) => de_IpOwner(_, context), `ipOwner`],
   }) as any;
 };
 
@@ -9473,7 +9481,7 @@ const de_JobDetails = (output: any, context: __SerdeContext): JobDetails => {
     isDefinedInJob: [, __expectString, `isDefinedInJob`],
     isMonitoredByJob: [, __expectString, `isMonitoredByJob`],
     lastJobId: [, __expectString, `lastJobId`],
-    lastJobRunTime: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastJobRunTime`],
+    lastJobRunTime: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastJobRunTime`],
   }) as any;
 };
 
@@ -9483,8 +9491,8 @@ const de_JobDetails = (output: any, context: __SerdeContext): JobDetails => {
 const de_JobScheduleFrequency = (output: any, context: __SerdeContext): JobScheduleFrequency => {
   return take(output, {
     dailySchedule: [, _json, `dailySchedule`],
-    monthlySchedule: (_) => [, de_MonthlySchedule(_, context), `monthlySchedule`],
-    weeklySchedule: (_) => [, de_WeeklySchedule(_, context), `weeklySchedule`],
+    monthlySchedule: [, (_: any) => de_MonthlySchedule(_, context), `monthlySchedule`],
+    weeklySchedule: [, (_: any) => de_WeeklySchedule(_, context), `weeklySchedule`],
   }) as any;
 };
 
@@ -9493,8 +9501,8 @@ const de_JobScheduleFrequency = (output: any, context: __SerdeContext): JobSched
  */
 const de_JobScopeTerm = (output: any, context: __SerdeContext): JobScopeTerm => {
   return take(output, {
-    simpleScopeTerm: (_) => [, de_SimpleScopeTerm(_, context), `simpleScopeTerm`],
-    tagScopeTerm: (_) => [, de_TagScopeTerm(_, context), `tagScopeTerm`],
+    simpleScopeTerm: [, (_: any) => de_SimpleScopeTerm(_, context), `simpleScopeTerm`],
+    tagScopeTerm: [, (_: any) => de_TagScopeTerm(_, context), `tagScopeTerm`],
   }) as any;
 };
 
@@ -9503,7 +9511,7 @@ const de_JobScopeTerm = (output: any, context: __SerdeContext): JobScopeTerm => 
  */
 const de_JobScopingBlock = (output: any, context: __SerdeContext): JobScopingBlock => {
   return take(output, {
-    and: (_) => [, de___listOfJobScopeTerm(_, context), `and`],
+    and: [, (_: any) => de___listOfJobScopeTerm(_, context), `and`],
   }) as any;
 };
 
@@ -9512,15 +9520,15 @@ const de_JobScopingBlock = (output: any, context: __SerdeContext): JobScopingBlo
  */
 const de_JobSummary = (output: any, context: __SerdeContext): JobSummary => {
   return take(output, {
-    bucketCriteria: (_) => [, de_S3BucketCriteriaForJob(_, context), `bucketCriteria`],
-    bucketDefinitions: (_) => [, de___listOfS3BucketDefinitionForJob(_, context), `bucketDefinitions`],
-    createdAt: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    bucketCriteria: [, (_: any) => de_S3BucketCriteriaForJob(_, context), `bucketCriteria`],
+    bucketDefinitions: [, (_: any) => de___listOfS3BucketDefinitionForJob(_, context), `bucketDefinitions`],
+    createdAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
     jobId: [, __expectString, `jobId`],
     jobStatus: [, __expectString, `jobStatus`],
     jobType: [, __expectString, `jobType`],
-    lastRunErrorStatus: (_) => [, de_LastRunErrorStatus(_, context), `lastRunErrorStatus`],
+    lastRunErrorStatus: [, (_: any) => de_LastRunErrorStatus(_, context), `lastRunErrorStatus`],
     name: [, __expectString, `name`],
-    userPausedDetails: (_) => [, de_UserPausedDetails(_, context), `userPausedDetails`],
+    userPausedDetails: [, (_: any) => de_UserPausedDetails(_, context), `userPausedDetails`],
   }) as any;
 };
 
@@ -9576,19 +9584,27 @@ const de_MatchingBucket = (output: any, context: __SerdeContext): MatchingBucket
     classifiableSizeInBytes: [, __expectLong, `classifiableSizeInBytes`],
     errorCode: [, __expectString, `errorCode`],
     errorMessage: [, __expectString, `errorMessage`],
-    jobDetails: (_) => [, de_JobDetails(_, context), `jobDetails`],
-    lastAutomatedDiscoveryTime: (_) => [
+    jobDetails: [, (_: any) => de_JobDetails(_, context), `jobDetails`],
+    lastAutomatedDiscoveryTime: [
       ,
-      __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+      (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
       `lastAutomatedDiscoveryTime`,
     ],
     objectCount: [, __expectLong, `objectCount`],
-    objectCountByEncryptionType: (_) => [, de_ObjectCountByEncryptionType(_, context), `objectCountByEncryptionType`],
+    objectCountByEncryptionType: [
+      ,
+      (_: any) => de_ObjectCountByEncryptionType(_, context),
+      `objectCountByEncryptionType`,
+    ],
     sensitivityScore: [, __expectInt32, `sensitivityScore`],
     sizeInBytes: [, __expectLong, `sizeInBytes`],
     sizeInBytesCompressed: [, __expectLong, `sizeInBytesCompressed`],
-    unclassifiableObjectCount: (_) => [, de_ObjectLevelStatistics(_, context), `unclassifiableObjectCount`],
-    unclassifiableObjectSizeInBytes: (_) => [, de_ObjectLevelStatistics(_, context), `unclassifiableObjectSizeInBytes`],
+    unclassifiableObjectCount: [, (_: any) => de_ObjectLevelStatistics(_, context), `unclassifiableObjectCount`],
+    unclassifiableObjectSizeInBytes: [
+      ,
+      (_: any) => de_ObjectLevelStatistics(_, context),
+      `unclassifiableObjectSizeInBytes`,
+    ],
   }) as any;
 };
 
@@ -9597,7 +9613,7 @@ const de_MatchingBucket = (output: any, context: __SerdeContext): MatchingBucket
  */
 const de_MatchingResource = (output: any, context: __SerdeContext): MatchingResource => {
   return take(output, {
-    matchingBucket: (_) => [, de_MatchingBucket(_, context), `matchingBucket`],
+    matchingBucket: [, (_: any) => de_MatchingBucket(_, context), `matchingBucket`],
   }) as any;
 };
 
@@ -9610,11 +9626,11 @@ const de_Member = (output: any, context: __SerdeContext): Member => {
     administratorAccountId: [, __expectString, `administratorAccountId`],
     arn: [, __expectString, `arn`],
     email: [, __expectString, `email`],
-    invitedAt: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `invitedAt`],
+    invitedAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `invitedAt`],
     masterAccountId: [, __expectString, `masterAccountId`],
     relationshipStatus: [, __expectString, `relationshipStatus`],
     tags: [, _json, `tags`],
-    updatedAt: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `updatedAt`],
+    updatedAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `updatedAt`],
   }) as any;
 };
 
@@ -9656,11 +9672,11 @@ const de_ObjectLevelStatistics = (output: any, context: __SerdeContext): ObjectL
  */
 const de_Occurrences = (output: any, context: __SerdeContext): Occurrences => {
   return take(output, {
-    cells: (_) => [, de_Cells(_, context), `cells`],
-    lineRanges: (_) => [, de_Ranges(_, context), `lineRanges`],
-    offsetRanges: (_) => [, de_Ranges(_, context), `offsetRanges`],
-    pages: (_) => [, de_Pages(_, context), `pages`],
-    records: (_) => [, de_Records(_, context), `records`],
+    cells: [, (_: any) => de_Cells(_, context), `cells`],
+    lineRanges: [, (_: any) => de_Ranges(_, context), `lineRanges`],
+    offsetRanges: [, (_: any) => de_Ranges(_, context), `offsetRanges`],
+    pages: [, (_: any) => de_Pages(_, context), `pages`],
+    records: [, (_: any) => de_Records(_, context), `records`],
   }) as any;
 };
 
@@ -9669,8 +9685,8 @@ const de_Occurrences = (output: any, context: __SerdeContext): Occurrences => {
  */
 const de_Page = (output: any, context: __SerdeContext): Page => {
   return take(output, {
-    lineRange: (_) => [, de_Range(_, context), `lineRange`],
-    offsetRange: (_) => [, de_Range(_, context), `offsetRange`],
+    lineRange: [, (_: any) => de_Range(_, context), `lineRange`],
+    offsetRange: [, (_: any) => de_Range(_, context), `offsetRange`],
     pageNumber: [, __expectLong, `pageNumber`],
   }) as any;
 };
@@ -9692,8 +9708,8 @@ const de_Pages = (output: any, context: __SerdeContext): Page[] => {
  */
 const de_PolicyDetails = (output: any, context: __SerdeContext): PolicyDetails => {
   return take(output, {
-    action: (_) => [, de_FindingAction(_, context), `action`],
-    actor: (_) => [, de_FindingActor(_, context), `actor`],
+    action: [, (_: any) => de_FindingAction(_, context), `action`],
+    actor: [, (_: any) => de_FindingActor(_, context), `actor`],
   }) as any;
 };
 
@@ -9769,8 +9785,8 @@ const de_ResourceProfileArtifact = (output: any, context: __SerdeContext): Resou
  */
 const de_ResourcesAffected = (output: any, context: __SerdeContext): ResourcesAffected => {
   return take(output, {
-    s3Bucket: (_) => [, de_S3Bucket(_, context), `s3Bucket`],
-    s3Object: (_) => [, de_S3Object(_, context), `s3Object`],
+    s3Bucket: [, (_: any) => de_S3Bucket(_, context), `s3Bucket`],
+    s3Object: [, (_: any) => de_S3Object(_, context), `s3Object`],
   }) as any;
 };
 
@@ -9808,12 +9824,12 @@ const de_S3Bucket = (output: any, context: __SerdeContext): S3Bucket => {
   return take(output, {
     allowsUnencryptedObjectUploads: [, __expectString, `allowsUnencryptedObjectUploads`],
     arn: [, __expectString, `arn`],
-    createdAt: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
-    defaultServerSideEncryption: (_) => [, de_ServerSideEncryption(_, context), `defaultServerSideEncryption`],
+    createdAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdAt`],
+    defaultServerSideEncryption: [, (_: any) => de_ServerSideEncryption(_, context), `defaultServerSideEncryption`],
     name: [, __expectString, `name`],
-    owner: (_) => [, de_S3BucketOwner(_, context), `owner`],
-    publicAccess: (_) => [, de_BucketPublicAccess(_, context), `publicAccess`],
-    tags: (_) => [, de_KeyValuePairList(_, context), `tags`],
+    owner: [, (_: any) => de_S3BucketOwner(_, context), `owner`],
+    publicAccess: [, (_: any) => de_BucketPublicAccess(_, context), `publicAccess`],
+    tags: [, (_: any) => de_KeyValuePairList(_, context), `tags`],
   }) as any;
 };
 
@@ -9822,8 +9838,8 @@ const de_S3Bucket = (output: any, context: __SerdeContext): S3Bucket => {
  */
 const de_S3BucketCriteriaForJob = (output: any, context: __SerdeContext): S3BucketCriteriaForJob => {
   return take(output, {
-    excludes: (_) => [, de_CriteriaBlockForJob(_, context), `excludes`],
-    includes: (_) => [, de_CriteriaBlockForJob(_, context), `includes`],
+    excludes: [, (_: any) => de_CriteriaBlockForJob(_, context), `excludes`],
+    includes: [, (_: any) => de_CriteriaBlockForJob(_, context), `includes`],
   }) as any;
 };
 
@@ -9852,7 +9868,7 @@ const de_S3BucketOwner = (output: any, context: __SerdeContext): S3BucketOwner =
  */
 const de_S3ClassificationScope = (output: any, context: __SerdeContext): S3ClassificationScope => {
   return take(output, {
-    excludes: (_) => [, de_S3ClassificationScopeExclusion(_, context), `excludes`],
+    excludes: [, (_: any) => de_S3ClassificationScopeExclusion(_, context), `excludes`],
   }) as any;
 };
 
@@ -9881,9 +9897,9 @@ const de_S3Destination = (output: any, context: __SerdeContext): S3Destination =
  */
 const de_S3JobDefinition = (output: any, context: __SerdeContext): S3JobDefinition => {
   return take(output, {
-    bucketCriteria: (_) => [, de_S3BucketCriteriaForJob(_, context), `bucketCriteria`],
-    bucketDefinitions: (_) => [, de___listOfS3BucketDefinitionForJob(_, context), `bucketDefinitions`],
-    scoping: (_) => [, de_Scoping(_, context), `scoping`],
+    bucketCriteria: [, (_: any) => de_S3BucketCriteriaForJob(_, context), `bucketCriteria`],
+    bucketDefinitions: [, (_: any) => de___listOfS3BucketDefinitionForJob(_, context), `bucketDefinitions`],
+    scoping: [, (_: any) => de_Scoping(_, context), `scoping`],
   }) as any;
 };
 
@@ -9896,13 +9912,13 @@ const de_S3Object = (output: any, context: __SerdeContext): S3Object => {
     eTag: [, __expectString, `eTag`],
     extension: [, __expectString, `extension`],
     key: [, __expectString, `key`],
-    lastModified: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastModified`],
+    lastModified: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastModified`],
     path: [, __expectString, `path`],
     publicAccess: [, __expectBoolean, `publicAccess`],
-    serverSideEncryption: (_) => [, de_ServerSideEncryption(_, context), `serverSideEncryption`],
+    serverSideEncryption: [, (_: any) => de_ServerSideEncryption(_, context), `serverSideEncryption`],
     size: [, __expectLong, `size`],
     storageClass: [, __expectString, `storageClass`],
-    tags: (_) => [, de_KeyValuePairList(_, context), `tags`],
+    tags: [, (_: any) => de_KeyValuePairList(_, context), `tags`],
     versionId: [, __expectString, `versionId`],
   }) as any;
 };
@@ -9922,8 +9938,8 @@ const de_S3WordsList = (output: any, context: __SerdeContext): S3WordsList => {
  */
 const de_Scoping = (output: any, context: __SerdeContext): Scoping => {
   return take(output, {
-    excludes: (_) => [, de_JobScopingBlock(_, context), `excludes`],
-    includes: (_) => [, de_JobScopingBlock(_, context), `includes`],
+    excludes: [, (_: any) => de_JobScopingBlock(_, context), `excludes`],
+    includes: [, (_: any) => de_JobScopingBlock(_, context), `includes`],
   }) as any;
 };
 
@@ -9955,7 +9971,7 @@ const de_SensitiveData = (output: any, context: __SerdeContext): SensitiveDataIt
 const de_SensitiveDataItem = (output: any, context: __SerdeContext): SensitiveDataItem => {
   return take(output, {
     category: [, __expectString, `category`],
-    detections: (_) => [, de_DefaultDetections(_, context), `detections`],
+    detections: [, (_: any) => de_DefaultDetections(_, context), `detections`],
     totalCount: [, __expectLong, `totalCount`],
   }) as any;
 };
@@ -10050,8 +10066,8 @@ const de_ServiceLimit = (output: any, context: __SerdeContext): ServiceLimit => 
  */
 const de_SessionContext = (output: any, context: __SerdeContext): SessionContext => {
   return take(output, {
-    attributes: (_) => [, de_SessionContextAttributes(_, context), `attributes`],
-    sessionIssuer: (_) => [, de_SessionIssuer(_, context), `sessionIssuer`],
+    attributes: [, (_: any) => de_SessionContextAttributes(_, context), `attributes`],
+    sessionIssuer: [, (_: any) => de_SessionIssuer(_, context), `sessionIssuer`],
   }) as any;
 };
 
@@ -10060,7 +10076,7 @@ const de_SessionContext = (output: any, context: __SerdeContext): SessionContext
  */
 const de_SessionContextAttributes = (output: any, context: __SerdeContext): SessionContextAttributes => {
   return take(output, {
-    creationDate: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationDate`],
+    creationDate: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationDate`],
     mfaAuthenticated: [, __expectBoolean, `mfaAuthenticated`],
   }) as any;
 };
@@ -10148,7 +10164,7 @@ const de_Statistics = (output: any, context: __SerdeContext): Statistics => {
 const de_TagCriterionForJob = (output: any, context: __SerdeContext): TagCriterionForJob => {
   return take(output, {
     comparator: [, __expectString, `comparator`],
-    tagValues: (_) => [, de___listOfTagCriterionPairForJob(_, context), `tagValues`],
+    tagValues: [, (_: any) => de___listOfTagCriterionPairForJob(_, context), `tagValues`],
   }) as any;
 };
 
@@ -10171,7 +10187,7 @@ const de_TagScopeTerm = (output: any, context: __SerdeContext): TagScopeTerm => 
   return take(output, {
     comparator: [, __expectString, `comparator`],
     key: [, __expectString, `key`],
-    tagValues: (_) => [, de___listOfTagValuePair(_, context), `tagValues`],
+    tagValues: [, (_: any) => de___listOfTagValuePair(_, context), `tagValues`],
     target: [, __expectString, `target`],
   }) as any;
 };
@@ -10204,7 +10220,7 @@ const de_UsageByAccount = (output: any, context: __SerdeContext): UsageByAccount
   return take(output, {
     currency: [, __expectString, `currency`],
     estimatedCost: [, __expectString, `estimatedCost`],
-    serviceLimit: (_) => [, de_ServiceLimit(_, context), `serviceLimit`],
+    serviceLimit: [, (_: any) => de_ServiceLimit(_, context), `serviceLimit`],
     type: [, __expectString, `type`],
   }) as any;
 };
@@ -10215,13 +10231,13 @@ const de_UsageByAccount = (output: any, context: __SerdeContext): UsageByAccount
 const de_UsageRecord = (output: any, context: __SerdeContext): UsageRecord => {
   return take(output, {
     accountId: [, __expectString, `accountId`],
-    automatedDiscoveryFreeTrialStartDate: (_) => [
+    automatedDiscoveryFreeTrialStartDate: [
       ,
-      __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+      (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
       `automatedDiscoveryFreeTrialStartDate`,
     ],
-    freeTrialStartDate: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `freeTrialStartDate`],
-    usage: (_) => [, de___listOfUsageByAccount(_, context), `usage`],
+    freeTrialStartDate: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `freeTrialStartDate`],
+    usage: [, (_: any) => de___listOfUsageByAccount(_, context), `usage`],
   }) as any;
 };
 
@@ -10241,12 +10257,12 @@ const de_UsageTotal = (output: any, context: __SerdeContext): UsageTotal => {
  */
 const de_UserIdentity = (output: any, context: __SerdeContext): UserIdentity => {
   return take(output, {
-    assumedRole: (_) => [, de_AssumedRole(_, context), `assumedRole`],
-    awsAccount: (_) => [, de_AwsAccount(_, context), `awsAccount`],
-    awsService: (_) => [, de_AwsService(_, context), `awsService`],
-    federatedUser: (_) => [, de_FederatedUser(_, context), `federatedUser`],
-    iamUser: (_) => [, de_IamUser(_, context), `iamUser`],
-    root: (_) => [, de_UserIdentityRoot(_, context), `root`],
+    assumedRole: [, (_: any) => de_AssumedRole(_, context), `assumedRole`],
+    awsAccount: [, (_: any) => de_AwsAccount(_, context), `awsAccount`],
+    awsService: [, (_: any) => de_AwsService(_, context), `awsService`],
+    federatedUser: [, (_: any) => de_FederatedUser(_, context), `federatedUser`],
+    iamUser: [, (_: any) => de_IamUser(_, context), `iamUser`],
+    root: [, (_: any) => de_UserIdentityRoot(_, context), `root`],
     type: [, __expectString, `type`],
   }) as any;
 };
@@ -10267,9 +10283,9 @@ const de_UserIdentityRoot = (output: any, context: __SerdeContext): UserIdentity
  */
 const de_UserPausedDetails = (output: any, context: __SerdeContext): UserPausedDetails => {
   return take(output, {
-    jobExpiresAt: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `jobExpiresAt`],
+    jobExpiresAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `jobExpiresAt`],
     jobImminentExpirationHealthEventArn: [, __expectString, `jobImminentExpirationHealthEventArn`],
-    jobPausedAt: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `jobPausedAt`],
+    jobPausedAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `jobPausedAt`],
   }) as any;
 };
 

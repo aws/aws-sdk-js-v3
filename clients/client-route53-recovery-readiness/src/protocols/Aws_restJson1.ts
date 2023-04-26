@@ -3339,7 +3339,7 @@ const de_DNSTargetResource = (output: any, context: __SerdeContext): DNSTargetRe
     HostedZoneArn: [, __expectString, `hostedZoneArn`],
     RecordSetId: [, __expectString, `recordSetId`],
     RecordType: [, __expectString, `recordType`],
-    TargetResource: (_) => [, de_TargetResource(_, context), `targetResource`],
+    TargetResource: [, (_: any) => de_TargetResource(_, context), `targetResource`],
   }) as any;
 };
 
@@ -3431,7 +3431,7 @@ const de_RecoveryGroupOutput = (output: any, context: __SerdeContext): RecoveryG
 const de_Resource = (output: any, context: __SerdeContext): Resource => {
   return take(output, {
     ComponentId: [, __expectString, `componentId`],
-    DnsTargetResource: (_) => [, de_DNSTargetResource(_, context), `dnsTargetResource`],
+    DnsTargetResource: [, (_: any) => de_DNSTargetResource(_, context), `dnsTargetResource`],
     ReadinessScopes: [, _json, `readinessScopes`],
     ResourceArn: [, __expectString, `resourceArn`],
   }) as any;
@@ -3443,7 +3443,7 @@ const de_Resource = (output: any, context: __SerdeContext): Resource => {
 const de_ResourceResult = (output: any, context: __SerdeContext): ResourceResult => {
   return take(output, {
     ComponentId: [, __expectString, `componentId`],
-    LastCheckedTimestamp: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastCheckedTimestamp`],
+    LastCheckedTimestamp: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastCheckedTimestamp`],
     Readiness: [, __expectString, `readiness`],
     ResourceArn: [, __expectString, `resourceArn`],
   }) as any;
@@ -3457,7 +3457,7 @@ const de_ResourceSetOutput = (output: any, context: __SerdeContext): ResourceSet
     ResourceSetArn: [, __expectString, `resourceSetArn`],
     ResourceSetName: [, __expectString, `resourceSetName`],
     ResourceSetType: [, __expectString, `resourceSetType`],
-    Resources: (_) => [, de___listOfResource(_, context), `resources`],
+    Resources: [, (_: any) => de___listOfResource(_, context), `resources`],
     Tags: [, _json, `tags`],
   }) as any;
 };
@@ -3467,8 +3467,8 @@ const de_ResourceSetOutput = (output: any, context: __SerdeContext): ResourceSet
  */
 const de_RuleResult = (output: any, context: __SerdeContext): RuleResult => {
   return take(output, {
-    LastCheckedTimestamp: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastCheckedTimestamp`],
-    Messages: (_) => [, de___listOfMessage(_, context), `messages`],
+    LastCheckedTimestamp: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastCheckedTimestamp`],
+    Messages: [, (_: any) => de___listOfMessage(_, context), `messages`],
     Readiness: [, __expectString, `readiness`],
     RuleId: [, __expectString, `ruleId`],
   }) as any;
@@ -3481,8 +3481,8 @@ const de_RuleResult = (output: any, context: __SerdeContext): RuleResult => {
  */
 const de_TargetResource = (output: any, context: __SerdeContext): TargetResource => {
   return take(output, {
-    NLBResource: (_) => [, de_NLBResource(_, context), `nLBResource`],
-    R53Resource: (_) => [, de_R53ResourceRecord(_, context), `r53Resource`],
+    NLBResource: [, (_: any) => de_NLBResource(_, context), `nLBResource`],
+    R53Resource: [, (_: any) => de_R53ResourceRecord(_, context), `r53Resource`],
   }) as any;
 };
 

@@ -211,7 +211,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                                     wireName
                                 );
                             } else {
-                                writer.write("'$L': _ => [,$L,`$L`],",
+                                writer.write("'$L': [, (_: any) => $L,`$L`],",
                                     memberName,
                                     functionExpression,
                                     wireName

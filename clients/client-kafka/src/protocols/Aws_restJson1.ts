@@ -4101,7 +4101,7 @@ const de___listOfVpcConfig = (output: any, context: __SerdeContext): VpcConfig[]
 const de_BrokerEBSVolumeInfo = (output: any, context: __SerdeContext): BrokerEBSVolumeInfo => {
   return take(output, {
     KafkaBrokerNodeId: [, __expectString, `kafkaBrokerNodeId`],
-    ProvisionedThroughput: (_) => [, de_ProvisionedThroughput(_, context), `provisionedThroughput`],
+    ProvisionedThroughput: [, (_: any) => de_ProvisionedThroughput(_, context), `provisionedThroughput`],
     VolumeSizeGB: [, __expectInt32, `volumeSizeGB`],
   }) as any;
 };
@@ -4111,9 +4111,9 @@ const de_BrokerEBSVolumeInfo = (output: any, context: __SerdeContext): BrokerEBS
  */
 const de_BrokerLogs = (output: any, context: __SerdeContext): BrokerLogs => {
   return take(output, {
-    CloudWatchLogs: (_) => [, de_CloudWatchLogs(_, context), `cloudWatchLogs`],
-    Firehose: (_) => [, de_Firehose(_, context), `firehose`],
-    S3: (_) => [, de_S3(_, context), `s3`],
+    CloudWatchLogs: [, (_: any) => de_CloudWatchLogs(_, context), `cloudWatchLogs`],
+    Firehose: [, (_: any) => de_Firehose(_, context), `firehose`],
+    S3: [, (_: any) => de_S3(_, context), `s3`],
   }) as any;
 };
 
@@ -4124,10 +4124,10 @@ const de_BrokerNodeGroupInfo = (output: any, context: __SerdeContext): BrokerNod
   return take(output, {
     BrokerAZDistribution: [, __expectString, `brokerAZDistribution`],
     ClientSubnets: [, _json, `clientSubnets`],
-    ConnectivityInfo: (_) => [, de_ConnectivityInfo(_, context), `connectivityInfo`],
+    ConnectivityInfo: [, (_: any) => de_ConnectivityInfo(_, context), `connectivityInfo`],
     InstanceType: [, __expectString, `instanceType`],
     SecurityGroups: [, _json, `securityGroups`],
-    StorageInfo: (_) => [, de_StorageInfo(_, context), `storageInfo`],
+    StorageInfo: [, (_: any) => de_StorageInfo(_, context), `storageInfo`],
   }) as any;
 };
 
@@ -4140,7 +4140,7 @@ const de_BrokerNodeInfo = (output: any, context: __SerdeContext): BrokerNodeInfo
     BrokerId: [, __limitedParseDouble, `brokerId`],
     ClientSubnet: [, __expectString, `clientSubnet`],
     ClientVpcIpAddress: [, __expectString, `clientVpcIpAddress`],
-    CurrentBrokerSoftwareInfo: (_) => [, de_BrokerSoftwareInfo(_, context), `currentBrokerSoftwareInfo`],
+    CurrentBrokerSoftwareInfo: [, (_: any) => de_BrokerSoftwareInfo(_, context), `currentBrokerSoftwareInfo`],
     Endpoints: [, _json, `endpoints`],
   }) as any;
 };
@@ -4161,9 +4161,9 @@ const de_BrokerSoftwareInfo = (output: any, context: __SerdeContext): BrokerSoft
  */
 const de_ClientAuthentication = (output: any, context: __SerdeContext): ClientAuthentication => {
   return take(output, {
-    Sasl: (_) => [, de_Sasl(_, context), `sasl`],
-    Tls: (_) => [, de_Tls(_, context), `tls`],
-    Unauthenticated: (_) => [, de_Unauthenticated(_, context), `unauthenticated`],
+    Sasl: [, (_: any) => de_Sasl(_, context), `sasl`],
+    Tls: [, (_: any) => de_Tls(_, context), `tls`],
+    Unauthenticated: [, (_: any) => de_Unauthenticated(_, context), `unauthenticated`],
   }) as any;
 };
 
@@ -4186,12 +4186,12 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
     ClusterArn: [, __expectString, `clusterArn`],
     ClusterName: [, __expectString, `clusterName`],
     ClusterType: [, __expectString, `clusterType`],
-    CreationTime: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    CreationTime: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
     CurrentVersion: [, __expectString, `currentVersion`],
-    Provisioned: (_) => [, de_Provisioned(_, context), `provisioned`],
-    Serverless: (_) => [, de_Serverless(_, context), `serverless`],
+    Provisioned: [, (_: any) => de_Provisioned(_, context), `provisioned`],
+    Serverless: [, (_: any) => de_Serverless(_, context), `serverless`],
     State: [, __expectString, `state`],
-    StateInfo: (_) => [, de_StateInfo(_, context), `stateInfo`],
+    StateInfo: [, (_: any) => de_StateInfo(_, context), `stateInfo`],
     Tags: [, _json, `tags`],
   }) as any;
 };
@@ -4202,20 +4202,20 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
 const de_ClusterInfo = (output: any, context: __SerdeContext): ClusterInfo => {
   return take(output, {
     ActiveOperationArn: [, __expectString, `activeOperationArn`],
-    BrokerNodeGroupInfo: (_) => [, de_BrokerNodeGroupInfo(_, context), `brokerNodeGroupInfo`],
-    ClientAuthentication: (_) => [, de_ClientAuthentication(_, context), `clientAuthentication`],
+    BrokerNodeGroupInfo: [, (_: any) => de_BrokerNodeGroupInfo(_, context), `brokerNodeGroupInfo`],
+    ClientAuthentication: [, (_: any) => de_ClientAuthentication(_, context), `clientAuthentication`],
     ClusterArn: [, __expectString, `clusterArn`],
     ClusterName: [, __expectString, `clusterName`],
-    CreationTime: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
-    CurrentBrokerSoftwareInfo: (_) => [, de_BrokerSoftwareInfo(_, context), `currentBrokerSoftwareInfo`],
+    CreationTime: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    CurrentBrokerSoftwareInfo: [, (_: any) => de_BrokerSoftwareInfo(_, context), `currentBrokerSoftwareInfo`],
     CurrentVersion: [, __expectString, `currentVersion`],
-    EncryptionInfo: (_) => [, de_EncryptionInfo(_, context), `encryptionInfo`],
+    EncryptionInfo: [, (_: any) => de_EncryptionInfo(_, context), `encryptionInfo`],
     EnhancedMonitoring: [, __expectString, `enhancedMonitoring`],
-    LoggingInfo: (_) => [, de_LoggingInfo(_, context), `loggingInfo`],
+    LoggingInfo: [, (_: any) => de_LoggingInfo(_, context), `loggingInfo`],
     NumberOfBrokerNodes: [, __expectInt32, `numberOfBrokerNodes`],
-    OpenMonitoring: (_) => [, de_OpenMonitoring(_, context), `openMonitoring`],
+    OpenMonitoring: [, (_: any) => de_OpenMonitoring(_, context), `openMonitoring`],
     State: [, __expectString, `state`],
-    StateInfo: (_) => [, de_StateInfo(_, context), `stateInfo`],
+    StateInfo: [, (_: any) => de_StateInfo(_, context), `stateInfo`],
     StorageMode: [, __expectString, `storageMode`],
     Tags: [, _json, `tags`],
     ZookeeperConnectString: [, __expectString, `zookeeperConnectString`],
@@ -4230,15 +4230,15 @@ const de_ClusterOperationInfo = (output: any, context: __SerdeContext): ClusterO
   return take(output, {
     ClientRequestId: [, __expectString, `clientRequestId`],
     ClusterArn: [, __expectString, `clusterArn`],
-    CreationTime: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
-    EndTime: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `endTime`],
-    ErrorInfo: (_) => [, de_ErrorInfo(_, context), `errorInfo`],
+    CreationTime: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    EndTime: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `endTime`],
+    ErrorInfo: [, (_: any) => de_ErrorInfo(_, context), `errorInfo`],
     OperationArn: [, __expectString, `operationArn`],
     OperationState: [, __expectString, `operationState`],
-    OperationSteps: (_) => [, de___listOfClusterOperationStep(_, context), `operationSteps`],
+    OperationSteps: [, (_: any) => de___listOfClusterOperationStep(_, context), `operationSteps`],
     OperationType: [, __expectString, `operationType`],
-    SourceClusterInfo: (_) => [, de_MutableClusterInfo(_, context), `sourceClusterInfo`],
-    TargetClusterInfo: (_) => [, de_MutableClusterInfo(_, context), `targetClusterInfo`],
+    SourceClusterInfo: [, (_: any) => de_MutableClusterInfo(_, context), `sourceClusterInfo`],
+    TargetClusterInfo: [, (_: any) => de_MutableClusterInfo(_, context), `targetClusterInfo`],
   }) as any;
 };
 
@@ -4247,7 +4247,7 @@ const de_ClusterOperationInfo = (output: any, context: __SerdeContext): ClusterO
  */
 const de_ClusterOperationStep = (output: any, context: __SerdeContext): ClusterOperationStep => {
   return take(output, {
-    StepInfo: (_) => [, de_ClusterOperationStepInfo(_, context), `stepInfo`],
+    StepInfo: [, (_: any) => de_ClusterOperationStepInfo(_, context), `stepInfo`],
     StepName: [, __expectString, `stepName`],
   }) as any;
 };
@@ -4277,10 +4277,10 @@ const de_CompatibleKafkaVersion = (output: any, context: __SerdeContext): Compat
 const de_Configuration = (output: any, context: __SerdeContext): Configuration => {
   return take(output, {
     Arn: [, __expectString, `arn`],
-    CreationTime: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    CreationTime: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
     Description: [, __expectString, `description`],
     KafkaVersions: [, _json, `kafkaVersions`],
-    LatestRevision: (_) => [, de_ConfigurationRevision(_, context), `latestRevision`],
+    LatestRevision: [, (_: any) => de_ConfigurationRevision(_, context), `latestRevision`],
     Name: [, __expectString, `name`],
     State: [, __expectString, `state`],
   }) as any;
@@ -4301,7 +4301,7 @@ const de_ConfigurationInfo = (output: any, context: __SerdeContext): Configurati
  */
 const de_ConfigurationRevision = (output: any, context: __SerdeContext): ConfigurationRevision => {
   return take(output, {
-    CreationTime: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    CreationTime: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
     Description: [, __expectString, `description`],
     Revision: [, __expectLong, `revision`],
   }) as any;
@@ -4312,7 +4312,7 @@ const de_ConfigurationRevision = (output: any, context: __SerdeContext): Configu
  */
 const de_ConnectivityInfo = (output: any, context: __SerdeContext): ConnectivityInfo => {
   return take(output, {
-    PublicAccess: (_) => [, de_PublicAccess(_, context), `publicAccess`],
+    PublicAccess: [, (_: any) => de_PublicAccess(_, context), `publicAccess`],
   }) as any;
 };
 
@@ -4321,7 +4321,7 @@ const de_ConnectivityInfo = (output: any, context: __SerdeContext): Connectivity
  */
 const de_EBSStorageInfo = (output: any, context: __SerdeContext): EBSStorageInfo => {
   return take(output, {
-    ProvisionedThroughput: (_) => [, de_ProvisionedThroughput(_, context), `provisionedThroughput`],
+    ProvisionedThroughput: [, (_: any) => de_ProvisionedThroughput(_, context), `provisionedThroughput`],
     VolumeSize: [, __expectInt32, `volumeSize`],
   }) as any;
 };
@@ -4340,8 +4340,8 @@ const de_EncryptionAtRest = (output: any, context: __SerdeContext): EncryptionAt
  */
 const de_EncryptionInfo = (output: any, context: __SerdeContext): EncryptionInfo => {
   return take(output, {
-    EncryptionAtRest: (_) => [, de_EncryptionAtRest(_, context), `encryptionAtRest`],
-    EncryptionInTransit: (_) => [, de_EncryptionInTransit(_, context), `encryptionInTransit`],
+    EncryptionAtRest: [, (_: any) => de_EncryptionAtRest(_, context), `encryptionAtRest`],
+    EncryptionInTransit: [, (_: any) => de_EncryptionInTransit(_, context), `encryptionInTransit`],
   }) as any;
 };
 
@@ -4417,7 +4417,7 @@ const de_KafkaVersion = (output: any, context: __SerdeContext): KafkaVersion => 
  */
 const de_LoggingInfo = (output: any, context: __SerdeContext): LoggingInfo => {
   return take(output, {
-    BrokerLogs: (_) => [, de_BrokerLogs(_, context), `brokerLogs`],
+    BrokerLogs: [, (_: any) => de_BrokerLogs(_, context), `brokerLogs`],
   }) as any;
 };
 
@@ -4426,17 +4426,17 @@ const de_LoggingInfo = (output: any, context: __SerdeContext): LoggingInfo => {
  */
 const de_MutableClusterInfo = (output: any, context: __SerdeContext): MutableClusterInfo => {
   return take(output, {
-    BrokerEBSVolumeInfo: (_) => [, de___listOfBrokerEBSVolumeInfo(_, context), `brokerEBSVolumeInfo`],
-    ClientAuthentication: (_) => [, de_ClientAuthentication(_, context), `clientAuthentication`],
-    ConfigurationInfo: (_) => [, de_ConfigurationInfo(_, context), `configurationInfo`],
-    ConnectivityInfo: (_) => [, de_ConnectivityInfo(_, context), `connectivityInfo`],
-    EncryptionInfo: (_) => [, de_EncryptionInfo(_, context), `encryptionInfo`],
+    BrokerEBSVolumeInfo: [, (_: any) => de___listOfBrokerEBSVolumeInfo(_, context), `brokerEBSVolumeInfo`],
+    ClientAuthentication: [, (_: any) => de_ClientAuthentication(_, context), `clientAuthentication`],
+    ConfigurationInfo: [, (_: any) => de_ConfigurationInfo(_, context), `configurationInfo`],
+    ConnectivityInfo: [, (_: any) => de_ConnectivityInfo(_, context), `connectivityInfo`],
+    EncryptionInfo: [, (_: any) => de_EncryptionInfo(_, context), `encryptionInfo`],
     EnhancedMonitoring: [, __expectString, `enhancedMonitoring`],
     InstanceType: [, __expectString, `instanceType`],
     KafkaVersion: [, __expectString, `kafkaVersion`],
-    LoggingInfo: (_) => [, de_LoggingInfo(_, context), `loggingInfo`],
+    LoggingInfo: [, (_: any) => de_LoggingInfo(_, context), `loggingInfo`],
     NumberOfBrokerNodes: [, __expectInt32, `numberOfBrokerNodes`],
-    OpenMonitoring: (_) => [, de_OpenMonitoring(_, context), `openMonitoring`],
+    OpenMonitoring: [, (_: any) => de_OpenMonitoring(_, context), `openMonitoring`],
     StorageMode: [, __expectString, `storageMode`],
   }) as any;
 };
@@ -4465,11 +4465,11 @@ const de_NodeExporterInfo = (output: any, context: __SerdeContext): NodeExporter
 const de_NodeInfo = (output: any, context: __SerdeContext): NodeInfo => {
   return take(output, {
     AddedToClusterTime: [, __expectString, `addedToClusterTime`],
-    BrokerNodeInfo: (_) => [, de_BrokerNodeInfo(_, context), `brokerNodeInfo`],
+    BrokerNodeInfo: [, (_: any) => de_BrokerNodeInfo(_, context), `brokerNodeInfo`],
     InstanceType: [, __expectString, `instanceType`],
     NodeARN: [, __expectString, `nodeARN`],
     NodeType: [, __expectString, `nodeType`],
-    ZookeeperNodeInfo: (_) => [, de_ZookeeperNodeInfo(_, context), `zookeeperNodeInfo`],
+    ZookeeperNodeInfo: [, (_: any) => de_ZookeeperNodeInfo(_, context), `zookeeperNodeInfo`],
   }) as any;
 };
 
@@ -4478,7 +4478,7 @@ const de_NodeInfo = (output: any, context: __SerdeContext): NodeInfo => {
  */
 const de_OpenMonitoring = (output: any, context: __SerdeContext): OpenMonitoring => {
   return take(output, {
-    Prometheus: (_) => [, de_Prometheus(_, context), `prometheus`],
+    Prometheus: [, (_: any) => de_Prometheus(_, context), `prometheus`],
   }) as any;
 };
 
@@ -4487,7 +4487,7 @@ const de_OpenMonitoring = (output: any, context: __SerdeContext): OpenMonitoring
  */
 const de_OpenMonitoringInfo = (output: any, context: __SerdeContext): OpenMonitoringInfo => {
   return take(output, {
-    Prometheus: (_) => [, de_PrometheusInfo(_, context), `prometheus`],
+    Prometheus: [, (_: any) => de_PrometheusInfo(_, context), `prometheus`],
   }) as any;
 };
 
@@ -4496,8 +4496,8 @@ const de_OpenMonitoringInfo = (output: any, context: __SerdeContext): OpenMonito
  */
 const de_Prometheus = (output: any, context: __SerdeContext): Prometheus => {
   return take(output, {
-    JmxExporter: (_) => [, de_JmxExporter(_, context), `jmxExporter`],
-    NodeExporter: (_) => [, de_NodeExporter(_, context), `nodeExporter`],
+    JmxExporter: [, (_: any) => de_JmxExporter(_, context), `jmxExporter`],
+    NodeExporter: [, (_: any) => de_NodeExporter(_, context), `nodeExporter`],
   }) as any;
 };
 
@@ -4506,8 +4506,8 @@ const de_Prometheus = (output: any, context: __SerdeContext): Prometheus => {
  */
 const de_PrometheusInfo = (output: any, context: __SerdeContext): PrometheusInfo => {
   return take(output, {
-    JmxExporter: (_) => [, de_JmxExporterInfo(_, context), `jmxExporter`],
-    NodeExporter: (_) => [, de_NodeExporterInfo(_, context), `nodeExporter`],
+    JmxExporter: [, (_: any) => de_JmxExporterInfo(_, context), `jmxExporter`],
+    NodeExporter: [, (_: any) => de_NodeExporterInfo(_, context), `nodeExporter`],
   }) as any;
 };
 
@@ -4516,14 +4516,14 @@ const de_PrometheusInfo = (output: any, context: __SerdeContext): PrometheusInfo
  */
 const de_Provisioned = (output: any, context: __SerdeContext): Provisioned => {
   return take(output, {
-    BrokerNodeGroupInfo: (_) => [, de_BrokerNodeGroupInfo(_, context), `brokerNodeGroupInfo`],
-    ClientAuthentication: (_) => [, de_ClientAuthentication(_, context), `clientAuthentication`],
-    CurrentBrokerSoftwareInfo: (_) => [, de_BrokerSoftwareInfo(_, context), `currentBrokerSoftwareInfo`],
-    EncryptionInfo: (_) => [, de_EncryptionInfo(_, context), `encryptionInfo`],
+    BrokerNodeGroupInfo: [, (_: any) => de_BrokerNodeGroupInfo(_, context), `brokerNodeGroupInfo`],
+    ClientAuthentication: [, (_: any) => de_ClientAuthentication(_, context), `clientAuthentication`],
+    CurrentBrokerSoftwareInfo: [, (_: any) => de_BrokerSoftwareInfo(_, context), `currentBrokerSoftwareInfo`],
+    EncryptionInfo: [, (_: any) => de_EncryptionInfo(_, context), `encryptionInfo`],
     EnhancedMonitoring: [, __expectString, `enhancedMonitoring`],
-    LoggingInfo: (_) => [, de_LoggingInfo(_, context), `loggingInfo`],
+    LoggingInfo: [, (_: any) => de_LoggingInfo(_, context), `loggingInfo`],
     NumberOfBrokerNodes: [, __expectInt32, `numberOfBrokerNodes`],
-    OpenMonitoring: (_) => [, de_OpenMonitoringInfo(_, context), `openMonitoring`],
+    OpenMonitoring: [, (_: any) => de_OpenMonitoringInfo(_, context), `openMonitoring`],
     StorageMode: [, __expectString, `storageMode`],
     ZookeeperConnectString: [, __expectString, `zookeeperConnectString`],
     ZookeeperConnectStringTls: [, __expectString, `zookeeperConnectStringTls`],
@@ -4565,8 +4565,8 @@ const de_S3 = (output: any, context: __SerdeContext): S3 => {
  */
 const de_Sasl = (output: any, context: __SerdeContext): Sasl => {
   return take(output, {
-    Iam: (_) => [, de_Iam(_, context), `iam`],
-    Scram: (_) => [, de_Scram(_, context), `scram`],
+    Iam: [, (_: any) => de_Iam(_, context), `iam`],
+    Scram: [, (_: any) => de_Scram(_, context), `scram`],
   }) as any;
 };
 
@@ -4584,8 +4584,8 @@ const de_Scram = (output: any, context: __SerdeContext): Scram => {
  */
 const de_Serverless = (output: any, context: __SerdeContext): Serverless => {
   return take(output, {
-    ClientAuthentication: (_) => [, de_ServerlessClientAuthentication(_, context), `clientAuthentication`],
-    VpcConfigs: (_) => [, de___listOfVpcConfig(_, context), `vpcConfigs`],
+    ClientAuthentication: [, (_: any) => de_ServerlessClientAuthentication(_, context), `clientAuthentication`],
+    VpcConfigs: [, (_: any) => de___listOfVpcConfig(_, context), `vpcConfigs`],
   }) as any;
 };
 
@@ -4594,7 +4594,7 @@ const de_Serverless = (output: any, context: __SerdeContext): Serverless => {
  */
 const de_ServerlessClientAuthentication = (output: any, context: __SerdeContext): ServerlessClientAuthentication => {
   return take(output, {
-    Sasl: (_) => [, de_ServerlessSasl(_, context), `sasl`],
+    Sasl: [, (_: any) => de_ServerlessSasl(_, context), `sasl`],
   }) as any;
 };
 
@@ -4603,7 +4603,7 @@ const de_ServerlessClientAuthentication = (output: any, context: __SerdeContext)
  */
 const de_ServerlessSasl = (output: any, context: __SerdeContext): ServerlessSasl => {
   return take(output, {
-    Iam: (_) => [, de_Iam(_, context), `iam`],
+    Iam: [, (_: any) => de_Iam(_, context), `iam`],
   }) as any;
 };
 
@@ -4622,7 +4622,7 @@ const de_StateInfo = (output: any, context: __SerdeContext): StateInfo => {
  */
 const de_StorageInfo = (output: any, context: __SerdeContext): StorageInfo => {
   return take(output, {
-    EbsStorageInfo: (_) => [, de_EBSStorageInfo(_, context), `ebsStorageInfo`],
+    EbsStorageInfo: [, (_: any) => de_EBSStorageInfo(_, context), `ebsStorageInfo`],
   }) as any;
 };
 

@@ -3576,7 +3576,7 @@ const de_BackendAPIAppSyncAuthSettings = (output: any, context: __SerdeContext):
 const de_BackendAPIAuthType = (output: any, context: __SerdeContext): BackendAPIAuthType => {
   return take(output, {
     Mode: [, __expectString, `mode`],
-    Settings: (_) => [, de_BackendAPIAppSyncAuthSettings(_, context), `settings`],
+    Settings: [, (_: any) => de_BackendAPIAppSyncAuthSettings(_, context), `settings`],
   }) as any;
 };
 
@@ -3594,10 +3594,10 @@ const de_BackendAPIConflictResolution = (output: any, context: __SerdeContext): 
  */
 const de_BackendAPIResourceConfig = (output: any, context: __SerdeContext): BackendAPIResourceConfig => {
   return take(output, {
-    AdditionalAuthTypes: (_) => [, de_ListOfBackendAPIAuthType(_, context), `additionalAuthTypes`],
+    AdditionalAuthTypes: [, (_: any) => de_ListOfBackendAPIAuthType(_, context), `additionalAuthTypes`],
     ApiName: [, __expectString, `apiName`],
-    ConflictResolution: (_) => [, de_BackendAPIConflictResolution(_, context), `conflictResolution`],
-    DefaultAuthType: (_) => [, de_BackendAPIAuthType(_, context), `defaultAuthType`],
+    ConflictResolution: [, (_: any) => de_BackendAPIConflictResolution(_, context), `conflictResolution`],
+    DefaultAuthType: [, (_: any) => de_BackendAPIAuthType(_, context), `defaultAuthType`],
     Service: [, __expectString, `service`],
     TransformSchema: [, __expectString, `transformSchema`],
   }) as any;
@@ -3660,8 +3660,8 @@ const de_CreateBackendAuthForgotPasswordConfig = (
 ): CreateBackendAuthForgotPasswordConfig => {
   return take(output, {
     DeliveryMethod: [, __expectString, `deliveryMethod`],
-    EmailSettings: (_) => [, de_EmailSettings(_, context), `emailSettings`],
-    SmsSettings: (_) => [, de_SmsSettings(_, context), `smsSettings`],
+    EmailSettings: [, (_: any) => de_EmailSettings(_, context), `emailSettings`],
+    SmsSettings: [, (_: any) => de_SmsSettings(_, context), `smsSettings`],
   }) as any;
 };
 
@@ -3684,7 +3684,7 @@ const de_CreateBackendAuthIdentityPoolConfig = (
 const de_CreateBackendAuthMFAConfig = (output: any, context: __SerdeContext): CreateBackendAuthMFAConfig => {
   return take(output, {
     MFAMode: __expectString,
-    Settings: (_) => [, de_Settings(_, context), `settings`],
+    Settings: [, (_: any) => de_Settings(_, context), `settings`],
   }) as any;
 };
 
@@ -3698,7 +3698,7 @@ const de_CreateBackendAuthOAuthConfig = (output: any, context: __SerdeContext): 
     OAuthScopes: [, _json, `oAuthScopes`],
     RedirectSignInURIs: [, _json, `redirectSignInURIs`],
     RedirectSignOutURIs: [, _json, `redirectSignOutURIs`],
-    SocialProviderSettings: (_) => [, de_SocialProviderSettings(_, context), `socialProviderSettings`],
+    SocialProviderSettings: [, (_: any) => de_SocialProviderSettings(_, context), `socialProviderSettings`],
   }) as any;
 };
 
@@ -3721,9 +3721,9 @@ const de_CreateBackendAuthPasswordPolicyConfig = (
 const de_CreateBackendAuthResourceConfig = (output: any, context: __SerdeContext): CreateBackendAuthResourceConfig => {
   return take(output, {
     AuthResources: [, __expectString, `authResources`],
-    IdentityPoolConfigs: (_) => [, de_CreateBackendAuthIdentityPoolConfig(_, context), `identityPoolConfigs`],
+    IdentityPoolConfigs: [, (_: any) => de_CreateBackendAuthIdentityPoolConfig(_, context), `identityPoolConfigs`],
     Service: [, __expectString, `service`],
-    UserPoolConfigs: (_) => [, de_CreateBackendAuthUserPoolConfig(_, context), `userPoolConfigs`],
+    UserPoolConfigs: [, (_: any) => de_CreateBackendAuthUserPoolConfig(_, context), `userPoolConfigs`],
   }) as any;
 };
 
@@ -3732,14 +3732,18 @@ const de_CreateBackendAuthResourceConfig = (output: any, context: __SerdeContext
  */
 const de_CreateBackendAuthUserPoolConfig = (output: any, context: __SerdeContext): CreateBackendAuthUserPoolConfig => {
   return take(output, {
-    ForgotPassword: (_) => [, de_CreateBackendAuthForgotPasswordConfig(_, context), `forgotPassword`],
-    Mfa: (_) => [, de_CreateBackendAuthMFAConfig(_, context), `mfa`],
-    OAuth: (_) => [, de_CreateBackendAuthOAuthConfig(_, context), `oAuth`],
-    PasswordPolicy: (_) => [, de_CreateBackendAuthPasswordPolicyConfig(_, context), `passwordPolicy`],
+    ForgotPassword: [, (_: any) => de_CreateBackendAuthForgotPasswordConfig(_, context), `forgotPassword`],
+    Mfa: [, (_: any) => de_CreateBackendAuthMFAConfig(_, context), `mfa`],
+    OAuth: [, (_: any) => de_CreateBackendAuthOAuthConfig(_, context), `oAuth`],
+    PasswordPolicy: [, (_: any) => de_CreateBackendAuthPasswordPolicyConfig(_, context), `passwordPolicy`],
     RequiredSignUpAttributes: [, _json, `requiredSignUpAttributes`],
     SignInMethod: [, __expectString, `signInMethod`],
     UserPoolName: [, __expectString, `userPoolName`],
-    VerificationMessage: (_) => [, de_CreateBackendAuthVerificationMessageConfig(_, context), `verificationMessage`],
+    VerificationMessage: [
+      ,
+      (_: any) => de_CreateBackendAuthVerificationMessageConfig(_, context),
+      `verificationMessage`,
+    ],
   }) as any;
 };
 
@@ -3752,8 +3756,8 @@ const de_CreateBackendAuthVerificationMessageConfig = (
 ): CreateBackendAuthVerificationMessageConfig => {
   return take(output, {
     DeliveryMethod: [, __expectString, `deliveryMethod`],
-    EmailSettings: (_) => [, de_EmailSettings(_, context), `emailSettings`],
-    SmsSettings: (_) => [, de_SmsSettings(_, context), `smsSettings`],
+    EmailSettings: [, (_: any) => de_EmailSettings(_, context), `emailSettings`],
+    SmsSettings: [, (_: any) => de_SmsSettings(_, context), `smsSettings`],
   }) as any;
 };
 
@@ -3774,7 +3778,7 @@ const de_GetBackendStorageResourceConfig = (output: any, context: __SerdeContext
   return take(output, {
     BucketName: [, __expectString, `bucketName`],
     Imported: [, __expectBoolean, `imported`],
-    Permissions: (_) => [, de_BackendStoragePermissions(_, context), `permissions`],
+    Permissions: [, (_: any) => de_BackendStoragePermissions(_, context), `permissions`],
     ServiceName: [, __expectString, `serviceName`],
   }) as any;
 };

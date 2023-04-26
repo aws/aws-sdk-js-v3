@@ -2292,10 +2292,10 @@ const de_Channel = (output: any, context: __SerdeContext): Channel => {
     Arn: [, __expectString, `arn`],
     CreatedAt: [, __expectString, `createdAt`],
     Description: [, __expectString, `description`],
-    EgressAccessLogs: (_) => [, de_EgressAccessLogs(_, context), `egressAccessLogs`],
-    HlsIngest: (_) => [, de_HlsIngest(_, context), `hlsIngest`],
+    EgressAccessLogs: [, (_: any) => de_EgressAccessLogs(_, context), `egressAccessLogs`],
+    HlsIngest: [, (_: any) => de_HlsIngest(_, context), `hlsIngest`],
     Id: [, __expectString, `id`],
-    IngressAccessLogs: (_) => [, de_IngressAccessLogs(_, context), `ingressAccessLogs`],
+    IngressAccessLogs: [, (_: any) => de_IngressAccessLogs(_, context), `ingressAccessLogs`],
     Tags: [, _json, `tags`],
   }) as any;
 };
@@ -2308,7 +2308,7 @@ const de_CmafEncryption = (output: any, context: __SerdeContext): CmafEncryption
     ConstantInitializationVector: [, __expectString, `constantInitializationVector`],
     EncryptionMethod: [, __expectString, `encryptionMethod`],
     KeyRotationIntervalSeconds: [, __expectInt32, `keyRotationIntervalSeconds`],
-    SpekeKeyProvider: (_) => [, de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
+    SpekeKeyProvider: [, (_: any) => de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
   }) as any;
 };
 
@@ -2317,11 +2317,11 @@ const de_CmafEncryption = (output: any, context: __SerdeContext): CmafEncryption
  */
 const de_CmafPackage = (output: any, context: __SerdeContext): CmafPackage => {
   return take(output, {
-    Encryption: (_) => [, de_CmafEncryption(_, context), `encryption`],
-    HlsManifests: (_) => [, de___listOfHlsManifest(_, context), `hlsManifests`],
+    Encryption: [, (_: any) => de_CmafEncryption(_, context), `encryption`],
+    HlsManifests: [, (_: any) => de___listOfHlsManifest(_, context), `hlsManifests`],
     SegmentDurationSeconds: [, __expectInt32, `segmentDurationSeconds`],
     SegmentPrefix: [, __expectString, `segmentPrefix`],
-    StreamSelection: (_) => [, de_StreamSelection(_, context), `streamSelection`],
+    StreamSelection: [, (_: any) => de_StreamSelection(_, context), `streamSelection`],
   }) as any;
 };
 
@@ -2331,7 +2331,7 @@ const de_CmafPackage = (output: any, context: __SerdeContext): CmafPackage => {
 const de_DashEncryption = (output: any, context: __SerdeContext): DashEncryption => {
   return take(output, {
     KeyRotationIntervalSeconds: [, __expectInt32, `keyRotationIntervalSeconds`],
-    SpekeKeyProvider: (_) => [, de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
+    SpekeKeyProvider: [, (_: any) => de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
   }) as any;
 };
 
@@ -2342,7 +2342,7 @@ const de_DashPackage = (output: any, context: __SerdeContext): DashPackage => {
   return take(output, {
     AdTriggers: [, _json, `adTriggers`],
     AdsOnDeliveryRestrictions: [, __expectString, `adsOnDeliveryRestrictions`],
-    Encryption: (_) => [, de_DashEncryption(_, context), `encryption`],
+    Encryption: [, (_: any) => de_DashEncryption(_, context), `encryption`],
     IncludeIframeOnlyStream: [, __expectBoolean, `includeIframeOnlyStream`],
     ManifestLayout: [, __expectString, `manifestLayout`],
     ManifestWindowSeconds: [, __expectInt32, `manifestWindowSeconds`],
@@ -2352,7 +2352,7 @@ const de_DashPackage = (output: any, context: __SerdeContext): DashPackage => {
     Profile: [, __expectString, `profile`],
     SegmentDurationSeconds: [, __expectInt32, `segmentDurationSeconds`],
     SegmentTemplateFormat: [, __expectString, `segmentTemplateFormat`],
-    StreamSelection: (_) => [, de_StreamSelection(_, context), `streamSelection`],
+    StreamSelection: [, (_: any) => de_StreamSelection(_, context), `streamSelection`],
     SuggestedPresentationDelaySeconds: [, __expectInt32, `suggestedPresentationDelaySeconds`],
     UtcTiming: [, __expectString, `utcTiming`],
     UtcTimingUri: [, __expectString, `utcTimingUri`],
@@ -2389,7 +2389,7 @@ const de_HarvestJob = (output: any, context: __SerdeContext): HarvestJob => {
     EndTime: [, __expectString, `endTime`],
     Id: [, __expectString, `id`],
     OriginEndpointId: [, __expectString, `originEndpointId`],
-    S3Destination: (_) => [, de_S3Destination(_, context), `s3Destination`],
+    S3Destination: [, (_: any) => de_S3Destination(_, context), `s3Destination`],
     StartTime: [, __expectString, `startTime`],
     Status: [, __expectString, `status`],
   }) as any;
@@ -2404,7 +2404,7 @@ const de_HlsEncryption = (output: any, context: __SerdeContext): HlsEncryption =
     EncryptionMethod: [, __expectString, `encryptionMethod`],
     KeyRotationIntervalSeconds: [, __expectInt32, `keyRotationIntervalSeconds`],
     RepeatExtXKey: [, __expectBoolean, `repeatExtXKey`],
-    SpekeKeyProvider: (_) => [, de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
+    SpekeKeyProvider: [, (_: any) => de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
   }) as any;
 };
 
@@ -2413,7 +2413,7 @@ const de_HlsEncryption = (output: any, context: __SerdeContext): HlsEncryption =
  */
 const de_HlsIngest = (output: any, context: __SerdeContext): HlsIngest => {
   return take(output, {
-    IngestEndpoints: (_) => [, de___listOfIngestEndpoint(_, context), `ingestEndpoints`],
+    IngestEndpoints: [, (_: any) => de___listOfIngestEndpoint(_, context), `ingestEndpoints`],
   }) as any;
 };
 
@@ -2443,14 +2443,14 @@ const de_HlsPackage = (output: any, context: __SerdeContext): HlsPackage => {
     AdMarkers: [, __expectString, `adMarkers`],
     AdTriggers: [, _json, `adTriggers`],
     AdsOnDeliveryRestrictions: [, __expectString, `adsOnDeliveryRestrictions`],
-    Encryption: (_) => [, de_HlsEncryption(_, context), `encryption`],
+    Encryption: [, (_: any) => de_HlsEncryption(_, context), `encryption`],
     IncludeDvbSubtitles: [, __expectBoolean, `includeDvbSubtitles`],
     IncludeIframeOnlyStream: [, __expectBoolean, `includeIframeOnlyStream`],
     PlaylistType: [, __expectString, `playlistType`],
     PlaylistWindowSeconds: [, __expectInt32, `playlistWindowSeconds`],
     ProgramDateTimeIntervalSeconds: [, __expectInt32, `programDateTimeIntervalSeconds`],
     SegmentDurationSeconds: [, __expectInt32, `segmentDurationSeconds`],
-    StreamSelection: (_) => [, de_StreamSelection(_, context), `streamSelection`],
+    StreamSelection: [, (_: any) => de_StreamSelection(_, context), `streamSelection`],
     UseAudioRenditionGroup: [, __expectBoolean, `useAudioRenditionGroup`],
   }) as any;
 };
@@ -2481,7 +2481,7 @@ const de_IngressAccessLogs = (output: any, context: __SerdeContext): IngressAcce
  */
 const de_MssEncryption = (output: any, context: __SerdeContext): MssEncryption => {
   return take(output, {
-    SpekeKeyProvider: (_) => [, de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
+    SpekeKeyProvider: [, (_: any) => de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
   }) as any;
 };
 
@@ -2490,10 +2490,10 @@ const de_MssEncryption = (output: any, context: __SerdeContext): MssEncryption =
  */
 const de_MssPackage = (output: any, context: __SerdeContext): MssPackage => {
   return take(output, {
-    Encryption: (_) => [, de_MssEncryption(_, context), `encryption`],
+    Encryption: [, (_: any) => de_MssEncryption(_, context), `encryption`],
     ManifestWindowSeconds: [, __expectInt32, `manifestWindowSeconds`],
     SegmentDurationSeconds: [, __expectInt32, `segmentDurationSeconds`],
-    StreamSelection: (_) => [, de_StreamSelection(_, context), `streamSelection`],
+    StreamSelection: [, (_: any) => de_StreamSelection(_, context), `streamSelection`],
   }) as any;
 };
 
@@ -2503,16 +2503,16 @@ const de_MssPackage = (output: any, context: __SerdeContext): MssPackage => {
 const de_OriginEndpoint = (output: any, context: __SerdeContext): OriginEndpoint => {
   return take(output, {
     Arn: [, __expectString, `arn`],
-    Authorization: (_) => [, de_Authorization(_, context), `authorization`],
+    Authorization: [, (_: any) => de_Authorization(_, context), `authorization`],
     ChannelId: [, __expectString, `channelId`],
-    CmafPackage: (_) => [, de_CmafPackage(_, context), `cmafPackage`],
+    CmafPackage: [, (_: any) => de_CmafPackage(_, context), `cmafPackage`],
     CreatedAt: [, __expectString, `createdAt`],
-    DashPackage: (_) => [, de_DashPackage(_, context), `dashPackage`],
+    DashPackage: [, (_: any) => de_DashPackage(_, context), `dashPackage`],
     Description: [, __expectString, `description`],
-    HlsPackage: (_) => [, de_HlsPackage(_, context), `hlsPackage`],
+    HlsPackage: [, (_: any) => de_HlsPackage(_, context), `hlsPackage`],
     Id: [, __expectString, `id`],
     ManifestName: [, __expectString, `manifestName`],
-    MssPackage: (_) => [, de_MssPackage(_, context), `mssPackage`],
+    MssPackage: [, (_: any) => de_MssPackage(_, context), `mssPackage`],
     Origination: [, __expectString, `origination`],
     StartoverWindowSeconds: [, __expectInt32, `startoverWindowSeconds`],
     Tags: [, _json, `tags`],
@@ -2539,9 +2539,9 @@ const de_S3Destination = (output: any, context: __SerdeContext): S3Destination =
 const de_SpekeKeyProvider = (output: any, context: __SerdeContext): SpekeKeyProvider => {
   return take(output, {
     CertificateArn: [, __expectString, `certificateArn`],
-    EncryptionContractConfiguration: (_) => [
+    EncryptionContractConfiguration: [
       ,
-      de_EncryptionContractConfiguration(_, context),
+      (_: any) => de_EncryptionContractConfiguration(_, context),
       `encryptionContractConfiguration`,
     ],
     ResourceId: [, __expectString, `resourceId`],
