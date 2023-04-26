@@ -6073,17 +6073,17 @@ const de_AudioChannelTaggingSettings = (output: any, context: __SerdeContext): A
  */
 const de_AudioCodecSettings = (output: any, context: __SerdeContext): AudioCodecSettings => {
   return take(output, {
-    AacSettings: (_) => [, de_AacSettings(_, context), `aacSettings`],
-    Ac3Settings: (_) => [, de_Ac3Settings(_, context), `ac3Settings`],
-    AiffSettings: (_) => [, de_AiffSettings(_, context), `aiffSettings`],
+    AacSettings: [, (_: any) => de_AacSettings(_, context), `aacSettings`],
+    Ac3Settings: [, (_: any) => de_Ac3Settings(_, context), `ac3Settings`],
+    AiffSettings: [, (_: any) => de_AiffSettings(_, context), `aiffSettings`],
     Codec: [, __expectString, `codec`],
-    Eac3AtmosSettings: (_) => [, de_Eac3AtmosSettings(_, context), `eac3AtmosSettings`],
-    Eac3Settings: (_) => [, de_Eac3Settings(_, context), `eac3Settings`],
-    Mp2Settings: (_) => [, de_Mp2Settings(_, context), `mp2Settings`],
-    Mp3Settings: (_) => [, de_Mp3Settings(_, context), `mp3Settings`],
-    OpusSettings: (_) => [, de_OpusSettings(_, context), `opusSettings`],
-    VorbisSettings: (_) => [, de_VorbisSettings(_, context), `vorbisSettings`],
-    WavSettings: (_) => [, de_WavSettings(_, context), `wavSettings`],
+    Eac3AtmosSettings: [, (_: any) => de_Eac3AtmosSettings(_, context), `eac3AtmosSettings`],
+    Eac3Settings: [, (_: any) => de_Eac3Settings(_, context), `eac3Settings`],
+    Mp2Settings: [, (_: any) => de_Mp2Settings(_, context), `mp2Settings`],
+    Mp3Settings: [, (_: any) => de_Mp3Settings(_, context), `mp3Settings`],
+    OpusSettings: [, (_: any) => de_OpusSettings(_, context), `opusSettings`],
+    VorbisSettings: [, (_: any) => de_VorbisSettings(_, context), `vorbisSettings`],
+    WavSettings: [, (_: any) => de_WavSettings(_, context), `wavSettings`],
   }) as any;
 };
 
@@ -6092,16 +6092,20 @@ const de_AudioCodecSettings = (output: any, context: __SerdeContext): AudioCodec
  */
 const de_AudioDescription = (output: any, context: __SerdeContext): AudioDescription => {
   return take(output, {
-    AudioChannelTaggingSettings: (_) => [, de_AudioChannelTaggingSettings(_, context), `audioChannelTaggingSettings`],
-    AudioNormalizationSettings: (_) => [, de_AudioNormalizationSettings(_, context), `audioNormalizationSettings`],
+    AudioChannelTaggingSettings: [
+      ,
+      (_: any) => de_AudioChannelTaggingSettings(_, context),
+      `audioChannelTaggingSettings`,
+    ],
+    AudioNormalizationSettings: [, (_: any) => de_AudioNormalizationSettings(_, context), `audioNormalizationSettings`],
     AudioSourceName: [, __expectString, `audioSourceName`],
     AudioType: [, __expectInt32, `audioType`],
     AudioTypeControl: [, __expectString, `audioTypeControl`],
-    CodecSettings: (_) => [, de_AudioCodecSettings(_, context), `codecSettings`],
+    CodecSettings: [, (_: any) => de_AudioCodecSettings(_, context), `codecSettings`],
     CustomLanguageCode: [, __expectString, `customLanguageCode`],
     LanguageCode: [, __expectString, `languageCode`],
     LanguageCodeControl: [, __expectString, `languageCodeControl`],
-    RemixSettings: (_) => [, de_RemixSettings(_, context), `remixSettings`],
+    RemixSettings: [, (_: any) => de_RemixSettings(_, context), `remixSettings`],
     StreamName: [, __expectString, `streamName`],
   }) as any;
 };
@@ -6130,12 +6134,12 @@ const de_AudioSelector = (output: any, context: __SerdeContext): AudioSelector =
     CustomLanguageCode: [, __expectString, `customLanguageCode`],
     DefaultSelection: [, __expectString, `defaultSelection`],
     ExternalAudioFileInput: [, __expectString, `externalAudioFileInput`],
-    HlsRenditionGroupSettings: (_) => [, de_HlsRenditionGroupSettings(_, context), `hlsRenditionGroupSettings`],
+    HlsRenditionGroupSettings: [, (_: any) => de_HlsRenditionGroupSettings(_, context), `hlsRenditionGroupSettings`],
     LanguageCode: [, __expectString, `languageCode`],
     Offset: [, __expectInt32, `offset`],
     Pids: [, _json, `pids`],
     ProgramSelection: [, __expectInt32, `programSelection`],
-    RemixSettings: (_) => [, de_RemixSettings(_, context), `remixSettings`],
+    RemixSettings: [, (_: any) => de_RemixSettings(_, context), `remixSettings`],
     SelectorType: [, __expectString, `selectorType`],
     Tracks: [, _json, `tracks`],
   }) as any;
@@ -6155,10 +6159,10 @@ const de_AudioSelectorGroup = (output: any, context: __SerdeContext): AudioSelec
  */
 const de_AutomatedAbrRule = (output: any, context: __SerdeContext): AutomatedAbrRule => {
   return take(output, {
-    AllowedRenditions: (_) => [, de___listOfAllowedRenditionSize(_, context), `allowedRenditions`],
-    ForceIncludeRenditions: (_) => [, de___listOfForceIncludeRenditionSize(_, context), `forceIncludeRenditions`],
-    MinBottomRenditionSize: (_) => [, de_MinBottomRenditionSize(_, context), `minBottomRenditionSize`],
-    MinTopRenditionSize: (_) => [, de_MinTopRenditionSize(_, context), `minTopRenditionSize`],
+    AllowedRenditions: [, (_: any) => de___listOfAllowedRenditionSize(_, context), `allowedRenditions`],
+    ForceIncludeRenditions: [, (_: any) => de___listOfForceIncludeRenditionSize(_, context), `forceIncludeRenditions`],
+    MinBottomRenditionSize: [, (_: any) => de_MinBottomRenditionSize(_, context), `minBottomRenditionSize`],
+    MinTopRenditionSize: [, (_: any) => de_MinTopRenditionSize(_, context), `minTopRenditionSize`],
     Type: [, __expectString, `type`],
   }) as any;
 };
@@ -6171,7 +6175,7 @@ const de_AutomatedAbrSettings = (output: any, context: __SerdeContext): Automate
     MaxAbrBitrate: [, __expectInt32, `maxAbrBitrate`],
     MaxRenditions: [, __expectInt32, `maxRenditions`],
     MinAbrBitrate: [, __expectInt32, `minAbrBitrate`],
-    Rules: (_) => [, de___listOfAutomatedAbrRule(_, context), `rules`],
+    Rules: [, (_: any) => de___listOfAutomatedAbrRule(_, context), `rules`],
   }) as any;
 };
 
@@ -6180,7 +6184,7 @@ const de_AutomatedAbrSettings = (output: any, context: __SerdeContext): Automate
  */
 const de_AutomatedEncodingSettings = (output: any, context: __SerdeContext): AutomatedEncodingSettings => {
   return take(output, {
-    AbrSettings: (_) => [, de_AutomatedAbrSettings(_, context), `abrSettings`],
+    AbrSettings: [, (_: any) => de_AutomatedAbrSettings(_, context), `abrSettings`],
   }) as any;
 };
 
@@ -6208,7 +6212,7 @@ const de_Av1Settings = (output: any, context: __SerdeContext): Av1Settings => {
     GopSize: [, __limitedParseDouble, `gopSize`],
     MaxBitrate: [, __expectInt32, `maxBitrate`],
     NumberBFramesBetweenReferenceFrames: [, __expectInt32, `numberBFramesBetweenReferenceFrames`],
-    QvbrSettings: (_) => [, de_Av1QvbrSettings(_, context), `qvbrSettings`],
+    QvbrSettings: [, (_: any) => de_Av1QvbrSettings(_, context), `qvbrSettings`],
     RateControlMode: [, __expectString, `rateControlMode`],
     Slices: [, __expectInt32, `slices`],
     SpatialAdaptiveQuantization: [, __expectString, `spatialAdaptiveQuantization`],
@@ -6230,7 +6234,7 @@ const de_AvailBlanking = (output: any, context: __SerdeContext): AvailBlanking =
 const de_AvcIntraSettings = (output: any, context: __SerdeContext): AvcIntraSettings => {
   return take(output, {
     AvcIntraClass: [, __expectString, `avcIntraClass`],
-    AvcIntraUhdSettings: (_) => [, de_AvcIntraUhdSettings(_, context), `avcIntraUhdSettings`],
+    AvcIntraUhdSettings: [, (_: any) => de_AvcIntraUhdSettings(_, context), `avcIntraUhdSettings`],
     FramerateControl: [, __expectString, `framerateControl`],
     FramerateConversionAlgorithm: [, __expectString, `framerateConversionAlgorithm`],
     FramerateDenominator: [, __expectInt32, `framerateDenominator`],
@@ -6297,7 +6301,7 @@ const de_CaptionDescription = (output: any, context: __SerdeContext): CaptionDes
   return take(output, {
     CaptionSelectorName: [, __expectString, `captionSelectorName`],
     CustomLanguageCode: [, __expectString, `customLanguageCode`],
-    DestinationSettings: (_) => [, de_CaptionDestinationSettings(_, context), `destinationSettings`],
+    DestinationSettings: [, (_: any) => de_CaptionDestinationSettings(_, context), `destinationSettings`],
     LanguageCode: [, __expectString, `languageCode`],
     LanguageDescription: [, __expectString, `languageDescription`],
   }) as any;
@@ -6309,7 +6313,7 @@ const de_CaptionDescription = (output: any, context: __SerdeContext): CaptionDes
 const de_CaptionDescriptionPreset = (output: any, context: __SerdeContext): CaptionDescriptionPreset => {
   return take(output, {
     CustomLanguageCode: [, __expectString, `customLanguageCode`],
-    DestinationSettings: (_) => [, de_CaptionDestinationSettings(_, context), `destinationSettings`],
+    DestinationSettings: [, (_: any) => de_CaptionDestinationSettings(_, context), `destinationSettings`],
     LanguageCode: [, __expectString, `languageCode`],
     LanguageDescription: [, __expectString, `languageDescription`],
   }) as any;
@@ -6320,16 +6324,24 @@ const de_CaptionDescriptionPreset = (output: any, context: __SerdeContext): Capt
  */
 const de_CaptionDestinationSettings = (output: any, context: __SerdeContext): CaptionDestinationSettings => {
   return take(output, {
-    BurninDestinationSettings: (_) => [, de_BurninDestinationSettings(_, context), `burninDestinationSettings`],
+    BurninDestinationSettings: [, (_: any) => de_BurninDestinationSettings(_, context), `burninDestinationSettings`],
     DestinationType: [, __expectString, `destinationType`],
-    DvbSubDestinationSettings: (_) => [, de_DvbSubDestinationSettings(_, context), `dvbSubDestinationSettings`],
-    EmbeddedDestinationSettings: (_) => [, de_EmbeddedDestinationSettings(_, context), `embeddedDestinationSettings`],
-    ImscDestinationSettings: (_) => [, de_ImscDestinationSettings(_, context), `imscDestinationSettings`],
-    SccDestinationSettings: (_) => [, de_SccDestinationSettings(_, context), `sccDestinationSettings`],
-    SrtDestinationSettings: (_) => [, de_SrtDestinationSettings(_, context), `srtDestinationSettings`],
-    TeletextDestinationSettings: (_) => [, de_TeletextDestinationSettings(_, context), `teletextDestinationSettings`],
-    TtmlDestinationSettings: (_) => [, de_TtmlDestinationSettings(_, context), `ttmlDestinationSettings`],
-    WebvttDestinationSettings: (_) => [, de_WebvttDestinationSettings(_, context), `webvttDestinationSettings`],
+    DvbSubDestinationSettings: [, (_: any) => de_DvbSubDestinationSettings(_, context), `dvbSubDestinationSettings`],
+    EmbeddedDestinationSettings: [
+      ,
+      (_: any) => de_EmbeddedDestinationSettings(_, context),
+      `embeddedDestinationSettings`,
+    ],
+    ImscDestinationSettings: [, (_: any) => de_ImscDestinationSettings(_, context), `imscDestinationSettings`],
+    SccDestinationSettings: [, (_: any) => de_SccDestinationSettings(_, context), `sccDestinationSettings`],
+    SrtDestinationSettings: [, (_: any) => de_SrtDestinationSettings(_, context), `srtDestinationSettings`],
+    TeletextDestinationSettings: [
+      ,
+      (_: any) => de_TeletextDestinationSettings(_, context),
+      `teletextDestinationSettings`,
+    ],
+    TtmlDestinationSettings: [, (_: any) => de_TtmlDestinationSettings(_, context), `ttmlDestinationSettings`],
+    WebvttDestinationSettings: [, (_: any) => de_WebvttDestinationSettings(_, context), `webvttDestinationSettings`],
   }) as any;
 };
 
@@ -6340,7 +6352,7 @@ const de_CaptionSelector = (output: any, context: __SerdeContext): CaptionSelect
   return take(output, {
     CustomLanguageCode: [, __expectString, `customLanguageCode`],
     LanguageCode: [, __expectString, `languageCode`],
-    SourceSettings: (_) => [, de_CaptionSourceSettings(_, context), `sourceSettings`],
+    SourceSettings: [, (_: any) => de_CaptionSourceSettings(_, context), `sourceSettings`],
   }) as any;
 };
 
@@ -6359,14 +6371,14 @@ const de_CaptionSourceFramerate = (output: any, context: __SerdeContext): Captio
  */
 const de_CaptionSourceSettings = (output: any, context: __SerdeContext): CaptionSourceSettings => {
   return take(output, {
-    AncillarySourceSettings: (_) => [, de_AncillarySourceSettings(_, context), `ancillarySourceSettings`],
-    DvbSubSourceSettings: (_) => [, de_DvbSubSourceSettings(_, context), `dvbSubSourceSettings`],
-    EmbeddedSourceSettings: (_) => [, de_EmbeddedSourceSettings(_, context), `embeddedSourceSettings`],
-    FileSourceSettings: (_) => [, de_FileSourceSettings(_, context), `fileSourceSettings`],
+    AncillarySourceSettings: [, (_: any) => de_AncillarySourceSettings(_, context), `ancillarySourceSettings`],
+    DvbSubSourceSettings: [, (_: any) => de_DvbSubSourceSettings(_, context), `dvbSubSourceSettings`],
+    EmbeddedSourceSettings: [, (_: any) => de_EmbeddedSourceSettings(_, context), `embeddedSourceSettings`],
+    FileSourceSettings: [, (_: any) => de_FileSourceSettings(_, context), `fileSourceSettings`],
     SourceType: [, __expectString, `sourceType`],
-    TeletextSourceSettings: (_) => [, de_TeletextSourceSettings(_, context), `teletextSourceSettings`],
-    TrackSourceSettings: (_) => [, de_TrackSourceSettings(_, context), `trackSourceSettings`],
-    WebvttHlsSourceSettings: (_) => [, de_WebvttHlsSourceSettings(_, context), `webvttHlsSourceSettings`],
+    TeletextSourceSettings: [, (_: any) => de_TeletextSourceSettings(_, context), `teletextSourceSettings`],
+    TrackSourceSettings: [, (_: any) => de_TrackSourceSettings(_, context), `trackSourceSettings`],
+    WebvttHlsSourceSettings: [, (_: any) => de_WebvttHlsSourceSettings(_, context), `webvttHlsSourceSettings`],
   }) as any;
 };
 
@@ -6375,7 +6387,7 @@ const de_CaptionSourceSettings = (output: any, context: __SerdeContext): Caption
  */
 const de_ChannelMapping = (output: any, context: __SerdeContext): ChannelMapping => {
   return take(output, {
-    OutputChannels: (_) => [, de___listOfOutputChannelMapping(_, context), `outputChannels`],
+    OutputChannels: [, (_: any) => de___listOfOutputChannelMapping(_, context), `outputChannels`],
   }) as any;
 };
 
@@ -6409,8 +6421,8 @@ const de_CmafEncryptionSettings = (output: any, context: __SerdeContext): CmafEn
     ConstantInitializationVector: [, __expectString, `constantInitializationVector`],
     EncryptionMethod: [, __expectString, `encryptionMethod`],
     InitializationVectorInManifest: [, __expectString, `initializationVectorInManifest`],
-    SpekeKeyProvider: (_) => [, de_SpekeKeyProviderCmaf(_, context), `spekeKeyProvider`],
-    StaticKeyProvider: (_) => [, de_StaticKeyProvider(_, context), `staticKeyProvider`],
+    SpekeKeyProvider: [, (_: any) => de_SpekeKeyProviderCmaf(_, context), `spekeKeyProvider`],
+    StaticKeyProvider: [, (_: any) => de_StaticKeyProvider(_, context), `staticKeyProvider`],
     Type: [, __expectString, `type`],
   }) as any;
 };
@@ -6420,19 +6432,19 @@ const de_CmafEncryptionSettings = (output: any, context: __SerdeContext): CmafEn
  */
 const de_CmafGroupSettings = (output: any, context: __SerdeContext): CmafGroupSettings => {
   return take(output, {
-    AdditionalManifests: (_) => [, de___listOfCmafAdditionalManifest(_, context), `additionalManifests`],
+    AdditionalManifests: [, (_: any) => de___listOfCmafAdditionalManifest(_, context), `additionalManifests`],
     BaseUrl: [, __expectString, `baseUrl`],
     ClientCache: [, __expectString, `clientCache`],
     CodecSpecification: [, __expectString, `codecSpecification`],
     DashManifestStyle: [, __expectString, `dashManifestStyle`],
     Destination: [, __expectString, `destination`],
-    DestinationSettings: (_) => [, de_DestinationSettings(_, context), `destinationSettings`],
-    Encryption: (_) => [, de_CmafEncryptionSettings(_, context), `encryption`],
+    DestinationSettings: [, (_: any) => de_DestinationSettings(_, context), `destinationSettings`],
+    Encryption: [, (_: any) => de_CmafEncryptionSettings(_, context), `encryption`],
     FragmentLength: [, __expectInt32, `fragmentLength`],
     ImageBasedTrickPlay: [, __expectString, `imageBasedTrickPlay`],
-    ImageBasedTrickPlaySettings: (_) => [
+    ImageBasedTrickPlaySettings: [
       ,
-      de_CmafImageBasedTrickPlaySettings(_, context),
+      (_: any) => de_CmafImageBasedTrickPlaySettings(_, context),
       `imageBasedTrickPlaySettings`,
     ],
     ManifestCompression: [, __expectString, `manifestCompression`],
@@ -6496,10 +6508,10 @@ const de_CmfcSettings = (output: any, context: __SerdeContext): CmfcSettings => 
 const de_ColorCorrector = (output: any, context: __SerdeContext): ColorCorrector => {
   return take(output, {
     Brightness: [, __expectInt32, `brightness`],
-    ClipLimits: (_) => [, de_ClipLimits(_, context), `clipLimits`],
+    ClipLimits: [, (_: any) => de_ClipLimits(_, context), `clipLimits`],
     ColorSpaceConversion: [, __expectString, `colorSpaceConversion`],
     Contrast: [, __expectInt32, `contrast`],
-    Hdr10Metadata: (_) => [, de_Hdr10Metadata(_, context), `hdr10Metadata`],
+    Hdr10Metadata: [, (_: any) => de_Hdr10Metadata(_, context), `hdr10Metadata`],
     HdrToSdrToneMapper: [, __expectString, `hdrToSdrToneMapper`],
     Hue: [, __expectInt32, `hue`],
     SampleRangeConversion: [, __expectString, `sampleRangeConversion`],
@@ -6513,15 +6525,15 @@ const de_ColorCorrector = (output: any, context: __SerdeContext): ColorCorrector
  */
 const de_ContainerSettings = (output: any, context: __SerdeContext): ContainerSettings => {
   return take(output, {
-    CmfcSettings: (_) => [, de_CmfcSettings(_, context), `cmfcSettings`],
+    CmfcSettings: [, (_: any) => de_CmfcSettings(_, context), `cmfcSettings`],
     Container: [, __expectString, `container`],
-    F4vSettings: (_) => [, de_F4vSettings(_, context), `f4vSettings`],
-    M2tsSettings: (_) => [, de_M2tsSettings(_, context), `m2tsSettings`],
-    M3u8Settings: (_) => [, de_M3u8Settings(_, context), `m3u8Settings`],
-    MovSettings: (_) => [, de_MovSettings(_, context), `movSettings`],
-    Mp4Settings: (_) => [, de_Mp4Settings(_, context), `mp4Settings`],
-    MpdSettings: (_) => [, de_MpdSettings(_, context), `mpdSettings`],
-    MxfSettings: (_) => [, de_MxfSettings(_, context), `mxfSettings`],
+    F4vSettings: [, (_: any) => de_F4vSettings(_, context), `f4vSettings`],
+    M2tsSettings: [, (_: any) => de_M2tsSettings(_, context), `m2tsSettings`],
+    M3u8Settings: [, (_: any) => de_M3u8Settings(_, context), `m3u8Settings`],
+    MovSettings: [, (_: any) => de_MovSettings(_, context), `movSettings`],
+    Mp4Settings: [, (_: any) => de_Mp4Settings(_, context), `mp4Settings`],
+    MpdSettings: [, (_: any) => de_MpdSettings(_, context), `mpdSettings`],
+    MxfSettings: [, (_: any) => de_MxfSettings(_, context), `mxfSettings`],
   }) as any;
 };
 
@@ -6541,7 +6553,7 @@ const de_DashAdditionalManifest = (output: any, context: __SerdeContext): DashAd
 const de_DashIsoEncryptionSettings = (output: any, context: __SerdeContext): DashIsoEncryptionSettings => {
   return take(output, {
     PlaybackDeviceCompatibility: [, __expectString, `playbackDeviceCompatibility`],
-    SpekeKeyProvider: (_) => [, de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
+    SpekeKeyProvider: [, (_: any) => de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
   }) as any;
 };
 
@@ -6550,19 +6562,19 @@ const de_DashIsoEncryptionSettings = (output: any, context: __SerdeContext): Das
  */
 const de_DashIsoGroupSettings = (output: any, context: __SerdeContext): DashIsoGroupSettings => {
   return take(output, {
-    AdditionalManifests: (_) => [, de___listOfDashAdditionalManifest(_, context), `additionalManifests`],
+    AdditionalManifests: [, (_: any) => de___listOfDashAdditionalManifest(_, context), `additionalManifests`],
     AudioChannelConfigSchemeIdUri: [, __expectString, `audioChannelConfigSchemeIdUri`],
     BaseUrl: [, __expectString, `baseUrl`],
     DashManifestStyle: [, __expectString, `dashManifestStyle`],
     Destination: [, __expectString, `destination`],
-    DestinationSettings: (_) => [, de_DestinationSettings(_, context), `destinationSettings`],
-    Encryption: (_) => [, de_DashIsoEncryptionSettings(_, context), `encryption`],
+    DestinationSettings: [, (_: any) => de_DestinationSettings(_, context), `destinationSettings`],
+    Encryption: [, (_: any) => de_DashIsoEncryptionSettings(_, context), `encryption`],
     FragmentLength: [, __expectInt32, `fragmentLength`],
     HbbtvCompliance: [, __expectString, `hbbtvCompliance`],
     ImageBasedTrickPlay: [, __expectString, `imageBasedTrickPlay`],
-    ImageBasedTrickPlaySettings: (_) => [
+    ImageBasedTrickPlaySettings: [
       ,
-      de_DashIsoImageBasedTrickPlaySettings(_, context),
+      (_: any) => de_DashIsoImageBasedTrickPlaySettings(_, context),
       `imageBasedTrickPlaySettings`,
     ],
     MinBufferTime: [, __expectInt32, `minBufferTime`],
@@ -6611,7 +6623,7 @@ const de_Deinterlacer = (output: any, context: __SerdeContext): Deinterlacer => 
  */
 const de_DestinationSettings = (output: any, context: __SerdeContext): DestinationSettings => {
   return take(output, {
-    S3Settings: (_) => [, de_S3DestinationSettings(_, context), `s3Settings`],
+    S3Settings: [, (_: any) => de_S3DestinationSettings(_, context), `s3Settings`],
   }) as any;
 };
 
@@ -6620,7 +6632,7 @@ const de_DestinationSettings = (output: any, context: __SerdeContext): Destinati
  */
 const de_DolbyVision = (output: any, context: __SerdeContext): DolbyVision => {
   return take(output, {
-    L6Metadata: (_) => [, de_DolbyVisionLevel6Metadata(_, context), `l6Metadata`],
+    L6Metadata: [, (_: any) => de_DolbyVisionLevel6Metadata(_, context), `l6Metadata`],
     L6Mode: [, __expectString, `l6Mode`],
     Mapping: [, __expectString, `mapping`],
     Profile: [, __expectString, `profile`],
@@ -6815,15 +6827,15 @@ const de_EsamManifestConfirmConditionNotification = (
  */
 const de_EsamSettings = (output: any, context: __SerdeContext): EsamSettings => {
   return take(output, {
-    ManifestConfirmConditionNotification: (_) => [
+    ManifestConfirmConditionNotification: [
       ,
-      de_EsamManifestConfirmConditionNotification(_, context),
+      (_: any) => de_EsamManifestConfirmConditionNotification(_, context),
       `manifestConfirmConditionNotification`,
     ],
     ResponseSignalPreroll: [, __expectInt32, `responseSignalPreroll`],
-    SignalProcessingNotification: (_) => [
+    SignalProcessingNotification: [
       ,
-      de_EsamSignalProcessingNotification(_, context),
+      (_: any) => de_EsamSignalProcessingNotification(_, context),
       `signalProcessingNotification`,
     ],
   }) as any;
@@ -6866,7 +6878,7 @@ const de_F4vSettings = (output: any, context: __SerdeContext): F4vSettings => {
 const de_FileGroupSettings = (output: any, context: __SerdeContext): FileGroupSettings => {
   return take(output, {
     Destination: [, __expectString, `destination`],
-    DestinationSettings: (_) => [, de_DestinationSettings(_, context), `destinationSettings`],
+    DestinationSettings: [, (_: any) => de_DestinationSettings(_, context), `destinationSettings`],
   }) as any;
 };
 
@@ -6877,7 +6889,7 @@ const de_FileSourceSettings = (output: any, context: __SerdeContext): FileSource
   return take(output, {
     Convert608To708: [, __expectString, `convert608To708`],
     ConvertPaintToPop: [, __expectString, `convertPaintToPop`],
-    Framerate: (_) => [, de_CaptionSourceFramerate(_, context), `framerate`],
+    Framerate: [, (_: any) => de_CaptionSourceFramerate(_, context), `framerate`],
     SourceFile: [, __expectString, `sourceFile`],
     TimeDelta: [, __expectInt32, `timeDelta`],
     TimeDeltaUnits: [, __expectString, `timeDeltaUnits`],
@@ -6923,7 +6935,7 @@ const de_H264QvbrSettings = (output: any, context: __SerdeContext): H264QvbrSett
 const de_H264Settings = (output: any, context: __SerdeContext): H264Settings => {
   return take(output, {
     AdaptiveQuantization: [, __expectString, `adaptiveQuantization`],
-    BandwidthReductionFilter: (_) => [, de_BandwidthReductionFilter(_, context), `bandwidthReductionFilter`],
+    BandwidthReductionFilter: [, (_: any) => de_BandwidthReductionFilter(_, context), `bandwidthReductionFilter`],
     Bitrate: [, __expectInt32, `bitrate`],
     CodecLevel: [, __expectString, `codecLevel`],
     CodecProfile: [, __expectString, `codecProfile`],
@@ -6951,7 +6963,7 @@ const de_H264Settings = (output: any, context: __SerdeContext): H264Settings => 
     ParDenominator: [, __expectInt32, `parDenominator`],
     ParNumerator: [, __expectInt32, `parNumerator`],
     QualityTuningLevel: [, __expectString, `qualityTuningLevel`],
-    QvbrSettings: (_) => [, de_H264QvbrSettings(_, context), `qvbrSettings`],
+    QvbrSettings: [, (_: any) => de_H264QvbrSettings(_, context), `qvbrSettings`],
     RateControlMode: [, __expectString, `rateControlMode`],
     RepeatPps: [, __expectString, `repeatPps`],
     ScanTypeConversionMode: [, __expectString, `scanTypeConversionMode`],
@@ -7010,7 +7022,7 @@ const de_H265Settings = (output: any, context: __SerdeContext): H265Settings => 
     ParDenominator: [, __expectInt32, `parDenominator`],
     ParNumerator: [, __expectInt32, `parNumerator`],
     QualityTuningLevel: [, __expectString, `qualityTuningLevel`],
-    QvbrSettings: (_) => [, de_H265QvbrSettings(_, context), `qvbrSettings`],
+    QvbrSettings: [, (_: any) => de_H265QvbrSettings(_, context), `qvbrSettings`],
     RateControlMode: [, __expectString, `rateControlMode`],
     SampleAdaptiveOffsetFilterMode: [, __expectString, `sampleAdaptiveOffsetFilterMode`],
     ScanTypeConversionMode: [, __expectString, `scanTypeConversionMode`],
@@ -7088,8 +7100,8 @@ const de_HlsEncryptionSettings = (output: any, context: __SerdeContext): HlsEncr
     EncryptionMethod: [, __expectString, `encryptionMethod`],
     InitializationVectorInManifest: [, __expectString, `initializationVectorInManifest`],
     OfflineEncrypted: [, __expectString, `offlineEncrypted`],
-    SpekeKeyProvider: (_) => [, de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
-    StaticKeyProvider: (_) => [, de_StaticKeyProvider(_, context), `staticKeyProvider`],
+    SpekeKeyProvider: [, (_: any) => de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
+    StaticKeyProvider: [, (_: any) => de_StaticKeyProvider(_, context), `staticKeyProvider`],
     Type: [, __expectString, `type`],
   }) as any;
 };
@@ -7100,22 +7112,26 @@ const de_HlsEncryptionSettings = (output: any, context: __SerdeContext): HlsEncr
 const de_HlsGroupSettings = (output: any, context: __SerdeContext): HlsGroupSettings => {
   return take(output, {
     AdMarkers: [, _json, `adMarkers`],
-    AdditionalManifests: (_) => [, de___listOfHlsAdditionalManifest(_, context), `additionalManifests`],
+    AdditionalManifests: [, (_: any) => de___listOfHlsAdditionalManifest(_, context), `additionalManifests`],
     AudioOnlyHeader: [, __expectString, `audioOnlyHeader`],
     BaseUrl: [, __expectString, `baseUrl`],
-    CaptionLanguageMappings: (_) => [, de___listOfHlsCaptionLanguageMapping(_, context), `captionLanguageMappings`],
+    CaptionLanguageMappings: [
+      ,
+      (_: any) => de___listOfHlsCaptionLanguageMapping(_, context),
+      `captionLanguageMappings`,
+    ],
     CaptionLanguageSetting: [, __expectString, `captionLanguageSetting`],
     CaptionSegmentLengthControl: [, __expectString, `captionSegmentLengthControl`],
     ClientCache: [, __expectString, `clientCache`],
     CodecSpecification: [, __expectString, `codecSpecification`],
     Destination: [, __expectString, `destination`],
-    DestinationSettings: (_) => [, de_DestinationSettings(_, context), `destinationSettings`],
+    DestinationSettings: [, (_: any) => de_DestinationSettings(_, context), `destinationSettings`],
     DirectoryStructure: [, __expectString, `directoryStructure`],
-    Encryption: (_) => [, de_HlsEncryptionSettings(_, context), `encryption`],
+    Encryption: [, (_: any) => de_HlsEncryptionSettings(_, context), `encryption`],
     ImageBasedTrickPlay: [, __expectString, `imageBasedTrickPlay`],
-    ImageBasedTrickPlaySettings: (_) => [
+    ImageBasedTrickPlaySettings: [
       ,
-      de_HlsImageBasedTrickPlaySettings(_, context),
+      (_: any) => de_HlsImageBasedTrickPlaySettings(_, context),
       `imageBasedTrickPlaySettings`,
     ],
     ManifestCompression: [, __expectString, `manifestCompression`],
@@ -7203,7 +7219,7 @@ const de_Id3Insertion = (output: any, context: __SerdeContext): Id3Insertion => 
  */
 const de_ImageInserter = (output: any, context: __SerdeContext): ImageInserter => {
   return take(output, {
-    InsertableImages: (_) => [, de___listOfInsertableImage(_, context), `insertableImages`],
+    InsertableImages: [, (_: any) => de___listOfInsertableImage(_, context), `insertableImages`],
     SdrReferenceWhiteLevel: [, __expectInt32, `sdrReferenceWhiteLevel`],
   }) as any;
 };
@@ -7224,29 +7240,33 @@ const de_ImscDestinationSettings = (output: any, context: __SerdeContext): ImscD
 const de_Input = (output: any, context: __SerdeContext): Input => {
   return take(output, {
     AdvancedInputFilter: [, __expectString, `advancedInputFilter`],
-    AdvancedInputFilterSettings: (_) => [, de_AdvancedInputFilterSettings(_, context), `advancedInputFilterSettings`],
-    AudioSelectorGroups: (_) => [, de___mapOfAudioSelectorGroup(_, context), `audioSelectorGroups`],
-    AudioSelectors: (_) => [, de___mapOfAudioSelector(_, context), `audioSelectors`],
-    CaptionSelectors: (_) => [, de___mapOfCaptionSelector(_, context), `captionSelectors`],
-    Crop: (_) => [, de_Rectangle(_, context), `crop`],
+    AdvancedInputFilterSettings: [
+      ,
+      (_: any) => de_AdvancedInputFilterSettings(_, context),
+      `advancedInputFilterSettings`,
+    ],
+    AudioSelectorGroups: [, (_: any) => de___mapOfAudioSelectorGroup(_, context), `audioSelectorGroups`],
+    AudioSelectors: [, (_: any) => de___mapOfAudioSelector(_, context), `audioSelectors`],
+    CaptionSelectors: [, (_: any) => de___mapOfCaptionSelector(_, context), `captionSelectors`],
+    Crop: [, (_: any) => de_Rectangle(_, context), `crop`],
     DeblockFilter: [, __expectString, `deblockFilter`],
-    DecryptionSettings: (_) => [, de_InputDecryptionSettings(_, context), `decryptionSettings`],
+    DecryptionSettings: [, (_: any) => de_InputDecryptionSettings(_, context), `decryptionSettings`],
     DenoiseFilter: [, __expectString, `denoiseFilter`],
     DolbyVisionMetadataXml: [, __expectString, `dolbyVisionMetadataXml`],
     FileInput: [, __expectString, `fileInput`],
     FilterEnable: [, __expectString, `filterEnable`],
     FilterStrength: [, __expectInt32, `filterStrength`],
-    ImageInserter: (_) => [, de_ImageInserter(_, context), `imageInserter`],
-    InputClippings: (_) => [, de___listOfInputClipping(_, context), `inputClippings`],
+    ImageInserter: [, (_: any) => de_ImageInserter(_, context), `imageInserter`],
+    InputClippings: [, (_: any) => de___listOfInputClipping(_, context), `inputClippings`],
     InputScanType: [, __expectString, `inputScanType`],
-    Position: (_) => [, de_Rectangle(_, context), `position`],
+    Position: [, (_: any) => de_Rectangle(_, context), `position`],
     ProgramNumber: [, __expectInt32, `programNumber`],
     PsiControl: [, __expectString, `psiControl`],
     SupplementalImps: [, _json, `supplementalImps`],
     TimecodeSource: [, __expectString, `timecodeSource`],
     TimecodeStart: [, __expectString, `timecodeStart`],
-    VideoGenerator: (_) => [, de_InputVideoGenerator(_, context), `videoGenerator`],
-    VideoSelector: (_) => [, de_VideoSelector(_, context), `videoSelector`],
+    VideoGenerator: [, (_: any) => de_InputVideoGenerator(_, context), `videoGenerator`],
+    VideoSelector: [, (_: any) => de_VideoSelector(_, context), `videoSelector`],
   }) as any;
 };
 
@@ -7278,25 +7298,29 @@ const de_InputDecryptionSettings = (output: any, context: __SerdeContext): Input
 const de_InputTemplate = (output: any, context: __SerdeContext): InputTemplate => {
   return take(output, {
     AdvancedInputFilter: [, __expectString, `advancedInputFilter`],
-    AdvancedInputFilterSettings: (_) => [, de_AdvancedInputFilterSettings(_, context), `advancedInputFilterSettings`],
-    AudioSelectorGroups: (_) => [, de___mapOfAudioSelectorGroup(_, context), `audioSelectorGroups`],
-    AudioSelectors: (_) => [, de___mapOfAudioSelector(_, context), `audioSelectors`],
-    CaptionSelectors: (_) => [, de___mapOfCaptionSelector(_, context), `captionSelectors`],
-    Crop: (_) => [, de_Rectangle(_, context), `crop`],
+    AdvancedInputFilterSettings: [
+      ,
+      (_: any) => de_AdvancedInputFilterSettings(_, context),
+      `advancedInputFilterSettings`,
+    ],
+    AudioSelectorGroups: [, (_: any) => de___mapOfAudioSelectorGroup(_, context), `audioSelectorGroups`],
+    AudioSelectors: [, (_: any) => de___mapOfAudioSelector(_, context), `audioSelectors`],
+    CaptionSelectors: [, (_: any) => de___mapOfCaptionSelector(_, context), `captionSelectors`],
+    Crop: [, (_: any) => de_Rectangle(_, context), `crop`],
     DeblockFilter: [, __expectString, `deblockFilter`],
     DenoiseFilter: [, __expectString, `denoiseFilter`],
     DolbyVisionMetadataXml: [, __expectString, `dolbyVisionMetadataXml`],
     FilterEnable: [, __expectString, `filterEnable`],
     FilterStrength: [, __expectInt32, `filterStrength`],
-    ImageInserter: (_) => [, de_ImageInserter(_, context), `imageInserter`],
-    InputClippings: (_) => [, de___listOfInputClipping(_, context), `inputClippings`],
+    ImageInserter: [, (_: any) => de_ImageInserter(_, context), `imageInserter`],
+    InputClippings: [, (_: any) => de___listOfInputClipping(_, context), `inputClippings`],
     InputScanType: [, __expectString, `inputScanType`],
-    Position: (_) => [, de_Rectangle(_, context), `position`],
+    Position: [, (_: any) => de_Rectangle(_, context), `position`],
     ProgramNumber: [, __expectInt32, `programNumber`],
     PsiControl: [, __expectString, `psiControl`],
     TimecodeSource: [, __expectString, `timecodeSource`],
     TimecodeStart: [, __expectString, `timecodeStart`],
-    VideoSelector: (_) => [, de_VideoSelector(_, context), `videoSelector`],
+    VideoSelector: [, (_: any) => de_VideoSelector(_, context), `videoSelector`],
   }) as any;
 };
 
@@ -7333,33 +7357,33 @@ const de_InsertableImage = (output: any, context: __SerdeContext): InsertableIma
  */
 const de_Job = (output: any, context: __SerdeContext): Job => {
   return take(output, {
-    AccelerationSettings: (_) => [, de_AccelerationSettings(_, context), `accelerationSettings`],
+    AccelerationSettings: [, (_: any) => de_AccelerationSettings(_, context), `accelerationSettings`],
     AccelerationStatus: [, __expectString, `accelerationStatus`],
     Arn: [, __expectString, `arn`],
     BillingTagsSource: [, __expectString, `billingTagsSource`],
     ClientRequestToken: [, __expectString, `clientRequestToken`],
-    CreatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
+    CreatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
     CurrentPhase: [, __expectString, `currentPhase`],
     ErrorCode: [, __expectInt32, `errorCode`],
     ErrorMessage: [, __expectString, `errorMessage`],
-    HopDestinations: (_) => [, de___listOfHopDestination(_, context), `hopDestinations`],
+    HopDestinations: [, (_: any) => de___listOfHopDestination(_, context), `hopDestinations`],
     Id: [, __expectString, `id`],
     JobPercentComplete: [, __expectInt32, `jobPercentComplete`],
     JobTemplate: [, __expectString, `jobTemplate`],
-    Messages: (_) => [, de_JobMessages(_, context), `messages`],
-    OutputGroupDetails: (_) => [, de___listOfOutputGroupDetail(_, context), `outputGroupDetails`],
+    Messages: [, (_: any) => de_JobMessages(_, context), `messages`],
+    OutputGroupDetails: [, (_: any) => de___listOfOutputGroupDetail(_, context), `outputGroupDetails`],
     Priority: [, __expectInt32, `priority`],
     Queue: [, __expectString, `queue`],
-    QueueTransitions: (_) => [, de___listOfQueueTransition(_, context), `queueTransitions`],
+    QueueTransitions: [, (_: any) => de___listOfQueueTransition(_, context), `queueTransitions`],
     RetryCount: [, __expectInt32, `retryCount`],
     Role: [, __expectString, `role`],
-    Settings: (_) => [, de_JobSettings(_, context), `settings`],
+    Settings: [, (_: any) => de_JobSettings(_, context), `settings`],
     SimulateReservedQueue: [, __expectString, `simulateReservedQueue`],
     Status: [, __expectString, `status`],
     StatusUpdateInterval: [, __expectString, `statusUpdateInterval`],
-    Timing: (_) => [, de_Timing(_, context), `timing`],
+    Timing: [, (_: any) => de_Timing(_, context), `timing`],
     UserMetadata: [, _json, `userMetadata`],
-    Warnings: (_) => [, de___listOfWarningGroup(_, context), `warnings`],
+    Warnings: [, (_: any) => de___listOfWarningGroup(_, context), `warnings`],
   }) as any;
 };
 
@@ -7379,17 +7403,21 @@ const de_JobMessages = (output: any, context: __SerdeContext): JobMessages => {
 const de_JobSettings = (output: any, context: __SerdeContext): JobSettings => {
   return take(output, {
     AdAvailOffset: [, __expectInt32, `adAvailOffset`],
-    AvailBlanking: (_) => [, de_AvailBlanking(_, context), `availBlanking`],
-    Esam: (_) => [, de_EsamSettings(_, context), `esam`],
-    ExtendedDataServices: (_) => [, de_ExtendedDataServices(_, context), `extendedDataServices`],
-    Inputs: (_) => [, de___listOfInput(_, context), `inputs`],
-    KantarWatermark: (_) => [, de_KantarWatermarkSettings(_, context), `kantarWatermark`],
-    MotionImageInserter: (_) => [, de_MotionImageInserter(_, context), `motionImageInserter`],
-    NielsenConfiguration: (_) => [, de_NielsenConfiguration(_, context), `nielsenConfiguration`],
-    NielsenNonLinearWatermark: (_) => [, de_NielsenNonLinearWatermarkSettings(_, context), `nielsenNonLinearWatermark`],
-    OutputGroups: (_) => [, de___listOfOutputGroup(_, context), `outputGroups`],
-    TimecodeConfig: (_) => [, de_TimecodeConfig(_, context), `timecodeConfig`],
-    TimedMetadataInsertion: (_) => [, de_TimedMetadataInsertion(_, context), `timedMetadataInsertion`],
+    AvailBlanking: [, (_: any) => de_AvailBlanking(_, context), `availBlanking`],
+    Esam: [, (_: any) => de_EsamSettings(_, context), `esam`],
+    ExtendedDataServices: [, (_: any) => de_ExtendedDataServices(_, context), `extendedDataServices`],
+    Inputs: [, (_: any) => de___listOfInput(_, context), `inputs`],
+    KantarWatermark: [, (_: any) => de_KantarWatermarkSettings(_, context), `kantarWatermark`],
+    MotionImageInserter: [, (_: any) => de_MotionImageInserter(_, context), `motionImageInserter`],
+    NielsenConfiguration: [, (_: any) => de_NielsenConfiguration(_, context), `nielsenConfiguration`],
+    NielsenNonLinearWatermark: [
+      ,
+      (_: any) => de_NielsenNonLinearWatermarkSettings(_, context),
+      `nielsenNonLinearWatermark`,
+    ],
+    OutputGroups: [, (_: any) => de___listOfOutputGroup(_, context), `outputGroups`],
+    TimecodeConfig: [, (_: any) => de_TimecodeConfig(_, context), `timecodeConfig`],
+    TimedMetadataInsertion: [, (_: any) => de_TimedMetadataInsertion(_, context), `timedMetadataInsertion`],
   }) as any;
 };
 
@@ -7398,17 +7426,17 @@ const de_JobSettings = (output: any, context: __SerdeContext): JobSettings => {
  */
 const de_JobTemplate = (output: any, context: __SerdeContext): JobTemplate => {
   return take(output, {
-    AccelerationSettings: (_) => [, de_AccelerationSettings(_, context), `accelerationSettings`],
+    AccelerationSettings: [, (_: any) => de_AccelerationSettings(_, context), `accelerationSettings`],
     Arn: [, __expectString, `arn`],
     Category: [, __expectString, `category`],
-    CreatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
+    CreatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
     Description: [, __expectString, `description`],
-    HopDestinations: (_) => [, de___listOfHopDestination(_, context), `hopDestinations`],
-    LastUpdated: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastUpdated`],
+    HopDestinations: [, (_: any) => de___listOfHopDestination(_, context), `hopDestinations`],
+    LastUpdated: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastUpdated`],
     Name: [, __expectString, `name`],
     Priority: [, __expectInt32, `priority`],
     Queue: [, __expectString, `queue`],
-    Settings: (_) => [, de_JobTemplateSettings(_, context), `settings`],
+    Settings: [, (_: any) => de_JobTemplateSettings(_, context), `settings`],
     StatusUpdateInterval: [, __expectString, `statusUpdateInterval`],
     Type: [, __expectString, `type`],
   }) as any;
@@ -7420,17 +7448,21 @@ const de_JobTemplate = (output: any, context: __SerdeContext): JobTemplate => {
 const de_JobTemplateSettings = (output: any, context: __SerdeContext): JobTemplateSettings => {
   return take(output, {
     AdAvailOffset: [, __expectInt32, `adAvailOffset`],
-    AvailBlanking: (_) => [, de_AvailBlanking(_, context), `availBlanking`],
-    Esam: (_) => [, de_EsamSettings(_, context), `esam`],
-    ExtendedDataServices: (_) => [, de_ExtendedDataServices(_, context), `extendedDataServices`],
-    Inputs: (_) => [, de___listOfInputTemplate(_, context), `inputs`],
-    KantarWatermark: (_) => [, de_KantarWatermarkSettings(_, context), `kantarWatermark`],
-    MotionImageInserter: (_) => [, de_MotionImageInserter(_, context), `motionImageInserter`],
-    NielsenConfiguration: (_) => [, de_NielsenConfiguration(_, context), `nielsenConfiguration`],
-    NielsenNonLinearWatermark: (_) => [, de_NielsenNonLinearWatermarkSettings(_, context), `nielsenNonLinearWatermark`],
-    OutputGroups: (_) => [, de___listOfOutputGroup(_, context), `outputGroups`],
-    TimecodeConfig: (_) => [, de_TimecodeConfig(_, context), `timecodeConfig`],
-    TimedMetadataInsertion: (_) => [, de_TimedMetadataInsertion(_, context), `timedMetadataInsertion`],
+    AvailBlanking: [, (_: any) => de_AvailBlanking(_, context), `availBlanking`],
+    Esam: [, (_: any) => de_EsamSettings(_, context), `esam`],
+    ExtendedDataServices: [, (_: any) => de_ExtendedDataServices(_, context), `extendedDataServices`],
+    Inputs: [, (_: any) => de___listOfInputTemplate(_, context), `inputs`],
+    KantarWatermark: [, (_: any) => de_KantarWatermarkSettings(_, context), `kantarWatermark`],
+    MotionImageInserter: [, (_: any) => de_MotionImageInserter(_, context), `motionImageInserter`],
+    NielsenConfiguration: [, (_: any) => de_NielsenConfiguration(_, context), `nielsenConfiguration`],
+    NielsenNonLinearWatermark: [
+      ,
+      (_: any) => de_NielsenNonLinearWatermarkSettings(_, context),
+      `nielsenNonLinearWatermark`,
+    ],
+    OutputGroups: [, (_: any) => de___listOfOutputGroup(_, context), `outputGroups`],
+    TimecodeConfig: [, (_: any) => de_TimecodeConfig(_, context), `timecodeConfig`],
+    TimedMetadataInsertion: [, (_: any) => de_TimedMetadataInsertion(_, context), `timedMetadataInsertion`],
   }) as any;
 };
 
@@ -7476,10 +7508,10 @@ const de_M2tsSettings = (output: any, context: __SerdeContext): M2tsSettings => 
     Bitrate: [, __expectInt32, `bitrate`],
     BufferModel: [, __expectString, `bufferModel`],
     DataPTSControl: [, __expectString, `dataPTSControl`],
-    DvbNitSettings: (_) => [, de_DvbNitSettings(_, context), `dvbNitSettings`],
-    DvbSdtSettings: (_) => [, de_DvbSdtSettings(_, context), `dvbSdtSettings`],
+    DvbNitSettings: [, (_: any) => de_DvbNitSettings(_, context), `dvbNitSettings`],
+    DvbSdtSettings: [, (_: any) => de_DvbSdtSettings(_, context), `dvbSdtSettings`],
     DvbSubPids: [, _json, `dvbSubPids`],
-    DvbTdtSettings: (_) => [, de_DvbTdtSettings(_, context), `dvbTdtSettings`],
+    DvbTdtSettings: [, (_: any) => de_DvbTdtSettings(_, context), `dvbTdtSettings`],
     DvbTeletextPid: [, __expectInt32, `dvbTeletextPid`],
     EbpAudioInterval: [, __expectString, `ebpAudioInterval`],
     EbpPlacement: [, __expectString, `ebpPlacement`],
@@ -7499,7 +7531,7 @@ const de_M2tsSettings = (output: any, context: __SerdeContext): M2tsSettings => 
     PrivateMetadataPid: [, __expectInt32, `privateMetadataPid`],
     ProgramNumber: [, __expectInt32, `programNumber`],
     RateMode: [, __expectString, `rateMode`],
-    Scte35Esam: (_) => [, de_M2tsScte35Esam(_, context), `scte35Esam`],
+    Scte35Esam: [, (_: any) => de_M2tsScte35Esam(_, context), `scte35Esam`],
     Scte35Pid: [, __expectInt32, `scte35Pid`],
     Scte35Source: [, __expectString, `scte35Source`],
     SegmentationMarkers: [, __expectString, `segmentationMarkers`],
@@ -7563,10 +7595,10 @@ const de_MinTopRenditionSize = (output: any, context: __SerdeContext): MinTopRen
  */
 const de_MotionImageInserter = (output: any, context: __SerdeContext): MotionImageInserter => {
   return take(output, {
-    Framerate: (_) => [, de_MotionImageInsertionFramerate(_, context), `framerate`],
+    Framerate: [, (_: any) => de_MotionImageInsertionFramerate(_, context), `framerate`],
     Input: [, __expectString, `input`],
     InsertionMode: [, __expectString, `insertionMode`],
-    Offset: (_) => [, de_MotionImageInsertionOffset(_, context), `offset`],
+    Offset: [, (_: any) => de_MotionImageInsertionOffset(_, context), `offset`],
     Playback: [, __expectString, `playback`],
     StartTime: [, __expectString, `startTime`],
   }) as any;
@@ -7718,7 +7750,7 @@ const de_MsSmoothAdditionalManifest = (output: any, context: __SerdeContext): Ms
  */
 const de_MsSmoothEncryptionSettings = (output: any, context: __SerdeContext): MsSmoothEncryptionSettings => {
   return take(output, {
-    SpekeKeyProvider: (_) => [, de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
+    SpekeKeyProvider: [, (_: any) => de_SpekeKeyProvider(_, context), `spekeKeyProvider`],
   }) as any;
 };
 
@@ -7727,11 +7759,11 @@ const de_MsSmoothEncryptionSettings = (output: any, context: __SerdeContext): Ms
  */
 const de_MsSmoothGroupSettings = (output: any, context: __SerdeContext): MsSmoothGroupSettings => {
   return take(output, {
-    AdditionalManifests: (_) => [, de___listOfMsSmoothAdditionalManifest(_, context), `additionalManifests`],
+    AdditionalManifests: [, (_: any) => de___listOfMsSmoothAdditionalManifest(_, context), `additionalManifests`],
     AudioDeduplication: [, __expectString, `audioDeduplication`],
     Destination: [, __expectString, `destination`],
-    DestinationSettings: (_) => [, de_DestinationSettings(_, context), `destinationSettings`],
-    Encryption: (_) => [, de_MsSmoothEncryptionSettings(_, context), `encryption`],
+    DestinationSettings: [, (_: any) => de_DestinationSettings(_, context), `destinationSettings`],
+    Encryption: [, (_: any) => de_MsSmoothEncryptionSettings(_, context), `encryption`],
     FragmentLength: [, __expectInt32, `fragmentLength`],
     FragmentLengthControl: [, __expectString, `fragmentLengthControl`],
     ManifestEncoding: [, __expectString, `manifestEncoding`],
@@ -7745,7 +7777,7 @@ const de_MxfSettings = (output: any, context: __SerdeContext): MxfSettings => {
   return take(output, {
     AfdSignaling: [, __expectString, `afdSignaling`],
     Profile: [, __expectString, `profile`],
-    XavcProfileSettings: (_) => [, de_MxfXavcProfileSettings(_, context), `xavcProfileSettings`],
+    XavcProfileSettings: [, (_: any) => de_MxfXavcProfileSettings(_, context), `xavcProfileSettings`],
   }) as any;
 };
 
@@ -7809,9 +7841,9 @@ const de_NielsenNonLinearWatermarkSettings = (
 const de_NoiseReducer = (output: any, context: __SerdeContext): NoiseReducer => {
   return take(output, {
     Filter: [, __expectString, `filter`],
-    FilterSettings: (_) => [, de_NoiseReducerFilterSettings(_, context), `filterSettings`],
-    SpatialFilterSettings: (_) => [, de_NoiseReducerSpatialFilterSettings(_, context), `spatialFilterSettings`],
-    TemporalFilterSettings: (_) => [, de_NoiseReducerTemporalFilterSettings(_, context), `temporalFilterSettings`],
+    FilterSettings: [, (_: any) => de_NoiseReducerFilterSettings(_, context), `filterSettings`],
+    SpatialFilterSettings: [, (_: any) => de_NoiseReducerSpatialFilterSettings(_, context), `spatialFilterSettings`],
+    TemporalFilterSettings: [, (_: any) => de_NoiseReducerTemporalFilterSettings(_, context), `temporalFilterSettings`],
   }) as any;
 };
 
@@ -7870,14 +7902,14 @@ const de_OpusSettings = (output: any, context: __SerdeContext): OpusSettings => 
  */
 const de_Output = (output: any, context: __SerdeContext): Output => {
   return take(output, {
-    AudioDescriptions: (_) => [, de___listOfAudioDescription(_, context), `audioDescriptions`],
-    CaptionDescriptions: (_) => [, de___listOfCaptionDescription(_, context), `captionDescriptions`],
-    ContainerSettings: (_) => [, de_ContainerSettings(_, context), `containerSettings`],
+    AudioDescriptions: [, (_: any) => de___listOfAudioDescription(_, context), `audioDescriptions`],
+    CaptionDescriptions: [, (_: any) => de___listOfCaptionDescription(_, context), `captionDescriptions`],
+    ContainerSettings: [, (_: any) => de_ContainerSettings(_, context), `containerSettings`],
     Extension: [, __expectString, `extension`],
     NameModifier: [, __expectString, `nameModifier`],
-    OutputSettings: (_) => [, de_OutputSettings(_, context), `outputSettings`],
+    OutputSettings: [, (_: any) => de_OutputSettings(_, context), `outputSettings`],
     Preset: [, __expectString, `preset`],
-    VideoDescription: (_) => [, de_VideoDescription(_, context), `videoDescription`],
+    VideoDescription: [, (_: any) => de_VideoDescription(_, context), `videoDescription`],
   }) as any;
 };
 
@@ -7887,7 +7919,7 @@ const de_Output = (output: any, context: __SerdeContext): Output => {
 const de_OutputChannelMapping = (output: any, context: __SerdeContext): OutputChannelMapping => {
   return take(output, {
     InputChannels: [, _json, `inputChannels`],
-    InputChannelsFineTune: (_) => [, de___listOf__doubleMinNegative60Max6(_, context), `inputChannelsFineTune`],
+    InputChannelsFineTune: [, (_: any) => de___listOf__doubleMinNegative60Max6(_, context), `inputChannelsFineTune`],
   }) as any;
 };
 
@@ -7897,7 +7929,7 @@ const de_OutputChannelMapping = (output: any, context: __SerdeContext): OutputCh
 const de_OutputDetail = (output: any, context: __SerdeContext): OutputDetail => {
   return take(output, {
     DurationInMs: [, __expectInt32, `durationInMs`],
-    VideoDetails: (_) => [, de_VideoDetail(_, context), `videoDetails`],
+    VideoDetails: [, (_: any) => de_VideoDetail(_, context), `videoDetails`],
   }) as any;
 };
 
@@ -7906,11 +7938,11 @@ const de_OutputDetail = (output: any, context: __SerdeContext): OutputDetail => 
  */
 const de_OutputGroup = (output: any, context: __SerdeContext): OutputGroup => {
   return take(output, {
-    AutomatedEncodingSettings: (_) => [, de_AutomatedEncodingSettings(_, context), `automatedEncodingSettings`],
+    AutomatedEncodingSettings: [, (_: any) => de_AutomatedEncodingSettings(_, context), `automatedEncodingSettings`],
     CustomName: [, __expectString, `customName`],
     Name: [, __expectString, `name`],
-    OutputGroupSettings: (_) => [, de_OutputGroupSettings(_, context), `outputGroupSettings`],
-    Outputs: (_) => [, de___listOfOutput(_, context), `outputs`],
+    OutputGroupSettings: [, (_: any) => de_OutputGroupSettings(_, context), `outputGroupSettings`],
+    Outputs: [, (_: any) => de___listOfOutput(_, context), `outputs`],
   }) as any;
 };
 
@@ -7919,7 +7951,7 @@ const de_OutputGroup = (output: any, context: __SerdeContext): OutputGroup => {
  */
 const de_OutputGroupDetail = (output: any, context: __SerdeContext): OutputGroupDetail => {
   return take(output, {
-    OutputDetails: (_) => [, de___listOfOutputDetail(_, context), `outputDetails`],
+    OutputDetails: [, (_: any) => de___listOfOutputDetail(_, context), `outputDetails`],
   }) as any;
 };
 
@@ -7928,11 +7960,11 @@ const de_OutputGroupDetail = (output: any, context: __SerdeContext): OutputGroup
  */
 const de_OutputGroupSettings = (output: any, context: __SerdeContext): OutputGroupSettings => {
   return take(output, {
-    CmafGroupSettings: (_) => [, de_CmafGroupSettings(_, context), `cmafGroupSettings`],
-    DashIsoGroupSettings: (_) => [, de_DashIsoGroupSettings(_, context), `dashIsoGroupSettings`],
-    FileGroupSettings: (_) => [, de_FileGroupSettings(_, context), `fileGroupSettings`],
-    HlsGroupSettings: (_) => [, de_HlsGroupSettings(_, context), `hlsGroupSettings`],
-    MsSmoothGroupSettings: (_) => [, de_MsSmoothGroupSettings(_, context), `msSmoothGroupSettings`],
+    CmafGroupSettings: [, (_: any) => de_CmafGroupSettings(_, context), `cmafGroupSettings`],
+    DashIsoGroupSettings: [, (_: any) => de_DashIsoGroupSettings(_, context), `dashIsoGroupSettings`],
+    FileGroupSettings: [, (_: any) => de_FileGroupSettings(_, context), `fileGroupSettings`],
+    HlsGroupSettings: [, (_: any) => de_HlsGroupSettings(_, context), `hlsGroupSettings`],
+    MsSmoothGroupSettings: [, (_: any) => de_MsSmoothGroupSettings(_, context), `msSmoothGroupSettings`],
     Type: [, __expectString, `type`],
   }) as any;
 };
@@ -7942,7 +7974,7 @@ const de_OutputGroupSettings = (output: any, context: __SerdeContext): OutputGro
  */
 const de_OutputSettings = (output: any, context: __SerdeContext): OutputSettings => {
   return take(output, {
-    HlsSettings: (_) => [, de_HlsSettings(_, context), `hlsSettings`],
+    HlsSettings: [, (_: any) => de_HlsSettings(_, context), `hlsSettings`],
   }) as any;
 };
 
@@ -7951,7 +7983,7 @@ const de_OutputSettings = (output: any, context: __SerdeContext): OutputSettings
  */
 const de_PartnerWatermarking = (output: any, context: __SerdeContext): PartnerWatermarking => {
   return take(output, {
-    NexguardFileMarkerSettings: (_) => [, de_NexGuardFileMarkerSettings(_, context), `nexguardFileMarkerSettings`],
+    NexguardFileMarkerSettings: [, (_: any) => de_NexGuardFileMarkerSettings(_, context), `nexguardFileMarkerSettings`],
   }) as any;
 };
 
@@ -7973,11 +8005,11 @@ const de_Preset = (output: any, context: __SerdeContext): Preset => {
   return take(output, {
     Arn: [, __expectString, `arn`],
     Category: [, __expectString, `category`],
-    CreatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
+    CreatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
     Description: [, __expectString, `description`],
-    LastUpdated: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastUpdated`],
+    LastUpdated: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastUpdated`],
     Name: [, __expectString, `name`],
-    Settings: (_) => [, de_PresetSettings(_, context), `settings`],
+    Settings: [, (_: any) => de_PresetSettings(_, context), `settings`],
     Type: [, __expectString, `type`],
   }) as any;
 };
@@ -7987,10 +8019,10 @@ const de_Preset = (output: any, context: __SerdeContext): Preset => {
  */
 const de_PresetSettings = (output: any, context: __SerdeContext): PresetSettings => {
   return take(output, {
-    AudioDescriptions: (_) => [, de___listOfAudioDescription(_, context), `audioDescriptions`],
-    CaptionDescriptions: (_) => [, de___listOfCaptionDescriptionPreset(_, context), `captionDescriptions`],
-    ContainerSettings: (_) => [, de_ContainerSettings(_, context), `containerSettings`],
-    VideoDescription: (_) => [, de_VideoDescription(_, context), `videoDescription`],
+    AudioDescriptions: [, (_: any) => de___listOfAudioDescription(_, context), `audioDescriptions`],
+    CaptionDescriptions: [, (_: any) => de___listOfCaptionDescriptionPreset(_, context), `captionDescriptions`],
+    ContainerSettings: [, (_: any) => de_ContainerSettings(_, context), `containerSettings`],
+    VideoDescription: [, (_: any) => de_VideoDescription(_, context), `videoDescription`],
   }) as any;
 };
 
@@ -8021,13 +8053,13 @@ const de_ProresSettings = (output: any, context: __SerdeContext): ProresSettings
 const de_Queue = (output: any, context: __SerdeContext): Queue => {
   return take(output, {
     Arn: [, __expectString, `arn`],
-    CreatedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
+    CreatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
     Description: [, __expectString, `description`],
-    LastUpdated: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastUpdated`],
+    LastUpdated: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastUpdated`],
     Name: [, __expectString, `name`],
     PricingPlan: [, __expectString, `pricingPlan`],
     ProgressingJobsCount: [, __expectInt32, `progressingJobsCount`],
-    ReservationPlan: (_) => [, de_ReservationPlan(_, context), `reservationPlan`],
+    ReservationPlan: [, (_: any) => de_ReservationPlan(_, context), `reservationPlan`],
     Status: [, __expectString, `status`],
     SubmittedJobsCount: [, __expectInt32, `submittedJobsCount`],
     Type: [, __expectString, `type`],
@@ -8041,7 +8073,7 @@ const de_QueueTransition = (output: any, context: __SerdeContext): QueueTransiti
   return take(output, {
     DestinationQueue: [, __expectString, `destinationQueue`],
     SourceQueue: [, __expectString, `sourceQueue`],
-    Timestamp: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `timestamp`],
+    Timestamp: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `timestamp`],
   }) as any;
 };
 
@@ -8062,7 +8094,7 @@ const de_Rectangle = (output: any, context: __SerdeContext): Rectangle => {
  */
 const de_RemixSettings = (output: any, context: __SerdeContext): RemixSettings => {
   return take(output, {
-    ChannelMapping: (_) => [, de_ChannelMapping(_, context), `channelMapping`],
+    ChannelMapping: [, (_: any) => de_ChannelMapping(_, context), `channelMapping`],
     ChannelsIn: [, __expectInt32, `channelsIn`],
     ChannelsOut: [, __expectInt32, `channelsOut`],
   }) as any;
@@ -8074,8 +8106,8 @@ const de_RemixSettings = (output: any, context: __SerdeContext): RemixSettings =
 const de_ReservationPlan = (output: any, context: __SerdeContext): ReservationPlan => {
   return take(output, {
     Commitment: [, __expectString, `commitment`],
-    ExpiresAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `expiresAt`],
-    PurchasedAt: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `purchasedAt`],
+    ExpiresAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `expiresAt`],
+    PurchasedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `purchasedAt`],
     RenewalType: [, __expectString, `renewalType`],
     ReservedSlots: [, __expectInt32, `reservedSlots`],
     Status: [, __expectString, `status`],
@@ -8106,8 +8138,8 @@ const de_S3DestinationAccessControl = (output: any, context: __SerdeContext): S3
  */
 const de_S3DestinationSettings = (output: any, context: __SerdeContext): S3DestinationSettings => {
   return take(output, {
-    AccessControl: (_) => [, de_S3DestinationAccessControl(_, context), `accessControl`],
-    Encryption: (_) => [, de_S3EncryptionSettings(_, context), `encryption`],
+    AccessControl: [, (_: any) => de_S3DestinationAccessControl(_, context), `accessControl`],
+    Encryption: [, (_: any) => de_S3EncryptionSettings(_, context), `encryption`],
   }) as any;
 };
 
@@ -8224,7 +8256,7 @@ const de_TimecodeConfig = (output: any, context: __SerdeContext): TimecodeConfig
  */
 const de_TimedMetadataInsertion = (output: any, context: __SerdeContext): TimedMetadataInsertion => {
   return take(output, {
-    Id3Insertions: (_) => [, de___listOfId3Insertion(_, context), `id3Insertions`],
+    Id3Insertions: [, (_: any) => de___listOfId3Insertion(_, context), `id3Insertions`],
   }) as any;
 };
 
@@ -8233,9 +8265,9 @@ const de_TimedMetadataInsertion = (output: any, context: __SerdeContext): TimedM
  */
 const de_Timing = (output: any, context: __SerdeContext): Timing => {
   return take(output, {
-    FinishTime: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `finishTime`],
-    StartTime: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `startTime`],
-    SubmitTime: (_) => [, __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `submitTime`],
+    FinishTime: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `finishTime`],
+    StartTime: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `startTime`],
+    SubmitTime: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `submitTime`],
   }) as any;
 };
 
@@ -8279,18 +8311,18 @@ const de_Vc3Settings = (output: any, context: __SerdeContext): Vc3Settings => {
  */
 const de_VideoCodecSettings = (output: any, context: __SerdeContext): VideoCodecSettings => {
   return take(output, {
-    Av1Settings: (_) => [, de_Av1Settings(_, context), `av1Settings`],
-    AvcIntraSettings: (_) => [, de_AvcIntraSettings(_, context), `avcIntraSettings`],
+    Av1Settings: [, (_: any) => de_Av1Settings(_, context), `av1Settings`],
+    AvcIntraSettings: [, (_: any) => de_AvcIntraSettings(_, context), `avcIntraSettings`],
     Codec: [, __expectString, `codec`],
-    FrameCaptureSettings: (_) => [, de_FrameCaptureSettings(_, context), `frameCaptureSettings`],
-    H264Settings: (_) => [, de_H264Settings(_, context), `h264Settings`],
-    H265Settings: (_) => [, de_H265Settings(_, context), `h265Settings`],
-    Mpeg2Settings: (_) => [, de_Mpeg2Settings(_, context), `mpeg2Settings`],
-    ProresSettings: (_) => [, de_ProresSettings(_, context), `proresSettings`],
-    Vc3Settings: (_) => [, de_Vc3Settings(_, context), `vc3Settings`],
-    Vp8Settings: (_) => [, de_Vp8Settings(_, context), `vp8Settings`],
-    Vp9Settings: (_) => [, de_Vp9Settings(_, context), `vp9Settings`],
-    XavcSettings: (_) => [, de_XavcSettings(_, context), `xavcSettings`],
+    FrameCaptureSettings: [, (_: any) => de_FrameCaptureSettings(_, context), `frameCaptureSettings`],
+    H264Settings: [, (_: any) => de_H264Settings(_, context), `h264Settings`],
+    H265Settings: [, (_: any) => de_H265Settings(_, context), `h265Settings`],
+    Mpeg2Settings: [, (_: any) => de_Mpeg2Settings(_, context), `mpeg2Settings`],
+    ProresSettings: [, (_: any) => de_ProresSettings(_, context), `proresSettings`],
+    Vc3Settings: [, (_: any) => de_Vc3Settings(_, context), `vc3Settings`],
+    Vp8Settings: [, (_: any) => de_Vp8Settings(_, context), `vp8Settings`],
+    Vp9Settings: [, (_: any) => de_Vp9Settings(_, context), `vp9Settings`],
+    XavcSettings: [, (_: any) => de_XavcSettings(_, context), `xavcSettings`],
   }) as any;
 };
 
@@ -8301,18 +8333,18 @@ const de_VideoDescription = (output: any, context: __SerdeContext): VideoDescrip
   return take(output, {
     AfdSignaling: [, __expectString, `afdSignaling`],
     AntiAlias: [, __expectString, `antiAlias`],
-    CodecSettings: (_) => [, de_VideoCodecSettings(_, context), `codecSettings`],
+    CodecSettings: [, (_: any) => de_VideoCodecSettings(_, context), `codecSettings`],
     ColorMetadata: [, __expectString, `colorMetadata`],
-    Crop: (_) => [, de_Rectangle(_, context), `crop`],
+    Crop: [, (_: any) => de_Rectangle(_, context), `crop`],
     DropFrameTimecode: [, __expectString, `dropFrameTimecode`],
     FixedAfd: [, __expectInt32, `fixedAfd`],
     Height: [, __expectInt32, `height`],
-    Position: (_) => [, de_Rectangle(_, context), `position`],
+    Position: [, (_: any) => de_Rectangle(_, context), `position`],
     RespondToAfd: [, __expectString, `respondToAfd`],
     ScalingBehavior: [, __expectString, `scalingBehavior`],
     Sharpness: [, __expectInt32, `sharpness`],
     TimecodeInsertion: [, __expectString, `timecodeInsertion`],
-    VideoPreprocessors: (_) => [, de_VideoPreprocessor(_, context), `videoPreprocessors`],
+    VideoPreprocessors: [, (_: any) => de_VideoPreprocessor(_, context), `videoPreprocessors`],
     Width: [, __expectInt32, `width`],
   }) as any;
 };
@@ -8332,14 +8364,14 @@ const de_VideoDetail = (output: any, context: __SerdeContext): VideoDetail => {
  */
 const de_VideoPreprocessor = (output: any, context: __SerdeContext): VideoPreprocessor => {
   return take(output, {
-    ColorCorrector: (_) => [, de_ColorCorrector(_, context), `colorCorrector`],
-    Deinterlacer: (_) => [, de_Deinterlacer(_, context), `deinterlacer`],
-    DolbyVision: (_) => [, de_DolbyVision(_, context), `dolbyVision`],
-    Hdr10Plus: (_) => [, de_Hdr10Plus(_, context), `hdr10Plus`],
-    ImageInserter: (_) => [, de_ImageInserter(_, context), `imageInserter`],
-    NoiseReducer: (_) => [, de_NoiseReducer(_, context), `noiseReducer`],
-    PartnerWatermarking: (_) => [, de_PartnerWatermarking(_, context), `partnerWatermarking`],
-    TimecodeBurnin: (_) => [, de_TimecodeBurnin(_, context), `timecodeBurnin`],
+    ColorCorrector: [, (_: any) => de_ColorCorrector(_, context), `colorCorrector`],
+    Deinterlacer: [, (_: any) => de_Deinterlacer(_, context), `deinterlacer`],
+    DolbyVision: [, (_: any) => de_DolbyVision(_, context), `dolbyVision`],
+    Hdr10Plus: [, (_: any) => de_Hdr10Plus(_, context), `hdr10Plus`],
+    ImageInserter: [, (_: any) => de_ImageInserter(_, context), `imageInserter`],
+    NoiseReducer: [, (_: any) => de_NoiseReducer(_, context), `noiseReducer`],
+    PartnerWatermarking: [, (_: any) => de_PartnerWatermarking(_, context), `partnerWatermarking`],
+    TimecodeBurnin: [, (_: any) => de_TimecodeBurnin(_, context), `timecodeBurnin`],
   }) as any;
 };
 
@@ -8352,7 +8384,7 @@ const de_VideoSelector = (output: any, context: __SerdeContext): VideoSelector =
     ColorSpace: [, __expectString, `colorSpace`],
     ColorSpaceUsage: [, __expectString, `colorSpaceUsage`],
     EmbeddedTimecodeOverride: [, __expectString, `embeddedTimecodeOverride`],
-    Hdr10Metadata: (_) => [, de_Hdr10Metadata(_, context), `hdr10Metadata`],
+    Hdr10Metadata: [, (_: any) => de_Hdr10Metadata(_, context), `hdr10Metadata`],
     PadVideo: [, __expectString, `padVideo`],
     Pid: [, __expectInt32, `pid`],
     ProgramNumber: [, __expectInt32, `programNumber`],
@@ -8533,23 +8565,23 @@ const de_XavcSettings = (output: any, context: __SerdeContext): XavcSettings => 
     Softness: [, __expectInt32, `softness`],
     SpatialAdaptiveQuantization: [, __expectString, `spatialAdaptiveQuantization`],
     TemporalAdaptiveQuantization: [, __expectString, `temporalAdaptiveQuantization`],
-    Xavc4kIntraCbgProfileSettings: (_) => [
+    Xavc4kIntraCbgProfileSettings: [
       ,
-      de_Xavc4kIntraCbgProfileSettings(_, context),
+      (_: any) => de_Xavc4kIntraCbgProfileSettings(_, context),
       `xavc4kIntraCbgProfileSettings`,
     ],
-    Xavc4kIntraVbrProfileSettings: (_) => [
+    Xavc4kIntraVbrProfileSettings: [
       ,
-      de_Xavc4kIntraVbrProfileSettings(_, context),
+      (_: any) => de_Xavc4kIntraVbrProfileSettings(_, context),
       `xavc4kIntraVbrProfileSettings`,
     ],
-    Xavc4kProfileSettings: (_) => [, de_Xavc4kProfileSettings(_, context), `xavc4kProfileSettings`],
-    XavcHdIntraCbgProfileSettings: (_) => [
+    Xavc4kProfileSettings: [, (_: any) => de_Xavc4kProfileSettings(_, context), `xavc4kProfileSettings`],
+    XavcHdIntraCbgProfileSettings: [
       ,
-      de_XavcHdIntraCbgProfileSettings(_, context),
+      (_: any) => de_XavcHdIntraCbgProfileSettings(_, context),
       `xavcHdIntraCbgProfileSettings`,
     ],
-    XavcHdProfileSettings: (_) => [, de_XavcHdProfileSettings(_, context), `xavcHdProfileSettings`],
+    XavcHdProfileSettings: [, (_: any) => de_XavcHdProfileSettings(_, context), `xavcHdProfileSettings`],
   }) as any;
 };
 

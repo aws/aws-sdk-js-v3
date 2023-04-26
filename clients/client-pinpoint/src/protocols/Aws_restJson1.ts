@@ -14359,7 +14359,7 @@ const de_SimpleCondition = (output: any, context: __SerdeContext): SimpleConditi
   return take(output, {
     EventCondition: (_: any) => de_EventCondition(_, context),
     SegmentCondition: _json,
-    SegmentDimensions: (_) => [, de_SegmentDimensions(_, context), `segmentDimensions`],
+    SegmentDimensions: [, (_: any) => de_SegmentDimensions(_, context), `segmentDimensions`],
   }) as any;
 };
 

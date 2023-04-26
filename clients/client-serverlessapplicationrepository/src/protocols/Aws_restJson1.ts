@@ -1834,7 +1834,7 @@ const de_Version = (output: any, context: __SerdeContext): Version => {
   return take(output, {
     ApplicationId: [, __expectString, `applicationId`],
     CreationTime: [, __expectString, `creationTime`],
-    ParameterDefinitions: (_) => [, de___listOfParameterDefinition(_, context), `parameterDefinitions`],
+    ParameterDefinitions: [, (_: any) => de___listOfParameterDefinition(_, context), `parameterDefinitions`],
     RequiredCapabilities: [, _json, `requiredCapabilities`],
     ResourcesSupported: [, __expectBoolean, `resourcesSupported`],
     SemanticVersion: [, __expectString, `semanticVersion`],

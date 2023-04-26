@@ -1349,7 +1349,7 @@ const de_DeviceDescription = (output: any, context: __SerdeContext): DeviceDescr
  */
 const de_DeviceEvent = (output: any, context: __SerdeContext): DeviceEvent => {
   return take(output, {
-    Device: (_) => [, de_Device(_, context), `device`],
+    Device: [, (_: any) => de_Device(_, context), `device`],
     StdEvent: [, __expectString, `stdEvent`],
   }) as any;
 };
