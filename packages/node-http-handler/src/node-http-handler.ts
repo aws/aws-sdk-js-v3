@@ -6,6 +6,8 @@ import { Agent as hsAgent, request as hsRequest, RequestOptions } from "https";
 
 import { NODEJS_TIMEOUT_ERROR_CODES } from "./constants";
 import { getTransformedHeaders } from "./get-transformed-headers";
+import { setConnectionTimeout } from "./set-connection-timeout";
+import { setSocketTimeout } from "./set-socket-timeout";
 import { writeRequestBody } from "./write-request-body";
 
 /**
@@ -13,27 +15,21 @@ import { writeRequestBody } from "./write-request-body";
  */
 export interface NodeHttpHandlerOptions {
   /**
-   * @deprecated Use {@link requestTimeout}
-   *
-   * Note:{@link NodeHttpHandler} will resolve request timeout via nullish coalescing the following fields:
-   * {@link requestTimeout} ?? {@link connectionTimeout} ?? {@link socketTimeout} ?? {@link DEFAULT_REQUEST_TIMEOUT}
-   *
    * The maximum time in milliseconds that the connection phase of a request
    * may take before the connection attempt is abandoned.
+   *
+   * Defaults to 0, which disables the timeout.
    */
   connectionTimeout?: number;
 
   /**
-   * The maximum time in milliseconds that the connection phase of a request
-   * may take before the connection attempt is abandoned.
+   * The number of milliseconds a request can take before automatically being terminated.
+   * Defaults to 0, which disables the timeout.
    */
   requestTimeout?: number;
 
   /**
    * @deprecated Use {@link requestTimeout}
-   *
-   * Note:{@link NodeHttpHandler} will resolve request timeout via nullish coalescing the following fields:
-   * {@link requestTimeout} ?? {@link connectionTimeout} ?? {@link socketTimeout} ?? {@link DEFAULT_REQUEST_TIMEOUT}
    *
    * The maximum time in milliseconds that a socket may remain idle before it
    * is closed.
@@ -45,9 +41,8 @@ export interface NodeHttpHandlerOptions {
 }
 
 interface ResolvedNodeHttpHandlerConfig {
-  requestTimeout: number;
+  requestTimeout?: number;
   connectionTimeout?: number;
-  socketTimeout?: number;
   httpAgent: hAgent;
   httpsAgent: hsAgent;
 }
@@ -82,8 +77,7 @@ export class NodeHttpHandler implements HttpHandler {
 
     return {
       connectionTimeout,
-      socketTimeout,
-      requestTimeout: requestTimeout ?? connectionTimeout ?? socketTimeout ?? DEFAULT_REQUEST_TIMEOUT,
+      requestTimeout: requestTimeout ?? socketTimeout,
       httpAgent: httpAgent || new hAgent({ keepAlive, maxSockets }),
       httpsAgent: httpsAgent || new hsAgent({ keepAlive, maxSockets }),
     };
@@ -142,11 +136,9 @@ export class NodeHttpHandler implements HttpHandler {
         }
       });
 
-      const timeout: number = this.config?.requestTimeout ?? DEFAULT_REQUEST_TIMEOUT;
-      req.setTimeout(timeout, () => {
-        req.destroy();
-        reject(Object.assign(new Error(`Connection timed out after ${timeout} ms`), { name: "TimeoutError" }));
-      });
+      // wire-up any timeout logic
+      setConnectionTimeout(req, reject, this.config.connectionTimeout);
+      setSocketTimeout(req, reject, this.config.requestTimeout);
 
       // wire-up abort logic
       if (abortSignal) {
