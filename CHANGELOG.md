@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.321.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.320.0...v3.321.0) (2023-04-26)
+
+
+### Bug Fixes
+
+* **e2e:** typo folder name integ-e2e -> e2e-legacy ([#4667](https://github.com/aws/aws-sdk-js-v3/issues/4667)) ([2c52c53](https://github.com/aws/aws-sdk-js-v3/commit/2c52c5339691ef374df06a0a74fb71191e267c7e))
+
+
+### Features
+
+* **client-osis:** Initial release for OpenSearch Ingestion ([81e58f6](https://github.com/aws/aws-sdk-js-v3/commit/81e58f6a03a48177e6c63bb413067c9205a81c36))
+* **clients:** update client endpoints as of 2023-04-26 ([5aa11d8](https://github.com/aws/aws-sdk-js-v3/commit/5aa11d872e98db669acf89918d756a42a6e095a4))
+
+
+
+
+
 # [3.320.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.319.0...v3.320.0) (2023-04-25)
 
 

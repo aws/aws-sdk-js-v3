@@ -77,6 +77,38 @@ export interface GetJourneyRunsCommandOutput extends GetJourneyRunsResponse, __M
  *  <p>Provides information about an API request or response.</p>
  *
  *
+ * @example To get the runs of a journey
+ * ```javascript
+ * // The following example gets the runs of a journey.
+ * const input = {
+ *   "ApplicationId": "11111111112222222222333333333344",
+ *   "JourneyId": "aaaaaaaaaabbbbbbbbbbccccccccccdd"
+ * };
+ * const command = new GetJourneyRunsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "JourneyRunsResponse": {
+ *     "Item": [
+ *       {
+ *         "RunId": "99999999998888888888777777777766",
+ *         "CreationTime": "2000-01-01T00:00:00.000Z",
+ *         "LastUpdateTime": "2000-01-01T00:00:05.000Z",
+ *         "Status": "COMPLETED"
+ *       },
+ *       {
+ *         "RunId": "ffffffffffeeeeeeeeeeddddddddddcc",
+ *         "CreationTime": "2000-01-01T00:00:10.000Z",
+ *         "LastUpdateTime": "2000-01-01T00:00:10.000Z",
+ *         "Status": "SCHEDULED"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: to-get-the-runs-of-a-journey
+ * ```
+ *
  */
 export class GetJourneyRunsCommand extends $Command<
   GetJourneyRunsCommandInput,
