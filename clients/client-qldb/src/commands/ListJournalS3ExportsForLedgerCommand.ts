@@ -37,7 +37,7 @@ export interface ListJournalS3ExportsForLedgerCommandOutput
 
 /**
  * @public
- * <p>Returns an array of journal export job descriptions for a specified ledger.</p>
+ * <p>Returns all journal export jobs for a specified ledger.</p>
  *          <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that
  *          you can retrieve all the items by calling <code>ListJournalS3ExportsForLedger</code>
  *          multiple times.</p>

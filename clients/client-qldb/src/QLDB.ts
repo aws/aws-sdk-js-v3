@@ -394,7 +394,7 @@ export interface QLDB {
 
 /**
  * @public
- * <p>The control plane for Amazon QLDB</p>
+ * <p>The resource management API for Amazon QLDB</p>
  */
 export class QLDB extends QLDBClient implements QLDB {}
 createAggregatedClient(commands, QLDB);

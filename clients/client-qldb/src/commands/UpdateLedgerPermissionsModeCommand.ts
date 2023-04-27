@@ -52,7 +52,7 @@ export interface UpdateLedgerPermissionsModeCommandOutput
  * const client = new QLDBClient(config);
  * const input = { // UpdateLedgerPermissionsModeRequest
  *   Name: "STRING_VALUE", // required
- *   PermissionsMode: "STRING_VALUE", // required
+ *   PermissionsMode: "ALLOW_ALL" || "STANDARD", // required
  * };
  * const command = new UpdateLedgerPermissionsModeCommand(input);
  * const response = await client.send(command);

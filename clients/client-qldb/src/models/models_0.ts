@@ -189,10 +189,10 @@ export interface CreateLedgerRequest {
   PermissionsMode: PermissionsMode | string | undefined;
 
   /**
-   * <p>The flag that prevents a ledger from being deleted by any user. If not provided on
+   * <p>Specifies whether the ledger is protected from being deleted by any user. If not defined during
    *       ledger creation, this feature is enabled (<code>true</code>) by default.</p>
    *          <p>If deletion protection is enabled, you must first disable it before you can delete the
-   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
+   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set this parameter to <code>false</code>.</p>
    */
   DeletionProtection?: boolean;
 
@@ -215,7 +215,8 @@ export interface CreateLedgerRequest {
    *             <li>
    *                <p>
    *                   <b>A valid symmetric customer managed KMS key</b>: Use
-   *                the specified KMS key in your account that you create, own, and manage.</p>
+   *                the specified symmetric encryption KMS key in your account that you create, own, and
+   *                manage.</p>
    *                <p>Amazon QLDB does not support asymmetric keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and asymmetric keys</a> in the <i>Key Management Service Developer
    *                   Guide</i>.</p>
    *             </li>
@@ -298,10 +299,10 @@ export interface CreateLedgerResponse {
   PermissionsMode?: PermissionsMode | string;
 
   /**
-   * <p>The flag that prevents a ledger from being deleted by any user. If not provided on
+   * <p>Specifies whether the ledger is protected from being deleted by any user. If not defined during
    *       ledger creation, this feature is enabled (<code>true</code>) by default.</p>
    *          <p>If deletion protection is enabled, you must first disable it before you can delete the
-   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
+   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set this parameter to <code>false</code>.</p>
    */
   DeletionProtection?: boolean;
 
@@ -459,11 +460,14 @@ export interface KinesisConfiguration {
   /**
    * <p>Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the
    *          number of records sent per API call.</p>
-   *          <p>
-   *             <i>This option is enabled by default.</i> Record aggregation has important
-   *          implications for processing records and requires de-aggregation in your stream consumer. To
-   *          learn more, see <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html">KPL Key Concepts</a> and <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-consumer-deaggregation.html">Consumer De-aggregation</a> in the <i>Amazon Kinesis Data Streams Developer
-   *          Guide</i>.</p>
+   *          <p>Default: <code>True</code>
+   *          </p>
+   *          <important>
+   *             <p>Record aggregation has important implications for processing records and requires
+   *             de-aggregation in your stream consumer. To learn more, see <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html">KPL Key Concepts</a> and
+   *                <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-consumer-deaggregation.html">Consumer
+   *                De-aggregation</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.</p>
+   *          </important>
    */
   AggregationEnabled?: boolean;
 }
@@ -627,8 +631,8 @@ export interface S3EncryptionConfiguration {
   ObjectEncryptionType: S3ObjectEncryptionType | string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a symmetric key in Key Management Service (KMS). Amazon S3 does not
-   *          support asymmetric KMS keys.</p>
+   * <p>The Amazon Resource Name (ARN) of a symmetric encryption key in Key Management Service (KMS). Amazon S3
+   *          does not support asymmetric KMS keys.</p>
    *          <p>You must provide a <code>KmsKeyArn</code> if you specify <code>SSE_KMS</code> as the
    *             <code>ObjectEncryptionType</code>.</p>
    *          <p>
@@ -891,10 +895,10 @@ export interface DescribeLedgerResponse {
   PermissionsMode?: PermissionsMode | string;
 
   /**
-   * <p>The flag that prevents a ledger from being deleted by any user. If not provided on
+   * <p>Specifies whether the ledger is protected from being deleted by any user. If not defined during
    *       ledger creation, this feature is enabled (<code>true</code>) by default.</p>
    *          <p>If deletion protection is enabled, you must first disable it before you can delete the
-   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
+   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set this parameter to <code>false</code>.</p>
    */
   DeletionProtection?: boolean;
 
@@ -948,7 +952,7 @@ export interface ExportJournalToS3Request {
    *          journal export job to do the following:</p>
    *          <ul>
    *             <li>
-   *                <p>Write objects into your Amazon Simple Storage Service (Amazon S3) bucket.</p>
+   *                <p>Write objects into your Amazon S3 bucket.</p>
    *             </li>
    *             <li>
    *                <p>(Optional) Use your customer managed key in Key Management Service (KMS) for server-side
@@ -962,8 +966,14 @@ export interface ExportJournalToS3Request {
   RoleArn: string | undefined;
 
   /**
-   * <p>The output format of your exported journal data. If this parameter is not specified, the
-   *          exported data defaults to <code>ION_TEXT</code> format.</p>
+   * <p>The output format of your exported journal data. A journal export job can write the data
+   *          objects in either the text or binary representation of <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/ion.html">Amazon Ion</a> format, or in <a href="https://jsonlines.org/">JSON Lines</a> text format.</p>
+   *          <p>Default: <code>ION_TEXT</code>
+   *          </p>
+   *          <p>In JSON Lines format, each journal block in an exported data object is a valid JSON
+   *          object that is delimited by a newline. You can use this format to directly integrate JSON
+   *          exports with analytics tools such as Amazon Athena and Glue
+   *          because these services can parse newline-delimited JSON automatically.</p>
    */
   OutputFormat?: OutputFormat | string;
 }
@@ -1139,8 +1149,7 @@ export interface ListJournalKinesisStreamsForLedgerRequest {
  */
 export interface ListJournalKinesisStreamsForLedgerResponse {
   /**
-   * <p>The array of QLDB journal stream descriptors that are associated with the given
-   *          ledger.</p>
+   * <p>The QLDB journal streams that are currently associated with the given ledger.</p>
    */
   Streams?: JournalKinesisStreamDescription[];
 
@@ -1185,8 +1194,8 @@ export interface ListJournalS3ExportsRequest {
  */
 export interface ListJournalS3ExportsResponse {
   /**
-   * <p>The array of journal export job descriptions for all ledgers that are associated with
-   *          the current Amazon Web Services account and Region.</p>
+   * <p>The journal export jobs for all ledgers that are associated with the current
+   *          Amazon Web Services account and Region.</p>
    */
   JournalS3Exports?: JournalS3ExportDescription[];
 
@@ -1237,8 +1246,7 @@ export interface ListJournalS3ExportsForLedgerRequest {
  */
 export interface ListJournalS3ExportsForLedgerResponse {
   /**
-   * <p>The array of journal export job descriptions that are associated with the specified
-   *          ledger.</p>
+   * <p>The journal export jobs that are currently associated with the specified ledger.</p>
    */
   JournalS3Exports?: JournalS3ExportDescription[];
 
@@ -1304,8 +1312,7 @@ export interface LedgerSummary {
  */
 export interface ListLedgersResponse {
   /**
-   * <p>The array of ledger summaries that are associated with the current Amazon Web Services account and
-   *          Region.</p>
+   * <p>The ledgers that are associated with the current Amazon Web Services account and Region.</p>
    */
   Ledgers?: LedgerSummary[];
 
@@ -1479,10 +1486,10 @@ export interface UpdateLedgerRequest {
   Name: string | undefined;
 
   /**
-   * <p>The flag that prevents a ledger from being deleted by any user. If not provided on
+   * <p>Specifies whether the ledger is protected from being deleted by any user. If not defined during
    *       ledger creation, this feature is enabled (<code>true</code>) by default.</p>
    *          <p>If deletion protection is enabled, you must first disable it before you can delete the
-   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
+   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set this parameter to <code>false</code>.</p>
    */
   DeletionProtection?: boolean;
 
@@ -1505,7 +1512,8 @@ export interface UpdateLedgerRequest {
    *             <li>
    *                <p>
    *                   <b>A valid symmetric customer managed KMS key</b>: Use
-   *                the specified KMS key in your account that you create, own, and manage.</p>
+   *                the specified symmetric encryption KMS key in your account that you create, own, and
+   *                manage.</p>
    *                <p>Amazon QLDB does not support asymmetric keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and asymmetric keys</a> in the <i>Key Management Service Developer
    *                   Guide</i>.</p>
    *             </li>
@@ -1567,10 +1575,10 @@ export interface UpdateLedgerResponse {
   CreationDateTime?: Date;
 
   /**
-   * <p>The flag that prevents a ledger from being deleted by any user. If not provided on
+   * <p>Specifies whether the ledger is protected from being deleted by any user. If not defined during
    *       ledger creation, this feature is enabled (<code>true</code>) by default.</p>
    *          <p>If deletion protection is enabled, you must first disable it before you can delete the
-   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
+   *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set this parameter to <code>false</code>.</p>
    */
   DeletionProtection?: boolean;
 

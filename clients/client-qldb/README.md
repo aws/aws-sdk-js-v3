@@ -9,7 +9,7 @@
 
 AWS SDK for JavaScript QLDB Client for Node.js, Browser and React Native.
 
-<p>The control plane for Amazon QLDB</p>
+<p>The resource management API for Amazon QLDB</p>
 
 ## Installing
 
