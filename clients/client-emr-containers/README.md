@@ -319,6 +319,14 @@ DescribeVirtualCluster
 </details>
 <details>
 <summary>
+GetManagedEndpointSessionCredentials
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-emr-containers/classes/getmanagedendpointsessioncredentialscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-emr-containers/interfaces/getmanagedendpointsessioncredentialscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-emr-containers/interfaces/getmanagedendpointsessioncredentialscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListJobRuns
 </summary>
 

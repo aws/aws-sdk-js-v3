@@ -81,6 +81,10 @@ import {
   DescribeVirtualClusterCommandInput,
   DescribeVirtualClusterCommandOutput,
 } from "./commands/DescribeVirtualClusterCommand";
+import {
+  GetManagedEndpointSessionCredentialsCommandInput,
+  GetManagedEndpointSessionCredentialsCommandOutput,
+} from "./commands/GetManagedEndpointSessionCredentialsCommand";
 import { ListJobRunsCommandInput, ListJobRunsCommandOutput } from "./commands/ListJobRunsCommand";
 import { ListJobTemplatesCommandInput, ListJobTemplatesCommandOutput } from "./commands/ListJobTemplatesCommand";
 import {
@@ -121,6 +125,7 @@ export type ServiceInputTypes =
   | DescribeJobTemplateCommandInput
   | DescribeManagedEndpointCommandInput
   | DescribeVirtualClusterCommandInput
+  | GetManagedEndpointSessionCredentialsCommandInput
   | ListJobRunsCommandInput
   | ListJobTemplatesCommandInput
   | ListManagedEndpointsCommandInput
@@ -145,6 +150,7 @@ export type ServiceOutputTypes =
   | DescribeJobTemplateCommandOutput
   | DescribeManagedEndpointCommandOutput
   | DescribeVirtualClusterCommandOutput
+  | GetManagedEndpointSessionCredentialsCommandOutput
   | ListJobRunsCommandOutput
   | ListJobTemplatesCommandOutput
   | ListManagedEndpointsCommandOutput

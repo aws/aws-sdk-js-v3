@@ -57,6 +57,11 @@ import {
   DescribeVirtualClusterCommandInput,
   DescribeVirtualClusterCommandOutput,
 } from "./commands/DescribeVirtualClusterCommand";
+import {
+  GetManagedEndpointSessionCredentialsCommand,
+  GetManagedEndpointSessionCredentialsCommandInput,
+  GetManagedEndpointSessionCredentialsCommandOutput,
+} from "./commands/GetManagedEndpointSessionCredentialsCommand";
 import { ListJobRunsCommand, ListJobRunsCommandInput, ListJobRunsCommandOutput } from "./commands/ListJobRunsCommand";
 import {
   ListJobTemplatesCommand,
@@ -99,6 +104,7 @@ const commands = {
   DescribeJobTemplateCommand,
   DescribeManagedEndpointCommand,
   DescribeVirtualClusterCommand,
+  GetManagedEndpointSessionCredentialsCommand,
   ListJobRunsCommand,
   ListJobTemplatesCommand,
   ListManagedEndpointsCommand,
@@ -286,6 +292,23 @@ export interface EMRContainers {
     args: DescribeVirtualClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeVirtualClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetManagedEndpointSessionCredentialsCommand}
+   */
+  getManagedEndpointSessionCredentials(
+    args: GetManagedEndpointSessionCredentialsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetManagedEndpointSessionCredentialsCommandOutput>;
+  getManagedEndpointSessionCredentials(
+    args: GetManagedEndpointSessionCredentialsCommandInput,
+    cb: (err: any, data?: GetManagedEndpointSessionCredentialsCommandOutput) => void
+  ): void;
+  getManagedEndpointSessionCredentials(
+    args: GetManagedEndpointSessionCredentialsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetManagedEndpointSessionCredentialsCommandOutput) => void
   ): void;
 
   /**
