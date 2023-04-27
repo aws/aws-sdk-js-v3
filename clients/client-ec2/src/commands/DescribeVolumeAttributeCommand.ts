@@ -14,7 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVolumeAttributeRequest, DescribeVolumeAttributeResult } from "../models/models_4";
+import { DescribeVolumeAttributeRequest } from "../models/models_4";
+import { DescribeVolumeAttributeResult } from "../models/models_5";
 import { de_DescribeVolumeAttributeCommand, se_DescribeVolumeAttributeCommand } from "../protocols/Aws_ec2";
 
 /**

@@ -6622,7 +6622,7 @@ export interface CancelSpotInstanceRequestsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more Spot Instance request IDs.</p>
+   * <p>The IDs of the Spot Instance requests.</p>
    */
   SpotInstanceRequestIds: string[] | undefined;
 }
@@ -6667,7 +6667,7 @@ export interface CancelledSpotInstanceRequest {
  */
 export interface CancelSpotInstanceRequestsResult {
   /**
-   * <p>One or more Spot Instance requests.</p>
+   * <p>The Spot Instance requests.</p>
    */
   CancelledSpotInstanceRequests?: CancelledSpotInstanceRequest[];
 }

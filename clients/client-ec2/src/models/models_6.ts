@@ -38,6 +38,7 @@ import {
   VerifiedAccessTrustProviderFilterSensitiveLog,
 } from "./models_0";
 import {
+  AmdSevSnpSpecification,
   AttributeValue,
   BlockDeviceMapping,
   CapacityReservationPreference,
@@ -158,6 +159,65 @@ import {
   VolumeDetail,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface ImportKeyPairRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>A unique name for the key pair.</p>
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>The public key. For API calls, the text must be base64-encoded. For command line tools, base64 encoding is performed for you.</p>
+   */
+  PublicKeyMaterial: Uint8Array | undefined;
+
+  /**
+   * <p>The tags to apply to the imported key pair.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+/**
+ * @public
+ */
+export interface ImportKeyPairResult {
+  /**
+   * <ul>
+   *             <li>
+   *                <p>For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC 4716.</p>
+   *             </li>
+   *             <li>
+   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  KeyFingerprint?: string;
+
+  /**
+   * <p>The key pair name that you provided.</p>
+   */
+  KeyName?: string;
+
+  /**
+   * <p>The ID of the resulting key pair.</p>
+   */
+  KeyPairId?: string;
+
+  /**
+   * <p>The tags applied to the imported key pair.</p>
+   */
+  Tags?: Tag[];
+}
 
 /**
  * @public
@@ -1422,10 +1482,9 @@ export interface ModifyInstanceAttributeRequest {
   EnaSupport?: AttributeBooleanValue;
 
   /**
-   * <p>[EC2-VPC] Replaces the security groups of the instance with the specified security
-   *             groups. You must specify at least one security group, even if it's just the default
-   *             security group for the VPC. You must specify the security group ID, not the security
-   *             group name.</p>
+   * <p>Replaces the security groups of the instance with the specified security groups.
+   *             You must specify the ID of at least one security group, even if it's just the default
+   *             security group for the VPC.</p>
    */
   Groups?: string[];
 
@@ -6333,12 +6392,12 @@ export interface RequestSpotFleetResponse {
  */
 export interface RequestSpotLaunchSpecification {
   /**
-   * <p>One or more security group IDs.</p>
+   * <p>The IDs of the security groups.</p>
    */
   SecurityGroupIds?: string[];
 
   /**
-   * <p>One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.</p>
+   * <p>Not supported.</p>
    */
   SecurityGroups?: string[];
 
@@ -6348,7 +6407,7 @@ export interface RequestSpotLaunchSpecification {
   AddressingType?: string;
 
   /**
-   * <p>One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value.
+   * <p>The block device mapping entries. You can't specify both a snapshot ID and an encryption value.
    *            This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume,
    *            it is not blank and its encryption status is used for the volume encryption status.</p>
    */
@@ -6393,7 +6452,7 @@ export interface RequestSpotLaunchSpecification {
   Monitoring?: RunInstancesMonitoringEnabled;
 
   /**
-   * <p>One or more network interfaces. If you specify a network interface, you must specify
+   * <p>The network interfaces. If you specify a network interface, you must specify
    *            subnet IDs and security group IDs using the network interface.</p>
    */
   NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
@@ -6546,7 +6605,7 @@ export interface RequestSpotInstancesRequest {
  */
 export interface RequestSpotInstancesResult {
   /**
-   * <p>One or more Spot Instance requests.</p>
+   * <p>The Spot Instance requests.</p>
    */
   SpotInstanceRequests?: SpotInstanceRequest[];
 }
@@ -7210,6 +7269,12 @@ export interface CpuOptionsRequest {
    *                 <code>2</code>.</p>
    */
   ThreadsPerCore?: number;
+
+  /**
+   * <p>Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported
+   *             with M6a, R6a, and C6a instance types only.</p>
+   */
+  AmdSevSnp?: AmdSevSnpSpecification | string;
 }
 
 /**
@@ -7506,7 +7571,7 @@ export interface RunInstancesRequest {
   InstanceType?: _InstanceType | string;
 
   /**
-   * <p>[EC2-VPC] The number of IPv6 addresses to associate with the primary network
+   * <p>The number of IPv6 addresses to associate with the primary network
    *             interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You
    *             cannot specify this option and the option to assign specific IPv6 addresses in the same
    *             request. You can specify this option if you've specified a minimum number of instances
@@ -7517,7 +7582,7 @@ export interface RunInstancesRequest {
   Ipv6AddressCount?: number;
 
   /**
-   * <p>[EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the
+   * <p>The IPv6 addresses from the range of the subnet to associate with the
    *             primary network interface. You cannot specify this option and the option to assign a
    *             number of IPv6 addresses in the same request. You cannot specify this option if you've
    *             specified a minimum number of instances to launch.</p>
@@ -7599,7 +7664,7 @@ export interface RunInstancesRequest {
   SecurityGroupIds?: string[];
 
   /**
-   * <p>[EC2-Classic, default VPC] The names of the security groups.</p>
+   * <p>[Default VPC] The names of the security groups.</p>
    *          <p>If you specify a network interface, you must specify any security groups as part of
    *             the network interface.</p>
    *          <p>Default: Amazon EC2 uses the default security group.</p>
@@ -7607,7 +7672,7 @@ export interface RunInstancesRequest {
   SecurityGroups?: string[];
 
   /**
-   * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p>
+   * <p>The ID of the subnet to launch the instance into.</p>
    *          <p>If you specify a network interface, you must specify any subnets as part of the
    *             network interface.</p>
    */
@@ -7689,7 +7754,7 @@ export interface RunInstancesRequest {
   NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
 
   /**
-   * <p>[EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address
+   * <p>The primary IPv4 address. You must specify a value from the IPv4 address
    *             range of the subnet.</p>
    *          <p>Only one private IP address can be designated as primary. You can't specify this
    *             option if you've specified the option to designate a private IP address as the primary
@@ -8511,45 +8576,6 @@ export interface SearchTransitGatewayRoutesResult {
    * <p>Indicates whether there are additional routes available.</p>
    */
   AdditionalRoutesAvailable?: boolean;
-}
-
-/**
- * @public
- */
-export interface SendDiagnosticInterruptRequest {
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface StartInstancesRequest {
-  /**
-   * <p>The IDs of the instances.</p>
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
-   * <p>Reserved.</p>
-   */
-  AdditionalInfo?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
 }
 
 /**

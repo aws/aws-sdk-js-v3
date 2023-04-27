@@ -69,7 +69,6 @@ import {
   PlacementGroup,
   PlatformValues,
   PrivateIpAddressSpecification,
-  ReplaceRootVolumeTask,
   SpotInstanceType,
   StateReason,
   Subnet,
@@ -77,6 +76,7 @@ import {
   Tenancy,
 } from "./models_1";
 import {
+  ReplaceRootVolumeTask,
   RouteTable,
   Snapshot,
   SnapshotState,
@@ -117,11 +117,26 @@ import {
   InstanceMaintenanceOptions,
   InstanceMetadataOptionsResponse,
   LicenseConfiguration,
-  MonitoringState,
   PermissionGroup,
   ProductCode,
   VirtualizationType,
 } from "./models_3";
+
+/**
+ * @public
+ * @enum
+ */
+export const MonitoringState = {
+  disabled: "disabled",
+  disabling: "disabling",
+  enabled: "enabled",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type MonitoringState = (typeof MonitoringState)[keyof typeof MonitoringState];
 
 /**
  * @public
@@ -505,10 +520,10 @@ export interface Instance {
   Platform?: PlatformValues | string;
 
   /**
-   * <p>(IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname
+   * <p>[IPv4 only] The private DNS hostname name assigned to the instance. This DNS hostname
    *             can only be used inside the Amazon EC2 network. This name is not available until the
    *             instance enters the <code>running</code> state. </p>
-   *          <p>[EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS
+   *          <p>The Amazon-provided DNS server resolves Amazon-provided private DNS
    *             hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not
    *             using the Amazon-provided DNS server in your VPC, your custom domain name servers must
    *             resolve the hostname as appropriate.</p>
@@ -526,8 +541,8 @@ export interface Instance {
   ProductCodes?: ProductCode[];
 
   /**
-   * <p>(IPv4 only) The public DNS name assigned to the instance. This name is not available
-   *             until the instance enters the <code>running</code> state. For EC2-VPC, this name is only
+   * <p>[IPv4 only] The public DNS name assigned to the instance. This name is not available
+   *             until the instance enters the <code>running</code> state. This name is only
    *             available if you've enabled DNS hostnames for your VPC.</p>
    */
   PublicDnsName?: string;
@@ -556,12 +571,12 @@ export interface Instance {
   StateTransitionReason?: string;
 
   /**
-   * <p>[EC2-VPC] The ID of the subnet in which the instance is running.</p>
+   * <p>The ID of the subnet in which the instance is running.</p>
    */
   SubnetId?: string;
 
   /**
-   * <p>[EC2-VPC] The ID of the VPC in which the instance is running.</p>
+   * <p>The ID of the VPC in which the instance is running.</p>
    */
   VpcId?: string;
 
@@ -622,7 +637,7 @@ export interface Instance {
   ElasticInferenceAcceleratorAssociations?: ElasticInferenceAcceleratorAssociation[];
 
   /**
-   * <p>[EC2-VPC] The network interfaces for the instance.</p>
+   * <p>The network interfaces for the instance.</p>
    */
   NetworkInterfaces?: InstanceNetworkInterface[];
 
@@ -783,7 +798,7 @@ export interface Instance {
  */
 export interface Reservation {
   /**
-   * <p>[EC2-Classic only] The security groups.</p>
+   * <p>Not supported.</p>
    */
   Groups?: GroupIdentifier[];
 
@@ -1266,7 +1281,7 @@ export interface DescribeInstanceTypesRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported  (<code>true</code> | <code>false</code>).</p>
+   *                   <code>auto-recovery-supported</code> - Indicates whether Amazon CloudWatch action based recovery is supported  (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2028,6 +2043,20 @@ export type ArchitectureType = (typeof ArchitectureType)[keyof typeof Architectu
 
 /**
  * @public
+ * @enum
+ */
+export const SupportedAdditionalProcessorFeature = {
+  AMD_SEV_SNP: "amd-sev-snp",
+} as const;
+
+/**
+ * @public
+ */
+export type SupportedAdditionalProcessorFeature =
+  (typeof SupportedAdditionalProcessorFeature)[keyof typeof SupportedAdditionalProcessorFeature];
+
+/**
+ * @public
  * <p>Describes the processor used by the instance type.</p>
  */
 export interface ProcessorInfo {
@@ -2040,6 +2069,12 @@ export interface ProcessorInfo {
    * <p>The speed of the processor, in GHz.</p>
    */
   SustainedClockSpeedInGhz?: number;
+
+  /**
+   * <p>Indicates whether the instance type supports AMD SEV-SNP. If the request returns
+   *    <code>amd-sev-snp</code>, AMD SEV-SNP is supported. Otherwise, it is not supported.</p>
+   */
+  SupportedFeatures?: (SupportedAdditionalProcessorFeature | string)[];
 }
 
 /**
@@ -2231,7 +2266,7 @@ export interface InstanceTypeInfo {
   DedicatedHostsSupported?: boolean;
 
   /**
-   * <p>Indicates whether auto recovery is supported.</p>
+   * <p>Indicates whether Amazon CloudWatch action based recovery is supported.</p>
    */
   AutoRecoverySupported?: boolean;
 
@@ -5316,18 +5351,13 @@ export interface DescribeReservedInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>product-description</code> - The Reserved Instance product platform
-   *           description. Instances that include <code>(Amazon VPC)</code> in the product platform
-   *           description will only be displayed to EC2-Classic account holders and are for use with
-   *           Amazon VPC (<code>Linux/UNIX</code> | <code>Linux/UNIX (Amazon VPC)</code> | <code>SUSE
-   *             Linux</code> | <code>SUSE Linux (Amazon VPC)</code> | <code>Red Hat Enterprise
-   *             Linux</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code> | <code>Red Hat
-   *             Enterprise Linux with HA (Amazon VPC)</code> | <code>Windows</code> | <code>Windows
-   *             (Amazon VPC)</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with
-   *             SQL Server Standard (Amazon VPC)</code> | <code>Windows with SQL Server Web</code> |
-   *             <code>Windows with SQL Server Web (Amazon VPC)</code> | <code>Windows with SQL Server
-   *             Enterprise</code> | <code>Windows with SQL Server Enterprise (Amazon
-   *           VPC)</code>).</p>
+   *                   <code>product-description</code> - The Reserved Instance product platform description
+   *              (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> |
+   *               <code>Linux with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> |
+   *               <code>SUSE Linux</code> |
+   *               <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> |
+   *               <code>Windows</code> | <code>Windows with SQL Server Standard</code> |
+   *               <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Enterprise</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5658,10 +5688,6 @@ export interface DescribeReservedInstancesModificationsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>modification-result.target-configuration.platform</code> - The network platform of the new Reserved Instances (<code>EC2-Classic</code> | <code>EC2-VPC</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>reserved-instances-id</code> - The ID of the Reserved Instances modified.</p>
    *             </li>
    *             <li>
@@ -5720,7 +5746,7 @@ export interface ReservedInstancesConfiguration {
   InstanceType?: _InstanceType | string;
 
   /**
-   * <p>The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.</p>
+   * <p>The network platform of the modified Reserved Instances.</p>
    */
   Platform?: string;
 
@@ -5868,17 +5894,13 @@ export interface DescribeReservedInstancesOfferingsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>product-description</code> - The Reserved Instance product platform description.
-   *           Instances that include <code>(Amazon VPC)</code> in the product platform description will
-   *           only be displayed to EC2-Classic account holders and are for use with Amazon VPC.
-   *             (<code>Linux/UNIX</code> | <code>Linux/UNIX (Amazon VPC)</code> | <code>SUSE
-   *             Linux</code> | <code>SUSE Linux (Amazon VPC)</code> | <code>Red Hat Enterprise
-   *             Linux</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code> | <code>Red Hat
-   *             Enterprise Linux with HA (Amazon VPC)</code> | <code>Windows</code> | <code>Windows
-   *             (Amazon VPC)</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with
-   *             SQL Server Standard (Amazon VPC)</code> | <code>Windows with SQL Server Web</code> |
-   *             <code> Windows with SQL Server Web (Amazon VPC)</code> | <code>Windows with SQL Server
-   *             Enterprise</code> | <code>Windows with SQL Server Enterprise (Amazon VPC)</code>) </p>
+   *                   <code>product-description</code> - The Reserved Instance product platform description
+   *           (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> |
+   *           <code>Linux with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> |
+   *           <code>SUSE Linux</code> |
+   *           <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux with HA</code> |
+   *           <code>Windows</code> | <code>Windows with SQL Server Standard</code> |
+   *           <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Enterprise</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6332,10 +6354,6 @@ export interface DescribeScheduledInstanceAvailabilityRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-platform</code> - The network platform (<code>EC2-Classic</code> or <code>EC2-VPC</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>platform</code> - The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
    *             </li>
    *          </ul>
@@ -6450,7 +6468,7 @@ export interface ScheduledInstanceAvailability {
   MinTermDurationInDays?: number;
 
   /**
-   * <p>The network platform (<code>EC2-Classic</code> or <code>EC2-VPC</code>).</p>
+   * <p>The network platform.</p>
    */
   NetworkPlatform?: string;
 
@@ -6537,10 +6555,6 @@ export interface DescribeScheduledInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-platform</code> - The network platform (<code>EC2-Classic</code> or <code>EC2-VPC</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>platform</code> - The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
    *             </li>
    *          </ul>
@@ -6602,7 +6616,7 @@ export interface ScheduledInstance {
   InstanceType?: string;
 
   /**
-   * <p>The network platform (<code>EC2-Classic</code> or <code>EC2-VPC</code>).</p>
+   * <p>The network platform.</p>
    */
   NetworkPlatform?: string;
 
@@ -7831,7 +7845,7 @@ export interface SpotFleetTagSpecification {
  */
 export interface SpotFleetLaunchSpecification {
   /**
-   * <p>One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.</p>
+   * <p>The security groups.</p>
    */
   SecurityGroups?: GroupIdentifier[];
 
@@ -8498,7 +8512,7 @@ export interface DescribeSpotFleetRequestsResponse {
  */
 export interface DescribeSpotInstanceRequestsRequest {
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -8704,7 +8718,7 @@ export interface DescribeSpotInstanceRequestsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more Spot Instance request IDs.</p>
+   * <p>The IDs of the Spot Instance requests.</p>
    */
   SpotInstanceRequestIds?: string[];
 
@@ -8744,7 +8758,7 @@ export interface LaunchSpecification {
   UserData?: string;
 
   /**
-   * <p>One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.</p>
+   * <p>The IDs of the security groups.</p>
    */
   SecurityGroups?: GroupIdentifier[];
 
@@ -8754,7 +8768,7 @@ export interface LaunchSpecification {
   AddressingType?: string;
 
   /**
-   * <p>One or more block device mapping entries.</p>
+   * <p>The block device mapping entries.</p>
    */
   BlockDeviceMappings?: BlockDeviceMapping[];
 
@@ -8791,7 +8805,7 @@ export interface LaunchSpecification {
   KeyName?: string;
 
   /**
-   * <p>One or more network interfaces. If you specify a network interface, you must specify
+   * <p>The network interfaces. If you specify a network interface, you must specify
    *            subnet IDs and security group IDs using the network interface.</p>
    */
   NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
@@ -8984,7 +8998,7 @@ export interface SpotInstanceRequest {
  */
 export interface DescribeSpotInstanceRequestsResult {
   /**
-   * <p>One or more Spot Instance requests.</p>
+   * <p>The Spot Instance requests.</p>
    */
   SpotInstanceRequests?: SpotInstanceRequest[];
 
@@ -9001,7 +9015,7 @@ export interface DescribeSpotInstanceRequestsResult {
  */
 export interface DescribeSpotPriceHistoryRequest {
   /**
-   * <p>One or more filters.</p>
+   * <p>The filters.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -11126,146 +11140,6 @@ export interface DescribeVolumeAttributeRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DescribeVolumeAttributeResult {
-  /**
-   * <p>The state of <code>autoEnableIO</code> attribute.</p>
-   */
-  AutoEnableIO?: AttributeBooleanValue;
-
-  /**
-   * <p>A list of product codes.</p>
-   */
-  ProductCodes?: ProductCode[];
-
-  /**
-   * <p>The ID of the volume.</p>
-   */
-  VolumeId?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeVolumesRequest {
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.attach-time</code> - The time stamp when the attachment
-   *           initiated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.delete-on-termination</code> - Whether the volume is deleted on
-   *           instance termination.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.device</code> - The device name specified in the block device mapping
-   *           (for example, <code>/dev/sda1</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.instance-id</code> - The ID of the instance the volume is attached
-   *           to.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.status</code> - The attachment state (<code>attaching</code> |
-   *             <code>attached</code> | <code>detaching</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone in which the volume was
-   *           created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>create-time</code> - The time stamp when the volume was created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>encrypted</code> - Indicates whether the volume is encrypted (<code>true</code>
-   *           | <code>false</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>multi-attach-enabled</code> - Indicates whether the volume is enabled for Multi-Attach (<code>true</code>
-   *     			| <code>false</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fast-restored</code> - Indicates whether the volume was created from a
-   *           snapshot that is enabled for fast snapshot restore (<code>true</code> |
-   *           <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>size</code> - The size of the volume, in GiB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>snapshot-id</code> - The snapshot from which the volume was created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status</code> - The state of the volume (<code>creating</code> |
-   *             <code>available</code> | <code>in-use</code> | <code>deleting</code> |
-   *             <code>deleted</code> | <code>error</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-id</code> - The volume ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-type</code> - The Amazon EBS volume type (<code>gp2</code> | <code>gp3</code> | <code>io1</code> | <code>io2</code> |
-   *           <code>st1</code> | <code>sc1</code>| <code>standard</code>)</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The volume IDs.</p>
-   */
-  VolumeIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of volumes to return for this request.
-   *       This value can be between 5 and 500; if you specify a value larger than 500, only 500 items are returned.
-   *       If this parameter is not used, then all items are returned. You cannot specify this parameter and the
-   *       volume IDs parameter in the same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token returned from a previous paginated request.
-   *       Pagination continues from the end of the items returned from the previous request.</p>
-   */
-  NextToken?: string;
 }
 
 /**

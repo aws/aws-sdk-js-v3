@@ -2479,7 +2479,6 @@ import {
   PrivateDnsNameOptionsOnLaunch,
   PrivateIpAddressSpecification,
   ProvisionedBandwidth,
-  ReplaceRootVolumeTask,
   RequestFilterPortRange,
   RequestIpamResourceTag,
   RequestLaunchTemplateData,
@@ -2662,7 +2661,6 @@ import {
   DeleteRouteTableRequest,
   DeleteSecurityGroupRequest,
   DeleteSnapshotRequest,
-  DeleteSpotDatafeedSubscriptionRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2687,6 +2685,7 @@ import {
   PriceScheduleSpecification,
   PrivateDnsNameConfiguration,
   PropagatingVgw,
+  ReplaceRootVolumeTask,
   ResponseError,
   Route,
   RouteTable,
@@ -2768,6 +2767,7 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DeleteSpotDatafeedSubscriptionRequest,
   DeleteSubnetCidrReservationRequest,
   DeleteSubnetCidrReservationResult,
   DeleteSubnetRequest,
@@ -3167,8 +3167,6 @@ import {
   DescribeVerifiedAccessTrustProvidersRequest,
   DescribeVerifiedAccessTrustProvidersResult,
   DescribeVolumeAttributeRequest,
-  DescribeVolumeAttributeResult,
-  DescribeVolumesRequest,
   DiskInfo,
   EbsInfo,
   EbsOptimizedInfo,
@@ -3258,6 +3256,7 @@ import {
   StaleIpPermission,
   StaleSecurityGroup,
   StoreImageTaskResult,
+  SupportedAdditionalProcessorFeature,
   TagDescription,
   TargetGroup,
   TargetGroupsConfig,
@@ -3282,8 +3281,10 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeVolumeAttributeResult,
   DescribeVolumesModificationsRequest,
   DescribeVolumesModificationsResult,
+  DescribeVolumesRequest,
   DescribeVolumesResult,
   DescribeVolumeStatusRequest,
   DescribeVolumeStatusResult,
@@ -3512,8 +3513,6 @@ import {
   ImportInstanceLaunchSpecification,
   ImportInstanceRequest,
   ImportInstanceResult,
-  ImportKeyPairRequest,
-  ImportKeyPairResult,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -3572,6 +3571,8 @@ import {
   EnclaveOptionsRequest,
   HibernationOptionsRequest,
   ImageRecycleBinInfo,
+  ImportKeyPairRequest,
+  ImportKeyPairResult,
   ImportSnapshotRequest,
   ImportSnapshotResult,
   ImportVolumeRequest,
@@ -3833,11 +3834,9 @@ import {
   SearchTransitGatewayRoutesResult,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
-  SendDiagnosticInterruptRequest,
   SnapshotDiskContainer,
   SnapshotRecycleBinInfo,
   SpotMarketOptions,
-  StartInstancesRequest,
   SuccessfulInstanceCreditSpecificationItem,
   TrafficMirrorFilterRuleField,
   TrafficMirrorSessionField,
@@ -3854,6 +3853,8 @@ import {
 import {
   InstanceStateChange,
   SecurityGroupRuleDescription,
+  SendDiagnosticInterruptRequest,
+  StartInstancesRequest,
   StartInstancesResult,
   StartNetworkInsightsAccessScopeAnalysisRequest,
   StartNetworkInsightsAccessScopeAnalysisResult,
@@ -39781,6 +39782,9 @@ const se_CpuOptionsRequest = (input: CpuOptionsRequest, context: __SerdeContext)
   if (input.ThreadsPerCore != null) {
     entries["ThreadsPerCore"] = input.ThreadsPerCore;
   }
+  if (input.AmdSevSnp != null) {
+    entries["AmdSevSnp"] = input.AmdSevSnp;
+  }
   return entries;
 };
 
@@ -55081,6 +55085,9 @@ const se_LaunchTemplateCpuOptionsRequest = (input: LaunchTemplateCpuOptionsReque
   if (input.ThreadsPerCore != null) {
     entries["ThreadsPerCore"] = input.ThreadsPerCore;
   }
+  if (input.AmdSevSnp != null) {
+    entries["AmdSevSnp"] = input.AmdSevSnp;
+  }
   return entries;
 };
 
@@ -68230,6 +68237,9 @@ const de_CpuOptions = (output: any, context: __SerdeContext): CpuOptions => {
   if (output["threadsPerCore"] !== undefined) {
     contents.ThreadsPerCore = __strictParseInt32(output["threadsPerCore"]) as number;
   }
+  if (output["amdSevSnp"] !== undefined) {
+    contents.AmdSevSnp = __expectString(output["amdSevSnp"]);
+  }
   return contents;
 };
 
@@ -81292,6 +81302,9 @@ const de_LaunchTemplateCpuOptions = (output: any, context: __SerdeContext): Laun
   if (output["threadsPerCore"] !== undefined) {
     contents.ThreadsPerCore = __strictParseInt32(output["threadsPerCore"]) as number;
   }
+  if (output["amdSevSnp"] !== undefined) {
+    contents.AmdSevSnp = __expectString(output["amdSevSnp"]);
+  }
   return contents;
 };
 
@@ -85094,6 +85107,14 @@ const de_ProcessorInfo = (output: any, context: __SerdeContext): ProcessorInfo =
   }
   if (output["sustainedClockSpeedInGhz"] !== undefined) {
     contents.SustainedClockSpeedInGhz = __strictParseFloat(output["sustainedClockSpeedInGhz"]) as number;
+  }
+  if (output.supportedFeatures === "") {
+    contents.SupportedFeatures = [];
+  } else if (output["supportedFeatures"] !== undefined && output["supportedFeatures"]["item"] !== undefined) {
+    contents.SupportedFeatures = de_SupportedAdditionalProcessorFeatureList(
+      __getArrayIfSingleItem(output["supportedFeatures"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -88935,6 +88956,20 @@ const de_SuccessfulQueuedPurchaseDeletionSet = (
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_SuccessfulQueuedPurchaseDeletion(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2SupportedAdditionalProcessorFeatureList
+ */
+const de_SupportedAdditionalProcessorFeatureList = (
+  output: any,
+  context: __SerdeContext
+): (SupportedAdditionalProcessorFeature | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
     });
 };
 

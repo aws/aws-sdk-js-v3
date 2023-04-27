@@ -38,6 +38,7 @@ import {
   VerifiedAccessTrustProviderFilterSensitiveLog,
 } from "./models_0";
 import {
+  AmdSevSnpSpecification,
   AttributeValue,
   BlockDeviceMapping,
   CapacityReservationPreference,
@@ -87,6 +88,20 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>Contains the parameters for DeleteSpotDatafeedSubscription.</p>
+ */
+export interface DeleteSpotDatafeedSubscriptionRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *             <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 /**
  * @public
@@ -8358,16 +8373,6 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>group-id</code> - The ID of the security group for the instance.
-   *                     EC2-Classic only.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>group-name</code> - The name of the security group for the instance.
-   *                     EC2-Classic only.</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>hibernation-options.configured</code> - A Boolean that indicates whether
    *                     the instance is enabled for hibernation. A value of <code>true</code> means that
    *                     the instance is enabled for hibernation. </p>
@@ -8850,6 +8855,11 @@ export interface CpuOptions {
    * <p>The number of threads per CPU core.</p>
    */
   ThreadsPerCore?: number;
+
+  /**
+   * <p>Indicates whether the instance is enabled for AMD SEV-SNP.</p>
+   */
+  AmdSevSnp?: AmdSevSnpSpecification | string;
 }
 
 /**
@@ -9138,22 +9148,6 @@ export interface InstanceMetadataOptionsResponse {
    */
   InstanceMetadataTags?: InstanceMetadataTagsState | string;
 }
-
-/**
- * @public
- * @enum
- */
-export const MonitoringState = {
-  disabled: "disabled",
-  disabling: "disabling",
-  enabled: "enabled",
-  pending: "pending",
-} as const;
-
-/**
- * @public
- */
-export type MonitoringState = (typeof MonitoringState)[keyof typeof MonitoringState];
 
 /**
  * @internal

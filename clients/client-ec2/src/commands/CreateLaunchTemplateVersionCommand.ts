@@ -190,6 +190,7 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  *     CpuOptions: { // LaunchTemplateCpuOptionsRequest
  *       CoreCount: Number("int"),
  *       ThreadsPerCore: Number("int"),
+ *       AmdSevSnp: "enabled" || "disabled",
  *     },
  *     CapacityReservationSpecification: { // LaunchTemplateCapacityReservationSpecificationRequest
  *       CapacityReservationPreference: "open" || "none",

@@ -44,12 +44,99 @@ import {
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
-  ReplaceRootVolumeTask,
+  ReplaceRootVolumeTaskState,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>Information about a root volume replacement task.</p>
+ */
+export interface ReplaceRootVolumeTask {
+  /**
+   * <p>The ID of the root volume replacement task.</p>
+   */
+  ReplaceRootVolumeTaskId?: string;
+
+  /**
+   * <p>The ID of the instance for which the root volume replacement task was created.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The state of the task. The task can be in one of the following states:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code> - the replacement volume is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>in-progress</code> - the original volume is being detached and the
+   *           replacement volume is being attached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>succeeded</code> - the replacement volume has been successfully attached
+   *           to the instance and the instance is available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failing</code> - the replacement task is in the process of failing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed</code> - the replacement task has failed but the original root
+   *           volume is still attached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failing-detached</code> - the replacement task is in the process of failing.
+   *           The instance might have no root volume attached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed-detached</code> - the replacement task has failed and the instance
+   *           has no root volume attached.</p>
+   *             </li>
+   *          </ul>
+   */
+  TaskState?: ReplaceRootVolumeTaskState | string;
+
+  /**
+   * <p>The time the task was started.</p>
+   */
+  StartTime?: string;
+
+  /**
+   * <p>The time the task completed.</p>
+   */
+  CompleteTime?: string;
+
+  /**
+   * <p>The tags assigned to the task.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The ID of the AMI used to create the replacement root volume.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The ID of the snapshot used to create the replacement root volume.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>Indicates whether the original root volume is to be deleted after the root volume
+   *       replacement task completes.</p>
+   */
+  DeleteReplacedRootVolume?: boolean;
+}
 
 /**
  * @public
@@ -7619,20 +7706,6 @@ export interface DeleteSnapshotRequest {
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- * <p>Contains the parameters for DeleteSpotDatafeedSubscription.</p>
- */
-export interface DeleteSpotDatafeedSubscriptionRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *             <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }

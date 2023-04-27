@@ -39,21 +39,12 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  *             apply:</p>
  *          <ul>
  *             <li>
- *                <p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from
+ *                <p>If you don't specify a subnet ID, we choose a default subnet from
  *                     your default VPC for you. If you don't have a default VPC, you must specify a
  *                     subnet ID in the request.</p>
  *             </li>
  *             <li>
- *                <p>[EC2-Classic] If don't specify an Availability Zone, we choose one for
- *                     you.</p>
- *             </li>
- *             <li>
- *                <p>Some instance types must be launched into a VPC. If you do not have a default
- *                     VPC, or if you do not specify a subnet ID, the request fails. For more
- *                     information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types">Instance types available only in a VPC</a>.</p>
- *             </li>
- *             <li>
- *                <p>[EC2-VPC] All instances have a network interface with a primary private IPv4
+ *                <p>All instances have a network interface with a primary private IPv4
  *                     address. If you don't specify this address, we choose one from the IPv4 range of
  *                     your subnet.</p>
  *             </li>
@@ -90,11 +81,6 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  *                 pairs</a>.</p>
  *          <p>For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What to do if
  *                 an instance immediately terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting connecting to your instance</a>.</p>
- *          <note>
- *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a
- *                 VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a
- *                     VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -251,6 +237,7 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  *   CpuOptions: { // CpuOptionsRequest
  *     CoreCount: Number("int"),
  *     ThreadsPerCore: Number("int"),
+ *     AmdSevSnp: "enabled" || "disabled",
  *   },
  *   CapacityReservationSpecification: { // CapacityReservationSpecification
  *     CapacityReservationPreference: "open" || "none",

@@ -14,8 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVolumesRequest } from "../models/models_4";
-import { DescribeVolumesResult } from "../models/models_5";
+import { DescribeVolumesRequest, DescribeVolumesResult } from "../models/models_5";
 import { de_DescribeVolumesCommand, se_DescribeVolumesCommand } from "../protocols/Aws_ec2";
 
 /**
