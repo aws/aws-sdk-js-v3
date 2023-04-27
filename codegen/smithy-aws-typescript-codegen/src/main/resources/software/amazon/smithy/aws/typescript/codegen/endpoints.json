@@ -25408,6 +25408,11 @@
             "us-iso-west-1": {}
           }
         },
+        "athena": {
+          "endpoints": {
+            "us-iso-east-1": {}
+          }
+        },
         "autoscaling": {
           "endpoints": {
             "us-iso-east-1": {
@@ -26269,6 +26274,11 @@
             "protocols": ["http", "https"],
             "signatureVersions": ["s3v4"]
           },
+          "endpoints": {
+            "us-isob-east-1": {}
+          }
+        },
+        "secretsmanager": {
           "endpoints": {
             "us-isob-east-1": {}
           }
