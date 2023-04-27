@@ -17,7 +17,7 @@
 |@aws-sdk/client-cognito-identity-provider|3.319.0|2.3 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-cognito-sync|3.319.0|423.7 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-dynamodb|3.319.0|1.5 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/client-ec2|3.321.0|13.7 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/client-ec2|3.321.1|13.7 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-efs|3.319.0|742.9 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-eventbridge|3.319.0|1016.7 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-firehose|3.319.0|481.1 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
@@ -25,7 +25,7 @@
 |@aws-sdk/client-iam|3.319.0|3.2 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-kinesis|3.321.0|721.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-kms|3.319.0|1.5 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/client-lambda|3.319.0|1.5 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/client-lambda|3.321.1|1.5 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-opsworks|3.319.0|1.2 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-pinpoint|3.321.0|2.5 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-resource-groups-tagging-api|3.319.0|259.6 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
@@ -34,7 +34,7 @@
 |@aws-sdk/client-sns|3.319.0|986.7 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-ssm|3.319.0|3.2 MB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/client-sts|3.319.0|373.5 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
-|@aws-sdk/client-xray|3.319.0|649.1 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
+|@aws-sdk/client-xray|3.321.1|649.4 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/credential-provider-cognito-identity|3.319.0|36.2 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/credential-provider-env|3.306.0|17.3 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-imds|3.306.0|50.4 KB|N/A|N/A|N/A|

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.322.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.1...v3.322.0) (2023-04-27)
+
+
+### Features
+
+* **client-ec2:** This release adds support for AMD SEV-SNP on EC2 instances. ([c57a8bf](https://github.com/aws/aws-sdk-js-v3/commit/c57a8bf3a499e5838896e485354947f1521042bc))
+* **client-emr-containers:** This release adds GetManagedEndpointSessionCredentials, a new API that allows customers to generate an auth token to connect to a managed endpoint, enabling features such as self-hosted Jupyter notebooks for EMR on EKS. ([ab0a6d0](https://github.com/aws/aws-sdk-js-v3/commit/ab0a6d0fa36a11d6138fe6721bcd481e99e5e191))
+* **client-guardduty:** Added API support to initiate on-demand malware scan on specific resources. ([309ab61](https://github.com/aws/aws-sdk-js-v3/commit/309ab61b1a9af25acefb51c63fb8192788d94373))
+* **client-iotdeviceadvisor:** AWS IoT Core Device Advisor now supports MQTT over WebSocket. With this update, customers can run all three test suites of AWS IoT Core Device Advisor - qualification, custom, and long duration tests - using Signature Version 4 for MQTT over WebSocket. ([8e370f2](https://github.com/aws/aws-sdk-js-v3/commit/8e370f247e6f320ce1829dca13485b35c22eb6c6))
+* **client-kafka:** Amazon MSK has added new APIs that allows multi-VPC private connectivity and cluster policy support for Amazon MSK clusters that simplify connectivity and access between your Apache Kafka clients hosted in different VPCs and AWS accounts and your Amazon MSK clusters. ([701a7a1](https://github.com/aws/aws-sdk-js-v3/commit/701a7a1b811628c4d61093484c597f4820203cb1))
+* **client-lambda:** Add Java 17 (java17) support to AWS Lambda ([5e95e01](https://github.com/aws/aws-sdk-js-v3/commit/5e95e01b37eaf9bfbb79cda2961cd6c191b64568))
+* **client-marketplace-catalog:** Enabled Pagination for List Entities and List Change Sets operations ([4df226f](https://github.com/aws/aws-sdk-js-v3/commit/4df226f47d4abe84bc2c2246b753c04e83390478))
+* **client-sagemaker:** Added ml.p4d.24xlarge and ml.p4de.24xlarge as supported instances for SageMaker Studio ([d7edbd5](https://github.com/aws/aws-sdk-js-v3/commit/d7edbd52a764fc945440d263c3d642ca8c213e6b))
+* **clients:** update client endpoints as of 2023-04-27 ([bdc2c81](https://github.com/aws/aws-sdk-js-v3/commit/bdc2c810265ac2a7d61a8bedd468befc1c466e6d))
+
+
+
+
+
 ## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.322.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.1...v3.322.0) (2023-04-27)
+
+
+### Features
+
+* **client-sagemaker:** Added ml.p4d.24xlarge and ml.p4de.24xlarge as supported instances for SageMaker Studio ([d7edbd5](https://github.com/aws/aws-sdk-js-v3/commit/d7edbd52a764fc945440d263c3d642ca8c213e6b))
+
+
+
+
+
 ## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker
