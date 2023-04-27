@@ -3798,6 +3798,8 @@ export const AppInstanceType = {
   ML_P3_16XLARGE: "ml.p3.16xlarge",
   ML_P3_2XLARGE: "ml.p3.2xlarge",
   ML_P3_8XLARGE: "ml.p3.8xlarge",
+  ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
+  ML_P4D_24XLARGE: "ml.p4d.24xlarge",
   ML_R5_12XLARGE: "ml.r5.12xlarge",
   ML_R5_16XLARGE: "ml.r5.16xlarge",
   ML_R5_24XLARGE: "ml.r5.24xlarge",
@@ -6272,15 +6274,15 @@ export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
  */
 export interface ModelRegisterSettings {
   /**
-   * <p>Describes whether the integration to the model registry is enabled or disabled in the Canvas
-   *       application.</p>
+   * <p>Describes whether the integration to the model registry is enabled or disabled in the
+   *       Canvas application.</p>
    */
   Status?: FeatureStatus | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to
-   *    register model versions created by a different SageMaker Canvas AWS account than the AWS account
-   *    in which SageMaker model registry is set up.</p>
+   * <p>The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions
+   *       created by a different SageMaker Canvas Amazon Web Services account than the Amazon Web Services
+   *       account in which SageMaker model registry is set up.</p>
    */
   CrossAccountModelRegisterRoleArn?: string;
 }
@@ -6297,11 +6299,12 @@ export interface TimeSeriesForecastingSettings {
   Status?: FeatureStatus | string;
 
   /**
-   * <p>The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas
-   *       uses the execution role specified in the <code>UserProfile</code> that launches the Canvas
-   *       application. If an execution role is not specified in the <code>UserProfile</code>, Canvas uses
-   *       the execution role specified in the Domain that owns the <code>UserProfile</code>. To allow
-   *       time series forecasting, this IAM role should have the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess"> AmazonSageMakerCanvasForecastAccess</a> policy attached and
+   * <p>The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default,
+   *       Canvas uses the execution role specified in the <code>UserProfile</code> that launches the
+   *       Canvas application. If an execution role is not specified in the <code>UserProfile</code>,
+   *       Canvas uses the execution role specified in the Domain that owns the
+   *       <code>UserProfile</code>. To allow time series forecasting, this IAM role should have the
+   *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess"> AmazonSageMakerCanvasForecastAccess</a> policy attached and
    *         <code>forecast.amazonaws.com</code> added in the trust relationship as a service
    *       principal.</p>
    */
