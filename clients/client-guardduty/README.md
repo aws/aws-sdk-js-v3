@@ -650,6 +650,14 @@ ListThreatIntelSets
 </details>
 <details>
 <summary>
+StartMalwareScan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-guardduty/classes/startmalwarescancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-guardduty/interfaces/startmalwarescancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-guardduty/interfaces/startmalwarescancommandoutput.html)
+
+</details>
+<details>
+<summary>
 StartMonitoringMembers
 </summary>
 

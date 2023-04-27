@@ -52,6 +52,7 @@ export * from "./ListOrganizationAdminAccountsCommand";
 export * from "./ListPublishingDestinationsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ListThreatIntelSetsCommand";
+export * from "./StartMalwareScanCommand";
 export * from "./StartMonitoringMembersCommand";
 export * from "./StopMonitoringMembersCommand";
 export * from "./TagResourceCommand";

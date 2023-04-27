@@ -20,6 +20,53 @@ import {
 /**
  * @public
  */
+export interface StopMonitoringMembersRequest {
+  /**
+   * <p>The unique ID of the detector associated with the GuardDuty administrator account that is
+   *       monitoring member accounts.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>A list of account IDs for the member accounts to stop monitoring.</p>
+   */
+  AccountIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopMonitoringMembersResponse {
+  /**
+   * <p>A list of objects that contain an accountId for each account that could not be processed,
+   *       and a result string that indicates why the account was not processed. </p>
+   */
+  UnprocessedAccounts: UnprocessedAccount[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the GuardDuty resource to apply a tag to.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The tags to be added to a resource.</p>
+   */
+  Tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
 export interface UnarchiveFindingsRequest {
   /**
    * <p>The ID of the detector associated with the findings to unarchive.</p>

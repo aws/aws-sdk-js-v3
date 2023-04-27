@@ -150,6 +150,7 @@ import {
   ListThreatIntelSetsCommandInput,
   ListThreatIntelSetsCommandOutput,
 } from "../commands/ListThreatIntelSetsCommand";
+import { StartMalwareScanCommandInput, StartMalwareScanCommandOutput } from "../commands/StartMalwareScanCommand";
 import {
   StartMonitoringMembersCommandInput,
   StartMonitoringMembersCommandOutput,
@@ -207,6 +208,7 @@ import {
   City,
   CloudTrailConfigurationResult,
   Condition,
+  ConflictException,
   Container,
   Country,
   CoverageEksClusterDetails,
@@ -1942,6 +1944,35 @@ export const se_ListThreatIntelSetsCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1StartMalwareScanCommand
+ */
+export const se_StartMalwareScanCommand = async (
+  input: StartMalwareScanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/malware-scan/start";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      resourceArn: [, , `ResourceArn`],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -5063,6 +5094,59 @@ const de_ListThreatIntelSetsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1StartMalwareScanCommand
+ */
+export const de_StartMalwareScanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMalwareScanCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartMalwareScanCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ScanId: [, __expectString, `scanId`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartMalwareScanCommandError
+ */
+const de_StartMalwareScanCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMalwareScanCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.guardduty#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.guardduty#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.guardduty#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1StartMonitoringMembersCommand
  */
 export const de_StartMonitoringMembersCommand = async (
@@ -5735,6 +5819,24 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
   });
   Object.assign(contents, doc);
   const exception = new BadRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: [, __expectString, `message`],
+    Type: [, __expectString, `__type`],
+  });
+  Object.assign(contents, doc);
+  const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -6819,6 +6921,7 @@ const de_EbsVolumeScanDetails = (output: any, context: __SerdeContext): EbsVolum
     ScanDetections: [, (_: any) => de_ScanDetections(_, context), `scanDetections`],
     ScanId: [, __expectString, `scanId`],
     ScanStartedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `scanStartedAt`],
+    ScanType: [, __expectString, `scanType`],
     Sources: [, _json, `sources`],
     TriggerFindingId: [, __expectString, `triggerFindingId`],
   }) as any;
@@ -7968,6 +8071,7 @@ const de_Scan = (output: any, context: __SerdeContext): Scan => {
     ScanResultDetails: [, (_: any) => de_ScanResultDetails(_, context), `scanResultDetails`],
     ScanStartTime: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `scanStartTime`],
     ScanStatus: [, __expectString, `scanStatus`],
+    ScanType: [, __expectString, `scanType`],
     TotalBytes: [, __expectLong, `totalBytes`],
     TriggerDetails: [, (_: any) => de_TriggerDetails(_, context), `triggerDetails`],
   }) as any;
