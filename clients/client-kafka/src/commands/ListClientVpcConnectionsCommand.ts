@@ -14,63 +14,44 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import { UpdateConnectivityRequest, UpdateConnectivityResponse } from "../models/models_0";
-import { de_UpdateConnectivityCommand, se_UpdateConnectivityCommand } from "../protocols/Aws_restJson1";
+import { ListClientVpcConnectionsRequest, ListClientVpcConnectionsResponse } from "../models/models_0";
+import { de_ListClientVpcConnectionsCommand, se_ListClientVpcConnectionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link UpdateConnectivityCommand}.
+ * The input for {@link ListClientVpcConnectionsCommand}.
  */
-export interface UpdateConnectivityCommandInput extends UpdateConnectivityRequest {}
+export interface ListClientVpcConnectionsCommandInput extends ListClientVpcConnectionsRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateConnectivityCommand}.
+ * The output of {@link ListClientVpcConnectionsCommand}.
  */
-export interface UpdateConnectivityCommandOutput extends UpdateConnectivityResponse, __MetadataBearer {}
+export interface ListClientVpcConnectionsCommandOutput extends ListClientVpcConnectionsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates the cluster's connectivity configuration.</p>
+ * <p>Returns a list of all the VPC connections in this Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, UpdateConnectivityCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, UpdateConnectivityCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, ListClientVpcConnectionsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
+ * // const { KafkaClient, ListClientVpcConnectionsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
- * const input = { // UpdateConnectivityRequest
+ * const input = { // ListClientVpcConnectionsRequest
  *   ClusterArn: "STRING_VALUE", // required
- *   ConnectivityInfo: { // ConnectivityInfo
- *     PublicAccess: { // PublicAccess
- *       Type: "STRING_VALUE",
- *     },
- *     VpcConnectivity: { // VpcConnectivity
- *       ClientAuthentication: { // VpcConnectivityClientAuthentication
- *         Sasl: { // VpcConnectivitySasl
- *           Scram: { // VpcConnectivityScram
- *             Enabled: true || false,
- *           },
- *           Iam: { // VpcConnectivityIam
- *             Enabled: true || false,
- *           },
- *         },
- *         Tls: { // VpcConnectivityTls
- *           Enabled: true || false,
- *         },
- *       },
- *     },
- *   },
- *   CurrentVersion: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
  * };
- * const command = new UpdateConnectivityCommand(input);
+ * const command = new ListClientVpcConnectionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param UpdateConnectivityCommandInput - {@link UpdateConnectivityCommandInput}
- * @returns {@link UpdateConnectivityCommandOutput}
- * @see {@link UpdateConnectivityCommandInput} for command's `input` shape.
- * @see {@link UpdateConnectivityCommandOutput} for command's `response` shape.
+ * @param ListClientVpcConnectionsCommandInput - {@link ListClientVpcConnectionsCommandInput}
+ * @returns {@link ListClientVpcConnectionsCommandOutput}
+ * @see {@link ListClientVpcConnectionsCommandInput} for command's `input` shape.
+ * @see {@link ListClientVpcConnectionsCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -82,9 +63,6 @@ export interface UpdateConnectivityCommandOutput extends UpdateConnectivityRespo
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>Returns information about an error.</p>
  *
- * @throws {@link NotFoundException} (client fault)
- *  <p>Returns information about an error.</p>
- *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>Returns information about an error.</p>
  *
@@ -93,9 +71,9 @@ export interface UpdateConnectivityCommandOutput extends UpdateConnectivityRespo
  *
  *
  */
-export class UpdateConnectivityCommand extends $Command<
-  UpdateConnectivityCommandInput,
-  UpdateConnectivityCommandOutput,
+export class ListClientVpcConnectionsCommand extends $Command<
+  ListClientVpcConnectionsCommandInput,
+  ListClientVpcConnectionsCommandOutput,
   KafkaClientResolvedConfig
 > {
   // Start section: command_properties
@@ -113,7 +91,7 @@ export class UpdateConnectivityCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateConnectivityCommandInput) {
+  constructor(readonly input: ListClientVpcConnectionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -126,17 +104,17 @@ export class UpdateConnectivityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateConnectivityCommandInput, UpdateConnectivityCommandOutput> {
+  ): Handler<ListClientVpcConnectionsCommandInput, ListClientVpcConnectionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateConnectivityCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListClientVpcConnectionsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "KafkaClient";
-    const commandName = "UpdateConnectivityCommand";
+    const commandName = "ListClientVpcConnectionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -155,15 +133,15 @@ export class UpdateConnectivityCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateConnectivityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateConnectivityCommand(input, context);
+  private serialize(input: ListClientVpcConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListClientVpcConnectionsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectivityCommandOutput> {
-    return de_UpdateConnectivityCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClientVpcConnectionsCommandOutput> {
+    return de_ListClientVpcConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

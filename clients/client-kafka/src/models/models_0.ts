@@ -44,6 +44,57 @@ export interface BrokerEBSVolumeInfo {
  * @public
  * @enum
  */
+export const VpcConnectionState = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DEACTIVATING: "DEACTIVATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  REJECTED: "REJECTED",
+  REJECTING: "REJECTING",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcConnectionState = (typeof VpcConnectionState)[keyof typeof VpcConnectionState];
+
+/**
+ * @public
+ * <p>The client VPC connection object.</p>
+ */
+export interface ClientVpcConnection {
+  /**
+   * <p>Information about the auth scheme of Vpc Connection.</p>
+   */
+  Authentication?: string;
+
+  /**
+   * <p>Creation time of the Vpc Connection.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>State of the Vpc Connection.</p>
+   */
+  State?: VpcConnectionState | string;
+
+  /**
+   * <p>The ARN that identifies the Vpc Connection.</p>
+   */
+  VpcConnectionArn: string | undefined;
+
+  /**
+   * <p>The Owner of the Vpc Connection.</p>
+   */
+  Owner?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ClusterType = {
   PROVISIONED: "PROVISIONED",
   SERVERLESS: "SERVERLESS",
@@ -80,6 +131,82 @@ export interface PublicAccess {
 
 /**
  * @public
+ * <p>Details for IAM access control for VPC connectivity.</p>
+ */
+export interface VpcConnectivityIam {
+  /**
+   * <p>SASL/IAM authentication is on or off for VPC connectivity.</p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>Details for SASL/SCRAM client authentication for VPC connectivity.</p>
+ */
+export interface VpcConnectivityScram {
+  /**
+   * <p>SASL/SCRAM authentication is on or off for VPC connectivity.</p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>Details for SASL client authentication for VPC connectivity.</p>
+ */
+export interface VpcConnectivitySasl {
+  /**
+   * <p>Details for SASL/SCRAM client authentication for VPC connectivity.</p>
+   */
+  Scram?: VpcConnectivityScram;
+
+  /**
+   * <p>Details for SASL/IAM client authentication for VPC connectivity.</p>
+   */
+  Iam?: VpcConnectivityIam;
+}
+
+/**
+ * @public
+ * <p>Details for TLS client authentication for VPC connectivity.</p>
+ */
+export interface VpcConnectivityTls {
+  /**
+   * <p>TLS authentication is on or off for VPC connectivity.</p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>Includes all client authentication information for VPC connectivity.</p>
+ */
+export interface VpcConnectivityClientAuthentication {
+  /**
+   * <p>SASL authentication type details for VPC connectivity.</p>
+   */
+  Sasl?: VpcConnectivitySasl;
+
+  /**
+   * <p>TLS authentication type details for VPC connectivity.</p>
+   */
+  Tls?: VpcConnectivityTls;
+}
+
+/**
+ * @public
+ * VPC connectivity access control for brokers.
+ */
+export interface VpcConnectivity {
+  /**
+   * <p>Includes all client authentication information for VPC connectivity.</p>
+   */
+  ClientAuthentication?: VpcConnectivityClientAuthentication;
+}
+
+/**
+ * @public
  * <p>Information about the broker access configuration.</p>
  */
 export interface ConnectivityInfo {
@@ -87,6 +214,11 @@ export interface ConnectivityInfo {
    * <p>Public access control for brokers.</p>
    */
   PublicAccess?: PublicAccess;
+
+  /**
+   * <p>VPC connectivity access control for brokers.</p>
+   */
+  VpcConnectivity?: VpcConnectivity;
 }
 
 /**
@@ -152,6 +284,11 @@ export interface BrokerNodeGroupInfo {
    * <p>Information about the broker access configuration.</p>
    */
   ConnectivityInfo?: ConnectivityInfo;
+
+  /**
+   * <p>The list of zoneIds for the cluster in the virtual private cloud (VPC).</p>
+   */
+  ZoneIds?: string[];
 }
 
 /**
@@ -919,6 +1056,62 @@ export interface MutableClusterInfo {
 
 /**
  * @public
+ * @enum
+ */
+export const UserIdentityType = {
+  AWSACCOUNT: "AWSACCOUNT",
+  AWSSERVICE: "AWSSERVICE",
+} as const;
+
+/**
+ * @public
+ */
+export type UserIdentityType = (typeof UserIdentityType)[keyof typeof UserIdentityType];
+
+/**
+ * @public
+ * <p>Description of the requester that calls the API operation.</p>
+ */
+export interface UserIdentity {
+  /**
+   * <p>The identity type of the requester that calls the API operation.</p>
+   */
+  Type?: UserIdentityType | string;
+
+  /**
+   * <p>A unique identifier for the requester that calls the API operation.</p>
+   */
+  PrincipalId?: string;
+}
+
+/**
+ * @public
+ * <p>Description of the VPC connection.</p>
+ */
+export interface VpcConnectionInfo {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
+   */
+  VpcConnectionArn?: string;
+
+  /**
+   * <p>The owner of the VPC Connection.</p>
+   */
+  Owner?: string;
+
+  /**
+   * <p>Description of the requester that calls the API operation.</p>
+   */
+  UserIdentity?: UserIdentity;
+
+  /**
+   * <p>The time when Amazon MSK creates the VPC Connnection.</p>
+   */
+  CreationTime?: Date;
+}
+
+/**
+ * @public
  * <p>Returns information about a cluster operation.</p>
  */
 export interface ClusterOperationInfo {
@@ -976,6 +1169,11 @@ export interface ClusterOperationInfo {
    * <p>Information about cluster attributes after a cluster is updated.</p>
    */
   TargetClusterInfo?: MutableClusterInfo;
+
+  /**
+   * <p>Description of the VPC connection for CreateVpcConnection and DeleteVpcConnection operations.</p>
+   */
+  VpcConnectionInfo?: VpcConnectionInfo;
 }
 
 /**
@@ -1228,6 +1426,42 @@ export interface UnprocessedScramSecret {
    * <p>AWS Secrets Manager secret ARN.</p>
    */
   SecretArn?: string;
+}
+
+/**
+ * @public
+ * <p>The VPC connection object.</p>
+ */
+export interface VpcConnection {
+  /**
+   * <p>The ARN that identifies the Vpc Connection.</p>
+   */
+  VpcConnectionArn: string | undefined;
+
+  /**
+   * <p>The ARN that identifies the Cluster which the Vpc Connection belongs to.</p>
+   */
+  TargetClusterArn: string | undefined;
+
+  /**
+   * <p>Creation time of the Vpc Connection.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Information about the auth scheme of Vpc Connection.</p>
+   */
+  Authentication?: string;
+
+  /**
+   * <p>The vpcId that belongs to the Vpc Connection.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>State of the Vpc Connection.</p>
+   */
+  State?: VpcConnectionState | string;
 }
 
 /**
@@ -1802,6 +2036,86 @@ export interface CreateConfigurationResponse {
 /**
  * @public
  */
+export interface CreateVpcConnectionRequest {
+  /**
+   * <p>The cluster Amazon Resource Name (ARN) for the VPC connection.</p>
+   */
+  TargetClusterArn: string | undefined;
+
+  /**
+   * <p>The authentication type of VPC connection.</p>
+   */
+  Authentication: string | undefined;
+
+  /**
+   * <p>The VPC ID of VPC connection.</p>
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The list of client subnets.</p>
+   */
+  ClientSubnets: string[] | undefined;
+
+  /**
+   * <p>The list of security groups.</p>
+   */
+  SecurityGroups: string[] | undefined;
+
+  /**
+   * <p>A map of tags for the VPC connection.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcConnectionResponse {
+  /**
+   * <p>The VPC connection ARN.</p>
+   */
+  VpcConnectionArn?: string;
+
+  /**
+   * <p>The State of Vpc Connection.</p>
+   */
+  State?: VpcConnectionState | string;
+
+  /**
+   * <p>The authentication type of VPC connection.</p>
+   */
+  Authentication?: string;
+
+  /**
+   * <p>The VPC ID of the VPC connection.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The list of client subnets.</p>
+   */
+  ClientSubnets?: string[];
+
+  /**
+   * <p>The list of security groups.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * <p>The creation time of VPC connection.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>A map of tags for the VPC connection.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
 export interface DeleteClusterRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
@@ -1832,6 +2146,21 @@ export interface DeleteClusterResponse {
 /**
  * @public
  */
+export interface DeleteClusterPolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteClusterPolicyResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration.</p>
@@ -1852,6 +2181,31 @@ export interface DeleteConfigurationResponse {
    * <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>
    */
   State?: ConfigurationState | string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVpcConnectionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK VPC connection.</p>
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVpcConnectionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK VPC connection.</p>
+   */
+  VpcConnectionArn?: string;
+
+  /**
+   * <p>The state of the VPC connection.</p>
+   */
+  State?: VpcConnectionState | string;
 }
 
 /**
@@ -2013,6 +2367,66 @@ export interface DescribeConfigurationRevisionResponse {
 /**
  * @public
  */
+export interface DescribeVpcConnectionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a MSK VPC connection.</p>
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcConnectionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies a MSK VPC connection.</p>
+   */
+  VpcConnectionArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies an MSK cluster.</p>
+   */
+  TargetClusterArn?: string;
+
+  /**
+   * <p>The state of VPC connection.</p>
+   */
+  State?: VpcConnectionState | string;
+
+  /**
+   * <p>The authentication type of VPC connection.</p>
+   */
+  Authentication?: string;
+
+  /**
+   * <p>The VPC Id for the VPC connection.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The list of subnets for the VPC connection.</p>
+   */
+  Subnets?: string[];
+
+  /**
+   * <p>The list of security groups for the VPC connection.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * <p>The creation time of the VPC connection.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>A map of tags for the VPC connection.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
 export interface GetBootstrapBrokersRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
@@ -2058,6 +2472,46 @@ export interface GetBootstrapBrokersResponse {
    * <p>A string that contains one or more DNS names (or IP addresses) and SASL IAM port pairs.</p>
    */
   BootstrapBrokerStringPublicSaslIam?: string;
+
+  /**
+   * <p>A string containing one or more DNS names (or IP) and TLS port pairs for VPC connectivity.</p>
+   */
+  BootstrapBrokerStringVpcConnectivityTls?: string;
+
+  /**
+   * <p>A string containing one or more DNS names (or IP) and SASL/SCRAM port pairs for VPC connectivity.</p>
+   */
+  BootstrapBrokerStringVpcConnectivitySaslScram?: string;
+
+  /**
+   * <p>A string containing one or more DNS names (or IP) and SASL/IAM port pairs for VPC connectivity.</p>
+   */
+  BootstrapBrokerStringVpcConnectivitySaslIam?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetClusterPolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetClusterPolicyResponse {
+  /**
+   * <p>The version of cluster policy.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * <p>The cluster policy.</p>
+   */
+  Policy?: string;
 }
 
 /**
@@ -2078,6 +2532,43 @@ export interface GetCompatibleKafkaVersionsResponse {
    * <p>A list of CompatibleKafkaVersion objects.</p>
    */
   CompatibleKafkaVersions?: CompatibleKafkaVersion[];
+}
+
+/**
+ * @public
+ */
+export interface ListClientVpcConnectionsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
+   *             To get the next batch, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListClientVpcConnectionsResponse {
+  /**
+   * <p>List of client VPC connections.</p>
+   */
+  ClientVpcConnections?: ClientVpcConnection[];
+
+  /**
+   * <p>The paginated results marker. When the result of a ListClientVpcConnections operation is truncated, the call returns NextToken in the response.
+   *                To get another batch of configurations, provide this token in your next request.</p>
+   */
+  NextToken?: string;
 }
 
 /**
@@ -2380,6 +2871,68 @@ export interface ListTagsForResourceResponse {
 
 /**
  * @public
+ */
+export interface ListVpcConnectionsRequest {
+  /**
+   * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The paginated results marker. When the result of the operation is truncated, the call returns NextToken in the response.
+   *             To get the next batch, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcConnectionsResponse {
+  /**
+   * <p>List of VPC connections.</p>
+   */
+  VpcConnections?: VpcConnection[];
+
+  /**
+   * <p>The paginated results marker. When the result of a ListClientVpcConnections operation is truncated, the call returns NextToken in the response.
+   *                To get another batch of configurations, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface PutClusterPolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The policy version.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * <p>The policy.</p>
+   */
+  Policy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutClusterPolicyResponse {
+  /**
+   * <p>The policy version.</p>
+   */
+  CurrentVersion?: string;
+}
+
+/**
+ * @public
  * Reboots a node.
  */
 export interface RebootBrokerRequest {
@@ -2408,6 +2961,26 @@ export interface RebootBrokerResponse {
    */
   ClusterOperationArn?: string;
 }
+
+/**
+ * @public
+ */
+export interface RejectClientVpcConnectionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The VPC connection ARN.</p>
+   */
+  VpcConnectionArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectClientVpcConnectionResponse {}
 
 /**
  * @public

@@ -14,63 +14,42 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import { UpdateConnectivityRequest, UpdateConnectivityResponse } from "../models/models_0";
-import { de_UpdateConnectivityCommand, se_UpdateConnectivityCommand } from "../protocols/Aws_restJson1";
+import { DeleteClusterPolicyRequest, DeleteClusterPolicyResponse } from "../models/models_0";
+import { de_DeleteClusterPolicyCommand, se_DeleteClusterPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  *
- * The input for {@link UpdateConnectivityCommand}.
+ * The input for {@link DeleteClusterPolicyCommand}.
  */
-export interface UpdateConnectivityCommandInput extends UpdateConnectivityRequest {}
+export interface DeleteClusterPolicyCommandInput extends DeleteClusterPolicyRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateConnectivityCommand}.
+ * The output of {@link DeleteClusterPolicyCommand}.
  */
-export interface UpdateConnectivityCommandOutput extends UpdateConnectivityResponse, __MetadataBearer {}
+export interface DeleteClusterPolicyCommandOutput extends DeleteClusterPolicyResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates the cluster's connectivity configuration.</p>
+ * <p>Deletes the MSK cluster policy specified by the Amazon Resource Name (ARN) in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaClient, UpdateConnectivityCommand } from "@aws-sdk/client-kafka"; // ES Modules import
- * // const { KafkaClient, UpdateConnectivityCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * import { KafkaClient, DeleteClusterPolicyCommand } from "@aws-sdk/client-kafka"; // ES Modules import
+ * // const { KafkaClient, DeleteClusterPolicyCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
- * const input = { // UpdateConnectivityRequest
+ * const input = { // DeleteClusterPolicyRequest
  *   ClusterArn: "STRING_VALUE", // required
- *   ConnectivityInfo: { // ConnectivityInfo
- *     PublicAccess: { // PublicAccess
- *       Type: "STRING_VALUE",
- *     },
- *     VpcConnectivity: { // VpcConnectivity
- *       ClientAuthentication: { // VpcConnectivityClientAuthentication
- *         Sasl: { // VpcConnectivitySasl
- *           Scram: { // VpcConnectivityScram
- *             Enabled: true || false,
- *           },
- *           Iam: { // VpcConnectivityIam
- *             Enabled: true || false,
- *           },
- *         },
- *         Tls: { // VpcConnectivityTls
- *           Enabled: true || false,
- *         },
- *       },
- *     },
- *   },
- *   CurrentVersion: "STRING_VALUE", // required
  * };
- * const command = new UpdateConnectivityCommand(input);
+ * const command = new DeleteClusterPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param UpdateConnectivityCommandInput - {@link UpdateConnectivityCommandInput}
- * @returns {@link UpdateConnectivityCommandOutput}
- * @see {@link UpdateConnectivityCommandInput} for command's `input` shape.
- * @see {@link UpdateConnectivityCommandOutput} for command's `response` shape.
+ * @param DeleteClusterPolicyCommandInput - {@link DeleteClusterPolicyCommandInput}
+ * @returns {@link DeleteClusterPolicyCommandOutput}
+ * @see {@link DeleteClusterPolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteClusterPolicyCommandOutput} for command's `response` shape.
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -85,17 +64,11 @@ export interface UpdateConnectivityCommandOutput extends UpdateConnectivityRespo
  * @throws {@link NotFoundException} (client fault)
  *  <p>Returns information about an error.</p>
  *
- * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Returns information about an error.</p>
- *
- * @throws {@link UnauthorizedException} (client fault)
- *  <p>Returns information about an error.</p>
- *
  *
  */
-export class UpdateConnectivityCommand extends $Command<
-  UpdateConnectivityCommandInput,
-  UpdateConnectivityCommandOutput,
+export class DeleteClusterPolicyCommand extends $Command<
+  DeleteClusterPolicyCommandInput,
+  DeleteClusterPolicyCommandOutput,
   KafkaClientResolvedConfig
 > {
   // Start section: command_properties
@@ -113,7 +86,7 @@ export class UpdateConnectivityCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateConnectivityCommandInput) {
+  constructor(readonly input: DeleteClusterPolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -126,17 +99,17 @@ export class UpdateConnectivityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateConnectivityCommandInput, UpdateConnectivityCommandOutput> {
+  ): Handler<DeleteClusterPolicyCommandInput, DeleteClusterPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateConnectivityCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteClusterPolicyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "KafkaClient";
-    const commandName = "UpdateConnectivityCommand";
+    const commandName = "DeleteClusterPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -155,15 +128,15 @@ export class UpdateConnectivityCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateConnectivityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateConnectivityCommand(input, context);
+  private serialize(input: DeleteClusterPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteClusterPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateConnectivityCommandOutput> {
-    return de_UpdateConnectivityCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterPolicyCommandOutput> {
+    return de_DeleteClusterPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

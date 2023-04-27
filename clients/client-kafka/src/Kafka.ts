@@ -28,15 +28,30 @@ import {
   CreateConfigurationCommandOutput,
 } from "./commands/CreateConfigurationCommand";
 import {
+  CreateVpcConnectionCommand,
+  CreateVpcConnectionCommandInput,
+  CreateVpcConnectionCommandOutput,
+} from "./commands/CreateVpcConnectionCommand";
+import {
   DeleteClusterCommand,
   DeleteClusterCommandInput,
   DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
 import {
+  DeleteClusterPolicyCommand,
+  DeleteClusterPolicyCommandInput,
+  DeleteClusterPolicyCommandOutput,
+} from "./commands/DeleteClusterPolicyCommand";
+import {
   DeleteConfigurationCommand,
   DeleteConfigurationCommandInput,
   DeleteConfigurationCommandOutput,
 } from "./commands/DeleteConfigurationCommand";
+import {
+  DeleteVpcConnectionCommand,
+  DeleteVpcConnectionCommandInput,
+  DeleteVpcConnectionCommandOutput,
+} from "./commands/DeleteVpcConnectionCommand";
 import {
   DescribeClusterCommand,
   DescribeClusterCommandInput,
@@ -63,15 +78,30 @@ import {
   DescribeConfigurationRevisionCommandOutput,
 } from "./commands/DescribeConfigurationRevisionCommand";
 import {
+  DescribeVpcConnectionCommand,
+  DescribeVpcConnectionCommandInput,
+  DescribeVpcConnectionCommandOutput,
+} from "./commands/DescribeVpcConnectionCommand";
+import {
   GetBootstrapBrokersCommand,
   GetBootstrapBrokersCommandInput,
   GetBootstrapBrokersCommandOutput,
 } from "./commands/GetBootstrapBrokersCommand";
 import {
+  GetClusterPolicyCommand,
+  GetClusterPolicyCommandInput,
+  GetClusterPolicyCommandOutput,
+} from "./commands/GetClusterPolicyCommand";
+import {
   GetCompatibleKafkaVersionsCommand,
   GetCompatibleKafkaVersionsCommandInput,
   GetCompatibleKafkaVersionsCommandOutput,
 } from "./commands/GetCompatibleKafkaVersionsCommand";
+import {
+  ListClientVpcConnectionsCommand,
+  ListClientVpcConnectionsCommandInput,
+  ListClientVpcConnectionsCommandOutput,
+} from "./commands/ListClientVpcConnectionsCommand";
 import {
   ListClusterOperationsCommand,
   ListClusterOperationsCommandInput,
@@ -114,10 +144,25 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListVpcConnectionsCommand,
+  ListVpcConnectionsCommandInput,
+  ListVpcConnectionsCommandOutput,
+} from "./commands/ListVpcConnectionsCommand";
+import {
+  PutClusterPolicyCommand,
+  PutClusterPolicyCommandInput,
+  PutClusterPolicyCommandOutput,
+} from "./commands/PutClusterPolicyCommand";
+import {
   RebootBrokerCommand,
   RebootBrokerCommandInput,
   RebootBrokerCommandOutput,
 } from "./commands/RebootBrokerCommand";
+import {
+  RejectClientVpcConnectionCommand,
+  RejectClientVpcConnectionCommandInput,
+  RejectClientVpcConnectionCommandOutput,
+} from "./commands/RejectClientVpcConnectionCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -182,15 +227,21 @@ const commands = {
   CreateClusterCommand,
   CreateClusterV2Command,
   CreateConfigurationCommand,
+  CreateVpcConnectionCommand,
   DeleteClusterCommand,
+  DeleteClusterPolicyCommand,
   DeleteConfigurationCommand,
+  DeleteVpcConnectionCommand,
   DescribeClusterCommand,
   DescribeClusterOperationCommand,
   DescribeClusterV2Command,
   DescribeConfigurationCommand,
   DescribeConfigurationRevisionCommand,
+  DescribeVpcConnectionCommand,
   GetBootstrapBrokersCommand,
+  GetClusterPolicyCommand,
   GetCompatibleKafkaVersionsCommand,
+  ListClientVpcConnectionsCommand,
   ListClusterOperationsCommand,
   ListClustersCommand,
   ListClustersV2Command,
@@ -200,7 +251,10 @@ const commands = {
   ListNodesCommand,
   ListScramSecretsCommand,
   ListTagsForResourceCommand,
+  ListVpcConnectionsCommand,
+  PutClusterPolicyCommand,
   RebootBrokerCommand,
+  RejectClientVpcConnectionCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateBrokerCountCommand,
@@ -293,6 +347,23 @@ export interface Kafka {
   ): void;
 
   /**
+   * @see {@link CreateVpcConnectionCommand}
+   */
+  createVpcConnection(
+    args: CreateVpcConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVpcConnectionCommandOutput>;
+  createVpcConnection(
+    args: CreateVpcConnectionCommandInput,
+    cb: (err: any, data?: CreateVpcConnectionCommandOutput) => void
+  ): void;
+  createVpcConnection(
+    args: CreateVpcConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVpcConnectionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteClusterCommand}
    */
   deleteCluster(args: DeleteClusterCommandInput, options?: __HttpHandlerOptions): Promise<DeleteClusterCommandOutput>;
@@ -301,6 +372,23 @@ export interface Kafka {
     args: DeleteClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteClusterPolicyCommand}
+   */
+  deleteClusterPolicy(
+    args: DeleteClusterPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteClusterPolicyCommandOutput>;
+  deleteClusterPolicy(
+    args: DeleteClusterPolicyCommandInput,
+    cb: (err: any, data?: DeleteClusterPolicyCommandOutput) => void
+  ): void;
+  deleteClusterPolicy(
+    args: DeleteClusterPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteClusterPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -318,6 +406,23 @@ export interface Kafka {
     args: DeleteConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVpcConnectionCommand}
+   */
+  deleteVpcConnection(
+    args: DeleteVpcConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVpcConnectionCommandOutput>;
+  deleteVpcConnection(
+    args: DeleteVpcConnectionCommandInput,
+    cb: (err: any, data?: DeleteVpcConnectionCommandOutput) => void
+  ): void;
+  deleteVpcConnection(
+    args: DeleteVpcConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVpcConnectionCommandOutput) => void
   ): void;
 
   /**
@@ -403,6 +508,23 @@ export interface Kafka {
   ): void;
 
   /**
+   * @see {@link DescribeVpcConnectionCommand}
+   */
+  describeVpcConnection(
+    args: DescribeVpcConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVpcConnectionCommandOutput>;
+  describeVpcConnection(
+    args: DescribeVpcConnectionCommandInput,
+    cb: (err: any, data?: DescribeVpcConnectionCommandOutput) => void
+  ): void;
+  describeVpcConnection(
+    args: DescribeVpcConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVpcConnectionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetBootstrapBrokersCommand}
    */
   getBootstrapBrokers(
@@ -420,6 +542,23 @@ export interface Kafka {
   ): void;
 
   /**
+   * @see {@link GetClusterPolicyCommand}
+   */
+  getClusterPolicy(
+    args: GetClusterPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetClusterPolicyCommandOutput>;
+  getClusterPolicy(
+    args: GetClusterPolicyCommandInput,
+    cb: (err: any, data?: GetClusterPolicyCommandOutput) => void
+  ): void;
+  getClusterPolicy(
+    args: GetClusterPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetClusterPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetCompatibleKafkaVersionsCommand}
    */
   getCompatibleKafkaVersions(
@@ -434,6 +573,23 @@ export interface Kafka {
     args: GetCompatibleKafkaVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCompatibleKafkaVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListClientVpcConnectionsCommand}
+   */
+  listClientVpcConnections(
+    args: ListClientVpcConnectionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListClientVpcConnectionsCommandOutput>;
+  listClientVpcConnections(
+    args: ListClientVpcConnectionsCommandInput,
+    cb: (err: any, data?: ListClientVpcConnectionsCommandOutput) => void
+  ): void;
+  listClientVpcConnections(
+    args: ListClientVpcConnectionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListClientVpcConnectionsCommandOutput) => void
   ): void;
 
   /**
@@ -575,6 +731,40 @@ export interface Kafka {
   ): void;
 
   /**
+   * @see {@link ListVpcConnectionsCommand}
+   */
+  listVpcConnections(
+    args: ListVpcConnectionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVpcConnectionsCommandOutput>;
+  listVpcConnections(
+    args: ListVpcConnectionsCommandInput,
+    cb: (err: any, data?: ListVpcConnectionsCommandOutput) => void
+  ): void;
+  listVpcConnections(
+    args: ListVpcConnectionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVpcConnectionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutClusterPolicyCommand}
+   */
+  putClusterPolicy(
+    args: PutClusterPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutClusterPolicyCommandOutput>;
+  putClusterPolicy(
+    args: PutClusterPolicyCommandInput,
+    cb: (err: any, data?: PutClusterPolicyCommandOutput) => void
+  ): void;
+  putClusterPolicy(
+    args: PutClusterPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutClusterPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RebootBrokerCommand}
    */
   rebootBroker(args: RebootBrokerCommandInput, options?: __HttpHandlerOptions): Promise<RebootBrokerCommandOutput>;
@@ -583,6 +773,23 @@ export interface Kafka {
     args: RebootBrokerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RebootBrokerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RejectClientVpcConnectionCommand}
+   */
+  rejectClientVpcConnection(
+    args: RejectClientVpcConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectClientVpcConnectionCommandOutput>;
+  rejectClientVpcConnection(
+    args: RejectClientVpcConnectionCommandInput,
+    cb: (err: any, data?: RejectClientVpcConnectionCommandOutput) => void
+  ): void;
+  rejectClientVpcConnection(
+    args: RejectClientVpcConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RejectClientVpcConnectionCommandOutput) => void
   ): void;
 
   /**

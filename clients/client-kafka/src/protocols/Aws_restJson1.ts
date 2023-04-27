@@ -37,11 +37,23 @@ import {
   CreateConfigurationCommandInput,
   CreateConfigurationCommandOutput,
 } from "../commands/CreateConfigurationCommand";
+import {
+  CreateVpcConnectionCommandInput,
+  CreateVpcConnectionCommandOutput,
+} from "../commands/CreateVpcConnectionCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "../commands/DeleteClusterCommand";
+import {
+  DeleteClusterPolicyCommandInput,
+  DeleteClusterPolicyCommandOutput,
+} from "../commands/DeleteClusterPolicyCommand";
 import {
   DeleteConfigurationCommandInput,
   DeleteConfigurationCommandOutput,
 } from "../commands/DeleteConfigurationCommand";
+import {
+  DeleteVpcConnectionCommandInput,
+  DeleteVpcConnectionCommandOutput,
+} from "../commands/DeleteVpcConnectionCommand";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "../commands/DescribeClusterCommand";
 import {
   DescribeClusterOperationCommandInput,
@@ -57,13 +69,22 @@ import {
   DescribeConfigurationRevisionCommandOutput,
 } from "../commands/DescribeConfigurationRevisionCommand";
 import {
+  DescribeVpcConnectionCommandInput,
+  DescribeVpcConnectionCommandOutput,
+} from "../commands/DescribeVpcConnectionCommand";
+import {
   GetBootstrapBrokersCommandInput,
   GetBootstrapBrokersCommandOutput,
 } from "../commands/GetBootstrapBrokersCommand";
+import { GetClusterPolicyCommandInput, GetClusterPolicyCommandOutput } from "../commands/GetClusterPolicyCommand";
 import {
   GetCompatibleKafkaVersionsCommandInput,
   GetCompatibleKafkaVersionsCommandOutput,
 } from "../commands/GetCompatibleKafkaVersionsCommand";
+import {
+  ListClientVpcConnectionsCommandInput,
+  ListClientVpcConnectionsCommandOutput,
+} from "../commands/ListClientVpcConnectionsCommand";
 import {
   ListClusterOperationsCommandInput,
   ListClusterOperationsCommandOutput,
@@ -82,7 +103,13 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListVpcConnectionsCommandInput, ListVpcConnectionsCommandOutput } from "../commands/ListVpcConnectionsCommand";
+import { PutClusterPolicyCommandInput, PutClusterPolicyCommandOutput } from "../commands/PutClusterPolicyCommand";
 import { RebootBrokerCommandInput, RebootBrokerCommandOutput } from "../commands/RebootBrokerCommand";
+import {
+  RejectClientVpcConnectionCommandInput,
+  RejectClientVpcConnectionCommandOutput,
+} from "../commands/RejectClientVpcConnectionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateBrokerCountCommandInput, UpdateBrokerCountCommandOutput } from "../commands/UpdateBrokerCountCommand";
@@ -116,6 +143,7 @@ import {
   BrokerNodeInfo,
   BrokerSoftwareInfo,
   ClientAuthentication,
+  ClientVpcConnection,
   CloudWatchLogs,
   Cluster,
   ClusterInfo,
@@ -169,7 +197,16 @@ import {
   Unauthenticated,
   UnauthorizedException,
   UnprocessedScramSecret,
+  UserIdentity,
   VpcConfig,
+  VpcConnection,
+  VpcConnectionInfo,
+  VpcConnectivity,
+  VpcConnectivityClientAuthentication,
+  VpcConnectivityIam,
+  VpcConnectivitySasl,
+  VpcConnectivityScram,
+  VpcConnectivityTls,
   ZookeeperNodeInfo,
 } from "../models/models_0";
 
@@ -340,6 +377,40 @@ export const se_CreateConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateVpcConnectionCommand
+ */
+export const se_CreateVpcConnectionCommand = async (
+  input: CreateVpcConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/vpc-connection";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      authentication: [, , `Authentication`],
+      clientSubnets: [, (_) => _json(_), `ClientSubnets`],
+      securityGroups: [, (_) => _json(_), `SecurityGroups`],
+      tags: [, (_) => _json(_), `Tags`],
+      targetClusterArn: [, , `TargetClusterArn`],
+      vpcId: [, , `VpcId`],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DeleteClusterCommand
  */
 export const se_DeleteClusterCommand = async (
@@ -368,6 +439,30 @@ export const se_DeleteClusterCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteClusterPolicyCommand
+ */
+export const se_DeleteClusterPolicyCommand = async (
+  input: DeleteClusterPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/policy";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DeleteConfigurationCommand
  */
 export const se_DeleteConfigurationCommand = async (
@@ -377,6 +472,29 @@ export const se_DeleteConfigurationCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations/{Arn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteVpcConnectionCommand
+ */
+export const se_DeleteVpcConnectionCommand = async (
+  input: DeleteVpcConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/vpc-connection/{Arn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
   return new __HttpRequest({
@@ -519,6 +637,29 @@ export const se_DescribeConfigurationRevisionCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeVpcConnectionCommand
+ */
+export const se_DescribeVpcConnectionCommand = async (
+  input: DescribeVpcConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/vpc-connection/{Arn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1GetBootstrapBrokersCommand
  */
 export const se_GetBootstrapBrokersCommand = async (
@@ -530,6 +671,30 @@ export const se_GetBootstrapBrokersCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/clusters/{ClusterArn}/bootstrap-brokers";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetClusterPolicyCommand
+ */
+export const se_GetClusterPolicyCommand = async (
+  input: GetClusterPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/policy";
   resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   return new __HttpRequest({
@@ -556,6 +721,36 @@ export const se_GetCompatibleKafkaVersionsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/compatible-kafka-versions";
   const query: any = map({
     clusterArn: [, input.ClusterArn!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListClientVpcConnectionsCommand
+ */
+export const se_ListClientVpcConnectionsCommand = async (
+  input: ListClientVpcConnectionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/clusters/{ClusterArn}/client-vpc-connections";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
   });
   let body: any;
   return new __HttpRequest({
@@ -821,6 +1016,65 @@ export const se_ListTagsForResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListVpcConnectionsCommand
+ */
+export const se_ListVpcConnectionsCommand = async (
+  input: ListVpcConnectionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/vpc-connections";
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1PutClusterPolicyCommand
+ */
+export const se_PutClusterPolicyCommand = async (
+  input: PutClusterPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/policy";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      currentVersion: [, , `CurrentVersion`],
+      policy: [, , `Policy`],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1RebootBrokerCommand
  */
 export const se_RebootBrokerCommand = async (
@@ -838,6 +1092,38 @@ export const se_RebootBrokerCommand = async (
   body = JSON.stringify(
     take(input, {
       brokerIds: [, (_) => _json(_), `BrokerIds`],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1RejectClientVpcConnectionCommand
+ */
+export const se_RejectClientVpcConnectionCommand = async (
+  input: RejectClientVpcConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/clusters/{ClusterArn}/client-vpc-connection";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      vpcConnectionArn: [, , `VpcConnectionArn`],
     })
   );
   return new __HttpRequest({
@@ -1573,6 +1859,75 @@ const de_CreateConfigurationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateVpcConnectionCommand
+ */
+export const de_CreateVpcConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVpcConnectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateVpcConnectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Authentication: [, __expectString, `authentication`],
+    ClientSubnets: [, _json, `clientSubnets`],
+    CreationTime: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    SecurityGroups: [, _json, `securityGroups`],
+    State: [, __expectString, `state`],
+    Tags: [, _json, `tags`],
+    VpcConnectionArn: [, __expectString, `vpcConnectionArn`],
+    VpcId: [, __expectString, `vpcId`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateVpcConnectionCommandError
+ */
+const de_CreateVpcConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVpcConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.kafka#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteClusterCommand
  */
 export const de_DeleteClusterCommand = async (
@@ -1630,6 +1985,58 @@ const de_DeleteClusterCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteClusterPolicyCommand
+ */
+export const de_DeleteClusterPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteClusterPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteClusterPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteClusterPolicyCommandError
+ */
+const de_DeleteClusterPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteClusterPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteConfigurationCommand
  */
 export const de_DeleteConfigurationCommand = async (
@@ -1658,6 +2065,63 @@ const de_DeleteConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteVpcConnectionCommand
+ */
+export const de_DeleteVpcConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVpcConnectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteVpcConnectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    State: [, __expectString, `state`],
+    VpcConnectionArn: [, __expectString, `vpcConnectionArn`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteVpcConnectionCommandError
+ */
+const de_DeleteVpcConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVpcConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1998,6 +2462,76 @@ const de_DescribeConfigurationRevisionCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeVpcConnectionCommand
+ */
+export const de_DescribeVpcConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVpcConnectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeVpcConnectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Authentication: [, __expectString, `authentication`],
+    CreationTime: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    SecurityGroups: [, _json, `securityGroups`],
+    State: [, __expectString, `state`],
+    Subnets: [, _json, `subnets`],
+    Tags: [, _json, `tags`],
+    TargetClusterArn: [, __expectString, `targetClusterArn`],
+    VpcConnectionArn: [, __expectString, `vpcConnectionArn`],
+    VpcId: [, __expectString, `vpcId`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeVpcConnectionCommandError
+ */
+const de_DescribeVpcConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVpcConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetBootstrapBrokersCommand
  */
 export const de_GetBootstrapBrokersCommand = async (
@@ -2019,6 +2553,9 @@ export const de_GetBootstrapBrokersCommand = async (
     BootstrapBrokerStringSaslIam: [, __expectString, `bootstrapBrokerStringSaslIam`],
     BootstrapBrokerStringSaslScram: [, __expectString, `bootstrapBrokerStringSaslScram`],
     BootstrapBrokerStringTls: [, __expectString, `bootstrapBrokerStringTls`],
+    BootstrapBrokerStringVpcConnectivitySaslIam: [, __expectString, `bootstrapBrokerStringVpcConnectivitySaslIam`],
+    BootstrapBrokerStringVpcConnectivitySaslScram: [, __expectString, `bootstrapBrokerStringVpcConnectivitySaslScram`],
+    BootstrapBrokerStringVpcConnectivityTls: [, __expectString, `bootstrapBrokerStringVpcConnectivityTls`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -2052,6 +2589,63 @@ const de_GetBootstrapBrokersCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetClusterPolicyCommand
+ */
+export const de_GetClusterPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetClusterPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetClusterPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CurrentVersion: [, __expectString, `currentVersion`],
+    Policy: [, __expectString, `policy`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetClusterPolicyCommandError
+ */
+const de_GetClusterPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetClusterPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2114,6 +2708,66 @@ const de_GetCompatibleKafkaVersionsCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.kafka#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListClientVpcConnectionsCommand
+ */
+export const de_ListClientVpcConnectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClientVpcConnectionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListClientVpcConnectionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ClientVpcConnections: [, (_) => de___listOfClientVpcConnection(_, context), `clientVpcConnections`],
+    NextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListClientVpcConnectionsCommandError
+ */
+const de_ListClientVpcConnectionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClientVpcConnectionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
@@ -2655,6 +3309,119 @@ const de_ListTagsForResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListVpcConnectionsCommand
+ */
+export const de_ListVpcConnectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVpcConnectionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListVpcConnectionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    VpcConnections: [, (_) => de___listOfVpcConnection(_, context), `vpcConnections`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListVpcConnectionsCommandError
+ */
+const de_ListVpcConnectionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVpcConnectionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1PutClusterPolicyCommand
+ */
+export const de_PutClusterPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutClusterPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PutClusterPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CurrentVersion: [, __expectString, `currentVersion`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutClusterPolicyCommandError
+ */
+const de_PutClusterPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutClusterPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1RebootBrokerCommand
  */
 export const de_RebootBrokerCommand = async (
@@ -2707,6 +3474,61 @@ const de_RebootBrokerCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.kafka#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1RejectClientVpcConnectionCommand
+ */
+export const de_RejectClientVpcConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RejectClientVpcConnectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_RejectClientVpcConnectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1RejectClientVpcConnectionCommandError
+ */
+const de_RejectClientVpcConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RejectClientVpcConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
@@ -3667,6 +4489,7 @@ const se_BrokerNodeGroupInfo = (input: BrokerNodeGroupInfo, context: __SerdeCont
     instanceType: [, , `InstanceType`],
     securityGroups: [, _json, `SecurityGroups`],
     storageInfo: [, (_) => se_StorageInfo(_, context), `StorageInfo`],
+    zoneIds: [, _json, `ZoneIds`],
   });
 };
 
@@ -3707,6 +4530,7 @@ const se_ConfigurationInfo = (input: ConfigurationInfo, context: __SerdeContext)
 const se_ConnectivityInfo = (input: ConnectivityInfo, context: __SerdeContext): any => {
   return take(input, {
     publicAccess: [, (_) => se_PublicAccess(_, context), `PublicAccess`],
+    vpcConnectivity: [, (_) => se_VpcConnectivity(_, context), `VpcConnectivity`],
   });
 };
 
@@ -3947,6 +4771,65 @@ const se_VpcConfig = (input: VpcConfig, context: __SerdeContext): any => {
   });
 };
 
+/**
+ * serializeAws_restJson1VpcConnectivity
+ */
+const se_VpcConnectivity = (input: VpcConnectivity, context: __SerdeContext): any => {
+  return take(input, {
+    clientAuthentication: [, (_) => se_VpcConnectivityClientAuthentication(_, context), `ClientAuthentication`],
+  });
+};
+
+/**
+ * serializeAws_restJson1VpcConnectivityClientAuthentication
+ */
+const se_VpcConnectivityClientAuthentication = (
+  input: VpcConnectivityClientAuthentication,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    sasl: [, (_) => se_VpcConnectivitySasl(_, context), `Sasl`],
+    tls: [, (_) => se_VpcConnectivityTls(_, context), `Tls`],
+  });
+};
+
+/**
+ * serializeAws_restJson1VpcConnectivityIam
+ */
+const se_VpcConnectivityIam = (input: VpcConnectivityIam, context: __SerdeContext): any => {
+  return take(input, {
+    enabled: [, , `Enabled`],
+  });
+};
+
+/**
+ * serializeAws_restJson1VpcConnectivitySasl
+ */
+const se_VpcConnectivitySasl = (input: VpcConnectivitySasl, context: __SerdeContext): any => {
+  return take(input, {
+    iam: [, (_) => se_VpcConnectivityIam(_, context), `Iam`],
+    scram: [, (_) => se_VpcConnectivityScram(_, context), `Scram`],
+  });
+};
+
+/**
+ * serializeAws_restJson1VpcConnectivityScram
+ */
+const se_VpcConnectivityScram = (input: VpcConnectivityScram, context: __SerdeContext): any => {
+  return take(input, {
+    enabled: [, , `Enabled`],
+  });
+};
+
+/**
+ * serializeAws_restJson1VpcConnectivityTls
+ */
+const se_VpcConnectivityTls = (input: VpcConnectivityTls, context: __SerdeContext): any => {
+  return take(input, {
+    enabled: [, , `Enabled`],
+  });
+};
+
 // de___listOf__string omitted.
 
 /**
@@ -3957,6 +4840,18 @@ const de___listOfBrokerEBSVolumeInfo = (output: any, context: __SerdeContext): B
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_BrokerEBSVolumeInfo(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfClientVpcConnection
+ */
+const de___listOfClientVpcConnection = (output: any, context: __SerdeContext): ClientVpcConnection[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ClientVpcConnection(entry, context);
     });
   return retVal;
 };
@@ -4093,6 +4988,18 @@ const de___listOfVpcConfig = (output: any, context: __SerdeContext): VpcConfig[]
   return retVal;
 };
 
+/**
+ * deserializeAws_restJson1__listOfVpcConnection
+ */
+const de___listOfVpcConnection = (output: any, context: __SerdeContext): VpcConnection[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_VpcConnection(entry, context);
+    });
+  return retVal;
+};
+
 // de___mapOf__string omitted.
 
 /**
@@ -4128,6 +5035,7 @@ const de_BrokerNodeGroupInfo = (output: any, context: __SerdeContext): BrokerNod
     InstanceType: [, __expectString, `instanceType`],
     SecurityGroups: [, _json, `securityGroups`],
     StorageInfo: [, (_: any) => de_StorageInfo(_, context), `storageInfo`],
+    ZoneIds: [, _json, `zoneIds`],
   }) as any;
 };
 
@@ -4164,6 +5072,19 @@ const de_ClientAuthentication = (output: any, context: __SerdeContext): ClientAu
     Sasl: [, (_: any) => de_Sasl(_, context), `sasl`],
     Tls: [, (_: any) => de_Tls(_, context), `tls`],
     Unauthenticated: [, (_: any) => de_Unauthenticated(_, context), `unauthenticated`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ClientVpcConnection
+ */
+const de_ClientVpcConnection = (output: any, context: __SerdeContext): ClientVpcConnection => {
+  return take(output, {
+    Authentication: [, __expectString, `authentication`],
+    CreationTime: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    Owner: [, __expectString, `owner`],
+    State: [, __expectString, `state`],
+    VpcConnectionArn: [, __expectString, `vpcConnectionArn`],
   }) as any;
 };
 
@@ -4239,6 +5160,7 @@ const de_ClusterOperationInfo = (output: any, context: __SerdeContext): ClusterO
     OperationType: [, __expectString, `operationType`],
     SourceClusterInfo: [, (_: any) => de_MutableClusterInfo(_, context), `sourceClusterInfo`],
     TargetClusterInfo: [, (_: any) => de_MutableClusterInfo(_, context), `targetClusterInfo`],
+    VpcConnectionInfo: [, (_: any) => de_VpcConnectionInfo(_, context), `vpcConnectionInfo`],
   }) as any;
 };
 
@@ -4313,6 +5235,7 @@ const de_ConfigurationRevision = (output: any, context: __SerdeContext): Configu
 const de_ConnectivityInfo = (output: any, context: __SerdeContext): ConnectivityInfo => {
   return take(output, {
     PublicAccess: [, (_: any) => de_PublicAccess(_, context), `publicAccess`],
+    VpcConnectivity: [, (_: any) => de_VpcConnectivity(_, context), `vpcConnectivity`],
   }) as any;
 };
 
@@ -4657,12 +5580,107 @@ const de_UnprocessedScramSecret = (output: any, context: __SerdeContext): Unproc
 };
 
 /**
+ * deserializeAws_restJson1UserIdentity
+ */
+const de_UserIdentity = (output: any, context: __SerdeContext): UserIdentity => {
+  return take(output, {
+    PrincipalId: [, __expectString, `principalId`],
+    Type: [, __expectString, `type`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1VpcConfig
  */
 const de_VpcConfig = (output: any, context: __SerdeContext): VpcConfig => {
   return take(output, {
     SecurityGroupIds: [, _json, `securityGroupIds`],
     SubnetIds: [, _json, `subnetIds`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VpcConnection
+ */
+const de_VpcConnection = (output: any, context: __SerdeContext): VpcConnection => {
+  return take(output, {
+    Authentication: [, __expectString, `authentication`],
+    CreationTime: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    State: [, __expectString, `state`],
+    TargetClusterArn: [, __expectString, `targetClusterArn`],
+    VpcConnectionArn: [, __expectString, `vpcConnectionArn`],
+    VpcId: [, __expectString, `vpcId`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VpcConnectionInfo
+ */
+const de_VpcConnectionInfo = (output: any, context: __SerdeContext): VpcConnectionInfo => {
+  return take(output, {
+    CreationTime: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    Owner: [, __expectString, `owner`],
+    UserIdentity: [, (_: any) => de_UserIdentity(_, context), `userIdentity`],
+    VpcConnectionArn: [, __expectString, `vpcConnectionArn`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VpcConnectivity
+ */
+const de_VpcConnectivity = (output: any, context: __SerdeContext): VpcConnectivity => {
+  return take(output, {
+    ClientAuthentication: [, (_: any) => de_VpcConnectivityClientAuthentication(_, context), `clientAuthentication`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VpcConnectivityClientAuthentication
+ */
+const de_VpcConnectivityClientAuthentication = (
+  output: any,
+  context: __SerdeContext
+): VpcConnectivityClientAuthentication => {
+  return take(output, {
+    Sasl: [, (_: any) => de_VpcConnectivitySasl(_, context), `sasl`],
+    Tls: [, (_: any) => de_VpcConnectivityTls(_, context), `tls`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VpcConnectivityIam
+ */
+const de_VpcConnectivityIam = (output: any, context: __SerdeContext): VpcConnectivityIam => {
+  return take(output, {
+    Enabled: [, __expectBoolean, `enabled`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VpcConnectivitySasl
+ */
+const de_VpcConnectivitySasl = (output: any, context: __SerdeContext): VpcConnectivitySasl => {
+  return take(output, {
+    Iam: [, (_: any) => de_VpcConnectivityIam(_, context), `iam`],
+    Scram: [, (_: any) => de_VpcConnectivityScram(_, context), `scram`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VpcConnectivityScram
+ */
+const de_VpcConnectivityScram = (output: any, context: __SerdeContext): VpcConnectivityScram => {
+  return take(output, {
+    Enabled: [, __expectBoolean, `enabled`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VpcConnectivityTls
+ */
+const de_VpcConnectivityTls = (output: any, context: __SerdeContext): VpcConnectivityTls => {
+  return take(output, {
+    Enabled: [, __expectBoolean, `enabled`],
   }) as any;
 };
 
