@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
+
+
+### Bug Fixes
+
+* **node-http-handler:** undeprecate connectionTimeout ([#4669](https://github.com/aws/aws-sdk-js-v3/issues/4669)) ([79c46f3](https://github.com/aws/aws-sdk-js-v3/commit/79c46f35f6dace05b54d328d0632604a0fec8f85))
+
+
+
+
+
 # [3.310.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.309.0...v3.310.0) (2023-04-10)
 
 
