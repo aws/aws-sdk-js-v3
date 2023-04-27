@@ -1504,6 +1504,7 @@ export const Runtime = {
   dotnetcore31: "dotnetcore3.1",
   go1x: "go1.x",
   java11: "java11",
+  java17: "java17",
   java8: "java8",
   java8al2: "java8.al2",
   nodejs: "nodejs",
