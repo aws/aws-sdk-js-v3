@@ -35,8 +35,7 @@ export interface GetPipelineChangeProgressCommandOutput extends GetPipelineChang
  * <p>Returns progress information for the current change happening on an OpenSearch Ingestion
  *    pipeline. Currently, this operation only returns information when a pipeline is being
  *    created.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/manage-pipeline.html">Creating and managing
- *     OpenSearch Ingestion pipelines</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#get-pipeline-progress">Tracking the status of pipeline creation</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

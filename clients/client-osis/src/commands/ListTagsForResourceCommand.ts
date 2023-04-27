@@ -33,8 +33,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * @public
  * <p>Lists all resource tags associated with an OpenSearch Ingestion pipeline. For more information,
- *    see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html">Tagging
- *     OpenSearch Ingestion pipelines</a>.</p>
+ *    see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html">Tagging Amazon OpenSearch Ingestion pipelines</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

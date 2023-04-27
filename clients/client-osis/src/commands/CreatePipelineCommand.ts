@@ -32,7 +32,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
 
 /**
  * @public
- * <p>Creates an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/manage-pipeline.html">Creating and managing OpenSearch Ingestion pipelines</a>.</p>
+ * <p>Creates an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html">Creating Amazon OpenSearch Ingestion pipelines</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

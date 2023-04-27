@@ -33,8 +33,8 @@ export interface ValidatePipelineCommandOutput extends ValidatePipelineResponse,
 /**
  * @public
  * <p>Checks whether an OpenSearch Ingestion pipeline configuration is valid prior to creation. For
- *    more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/manage-pipeline.html">Creating and managing
- *     OpenSearch Ingestion pipelines</a>.</p>
+ *    more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html">Creating Amazon OpenSearch
+ *     Ingestion pipelines</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

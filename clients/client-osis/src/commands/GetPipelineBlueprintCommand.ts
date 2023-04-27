@@ -33,7 +33,9 @@ export interface GetPipelineBlueprintCommandOutput extends GetPipelineBlueprintR
 /**
  * @public
  * <p>Retrieves information about a specific blueprint for OpenSearch Ingestion. Blueprints are
- *    templates for the configuration needed for a <code>CreatePipeline</code> request.</p>
+ *    templates for the configuration needed for a <code>CreatePipeline</code> request. For more
+ *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint">Using
+ *     blueprints to create a pipeline</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

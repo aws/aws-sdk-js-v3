@@ -32,8 +32,7 @@ export interface StopPipelineCommandOutput extends StopPipelineResponse, __Metad
 
 /**
  * @public
- * <p>Stops an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/manage-pipeline.html#stop-pipeline">Stopping
- *    pipelines</a>.</p>
+ * <p>Stops an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--stop">Stopping an OpenSearch Ingestion pipeline</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
