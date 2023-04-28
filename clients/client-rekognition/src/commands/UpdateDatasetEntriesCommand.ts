@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateDatasetEntriesRequest, UpdateDatasetEntriesResponse } from "../models/models_0";
+import { UpdateDatasetEntriesRequest, UpdateDatasetEntriesResponse } from "../models/models_1";
 import { de_UpdateDatasetEntriesCommand, se_UpdateDatasetEntriesCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 

@@ -1,10 +1,49 @@
 // smithy-typescript generated code
 import {
   ConnectedHomeSettingsForUpdate,
+  DatasetChanges,
   RegionOfInterest,
   StreamProcessorDataSharingPreference,
-  StreamProcessorParameterToDelete,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface UpdateDatasetEntriesRequest {
+  /**
+   * <p>
+   * The Amazon Resource Name (ARN) of the dataset that you want to update.
+   * </p>
+   */
+  DatasetArn: string | undefined;
+
+  /**
+   * <p>
+   *    The changes that you want to make to the dataset.
+   * </p>
+   */
+  Changes: DatasetChanges | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDatasetEntriesResponse {}
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamProcessorParameterToDelete = {
+  ConnectedHomeMinConfidence: "ConnectedHomeMinConfidence",
+  RegionsOfInterest: "RegionsOfInterest",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamProcessorParameterToDelete =
+  (typeof StreamProcessorParameterToDelete)[keyof typeof StreamProcessorParameterToDelete];
 
 /**
  * @public

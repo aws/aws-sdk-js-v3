@@ -70,6 +70,7 @@ export interface GetContentModerationCommandOutput extends GetContentModerationR
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  *   SortBy: "NAME" || "TIMESTAMP",
+ *   AggregateBy: "TIMESTAMPS" || "SEGMENTS",
  * };
  * const command = new GetContentModerationCommand(input);
  * const response = await client.send(command);
