@@ -32,11 +32,11 @@ export interface CreateAPIKeyCommandOutput extends CreateAPIKeyResponse, __Metad
 
 /**
  * @public
- * <p>Creates an API key for use in the integration of the CAPTCHA API in your JavaScript client applications.
- *            The integration lets you customize the placement and characteristics of the CAPTCHA puzzle for your end users.
+ * <p>Creates an API key that contains a set of token domains.</p>
+ *          <p>API keys are required for the integration of the CAPTCHA API in your JavaScript client applications.
+ *            The API lets you customize the placement and characteristics of the CAPTCHA puzzle for your end users.
  *            For more information about the CAPTCHA JavaScript integration, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>
- *          <p>The CAPTCHA API requires a key that authorizes CAPTCHA use from the client application domain.
- *        You can use a single key for up to 5 domains. After you generate a key, you can copy it for use in your JavaScript
+ *          <p>You can use a single key for up to 5 domains. After you generate a key, you can copy it for use in your JavaScript
  *            integration. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -2293,6 +2293,9 @@ export interface XssMatchStatement {
 /**
  * @public
  * <p>Information for a single API key. </p>
+ *          <p>API keys are required for the integration of the CAPTCHA API in your JavaScript client applications.
+ *            The API lets you customize the placement and characteristics of the CAPTCHA puzzle for your end users.
+ *            For more information about the CAPTCHA JavaScript integration, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>
  */
 export interface APIKeySummary {
   /**
@@ -2302,7 +2305,6 @@ export interface APIKeySummary {
 
   /**
    * <p>The generated, encrypted API key. You can copy this for use in your JavaScript CAPTCHA integration.  </p>
-   *          <p>For information about how to use this in your CAPTCHA JavaScript integration, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>
    */
   APIKey?: string;
 
@@ -2366,6 +2368,11 @@ export interface AssociateWebACLRequest {
    *             </li>
    *             <li>
    *                <p>For an App Runner service: <code>arn:<i>partition</i>:apprunner:<i>region</i>:<i>account-id</i>:service/<i>apprunner-service-name</i>/<i>apprunner-service-id</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>For an Amazon Web Services Verified Access instance: <code>arn:<i>partition</i>:ec2:<i>region</i>:<i>account-id</i>:verified-access-instance/<i>instance-id</i>
    *                   </code>
    *                </p>
    *             </li>
@@ -2901,7 +2908,7 @@ export class WAFSubscriptionNotFoundException extends __BaseException {
  */
 export interface CreateAPIKeyRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -2916,6 +2923,9 @@ export interface CreateAPIKeyRequest {
 
   /**
    * <p>The client application domains that you want to use this API key for.  </p>
+   *          <p>Example JSON: <code>"TokenDomains": ["abc.com", "store.abc.com"]</code>
+   *          </p>
+   *          <p>Public suffixes aren't allowed. For example, you can't use <code>usa.gov</code> or <code>co.uk</code> as token domains.</p>
    */
   TokenDomains: string[] | undefined;
 }
@@ -2926,7 +2936,6 @@ export interface CreateAPIKeyRequest {
 export interface CreateAPIKeyResponse {
   /**
    * <p>The generated, encrypted API key. You can copy this for use in your JavaScript CAPTCHA integration.  </p>
-   *          <p>For information about how to use this in your CAPTCHA JavaScript integration, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>
    */
   APIKey?: string;
 }
@@ -2983,7 +2992,7 @@ export interface CreateIPSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -3206,7 +3215,7 @@ export interface CreateRegexPatternSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -3481,7 +3490,7 @@ export interface DeleteIPSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -3575,7 +3584,7 @@ export interface DeleteRegexPatternSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -3614,7 +3623,7 @@ export interface DeleteRuleGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -3653,7 +3662,7 @@ export interface DeleteWebACLRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -3697,7 +3706,7 @@ export interface DescribeManagedRuleGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -3855,6 +3864,11 @@ export interface DisassociateWebACLRequest {
    *                   </code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>For an Amazon Web Services Verified Access instance: <code>arn:<i>partition</i>:ec2:<i>region</i>:<i>account-id</i>:verified-access-instance/<i>instance-id</i>
+   *                   </code>
+   *                </p>
+   *             </li>
    *          </ul>
    */
   ResourceArn: string | undefined;
@@ -3910,7 +3924,7 @@ export interface GenerateMobileSdkReleaseUrlResponse {
  */
 export interface GetDecryptedAPIKeyRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -3954,7 +3968,7 @@ export interface GetIPSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4270,7 +4284,7 @@ export interface GetManagedRuleSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4497,7 +4511,7 @@ export interface GetPermissionPolicyResponse {
  */
 export interface GetRateBasedStatementManagedKeysRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4575,7 +4589,7 @@ export interface GetRegexPatternSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4652,7 +4666,7 @@ export interface GetRuleGroupRequest {
   Name?: string;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4730,7 +4744,7 @@ export interface GetSampledRequestsRequest {
   RuleMetricName: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5015,7 +5029,7 @@ export interface GetWebACLRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5067,6 +5081,11 @@ export interface GetWebACLForResourceRequest {
    *                   </code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>For an Amazon Web Services Verified Access instance: <code>arn:<i>partition</i>:ec2:<i>region</i>:<i>account-id</i>:verified-access-instance/<i>instance-id</i>
+   *                   </code>
+   *                </p>
+   *             </li>
    *          </ul>
    */
   ResourceArn: string | undefined;
@@ -5077,7 +5096,7 @@ export interface GetWebACLForResourceRequest {
  */
 export interface ListAPIKeysRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5123,7 +5142,6 @@ export interface ListAPIKeysResponse {
 
   /**
    * <p>The CAPTCHA application integration URL, for use in your JavaScript implementation. </p>
-   *          <p>For information about how to use this in your CAPTCHA JavaScript integration, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>
    */
   ApplicationIntegrationURL?: string;
 }
@@ -5133,7 +5151,7 @@ export interface ListAPIKeysResponse {
  */
 export interface ListAvailableManagedRuleGroupsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5220,7 +5238,7 @@ export interface ListAvailableManagedRuleGroupVersionsRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5292,7 +5310,7 @@ export interface ListAvailableManagedRuleGroupVersionsResponse {
  */
 export interface ListIPSetsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5342,7 +5360,7 @@ export interface ListIPSetsResponse {
  */
 export interface ListLoggingConfigurationsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5392,7 +5410,7 @@ export interface ListLoggingConfigurationsResponse {
  */
 export interface ListManagedRuleSetsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5553,7 +5571,7 @@ export interface ListMobileSdkReleasesResponse {
  */
 export interface ListRegexPatternSetsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5608,6 +5626,7 @@ export const ResourceType = {
   APPSYNC: "APPSYNC",
   APP_RUNNER_SERVICE: "APP_RUNNER_SERVICE",
   COGNITIO_USER_POOL: "COGNITO_USER_POOL",
+  VERIFIED_ACCESS_INSTANCE: "VERIFIED_ACCESS_INSTANCE",
 } as const;
 
 /**
@@ -5626,7 +5645,7 @@ export interface ListResourcesForWebACLRequest {
 
   /**
    * <p>Used for web ACLs that are scoped for regional applications.
-   *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service. </p>
+   *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance. </p>
    *          <note>
    *             <p>If you don't provide a resource type, the call uses the resource type <code>APPLICATION_LOAD_BALANCER</code>. </p>
    *          </note>
@@ -5651,7 +5670,7 @@ export interface ListResourcesForWebACLResponse {
  */
 export interface ListRuleGroupsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5767,7 +5786,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListWebACLsRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5917,7 +5936,7 @@ export interface PutManagedRuleSetVersionsRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6102,7 +6121,7 @@ export interface UpdateIPSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6192,7 +6211,7 @@ export interface UpdateManagedRuleSetVersionExpiryDateRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6259,7 +6278,7 @@ export interface UpdateRegexPatternSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6755,7 +6774,7 @@ export interface FirewallManagerRuleGroup {
  */
 export interface CheckCapacityRequest {
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6785,7 +6804,7 @@ export interface CreateRuleGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6858,7 +6877,7 @@ export interface CreateWebACLRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -7042,7 +7061,7 @@ export interface UpdateRuleGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -7104,7 +7123,7 @@ export interface UpdateWebACLRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+   * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -7206,7 +7225,7 @@ export interface GetRuleGroupResponse {
 
 /**
  * @public
- * <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.  </p>
+ * <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
  */
 export interface WebACL {
   /**
