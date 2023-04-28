@@ -3763,6 +3763,19 @@ export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];
 
 /**
  * @public
+ * <p>An object that specifies the TLS configuration for a domain.</p>
+ */
+export interface TlsConfig {
+  /**
+   * <p>The security policy for a domain configuration. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table">Security
+   *             policies </a> in the <i>Amazon Web Services IoT Core developer
+   *          guide</i>.</p>
+   */
+  securityPolicy?: string;
+}
+
+/**
+ * @public
  */
 export interface CreateDomainConfigurationRequest {
   /**
@@ -3811,6 +3824,11 @@ export interface CreateDomainConfigurationRequest {
    *          </note>
    */
   tags?: Tag[];
+
+  /**
+   * <p>An object that specifies the TLS configuration for a domain.</p>
+   */
+  tlsConfig?: TlsConfig;
 }
 
 /**
@@ -4200,8 +4218,9 @@ export interface JobExecutionsRolloutConfig {
  */
 export interface PresignedUrlConfig {
   /**
-   * <p>The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job
-   *             data/updates are stored. The role must also grant permission for IoT to download the files.</p>
+   * <p>The ARN of an IAM role that grants permission to download files from the S3 bucket
+   *             where the job data/updates are stored. The role must also grant permission for IoT to
+   *             download the files.</p>
    *          <important>
    *             <p>For information about addressing the confused deputy problem, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html">cross-service
    *                 confused deputy prevention</a> in the <i>Amazon Web Services IoT Core developer guide</i>.</p>
@@ -4333,15 +4352,9 @@ export interface CreateJobRequest {
   targets: string[] | undefined;
 
   /**
-   * <p>An S3 link to the job document. Required if you don't specify a value for <code>document</code>.</p>
-   *          <note>
-   *             <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p>
-   *             <p>The placeholder link is of the following form:</p>
-   *             <p>
-   *                <code>$\{aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>\}</code>
-   *             </p>
-   *             <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p>
-   *          </note>
+   * <p>An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object URL and is required if you don't specify a value for <code>document</code>.</p>
+   *          <p>For example, <code>--document-source https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html">Methods for accessing a bucket</a>.</p>
    */
   documentSource?: string;
 
@@ -6776,17 +6789,6 @@ export interface DeleteOTAUpdateRequest {
  * @public
  */
 export interface DeleteOTAUpdateResponse {}
-
-/**
- * @public
- * <p>The input for the DeletePolicy operation.</p>
- */
-export interface DeletePolicyRequest {
-  /**
-   * <p>The name of the policy to delete.</p>
-   */
-  policyName: string | undefined;
-}
 
 /**
  * @internal

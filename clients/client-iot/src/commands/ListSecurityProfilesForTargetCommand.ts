@@ -14,7 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListSecurityProfilesForTargetRequest, ListSecurityProfilesForTargetResponse } from "../models/models_1";
+import { ListSecurityProfilesForTargetRequest } from "../models/models_1";
+import { ListSecurityProfilesForTargetResponse } from "../models/models_2";
 import {
   de_ListSecurityProfilesForTargetCommand,
   se_ListSecurityProfilesForTargetCommand,

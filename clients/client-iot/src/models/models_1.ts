@@ -60,9 +60,21 @@ import {
   ThingGroupProperties,
   ThingTypeProperties,
   TimeoutConfig,
+  TlsConfig,
   TopicRuleDestination,
   VerificationState,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>The input for the DeletePolicy operation.</p>
+ */
+export interface DeletePolicyRequest {
+  /**
+   * <p>The name of the policy to delete.</p>
+   */
+  policyName: string | undefined;
+}
 
 /**
  * @public
@@ -1448,6 +1460,11 @@ export interface DescribeDomainConfigurationResponse {
    * <p>The date and time the domain configuration's status was last changed.</p>
    */
   lastStatusChangeDate?: Date;
+
+  /**
+   * <p>An object that specifies the TLS configuration for a domain.</p>
+   */
+  tlsConfig?: TlsConfig;
 }
 
 /**
@@ -6703,20 +6720,4 @@ export interface SecurityProfileTargetMapping {
    * <p>Information about the target (thing group) associated with the security profile.</p>
    */
   target?: SecurityProfileTarget;
-}
-
-/**
- * @public
- */
-export interface ListSecurityProfilesForTargetResponse {
-  /**
-   * <p>A list of security profiles and their associated targets.</p>
-   */
-  securityProfileTargetMappings?: SecurityProfileTargetMapping[];
-
-  /**
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
-   *         additional results.</p>
-   */
-  nextToken?: string;
 }

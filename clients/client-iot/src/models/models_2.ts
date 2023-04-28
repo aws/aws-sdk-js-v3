@@ -36,6 +36,7 @@ import {
   ThingGroupProperties,
   ThingTypeProperties,
   TimeoutConfig,
+  TlsConfig,
   TopicRuleDestinationStatus,
   TopicRulePayload,
   VerificationState,
@@ -53,12 +54,29 @@ import {
   LogTargetType,
   RegistrationConfig,
   SecurityProfileTarget,
+  SecurityProfileTargetMapping,
   Status,
   ThingGroupIndexingConfiguration,
   ThingIndexingConfiguration,
   ThingTypeMetadata,
   ViolationEventOccurrenceRange,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListSecurityProfilesForTargetResponse {
+  /**
+   * <p>A list of security profiles and their associated targets.</p>
+   */
+  securityProfileTargetMappings?: SecurityProfileTargetMapping[];
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
+   *         additional results.</p>
+   */
+  nextToken?: string;
+}
 
 /**
  * @public
@@ -2593,6 +2611,11 @@ export interface UpdateDomainConfigurationRequest {
    * <p>Removes the authorization configuration from a domain.</p>
    */
   removeAuthorizerConfig?: boolean;
+
+  /**
+   * <p>An object that specifies the TLS configuration for a domain.</p>
+   */
+  tlsConfig?: TlsConfig;
 }
 
 /**

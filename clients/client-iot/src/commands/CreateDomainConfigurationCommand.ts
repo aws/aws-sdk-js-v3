@@ -58,6 +58,9 @@ export interface CreateDomainConfigurationCommandOutput extends CreateDomainConf
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   tlsConfig: { // TlsConfig
+ *     securityPolicy: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateDomainConfigurationCommand(input);
  * const response = await client.send(command);
