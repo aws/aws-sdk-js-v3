@@ -3525,11 +3525,18 @@ export interface ImportWorkspaceImageRequest {
   Tags?: Tag[];
 
   /**
-   * <p>If specified, the version of Microsoft Office to subscribe to. Valid only for Windows 10
+   * <p>If specified, the version of Microsoft Office to subscribe to. Valid only for Windows 10 and 11
    *          BYOL images. For more information about subscribing to Office for BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html"> Bring
    *             Your Own Windows Desktop Licenses</a>.</p>
    *          <note>
-   *             <p>Although this parameter is an array, only one item is allowed at this time.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Although this parameter is an array, only one item is allowed at this time.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Windows 11 only supports <code>Microsoft_Office_2019</code>.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    */
   Applications?: (Application | string)[];
