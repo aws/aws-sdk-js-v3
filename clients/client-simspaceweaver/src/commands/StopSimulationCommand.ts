@@ -34,9 +34,8 @@ export interface StopSimulationCommandOutput extends StopSimulationOutput, __Met
  * @public
  * <p>Stops the given simulation.</p>
  *          <important>
- *             <p>You can't restart a simulation after you stop it.
- *          If you need to restart a simulation, you must stop it, delete it,
- *          and start a new instance of it.</p>
+ *             <p>You can't restart a simulation after you stop it. If you want to restart a simulation, then
+ *             you must stop it, delete it, and start a new instance of it.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

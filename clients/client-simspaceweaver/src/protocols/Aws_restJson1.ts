@@ -21,6 +21,7 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "../commands/CreateSnapshotCommand";
 import { DeleteAppCommandInput, DeleteAppCommandOutput } from "../commands/DeleteAppCommand";
 import { DeleteSimulationCommandInput, DeleteSimulationCommandOutput } from "../commands/DeleteSimulationCommand";
 import { DescribeAppCommandInput, DescribeAppCommandOutput } from "../commands/DescribeAppCommand";
@@ -45,6 +46,7 @@ import {
   InternalServerException,
   LaunchOverrides,
   ResourceNotFoundException,
+  S3Destination,
   S3Location,
   ServiceQuotaExceededException,
   SimulationMetadata,
@@ -52,6 +54,36 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { SimSpaceWeaverServiceException as __BaseException } from "../models/SimSpaceWeaverServiceException";
+
+/**
+ * serializeAws_restJson1CreateSnapshotCommand
+ */
+export const se_CreateSnapshotCommand = async (
+  input: CreateSnapshotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createsnapshot";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Destination: (_) => _json(_),
+      Simulation: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 /**
  * serializeAws_restJson1DeleteAppCommand
@@ -324,6 +356,7 @@ export const se_StartSimulationCommand = async (
       Name: [],
       RoleArn: [],
       SchemaS3Location: (_) => _json(_),
+      SnapshotS3Location: (_) => _json(_),
       Tags: (_) => _json(_),
     })
   );
@@ -485,6 +518,61 @@ export const se_UntagResourceCommand = async (
     query,
     body,
   });
+};
+
+/**
+ * deserializeAws_restJson1CreateSnapshotCommand
+ */
+export const de_CreateSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSnapshotCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateSnapshotCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateSnapshotCommandError
+ */
+const de_CreateSnapshotCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSnapshotCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.simspaceweaver#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.simspaceweaver#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.simspaceweaver#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.simspaceweaver#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.simspaceweaver#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -686,6 +774,8 @@ export const de_DescribeSimulationCommand = async (
     RoleArn: __expectString,
     SchemaError: __expectString,
     SchemaS3Location: _json,
+    SnapshotS3Location: _json,
+    StartError: __expectString,
     Status: __expectString,
     TargetStatus: __expectString,
   });
@@ -1464,6 +1554,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_LaunchCommandList omitted.
 
 // se_LaunchOverrides omitted.
+
+// se_S3Destination omitted.
 
 // se_S3Location omitted.
 

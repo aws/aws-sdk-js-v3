@@ -34,8 +34,8 @@ export interface DeleteSimulationCommandOutput extends DeleteSimulationOutput, _
  * @public
  * <p>Deletes all SimSpace Weaver resources assigned to the given simulation.</p>
  *          <note>
- *             <p>Your simulation uses resources in other Amazon Web Services services. This API operation doesn't delete
- *             resources in other Amazon Web Services services.</p>
+ *             <p>Your simulation uses resources in other Amazon Web Services. This API operation doesn't delete
+ *             resources in other Amazon Web Services.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

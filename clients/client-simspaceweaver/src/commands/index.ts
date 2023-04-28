@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./CreateSnapshotCommand";
 export * from "./DeleteAppCommand";
 export * from "./DeleteSimulationCommand";
 export * from "./DescribeAppCommand";

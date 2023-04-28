@@ -49,6 +49,7 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
 import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import { DeleteSimulationCommandInput, DeleteSimulationCommandOutput } from "./commands/DeleteSimulationCommand";
 import { DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
@@ -79,6 +80,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
  * @public
  */
 export type ServiceInputTypes =
+  | CreateSnapshotCommandInput
   | DeleteAppCommandInput
   | DeleteSimulationCommandInput
   | DescribeAppCommandInput
@@ -99,6 +101,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CreateSnapshotCommandOutput
   | DeleteAppCommandOutput
   | DeleteSimulationCommandOutput
   | DescribeAppCommandOutput
@@ -279,18 +282,18 @@ export interface SimSpaceWeaverClientResolvedConfig extends SimSpaceWeaverClient
 
 /**
  * @public
- * <p>Amazon Web Services SimSpace Weaver (SimSpace Weaver) is a managed service that you can use to build and operate large-scale
+ * <p>SimSpace Weaver (SimSpace Weaver) is a managed service that you can use to build and operate large-scale
  *          spatial simulations in the Amazon Web Services Cloud. For example, you can create a digital twin of a city,
- *          crowd simulations with millions of people and objects, and massilvely-multiplayer games with
+ *          crowd simulations with millions of people and objects, and massively multiplayer games with
  *          hundreds of thousands of connected players.
  *          For more information about SimSpace Weaver, see the <i>
- *                <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/">Amazon Web Services SimSpace Weaver User Guide</a>
+ *                <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/">SimSpace Weaver User Guide</a>
  *             </i>.</p>
  *          <p>This API reference describes the API operations and data types that you can use to
  *          communicate directly with SimSpace Weaver.</p>
- *          <p>SimSpace Weaver also provides the SimSpace Weaver app SDK, which you use for app development. The SimSpace Weaver
- *          app SDK API reference is included in the SimSpace Weaver app SDK documentation, which is part of the
- *          SimSpace Weaver app SDK distributable package.</p>
+ *          <p>SimSpace Weaver also provides the SimSpace Weaver app SDK, which you use for app development. The
+ *          SimSpace Weaver app SDK API reference is included in the SimSpace Weaver app SDK documentation. This
+ *          documentation is part of the SimSpace Weaver app SDK distributable package.</p>
  */
 export class SimSpaceWeaverClient extends __Client<
   __HttpHandlerOptions,

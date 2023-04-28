@@ -36,7 +36,12 @@ export interface StartSimulationCommandOutput extends StartSimulationOutput, __M
 
 /**
  * @public
- * <p>Starts a simulation with the given name and schema.</p>
+ * <p>Starts a simulation with the given name. You must choose to start your
+ *          simulation from a schema or from a snapshot.
+ *          For more information about the schema, see the <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/schema-reference.html">schema reference</a>
+ *    in the <i>SimSpace Weaver User Guide</i>.
+ *          For more information about snapshots, see <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/working-with_snapshots.html">Snapshots</a>
+ *    in the <i>SimSpace Weaver User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +60,10 @@ export interface StartSimulationCommandOutput extends StartSimulationOutput, __M
  *   MaximumDuration: "STRING_VALUE",
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
+ *   },
+ *   SnapshotS3Location: {
+ *     BucketName: "STRING_VALUE",
+ *     ObjectKey: "STRING_VALUE",
  *   },
  * };
  * const command = new StartSimulationCommand(input);
