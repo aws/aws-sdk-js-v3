@@ -32,8 +32,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
 
 /**
  * @public
- * <p>Lists the tags associated with an Athena workgroup or data catalog
- *             resource.</p>
+ * <p>Lists the tags associated with an Athena resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

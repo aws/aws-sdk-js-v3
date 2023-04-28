@@ -14,56 +14,42 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { TagResourceInput, TagResourceOutput } from "../models/models_0";
-import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_json1_1";
+import { GetCapacityReservationInput, GetCapacityReservationOutput } from "../models/models_0";
+import { de_GetCapacityReservationCommand, se_GetCapacityReservationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  *
- * The input for {@link TagResourceCommand}.
+ * The input for {@link GetCapacityReservationCommand}.
  */
-export interface TagResourceCommandInput extends TagResourceInput {}
+export interface GetCapacityReservationCommandInput extends GetCapacityReservationInput {}
 /**
  * @public
  *
- * The output of {@link TagResourceCommand}.
+ * The output of {@link GetCapacityReservationCommand}.
  */
-export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
+export interface GetCapacityReservationCommandOutput extends GetCapacityReservationOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Adds one or more tags to an Athena resource. A tag is a label that you
- *             assign to a resource. Each tag consists of a key and an optional value, both of which you define. For
- *             example, you can use tags to categorize Athena workgroups, data catalogs, or capacity reservations by purpose, owner, or environment. Use a consistent set of tag keys to make it easier to
- *             search and filter the resources in your account. For best practices, see
- *             <a href="https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html">Tagging Best Practices</a>. Tag keys can be from 1 to 128 UTF-8 Unicode
- *             characters, and tag values can be from 0 to 256 UTF-8 Unicode characters. Tags can use
- *             letters and numbers representable in UTF-8, and the following characters: + - = . _ : /
- *             @. Tag keys and values are case-sensitive. Tag keys must be unique per resource. If you
- *             specify more than one tag, separate them by commas.</p>
+ * <p>Returns information about the capacity reservation with the specified name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, TagResourceCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, TagResourceCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, GetCapacityReservationCommand } from "@aws-sdk/client-athena"; // ES Modules import
+ * // const { AthenaClient, GetCapacityReservationCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const input = { // TagResourceInput
- *   ResourceARN: "STRING_VALUE", // required
- *   Tags: [ // TagList // required
- *     { // Tag
- *       Key: "STRING_VALUE",
- *       Value: "STRING_VALUE",
- *     },
- *   ],
+ * const input = { // GetCapacityReservationInput
+ *   Name: "STRING_VALUE", // required
  * };
- * const command = new TagResourceCommand(input);
+ * const command = new GetCapacityReservationCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @param TagResourceCommandInput - {@link TagResourceCommandInput}
- * @returns {@link TagResourceCommandOutput}
- * @see {@link TagResourceCommandInput} for command's `input` shape.
- * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @param GetCapacityReservationCommandInput - {@link GetCapacityReservationCommandInput}
+ * @returns {@link GetCapacityReservationCommandOutput}
+ * @see {@link GetCapacityReservationCommandInput} for command's `input` shape.
+ * @see {@link GetCapacityReservationCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
@@ -74,14 +60,11 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *  <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource, such as a workgroup, was not found.</p>
- *
  *
  */
-export class TagResourceCommand extends $Command<
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
+export class GetCapacityReservationCommand extends $Command<
+  GetCapacityReservationCommandInput,
+  GetCapacityReservationCommandOutput,
   AthenaClientResolvedConfig
 > {
   // Start section: command_properties
@@ -99,7 +82,7 @@ export class TagResourceCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: TagResourceCommandInput) {
+  constructor(readonly input: GetCapacityReservationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -112,15 +95,17 @@ export class TagResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
+  ): Handler<GetCapacityReservationCommandInput, GetCapacityReservationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, TagResourceCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetCapacityReservationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AthenaClient";
-    const commandName = "TagResourceCommand";
+    const commandName = "GetCapacityReservationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -139,15 +124,15 @@ export class TagResourceCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_TagResourceCommand(input, context);
+  private serialize(input: GetCapacityReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetCapacityReservationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return de_TagResourceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCapacityReservationCommandOutput> {
+    return de_GetCapacityReservationCommand(output, context);
   }
 
   // Start section: command_body_extra
