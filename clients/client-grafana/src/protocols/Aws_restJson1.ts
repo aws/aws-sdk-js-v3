@@ -135,6 +135,7 @@ export const se_CreateWorkspaceCommand = async (
       authenticationProviders: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       configuration: (_) => __LazyJsonString.fromObject(_),
+      grafanaVersion: [],
       networkAccessControl: (_) => _json(_),
       organizationRoleName: [],
       permissionType: [],
