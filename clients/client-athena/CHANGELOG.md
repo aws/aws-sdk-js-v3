@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.323.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.322.0...v3.323.0) (2023-04-28)
+
+
+### Features
+
+* **client-athena:** You can now use capacity reservations on Amazon Athena to run SQL queries on fully-managed compute capacity. ([9dacbe7](https://github.com/aws/aws-sdk-js-v3/commit/9dacbe7d6dd910cceda03dba3bfaba0ff1d27813))
+
+
+
+
+
 ## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
 
 **Note:** Version bump only for package @aws-sdk/client-athena

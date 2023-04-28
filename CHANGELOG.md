@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.323.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.322.0...v3.323.0) (2023-04-28)
+
+
+### Features
+
+* **client-appflow:** Adds Jwt Support for Salesforce Credentials. ([4b0c7f8](https://github.com/aws/aws-sdk-js-v3/commit/4b0c7f8062c1dfb22aa9cac35d46b3f269eb1f08))
+* **client-athena:** You can now use capacity reservations on Amazon Athena to run SQL queries on fully-managed compute capacity. ([9dacbe7](https://github.com/aws/aws-sdk-js-v3/commit/9dacbe7d6dd910cceda03dba3bfaba0ff1d27813))
+* **client-efs:** This release adds PAUSED and PAUSING state as a returned value for DescribeReplicationConfigurations response. ([9661c39](https://github.com/aws/aws-sdk-js-v3/commit/9661c398b271eb1cacd4d997fde7a30198eb156b))
+* **client-grafana:** This release adds support for the grafanaVersion parameter in CreateWorkspace. ([edbae69](https://github.com/aws/aws-sdk-js-v3/commit/edbae69f24a15ae482e351bd04e53fdcaa51db36))
+* **client-iot:** This release allows AWS IoT Core users to specify a TLS security policy when creating and updating AWS IoT Domain Configurations. ([a84b270](https://github.com/aws/aws-sdk-js-v3/commit/a84b27096f2f3073eef51784cd4925d7700751a8))
+* **client-rekognition:** Added support for aggregating moderation labels by video segment timestamps for Stored Video Content Moderation APIs and added additional information about the job to all Stored Video Get API responses. ([c05f2a1](https://github.com/aws/aws-sdk-js-v3/commit/c05f2a1eb309b7915243ea6526c5ff0a44900a24))
+* **client-simspaceweaver:** Added a new CreateSnapshot API. For the StartSimulation API, SchemaS3Location is now optional, added a new SnapshotS3Location parameter. For the DescribeSimulation API, added SNAPSHOT_IN_PROGRESS simulation state, deprecated SchemaError, added new fields: StartError and SnapshotS3Location. ([0a25cd2](https://github.com/aws/aws-sdk-js-v3/commit/0a25cd2579c16716f954a0cd6dad04a3e35bfb54))
+* **client-wafv2:** You can now associate a web ACL with a Verified Access instance. ([1526186](https://github.com/aws/aws-sdk-js-v3/commit/15261865b8064d588169af3946cf1baf11b2b3a1))
+* **clients:** update client endpoints as of 2023-04-28 ([87f9a0c](https://github.com/aws/aws-sdk-js-v3/commit/87f9a0c03ecbe853dd303202a59a0910df1ee09e))
+
+
+
+
+
 # [3.322.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.1...v3.322.0) (2023-04-27)
 
 

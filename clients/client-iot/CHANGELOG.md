@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.323.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.322.0...v3.323.0) (2023-04-28)
+
+
+### Features
+
+* **client-iot:** This release allows AWS IoT Core users to specify a TLS security policy when creating and updating AWS IoT Domain Configurations. ([a84b270](https://github.com/aws/aws-sdk-js-v3/commit/a84b27096f2f3073eef51784cd4925d7700751a8))
+
+
+
+
+
 ## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
 
 **Note:** Version bump only for package @aws-sdk/client-iot
