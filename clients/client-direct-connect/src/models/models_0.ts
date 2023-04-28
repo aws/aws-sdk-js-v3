@@ -2068,7 +2068,7 @@ export interface Interconnect {
 export interface CreateLagRequest {
   /**
    * <p>The number of physical dedicated connections initially provisioned and bundled by the
-   *       LAG.</p>
+   *       LAG.  You can have a maximum of four connections when the port speed is 1G or 10G, or two when the port speed is 100G. </p>
    */
   numberOfConnections: number | undefined;
 
@@ -2454,7 +2454,7 @@ export interface NewTransitVirtualInterface {
   asn?: number;
 
   /**
-   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.</p>
+   * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 8500. The default value is 1500.</p>
    */
   mtu?: number;
 
