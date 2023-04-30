@@ -42,8 +42,8 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  *          <p>You can use an agent for more than one location. If a task uses multiple agents, all of
  *       them need to have status AVAILABLE for the task to run. If you use multiple agents for a
  *       source location, the status of all the agents must be AVAILABLE for the task to run. </p>
- *          <p>Agents are automatically updated by Amazon Web Services on a regular basis, using a mechanism that
- *       ensures minimal interruption to your tasks.</p>
+ *          <p>Agents are automatically updated by Amazon Web Services on a regular basis, using a
+ *       mechanism that ensures minimal interruption to your tasks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,7 +78,8 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>

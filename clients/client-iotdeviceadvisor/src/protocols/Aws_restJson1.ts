@@ -141,6 +141,8 @@ export const se_GetEndpointCommand = async (
   const query: any = map({
     thingArn: [, input.thingArn!],
     certificateArn: [, input.certificateArn!],
+    deviceRoleArn: [, input.deviceRoleArn!],
+    authenticationMethod: [, input.authenticationMethod!],
   });
   let body: any;
   return new __HttpRequest({

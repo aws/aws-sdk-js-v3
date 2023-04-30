@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
+
+**Note:** Version bump only for package @aws-sdk/client-directory-service
+
+
+
+
+
+# [3.320.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.319.0...v3.320.0) (2023-04-25)
+
+
+### Features
+
+* **client-directory-service:** New field added in AWS Managed Microsoft AD DescribeSettings response and regex pattern update for UpdateSettings value.  Added length validation to RemoteDomainName. ([6664a0e](https://github.com/aws/aws-sdk-js-v3/commit/6664a0e830d3c73643d4bd648e9cf8710fb2e39e))
+
+
+
+
+
+# [3.319.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.318.0...v3.319.0) (2023-04-24)
+
+**Note:** Version bump only for package @aws-sdk/client-directory-service
+
+
+
+
+
 # [3.316.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.315.0...v3.316.0) (2023-04-19)
 
 

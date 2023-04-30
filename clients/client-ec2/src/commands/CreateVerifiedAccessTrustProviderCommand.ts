@@ -14,7 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateVerifiedAccessTrustProviderRequest, CreateVerifiedAccessTrustProviderResult } from "../models/models_2";
+import {
+  CreateVerifiedAccessTrustProviderRequest,
+  CreateVerifiedAccessTrustProviderRequestFilterSensitiveLog,
+  CreateVerifiedAccessTrustProviderResult,
+  CreateVerifiedAccessTrustProviderResultFilterSensitiveLog,
+} from "../models/models_2";
 import {
   de_CreateVerifiedAccessTrustProviderCommand,
   se_CreateVerifiedAccessTrustProviderCommand,
@@ -39,7 +44,7 @@ export interface CreateVerifiedAccessTrustProviderCommandOutput
  * @public
  * <p>A trust provider is a third-party entity that creates, maintains, and manages identity
  *          information for users and devices. When an application request is made, the identity
- *          information sent by the trust provider will be evaluated by Amazon Web Services Verified Access, before allowing or
+ *          information sent by the trust provider is evaluated by Verified Access before allowing or
  *          denying the application request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -139,8 +144,8 @@ export class CreateVerifiedAccessTrustProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      inputFilterSensitiveLog: CreateVerifiedAccessTrustProviderRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateVerifiedAccessTrustProviderResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

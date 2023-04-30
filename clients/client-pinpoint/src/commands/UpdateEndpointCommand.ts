@@ -49,7 +49,7 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  *         "STRING_VALUE",
  *       ],
  *     },
- *     ChannelType: "STRING_VALUE",
+ *     ChannelType: "PUSH" || "GCM" || "APNS" || "APNS_SANDBOX" || "APNS_VOIP" || "APNS_VOIP_SANDBOX" || "ADM" || "SMS" || "VOICE" || "EMAIL" || "BAIDU" || "CUSTOM" || "IN_APP",
  *     Demographic: { // EndpointDemographic
  *       AppVersion: "STRING_VALUE",
  *       Locale: "STRING_VALUE",

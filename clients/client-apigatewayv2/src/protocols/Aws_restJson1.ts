@@ -7012,8 +7012,8 @@ const de_Api = (output: any, context: __SerdeContext): Api => {
     ApiGatewayManaged: [, __expectBoolean, `apiGatewayManaged`],
     ApiId: [, __expectString, `apiId`],
     ApiKeySelectionExpression: [, __expectString, `apiKeySelectionExpression`],
-    CorsConfiguration: (_) => [, de_Cors(_, context), `corsConfiguration`],
-    CreatedDate: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdDate`],
+    CorsConfiguration: [, (_: any) => de_Cors(_, context), `corsConfiguration`],
+    CreatedDate: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdDate`],
     Description: [, __expectString, `description`],
     DisableExecuteApiEndpoint: [, __expectBoolean, `disableExecuteApiEndpoint`],
     DisableSchemaValidation: [, __expectBoolean, `disableSchemaValidation`],
@@ -7055,7 +7055,7 @@ const de_Authorizer = (output: any, context: __SerdeContext): Authorizer => {
     EnableSimpleResponses: [, __expectBoolean, `enableSimpleResponses`],
     IdentitySource: [, _json, `identitySource`],
     IdentityValidationExpression: [, __expectString, `identityValidationExpression`],
-    JwtConfiguration: (_) => [, de_JWTConfiguration(_, context), `jwtConfiguration`],
+    JwtConfiguration: [, (_: any) => de_JWTConfiguration(_, context), `jwtConfiguration`],
     Name: [, __expectString, `name`],
   }) as any;
 };
@@ -7086,7 +7086,7 @@ const de_Cors = (output: any, context: __SerdeContext): Cors => {
 const de_Deployment = (output: any, context: __SerdeContext): Deployment => {
   return take(output, {
     AutoDeployed: [, __expectBoolean, `autoDeployed`],
-    CreatedDate: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdDate`],
+    CreatedDate: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdDate`],
     DeploymentId: [, __expectString, `deploymentId`],
     DeploymentStatus: [, __expectString, `deploymentStatus`],
     DeploymentStatusMessage: [, __expectString, `deploymentStatusMessage`],
@@ -7101,8 +7101,8 @@ const de_DomainName = (output: any, context: __SerdeContext): DomainName => {
   return take(output, {
     ApiMappingSelectionExpression: [, __expectString, `apiMappingSelectionExpression`],
     DomainName: [, __expectString, `domainName`],
-    DomainNameConfigurations: (_) => [, de_DomainNameConfigurations(_, context), `domainNameConfigurations`],
-    MutualTlsAuthentication: (_) => [, de_MutualTlsAuthentication(_, context), `mutualTlsAuthentication`],
+    DomainNameConfigurations: [, (_: any) => de_DomainNameConfigurations(_, context), `domainNameConfigurations`],
+    MutualTlsAuthentication: [, (_: any) => de_MutualTlsAuthentication(_, context), `mutualTlsAuthentication`],
     Tags: [, _json, `tags`],
   }) as any;
 };
@@ -7115,7 +7115,11 @@ const de_DomainNameConfiguration = (output: any, context: __SerdeContext): Domai
     ApiGatewayDomainName: [, __expectString, `apiGatewayDomainName`],
     CertificateArn: [, __expectString, `certificateArn`],
     CertificateName: [, __expectString, `certificateName`],
-    CertificateUploadDate: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `certificateUploadDate`],
+    CertificateUploadDate: [
+      ,
+      (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+      `certificateUploadDate`,
+    ],
     DomainNameStatus: [, __expectString, `domainNameStatus`],
     DomainNameStatusMessage: [, __expectString, `domainNameStatusMessage`],
     EndpointType: [, __expectString, `endpointType`],
@@ -7163,7 +7167,7 @@ const de_Integration = (output: any, context: __SerdeContext): Integration => {
     ResponseParameters: [, _json, `responseParameters`],
     TemplateSelectionExpression: [, __expectString, `templateSelectionExpression`],
     TimeoutInMillis: [, __expectInt32, `timeoutInMillis`],
-    TlsConfig: (_) => [, de_TlsConfig(_, context), `tlsConfig`],
+    TlsConfig: [, (_: any) => de_TlsConfig(_, context), `tlsConfig`],
   }) as any;
 };
 
@@ -7241,7 +7245,7 @@ const de_Route = (output: any, context: __SerdeContext): Route => {
     ModelSelectionExpression: [, __expectString, `modelSelectionExpression`],
     OperationName: [, __expectString, `operationName`],
     RequestModels: [, _json, `requestModels`],
-    RequestParameters: (_) => [, de_RouteParameters(_, context), `requestParameters`],
+    RequestParameters: [, (_: any) => de_RouteParameters(_, context), `requestParameters`],
     RouteId: [, __expectString, `routeId`],
     RouteKey: [, __expectString, `routeKey`],
     RouteResponseSelectionExpression: [, __expectString, `routeResponseSelectionExpression`],
@@ -7271,7 +7275,7 @@ const de_RouteResponse = (output: any, context: __SerdeContext): RouteResponse =
   return take(output, {
     ModelSelectionExpression: [, __expectString, `modelSelectionExpression`],
     ResponseModels: [, _json, `responseModels`],
-    ResponseParameters: (_) => [, de_RouteParameters(_, context), `responseParameters`],
+    ResponseParameters: [, (_: any) => de_RouteParameters(_, context), `responseParameters`],
     RouteResponseId: [, __expectString, `routeResponseId`],
     RouteResponseKey: [, __expectString, `routeResponseKey`],
   }) as any;
@@ -7310,17 +7314,17 @@ const de_RouteSettingsMap = (output: any, context: __SerdeContext): Record<strin
  */
 const de_Stage = (output: any, context: __SerdeContext): Stage => {
   return take(output, {
-    AccessLogSettings: (_) => [, de_AccessLogSettings(_, context), `accessLogSettings`],
+    AccessLogSettings: [, (_: any) => de_AccessLogSettings(_, context), `accessLogSettings`],
     ApiGatewayManaged: [, __expectBoolean, `apiGatewayManaged`],
     AutoDeploy: [, __expectBoolean, `autoDeploy`],
     ClientCertificateId: [, __expectString, `clientCertificateId`],
-    CreatedDate: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdDate`],
-    DefaultRouteSettings: (_) => [, de_RouteSettings(_, context), `defaultRouteSettings`],
+    CreatedDate: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdDate`],
+    DefaultRouteSettings: [, (_: any) => de_RouteSettings(_, context), `defaultRouteSettings`],
     DeploymentId: [, __expectString, `deploymentId`],
     Description: [, __expectString, `description`],
     LastDeploymentStatusMessage: [, __expectString, `lastDeploymentStatusMessage`],
-    LastUpdatedDate: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastUpdatedDate`],
-    RouteSettings: (_) => [, de_RouteSettingsMap(_, context), `routeSettings`],
+    LastUpdatedDate: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `lastUpdatedDate`],
+    RouteSettings: [, (_: any) => de_RouteSettingsMap(_, context), `routeSettings`],
     StageName: [, __expectString, `stageName`],
     StageVariables: [, _json, `stageVariables`],
     Tags: [, _json, `tags`],
@@ -7349,7 +7353,7 @@ const de_TlsConfig = (output: any, context: __SerdeContext): TlsConfig => {
  */
 const de_VpcLink = (output: any, context: __SerdeContext): VpcLink => {
   return take(output, {
-    CreatedDate: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdDate`],
+    CreatedDate: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `createdDate`],
     Name: [, __expectString, `name`],
     SecurityGroupIds: [, _json, `securityGroupIds`],
     SubnetIds: [, _json, `subnetIds`],

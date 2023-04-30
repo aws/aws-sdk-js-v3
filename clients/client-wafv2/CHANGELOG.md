@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.323.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.322.0...v3.323.0) (2023-04-28)
+
+
+### Features
+
+* **client-wafv2:** You can now associate a web ACL with a Verified Access instance. ([1526186](https://github.com/aws/aws-sdk-js-v3/commit/15261865b8064d588169af3946cf1baf11b2b3a1))
+
+
+
+
+
+## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
+
+**Note:** Version bump only for package @aws-sdk/client-wafv2
+
+
+
+
+
+# [3.319.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.318.0...v3.319.0) (2023-04-24)
+
+**Note:** Version bump only for package @aws-sdk/client-wafv2
+
+
+
+
+
 # [3.317.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.316.0...v3.317.0) (2023-04-20)
 
 

@@ -2441,7 +2441,7 @@ const de_AvailabilityZone = (output: any, context: __SerdeContext): Availability
 const de_BrokerEngineType = (output: any, context: __SerdeContext): BrokerEngineType => {
   return take(output, {
     EngineType: [, __expectString, `engineType`],
-    EngineVersions: (_) => [, de___listOfEngineVersion(_, context), `engineVersions`],
+    EngineVersions: [, (_: any) => de___listOfEngineVersion(_, context), `engineVersions`],
   }) as any;
 };
 
@@ -2461,7 +2461,7 @@ const de_BrokerInstance = (output: any, context: __SerdeContext): BrokerInstance
  */
 const de_BrokerInstanceOption = (output: any, context: __SerdeContext): BrokerInstanceOption => {
   return take(output, {
-    AvailabilityZones: (_) => [, de___listOfAvailabilityZone(_, context), `availabilityZones`],
+    AvailabilityZones: [, (_: any) => de___listOfAvailabilityZone(_, context), `availabilityZones`],
     EngineType: [, __expectString, `engineType`],
     HostInstanceType: [, __expectString, `hostInstanceType`],
     StorageType: [, __expectString, `storageType`],
@@ -2479,7 +2479,7 @@ const de_BrokerSummary = (output: any, context: __SerdeContext): BrokerSummary =
     BrokerId: [, __expectString, `brokerId`],
     BrokerName: [, __expectString, `brokerName`],
     BrokerState: [, __expectString, `brokerState`],
-    Created: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `created`],
+    Created: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `created`],
     DeploymentMode: [, __expectString, `deploymentMode`],
     EngineType: [, __expectString, `engineType`],
     HostInstanceType: [, __expectString, `hostInstanceType`],
@@ -2493,12 +2493,12 @@ const de_Configuration = (output: any, context: __SerdeContext): Configuration =
   return take(output, {
     Arn: [, __expectString, `arn`],
     AuthenticationStrategy: [, __expectString, `authenticationStrategy`],
-    Created: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `created`],
+    Created: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `created`],
     Description: [, __expectString, `description`],
     EngineType: [, __expectString, `engineType`],
     EngineVersion: [, __expectString, `engineVersion`],
     Id: [, __expectString, `id`],
-    LatestRevision: (_) => [, de_ConfigurationRevision(_, context), `latestRevision`],
+    LatestRevision: [, (_: any) => de_ConfigurationRevision(_, context), `latestRevision`],
     Name: [, __expectString, `name`],
     Tags: [, _json, `tags`],
   }) as any;
@@ -2519,7 +2519,7 @@ const de_ConfigurationId = (output: any, context: __SerdeContext): Configuration
  */
 const de_ConfigurationRevision = (output: any, context: __SerdeContext): ConfigurationRevision => {
   return take(output, {
-    Created: (_) => [, __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `created`],
+    Created: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `created`],
     Description: [, __expectString, `description`],
     Revision: [, __expectInt32, `revision`],
   }) as any;
@@ -2530,9 +2530,9 @@ const de_ConfigurationRevision = (output: any, context: __SerdeContext): Configu
  */
 const de_Configurations = (output: any, context: __SerdeContext): Configurations => {
   return take(output, {
-    Current: (_) => [, de_ConfigurationId(_, context), `current`],
-    History: (_) => [, de___listOfConfigurationId(_, context), `history`],
-    Pending: (_) => [, de_ConfigurationId(_, context), `pending`],
+    Current: [, (_: any) => de_ConfigurationId(_, context), `current`],
+    History: [, (_: any) => de___listOfConfigurationId(_, context), `history`],
+    Pending: [, (_: any) => de_ConfigurationId(_, context), `pending`],
   }) as any;
 };
 
@@ -2592,7 +2592,7 @@ const de_LogsSummary = (output: any, context: __SerdeContext): LogsSummary => {
     AuditLogGroup: [, __expectString, `auditLogGroup`],
     General: [, __expectBoolean, `general`],
     GeneralLogGroup: [, __expectString, `generalLogGroup`],
-    Pending: (_) => [, de_PendingLogs(_, context), `pending`],
+    Pending: [, (_: any) => de_PendingLogs(_, context), `pending`],
   }) as any;
 };
 

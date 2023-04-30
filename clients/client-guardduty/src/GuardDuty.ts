@@ -228,6 +228,11 @@ import {
   ListThreatIntelSetsCommandOutput,
 } from "./commands/ListThreatIntelSetsCommand";
 import {
+  StartMalwareScanCommand,
+  StartMalwareScanCommandInput,
+  StartMalwareScanCommandOutput,
+} from "./commands/StartMalwareScanCommand";
+import {
   StartMonitoringMembersCommand,
   StartMonitoringMembersCommandInput,
   StartMonitoringMembersCommandOutput,
@@ -345,6 +350,7 @@ const commands = {
   ListPublishingDestinationsCommand,
   ListTagsForResourceCommand,
   ListThreatIntelSetsCommand,
+  StartMalwareScanCommand,
   StartMonitoringMembersCommand,
   StopMonitoringMembersCommand,
   TagResourceCommand,
@@ -1141,6 +1147,23 @@ export interface GuardDuty {
     args: ListThreatIntelSetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListThreatIntelSetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartMalwareScanCommand}
+   */
+  startMalwareScan(
+    args: StartMalwareScanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMalwareScanCommandOutput>;
+  startMalwareScan(
+    args: StartMalwareScanCommandInput,
+    cb: (err: any, data?: StartMalwareScanCommandOutput) => void
+  ): void;
+  startMalwareScan(
+    args: StartMalwareScanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMalwareScanCommandOutput) => void
   ): void;
 
   /**

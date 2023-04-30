@@ -112,6 +112,11 @@ export interface ActivityResponse {
    * <p>The unique identifier for the campaign treatment that the activity applies to. A treatment is a variation of a campaign that's used for A/B testing of a campaign.</p>
    */
   TreatmentId?: string;
+
+  /**
+   * <p>A JSON object that contains metrics relating to the campaign execution for this campaign activity. For information about the structure and contents of the results, see <a href="https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html">Standard Amazon Pinpoint analytics metrics</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p>
+   */
+  ExecutionMetrics?: Record<string, string>;
 }
 
 /**
@@ -3106,52 +3111,52 @@ export interface ChannelsResponse {
 
 /**
  * @public
- * <p>Closed Days Rule. Part of Journey sending schedule.</p>
+ * <p>Specifies the rule settings for when messages can't be sent.</p>
  */
 export interface ClosedDaysRule {
   /**
-   * <p>Name of the rule.</p>
+   * <p>The name of the closed day rule.</p>
    */
   Name?: string;
 
   /**
-   * <p>Start Datetime in ISO 8601 format.</p>
+   * <p>Start DateTime ISO 8601 format</p>
    */
   StartDateTime?: string;
 
   /**
-   * <p>End Datetime in ISO 8601 format.</p>
+   * <p>End DateTime ISO 8601 format</p>
    */
   EndDateTime?: string;
 }
 
 /**
  * @public
- * <p>The time when journey will stop sending messages.</p>
+ * <p>The time when a journey will not send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
  */
 export interface ClosedDays {
   /**
-   * <p>Rules for Email Channel.</p>
+   * <p>Rules for the Email channel.</p>
    */
   EMAIL?: ClosedDaysRule[];
 
   /**
-   * <p>Rules for SMS Channel.</p>
+   * <p>Rules for the SMS channel.</p>
    */
   SMS?: ClosedDaysRule[];
 
   /**
-   * <p>Rules for Push Channel.</p>
+   * <p>Rules for the Push channel.</p>
    */
   PUSH?: ClosedDaysRule[];
 
   /**
-   * <p>Rules for Voice Channel.</p>
+   * <p>Rules for the Voice channel.</p>
    */
   VOICE?: ClosedDaysRule[];
 
   /**
-   * <p>Rules for Custom Channel.</p>
+   * <p>Rules for the Custom channel.</p>
    */
   CUSTOM?: ClosedDaysRule[];
 }
@@ -4164,47 +4169,47 @@ export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
 /**
  * @public
- * <p>List of OpenHours Rules.</p>
+ * <p>Specifies the start and end time for OpenHours.</p>
  */
 export interface OpenHoursRule {
   /**
-   * <p>Local start time in ISO 8601 format.</p>
+   * <p>The start of the scheduled time, in ISO 8601 format, when the channel can send messages.</p>
    */
   StartTime?: string;
 
   /**
-   * <p>Local start time in ISO 8601 format.</p>
+   * <p>The end of the scheduled time, in ISO 8601 format, when the channel can't send messages.</p>
    */
   EndTime?: string;
 }
 
 /**
  * @public
- * <p>The time when journey allow to send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+ * <p>Specifies the times when message are allowed to be sent to endpoints.</p>
  */
 export interface OpenHours {
   /**
-   * <p>Rules for Email Channel.</p>
+   * <p>Specifies the schedule settings for the email channel.</p>
    */
   EMAIL?: Record<string, OpenHoursRule[]>;
 
   /**
-   * <p>Rules for SMS Channel.</p>
+   * <p>Specifies the schedule settings for the SMS channel.</p>
    */
   SMS?: Record<string, OpenHoursRule[]>;
 
   /**
-   * <p>Rules for Push Channel.</p>
+   * <p>Specifies the schedule settings for the push channel.</p>
    */
   PUSH?: Record<string, OpenHoursRule[]>;
 
   /**
-   * <p>Rules for Voice Channel.</p>
+   * <p>Specifies the schedule settings for the voice channel.</p>
    */
   VOICE?: Record<string, OpenHoursRule[]>;
 
   /**
-   * <p>Rules for Custom Channel.</p>
+   * <p>Specifies the schedule settings for the custom channel.</p>
    */
   CUSTOM?: Record<string, OpenHoursRule[]>;
 }
@@ -4374,7 +4379,7 @@ export interface WriteJourneyRequest {
   WaitForQuietTime?: boolean;
 
   /**
-   * <p>Specifies whether a journey should be refreshed on segment update.</p>
+   * <p>Indicates whether the journey participants should be refreshed when a segment is updated.</p>
    */
   RefreshOnSegmentUpdate?: boolean;
 
@@ -4384,7 +4389,7 @@ export interface WriteJourneyRequest {
   JourneyChannelSettings?: JourneyChannelSettings;
 
   /**
-   * <p>Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays). This flag should be set to true in order to allow (OpenHours and ClosedDays)</p>
+   * <p>Indicates if journey has Advance Quiet Time enabled. This flag should be set to true in order to allow using OpenHours and ClosedDays.</p>
    */
   SendingSchedule?: boolean;
 
@@ -4495,12 +4500,12 @@ export interface JourneyResponse {
   tags?: Record<string, string>;
 
   /**
-   * <p>Specifies whether endpoints in quiet hours should enter a wait till the end of their quiet hours.</p>
+   * <p>Indicates whether endpoints in quiet hours should enter a wait activity until quiet hours have elapsed.</p>
    */
   WaitForQuietTime?: boolean;
 
   /**
-   * <p>Specifies whether a journey should be refreshed on segment update.</p>
+   * <p>Indicates whether the journey participants should be refreshed when a segment is updated.</p>
    */
   RefreshOnSegmentUpdate?: boolean;
 
@@ -4510,17 +4515,17 @@ export interface JourneyResponse {
   JourneyChannelSettings?: JourneyChannelSettings;
 
   /**
-   * <p>Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays). This flag should be set to true in order to allow (OpenHours and ClosedDays)</p>
+   * <p>Indicates if journey has Advance Quiet Time enabled. This flag should be set to true in order to allow using OpenHours and ClosedDays.</p>
    */
   SendingSchedule?: boolean;
 
   /**
-   * <p>The time when journey allow to send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+   * <p>The time when a journey can send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
    */
   OpenHours?: OpenHours;
 
   /**
-   * <p>The time when journey will stop sending messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
+   * <p>The time when a journey will not send messages. QuietTime should be configured first and SendingSchedule should be set to true.</p>
    */
   ClosedDays?: ClosedDays;
 }

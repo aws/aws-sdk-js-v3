@@ -44,7 +44,7 @@ export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __Metad
  *   Tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
- *   PermissionsMode: "STRING_VALUE", // required
+ *   PermissionsMode: "ALLOW_ALL" || "STANDARD", // required
  *   DeletionProtection: true || false,
  *   KmsKey: "STRING_VALUE",
  * };

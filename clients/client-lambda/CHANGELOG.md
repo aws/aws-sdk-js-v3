@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.322.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.1...v3.322.0) (2023-04-27)
+
+
+### Features
+
+* **client-lambda:** Add Java 17 (java17) support to AWS Lambda ([5e95e01](https://github.com/aws/aws-sdk-js-v3/commit/5e95e01b37eaf9bfbb79cda2961cd6c191b64568))
+
+
+
+
+
+## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
+
+**Note:** Version bump only for package @aws-sdk/client-lambda
+
+
+
+
+
+# [3.319.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.318.0...v3.319.0) (2023-04-24)
+
+**Note:** Version bump only for package @aws-sdk/client-lambda
+
+
+
+
+
 # [3.316.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.315.0...v3.316.0) (2023-04-19)
 
 

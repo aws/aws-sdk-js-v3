@@ -6639,6 +6639,7 @@ const de_SettingEntry = (output: any, context: __SerdeContext): SettingEntry => 
   return take(output, {
     AllowedValues: __expectString,
     AppliedValue: __expectString,
+    DataType: __expectString,
     LastRequestedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,

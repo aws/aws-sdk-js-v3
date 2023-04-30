@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-endpoints",
-  "version": "3.310.0",
+  "version": "3.319.0",
   "description": "Utilities to help with endpoint resolution",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -13,7 +13,8 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest"
+    "test": "jest",
+    "test:integration": "jest --c jest.config.integ.js"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",

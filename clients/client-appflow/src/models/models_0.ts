@@ -243,6 +243,7 @@ export interface OAuth2CustomParameter {
 export const OAuth2GrantType = {
   AUTHORIZATION_CODE: "AUTHORIZATION_CODE",
   CLIENT_CREDENTIALS: "CLIENT_CREDENTIALS",
+  JWT_BEARER: "JWT_BEARER",
 } as const;
 
 /**
@@ -523,6 +524,35 @@ export interface SalesforceMetadata {
    *       data to or from Salesforce.</p>
    */
   dataTransferApis?: (SalesforceDataTransferApi | string)[];
+
+  /**
+   * <p>The OAuth 2.0 grant types that Amazon AppFlow can use when it requests an access
+   *       token from Salesforce. Amazon AppFlow requires an access token each time it
+   *       attempts to access your Salesforce records.</p>
+   *          <dl>
+   *             <dt>AUTHORIZATION_CODE</dt>
+   *             <dd>
+   *                <p>Amazon AppFlow passes an authorization code when it requests the access token
+   *             from Salesforce. Amazon AppFlow receives the authorization code from Salesforce
+   *             after you log in to your Salesforce account and authorize Amazon AppFlow to access
+   *             your records.</p>
+   *             </dd>
+   *             <dt>CLIENT_CREDENTIALS</dt>
+   *             <dd>
+   *                <p>Amazon AppFlow passes client credentials (a client ID and client secret) when
+   *             it requests the access token from Salesforce. You provide these credentials to Amazon AppFlow when you define the connection to your Salesforce account.</p>
+   *             </dd>
+   *             <dt>JWT_BEARER</dt>
+   *             <dd>
+   *                <p>Amazon AppFlow passes a JSON web token (JWT) when it requests the access token
+   *             from Salesforce. You provide the JWT to Amazon AppFlow when you define the
+   *             connection to your Salesforce account. When you use this grant type, you don't need to
+   *             log in to your Salesforce account to authorize Amazon AppFlow to access your
+   *             records.</p>
+   *             </dd>
+   *          </dl>
+   */
+  oauth2GrantTypesSupported?: (OAuth2GrantType | string)[];
 }
 
 /**
@@ -2820,6 +2850,42 @@ export interface SalesforceConnectorProfileCredentials {
    *       app. </p>
    */
   clientCredentialsArn?: string;
+
+  /**
+   * <p>Specifies the OAuth 2.0 grant type that Amazon AppFlow uses when it requests an
+   *       access token from Salesforce. Amazon AppFlow requires an access token each time it
+   *       attempts to access your Salesforce records.</p>
+   *          <p>You can specify one of the following values:</p>
+   *          <dl>
+   *             <dt>AUTHORIZATION_CODE</dt>
+   *             <dd>
+   *                <p>Amazon AppFlow passes an authorization code when it requests the access token
+   *             from Salesforce. Amazon AppFlow receives the authorization code from Salesforce
+   *             after you log in to your Salesforce account and authorize Amazon AppFlow to access
+   *             your records.</p>
+   *             </dd>
+   *             <dt>CLIENT_CREDENTIALS</dt>
+   *             <dd>
+   *                <p>Amazon AppFlow passes client credentials (a client ID and client secret) when
+   *             it requests the access token from Salesforce. You provide these credentials to Amazon AppFlow when you define the connection to your Salesforce account.</p>
+   *             </dd>
+   *             <dt>JWT_BEARER</dt>
+   *             <dd>
+   *                <p>Amazon AppFlow passes a JSON web token (JWT) when it requests the access token
+   *             from Salesforce. You provide the JWT to Amazon AppFlow when you define the
+   *             connection to your Salesforce account. When you use this grant type, you don't need to
+   *             log in to your Salesforce account to authorize Amazon AppFlow to access your
+   *             records.</p>
+   *             </dd>
+   *          </dl>
+   */
+  oAuth2GrantType?: OAuth2GrantType | string;
+
+  /**
+   * <p>A JSON web token (JWT) that authorizes Amazon AppFlow to access your Salesforce
+   *       records.</p>
+   */
+  jwtToken?: string;
 }
 
 /**
@@ -4700,9 +4766,9 @@ export interface CreateFlowRequest {
 
   /**
    * <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your
-   *       <code>CreateFlow</code> request completes only once. You choose the value to
-   *       pass. For example, if you don't receive a response from your request, you can safely retry the
-   *       request with the same <code>clientToken</code> parameter value.</p>
+   *         <code>CreateFlow</code> request completes only once. You choose the value to pass. For
+   *       example, if you don't receive a response from your request, you can safely retry the request
+   *       with the same <code>clientToken</code> parameter value.</p>
    *          <p>If you omit a <code>clientToken</code> value, the Amazon Web Services SDK that you are
    *       using inserts a value for you. This way, the SDK can safely retry requests multiple times
    *       after a network error. You must provide your own value for other use cases.</p>
@@ -5594,8 +5660,8 @@ export interface RegisterConnectorRequest {
 
   /**
    * <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your
-   *       <code>RegisterConnector</code> request completes only once. You choose the value to
-   *       pass. For example, if you don't receive a response from your request, you can safely retry the
+   *         <code>RegisterConnector</code> request completes only once. You choose the value to pass.
+   *       For example, if you don't receive a response from your request, you can safely retry the
    *       request with the same <code>clientToken</code> parameter value.</p>
    *          <p>If you omit a <code>clientToken</code> value, the Amazon Web Services SDK that you are
    *       using inserts a value for you. This way, the SDK can safely retry requests multiple times
@@ -5650,9 +5716,9 @@ export interface StartFlowRequest {
 
   /**
    * <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your
-   *       <code>StartFlow</code> request completes only once. You choose the value to
-   *       pass. For example, if you don't receive a response from your request, you can safely retry the
-   *       request with the same <code>clientToken</code> parameter value.</p>
+   *         <code>StartFlow</code> request completes only once. You choose the value to pass. For
+   *       example, if you don't receive a response from your request, you can safely retry the request
+   *       with the same <code>clientToken</code> parameter value.</p>
    *          <p>If you omit a <code>clientToken</code> value, the Amazon Web Services SDK that you are
    *       using inserts a value for you. This way, the SDK can safely retry requests multiple times
    *       after a network error. You must provide your own value for other use cases.</p>
@@ -5817,7 +5883,7 @@ export interface UpdateConnectorProfileRequest {
 
   /**
    * <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your
-   *       <code>UpdateConnectorProfile</code> request completes only once. You choose the value to
+   *         <code>UpdateConnectorProfile</code> request completes only once. You choose the value to
    *       pass. For example, if you don't receive a response from your request, you can safely retry the
    *       request with the same <code>clientToken</code> parameter value.</p>
    *          <p>If you omit a <code>clientToken</code> value, the Amazon Web Services SDK that you are
@@ -5862,9 +5928,9 @@ export interface UpdateConnectorRegistrationRequest {
 
   /**
    * <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your
-   *       <code>UpdateConnectorRegistration</code> request completes only once. You choose the value to
-   *       pass. For example, if you don't receive a response from your request, you can safely retry the
-   *       request with the same <code>clientToken</code> parameter value.</p>
+   *         <code>UpdateConnectorRegistration</code> request completes only once. You choose the value
+   *       to pass. For example, if you don't receive a response from your request, you can safely retry
+   *       the request with the same <code>clientToken</code> parameter value.</p>
    *          <p>If you omit a <code>clientToken</code> value, the Amazon Web Services SDK that you are
    *       using inserts a value for you. This way, the SDK can safely retry requests multiple times
    *       after a network error. You must provide your own value for other use cases.</p>
@@ -5932,9 +5998,9 @@ export interface UpdateFlowRequest {
 
   /**
    * <p>The <code>clientToken</code> parameter is an idempotency token. It ensures that your
-   *       <code>UpdateFlow</code> request completes only once. You choose the value to
-   *       pass. For example, if you don't receive a response from your request, you can safely retry the
-   *       request with the same <code>clientToken</code> parameter value.</p>
+   *         <code>UpdateFlow</code> request completes only once. You choose the value to pass. For
+   *       example, if you don't receive a response from your request, you can safely retry the request
+   *       with the same <code>clientToken</code> parameter value.</p>
    *          <p>If you omit a <code>clientToken</code> value, the Amazon Web Services SDK that you are
    *       using inserts a value for you. This way, the SDK can safely retry requests multiple times
    *       after a network error. You must provide your own value for other use cases.</p>
@@ -6087,6 +6153,7 @@ export const SalesforceConnectorProfileCredentialsFilterSensitiveLog = (
   ...obj,
   ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
   ...(obj.clientCredentialsArn && { clientCredentialsArn: SENSITIVE_STRING }),
+  ...(obj.jwtToken && { jwtToken: SENSITIVE_STRING }),
 });
 
 /**

@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.322.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.1...v3.322.0) (2023-04-27)
+
+
+### Features
+
+* **client-guardduty:** Added API support to initiate on-demand malware scan on specific resources. ([309ab61](https://github.com/aws/aws-sdk-js-v3/commit/309ab61b1a9af25acefb51c63fb8192788d94373))
+
+
+
+
+
+## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
+
+
+### Bug Fixes
+
+* **clients:** deserialization of jsonName complex shapes ([#4670](https://github.com/aws/aws-sdk-js-v3/issues/4670)) ([d79d141](https://github.com/aws/aws-sdk-js-v3/commit/d79d1414b5af2b985631127a3b3cdc03956a5dc8))
+
+
+
+
+
+# [3.319.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.318.0...v3.319.0) (2023-04-24)
+
+**Note:** Version bump only for package @aws-sdk/client-guardduty
+
+
+
+
+
 # [3.317.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.316.0...v3.317.0) (2023-04-20)
 
 

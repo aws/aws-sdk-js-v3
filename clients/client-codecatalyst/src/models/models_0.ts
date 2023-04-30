@@ -171,7 +171,7 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteAccessTokenRequest {
   /**
-   * <p>The ID of the personal access token to delete. You can find the IDs of all PATs associated with your user account by calling <a>ListAccessTokens</a>.</p>
+   * <p>The ID of the personal access token to delete. You can find the IDs of all PATs associated with your Amazon Web Services Builder ID in a space by calling <a>ListAccessTokens</a>.</p>
    */
   id: string | undefined;
 }
@@ -222,7 +222,7 @@ export interface AccessTokenSummary {
  */
 export interface ListAccessTokensResponse {
   /**
-   * <p>A list of personal access tokens (PATs) associated with the calling user.</p>
+   * <p>A list of personal access tokens (PATs) associated with the calling user identity.</p>
    */
   items: AccessTokenSummary[] | undefined;
 
@@ -231,21 +231,6 @@ export interface ListAccessTokensResponse {
    */
   nextToken?: string;
 }
-
-/**
- * @public
- * @enum
- */
-export const CatalogActionVersionFileRecordType = {
-  LICENSE: "LICENSE",
-  README: "README",
-} as const;
-
-/**
- * @public
- */
-export type CatalogActionVersionFileRecordType =
-  (typeof CatalogActionVersionFileRecordType)[keyof typeof CatalogActionVersionFileRecordType];
 
 /**
  * @public
@@ -608,7 +593,7 @@ export interface ListSpacesResponse {
   nextToken?: string;
 
   /**
-   * <p>Information about the space. </p>
+   * <p>Information about the spaces. </p>
    */
   items?: SpaceSummary[];
 }

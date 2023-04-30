@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  ActivateEvaluationFormCommand,
+  ActivateEvaluationFormCommandInput,
+  ActivateEvaluationFormCommandOutput,
+} from "./commands/ActivateEvaluationFormCommand";
+import {
   AssociateApprovedOriginCommand,
   AssociateApprovedOriginCommandInput,
   AssociateApprovedOriginCommandOutput,
@@ -73,6 +78,11 @@ import {
   CreateContactFlowModuleCommandOutput,
 } from "./commands/CreateContactFlowModuleCommand";
 import {
+  CreateEvaluationFormCommand,
+  CreateEvaluationFormCommandInput,
+  CreateEvaluationFormCommandOutput,
+} from "./commands/CreateEvaluationFormCommand";
+import {
   CreateHoursOfOperationCommand,
   CreateHoursOfOperationCommandInput,
   CreateHoursOfOperationCommandOutput,
@@ -87,6 +97,11 @@ import {
   CreateIntegrationAssociationCommandInput,
   CreateIntegrationAssociationCommandOutput,
 } from "./commands/CreateIntegrationAssociationCommand";
+import {
+  CreateParticipantCommand,
+  CreateParticipantCommandInput,
+  CreateParticipantCommandOutput,
+} from "./commands/CreateParticipantCommand";
 import { CreateQueueCommand, CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
 import {
   CreateQuickConnectCommand,
@@ -131,6 +146,16 @@ import {
   CreateVocabularyCommandOutput,
 } from "./commands/CreateVocabularyCommand";
 import {
+  DeactivateEvaluationFormCommand,
+  DeactivateEvaluationFormCommandInput,
+  DeactivateEvaluationFormCommandOutput,
+} from "./commands/DeactivateEvaluationFormCommand";
+import {
+  DeleteContactEvaluationCommand,
+  DeleteContactEvaluationCommandInput,
+  DeleteContactEvaluationCommandOutput,
+} from "./commands/DeleteContactEvaluationCommand";
+import {
   DeleteContactFlowCommand,
   DeleteContactFlowCommandInput,
   DeleteContactFlowCommandOutput,
@@ -140,6 +165,11 @@ import {
   DeleteContactFlowModuleCommandInput,
   DeleteContactFlowModuleCommandOutput,
 } from "./commands/DeleteContactFlowModuleCommand";
+import {
+  DeleteEvaluationFormCommand,
+  DeleteEvaluationFormCommandInput,
+  DeleteEvaluationFormCommandOutput,
+} from "./commands/DeleteEvaluationFormCommand";
 import {
   DeleteHoursOfOperationCommand,
   DeleteHoursOfOperationCommandInput,
@@ -203,6 +233,11 @@ import {
   DescribeContactCommandOutput,
 } from "./commands/DescribeContactCommand";
 import {
+  DescribeContactEvaluationCommand,
+  DescribeContactEvaluationCommandInput,
+  DescribeContactEvaluationCommandOutput,
+} from "./commands/DescribeContactEvaluationCommand";
+import {
   DescribeContactFlowCommand,
   DescribeContactFlowCommandInput,
   DescribeContactFlowCommandOutput,
@@ -212,6 +247,11 @@ import {
   DescribeContactFlowModuleCommandInput,
   DescribeContactFlowModuleCommandOutput,
 } from "./commands/DescribeContactFlowModuleCommand";
+import {
+  DescribeEvaluationFormCommand,
+  DescribeEvaluationFormCommandInput,
+  DescribeEvaluationFormCommandOutput,
+} from "./commands/DescribeEvaluationFormCommand";
 import {
   DescribeHoursOfOperationCommand,
   DescribeHoursOfOperationCommandInput,
@@ -389,6 +429,11 @@ import {
 } from "./commands/ListApprovedOriginsCommand";
 import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
 import {
+  ListContactEvaluationsCommand,
+  ListContactEvaluationsCommandInput,
+  ListContactEvaluationsCommandOutput,
+} from "./commands/ListContactEvaluationsCommand";
+import {
   ListContactFlowModulesCommand,
   ListContactFlowModulesCommandInput,
   ListContactFlowModulesCommandOutput,
@@ -408,6 +453,16 @@ import {
   ListDefaultVocabulariesCommandInput,
   ListDefaultVocabulariesCommandOutput,
 } from "./commands/ListDefaultVocabulariesCommand";
+import {
+  ListEvaluationFormsCommand,
+  ListEvaluationFormsCommandInput,
+  ListEvaluationFormsCommandOutput,
+} from "./commands/ListEvaluationFormsCommand";
+import {
+  ListEvaluationFormVersionsCommand,
+  ListEvaluationFormVersionsCommandInput,
+  ListEvaluationFormVersionsCommandOutput,
+} from "./commands/ListEvaluationFormVersionsCommand";
 import {
   ListHoursOfOperationsCommand,
   ListHoursOfOperationsCommandInput,
@@ -570,6 +625,11 @@ import {
   StartChatContactCommandOutput,
 } from "./commands/StartChatContactCommand";
 import {
+  StartContactEvaluationCommand,
+  StartContactEvaluationCommandInput,
+  StartContactEvaluationCommandOutput,
+} from "./commands/StartContactEvaluationCommand";
+import {
   StartContactRecordingCommand,
   StartContactRecordingCommandInput,
   StartContactRecordingCommandOutput,
@@ -600,6 +660,11 @@ import {
   StopContactStreamingCommandInput,
   StopContactStreamingCommandOutput,
 } from "./commands/StopContactStreamingCommand";
+import {
+  SubmitContactEvaluationCommand,
+  SubmitContactEvaluationCommandInput,
+  SubmitContactEvaluationCommandOutput,
+} from "./commands/SubmitContactEvaluationCommand";
 import {
   SuspendContactRecordingCommand,
   SuspendContactRecordingCommandInput,
@@ -632,6 +697,11 @@ import {
   UpdateContactCommandOutput,
 } from "./commands/UpdateContactCommand";
 import {
+  UpdateContactEvaluationCommand,
+  UpdateContactEvaluationCommandInput,
+  UpdateContactEvaluationCommandOutput,
+} from "./commands/UpdateContactEvaluationCommand";
+import {
   UpdateContactFlowContentCommand,
   UpdateContactFlowContentCommandInput,
   UpdateContactFlowContentCommandOutput,
@@ -661,6 +731,11 @@ import {
   UpdateContactScheduleCommandInput,
   UpdateContactScheduleCommandOutput,
 } from "./commands/UpdateContactScheduleCommand";
+import {
+  UpdateEvaluationFormCommand,
+  UpdateEvaluationFormCommandInput,
+  UpdateEvaluationFormCommandOutput,
+} from "./commands/UpdateEvaluationFormCommand";
 import {
   UpdateHoursOfOperationCommand,
   UpdateHoursOfOperationCommandInput,
@@ -795,6 +870,7 @@ import {
 import { ConnectClient, ConnectClientConfig } from "./ConnectClient";
 
 const commands = {
+  ActivateEvaluationFormCommand,
   AssociateApprovedOriginCommand,
   AssociateBotCommand,
   AssociateDefaultVocabularyCommand,
@@ -809,9 +885,11 @@ const commands = {
   CreateAgentStatusCommand,
   CreateContactFlowCommand,
   CreateContactFlowModuleCommand,
+  CreateEvaluationFormCommand,
   CreateHoursOfOperationCommand,
   CreateInstanceCommand,
   CreateIntegrationAssociationCommand,
+  CreateParticipantCommand,
   CreateQueueCommand,
   CreateQuickConnectCommand,
   CreateRoutingProfileCommand,
@@ -823,8 +901,11 @@ const commands = {
   CreateUserCommand,
   CreateUserHierarchyGroupCommand,
   CreateVocabularyCommand,
+  DeactivateEvaluationFormCommand,
+  DeleteContactEvaluationCommand,
   DeleteContactFlowCommand,
   DeleteContactFlowModuleCommand,
+  DeleteEvaluationFormCommand,
   DeleteHoursOfOperationCommand,
   DeleteInstanceCommand,
   DeleteIntegrationAssociationCommand,
@@ -839,8 +920,10 @@ const commands = {
   DeleteVocabularyCommand,
   DescribeAgentStatusCommand,
   DescribeContactCommand,
+  DescribeContactEvaluationCommand,
   DescribeContactFlowCommand,
   DescribeContactFlowModuleCommand,
+  DescribeEvaluationFormCommand,
   DescribeHoursOfOperationCommand,
   DescribeInstanceCommand,
   DescribeInstanceAttributeCommand,
@@ -877,10 +960,13 @@ const commands = {
   ListAgentStatusesCommand,
   ListApprovedOriginsCommand,
   ListBotsCommand,
+  ListContactEvaluationsCommand,
   ListContactFlowModulesCommand,
   ListContactFlowsCommand,
   ListContactReferencesCommand,
   ListDefaultVocabulariesCommand,
+  ListEvaluationFormsCommand,
+  ListEvaluationFormVersionsCommand,
   ListHoursOfOperationsCommand,
   ListInstanceAttributesCommand,
   ListInstancesCommand,
@@ -918,6 +1004,7 @@ const commands = {
   SearchUsersCommand,
   SearchVocabulariesCommand,
   StartChatContactCommand,
+  StartContactEvaluationCommand,
   StartContactRecordingCommand,
   StartContactStreamingCommand,
   StartOutboundVoiceContactCommand,
@@ -925,6 +1012,7 @@ const commands = {
   StopContactCommand,
   StopContactRecordingCommand,
   StopContactStreamingCommand,
+  SubmitContactEvaluationCommand,
   SuspendContactRecordingCommand,
   TagResourceCommand,
   TransferContactCommand,
@@ -932,12 +1020,14 @@ const commands = {
   UpdateAgentStatusCommand,
   UpdateContactCommand,
   UpdateContactAttributesCommand,
+  UpdateContactEvaluationCommand,
   UpdateContactFlowContentCommand,
   UpdateContactFlowMetadataCommand,
   UpdateContactFlowModuleContentCommand,
   UpdateContactFlowModuleMetadataCommand,
   UpdateContactFlowNameCommand,
   UpdateContactScheduleCommand,
+  UpdateEvaluationFormCommand,
   UpdateHoursOfOperationCommand,
   UpdateInstanceAttributeCommand,
   UpdateInstanceStorageConfigCommand,
@@ -968,6 +1058,23 @@ const commands = {
 };
 
 export interface Connect {
+  /**
+   * @see {@link ActivateEvaluationFormCommand}
+   */
+  activateEvaluationForm(
+    args: ActivateEvaluationFormCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ActivateEvaluationFormCommandOutput>;
+  activateEvaluationForm(
+    args: ActivateEvaluationFormCommandInput,
+    cb: (err: any, data?: ActivateEvaluationFormCommandOutput) => void
+  ): void;
+  activateEvaluationForm(
+    args: ActivateEvaluationFormCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ActivateEvaluationFormCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link AssociateApprovedOriginCommand}
    */
@@ -1198,6 +1305,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link CreateEvaluationFormCommand}
+   */
+  createEvaluationForm(
+    args: CreateEvaluationFormCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEvaluationFormCommandOutput>;
+  createEvaluationForm(
+    args: CreateEvaluationFormCommandInput,
+    cb: (err: any, data?: CreateEvaluationFormCommandOutput) => void
+  ): void;
+  createEvaluationForm(
+    args: CreateEvaluationFormCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEvaluationFormCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateHoursOfOperationCommand}
    */
   createHoursOfOperation(
@@ -1243,6 +1367,23 @@ export interface Connect {
     args: CreateIntegrationAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateIntegrationAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateParticipantCommand}
+   */
+  createParticipant(
+    args: CreateParticipantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateParticipantCommandOutput>;
+  createParticipant(
+    args: CreateParticipantCommandInput,
+    cb: (err: any, data?: CreateParticipantCommandOutput) => void
+  ): void;
+  createParticipant(
+    args: CreateParticipantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateParticipantCommandOutput) => void
   ): void;
 
   /**
@@ -1409,6 +1550,40 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DeactivateEvaluationFormCommand}
+   */
+  deactivateEvaluationForm(
+    args: DeactivateEvaluationFormCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeactivateEvaluationFormCommandOutput>;
+  deactivateEvaluationForm(
+    args: DeactivateEvaluationFormCommandInput,
+    cb: (err: any, data?: DeactivateEvaluationFormCommandOutput) => void
+  ): void;
+  deactivateEvaluationForm(
+    args: DeactivateEvaluationFormCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeactivateEvaluationFormCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteContactEvaluationCommand}
+   */
+  deleteContactEvaluation(
+    args: DeleteContactEvaluationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContactEvaluationCommandOutput>;
+  deleteContactEvaluation(
+    args: DeleteContactEvaluationCommandInput,
+    cb: (err: any, data?: DeleteContactEvaluationCommandOutput) => void
+  ): void;
+  deleteContactEvaluation(
+    args: DeleteContactEvaluationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContactEvaluationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteContactFlowCommand}
    */
   deleteContactFlow(
@@ -1440,6 +1615,23 @@ export interface Connect {
     args: DeleteContactFlowModuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteContactFlowModuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteEvaluationFormCommand}
+   */
+  deleteEvaluationForm(
+    args: DeleteEvaluationFormCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEvaluationFormCommandOutput>;
+  deleteEvaluationForm(
+    args: DeleteEvaluationFormCommandInput,
+    cb: (err: any, data?: DeleteEvaluationFormCommandOutput) => void
+  ): void;
+  deleteEvaluationForm(
+    args: DeleteEvaluationFormCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEvaluationFormCommandOutput) => void
   ): void;
 
   /**
@@ -1657,6 +1849,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DescribeContactEvaluationCommand}
+   */
+  describeContactEvaluation(
+    args: DescribeContactEvaluationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeContactEvaluationCommandOutput>;
+  describeContactEvaluation(
+    args: DescribeContactEvaluationCommandInput,
+    cb: (err: any, data?: DescribeContactEvaluationCommandOutput) => void
+  ): void;
+  describeContactEvaluation(
+    args: DescribeContactEvaluationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeContactEvaluationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeContactFlowCommand}
    */
   describeContactFlow(
@@ -1688,6 +1897,23 @@ export interface Connect {
     args: DescribeContactFlowModuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeContactFlowModuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeEvaluationFormCommand}
+   */
+  describeEvaluationForm(
+    args: DescribeEvaluationFormCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEvaluationFormCommandOutput>;
+  describeEvaluationForm(
+    args: DescribeEvaluationFormCommandInput,
+    cb: (err: any, data?: DescribeEvaluationFormCommandOutput) => void
+  ): void;
+  describeEvaluationForm(
+    args: DescribeEvaluationFormCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEvaluationFormCommandOutput) => void
   ): void;
 
   /**
@@ -2264,6 +2490,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link ListContactEvaluationsCommand}
+   */
+  listContactEvaluations(
+    args: ListContactEvaluationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContactEvaluationsCommandOutput>;
+  listContactEvaluations(
+    args: ListContactEvaluationsCommandInput,
+    cb: (err: any, data?: ListContactEvaluationsCommandOutput) => void
+  ): void;
+  listContactEvaluations(
+    args: ListContactEvaluationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContactEvaluationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListContactFlowModulesCommand}
    */
   listContactFlowModules(
@@ -2329,6 +2572,40 @@ export interface Connect {
     args: ListDefaultVocabulariesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDefaultVocabulariesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEvaluationFormsCommand}
+   */
+  listEvaluationForms(
+    args: ListEvaluationFormsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEvaluationFormsCommandOutput>;
+  listEvaluationForms(
+    args: ListEvaluationFormsCommandInput,
+    cb: (err: any, data?: ListEvaluationFormsCommandOutput) => void
+  ): void;
+  listEvaluationForms(
+    args: ListEvaluationFormsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEvaluationFormsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEvaluationFormVersionsCommand}
+   */
+  listEvaluationFormVersions(
+    args: ListEvaluationFormVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEvaluationFormVersionsCommandOutput>;
+  listEvaluationFormVersions(
+    args: ListEvaluationFormVersionsCommandInput,
+    cb: (err: any, data?: ListEvaluationFormVersionsCommandOutput) => void
+  ): void;
+  listEvaluationFormVersions(
+    args: ListEvaluationFormVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEvaluationFormVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -2898,6 +3175,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link StartContactEvaluationCommand}
+   */
+  startContactEvaluation(
+    args: StartContactEvaluationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartContactEvaluationCommandOutput>;
+  startContactEvaluation(
+    args: StartContactEvaluationCommandInput,
+    cb: (err: any, data?: StartContactEvaluationCommandOutput) => void
+  ): void;
+  startContactEvaluation(
+    args: StartContactEvaluationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartContactEvaluationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartContactRecordingCommand}
    */
   startContactRecording(
@@ -3011,6 +3305,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link SubmitContactEvaluationCommand}
+   */
+  submitContactEvaluation(
+    args: SubmitContactEvaluationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SubmitContactEvaluationCommandOutput>;
+  submitContactEvaluation(
+    args: SubmitContactEvaluationCommandInput,
+    cb: (err: any, data?: SubmitContactEvaluationCommandOutput) => void
+  ): void;
+  submitContactEvaluation(
+    args: SubmitContactEvaluationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SubmitContactEvaluationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SuspendContactRecordingCommand}
    */
   suspendContactRecording(
@@ -3106,6 +3417,23 @@ export interface Connect {
     args: UpdateContactAttributesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateContactAttributesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateContactEvaluationCommand}
+   */
+  updateContactEvaluation(
+    args: UpdateContactEvaluationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContactEvaluationCommandOutput>;
+  updateContactEvaluation(
+    args: UpdateContactEvaluationCommandInput,
+    cb: (err: any, data?: UpdateContactEvaluationCommandOutput) => void
+  ): void;
+  updateContactEvaluation(
+    args: UpdateContactEvaluationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContactEvaluationCommandOutput) => void
   ): void;
 
   /**
@@ -3208,6 +3536,23 @@ export interface Connect {
     args: UpdateContactScheduleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateContactScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateEvaluationFormCommand}
+   */
+  updateEvaluationForm(
+    args: UpdateEvaluationFormCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEvaluationFormCommandOutput>;
+  updateEvaluationForm(
+    args: UpdateEvaluationFormCommandInput,
+    cb: (err: any, data?: UpdateEvaluationFormCommandOutput) => void
+  ): void;
+  updateEvaluationForm(
+    args: UpdateEvaluationFormCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEvaluationFormCommandOutput) => void
   ): void;
 
   /**

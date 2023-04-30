@@ -44,7 +44,7 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  *   WriteApplicationSettingsRequest: { // WriteApplicationSettingsRequest
  *     CampaignHook: { // CampaignHook
  *       LambdaFunctionName: "STRING_VALUE",
- *       Mode: "STRING_VALUE",
+ *       Mode: "DELIVERY" || "FILTER",
  *       WebUrl: "STRING_VALUE",
  *     },
  *     CloudWatchMetricsEnabled: true || false,

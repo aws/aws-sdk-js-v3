@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.323.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.322.0...v3.323.0) (2023-04-28)
+
+
+### Features
+
+* **client-simspaceweaver:** Added a new CreateSnapshot API. For the StartSimulation API, SchemaS3Location is now optional, added a new SnapshotS3Location parameter. For the DescribeSimulation API, added SNAPSHOT_IN_PROGRESS simulation state, deprecated SchemaError, added new fields: StartError and SnapshotS3Location. ([0a25cd2](https://github.com/aws/aws-sdk-js-v3/commit/0a25cd2579c16716f954a0cd6dad04a3e35bfb54))
+
+
+
+
+
+## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
+
+**Note:** Version bump only for package @aws-sdk/client-simspaceweaver
+
+
+
+
+
+# [3.319.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.318.0...v3.319.0) (2023-04-24)
+
+**Note:** Version bump only for package @aws-sdk/client-simspaceweaver
+
+
+
+
+
 # [3.316.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.315.0...v3.316.0) (2023-04-19)
 
 

@@ -6,6 +6,45 @@ import { InstanceMonitoring } from "./models_6";
 
 /**
  * @public
+ */
+export interface SendDiagnosticInterruptRequest {
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface StartInstancesRequest {
+  /**
+   * <p>The IDs of the instances.</p>
+   */
+  InstanceIds: string[] | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   */
+  AdditionalInfo?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
  * <p>Describes an instance state change.</p>
  */
 export interface InstanceStateChange {

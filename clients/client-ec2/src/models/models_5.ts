@@ -26,6 +26,7 @@ import {
   TransitGatewayPolicyTableAssociation,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
+  VerifiedAccessTrustProviderFilterSensitiveLog,
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
   VpcPeeringConnection,
@@ -67,6 +68,7 @@ import {
   AttributeBooleanValue,
   BootModeValues,
   ConversionTask,
+  ConversionTaskFilterSensitiveLog,
   ExportTaskS3Location,
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchResourceType,
@@ -79,11 +81,152 @@ import {
   MetricType,
   PaymentOption,
   PeriodType,
+  ProductCode,
   SnapshotDetail,
   StatisticType,
   VirtualizationType,
 } from "./models_3";
 import { AnalysisStatus, ArchitectureType } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeVolumeAttributeResult {
+  /**
+   * <p>The state of <code>autoEnableIO</code> attribute.</p>
+   */
+  AutoEnableIO?: AttributeBooleanValue;
+
+  /**
+   * <p>A list of product codes.</p>
+   */
+  ProductCodes?: ProductCode[];
+
+  /**
+   * <p>The ID of the volume.</p>
+   */
+  VolumeId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVolumesRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.attach-time</code> - The time stamp when the attachment
+   *           initiated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.delete-on-termination</code> - Whether the volume is deleted on
+   *           instance termination.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.device</code> - The device name specified in the block device mapping
+   *           (for example, <code>/dev/sda1</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.instance-id</code> - The ID of the instance the volume is attached
+   *           to.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.status</code> - The attachment state (<code>attaching</code> |
+   *             <code>attached</code> | <code>detaching</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone in which the volume was
+   *           created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>create-time</code> - The time stamp when the volume was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>encrypted</code> - Indicates whether the volume is encrypted (<code>true</code>
+   *           | <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>multi-attach-enabled</code> - Indicates whether the volume is enabled for Multi-Attach (<code>true</code>
+   *     			| <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fast-restored</code> - Indicates whether the volume was created from a
+   *           snapshot that is enabled for fast snapshot restore (<code>true</code> |
+   *           <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>size</code> - The size of the volume, in GiB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>snapshot-id</code> - The snapshot from which the volume was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> - The state of the volume (<code>creating</code> |
+   *             <code>available</code> | <code>in-use</code> | <code>deleting</code> |
+   *             <code>deleted</code> | <code>error</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-id</code> - The volume ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-type</code> - The Amazon EBS volume type (<code>gp2</code> | <code>gp3</code> | <code>io1</code> | <code>io2</code> |
+   *           <code>st1</code> | <code>sc1</code>| <code>standard</code>)</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The volume IDs.</p>
+   */
+  VolumeIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The maximum number of volumes to return for this request.
+   *       This value can be between 5 and 500; if you specify a value larger than 500, only 500 items are returned.
+   *       If this parameter is not used, then all items are returned. You cannot specify this parameter and the
+   *       volume IDs parameter in the same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *       Pagination continues from the end of the items returned from the previous request.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -1917,12 +2060,12 @@ export interface DetachNetworkInterfaceRequest {
  */
 export interface DetachVerifiedAccessTrustProviderRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstanceId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   * <p>The ID of the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProviderId: string | undefined;
 
@@ -1945,12 +2088,12 @@ export interface DetachVerifiedAccessTrustProviderRequest {
  */
 export interface DetachVerifiedAccessTrustProviderResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   * <p>The ID of the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
@@ -6929,7 +7072,7 @@ export interface GetTransitGatewayRouteTablePropagationsResult {
  */
 export interface GetVerifiedAccessEndpointPolicyRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   * <p>The ID of the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpointId: string | undefined;
 
@@ -6951,7 +7094,7 @@ export interface GetVerifiedAccessEndpointPolicyResult {
   PolicyEnabled?: boolean;
 
   /**
-   * <p>The Amazon Web Services Verified Access policy document.</p>
+   * <p>The Verified Access policy document.</p>
    */
   PolicyDocument?: string;
 }
@@ -6961,7 +7104,7 @@ export interface GetVerifiedAccessEndpointPolicyResult {
  */
 export interface GetVerifiedAccessGroupPolicyRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   * <p>The ID of the Verified Access group.</p>
    */
   VerifiedAccessGroupId: string | undefined;
 
@@ -6983,7 +7126,7 @@ export interface GetVerifiedAccessGroupPolicyResult {
   PolicyEnabled?: boolean;
 
   /**
-   * <p>The Amazon Web Services Verified Access policy document.</p>
+   * <p>The Verified Access policy document.</p>
    */
   PolicyDocument?: string;
 }
@@ -7696,63 +7839,16 @@ export interface ImportInstanceResult {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface ImportKeyPairRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>A unique name for the key pair.</p>
-   */
-  KeyName: string | undefined;
-
-  /**
-   * <p>The public key. For API calls, the text must be base64-encoded. For command line tools, base64 encoding is performed for you.</p>
-   */
-  PublicKeyMaterial: Uint8Array | undefined;
-
-  /**
-   * <p>The tags to apply to the imported key pair.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-}
-
-/**
- * @public
- */
-export interface ImportKeyPairResult {
-  /**
-   * <ul>
-   *             <li>
-   *                <p>For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC 4716.</p>
-   *             </li>
-   *             <li>
-   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
-   *             </li>
-   *          </ul>
-   */
-  KeyFingerprint?: string;
-
-  /**
-   * <p>The key pair name that you provided.</p>
-   */
-  KeyName?: string;
-
-  /**
-   * <p>The ID of the resulting key pair.</p>
-   */
-  KeyPairId?: string;
-
-  /**
-   * <p>The tags applied to the imported key pair.</p>
-   */
-  Tags?: Tag[];
-}
+export const DetachVerifiedAccessTrustProviderResultFilterSensitiveLog = (
+  obj: DetachVerifiedAccessTrustProviderResult
+): any => ({
+  ...obj,
+  ...(obj.VerifiedAccessTrustProvider && {
+    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
+  }),
+});
 
 /**
  * @internal
@@ -7814,4 +7910,12 @@ export const ImportInstanceRequestFilterSensitiveLog = (obj: ImportInstanceReque
   ...(obj.LaunchSpecification && {
     LaunchSpecification: ImportInstanceLaunchSpecificationFilterSensitiveLog(obj.LaunchSpecification),
   }),
+});
+
+/**
+ * @internal
+ */
+export const ImportInstanceResultFilterSensitiveLog = (obj: ImportInstanceResult): any => ({
+  ...obj,
+  ...(obj.ConversionTask && { ConversionTask: ConversionTaskFilterSensitiveLog(obj.ConversionTask) }),
 });

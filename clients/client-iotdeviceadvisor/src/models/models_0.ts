@@ -5,6 +5,20 @@ import { IotDeviceAdvisorServiceException as __BaseException } from "./IotDevice
 
 /**
  * @public
+ * @enum
+ */
+export const AuthenticationMethod = {
+  SignatureVersion4: "SignatureVersion4",
+  X509ClientCertificate: "X509ClientCertificate",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthenticationMethod = (typeof AuthenticationMethod)[keyof typeof AuthenticationMethod];
+
+/**
+ * @public
  * <p>Sends a Conflict Exception.</p>
  */
 export class ConflictException extends __BaseException {
@@ -25,18 +39,24 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
- * <p>Information of a test device. A thing ARN or a certificate ARN is required.</p>
+ * <p>Information of a test device. A thing ARN, certificate ARN
+ *             or device role ARN is required.</p>
  */
 export interface DeviceUnderTest {
   /**
-   * <p>Lists devices thing ARN.</p>
+   * <p>Lists device's thing ARN.</p>
    */
   thingArn?: string;
 
   /**
-   * <p>Lists devices certificate ARN.</p>
+   * <p>Lists device's certificate ARN.</p>
    */
   certificateArn?: string;
+
+  /**
+   * <p>Lists device's role ARN.</p>
+   */
+  deviceRoleArn?: string;
 }
 
 /**
@@ -45,7 +65,9 @@ export interface DeviceUnderTest {
  */
 export const Protocol = {
   MqttV3_1_1: "MqttV3_1_1",
+  MqttV3_1_1_OverWebSocket: "MqttV3_1_1_OverWebSocket",
   MqttV5: "MqttV5",
+  MqttV5_OverWebSocket: "MqttV5_OverWebSocket",
 } as const;
 
 /**
@@ -202,6 +224,16 @@ export interface GetEndpointRequest {
    * <p>The certificate ARN of the device. This is an optional parameter.</p>
    */
   certificateArn?: string;
+
+  /**
+   * <p>The device role ARN of the device. This is an optional parameter.</p>
+   */
+  deviceRoleArn?: string;
+
+  /**
+   * <p>The authentication method used during the device connection.</p>
+   */
+  authenticationMethod?: AuthenticationMethod | string;
 }
 
 /**

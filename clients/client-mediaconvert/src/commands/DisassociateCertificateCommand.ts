@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DisassociateCertificateRequest, DisassociateCertificateResponse } from "../models/models_1";
+import { DisassociateCertificateRequest, DisassociateCertificateResponse } from "../models/models_2";
 import { de_DisassociateCertificateCommand, se_DisassociateCertificateCommand } from "../protocols/Aws_restJson1";
 
 /**

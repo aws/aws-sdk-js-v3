@@ -32,10 +32,10 @@ export interface ListLedgersCommandOutput extends ListLedgersResponse, __Metadat
 
 /**
  * @public
- * <p>Returns an array of ledger summaries that are associated with the current Amazon Web Services account
- *          and Region.</p>
- *          <p>This action returns a maximum of 100 items and is paginated so that you can
- *          retrieve all the items by calling <code>ListLedgers</code> multiple times.</p>
+ * <p>Returns all ledgers that are associated with the current Amazon Web Services account and
+ *          Region.</p>
+ *          <p>This action returns a maximum of <code>MaxResults</code> items and is paginated so that
+ *          you can retrieve all the items by calling <code>ListLedgers</code> multiple times.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

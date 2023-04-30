@@ -21,22 +21,27 @@ describe(resolveEndpoint.name, () => {
       const ruleSetObject = require(rulesFile);
       const { testCases } = require(testCasesFile);
 
-      const jestTestCases: Array<[string, any, any]> = testCases.map((testCase) => Object.values(testCase));
+      for (const testCase of testCases) {
+        const { documentation, params } = testCase;
+        (testCase.skip ? xit : it)(documentation, () => {
+          const _expect = testCase.expect;
 
-      it.each(jestTestCases)("%s", (documentation: string, endpointParams: any, expected: any) => {
-        const { endpoint, error } = expected;
+          const { endpoint, error } = _expect;
 
-        if (endpoint) {
-          expect(resolveEndpoint(ruleSetObject, { endpointParams })).toStrictEqual({
-            ...endpoint,
-            url: new URL(endpoint.url),
-          });
-        }
+          if (endpoint) {
+            expect(resolveEndpoint(ruleSetObject, { endpointParams: params })).toStrictEqual({
+              ...endpoint,
+              url: new URL(endpoint.url),
+            });
+          }
 
-        if (error) {
-          expect(() => resolveEndpoint(ruleSetObject, { endpointParams })).toThrowError(new EndpointError(error));
-        }
-      });
+          if (error) {
+            expect(() => resolveEndpoint(ruleSetObject, { endpointParams: params })).toThrowError(
+              new EndpointError(error)
+            );
+          }
+        });
+      }
     }
   });
 });

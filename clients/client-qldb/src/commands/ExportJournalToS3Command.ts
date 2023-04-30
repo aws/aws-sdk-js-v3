@@ -36,11 +36,6 @@ export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Respons
  *          Amazon Simple Storage Service (Amazon S3) bucket. A journal export job can write the data objects in either the text
  *          or binary representation of Amazon Ion format, or in <i>JSON Lines</i> text
  *          format.</p>
- *          <p>In JSON Lines format, each journal block in the exported data object is a valid JSON
- *          object that is delimited by a newline. You can use this format to easily integrate JSON
- *          exports with analytics tools such as Glue and Amazon Athena
- *          because these services can parse newline-delimited JSON automatically. For more information
- *          about the format, see <a href="https://jsonlines.org/">JSON Lines</a>.</p>
  *          <p>If the ledger with the given <code>Name</code> doesn't exist, then throws
  *             <code>ResourceNotFoundException</code>.</p>
  *          <p>If the ledger with the given <code>Name</code> is in <code>CREATING</code> status, then
@@ -61,12 +56,12 @@ export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Respons
  *     Bucket: "STRING_VALUE", // required
  *     Prefix: "STRING_VALUE", // required
  *     EncryptionConfiguration: { // S3EncryptionConfiguration
- *       ObjectEncryptionType: "STRING_VALUE", // required
+ *       ObjectEncryptionType: "SSE_KMS" || "SSE_S3" || "NO_ENCRYPTION", // required
  *       KmsKeyArn: "STRING_VALUE",
  *     },
  *   },
  *   RoleArn: "STRING_VALUE", // required
- *   OutputFormat: "STRING_VALUE",
+ *   OutputFormat: "ION_BINARY" || "ION_TEXT" || "JSON",
  * };
  * const command = new ExportJournalToS3Command(input);
  * const response = await client.send(command);

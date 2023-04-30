@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { GetCurrentUserDataRequest, GetCurrentUserDataResponse } from "../models/models_0";
+import { GetCurrentUserDataRequest, GetCurrentUserDataResponse } from "../models/models_1";
 import { de_GetCurrentUserDataCommand, se_GetCurrentUserDataCommand } from "../protocols/Aws_restJson1";
 
 /**

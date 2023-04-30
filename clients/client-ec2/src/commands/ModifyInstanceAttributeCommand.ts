@@ -36,7 +36,7 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  *             attribute at a time.</p>
  *          <p>
  *             <b>Note: </b>Using this action to change the security groups
- *             associated with an elastic network interface (ENI) attached to an instance in a VPC can
+ *             associated with an elastic network interface (ENI) attached to an instance can
  *             result in an error if the instance has more than one ENI. To change the security groups
  *             associated with an ENI attached to an instance that has multiple ENIs, we recommend that
  *             you use the <a>ModifyNetworkInterfaceAttribute</a> action.</p>

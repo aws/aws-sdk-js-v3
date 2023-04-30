@@ -1075,6 +1075,37 @@ export interface Condition {
 
 /**
  * @public
+ * <p>A request conflict exception object.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The error message.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The error type.</p>
+   */
+  Type?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+  }
+}
+
+/**
+ * @public
  * <p>Container security context.</p>
  */
 export interface SecurityContext {
@@ -2232,6 +2263,7 @@ export const CriterionKey = {
   SCAN_ID: "SCAN_ID",
   SCAN_START_TIME: "SCAN_START_TIME",
   SCAN_STATUS: "SCAN_STATUS",
+  SCAN_TYPE: "SCAN_TYPE",
 } as const;
 
 /**
@@ -2731,12 +2763,27 @@ export const ScanStatus = {
   COMPLETED: "COMPLETED",
   FAILED: "FAILED",
   RUNNING: "RUNNING",
+  SKIPPED: "SKIPPED",
 } as const;
 
 /**
  * @public
  */
 export type ScanStatus = (typeof ScanStatus)[keyof typeof ScanStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScanType = {
+  GUARDDUTY_INITIATED: "GUARDDUTY_INITIATED",
+  ON_DEMAND: "ON_DEMAND",
+} as const;
+
+/**
+ * @public
+ */
+export type ScanType = (typeof ScanType)[keyof typeof ScanType];
 
 /**
  * @public
@@ -2830,6 +2877,11 @@ export interface Scan {
    * <p>List of volumes that were attached to the original instance to be scanned.</p>
    */
   AttachedVolumes?: VolumeDetail[];
+
+  /**
+   * <p>Specifies the scan type that invoked the malware scan.</p>
+   */
+  ScanType?: ScanType | string;
 }
 
 /**
@@ -3602,6 +3654,11 @@ export interface EbsVolumeScanDetails {
    * <p>Contains a complete view providing malware scan result details.</p>
    */
   ScanDetections?: ScanDetections;
+
+  /**
+   * <p>Specifies the scan type that invoked the malware scan.</p>
+   */
+  ScanType?: ScanType | string;
 }
 
 /**
@@ -6492,6 +6549,27 @@ export interface ListThreatIntelSetsResponse {
 /**
  * @public
  */
+export interface StartMalwareScanRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) of the resource for which you invoked the API.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMalwareScanResponse {
+  /**
+   * <p>A unique identifier that gets generated when you invoke the API without any error. Each malware scan has
+   *       a corresponding scan ID. Using this scan ID, you can monitor the status of your malware scan.</p>
+   */
+  ScanId?: string;
+}
+
+/**
+ * @public
+ */
 export interface StartMonitoringMembersRequest {
   /**
    * <p>The unique ID of the detector of the GuardDuty administrator account associated with the
@@ -6515,50 +6593,3 @@ export interface StartMonitoringMembersResponse {
    */
   UnprocessedAccounts: UnprocessedAccount[] | undefined;
 }
-
-/**
- * @public
- */
-export interface StopMonitoringMembersRequest {
-  /**
-   * <p>The unique ID of the detector associated with the GuardDuty administrator account that is
-   *       monitoring member accounts.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>A list of account IDs for the member accounts to stop monitoring.</p>
-   */
-  AccountIds: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface StopMonitoringMembersResponse {
-  /**
-   * <p>A list of objects that contain an accountId for each account that could not be processed,
-   *       and a result string that indicates why the account was not processed. </p>
-   */
-  UnprocessedAccounts: UnprocessedAccount[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the GuardDuty resource to apply a tag to.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>The tags to be added to a resource.</p>
-   */
-  Tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {}

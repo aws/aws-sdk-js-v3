@@ -42,6 +42,8 @@ export interface GetEndpointCommandOutput extends GetEndpointResponse, __Metadat
  * const input = { // GetEndpointRequest
  *   thingArn: "STRING_VALUE",
  *   certificateArn: "STRING_VALUE",
+ *   deviceRoleArn: "STRING_VALUE",
+ *   authenticationMethod: "X509ClientCertificate" || "SignatureVersion4",
  * };
  * const command = new GetEndpointCommand(input);
  * const response = await client.send(command);

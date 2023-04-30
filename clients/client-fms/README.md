@@ -14,7 +14,7 @@ developers who need detailed information about the Firewall Manager API actions,
 types, and errors. For detailed information about Firewall Manager features, see the
 <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">Firewall Manager Developer Guide</a>.</p>
 <p>Some API actions require explicit resource permissions. For information, see the developer guide topic
-<a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html">Firewall Manager required permissions for API actions</a>.
+<a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service">Service roles for Firewall Manager</a>.
 </p>
 
 ## Installing
@@ -310,6 +310,14 @@ GetAdminAccount
 </details>
 <details>
 <summary>
+GetAdminScope
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fms/classes/getadminscopecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fms/interfaces/getadminscopecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fms/interfaces/getadminscopecommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetAppsList
 </summary>
 
@@ -378,6 +386,22 @@ GetViolationDetails
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fms/classes/getviolationdetailscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fms/interfaces/getviolationdetailscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fms/interfaces/getviolationdetailscommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAdminAccountsForOrganization
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fms/classes/listadminaccountsfororganizationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fms/interfaces/listadminaccountsfororganizationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fms/interfaces/listadminaccountsfororganizationcommandoutput.html)
+
+</details>
+<details>
+<summary>
+ListAdminsManagingAccount
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fms/classes/listadminsmanagingaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fms/interfaces/listadminsmanagingaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fms/interfaces/listadminsmanagingaccountcommandoutput.html)
 
 </details>
 <details>
@@ -458,6 +482,14 @@ ListThirdPartyFirewallFirewallPolicies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fms/classes/listthirdpartyfirewallfirewallpoliciescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fms/interfaces/listthirdpartyfirewallfirewallpoliciescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fms/interfaces/listthirdpartyfirewallfirewallpoliciescommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutAdminAccount
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fms/classes/putadminaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fms/interfaces/putadminaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fms/interfaces/putadminaccountcommandoutput.html)
 
 </details>
 <details>

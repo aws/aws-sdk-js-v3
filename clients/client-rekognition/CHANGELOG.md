@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.323.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.322.0...v3.323.0) (2023-04-28)
+
+
+### Features
+
+* **client-rekognition:** Added support for aggregating moderation labels by video segment timestamps for Stored Video Content Moderation APIs and added additional information about the job to all Stored Video Get API responses. ([c05f2a1](https://github.com/aws/aws-sdk-js-v3/commit/c05f2a1eb309b7915243ea6526c5ff0a44900a24))
+
+
+
+
+
+## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
+
+**Note:** Version bump only for package @aws-sdk/client-rekognition
+
+
+
+
+
+# [3.319.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.318.0...v3.319.0) (2023-04-24)
+
+
+### Features
+
+* **client-rekognition:** Added new status result to Liveness session status. ([4e3e36f](https://github.com/aws/aws-sdk-js-v3/commit/4e3e36fa92f5bee61ac125a29b4214a7c08a2baa))
+
+
+
+
+
 # [3.316.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.315.0...v3.316.0) (2023-04-19)
 
 

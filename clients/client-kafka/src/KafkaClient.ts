@@ -63,11 +63,23 @@ import {
   CreateConfigurationCommandInput,
   CreateConfigurationCommandOutput,
 } from "./commands/CreateConfigurationCommand";
+import {
+  CreateVpcConnectionCommandInput,
+  CreateVpcConnectionCommandOutput,
+} from "./commands/CreateVpcConnectionCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
+import {
+  DeleteClusterPolicyCommandInput,
+  DeleteClusterPolicyCommandOutput,
+} from "./commands/DeleteClusterPolicyCommand";
 import {
   DeleteConfigurationCommandInput,
   DeleteConfigurationCommandOutput,
 } from "./commands/DeleteConfigurationCommand";
+import {
+  DeleteVpcConnectionCommandInput,
+  DeleteVpcConnectionCommandOutput,
+} from "./commands/DeleteVpcConnectionCommand";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
 import {
   DescribeClusterOperationCommandInput,
@@ -83,13 +95,22 @@ import {
   DescribeConfigurationRevisionCommandOutput,
 } from "./commands/DescribeConfigurationRevisionCommand";
 import {
+  DescribeVpcConnectionCommandInput,
+  DescribeVpcConnectionCommandOutput,
+} from "./commands/DescribeVpcConnectionCommand";
+import {
   GetBootstrapBrokersCommandInput,
   GetBootstrapBrokersCommandOutput,
 } from "./commands/GetBootstrapBrokersCommand";
+import { GetClusterPolicyCommandInput, GetClusterPolicyCommandOutput } from "./commands/GetClusterPolicyCommand";
 import {
   GetCompatibleKafkaVersionsCommandInput,
   GetCompatibleKafkaVersionsCommandOutput,
 } from "./commands/GetCompatibleKafkaVersionsCommand";
+import {
+  ListClientVpcConnectionsCommandInput,
+  ListClientVpcConnectionsCommandOutput,
+} from "./commands/ListClientVpcConnectionsCommand";
 import {
   ListClusterOperationsCommandInput,
   ListClusterOperationsCommandOutput,
@@ -108,7 +129,13 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListVpcConnectionsCommandInput, ListVpcConnectionsCommandOutput } from "./commands/ListVpcConnectionsCommand";
+import { PutClusterPolicyCommandInput, PutClusterPolicyCommandOutput } from "./commands/PutClusterPolicyCommand";
 import { RebootBrokerCommandInput, RebootBrokerCommandOutput } from "./commands/RebootBrokerCommand";
+import {
+  RejectClientVpcConnectionCommandInput,
+  RejectClientVpcConnectionCommandOutput,
+} from "./commands/RejectClientVpcConnectionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateBrokerCountCommandInput, UpdateBrokerCountCommandOutput } from "./commands/UpdateBrokerCountCommand";
@@ -150,15 +177,21 @@ export type ServiceInputTypes =
   | CreateClusterCommandInput
   | CreateClusterV2CommandInput
   | CreateConfigurationCommandInput
+  | CreateVpcConnectionCommandInput
   | DeleteClusterCommandInput
+  | DeleteClusterPolicyCommandInput
   | DeleteConfigurationCommandInput
+  | DeleteVpcConnectionCommandInput
   | DescribeClusterCommandInput
   | DescribeClusterOperationCommandInput
   | DescribeClusterV2CommandInput
   | DescribeConfigurationCommandInput
   | DescribeConfigurationRevisionCommandInput
+  | DescribeVpcConnectionCommandInput
   | GetBootstrapBrokersCommandInput
+  | GetClusterPolicyCommandInput
   | GetCompatibleKafkaVersionsCommandInput
+  | ListClientVpcConnectionsCommandInput
   | ListClusterOperationsCommandInput
   | ListClustersCommandInput
   | ListClustersV2CommandInput
@@ -168,7 +201,10 @@ export type ServiceInputTypes =
   | ListNodesCommandInput
   | ListScramSecretsCommandInput
   | ListTagsForResourceCommandInput
+  | ListVpcConnectionsCommandInput
+  | PutClusterPolicyCommandInput
   | RebootBrokerCommandInput
+  | RejectClientVpcConnectionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBrokerCountCommandInput
@@ -191,15 +227,21 @@ export type ServiceOutputTypes =
   | CreateClusterCommandOutput
   | CreateClusterV2CommandOutput
   | CreateConfigurationCommandOutput
+  | CreateVpcConnectionCommandOutput
   | DeleteClusterCommandOutput
+  | DeleteClusterPolicyCommandOutput
   | DeleteConfigurationCommandOutput
+  | DeleteVpcConnectionCommandOutput
   | DescribeClusterCommandOutput
   | DescribeClusterOperationCommandOutput
   | DescribeClusterV2CommandOutput
   | DescribeConfigurationCommandOutput
   | DescribeConfigurationRevisionCommandOutput
+  | DescribeVpcConnectionCommandOutput
   | GetBootstrapBrokersCommandOutput
+  | GetClusterPolicyCommandOutput
   | GetCompatibleKafkaVersionsCommandOutput
+  | ListClientVpcConnectionsCommandOutput
   | ListClusterOperationsCommandOutput
   | ListClustersCommandOutput
   | ListClustersV2CommandOutput
@@ -209,7 +251,10 @@ export type ServiceOutputTypes =
   | ListNodesCommandOutput
   | ListScramSecretsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListVpcConnectionsCommandOutput
+  | PutClusterPolicyCommandOutput
   | RebootBrokerCommandOutput
+  | RejectClientVpcConnectionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBrokerCountCommandOutput

@@ -45,7 +45,7 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  *     Addresses: { // MapOfAddressConfiguration
  *       "<keys>": { // AddressConfiguration
  *         BodyOverride: "STRING_VALUE",
- *         ChannelType: "STRING_VALUE",
+ *         ChannelType: "PUSH" || "GCM" || "APNS" || "APNS_SANDBOX" || "APNS_VOIP" || "APNS_VOIP_SANDBOX" || "ADM" || "SMS" || "VOICE" || "EMAIL" || "BAIDU" || "CUSTOM" || "IN_APP",
  *         Context: { // MapOf__string
  *           "<keys>": "STRING_VALUE",
  *         },
@@ -78,7 +78,7 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  *     },
  *     MessageConfiguration: { // DirectMessageConfiguration
  *       ADMMessage: { // ADMMessage
- *         Action: "STRING_VALUE",
+ *         Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *         Body: "STRING_VALUE",
  *         ConsolidationKey: "STRING_VALUE",
  *         Data: {
@@ -103,7 +103,7 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  *       },
  *       APNSMessage: { // APNSMessage
  *         APNSPushType: "STRING_VALUE",
- *         Action: "STRING_VALUE",
+ *         Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *         Badge: Number("int"),
  *         Body: "STRING_VALUE",
  *         Category: "STRING_VALUE",
@@ -128,7 +128,7 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  *         Url: "STRING_VALUE",
  *       },
  *       BaiduMessage: { // BaiduMessage
- *         Action: "STRING_VALUE",
+ *         Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *         Body: "STRING_VALUE",
  *         Data: "<MapOf__string>",
  *         IconReference: "STRING_VALUE",
@@ -152,7 +152,7 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  *         Substitutions: "<MapOfListOf__string>",
  *       },
  *       DefaultPushNotificationMessage: { // DefaultPushNotificationMessage
- *         Action: "STRING_VALUE",
+ *         Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *         Body: "STRING_VALUE",
  *         Data: "<MapOf__string>",
  *         SilentPush: true || false,
@@ -185,7 +185,7 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  *         Substitutions: "<MapOfListOf__string>",
  *       },
  *       GCMMessage: { // GCMMessage
- *         Action: "STRING_VALUE",
+ *         Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *         Body: "STRING_VALUE",
  *         CollapseKey: "STRING_VALUE",
  *         Data: "<MapOf__string>",
@@ -207,7 +207,7 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  *         Body: "STRING_VALUE",
  *         Keyword: "STRING_VALUE",
  *         MediaUrl: "STRING_VALUE",
- *         MessageType: "STRING_VALUE",
+ *         MessageType: "TRANSACTIONAL" || "PROMOTIONAL",
  *         OriginationNumber: "STRING_VALUE",
  *         SenderId: "STRING_VALUE",
  *         Substitutions: "<MapOfListOf__string>",

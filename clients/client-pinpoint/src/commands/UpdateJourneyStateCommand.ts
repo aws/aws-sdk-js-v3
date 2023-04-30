@@ -43,7 +43,7 @@ export interface UpdateJourneyStateCommandOutput extends UpdateJourneyStateRespo
  *   ApplicationId: "STRING_VALUE", // required
  *   JourneyId: "STRING_VALUE", // required
  *   JourneyStateRequest: { // JourneyStateRequest
- *     State: "STRING_VALUE",
+ *     State: "DRAFT" || "ACTIVE" || "COMPLETED" || "CANCELLED" || "CLOSED" || "PAUSED",
  *   },
  * };
  * const command = new UpdateJourneyStateCommand(input);

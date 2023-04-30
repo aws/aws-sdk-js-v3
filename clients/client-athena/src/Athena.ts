@@ -19,6 +19,16 @@ import {
   BatchGetQueryExecutionCommandOutput,
 } from "./commands/BatchGetQueryExecutionCommand";
 import {
+  CancelCapacityReservationCommand,
+  CancelCapacityReservationCommandInput,
+  CancelCapacityReservationCommandOutput,
+} from "./commands/CancelCapacityReservationCommand";
+import {
+  CreateCapacityReservationCommand,
+  CreateCapacityReservationCommandInput,
+  CreateCapacityReservationCommandOutput,
+} from "./commands/CreateCapacityReservationCommand";
+import {
   CreateDataCatalogCommand,
   CreateDataCatalogCommandInput,
   CreateDataCatalogCommandOutput,
@@ -93,6 +103,16 @@ import {
   GetCalculationExecutionStatusCommandInput,
   GetCalculationExecutionStatusCommandOutput,
 } from "./commands/GetCalculationExecutionStatusCommand";
+import {
+  GetCapacityAssignmentConfigurationCommand,
+  GetCapacityAssignmentConfigurationCommandInput,
+  GetCapacityAssignmentConfigurationCommandOutput,
+} from "./commands/GetCapacityAssignmentConfigurationCommand";
+import {
+  GetCapacityReservationCommand,
+  GetCapacityReservationCommandInput,
+  GetCapacityReservationCommandOutput,
+} from "./commands/GetCapacityReservationCommand";
 import { GetDatabaseCommand, GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import {
   GetDataCatalogCommand,
@@ -161,6 +181,11 @@ import {
   ListCalculationExecutionsCommandOutput,
 } from "./commands/ListCalculationExecutionsCommand";
 import {
+  ListCapacityReservationsCommand,
+  ListCapacityReservationsCommandInput,
+  ListCapacityReservationsCommandOutput,
+} from "./commands/ListCapacityReservationsCommand";
+import {
   ListDatabasesCommand,
   ListDatabasesCommandInput,
   ListDatabasesCommandOutput,
@@ -226,6 +251,11 @@ import {
   ListWorkGroupsCommandOutput,
 } from "./commands/ListWorkGroupsCommand";
 import {
+  PutCapacityAssignmentConfigurationCommand,
+  PutCapacityAssignmentConfigurationCommandInput,
+  PutCapacityAssignmentConfigurationCommandOutput,
+} from "./commands/PutCapacityAssignmentConfigurationCommand";
+import {
   StartCalculationExecutionCommand,
   StartCalculationExecutionCommandInput,
   StartCalculationExecutionCommandOutput,
@@ -262,6 +292,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateCapacityReservationCommand,
+  UpdateCapacityReservationCommandInput,
+  UpdateCapacityReservationCommandOutput,
+} from "./commands/UpdateCapacityReservationCommand";
+import {
   UpdateDataCatalogCommand,
   UpdateDataCatalogCommandInput,
   UpdateDataCatalogCommandOutput,
@@ -296,6 +331,8 @@ const commands = {
   BatchGetNamedQueryCommand,
   BatchGetPreparedStatementCommand,
   BatchGetQueryExecutionCommand,
+  CancelCapacityReservationCommand,
+  CreateCapacityReservationCommand,
   CreateDataCatalogCommand,
   CreateNamedQueryCommand,
   CreateNotebookCommand,
@@ -311,6 +348,8 @@ const commands = {
   GetCalculationExecutionCommand,
   GetCalculationExecutionCodeCommand,
   GetCalculationExecutionStatusCommand,
+  GetCapacityAssignmentConfigurationCommand,
+  GetCapacityReservationCommand,
   GetDatabaseCommand,
   GetDataCatalogCommand,
   GetNamedQueryCommand,
@@ -326,6 +365,7 @@ const commands = {
   ImportNotebookCommand,
   ListApplicationDPUSizesCommand,
   ListCalculationExecutionsCommand,
+  ListCapacityReservationsCommand,
   ListDatabasesCommand,
   ListDataCatalogsCommand,
   ListEngineVersionsCommand,
@@ -339,6 +379,7 @@ const commands = {
   ListTableMetadataCommand,
   ListTagsForResourceCommand,
   ListWorkGroupsCommand,
+  PutCapacityAssignmentConfigurationCommand,
   StartCalculationExecutionCommand,
   StartQueryExecutionCommand,
   StartSessionCommand,
@@ -347,6 +388,7 @@ const commands = {
   TagResourceCommand,
   TerminateSessionCommand,
   UntagResourceCommand,
+  UpdateCapacityReservationCommand,
   UpdateDataCatalogCommand,
   UpdateNamedQueryCommand,
   UpdateNotebookCommand,
@@ -405,6 +447,40 @@ export interface Athena {
     args: BatchGetQueryExecutionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetQueryExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelCapacityReservationCommand}
+   */
+  cancelCapacityReservation(
+    args: CancelCapacityReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelCapacityReservationCommandOutput>;
+  cancelCapacityReservation(
+    args: CancelCapacityReservationCommandInput,
+    cb: (err: any, data?: CancelCapacityReservationCommandOutput) => void
+  ): void;
+  cancelCapacityReservation(
+    args: CancelCapacityReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelCapacityReservationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCapacityReservationCommand}
+   */
+  createCapacityReservation(
+    args: CreateCapacityReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCapacityReservationCommandOutput>;
+  createCapacityReservation(
+    args: CreateCapacityReservationCommandInput,
+    cb: (err: any, data?: CreateCapacityReservationCommandOutput) => void
+  ): void;
+  createCapacityReservation(
+    args: CreateCapacityReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCapacityReservationCommandOutput) => void
   ): void;
 
   /**
@@ -648,6 +724,40 @@ export interface Athena {
   ): void;
 
   /**
+   * @see {@link GetCapacityAssignmentConfigurationCommand}
+   */
+  getCapacityAssignmentConfiguration(
+    args: GetCapacityAssignmentConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCapacityAssignmentConfigurationCommandOutput>;
+  getCapacityAssignmentConfiguration(
+    args: GetCapacityAssignmentConfigurationCommandInput,
+    cb: (err: any, data?: GetCapacityAssignmentConfigurationCommandOutput) => void
+  ): void;
+  getCapacityAssignmentConfiguration(
+    args: GetCapacityAssignmentConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCapacityAssignmentConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCapacityReservationCommand}
+   */
+  getCapacityReservation(
+    args: GetCapacityReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCapacityReservationCommandOutput>;
+  getCapacityReservation(
+    args: GetCapacityReservationCommandInput,
+    cb: (err: any, data?: GetCapacityReservationCommandOutput) => void
+  ): void;
+  getCapacityReservation(
+    args: GetCapacityReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCapacityReservationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDatabaseCommand}
    */
   getDatabase(args: GetDatabaseCommandInput, options?: __HttpHandlerOptions): Promise<GetDatabaseCommandOutput>;
@@ -870,6 +980,23 @@ export interface Athena {
   ): void;
 
   /**
+   * @see {@link ListCapacityReservationsCommand}
+   */
+  listCapacityReservations(
+    args: ListCapacityReservationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCapacityReservationsCommandOutput>;
+  listCapacityReservations(
+    args: ListCapacityReservationsCommandInput,
+    cb: (err: any, data?: ListCapacityReservationsCommandOutput) => void
+  ): void;
+  listCapacityReservations(
+    args: ListCapacityReservationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCapacityReservationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDatabasesCommand}
    */
   listDatabases(args: ListDatabasesCommandInput, options?: __HttpHandlerOptions): Promise<ListDatabasesCommandOutput>;
@@ -1070,6 +1197,23 @@ export interface Athena {
   ): void;
 
   /**
+   * @see {@link PutCapacityAssignmentConfigurationCommand}
+   */
+  putCapacityAssignmentConfiguration(
+    args: PutCapacityAssignmentConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutCapacityAssignmentConfigurationCommandOutput>;
+  putCapacityAssignmentConfiguration(
+    args: PutCapacityAssignmentConfigurationCommandInput,
+    cb: (err: any, data?: PutCapacityAssignmentConfigurationCommandOutput) => void
+  ): void;
+  putCapacityAssignmentConfiguration(
+    args: PutCapacityAssignmentConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutCapacityAssignmentConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartCalculationExecutionCommand}
    */
   startCalculationExecution(
@@ -1185,6 +1329,23 @@ export interface Athena {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCapacityReservationCommand}
+   */
+  updateCapacityReservation(
+    args: UpdateCapacityReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCapacityReservationCommandOutput>;
+  updateCapacityReservation(
+    args: UpdateCapacityReservationCommandInput,
+    cb: (err: any, data?: UpdateCapacityReservationCommandOutput) => void
+  ): void;
+  updateCapacityReservation(
+    args: UpdateCapacityReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCapacityReservationCommandOutput) => void
   ): void;
 
   /**

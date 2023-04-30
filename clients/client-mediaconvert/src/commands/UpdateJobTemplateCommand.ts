@@ -75,6 +75,11 @@ export interface UpdateJobTemplateCommandOutput extends UpdateJobTemplateRespons
  *     },
  *     Inputs: [ // __listOfInputTemplate
  *       { // InputTemplate
+ *         AdvancedInputFilter: "ENABLED" || "DISABLED",
+ *         AdvancedInputFilterSettings: { // AdvancedInputFilterSettings
+ *           AddTexture: "ENABLED" || "DISABLED",
+ *           Sharpening: "OFF" || "LOW" || "HIGH",
+ *         },
  *         AudioSelectorGroups: { // __mapOfAudioSelectorGroup
  *           "<keys>": { // AudioSelectorGroup
  *             AudioSelectorNames: [ // __listOf__stringMin1
@@ -142,6 +147,7 @@ export interface UpdateJobTemplateCommandOutput extends UpdateJobTemplateRespons
  *               },
  *               FileSourceSettings: { // FileSourceSettings
  *                 Convert608To708: "UPCONVERT" || "DISABLED",
+ *                 ConvertPaintToPop: "ENABLED" || "DISABLED",
  *                 Framerate: { // CaptionSourceFramerate
  *                   FramerateDenominator: Number("int"),
  *                   FramerateNumerator: Number("int"),
@@ -1018,7 +1024,7 @@ export interface UpdateJobTemplateCommandOutput extends UpdateJobTemplateRespons
  *                   SlowPal: "DISABLED" || "ENABLED",
  *                   Telecine: "NONE" || "HARD",
  *                 },
- *                 Codec: "AV1" || "AVC_INTRA" || "FRAME_CAPTURE" || "H_264" || "H_265" || "MPEG2" || "PRORES" || "VC3" || "VP8" || "VP9" || "XAVC",
+ *                 Codec: "AV1" || "AVC_INTRA" || "FRAME_CAPTURE" || "H_264" || "H_265" || "MPEG2" || "PASSTHROUGH" || "PRORES" || "VC3" || "VP8" || "VP9" || "XAVC",
  *                 FrameCaptureSettings: { // FrameCaptureSettings
  *                   FramerateDenominator: Number("int"),
  *                   FramerateNumerator: Number("int"),
@@ -1310,7 +1316,7 @@ export interface UpdateJobTemplateCommandOutput extends UpdateJobTemplateRespons
  *                   SdrReferenceWhiteLevel: Number("int"),
  *                 },
  *                 Deinterlacer: { // Deinterlacer
- *                   Algorithm: "INTERPOLATE" || "INTERPOLATE_TICKER" || "BLEND" || "BLEND_TICKER",
+ *                   Algorithm: "INTERPOLATE" || "INTERPOLATE_TICKER" || "BLEND" || "BLEND_TICKER" || "LINEAR_INTERPOLATION",
  *                   Control: "FORCE_ALL_FRAMES" || "NORMAL",
  *                   Mode: "DEINTERLACE" || "INVERSE_TELECINE" || "ADAPTIVE",
  *                 },

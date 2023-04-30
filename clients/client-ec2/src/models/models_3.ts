@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
 import {
   _InstanceType,
   AccountAttribute,
@@ -33,8 +35,10 @@ import {
   UnsuccessfulItem,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
+  VerifiedAccessTrustProviderFilterSensitiveLog,
 } from "./models_0";
 import {
+  AmdSevSnpSpecification,
   AttributeValue,
   BlockDeviceMapping,
   CapacityReservationPreference,
@@ -84,6 +88,20 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>Contains the parameters for DeleteSpotDatafeedSubscription.</p>
+ */
+export interface DeleteSpotDatafeedSubscriptionRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *             <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 /**
  * @public
@@ -579,7 +597,7 @@ export interface DeleteTransitGatewayVpcAttachmentResult {
  */
 export interface DeleteVerifiedAccessEndpointRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   * <p>The ID of the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpointId: string | undefined;
 
@@ -602,7 +620,7 @@ export interface DeleteVerifiedAccessEndpointRequest {
  */
 export interface DeleteVerifiedAccessEndpointResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   * <p>The ID of the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpoint?: VerifiedAccessEndpoint;
 }
@@ -612,7 +630,7 @@ export interface DeleteVerifiedAccessEndpointResult {
  */
 export interface DeleteVerifiedAccessGroupRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   * <p>The ID of the Verified Access group.</p>
    */
   VerifiedAccessGroupId: string | undefined;
 
@@ -635,7 +653,7 @@ export interface DeleteVerifiedAccessGroupRequest {
  */
 export interface DeleteVerifiedAccessGroupResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   * <p>The ID of the Verified Access group.</p>
    */
   VerifiedAccessGroup?: VerifiedAccessGroup;
 }
@@ -645,7 +663,7 @@ export interface DeleteVerifiedAccessGroupResult {
  */
 export interface DeleteVerifiedAccessInstanceRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstanceId: string | undefined;
 
@@ -668,7 +686,7 @@ export interface DeleteVerifiedAccessInstanceRequest {
  */
 export interface DeleteVerifiedAccessInstanceResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
@@ -678,7 +696,7 @@ export interface DeleteVerifiedAccessInstanceResult {
  */
 export interface DeleteVerifiedAccessTrustProviderRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   * <p>The ID of the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProviderId: string | undefined;
 
@@ -701,7 +719,7 @@ export interface DeleteVerifiedAccessTrustProviderRequest {
  */
 export interface DeleteVerifiedAccessTrustProviderResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   * <p>The ID of the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 }
@@ -8355,16 +8373,6 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>group-id</code> - The ID of the security group for the instance.
-   *                     EC2-Classic only.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>group-name</code> - The name of the security group for the instance.
-   *                     EC2-Classic only.</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>hibernation-options.configured</code> - A Boolean that indicates whether
    *                     the instance is enabled for hibernation. A value of <code>true</code> means that
    *                     the instance is enabled for hibernation. </p>
@@ -8847,6 +8855,11 @@ export interface CpuOptions {
    * <p>The number of threads per CPU core.</p>
    */
   ThreadsPerCore?: number;
+
+  /**
+   * <p>Indicates whether the instance is enabled for AMD SEV-SNP.</p>
+   */
+  AmdSevSnp?: AmdSevSnpSpecification | string;
 }
 
 /**
@@ -9137,17 +9150,64 @@ export interface InstanceMetadataOptionsResponse {
 }
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const MonitoringState = {
-  disabled: "disabled",
-  disabling: "disabling",
-  enabled: "enabled",
-  pending: "pending",
-} as const;
+export const DeleteVerifiedAccessTrustProviderResultFilterSensitiveLog = (
+  obj: DeleteVerifiedAccessTrustProviderResult
+): any => ({
+  ...obj,
+  ...(obj.VerifiedAccessTrustProvider && {
+    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
+  }),
+});
 
 /**
- * @public
+ * @internal
  */
-export type MonitoringState = (typeof MonitoringState)[keyof typeof MonitoringState];
+export const DiskImageDescriptionFilterSensitiveLog = (obj: DiskImageDescription): any => ({
+  ...obj,
+  ...(obj.ImportManifestUrl && { ImportManifestUrl: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ImportInstanceVolumeDetailItemFilterSensitiveLog = (obj: ImportInstanceVolumeDetailItem): any => ({
+  ...obj,
+  ...(obj.Image && { Image: DiskImageDescriptionFilterSensitiveLog(obj.Image) }),
+});
+
+/**
+ * @internal
+ */
+export const ImportInstanceTaskDetailsFilterSensitiveLog = (obj: ImportInstanceTaskDetails): any => ({
+  ...obj,
+  ...(obj.Volumes && { Volumes: obj.Volumes.map((item) => ImportInstanceVolumeDetailItemFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ImportVolumeTaskDetailsFilterSensitiveLog = (obj: ImportVolumeTaskDetails): any => ({
+  ...obj,
+  ...(obj.Image && { Image: DiskImageDescriptionFilterSensitiveLog(obj.Image) }),
+});
+
+/**
+ * @internal
+ */
+export const ConversionTaskFilterSensitiveLog = (obj: ConversionTask): any => ({
+  ...obj,
+  ...(obj.ImportInstance && { ImportInstance: ImportInstanceTaskDetailsFilterSensitiveLog(obj.ImportInstance) }),
+  ...(obj.ImportVolume && { ImportVolume: ImportVolumeTaskDetailsFilterSensitiveLog(obj.ImportVolume) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeConversionTasksResultFilterSensitiveLog = (obj: DescribeConversionTasksResult): any => ({
+  ...obj,
+  ...(obj.ConversionTasks && {
+    ConversionTasks: obj.ConversionTasks.map((item) => ConversionTaskFilterSensitiveLog(item)),
+  }),
+});

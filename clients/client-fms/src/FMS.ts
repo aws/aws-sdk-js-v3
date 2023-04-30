@@ -62,6 +62,11 @@ import {
   GetAdminAccountCommandInput,
   GetAdminAccountCommandOutput,
 } from "./commands/GetAdminAccountCommand";
+import {
+  GetAdminScopeCommand,
+  GetAdminScopeCommandInput,
+  GetAdminScopeCommandOutput,
+} from "./commands/GetAdminScopeCommand";
 import { GetAppsListCommand, GetAppsListCommandInput, GetAppsListCommandOutput } from "./commands/GetAppsListCommand";
 import {
   GetComplianceDetailCommand,
@@ -99,6 +104,16 @@ import {
   GetViolationDetailsCommandInput,
   GetViolationDetailsCommandOutput,
 } from "./commands/GetViolationDetailsCommand";
+import {
+  ListAdminAccountsForOrganizationCommand,
+  ListAdminAccountsForOrganizationCommandInput,
+  ListAdminAccountsForOrganizationCommandOutput,
+} from "./commands/ListAdminAccountsForOrganizationCommand";
+import {
+  ListAdminsManagingAccountCommand,
+  ListAdminsManagingAccountCommandInput,
+  ListAdminsManagingAccountCommandOutput,
+} from "./commands/ListAdminsManagingAccountCommand";
 import {
   ListAppsListsCommand,
   ListAppsListsCommandInput,
@@ -149,6 +164,11 @@ import {
   ListThirdPartyFirewallFirewallPoliciesCommandInput,
   ListThirdPartyFirewallFirewallPoliciesCommandOutput,
 } from "./commands/ListThirdPartyFirewallFirewallPoliciesCommand";
+import {
+  PutAdminAccountCommand,
+  PutAdminAccountCommandInput,
+  PutAdminAccountCommandOutput,
+} from "./commands/PutAdminAccountCommand";
 import { PutAppsListCommand, PutAppsListCommandInput, PutAppsListCommandOutput } from "./commands/PutAppsListCommand";
 import {
   PutNotificationChannelCommand,
@@ -187,6 +207,7 @@ const commands = {
   DisassociateAdminAccountCommand,
   DisassociateThirdPartyFirewallCommand,
   GetAdminAccountCommand,
+  GetAdminScopeCommand,
   GetAppsListCommand,
   GetComplianceDetailCommand,
   GetNotificationChannelCommand,
@@ -196,6 +217,8 @@ const commands = {
   GetResourceSetCommand,
   GetThirdPartyFirewallAssociationStatusCommand,
   GetViolationDetailsCommand,
+  ListAdminAccountsForOrganizationCommand,
+  ListAdminsManagingAccountCommand,
   ListAppsListsCommand,
   ListComplianceStatusCommand,
   ListDiscoveredResourcesCommand,
@@ -206,6 +229,7 @@ const commands = {
   ListResourceSetsCommand,
   ListTagsForResourceCommand,
   ListThirdPartyFirewallFirewallPoliciesCommand,
+  PutAdminAccountCommand,
   PutAppsListCommand,
   PutNotificationChannelCommand,
   PutPolicyCommand,
@@ -409,6 +433,17 @@ export interface FMS {
   ): void;
 
   /**
+   * @see {@link GetAdminScopeCommand}
+   */
+  getAdminScope(args: GetAdminScopeCommandInput, options?: __HttpHandlerOptions): Promise<GetAdminScopeCommandOutput>;
+  getAdminScope(args: GetAdminScopeCommandInput, cb: (err: any, data?: GetAdminScopeCommandOutput) => void): void;
+  getAdminScope(
+    args: GetAdminScopeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAdminScopeCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAppsListCommand}
    */
   getAppsList(args: GetAppsListCommandInput, options?: __HttpHandlerOptions): Promise<GetAppsListCommandOutput>;
@@ -544,6 +579,40 @@ export interface FMS {
     args: GetViolationDetailsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetViolationDetailsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAdminAccountsForOrganizationCommand}
+   */
+  listAdminAccountsForOrganization(
+    args: ListAdminAccountsForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAdminAccountsForOrganizationCommandOutput>;
+  listAdminAccountsForOrganization(
+    args: ListAdminAccountsForOrganizationCommandInput,
+    cb: (err: any, data?: ListAdminAccountsForOrganizationCommandOutput) => void
+  ): void;
+  listAdminAccountsForOrganization(
+    args: ListAdminAccountsForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAdminAccountsForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAdminsManagingAccountCommand}
+   */
+  listAdminsManagingAccount(
+    args: ListAdminsManagingAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAdminsManagingAccountCommandOutput>;
+  listAdminsManagingAccount(
+    args: ListAdminsManagingAccountCommandInput,
+    cb: (err: any, data?: ListAdminsManagingAccountCommandOutput) => void
+  ): void;
+  listAdminsManagingAccount(
+    args: ListAdminsManagingAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAdminsManagingAccountCommandOutput) => void
   ): void;
 
   /**
@@ -705,6 +774,20 @@ export interface FMS {
   ): void;
 
   /**
+   * @see {@link PutAdminAccountCommand}
+   */
+  putAdminAccount(
+    args: PutAdminAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAdminAccountCommandOutput>;
+  putAdminAccount(args: PutAdminAccountCommandInput, cb: (err: any, data?: PutAdminAccountCommandOutput) => void): void;
+  putAdminAccount(
+    args: PutAdminAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAdminAccountCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutAppsListCommand}
    */
   putAppsList(args: PutAppsListCommandInput, options?: __HttpHandlerOptions): Promise<PutAppsListCommandOutput>;
@@ -804,7 +887,7 @@ export interface FMS {
  *       types, and errors. For detailed information about Firewall Manager features, see the
  *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">Firewall Manager Developer Guide</a>.</p>
  *          <p>Some API actions require explicit resource permissions. For information, see the developer guide topic
- *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html">Firewall Manager required permissions for API actions</a>.
+ *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service">Service roles for Firewall Manager</a>.
  * </p>
  */
 export class FMS extends FMSClient implements FMS {}

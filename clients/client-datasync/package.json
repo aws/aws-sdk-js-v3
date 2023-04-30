@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-datasync",
   "description": "AWS SDK for JavaScript Datasync Client for Node.js, Browser and React Native",
-  "version": "3.316.0",
+  "version": "3.321.1",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -53,12 +53,14 @@
     "@aws-sdk/util-user-agent-browser": "*",
     "@aws-sdk/util-user-agent-node": "*",
     "@aws-sdk/util-utf8": "*",
-    "tslib": "^2.5.0"
+    "tslib": "^2.5.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@aws-sdk/service-client-documentation-generator": "*",
     "@tsconfig/node14": "1.0.3",
     "@types/node": "^14.14.31",
+    "@types/uuid": "^8.3.0",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",

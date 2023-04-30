@@ -322,12 +322,7 @@ export interface CodeCatalystClientResolvedConfig extends CodeCatalystClientReso
 
 /**
  * @public
- * <note>
- *             <p>
- *                <b>Amazon CodeCatalyst is in preview release and subject to change.</b>
- *             </p>
- *          </note>
- *          <p>Welcome to the Amazon CodeCatalyst API reference. This reference provides descriptions of operations and data types for Amazon CodeCatalyst. You can use the Amazon CodeCatalyst
+ * <p>Welcome to the Amazon CodeCatalyst API reference. This reference provides descriptions of operations and data types for Amazon CodeCatalyst. You can use the Amazon CodeCatalyst
  *       API to work with the following objects. </p>
  *          <p>Dev Environments and the Amazon Web Services Toolkits, by calling the following:</p>
  *          <ul>
@@ -367,6 +362,10 @@ export interface CodeCatalystClientResolvedConfig extends CodeCatalystClientReso
  *             </li>
  *             <li>
  *                <p>
+ *                   <a>GetSpace</a>, which returns information about a space.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>GetSubscription</a>, which returns information about the Amazon Web Services account used for billing purposes
  *        and the billing plan for the space.</p>
  *             </li>
@@ -376,7 +375,7 @@ export interface CodeCatalystClientResolvedConfig extends CodeCatalystClientReso
  *             </li>
  *             <li>
  *                <p>
- *                   <a>ListDevEnvironments</a>, which retrives a list of Dev Environments in a project.</p>
+ *                   <a>ListDevEnvironments</a>, which retrieves a list of Dev Environments in a project.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -434,6 +433,11 @@ export interface CodeCatalystClientResolvedConfig extends CodeCatalystClientReso
  *                   <a>ListEventLogs</a>, which retrieves a list of events that occurred during a specified time period in a space.</p>
  *             </li>
  *          </ul>
+ *          <note>
+ *             <p>If you are using the Amazon CodeCatalyst APIs with an SDK or the CLI, you must configure your computer to work with Amazon CodeCatalyst and single sign-on (SSO).
+ *         For more information, see <a href="https://docs.aws.amazon.com/codecatalyst/latest/userguide/set-up-cli.html">Setting up to use the CLI with Amazon CodeCatalyst</a>
+ *       and the SSO documentation for your SDK.</p>
+ *          </note>
  */
 export class CodeCatalystClient extends __Client<
   __HttpHandlerOptions,

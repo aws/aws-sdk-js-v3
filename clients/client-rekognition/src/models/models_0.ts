@@ -1461,6 +1461,21 @@ export type ContentClassifier = (typeof ContentClassifier)[keyof typeof ContentC
 
 /**
  * @public
+ * @enum
+ */
+export const ContentModerationAggregateBy = {
+  SEGMENTS: "SEGMENTS",
+  TIMESTAMPS: "TIMESTAMPS",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentModerationAggregateBy =
+  (typeof ContentModerationAggregateBy)[keyof typeof ContentModerationAggregateBy];
+
+/**
+ * @public
  * <p>Provides information about a single type of inappropriate, unwanted, or
  *       offensive content found in an image or video. Each type of moderated content has a label
  *       within a hierarchical taxonomy. For more information, see Content moderation in the Amazon Rekognition
@@ -1503,6 +1518,24 @@ export interface ContentModerationDetection {
    * <p>The content moderation label detected by in the stored video.</p>
    */
   ModerationLabel?: ModerationLabel;
+
+  /**
+   * <p>The time in milliseconds defining the start of the timeline
+   *       segment containing a continuously detected moderation label.</p>
+   */
+  StartTimestampMillis?: number;
+
+  /**
+   * <p> The time in milliseconds defining the end of the
+   *       timeline segment containing a continuously detected moderation label. </p>
+   */
+  EndTimestampMillis?: number;
+
+  /**
+   * <p> The time duration of a segment in milliseconds,
+   *       I.e. time elapsed from StartTimestampMillis to EndTimestampMillis. </p>
+   */
+  DurationMillis?: number;
 }
 
 /**
@@ -1890,7 +1923,7 @@ export interface LivenessOutputConfig {
   S3Bucket: string | undefined;
 
   /**
-   * <p>The prefix appended to the output files for the Face Liveness session results.</p>
+   * <p>The prefix prepended to the output files for the Face Liveness session results.</p>
    */
   S3KeyPrefix?: string;
 }
@@ -4568,6 +4601,18 @@ export type VideoJobStatus = (typeof VideoJobStatus)[keyof typeof VideoJobStatus
 
 /**
  * @public
+ * <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to
+ *             specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+export interface Video {
+  /**
+   * <p>The Amazon S3 bucket name and file name for the video.</p>
+   */
+  S3Object?: S3Object;
+}
+
+/**
+ * @public
  * @enum
  */
 export const VideoColorRange = {
@@ -4654,6 +4699,26 @@ export interface GetCelebrityRecognitionResponse {
    * <p>Array of celebrities recognized in the video.</p>
    */
   Celebrities?: CelebrityRecognition[];
+
+  /**
+   * <p>Job identifier for the celebrity recognition operation for which you
+   *       want to obtain results. The job identifer is returned by an initial call
+   *       to StartCelebrityRecognition.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to
+   *             specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+   */
+  Video?: Video;
+
+  /**
+   * <p>A job identifier specified in the call to StartCelebrityRecognition and
+   *       returned in the job completion notification sent to your
+   *       Amazon Simple Notification Service topic.</p>
+   */
+  JobTag?: string;
 }
 
 /**
@@ -4688,6 +4753,30 @@ export interface GetContentModerationRequest {
    *        The default sort is by <code>TIMESTAMP</code>.</p>
    */
   SortBy?: ContentModerationSortBy | string;
+
+  /**
+   * <p>Defines how to aggregate results of the StartContentModeration request.
+   *       Default aggregation option is TIMESTAMPS.
+   *       SEGMENTS mode aggregates moderation labels over time.</p>
+   */
+  AggregateBy?: ContentModerationAggregateBy | string;
+}
+
+/**
+ * @public
+ * <p>Contains metadata about a content moderation request,
+ *       including the SortBy and AggregateBy options.</p>
+ */
+export interface GetContentModerationRequestMetadata {
+  /**
+   * <p>The sorting method chosen for a GetContentModeration request.</p>
+   */
+  SortBy?: ContentModerationSortBy | string;
+
+  /**
+   * <p>The aggregation method chosen for a GetContentModeration request.</p>
+   */
+  AggregateBy?: ContentModerationAggregateBy | string;
 }
 
 /**
@@ -4725,6 +4814,32 @@ export interface GetContentModerationResponse {
    * <p>Version number of the moderation detection model that was used to detect inappropriate, unwanted, or offensive content.</p>
    */
   ModerationModelVersion?: string;
+
+  /**
+   * <p>Job identifier for the content moderation operation for which you
+   *       want to obtain results. The job identifer is returned by an initial call
+   *       to StartContentModeration.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to
+   *             specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+   */
+  Video?: Video;
+
+  /**
+   * <p>A job identifier specified in the call to StartContentModeration and
+   *       returned in the job completion notification sent to your
+   *       Amazon Simple Notification Service topic.</p>
+   */
+  JobTag?: string;
+
+  /**
+   * <p>Information about the paramters used when getting a response. Includes
+   *       information on aggregation and sorting methods.</p>
+   */
+  GetRequestMetadata?: GetContentModerationRequestMetadata;
 }
 
 /**
@@ -4780,6 +4895,26 @@ export interface GetFaceDetectionResponse {
    *        in milliseconds from the start of the video, the face was detected. </p>
    */
   Faces?: FaceDetection[];
+
+  /**
+   * <p>Job identifier for the face detection operation for which you
+   *       want to obtain results. The job identifer is returned by an initial call
+   *       to StartFaceDetection.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to
+   *             specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+   */
+  Video?: Video;
+
+  /**
+   * <p>A job identifier specified in the call to StartFaceDetection and
+   *       returned in the job completion notification sent to your
+   *       Amazon Simple Notification Service topic.</p>
+   */
+  JobTag?: string;
 }
 
 /**
@@ -4799,6 +4934,7 @@ export interface GetFaceLivenessSessionResultsRequest {
  */
 export const LivenessSessionStatus = {
   CREATED: "CREATED",
+  EXPIRED: "EXPIRED",
   FAILED: "FAILED",
   IN_PROGRESS: "IN_PROGRESS",
   SUCCEEDED: "SUCCEEDED",
@@ -4988,6 +5124,26 @@ export interface GetFaceSearchResponse {
    *        and person information (<code>Person</code>) for the matched person. </p>
    */
   Persons?: PersonMatch[];
+
+  /**
+   * <p>Job identifier for the face search operation for which you
+   *       want to obtain results. The job identifer is returned by an initial call
+   *       to StartFaceSearch.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to
+   *             specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+   */
+  Video?: Video;
+
+  /**
+   * <p>A job identifier specified in the call to StartFaceSearch and
+   *       returned in the job completion notification sent to your
+   *       Amazon Simple Notification Service topic.</p>
+   */
+  JobTag?: string;
 }
 
 /**
@@ -5052,6 +5208,23 @@ export interface GetLabelDetectionRequest {
 
   /**
    * <p>Defines how to aggregate the returned results. Results can be aggregated by timestamps or segments.</p>
+   */
+  AggregateBy?: LabelDetectionAggregateBy | string;
+}
+
+/**
+ * @public
+ * <p>Contains metadata about a label detection request,
+ *       including the SortBy and AggregateBy options.</p>
+ */
+export interface GetLabelDetectionRequestMetadata {
+  /**
+   * <p>The sorting method chosen for a GetLabelDetection request.</p>
+   */
+  SortBy?: LabelDetectionSortBy | string;
+
+  /**
+   * <p>The aggregation method chosen for a GetLabelDetection request.</p>
    */
   AggregateBy?: LabelDetectionAggregateBy | string;
 }
@@ -5124,6 +5297,32 @@ export interface GetLabelDetectionResponse {
    * <p>Version number of the label detection model that was used to detect labels.</p>
    */
   LabelModelVersion?: string;
+
+  /**
+   * <p>Job identifier for the label detection operation for which you
+   *       want to obtain results. The job identifer is returned by an initial call
+   *       to StartLabelDetection.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to
+   *             specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+   */
+  Video?: Video;
+
+  /**
+   * <p>A job identifier specified in the call to StartLabelDetection and
+   *       returned in the job completion notification sent to your
+   *       Amazon Simple Notification Service topic.</p>
+   */
+  JobTag?: string;
+
+  /**
+   * <p>Information about the paramters used when getting a response. Includes
+   *       information on aggregation and sorting methods.</p>
+   */
+  GetRequestMetadata?: GetLabelDetectionRequestMetadata;
 }
 
 /**
@@ -5222,6 +5421,26 @@ export interface GetPersonTrackingResponse {
    *         An array element will exist for each time a person's path is tracked. </p>
    */
   Persons?: PersonDetection[];
+
+  /**
+   * <p>Job identifier for the person tracking operation for which you
+   *       want to obtain results. The job identifer is returned by an initial call
+   *       to StartPersonTracking.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to
+   *             specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+   */
+  Video?: Video;
+
+  /**
+   * <p>A job identifier specified in the call to StartCelebrityRecognition and
+   *       returned in the job completion notification sent to your
+   *       Amazon Simple Notification Service topic.</p>
+   */
+  JobTag?: string;
 }
 
 /**
@@ -5463,6 +5682,26 @@ export interface GetSegmentDetectionResponse {
    *     </p>
    */
   SelectedSegmentTypes?: SegmentTypeInfo[];
+
+  /**
+   * <p>Job identifier for the segment detection operation for which you
+   *       want to obtain results. The job identifer is returned by an initial call
+   *       to StartSegmentDetection.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to
+   *             specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+   */
+  Video?: Video;
+
+  /**
+   * <p>A job identifier specified in the call to StartSegmentDetection and
+   *       returned in the job completion notification sent to your
+   *       Amazon Simple Notification Service topic.</p>
+   */
+  JobTag?: string;
 }
 
 /**
@@ -5541,6 +5780,26 @@ export interface GetTextDetectionResponse {
    * <p>Version number of the text detection model that was used to detect text.</p>
    */
   TextModelVersion?: string;
+
+  /**
+   * <p>Job identifier for the text detection operation for which you
+   *       want to obtain results. The job identifer is returned by an initial call
+   *       to StartTextDetection.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to
+   *             specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+   */
+  Video?: Video;
+
+  /**
+   * <p>A job identifier specified in the call to StartTextDetection and
+   *       returned in the job completion notification sent to your
+   *       Amazon Simple Notification Service topic.</p>
+   */
+  JobTag?: string;
 }
 
 /**
@@ -6425,18 +6684,6 @@ export interface SearchFacesByImageResponse {
 
 /**
  * @public
- * <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to
- *             specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
- */
-export interface Video {
-  /**
-   * <p>The Amazon S3 bucket name and file name for the video.</p>
-   */
-  S3Object?: S3Object;
-}
-
-/**
- * @public
  */
 export interface StartCelebrityRecognitionRequest {
   /**
@@ -7123,45 +7370,6 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * @public
- */
-export interface UpdateDatasetEntriesRequest {
-  /**
-   * <p>
-   * The Amazon Resource Name (ARN) of the dataset that you want to update.
-   * </p>
-   */
-  DatasetArn: string | undefined;
-
-  /**
-   * <p>
-   *    The changes that you want to make to the dataset.
-   * </p>
-   */
-  Changes: DatasetChanges | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDatasetEntriesResponse {}
-
-/**
- * @public
- * @enum
- */
-export const StreamProcessorParameterToDelete = {
-  ConnectedHomeMinConfidence: "ConnectedHomeMinConfidence",
-  RegionsOfInterest: "RegionsOfInterest",
-} as const;
-
-/**
- * @public
- */
-export type StreamProcessorParameterToDelete =
-  (typeof StreamProcessorParameterToDelete)[keyof typeof StreamProcessorParameterToDelete];
 
 /**
  * @internal

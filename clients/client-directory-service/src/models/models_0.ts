@@ -398,7 +398,6 @@ export interface AddIpRoutesRequest {
    *                <p>Type: All ICMP, Protocol: All, Range: N/A, Source: 0.0.0.0/0</p>
    *             </li>
    *          </ul>
-   *
    *          <p></p>
    *          <p>Outbound:</p>
    *          <ul>
@@ -2972,7 +2971,8 @@ export interface DescribeSettingsRequest {
  */
 export interface SettingEntry {
   /**
-   * <p>The type of directory setting. For example, <code>Protocol</code> or <code>Cipher</code>.</p>
+   * <p>The type, or category, of a directory setting. Similar settings have the same type. For example, <code>Protocol</code>, <code>Cipher</code>,
+   *       or <code>Certificate-Based Authentication</code>.</p>
    */
   Type?: string;
 
@@ -2985,7 +2985,7 @@ export interface SettingEntry {
   Name?: string;
 
   /**
-   * <p>The valid range of values for the directory setting.</p>
+   * <p>The valid range of values for the directory setting. These values depend on the <code>DataType</code> of your directory.</p>
    */
   AllowedValues?: string;
 
@@ -3023,6 +3023,12 @@ export interface SettingEntry {
    * <p>The date and time when the request to update a directory setting was last submitted.</p>
    */
   LastRequestedDateTime?: Date;
+
+  /**
+   * <p>The data type of a directory setting. This is used to define the <code>AllowedValues</code> of a setting.
+   *       For example a data type can be <code>Boolean</code>, <code>DurationInSeconds</code>, or <code>Enum</code>.</p>
+   */
+  DataType?: string;
 }
 
 /**

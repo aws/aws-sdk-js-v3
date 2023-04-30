@@ -14,7 +14,11 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeConversionTasksRequest, DescribeConversionTasksResult } from "../models/models_3";
+import {
+  DescribeConversionTasksRequest,
+  DescribeConversionTasksResult,
+  DescribeConversionTasksResultFilterSensitiveLog,
+} from "../models/models_3";
 import { de_DescribeConversionTasksCommand, se_DescribeConversionTasksCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -108,7 +112,7 @@ export class DescribeConversionTasksCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: DescribeConversionTasksResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,8 +14,16 @@ Feature: Amazon Elastic Compute Cloud
     Then the error code should be "MissingParameter"
     And the error status code should be 400
 
-  Scenario: Encrypted CopySnapshot
+  Scenario: Encrypted-Unencrypted CopySnapshot
     Given I attempt to copy an encrypted snapshot across regions
+    Then the copy snapshot attempt should be successful
+
+  Scenario: Unencrypted-Encrypted CopySnapshot
+    Given I attempt to copy and encrypt an unencrypted snapshot across regions
+    Then the copy snapshot attempt should be successful
+
+  Scenario: Encrypted-Encrypted CopySnapshot
+    Given I attempt to copy and encrypt an encrypted snapshot across regions
     Then the copy snapshot attempt should be successful
 
 #  @pagination

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DescribeEndpointsRequest, DescribeEndpointsResponse } from "../models/models_1";
+import { DescribeEndpointsRequest, DescribeEndpointsResponse } from "../models/models_2";
 import { de_DescribeEndpointsCommand, se_DescribeEndpointsCommand } from "../protocols/Aws_restJson1";
 
 /**

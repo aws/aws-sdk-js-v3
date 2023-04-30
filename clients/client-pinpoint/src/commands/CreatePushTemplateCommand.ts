@@ -42,7 +42,7 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
  * const input = { // CreatePushTemplateRequest
  *   PushNotificationTemplateRequest: { // PushNotificationTemplateRequest
  *     ADM: { // AndroidPushNotificationTemplate
- *       Action: "STRING_VALUE",
+ *       Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *       Body: "STRING_VALUE",
  *       ImageIconUrl: "STRING_VALUE",
  *       ImageUrl: "STRING_VALUE",
@@ -53,7 +53,7 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
  *       Url: "STRING_VALUE",
  *     },
  *     APNS: { // APNSPushNotificationTemplate
- *       Action: "STRING_VALUE",
+ *       Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *       Body: "STRING_VALUE",
  *       MediaUrl: "STRING_VALUE",
  *       RawContent: "STRING_VALUE",
@@ -62,7 +62,7 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
  *       Url: "STRING_VALUE",
  *     },
  *     Baidu: {
- *       Action: "STRING_VALUE",
+ *       Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *       Body: "STRING_VALUE",
  *       ImageIconUrl: "STRING_VALUE",
  *       ImageUrl: "STRING_VALUE",
@@ -73,7 +73,7 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
  *       Url: "STRING_VALUE",
  *     },
  *     Default: { // DefaultPushNotificationTemplate
- *       Action: "STRING_VALUE",
+ *       Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *       Body: "STRING_VALUE",
  *       Sound: "STRING_VALUE",
  *       Title: "STRING_VALUE",
@@ -81,7 +81,7 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
  *     },
  *     DefaultSubstitutions: "STRING_VALUE",
  *     GCM: {
- *       Action: "STRING_VALUE",
+ *       Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *       Body: "STRING_VALUE",
  *       ImageIconUrl: "STRING_VALUE",
  *       ImageUrl: "STRING_VALUE",

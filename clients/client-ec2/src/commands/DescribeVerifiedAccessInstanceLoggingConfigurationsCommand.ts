@@ -41,7 +41,7 @@ export interface DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutpu
 
 /**
  * @public
- * <p>Describes the current logging configuration for the Amazon Web Services Verified Access instances.</p>
+ * <p>Describes the specified Amazon Web Services Verified Access instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

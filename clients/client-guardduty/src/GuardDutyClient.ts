@@ -174,6 +174,7 @@ import {
   ListThreatIntelSetsCommandInput,
   ListThreatIntelSetsCommandOutput,
 } from "./commands/ListThreatIntelSetsCommand";
+import { StartMalwareScanCommandInput, StartMalwareScanCommandOutput } from "./commands/StartMalwareScanCommand";
 import {
   StartMonitoringMembersCommandInput,
   StartMonitoringMembersCommandOutput,
@@ -277,6 +278,7 @@ export type ServiceInputTypes =
   | ListPublishingDestinationsCommandInput
   | ListTagsForResourceCommandInput
   | ListThreatIntelSetsCommandInput
+  | StartMalwareScanCommandInput
   | StartMonitoringMembersCommandInput
   | StopMonitoringMembersCommandInput
   | TagResourceCommandInput
@@ -349,6 +351,7 @@ export type ServiceOutputTypes =
   | ListPublishingDestinationsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListThreatIntelSetsCommandOutput
+  | StartMalwareScanCommandOutput
   | StartMonitoringMembersCommandOutput
   | StopMonitoringMembersCommandOutput
   | TagResourceCommandOutput

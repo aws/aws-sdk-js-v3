@@ -62,7 +62,25 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *       PublicAccess: { // PublicAccess
  *         Type: "STRING_VALUE",
  *       },
+ *       VpcConnectivity: { // VpcConnectivity
+ *         ClientAuthentication: { // VpcConnectivityClientAuthentication
+ *           Sasl: { // VpcConnectivitySasl
+ *             Scram: { // VpcConnectivityScram
+ *               Enabled: true || false,
+ *             },
+ *             Iam: { // VpcConnectivityIam
+ *               Enabled: true || false,
+ *             },
+ *           },
+ *           Tls: { // VpcConnectivityTls
+ *             Enabled: true || false,
+ *           },
+ *         },
+ *       },
  *     },
+ *     ZoneIds: [
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   ClientAuthentication: { // ClientAuthentication
  *     Sasl: { // Sasl

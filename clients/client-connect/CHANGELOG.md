@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.320.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.319.0...v3.320.0) (2023-04-25)
+
+
+### Features
+
+* **client-connect:** Amazon Connect, Contact Lens Evaluation API release including ability to manage forms and to submit contact evaluations. ([9ab9bfb](https://github.com/aws/aws-sdk-js-v3/commit/9ab9bfb7fc94b981ed83a5b641fc21b7a64616e2))
+
+
+
+
+
+# [3.319.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.318.0...v3.319.0) (2023-04-24)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.318.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.317.0...v3.318.0) (2023-04-21)
+
+
+### Features
+
+* **client-connect:** This release adds a new API CreateParticipant. For Amazon Connect Chat, you can use this new API to customize chat flow experiences. ([257af63](https://github.com/aws/aws-sdk-js-v3/commit/257af63e876d3077f5b3be5f0089483622f6df90))
+
+
+
+
+
 # [3.316.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.315.0...v3.316.0) (2023-04-19)
 
 

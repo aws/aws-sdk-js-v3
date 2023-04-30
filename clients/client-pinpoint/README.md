@@ -744,6 +744,30 @@ GetJourneyExecutionMetrics
 </details>
 <details>
 <summary>
+GetJourneyRunExecutionActivityMetrics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pinpoint/classes/getjourneyrunexecutionactivitymetricscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pinpoint/interfaces/getjourneyrunexecutionactivitymetricscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pinpoint/interfaces/getjourneyrunexecutionactivitymetricscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetJourneyRunExecutionMetrics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pinpoint/classes/getjourneyrunexecutionmetricscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pinpoint/interfaces/getjourneyrunexecutionmetricscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pinpoint/interfaces/getjourneyrunexecutionmetricscommandoutput.html)
+
+</details>
+<details>
+<summary>
+GetJourneyRuns
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pinpoint/classes/getjourneyrunscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pinpoint/interfaces/getjourneyrunscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pinpoint/interfaces/getjourneyrunscommandoutput.html)
+
+</details>
+<details>
+<summary>
 GetPushTemplate
 </summary>
 

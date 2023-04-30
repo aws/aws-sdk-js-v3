@@ -44,7 +44,7 @@ export interface CreateImportJobCommandOutput extends CreateImportJobResponse, _
  *   ImportJobRequest: { // ImportJobRequest
  *     DefineSegment: true || false,
  *     ExternalId: "STRING_VALUE",
- *     Format: "STRING_VALUE", // required
+ *     Format: "CSV" || "JSON", // required
  *     RegisterEndpoints: true || false,
  *     RoleArn: "STRING_VALUE", // required
  *     S3Url: "STRING_VALUE", // required

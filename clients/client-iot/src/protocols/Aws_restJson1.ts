@@ -799,6 +799,7 @@ import {
   TimestreamAction,
   TimestreamDimension,
   TimestreamTimestamp,
+  TlsConfig,
   TopicRuleDestination,
   TopicRuleDestinationConfiguration,
   TopicRulePayload,
@@ -1614,6 +1615,7 @@ export const se_CreateDomainConfigurationCommand = async (
       serverCertificateArns: (_) => _json(_),
       serviceType: [],
       tags: (_) => _json(_),
+      tlsConfig: (_) => _json(_),
       validationCertificateArn: [],
     })
   );
@@ -7770,6 +7772,7 @@ export const se_UpdateDomainConfigurationCommand = async (
       authorizerConfig: (_) => _json(_),
       domainConfigurationStatus: [],
       removeAuthorizerConfig: [],
+      tlsConfig: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -13659,6 +13662,7 @@ export const de_DescribeDomainConfigurationCommand = async (
     lastStatusChangeDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     serverCertificates: _json,
     serviceType: __expectString,
+    tlsConfig: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -23657,6 +23661,8 @@ const se_PercentList = (input: number[], context: __SerdeContext): any => {
 
 // se_TimestreamTimestamp omitted.
 
+// se_TlsConfig omitted.
+
 // se_TlsContext omitted.
 
 // se_TopicRuleDestinationConfiguration omitted.
@@ -25155,6 +25161,8 @@ const de_ThingTypeMetadata = (output: any, context: __SerdeContext): ThingTypeMe
 // de_TimestreamDimensionList omitted.
 
 // de_TimestreamTimestamp omitted.
+
+// de_TlsConfig omitted.
 
 /**
  * deserializeAws_restJson1TopicRule

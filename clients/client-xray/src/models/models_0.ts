@@ -355,16 +355,16 @@ export interface CreateGroupRequest {
 
   /**
    * <p>The structure containing configurations related to insights.</p>
-   *             <ul>
+   *          <ul>
    *             <li>
-   *                     <p>The InsightsEnabled boolean can be set to true to enable insights for the
+   *                <p>The InsightsEnabled boolean can be set to true to enable insights for the
    *                     new group or false to disable insights for the new group.</p>
-   *                 </li>
+   *             </li>
    *             <li>
-   *                     <p>The NotificationsEnabled boolean can be set to true to enable insights
+   *                <p>The NotificationsEnabled boolean can be set to true to enable insights
    *                     notifications for the new group. Notifications may only be enabled on a group
    *                     with InsightsEnabled set to true.</p>
-   *                 </li>
+   *             </li>
    *          </ul>
    */
   InsightsConfiguration?: InsightsConfiguration;
@@ -373,26 +373,26 @@ export interface CreateGroupRequest {
    * <p>A map that contains one or more tag keys and tag values to attach to an X-Ray group.
    *             For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *                 resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   *         <p>The following restrictions apply to tags:</p>
-   *         <ul>
+   *          <p>The following restrictions apply to tags:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Maximum number of user-applied tags per resource: 50</p>
+   *                <p>Maximum number of user-applied tags per resource: 50</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum tag key length: 128 Unicode characters</p>
+   *                <p>Maximum tag key length: 128 Unicode characters</p>
    *             </li>
    *             <li>
-   *                 <p>Maximum tag value length: 256 Unicode characters</p>
+   *                <p>Maximum tag value length: 256 Unicode characters</p>
    *             </li>
    *             <li>
-   *                 <p>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . :
+   *                <p>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . :
    *                     / = + - and @</p>
    *             </li>
    *             <li>
-   *                 <p>Tag keys and values are case sensitive.</p>
+   *                <p>Tag keys and values are case sensitive.</p>
    *             </li>
    *             <li>
-   *                 <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for Amazon Web Services
+   *                <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for Amazon Web Services
    *                     use.</p>
    *             </li>
    *          </ul>
@@ -422,13 +422,13 @@ export interface Group {
 
   /**
    * <p>The structure containing configurations related to insights.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The InsightsEnabled boolean can be set to true to enable insights for the
+   *                <p>The InsightsEnabled boolean can be set to true to enable insights for the
    *                     group or false to disable insights for the group.</p>
    *             </li>
    *             <li>
-   *                 <p>The NotificationsEnabled boolean can be set to true to enable insights
+   *                <p>The NotificationsEnabled boolean can be set to true to enable insights
    *                     notifications through Amazon EventBridge for the group.</p>
    *             </li>
    *          </ul>
@@ -829,13 +829,13 @@ export interface GroupSummary {
 
   /**
    * <p>The structure containing configurations related to insights.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The InsightsEnabled boolean can be set to true to enable insights for the
+   *                <p>The InsightsEnabled boolean can be set to true to enable insights for the
    *                     group or false to disable insights for the group.</p>
    *             </li>
    *             <li>
-   *                 <p>The NotificationsEnabled boolean can be set to true to enable insights notifications.
+   *                <p>The NotificationsEnabled boolean can be set to true to enable insights notifications.
    *                     Notifications can only be enabled on a group with InsightsEnabled set to true.</p>
    *             </li>
    *          </ul>
@@ -2811,7 +2811,7 @@ export interface PutResourcePolicyRequest {
   /**
    * <p>Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id.
    *             The revision id is unique to each policy in the account.</p>
-   *         <p>If the policy revision id does not match the latest revision id, the operation will fail with an <code>InvalidPolicyRevisionIdException</code> exception. You can also provide a
+   *          <p>If the policy revision id does not match the latest revision id, the operation will fail with an <code>InvalidPolicyRevisionIdException</code> exception. You can also provide a
    *             <code>PolicyRevisionId</code> of 0. In this case, the operation will fail with an <code>InvalidPolicyRevisionIdException</code> exception if a resource policy with the same name already exists.
    *         </p>
    */
@@ -2819,11 +2819,11 @@ export interface PutResourcePolicyRequest {
 
   /**
    * <p>A flag to indicate whether to bypass the resource policy lockout safety check.</p>
-   *         <important>
+   *          <important>
    *             <p>Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately.</p>
-   *         </important>
-   *         <p>Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent <code>PutResourcePolicy</code> request.</p>
-   *         <p>The default value is false.</p>
+   *          </important>
+   *          <p>Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent <code>PutResourcePolicy</code> request.</p>
+   *          <p>The default value is false.</p>
    */
   BypassPolicyLockoutCheck?: boolean;
 }
@@ -3092,13 +3092,13 @@ export interface UpdateGroupRequest {
 
   /**
    * <p>The structure containing configurations related to insights.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The InsightsEnabled boolean can be set to true to enable insights for the
+   *                <p>The InsightsEnabled boolean can be set to true to enable insights for the
    *                     group or false to disable insights for the group.</p>
    *             </li>
    *             <li>
-   *                 <p>The NotificationsEnabled boolean can be set to true to enable insights notifications for the group.
+   *                <p>The NotificationsEnabled boolean can be set to true to enable insights notifications for the group.
    *                     Notifications can only be enabled on a group with InsightsEnabled set to true.</p>
    *             </li>
    *          </ul>

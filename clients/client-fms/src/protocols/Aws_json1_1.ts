@@ -54,6 +54,7 @@ import {
   DisassociateThirdPartyFirewallCommandOutput,
 } from "../commands/DisassociateThirdPartyFirewallCommand";
 import { GetAdminAccountCommandInput, GetAdminAccountCommandOutput } from "../commands/GetAdminAccountCommand";
+import { GetAdminScopeCommandInput, GetAdminScopeCommandOutput } from "../commands/GetAdminScopeCommand";
 import { GetAppsListCommandInput, GetAppsListCommandOutput } from "../commands/GetAppsListCommand";
 import {
   GetComplianceDetailCommandInput,
@@ -78,6 +79,14 @@ import {
   GetViolationDetailsCommandInput,
   GetViolationDetailsCommandOutput,
 } from "../commands/GetViolationDetailsCommand";
+import {
+  ListAdminAccountsForOrganizationCommandInput,
+  ListAdminAccountsForOrganizationCommandOutput,
+} from "../commands/ListAdminAccountsForOrganizationCommand";
+import {
+  ListAdminsManagingAccountCommandInput,
+  ListAdminsManagingAccountCommandOutput,
+} from "../commands/ListAdminsManagingAccountCommand";
 import { ListAppsListsCommandInput, ListAppsListsCommandOutput } from "../commands/ListAppsListsCommand";
 import {
   ListComplianceStatusCommandInput,
@@ -103,6 +112,7 @@ import {
   ListThirdPartyFirewallFirewallPoliciesCommandInput,
   ListThirdPartyFirewallFirewallPoliciesCommandOutput,
 } from "../commands/ListThirdPartyFirewallFirewallPoliciesCommand";
+import { PutAdminAccountCommandInput, PutAdminAccountCommandOutput } from "../commands/PutAdminAccountCommand";
 import { PutAppsListCommandInput, PutAppsListCommandOutput } from "../commands/PutAppsListCommand";
 import {
   PutNotificationChannelCommandInput,
@@ -115,6 +125,8 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { FMSServiceException as __BaseException } from "../models/FMSServiceException";
 import {
+  AccountScope,
+  AdminScope,
   App,
   AppsListData,
   AssociateAdminAccountRequest,
@@ -129,6 +141,7 @@ import {
   DisassociateAdminAccountRequest,
   DisassociateThirdPartyFirewallRequest,
   GetAdminAccountRequest,
+  GetAdminScopeRequest,
   GetAppsListRequest,
   GetAppsListResponse,
   GetComplianceDetailRequest,
@@ -148,6 +161,8 @@ import {
   InvalidOperationException,
   InvalidTypeException,
   LimitExceededException,
+  ListAdminAccountsForOrganizationRequest,
+  ListAdminsManagingAccountRequest,
   ListAppsListsRequest,
   ListComplianceStatusRequest,
   ListComplianceStatusResponse,
@@ -161,11 +176,14 @@ import {
   ListTagsForResourceRequest,
   ListThirdPartyFirewallFirewallPoliciesRequest,
   NetworkFirewallPolicy,
+  OrganizationalUnitScope,
   Policy,
   PolicyComplianceDetail,
   PolicyComplianceStatus,
   PolicyOption,
+  PolicyTypeScope,
   ProtocolsListData,
+  PutAdminAccountRequest,
   PutAppsListRequest,
   PutAppsListResponse,
   PutNotificationChannelRequest,
@@ -174,11 +192,13 @@ import {
   PutProtocolsListResponse,
   PutResourceSetRequest,
   PutResourceSetResponse,
+  RegionScope,
   ResourceNotFoundException,
   ResourceSet,
   ResourceSetSummary,
   ResourceTag,
   SecurityServicePolicyData,
+  SecurityServiceType,
   Tag,
   TagResourceRequest,
   ThirdPartyFirewallPolicy,
@@ -343,6 +363,19 @@ export const se_GetAdminAccountCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetAdminScopeCommand
+ */
+export const se_GetAdminScopeCommand = async (
+  input: GetAdminScopeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetAdminScope");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetAppsListCommand
  */
 export const se_GetAppsListCommand = async (
@@ -454,6 +487,32 @@ export const se_GetViolationDetailsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetViolationDetails");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListAdminAccountsForOrganizationCommand
+ */
+export const se_ListAdminAccountsForOrganizationCommand = async (
+  input: ListAdminAccountsForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListAdminAccountsForOrganization");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListAdminsManagingAccountCommand
+ */
+export const se_ListAdminsManagingAccountCommand = async (
+  input: ListAdminsManagingAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListAdminsManagingAccount");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -584,6 +643,19 @@ export const se_ListThirdPartyFirewallFirewallPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListThirdPartyFirewallFirewallPolicies");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1PutAdminAccountCommand
+ */
+export const se_PutAdminAccountCommand = async (
+  input: PutAdminAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutAdminAccount");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1314,6 +1386,61 @@ const de_GetAdminAccountCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1GetAdminScopeCommand
+ */
+export const de_GetAdminScopeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAdminScopeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetAdminScopeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetAdminScopeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetAdminScopeCommandError
+ */
+const de_GetAdminScopeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAdminScopeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1GetAppsListCommand
  */
 export const de_GetAppsListCommand = async (
@@ -1768,6 +1895,110 @@ const de_GetViolationDetailsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetViolationDetailsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListAdminAccountsForOrganizationCommand
+ */
+export const de_ListAdminAccountsForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAdminAccountsForOrganizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListAdminAccountsForOrganizationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListAdminAccountsForOrganizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAdminAccountsForOrganizationCommandError
+ */
+const de_ListAdminAccountsForOrganizationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAdminAccountsForOrganizationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListAdminsManagingAccountCommand
+ */
+export const de_ListAdminsManagingAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAdminsManagingAccountCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListAdminsManagingAccountCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListAdminsManagingAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAdminsManagingAccountCommandError
+ */
+const de_ListAdminsManagingAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAdminsManagingAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2323,6 +2554,58 @@ const de_ListThirdPartyFirewallFirewallPoliciesCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1PutAdminAccountCommand
+ */
+export const de_PutAdminAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAdminAccountCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_PutAdminAccountCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: PutAdminAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutAdminAccountCommandError
+ */
+const de_PutAdminAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAdminAccountCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
+      throw await de_InternalErrorExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.fms#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1PutAppsListCommand
  */
 export const de_PutAppsListCommand = async (
@@ -2812,6 +3095,12 @@ const de_ResourceNotFoundExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
+// se_AccountIdList omitted.
+
+// se_AccountScope omitted.
+
+// se_AdminScope omitted.
+
 // se_App omitted.
 
 // se_AppsList omitted.
@@ -2837,6 +3126,8 @@ const se_AppsListData = (input: AppsListData, context: __SerdeContext): any => {
 
 // se_AWSAccountIdList omitted.
 
+// se_AWSRegionList omitted.
+
 // se_BatchAssociateResourceRequest omitted.
 
 // se_BatchDisassociateResourceRequest omitted.
@@ -2860,6 +3151,8 @@ const se_AppsListData = (input: AppsListData, context: __SerdeContext): any => {
 // se_DisassociateThirdPartyFirewallRequest omitted.
 
 // se_GetAdminAccountRequest omitted.
+
+// se_GetAdminScopeRequest omitted.
 
 // se_GetAppsListRequest omitted.
 
@@ -2893,6 +3186,10 @@ const se_GetProtectionStatusRequest = (input: GetProtectionStatusRequest, contex
 
 // se_IdentifierList omitted.
 
+// se_ListAdminAccountsForOrganizationRequest omitted.
+
+// se_ListAdminsManagingAccountRequest omitted.
+
 // se_ListAppsListsRequest omitted.
 
 // se_ListComplianceStatusRequest omitted.
@@ -2915,9 +3212,15 @@ const se_GetProtectionStatusRequest = (input: GetProtectionStatusRequest, contex
 
 // se_NetworkFirewallPolicy omitted.
 
+// se_OrganizationalUnitIdList omitted.
+
+// se_OrganizationalUnitScope omitted.
+
 // se_Policy omitted.
 
 // se_PolicyOption omitted.
+
+// se_PolicyTypeScope omitted.
 
 // se_PreviousAppsList omitted.
 
@@ -2939,6 +3242,8 @@ const se_ProtocolsListData = (input: ProtocolsListData, context: __SerdeContext)
     ProtocolsList: _json,
   });
 };
+
+// se_PutAdminAccountRequest omitted.
 
 /**
  * serializeAws_json1_1PutAppsListRequest
@@ -2974,6 +3279,8 @@ const se_PutResourceSetRequest = (input: PutResourceSetRequest, context: __Serde
   });
 };
 
+// se_RegionScope omitted.
+
 /**
  * serializeAws_json1_1ResourceSet
  */
@@ -2983,6 +3290,7 @@ const se_ResourceSet = (input: ResourceSet, context: __SerdeContext): any => {
     Id: [],
     LastUpdateTime: (_) => Math.round(_.getTime() / 1000),
     Name: [],
+    ResourceSetStatus: [],
     ResourceTypeList: _json,
     UpdateToken: [],
   });
@@ -2998,6 +3306,8 @@ const se_ResourceSet = (input: ResourceSet, context: __SerdeContext): any => {
 
 // se_SecurityServicePolicyData omitted.
 
+// se_SecurityServiceTypeList omitted.
+
 // se_Tag omitted.
 
 // se_TagKeyList omitted.
@@ -3010,7 +3320,17 @@ const se_ResourceSet = (input: ResourceSet, context: __SerdeContext): any => {
 
 // se_UntagResourceRequest omitted.
 
+// de_AccountIdList omitted.
+
+// de_AccountScope omitted.
+
 // de_ActionTarget omitted.
+
+// de_AdminAccountSummary omitted.
+
+// de_AdminAccountSummaryList omitted.
+
+// de_AdminScope omitted.
 
 // de_App omitted.
 
@@ -3042,6 +3362,8 @@ const de_AppsListData = (output: any, context: __SerdeContext): AppsListData => 
 // de_AwsEc2NetworkInterfaceViolation omitted.
 
 // de_AwsEc2NetworkInterfaceViolations omitted.
+
+// de_AWSRegionList omitted.
 
 // de_AwsVPCSecurityGroupViolation omitted.
 
@@ -3106,6 +3428,8 @@ const de_AppsListData = (output: any, context: __SerdeContext): AppsListData => 
 // de_FMSPolicyUpdateFirewallCreationConfigAction omitted.
 
 // de_GetAdminAccountResponse omitted.
+
+// de_GetAdminScopeResponse omitted.
 
 /**
  * deserializeAws_json1_1GetAppsListResponse
@@ -3177,6 +3501,10 @@ const de_GetViolationDetailsResponse = (output: any, context: __SerdeContext): G
 
 // de_LimitExceededException omitted.
 
+// de_ListAdminAccountsForOrganizationResponse omitted.
+
+// de_ListAdminsManagingAccountResponse omitted.
+
 // de_ListAppsListsResponse omitted.
 
 /**
@@ -3245,6 +3573,10 @@ const de_ListResourceSetsResponse = (output: any, context: __SerdeContext): List
 
 // de_OrderedRemediationActions omitted.
 
+// de_OrganizationalUnitIdList omitted.
+
+// de_OrganizationalUnitScope omitted.
+
 // de_PartialMatch omitted.
 
 // de_PartialMatches omitted.
@@ -3298,6 +3630,8 @@ const de_PolicyComplianceStatusList = (output: any, context: __SerdeContext): Po
 // de_PolicySummary omitted.
 
 // de_PolicySummaryList omitted.
+
+// de_PolicyTypeScope omitted.
 
 // de_PossibleRemediationAction omitted.
 
@@ -3362,6 +3696,8 @@ const de_PutResourceSetResponse = (output: any, context: __SerdeContext): PutRes
   }) as any;
 };
 
+// de_RegionScope omitted.
+
 // de_RemediationAction omitted.
 
 // de_RemediationActionWithOrder omitted.
@@ -3383,6 +3719,7 @@ const de_ResourceSet = (output: any, context: __SerdeContext): ResourceSet => {
     Id: __expectString,
     LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
+    ResourceSetStatus: __expectString,
     ResourceTypeList: _json,
     UpdateToken: __expectString,
   }) as any;
@@ -3399,6 +3736,7 @@ const de_ResourceSetSummary = (output: any, context: __SerdeContext): ResourceSe
     Id: __expectString,
     LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
+    ResourceSetStatus: __expectString,
   }) as any;
 };
 
@@ -3437,6 +3775,8 @@ const de_ResourceSetSummaryList = (output: any, context: __SerdeContext): Resour
 // de_SecurityGroupRuleDescription omitted.
 
 // de_SecurityServicePolicyData omitted.
+
+// de_SecurityServiceTypeList omitted.
 
 // de_StatefulEngineOptions omitted.
 

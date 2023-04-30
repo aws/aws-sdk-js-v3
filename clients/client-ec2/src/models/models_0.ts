@@ -4943,12 +4943,12 @@ export interface AttachNetworkInterfaceResult {
  */
 export interface AttachVerifiedAccessTrustProviderRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstanceId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   * <p>The ID of the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProviderId: string | undefined;
 
@@ -5077,7 +5077,7 @@ export interface VerifiedAccessInstance {
 
 /**
  * @public
- * <p>Options for an Amazon Web Services Verified Access device-identity based trust provider.</p>
+ * <p>Describes the options for an Amazon Web Services Verified Access device-identity based trust provider.</p>
  */
 export interface DeviceOptions {
   /**
@@ -5088,7 +5088,8 @@ export interface DeviceOptions {
 
 /**
  * @public
- * <p>Options for OIDC-based, user-identity type trust provider.</p>
+ * <p>Describes the options for an OpenID Connect-compatible user-identity trust
+ *          provider.</p>
  */
 export interface OidcOptions {
   /**
@@ -5158,12 +5159,12 @@ export interface VerifiedAccessTrustProvider {
   DeviceTrustProviderType?: DeviceTrustProviderType | string;
 
   /**
-   * <p>The OpenID Connect details for an <code>oidc</code>-type, user-identity based trust provider.</p>
+   * <p>The options for an OpenID Connect-compatible user-identity trust provider.</p>
    */
   OidcOptions?: OidcOptions;
 
   /**
-   * <p>The options for device-identity type trust provider.</p>
+   * <p>The options for device-identity trust provider.</p>
    */
   DeviceOptions?: DeviceOptions;
 
@@ -5193,12 +5194,12 @@ export interface VerifiedAccessTrustProvider {
  */
 export interface AttachVerifiedAccessTrustProviderResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   * <p>The ID of the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
@@ -6621,7 +6622,7 @@ export interface CancelSpotInstanceRequestsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>One or more Spot Instance request IDs.</p>
+   * <p>The IDs of the Spot Instance requests.</p>
    */
   SpotInstanceRequestIds: string[] | undefined;
 }
@@ -6666,7 +6667,7 @@ export interface CancelledSpotInstanceRequest {
  */
 export interface CancelSpotInstanceRequestsResult {
   /**
-   * <p>One or more Spot Instance requests.</p>
+   * <p>The Spot Instance requests.</p>
    */
   CancelledSpotInstanceRequests?: CancelledSpotInstanceRequest[];
 }
@@ -8523,6 +8524,34 @@ export interface CertificateAuthenticationRequest {
    */
   ClientRootCertificateChainArn?: string;
 }
+
+/**
+ * @internal
+ */
+export const OidcOptionsFilterSensitiveLog = (obj: OidcOptions): any => ({
+  ...obj,
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessTrustProviderFilterSensitiveLog = (obj: VerifiedAccessTrustProvider): any => ({
+  ...obj,
+  ...(obj.OidcOptions && { OidcOptions: OidcOptionsFilterSensitiveLog(obj.OidcOptions) }),
+});
+
+/**
+ * @internal
+ */
+export const AttachVerifiedAccessTrustProviderResultFilterSensitiveLog = (
+  obj: AttachVerifiedAccessTrustProviderResult
+): any => ({
+  ...obj,
+  ...(obj.VerifiedAccessTrustProvider && {
+    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
+  }),
+});
 
 /**
  * @internal

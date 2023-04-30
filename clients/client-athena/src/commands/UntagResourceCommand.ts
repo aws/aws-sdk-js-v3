@@ -32,7 +32,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
 
 /**
  * @public
- * <p>Removes one or more tags from a data catalog or workgroup resource.</p>
+ * <p>Removes one or more tags from an Athena resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

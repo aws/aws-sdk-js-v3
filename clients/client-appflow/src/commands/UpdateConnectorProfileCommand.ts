@@ -123,7 +123,7 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  *         },
  *         oAuth2Properties: { // OAuth2Properties
  *           tokenUrl: "STRING_VALUE", // required
- *           oAuth2GrantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE", // required
+ *           oAuth2GrantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE" || "JWT_BEARER", // required
  *           tokenUrlCustomProperties: { // TokenUrlCustomProperties
  *             "<keys>": "STRING_VALUE",
  *           },
@@ -192,6 +192,8 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  *           redirectUri: "STRING_VALUE",
  *         },
  *         clientCredentialsArn: "STRING_VALUE",
+ *         oAuth2GrantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE" || "JWT_BEARER",
+ *         jwtToken: "STRING_VALUE",
  *       },
  *       ServiceNow: { // ServiceNowConnectorProfileCredentials
  *         username: "STRING_VALUE", // required

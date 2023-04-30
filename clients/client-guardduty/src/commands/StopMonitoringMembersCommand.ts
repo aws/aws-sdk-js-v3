@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { StopMonitoringMembersRequest, StopMonitoringMembersResponse } from "../models/models_0";
+import { StopMonitoringMembersRequest, StopMonitoringMembersResponse } from "../models/models_1";
 import { de_StopMonitoringMembersCommand, se_StopMonitoringMembersCommand } from "../protocols/Aws_restJson1";
 
 /**

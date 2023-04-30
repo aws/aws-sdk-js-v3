@@ -36,11 +36,10 @@ export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsx
 
 /**
  * @public
- * <p>Creates an endpoint for an Amazon FSx for OpenZFS file system that DataSync
- *       can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html">Creating a location for FSx for OpenZFS</a>.</p>
+ * <p>Creates an endpoint for an Amazon FSx for OpenZFS file system that DataSync can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html">Creating a location for FSx for OpenZFS</a>.</p>
  *          <note>
  *             <p>Request parameters related to <code>SMB</code> aren't supported with the
- *         <code>CreateLocationFsxOpenZfs</code> operation.</p>
+ *           <code>CreateLocationFsxOpenZfs</code> operation.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,7 +86,8 @@ export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsx
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>

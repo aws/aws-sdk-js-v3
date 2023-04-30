@@ -3,6 +3,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   _json,
   decorateServiceException as __decorateServiceException,
+  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -28,6 +29,14 @@ import {
   BatchGetQueryExecutionCommandInput,
   BatchGetQueryExecutionCommandOutput,
 } from "../commands/BatchGetQueryExecutionCommand";
+import {
+  CancelCapacityReservationCommandInput,
+  CancelCapacityReservationCommandOutput,
+} from "../commands/CancelCapacityReservationCommand";
+import {
+  CreateCapacityReservationCommandInput,
+  CreateCapacityReservationCommandOutput,
+} from "../commands/CreateCapacityReservationCommand";
 import { CreateDataCatalogCommandInput, CreateDataCatalogCommandOutput } from "../commands/CreateDataCatalogCommand";
 import { CreateNamedQueryCommandInput, CreateNamedQueryCommandOutput } from "../commands/CreateNamedQueryCommand";
 import { CreateNotebookCommandInput, CreateNotebookCommandOutput } from "../commands/CreateNotebookCommand";
@@ -61,6 +70,14 @@ import {
   GetCalculationExecutionStatusCommandInput,
   GetCalculationExecutionStatusCommandOutput,
 } from "../commands/GetCalculationExecutionStatusCommand";
+import {
+  GetCapacityAssignmentConfigurationCommandInput,
+  GetCapacityAssignmentConfigurationCommandOutput,
+} from "../commands/GetCapacityAssignmentConfigurationCommand";
+import {
+  GetCapacityReservationCommandInput,
+  GetCapacityReservationCommandOutput,
+} from "../commands/GetCapacityReservationCommand";
 import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "../commands/GetDatabaseCommand";
 import { GetDataCatalogCommandInput, GetDataCatalogCommandOutput } from "../commands/GetDataCatalogCommand";
 import { GetNamedQueryCommandInput, GetNamedQueryCommandOutput } from "../commands/GetNamedQueryCommand";
@@ -91,6 +108,10 @@ import {
   ListCalculationExecutionsCommandInput,
   ListCalculationExecutionsCommandOutput,
 } from "../commands/ListCalculationExecutionsCommand";
+import {
+  ListCapacityReservationsCommandInput,
+  ListCapacityReservationsCommandOutput,
+} from "../commands/ListCapacityReservationsCommand";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "../commands/ListDatabasesCommand";
 import { ListDataCatalogsCommandInput, ListDataCatalogsCommandOutput } from "../commands/ListDataCatalogsCommand";
 import { ListEngineVersionsCommandInput, ListEngineVersionsCommandOutput } from "../commands/ListEngineVersionsCommand";
@@ -120,6 +141,10 @@ import {
 } from "../commands/ListTagsForResourceCommand";
 import { ListWorkGroupsCommandInput, ListWorkGroupsCommandOutput } from "../commands/ListWorkGroupsCommand";
 import {
+  PutCapacityAssignmentConfigurationCommandInput,
+  PutCapacityAssignmentConfigurationCommandOutput,
+} from "../commands/PutCapacityAssignmentConfigurationCommand";
+import {
   StartCalculationExecutionCommandInput,
   StartCalculationExecutionCommandOutput,
 } from "../commands/StartCalculationExecutionCommand";
@@ -136,6 +161,10 @@ import { StopQueryExecutionCommandInput, StopQueryExecutionCommandOutput } from 
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { TerminateSessionCommandInput, TerminateSessionCommandOutput } from "../commands/TerminateSessionCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateCapacityReservationCommandInput,
+  UpdateCapacityReservationCommandOutput,
+} from "../commands/UpdateCapacityReservationCommand";
 import { UpdateDataCatalogCommandInput, UpdateDataCatalogCommandOutput } from "../commands/UpdateDataCatalogCommand";
 import { UpdateNamedQueryCommandInput, UpdateNamedQueryCommandOutput } from "../commands/UpdateNamedQueryCommand";
 import { UpdateNotebookCommandInput, UpdateNotebookCommandOutput } from "../commands/UpdateNotebookCommand";
@@ -159,6 +188,11 @@ import {
   CalculationConfiguration,
   CalculationStatus,
   CalculationSummary,
+  CancelCapacityReservationInput,
+  CapacityAllocation,
+  CapacityAssignment,
+  CapacityReservation,
+  CreateCapacityReservationInput,
   CreateDataCatalogInput,
   CreateNamedQueryInput,
   CreateNotebookInput,
@@ -182,6 +216,9 @@ import {
   GetCalculationExecutionResponse,
   GetCalculationExecutionStatusRequest,
   GetCalculationExecutionStatusResponse,
+  GetCapacityAssignmentConfigurationInput,
+  GetCapacityReservationInput,
+  GetCapacityReservationOutput,
   GetDatabaseInput,
   GetDataCatalogInput,
   GetNamedQueryInput,
@@ -208,6 +245,8 @@ import {
   ListApplicationDPUSizesInput,
   ListCalculationExecutionsRequest,
   ListCalculationExecutionsResponse,
+  ListCapacityReservationsInput,
+  ListCapacityReservationsOutput,
   ListDatabasesInput,
   ListDataCatalogsInput,
   ListEngineVersionsInput,
@@ -232,6 +271,7 @@ import {
   NotebookSessionSummary,
   PreparedStatement,
   PreparedStatementSummary,
+  PutCapacityAssignmentConfigurationInput,
   QueryExecution,
   QueryExecutionContext,
   QueryExecutionStatus,
@@ -257,6 +297,7 @@ import {
   TerminateSessionRequest,
   TooManyRequestsException,
   UntagResourceInput,
+  UpdateCapacityReservationInput,
   UpdateDataCatalogInput,
   UpdateNamedQueryInput,
   UpdateNotebookInput,
@@ -303,6 +344,32 @@ export const se_BatchGetQueryExecutionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("BatchGetQueryExecution");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CancelCapacityReservationCommand
+ */
+export const se_CancelCapacityReservationCommand = async (
+  input: CancelCapacityReservationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CancelCapacityReservation");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateCapacityReservationCommand
+ */
+export const se_CreateCapacityReservationCommand = async (
+  input: CreateCapacityReservationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateCapacityReservation");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -504,6 +571,32 @@ export const se_GetCalculationExecutionStatusCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetCapacityAssignmentConfigurationCommand
+ */
+export const se_GetCapacityAssignmentConfigurationCommand = async (
+  input: GetCapacityAssignmentConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetCapacityAssignmentConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetCapacityReservationCommand
+ */
+export const se_GetCapacityReservationCommand = async (
+  input: GetCapacityReservationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetCapacityReservation");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetDatabaseCommand
  */
 export const se_GetDatabaseCommand = async (
@@ -699,6 +792,19 @@ export const se_ListCalculationExecutionsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListCapacityReservationsCommand
+ */
+export const se_ListCapacityReservationsCommand = async (
+  input: ListCapacityReservationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListCapacityReservations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListDatabasesCommand
  */
 export const se_ListDatabasesCommand = async (
@@ -868,6 +974,19 @@ export const se_ListWorkGroupsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1PutCapacityAssignmentConfigurationCommand
+ */
+export const se_PutCapacityAssignmentConfigurationCommand = async (
+  input: PutCapacityAssignmentConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutCapacityAssignmentConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1StartCalculationExecutionCommand
  */
 export const se_StartCalculationExecutionCommand = async (
@@ -966,6 +1085,19 @@ export const se_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateCapacityReservationCommand
+ */
+export const se_UpdateCapacityReservationCommand = async (
+  input: UpdateCapacityReservationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateCapacityReservation");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1174,6 +1306,104 @@ const de_BatchGetQueryExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetQueryExecutionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CancelCapacityReservationCommand
+ */
+export const de_CancelCapacityReservationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelCapacityReservationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CancelCapacityReservationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CancelCapacityReservationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CancelCapacityReservationCommandError
+ */
+const de_CancelCapacityReservationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelCapacityReservationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateCapacityReservationCommand
+ */
+export const de_CreateCapacityReservationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCapacityReservationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateCapacityReservationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateCapacityReservationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateCapacityReservationCommandError
+ */
+const de_CreateCapacityReservationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCapacityReservationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1956,6 +2186,104 @@ const de_GetCalculationExecutionStatusCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1GetCapacityAssignmentConfigurationCommand
+ */
+export const de_GetCapacityAssignmentConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCapacityAssignmentConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetCapacityAssignmentConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetCapacityAssignmentConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetCapacityAssignmentConfigurationCommandError
+ */
+const de_GetCapacityAssignmentConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCapacityAssignmentConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetCapacityReservationCommand
+ */
+export const de_GetCapacityReservationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCapacityReservationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetCapacityReservationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetCapacityReservationOutput(data, context);
+  const response: GetCapacityReservationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetCapacityReservationCommandError
+ */
+const de_GetCapacityReservationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCapacityReservationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1GetDatabaseCommand
  */
 export const de_GetDatabaseCommand = async (
@@ -2721,6 +3049,55 @@ const de_ListCalculationExecutionsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1ListCapacityReservationsCommand
+ */
+export const de_ListCapacityReservationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCapacityReservationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListCapacityReservationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListCapacityReservationsOutput(data, context);
+  const response: ListCapacityReservationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListCapacityReservationsCommandError
+ */
+const de_ListCapacityReservationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCapacityReservationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1ListDatabasesCommand
  */
 export const de_ListDatabasesCommand = async (
@@ -3379,6 +3756,55 @@ const de_ListWorkGroupsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1PutCapacityAssignmentConfigurationCommand
+ */
+export const de_PutCapacityAssignmentConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutCapacityAssignmentConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_PutCapacityAssignmentConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutCapacityAssignmentConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutCapacityAssignmentConfigurationCommandError
+ */
+const de_PutCapacityAssignmentConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutCapacityAssignmentConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1StartCalculationExecutionCommand
  */
 export const de_StartCalculationExecutionCommand = async (
@@ -3798,6 +4224,55 @@ const de_UntagResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateCapacityReservationCommand
+ */
+export const de_UpdateCapacityReservationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCapacityReservationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateCapacityReservationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateCapacityReservationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateCapacityReservationCommandError
+ */
+const de_UpdateCapacityReservationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCapacityReservationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1UpdateDataCatalogCommand
  */
 export const de_UpdateDataCatalogCommand = async (
@@ -4203,6 +4678,14 @@ const de_TooManyRequestsExceptionRes = async (
 
 // se_CalculationConfiguration omitted.
 
+// se_CancelCapacityReservationInput omitted.
+
+// se_CapacityAssignment omitted.
+
+// se_CapacityAssignmentsList omitted.
+
+// se_CreateCapacityReservationInput omitted.
+
 // se_CreateDataCatalogInput omitted.
 
 /**
@@ -4264,6 +4747,10 @@ const se_DeleteNamedQueryInput = (input: DeleteNamedQueryInput, context: __Serde
 
 // se_GetCalculationExecutionStatusRequest omitted.
 
+// se_GetCapacityAssignmentConfigurationInput omitted.
+
+// se_GetCapacityReservationInput omitted.
+
 // se_GetDatabaseInput omitted.
 
 // se_GetDataCatalogInput omitted.
@@ -4293,6 +4780,8 @@ const se_DeleteNamedQueryInput = (input: DeleteNamedQueryInput, context: __Serde
 // se_ListApplicationDPUSizesInput omitted.
 
 // se_ListCalculationExecutionsRequest omitted.
+
+// se_ListCapacityReservationsInput omitted.
 
 // se_ListDatabasesInput omitted.
 
@@ -4325,6 +4814,8 @@ const se_DeleteNamedQueryInput = (input: DeleteNamedQueryInput, context: __Serde
 // se_ParametersMap omitted.
 
 // se_PreparedStatementNameList omitted.
+
+// se_PutCapacityAssignmentConfigurationInput omitted.
 
 // se_QueryExecutionContext omitted.
 
@@ -4380,6 +4871,8 @@ const se_StopQueryExecutionInput = (input: StopQueryExecutionInput, context: __S
 
 // se_UntagResourceInput omitted.
 
+// se_UpdateCapacityReservationInput omitted.
+
 // se_UpdateDataCatalogInput omitted.
 
 // se_UpdateNamedQueryInput omitted.
@@ -4395,6 +4888,8 @@ const se_StopQueryExecutionInput = (input: StopQueryExecutionInput, context: __S
 // se_WorkGroupConfiguration omitted.
 
 // se_WorkGroupConfigurationUpdates omitted.
+
+// se_WorkGroupNamesList omitted.
 
 // de_AclConfiguration omitted.
 
@@ -4465,6 +4960,53 @@ const de_CalculationSummary = (output: any, context: __SerdeContext): Calculatio
   }) as any;
 };
 
+// de_CancelCapacityReservationOutput omitted.
+
+/**
+ * deserializeAws_json1_1CapacityAllocation
+ */
+const de_CapacityAllocation = (output: any, context: __SerdeContext): CapacityAllocation => {
+  return take(output, {
+    RequestCompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RequestTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
+};
+
+// de_CapacityAssignment omitted.
+
+// de_CapacityAssignmentConfiguration omitted.
+
+// de_CapacityAssignmentsList omitted.
+
+/**
+ * deserializeAws_json1_1CapacityReservation
+ */
+const de_CapacityReservation = (output: any, context: __SerdeContext): CapacityReservation => {
+  return take(output, {
+    AllocatedDpus: __expectInt32,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastAllocation: (_: any) => de_CapacityAllocation(_, context),
+    LastSuccessfulAllocationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Status: __expectString,
+    TargetDpus: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CapacityReservationsList
+ */
+const de_CapacityReservationsList = (output: any, context: __SerdeContext): CapacityReservation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CapacityReservation(entry, context);
+    });
+  return retVal;
+};
+
 // de_Column omitted.
 
 // de_ColumnInfo omitted.
@@ -4472,6 +5014,8 @@ const de_CalculationSummary = (output: any, context: __SerdeContext): Calculatio
 // de_ColumnInfoList omitted.
 
 // de_ColumnList omitted.
+
+// de_CreateCapacityReservationOutput omitted.
 
 // de_CreateDataCatalogOutput omitted.
 
@@ -4562,6 +5106,17 @@ const de_GetCalculationExecutionStatusResponse = (
   return take(output, {
     Statistics: _json,
     Status: (_: any) => de_CalculationStatus(_, context),
+  }) as any;
+};
+
+// de_GetCapacityAssignmentConfigurationOutput omitted.
+
+/**
+ * deserializeAws_json1_1GetCapacityReservationOutput
+ */
+const de_GetCapacityReservationOutput = (output: any, context: __SerdeContext): GetCapacityReservationOutput => {
+  return take(output, {
+    CapacityReservation: (_: any) => de_CapacityReservation(_, context),
   }) as any;
 };
 
@@ -4671,6 +5226,16 @@ const de_ListCalculationExecutionsResponse = (
 ): ListCalculationExecutionsResponse => {
   return take(output, {
     Calculations: (_: any) => de_CalculationsList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListCapacityReservationsOutput
+ */
+const de_ListCapacityReservationsOutput = (output: any, context: __SerdeContext): ListCapacityReservationsOutput => {
+  return take(output, {
+    CapacityReservations: (_: any) => de_CapacityReservationsList(_, context),
     NextToken: __expectString,
   }) as any;
 };
@@ -4853,6 +5418,8 @@ const de_PreparedStatementSummary = (output: any, context: __SerdeContext): Prep
     StatementName: __expectString,
   }) as any;
 };
+
+// de_PutCapacityAssignmentConfigurationOutput omitted.
 
 /**
  * deserializeAws_json1_1QueryExecution
@@ -5101,6 +5668,8 @@ const de_TableMetadataList = (output: any, context: __SerdeContext): TableMetada
 
 // de_UntagResourceOutput omitted.
 
+// de_UpdateCapacityReservationOutput omitted.
+
 // de_UpdateDataCatalogOutput omitted.
 
 // de_UpdateNamedQueryOutput omitted.
@@ -5127,6 +5696,8 @@ const de_WorkGroup = (output: any, context: __SerdeContext): WorkGroup => {
 };
 
 // de_WorkGroupConfiguration omitted.
+
+// de_WorkGroupNamesList omitted.
 
 /**
  * deserializeAws_json1_1WorkGroupsList

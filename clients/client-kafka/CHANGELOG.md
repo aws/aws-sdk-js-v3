@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.322.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.1...v3.322.0) (2023-04-27)
+
+
+### Features
+
+* **client-kafka:** Amazon MSK has added new APIs that allows multi-VPC private connectivity and cluster policy support for Amazon MSK clusters that simplify connectivity and access between your Apache Kafka clients hosted in different VPCs and AWS accounts and your Amazon MSK clusters. ([701a7a1](https://github.com/aws/aws-sdk-js-v3/commit/701a7a1b811628c4d61093484c597f4820203cb1))
+
+
+
+
+
+## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
+
+
+### Bug Fixes
+
+* **clients:** deserialization of jsonName complex shapes ([#4670](https://github.com/aws/aws-sdk-js-v3/issues/4670)) ([d79d141](https://github.com/aws/aws-sdk-js-v3/commit/d79d1414b5af2b985631127a3b3cdc03956a5dc8))
+
+
+
+
+
+# [3.319.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.318.0...v3.319.0) (2023-04-24)
+
+**Note:** Version bump only for package @aws-sdk/client-kafka
+
+
+
+
+
 # [3.316.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.315.0...v3.316.0) (2023-04-19)
 
 

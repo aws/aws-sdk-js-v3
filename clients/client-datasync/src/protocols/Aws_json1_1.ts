@@ -1,13 +1,19 @@
 // smithy-typescript generated code
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
+  isValidHostname as __isValidHostname,
+} from "@aws-sdk/protocol-http";
 import {
   _json,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   take,
   withBaseException,
@@ -18,7 +24,9 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
+import { AddStorageSystemCommandInput, AddStorageSystemCommandOutput } from "../commands/AddStorageSystemCommand";
 import {
   CancelTaskExecutionCommandInput,
   CancelTaskExecutionCommandOutput,
@@ -54,6 +62,10 @@ import { DeleteAgentCommandInput, DeleteAgentCommandOutput } from "../commands/D
 import { DeleteLocationCommandInput, DeleteLocationCommandOutput } from "../commands/DeleteLocationCommand";
 import { DeleteTaskCommandInput, DeleteTaskCommandOutput } from "../commands/DeleteTaskCommand";
 import { DescribeAgentCommandInput, DescribeAgentCommandOutput } from "../commands/DescribeAgentCommand";
+import {
+  DescribeDiscoveryJobCommandInput,
+  DescribeDiscoveryJobCommandOutput,
+} from "../commands/DescribeDiscoveryJobCommand";
 import {
   DescribeLocationEfsCommandInput,
   DescribeLocationEfsCommandOutput,
@@ -91,23 +103,48 @@ import {
   DescribeLocationSmbCommandInput,
   DescribeLocationSmbCommandOutput,
 } from "../commands/DescribeLocationSmbCommand";
+import {
+  DescribeStorageSystemCommandInput,
+  DescribeStorageSystemCommandOutput,
+} from "../commands/DescribeStorageSystemCommand";
+import {
+  DescribeStorageSystemResourceMetricsCommandInput,
+  DescribeStorageSystemResourceMetricsCommandOutput,
+} from "../commands/DescribeStorageSystemResourceMetricsCommand";
+import {
+  DescribeStorageSystemResourcesCommandInput,
+  DescribeStorageSystemResourcesCommandOutput,
+} from "../commands/DescribeStorageSystemResourcesCommand";
 import { DescribeTaskCommandInput, DescribeTaskCommandOutput } from "../commands/DescribeTaskCommand";
 import {
   DescribeTaskExecutionCommandInput,
   DescribeTaskExecutionCommandOutput,
 } from "../commands/DescribeTaskExecutionCommand";
+import {
+  GenerateRecommendationsCommandInput,
+  GenerateRecommendationsCommandOutput,
+} from "../commands/GenerateRecommendationsCommand";
 import { ListAgentsCommandInput, ListAgentsCommandOutput } from "../commands/ListAgentsCommand";
+import { ListDiscoveryJobsCommandInput, ListDiscoveryJobsCommandOutput } from "../commands/ListDiscoveryJobsCommand";
 import { ListLocationsCommandInput, ListLocationsCommandOutput } from "../commands/ListLocationsCommand";
+import { ListStorageSystemsCommandInput, ListStorageSystemsCommandOutput } from "../commands/ListStorageSystemsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { ListTaskExecutionsCommandInput, ListTaskExecutionsCommandOutput } from "../commands/ListTaskExecutionsCommand";
 import { ListTasksCommandInput, ListTasksCommandOutput } from "../commands/ListTasksCommand";
+import {
+  RemoveStorageSystemCommandInput,
+  RemoveStorageSystemCommandOutput,
+} from "../commands/RemoveStorageSystemCommand";
+import { StartDiscoveryJobCommandInput, StartDiscoveryJobCommandOutput } from "../commands/StartDiscoveryJobCommand";
 import { StartTaskExecutionCommandInput, StartTaskExecutionCommandOutput } from "../commands/StartTaskExecutionCommand";
+import { StopDiscoveryJobCommandInput, StopDiscoveryJobCommandOutput } from "../commands/StopDiscoveryJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "../commands/UpdateAgentCommand";
+import { UpdateDiscoveryJobCommandInput, UpdateDiscoveryJobCommandOutput } from "../commands/UpdateDiscoveryJobCommand";
 import { UpdateLocationHdfsCommandInput, UpdateLocationHdfsCommandOutput } from "../commands/UpdateLocationHdfsCommand";
 import { UpdateLocationNfsCommandInput, UpdateLocationNfsCommandOutput } from "../commands/UpdateLocationNfsCommand";
 import {
@@ -115,6 +152,10 @@ import {
   UpdateLocationObjectStorageCommandOutput,
 } from "../commands/UpdateLocationObjectStorageCommand";
 import { UpdateLocationSmbCommandInput, UpdateLocationSmbCommandOutput } from "../commands/UpdateLocationSmbCommand";
+import {
+  UpdateStorageSystemCommandInput,
+  UpdateStorageSystemCommandOutput,
+} from "../commands/UpdateStorageSystemCommand";
 import { UpdateTaskCommandInput, UpdateTaskCommandOutput } from "../commands/UpdateTaskCommand";
 import {
   UpdateTaskExecutionCommandInput,
@@ -122,6 +163,7 @@ import {
 } from "../commands/UpdateTaskExecutionCommand";
 import { DataSyncServiceException as __BaseException } from "../models/DataSyncServiceException";
 import {
+  AddStorageSystemRequest,
   CancelTaskExecutionRequest,
   CreateAgentRequest,
   CreateLocationEfsRequest,
@@ -135,11 +177,14 @@ import {
   CreateLocationS3Request,
   CreateLocationSmbRequest,
   CreateTaskRequest,
+  Credentials,
   DeleteAgentRequest,
   DeleteLocationRequest,
   DeleteTaskRequest,
   DescribeAgentRequest,
   DescribeAgentResponse,
+  DescribeDiscoveryJobRequest,
+  DescribeDiscoveryJobResponse,
   DescribeLocationEfsRequest,
   DescribeLocationEfsResponse,
   DescribeLocationFsxLustreRequest,
@@ -160,44 +205,89 @@ import {
   DescribeLocationS3Response,
   DescribeLocationSmbRequest,
   DescribeLocationSmbResponse,
+  DescribeStorageSystemRequest,
+  DescribeStorageSystemResourceMetricsRequest,
+  DescribeStorageSystemResourceMetricsResponse,
+  DescribeStorageSystemResourcesRequest,
+  DescribeStorageSystemResourcesResponse,
+  DescribeStorageSystemResponse,
   DescribeTaskExecutionRequest,
   DescribeTaskExecutionResponse,
   DescribeTaskRequest,
   DescribeTaskResponse,
+  DiscoveryServerConfiguration,
   Ec2Config,
   FilterRule,
   FsxProtocol,
   FsxProtocolNfs,
   FsxProtocolSmb,
+  GenerateRecommendationsRequest,
   HdfsNameNode,
   InternalException,
   InvalidRequestException,
+  IOPS,
+  Latency,
   ListAgentsRequest,
+  ListDiscoveryJobsRequest,
   ListLocationsRequest,
+  ListStorageSystemsRequest,
   ListTagsForResourceRequest,
   ListTaskExecutionsRequest,
   ListTasksRequest,
   LocationFilter,
+  MaxP95Performance,
+  NetAppONTAPCluster,
+  NetAppONTAPSVM,
+  NetAppONTAPVolume,
   NfsMountOptions,
   OnPremConfig,
   Options,
+  P95Metrics,
   QopConfiguration,
+  RemoveStorageSystemRequest,
+  ResourceDetails,
+  ResourceMetrics,
   S3Config,
   SmbMountOptions,
+  StartDiscoveryJobRequest,
   StartTaskExecutionRequest,
+  StopDiscoveryJobRequest,
   TagListEntry,
   TagResourceRequest,
   TaskFilter,
   TaskSchedule,
+  Throughput,
   UntagResourceRequest,
   UpdateAgentRequest,
+  UpdateDiscoveryJobRequest,
   UpdateLocationHdfsRequest,
   UpdateLocationNfsRequest,
   UpdateLocationObjectStorageRequest,
   UpdateLocationSmbRequest,
+  UpdateStorageSystemRequest,
   UpdateTaskExecutionRequest,
   UpdateTaskRequest,
 } from "../models/models_0";
+
+/**
+ * serializeAws_json1_1AddStorageSystemCommand
+ */
+export const se_AddStorageSystemCommand = async (
+  input: AddStorageSystemCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("AddStorageSystem");
+  let body: any;
+  body = JSON.stringify(se_AddStorageSystemRequest(input, context));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "discovery-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
+};
 
 /**
  * serializeAws_json1_1CancelTaskExecutionCommand
@@ -421,6 +511,26 @@ export const se_DescribeAgentCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeDiscoveryJobCommand
+ */
+export const se_DescribeDiscoveryJobCommand = async (
+  input: DescribeDiscoveryJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeDiscoveryJob");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "discovery-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
+};
+
+/**
  * serializeAws_json1_1DescribeLocationEfsCommand
  */
 export const se_DescribeLocationEfsCommand = async (
@@ -551,6 +661,66 @@ export const se_DescribeLocationSmbCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeStorageSystemCommand
+ */
+export const se_DescribeStorageSystemCommand = async (
+  input: DescribeStorageSystemCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeStorageSystem");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "discovery-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeStorageSystemResourceMetricsCommand
+ */
+export const se_DescribeStorageSystemResourceMetricsCommand = async (
+  input: DescribeStorageSystemResourceMetricsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeStorageSystemResourceMetrics");
+  let body: any;
+  body = JSON.stringify(se_DescribeStorageSystemResourceMetricsRequest(input, context));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "discovery-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeStorageSystemResourcesCommand
+ */
+export const se_DescribeStorageSystemResourcesCommand = async (
+  input: DescribeStorageSystemResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeStorageSystemResources");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "discovery-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
+};
+
+/**
  * serializeAws_json1_1DescribeTaskCommand
  */
 export const se_DescribeTaskCommand = async (
@@ -577,6 +747,26 @@ export const se_DescribeTaskExecutionCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GenerateRecommendationsCommand
+ */
+export const se_GenerateRecommendationsCommand = async (
+  input: GenerateRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GenerateRecommendations");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "discovery-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
+};
+
+/**
  * serializeAws_json1_1ListAgentsCommand
  */
 export const se_ListAgentsCommand = async (
@@ -590,6 +780,26 @@ export const se_ListAgentsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListDiscoveryJobsCommand
+ */
+export const se_ListDiscoveryJobsCommand = async (
+  input: ListDiscoveryJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListDiscoveryJobs");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "discovery-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
+};
+
+/**
  * serializeAws_json1_1ListLocationsCommand
  */
 export const se_ListLocationsCommand = async (
@@ -600,6 +810,26 @@ export const se_ListLocationsCommand = async (
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListStorageSystemsCommand
+ */
+export const se_ListStorageSystemsCommand = async (
+  input: ListStorageSystemsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListStorageSystems");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "discovery-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
 };
 
 /**
@@ -642,6 +872,46 @@ export const se_ListTasksCommand = async (
 };
 
 /**
+ * serializeAws_json1_1RemoveStorageSystemCommand
+ */
+export const se_RemoveStorageSystemCommand = async (
+  input: RemoveStorageSystemCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("RemoveStorageSystem");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "discovery-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
+};
+
+/**
+ * serializeAws_json1_1StartDiscoveryJobCommand
+ */
+export const se_StartDiscoveryJobCommand = async (
+  input: StartDiscoveryJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartDiscoveryJob");
+  let body: any;
+  body = JSON.stringify(se_StartDiscoveryJobRequest(input, context));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "discovery-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
+};
+
+/**
  * serializeAws_json1_1StartTaskExecutionCommand
  */
 export const se_StartTaskExecutionCommand = async (
@@ -652,6 +922,26 @@ export const se_StartTaskExecutionCommand = async (
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StopDiscoveryJobCommand
+ */
+export const se_StopDiscoveryJobCommand = async (
+  input: StopDiscoveryJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StopDiscoveryJob");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "discovery-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
 };
 
 /**
@@ -691,6 +981,26 @@ export const se_UpdateAgentCommand = async (
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateDiscoveryJobCommand
+ */
+export const se_UpdateDiscoveryJobCommand = async (
+  input: UpdateDiscoveryJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateDiscoveryJob");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "discovery-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
 };
 
 /**
@@ -746,6 +1056,26 @@ export const se_UpdateLocationSmbCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateStorageSystemCommand
+ */
+export const se_UpdateStorageSystemCommand = async (
+  input: UpdateStorageSystemCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateStorageSystem");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "discovery-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
+};
+
+/**
  * serializeAws_json1_1UpdateTaskCommand
  */
 export const se_UpdateTaskCommand = async (
@@ -769,6 +1099,55 @@ export const se_UpdateTaskExecutionCommand = async (
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_1AddStorageSystemCommand
+ */
+export const de_AddStorageSystemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddStorageSystemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_AddStorageSystemCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: AddStorageSystemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1AddStorageSystemCommandError
+ */
+const de_AddStorageSystemCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddStorageSystemCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -1605,6 +1984,55 @@ const de_DescribeAgentCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeDiscoveryJobCommand
+ */
+export const de_DescribeDiscoveryJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDiscoveryJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeDiscoveryJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDiscoveryJobResponse(data, context);
+  const response: DescribeDiscoveryJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDiscoveryJobCommandError
+ */
+const de_DescribeDiscoveryJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDiscoveryJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DescribeLocationEfsCommand
  */
 export const de_DescribeLocationEfsCommand = async (
@@ -2095,6 +2523,153 @@ const de_DescribeLocationSmbCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeStorageSystemCommand
+ */
+export const de_DescribeStorageSystemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStorageSystemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeStorageSystemCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeStorageSystemResponse(data, context);
+  const response: DescribeStorageSystemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeStorageSystemCommandError
+ */
+const de_DescribeStorageSystemCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStorageSystemCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeStorageSystemResourceMetricsCommand
+ */
+export const de_DescribeStorageSystemResourceMetricsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStorageSystemResourceMetricsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeStorageSystemResourceMetricsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeStorageSystemResourceMetricsResponse(data, context);
+  const response: DescribeStorageSystemResourceMetricsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeStorageSystemResourceMetricsCommandError
+ */
+const de_DescribeStorageSystemResourceMetricsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStorageSystemResourceMetricsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeStorageSystemResourcesCommand
+ */
+export const de_DescribeStorageSystemResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStorageSystemResourcesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeStorageSystemResourcesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeStorageSystemResourcesResponse(data, context);
+  const response: DescribeStorageSystemResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeStorageSystemResourcesCommandError
+ */
+const de_DescribeStorageSystemResourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStorageSystemResourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DescribeTaskCommand
  */
 export const de_DescribeTaskCommand = async (
@@ -2193,6 +2768,55 @@ const de_DescribeTaskExecutionCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1GenerateRecommendationsCommand
+ */
+export const de_GenerateRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GenerateRecommendationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GenerateRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GenerateRecommendationsCommandError
+ */
+const de_GenerateRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1ListAgentsCommand
  */
 export const de_ListAgentsCommand = async (
@@ -2242,6 +2866,55 @@ const de_ListAgentsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1ListDiscoveryJobsCommand
+ */
+export const de_ListDiscoveryJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDiscoveryJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListDiscoveryJobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListDiscoveryJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDiscoveryJobsCommandError
+ */
+const de_ListDiscoveryJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDiscoveryJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1ListLocationsCommand
  */
 export const de_ListLocationsCommand = async (
@@ -2268,6 +2941,55 @@ const de_ListLocationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLocationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListStorageSystemsCommand
+ */
+export const de_ListStorageSystemsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStorageSystemsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListStorageSystemsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListStorageSystemsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListStorageSystemsCommandError
+ */
+const de_ListStorageSystemsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStorageSystemsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2438,6 +3160,104 @@ const de_ListTasksCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1RemoveStorageSystemCommand
+ */
+export const de_RemoveStorageSystemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveStorageSystemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_RemoveStorageSystemCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RemoveStorageSystemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RemoveStorageSystemCommandError
+ */
+const de_RemoveStorageSystemCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveStorageSystemCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1StartDiscoveryJobCommand
+ */
+export const de_StartDiscoveryJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDiscoveryJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StartDiscoveryJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartDiscoveryJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartDiscoveryJobCommandError
+ */
+const de_StartDiscoveryJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDiscoveryJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1StartTaskExecutionCommand
  */
 export const de_StartTaskExecutionCommand = async (
@@ -2464,6 +3284,55 @@ const de_StartTaskExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartTaskExecutionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1StopDiscoveryJobCommand
+ */
+export const de_StopDiscoveryJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopDiscoveryJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StopDiscoveryJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopDiscoveryJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopDiscoveryJobCommandError
+ */
+const de_StopDiscoveryJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopDiscoveryJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2611,6 +3480,55 @@ const de_UpdateAgentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAgentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1UpdateDiscoveryJobCommand
+ */
+export const de_UpdateDiscoveryJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDiscoveryJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateDiscoveryJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateDiscoveryJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateDiscoveryJobCommandError
+ */
+const de_UpdateDiscoveryJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDiscoveryJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2830,6 +3748,55 @@ const de_UpdateLocationSmbCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateStorageSystemCommand
+ */
+export const de_UpdateStorageSystemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStorageSystemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateStorageSystemCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateStorageSystemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateStorageSystemCommandError
+ */
+const de_UpdateStorageSystemCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStorageSystemCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1UpdateTaskCommand
  */
 export const de_UpdateTaskCommand = async (
@@ -2956,6 +3923,22 @@ const de_InvalidRequestExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
+/**
+ * serializeAws_json1_1AddStorageSystemRequest
+ */
+const se_AddStorageSystemRequest = (input: AddStorageSystemRequest, context: __SerdeContext): any => {
+  return take(input, {
+    AgentArns: _json,
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    CloudWatchLogGroupArn: [],
+    Credentials: _json,
+    Name: [],
+    ServerConfiguration: _json,
+    SystemType: [],
+    Tags: _json,
+  });
+};
+
 // se_AgentArnList omitted.
 
 // se_CancelTaskExecutionRequest omitted.
@@ -3022,6 +4005,8 @@ const se_CreateLocationObjectStorageRequest = (
 
 // se_CreateTaskRequest omitted.
 
+// se_Credentials omitted.
+
 // se_DeleteAgentRequest omitted.
 
 // se_DeleteLocationRequest omitted.
@@ -3029,6 +4014,8 @@ const se_CreateLocationObjectStorageRequest = (
 // se_DeleteTaskRequest omitted.
 
 // se_DescribeAgentRequest omitted.
+
+// se_DescribeDiscoveryJobRequest omitted.
 
 // se_DescribeLocationEfsRequest omitted.
 
@@ -3050,15 +4037,43 @@ const se_CreateLocationObjectStorageRequest = (
 
 // se_DescribeLocationSmbRequest omitted.
 
+// se_DescribeStorageSystemRequest omitted.
+
+/**
+ * serializeAws_json1_1DescribeStorageSystemResourceMetricsRequest
+ */
+const se_DescribeStorageSystemResourceMetricsRequest = (
+  input: DescribeStorageSystemResourceMetricsRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    DiscoveryJobArn: [],
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    MaxResults: [],
+    NextToken: [],
+    ResourceId: [],
+    ResourceType: [],
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+  });
+};
+
+// se_DescribeStorageSystemResourcesRequest omitted.
+
 // se_DescribeTaskExecutionRequest omitted.
 
 // se_DescribeTaskRequest omitted.
+
+// se_DiscoveryAgentArnList omitted.
+
+// se_DiscoveryServerConfiguration omitted.
 
 // se_Ec2Config omitted.
 
 // se_Ec2SecurityGroupArnList omitted.
 
 // se_FilterList omitted.
+
+// se_FilterMembers omitted.
 
 // se_FilterRule omitted.
 
@@ -3070,6 +4085,8 @@ const se_CreateLocationObjectStorageRequest = (
 
 // se_FsxProtocolSmb omitted.
 
+// se_GenerateRecommendationsRequest omitted.
+
 // se_HdfsNameNode omitted.
 
 // se_HdfsNameNodeList omitted.
@@ -3078,7 +4095,11 @@ const se_CreateLocationObjectStorageRequest = (
 
 // se_ListAgentsRequest omitted.
 
+// se_ListDiscoveryJobsRequest omitted.
+
 // se_ListLocationsRequest omitted.
+
+// se_ListStorageSystemsRequest omitted.
 
 // se_ListTagsForResourceRequest omitted.
 
@@ -3102,11 +4123,31 @@ const se_CreateLocationObjectStorageRequest = (
 
 // se_QopConfiguration omitted.
 
+// se_RemoveStorageSystemRequest omitted.
+
+// se_ResourceFilters omitted.
+
+// se_ResourceIds omitted.
+
 // se_S3Config omitted.
 
 // se_SmbMountOptions omitted.
 
+/**
+ * serializeAws_json1_1StartDiscoveryJobRequest
+ */
+const se_StartDiscoveryJobRequest = (input: StartDiscoveryJobRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    CollectionDurationMinutes: [],
+    StorageSystemArn: [],
+    Tags: _json,
+  });
+};
+
 // se_StartTaskExecutionRequest omitted.
+
+// se_StopDiscoveryJobRequest omitted.
 
 // se_TagKeyList omitted.
 
@@ -3123,6 +4164,8 @@ const se_CreateLocationObjectStorageRequest = (
 // se_UntagResourceRequest omitted.
 
 // se_UpdateAgentRequest omitted.
+
+// se_UpdateDiscoveryJobRequest omitted.
 
 /**
  * serializeAws_json1_1UpdateLocationHdfsRequest
@@ -3168,9 +4211,13 @@ const se_UpdateLocationObjectStorageRequest = (
 
 // se_UpdateLocationSmbRequest omitted.
 
+// se_UpdateStorageSystemRequest omitted.
+
 // se_UpdateTaskExecutionRequest omitted.
 
 // se_UpdateTaskRequest omitted.
+
+// de_AddStorageSystemResponse omitted.
 
 // de_AgentArnList omitted.
 
@@ -3179,6 +4226,8 @@ const se_UpdateLocationObjectStorageRequest = (
 // de_AgentListEntry omitted.
 
 // de_CancelTaskExecutionResponse omitted.
+
+// de_Capacity omitted.
 
 // de_CreateAgentResponse omitted.
 
@@ -3222,6 +4271,20 @@ const de_DescribeAgentResponse = (output: any, context: __SerdeContext): Describ
     Name: __expectString,
     PrivateLinkConfig: _json,
     Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDiscoveryJobResponse
+ */
+const de_DescribeDiscoveryJobResponse = (output: any, context: __SerdeContext): DescribeDiscoveryJobResponse => {
+  return take(output, {
+    CollectionDurationMinutes: __expectInt32,
+    DiscoveryJobArn: __expectString,
+    JobEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    JobStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Status: __expectString,
+    StorageSystemArn: __expectString,
   }) as any;
 };
 
@@ -3388,6 +4451,50 @@ const de_DescribeLocationSmbResponse = (output: any, context: __SerdeContext): D
 };
 
 /**
+ * deserializeAws_json1_1DescribeStorageSystemResourceMetricsResponse
+ */
+const de_DescribeStorageSystemResourceMetricsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeStorageSystemResourceMetricsResponse => {
+  return take(output, {
+    Metrics: (_: any) => de_Metrics(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeStorageSystemResourcesResponse
+ */
+const de_DescribeStorageSystemResourcesResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeStorageSystemResourcesResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    ResourceDetails: (_: any) => de_ResourceDetails(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeStorageSystemResponse
+ */
+const de_DescribeStorageSystemResponse = (output: any, context: __SerdeContext): DescribeStorageSystemResponse => {
+  return take(output, {
+    AgentArns: _json,
+    CloudWatchLogGroupArn: __expectString,
+    ConnectivityStatus: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ErrorMessage: __expectString,
+    Name: __expectString,
+    SecretsManagerArn: __expectString,
+    ServerConfiguration: _json,
+    StorageSystemArn: __expectString,
+    SystemType: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1DescribeTaskExecutionResponse
  */
 const de_DescribeTaskExecutionResponse = (output: any, context: __SerdeContext): DescribeTaskExecutionResponse => {
@@ -3434,9 +4541,19 @@ const de_DescribeTaskResponse = (output: any, context: __SerdeContext): Describe
 
 // de_DestinationNetworkInterfaceArns omitted.
 
+// de_DiscoveryAgentArnList omitted.
+
+// de_DiscoveryJobList omitted.
+
+// de_DiscoveryJobListEntry omitted.
+
+// de_DiscoveryServerConfiguration omitted.
+
 // de_Ec2Config omitted.
 
 // de_Ec2SecurityGroupArnList omitted.
+
+// de_EnabledProtocols omitted.
 
 // de_FilterList omitted.
 
@@ -3448,6 +4565,8 @@ const de_DescribeTaskResponse = (output: any, context: __SerdeContext): Describe
 
 // de_FsxProtocolSmb omitted.
 
+// de_GenerateRecommendationsResponse omitted.
+
 // de_HdfsNameNode omitted.
 
 // de_HdfsNameNodeList omitted.
@@ -3456,9 +4575,36 @@ const de_DescribeTaskResponse = (output: any, context: __SerdeContext): Describe
 
 // de_InvalidRequestException omitted.
 
+/**
+ * deserializeAws_json1_1IOPS
+ */
+const de_IOPS = (output: any, context: __SerdeContext): IOPS => {
+  return take(output, {
+    Other: __limitedParseDouble,
+    Read: __limitedParseDouble,
+    Total: __limitedParseDouble,
+    Write: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1Latency
+ */
+const de_Latency = (output: any, context: __SerdeContext): Latency => {
+  return take(output, {
+    Other: __limitedParseDouble,
+    Read: __limitedParseDouble,
+    Write: __limitedParseDouble,
+  }) as any;
+};
+
 // de_ListAgentsResponse omitted.
 
+// de_ListDiscoveryJobsResponse omitted.
+
 // de_ListLocationsResponse omitted.
+
+// de_ListStorageSystemsResponse omitted.
 
 // de_ListTagsForResourceResponse omitted.
 
@@ -3470,6 +4616,134 @@ const de_DescribeTaskResponse = (output: any, context: __SerdeContext): Describe
 
 // de_LocationListEntry omitted.
 
+/**
+ * deserializeAws_json1_1MaxP95Performance
+ */
+const de_MaxP95Performance = (output: any, context: __SerdeContext): MaxP95Performance => {
+  return take(output, {
+    IopsOther: __limitedParseDouble,
+    IopsRead: __limitedParseDouble,
+    IopsTotal: __limitedParseDouble,
+    IopsWrite: __limitedParseDouble,
+    LatencyOther: __limitedParseDouble,
+    LatencyRead: __limitedParseDouble,
+    LatencyWrite: __limitedParseDouble,
+    ThroughputOther: __limitedParseDouble,
+    ThroughputRead: __limitedParseDouble,
+    ThroughputTotal: __limitedParseDouble,
+    ThroughputWrite: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1Metrics
+ */
+const de_Metrics = (output: any, context: __SerdeContext): ResourceMetrics[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ResourceMetrics(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1NetAppONTAPCluster
+ */
+const de_NetAppONTAPCluster = (output: any, context: __SerdeContext): NetAppONTAPCluster => {
+  return take(output, {
+    CifsShareCount: __expectLong,
+    ClusterBlockStorageLogicalUsed: __expectLong,
+    ClusterBlockStorageSize: __expectLong,
+    ClusterBlockStorageUsed: __expectLong,
+    ClusterName: __expectString,
+    MaxP95Performance: (_: any) => de_MaxP95Performance(_, context),
+    NfsExportedVolumes: __expectLong,
+    RecommendationStatus: __expectString,
+    Recommendations: _json,
+    ResourceId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1NetAppONTAPClusters
+ */
+const de_NetAppONTAPClusters = (output: any, context: __SerdeContext): NetAppONTAPCluster[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_NetAppONTAPCluster(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1NetAppONTAPSVM
+ */
+const de_NetAppONTAPSVM = (output: any, context: __SerdeContext): NetAppONTAPSVM => {
+  return take(output, {
+    CifsShareCount: __expectLong,
+    ClusterUuid: __expectString,
+    EnabledProtocols: _json,
+    MaxP95Performance: (_: any) => de_MaxP95Performance(_, context),
+    NfsExportedVolumes: __expectLong,
+    RecommendationStatus: __expectString,
+    Recommendations: _json,
+    ResourceId: __expectString,
+    SvmName: __expectString,
+    TotalCapacityProvisioned: __expectLong,
+    TotalCapacityUsed: __expectLong,
+    TotalLogicalCapacityUsed: __expectLong,
+    TotalSnapshotCapacityUsed: __expectLong,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1NetAppONTAPSVMs
+ */
+const de_NetAppONTAPSVMs = (output: any, context: __SerdeContext): NetAppONTAPSVM[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_NetAppONTAPSVM(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1NetAppONTAPVolume
+ */
+const de_NetAppONTAPVolume = (output: any, context: __SerdeContext): NetAppONTAPVolume => {
+  return take(output, {
+    CapacityProvisioned: __expectLong,
+    CapacityUsed: __expectLong,
+    CifsShareCount: __expectLong,
+    LogicalCapacityUsed: __expectLong,
+    MaxP95Performance: (_: any) => de_MaxP95Performance(_, context),
+    NfsExported: __expectBoolean,
+    RecommendationStatus: __expectString,
+    Recommendations: _json,
+    ResourceId: __expectString,
+    SecurityStyle: __expectString,
+    SnapshotCapacityUsed: __expectLong,
+    SvmName: __expectString,
+    SvmUuid: __expectString,
+    VolumeName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1NetAppONTAPVolumes
+ */
+const de_NetAppONTAPVolumes = (output: any, context: __SerdeContext): NetAppONTAPVolume[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_NetAppONTAPVolume(entry, context);
+    });
+  return retVal;
+};
+
 // de_NfsMountOptions omitted.
 
 // de_OnPremConfig omitted.
@@ -3477,6 +4751,17 @@ const de_DescribeTaskResponse = (output: any, context: __SerdeContext): Describe
 // de_Options omitted.
 
 // de_OutputTagList omitted.
+
+/**
+ * deserializeAws_json1_1P95Metrics
+ */
+const de_P95Metrics = (output: any, context: __SerdeContext): P95Metrics => {
+  return take(output, {
+    IOPS: (_: any) => de_IOPS(_, context),
+    Latency: (_: any) => de_Latency(_, context),
+    Throughput: (_: any) => de_Throughput(_, context),
+  }) as any;
+};
 
 // de_PLSecurityGroupArnList omitted.
 
@@ -3486,13 +4771,53 @@ const de_DescribeTaskResponse = (output: any, context: __SerdeContext): Describe
 
 // de_QopConfiguration omitted.
 
+// de_Recommendation omitted.
+
+// de_Recommendations omitted.
+
+// de_RecommendationsConfigMap omitted.
+
+// de_RemoveStorageSystemResponse omitted.
+
+/**
+ * deserializeAws_json1_1ResourceDetails
+ */
+const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
+  return take(output, {
+    NetAppONTAPClusters: (_: any) => de_NetAppONTAPClusters(_, context),
+    NetAppONTAPSVMs: (_: any) => de_NetAppONTAPSVMs(_, context),
+    NetAppONTAPVolumes: (_: any) => de_NetAppONTAPVolumes(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ResourceMetrics
+ */
+const de_ResourceMetrics = (output: any, context: __SerdeContext): ResourceMetrics => {
+  return take(output, {
+    Capacity: _json,
+    P95Metrics: (_: any) => de_P95Metrics(_, context),
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+    Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
 // de_S3Config omitted.
 
 // de_SmbMountOptions omitted.
 
 // de_SourceNetworkInterfaceArns omitted.
 
+// de_StartDiscoveryJobResponse omitted.
+
 // de_StartTaskExecutionResponse omitted.
+
+// de_StopDiscoveryJobResponse omitted.
+
+// de_StorageSystemList omitted.
+
+// de_StorageSystemListEntry omitted.
 
 // de_TagListEntry omitted.
 
@@ -3510,9 +4835,23 @@ const de_DescribeTaskResponse = (output: any, context: __SerdeContext): Describe
 
 // de_TaskSchedule omitted.
 
+/**
+ * deserializeAws_json1_1Throughput
+ */
+const de_Throughput = (output: any, context: __SerdeContext): Throughput => {
+  return take(output, {
+    Other: __limitedParseDouble,
+    Read: __limitedParseDouble,
+    Total: __limitedParseDouble,
+    Write: __limitedParseDouble,
+  }) as any;
+};
+
 // de_UntagResourceResponse omitted.
 
 // de_UpdateAgentResponse omitted.
+
+// de_UpdateDiscoveryJobResponse omitted.
 
 // de_UpdateLocationHdfsResponse omitted.
 
@@ -3521,6 +4860,8 @@ const de_DescribeTaskResponse = (output: any, context: __SerdeContext): Describe
 // de_UpdateLocationObjectStorageResponse omitted.
 
 // de_UpdateLocationSmbResponse omitted.
+
+// de_UpdateStorageSystemResponse omitted.
 
 // de_UpdateTaskExecutionResponse omitted.
 

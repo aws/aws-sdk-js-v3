@@ -45,6 +45,21 @@ export interface UpdateConnectivityCommandOutput extends UpdateConnectivityRespo
  *     PublicAccess: { // PublicAccess
  *       Type: "STRING_VALUE",
  *     },
+ *     VpcConnectivity: { // VpcConnectivity
+ *       ClientAuthentication: { // VpcConnectivityClientAuthentication
+ *         Sasl: { // VpcConnectivitySasl
+ *           Scram: { // VpcConnectivityScram
+ *             Enabled: true || false,
+ *           },
+ *           Iam: { // VpcConnectivityIam
+ *             Enabled: true || false,
+ *           },
+ *         },
+ *         Tls: { // VpcConnectivityTls
+ *           Enabled: true || false,
+ *         },
+ *       },
+ *     },
  *   },
  *   CurrentVersion: "STRING_VALUE", // required
  * };

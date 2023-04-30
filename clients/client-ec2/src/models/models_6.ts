@@ -35,8 +35,10 @@ import {
   UnsuccessfulItem,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
+  VerifiedAccessTrustProviderFilterSensitiveLog,
 } from "./models_0";
 import {
+  AmdSevSnpSpecification,
   AttributeValue,
   BlockDeviceMapping,
   CapacityReservationPreference,
@@ -107,6 +109,7 @@ import {
   AttributeBooleanValue,
   BootModeValues,
   ConversionTask,
+  ConversionTaskFilterSensitiveLog,
   Filter,
   FpgaImageAttribute,
   FpgaImageAttributeName,
@@ -156,6 +159,65 @@ import {
   VolumeDetail,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface ImportKeyPairRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>A unique name for the key pair.</p>
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>The public key. For API calls, the text must be base64-encoded. For command line tools, base64 encoding is performed for you.</p>
+   */
+  PublicKeyMaterial: Uint8Array | undefined;
+
+  /**
+   * <p>The tags to apply to the imported key pair.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+/**
+ * @public
+ */
+export interface ImportKeyPairResult {
+  /**
+   * <ul>
+   *             <li>
+   *                <p>For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC 4716.</p>
+   *             </li>
+   *             <li>
+   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  KeyFingerprint?: string;
+
+  /**
+   * <p>The key pair name that you provided.</p>
+   */
+  KeyName?: string;
+
+  /**
+   * <p>The ID of the resulting key pair.</p>
+   */
+  KeyPairId?: string;
+
+  /**
+   * <p>The tags applied to the imported key pair.</p>
+   */
+  Tags?: Tag[];
+}
 
 /**
  * @public
@@ -1420,10 +1482,9 @@ export interface ModifyInstanceAttributeRequest {
   EnaSupport?: AttributeBooleanValue;
 
   /**
-   * <p>[EC2-VPC] Replaces the security groups of the instance with the specified security
-   *             groups. You must specify at least one security group, even if it's just the default
-   *             security group for the VPC. You must specify the security group ID, not the security
-   *             group name.</p>
+   * <p>Replaces the security groups of the instance with the specified security groups.
+   *             You must specify the ID of at least one security group, even if it's just the default
+   *             security group for the VPC.</p>
    */
   Groups?: string[];
 
@@ -3371,7 +3432,8 @@ export interface ModifyVerifiedAccessEndpointLoadBalancerOptions {
 
 /**
  * @public
- * <p>Options for a network-interface type Verified Access endpoint.</p>
+ * <p>Describes the options when modifying a Verified Access endpoint with the
+ *             <code>network-interface</code> type.</p>
  */
 export interface ModifyVerifiedAccessEndpointEniOptions {
   /**
@@ -3390,17 +3452,17 @@ export interface ModifyVerifiedAccessEndpointEniOptions {
  */
 export interface ModifyVerifiedAccessEndpointRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   * <p>The ID of the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpointId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   * <p>The ID of the Verified Access group.</p>
    */
   VerifiedAccessGroupId?: string;
 
   /**
-   * <p>The load balancer details if creating the Amazon Web Services Verified Access endpoint as
+   * <p>The load balancer details if creating the Verified Access endpoint as
    *          <code>load-balancer</code>type.</p>
    */
   LoadBalancerOptions?: ModifyVerifiedAccessEndpointLoadBalancerOptions;
@@ -3411,7 +3473,7 @@ export interface ModifyVerifiedAccessEndpointRequest {
   NetworkInterfaceOptions?: ModifyVerifiedAccessEndpointEniOptions;
 
   /**
-   * <p>A description for the Amazon Web Services Verified Access endpoint.</p>
+   * <p>A description for the Verified Access endpoint.</p>
    */
   Description?: string;
 
@@ -3434,7 +3496,7 @@ export interface ModifyVerifiedAccessEndpointRequest {
  */
 export interface ModifyVerifiedAccessEndpointResult {
   /**
-   * <p>The Amazon Web Services Verified Access endpoint details.</p>
+   * <p>The Verified Access endpoint details.</p>
    */
   VerifiedAccessEndpoint?: VerifiedAccessEndpoint;
 }
@@ -3444,7 +3506,7 @@ export interface ModifyVerifiedAccessEndpointResult {
  */
 export interface ModifyVerifiedAccessEndpointPolicyRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   * <p>The ID of the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpointId: string | undefined;
 
@@ -3454,7 +3516,7 @@ export interface ModifyVerifiedAccessEndpointPolicyRequest {
   PolicyEnabled: boolean | undefined;
 
   /**
-   * <p>The Amazon Web Services Verified Access policy document.</p>
+   * <p>The Verified Access policy document.</p>
    */
   PolicyDocument?: string;
 
@@ -3482,7 +3544,7 @@ export interface ModifyVerifiedAccessEndpointPolicyResult {
   PolicyEnabled?: boolean;
 
   /**
-   * <p>The Amazon Web Services Verified Access policy document.</p>
+   * <p>The Verified Access policy document.</p>
    */
   PolicyDocument?: string;
 }
@@ -3492,17 +3554,17 @@ export interface ModifyVerifiedAccessEndpointPolicyResult {
  */
 export interface ModifyVerifiedAccessGroupRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   * <p>The ID of the Verified Access group.</p>
    */
   VerifiedAccessGroupId: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstanceId?: string;
 
   /**
-   * <p>A description for the Amazon Web Services Verified Access group.</p>
+   * <p>A description for the Verified Access group.</p>
    */
   Description?: string;
 
@@ -3525,7 +3587,7 @@ export interface ModifyVerifiedAccessGroupRequest {
  */
 export interface ModifyVerifiedAccessGroupResult {
   /**
-   * <p>Details of Amazon Web Services Verified Access group.</p>
+   * <p>Details of Verified Access group.</p>
    */
   VerifiedAccessGroup?: VerifiedAccessGroup;
 }
@@ -3535,7 +3597,7 @@ export interface ModifyVerifiedAccessGroupResult {
  */
 export interface ModifyVerifiedAccessGroupPolicyRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   * <p>The ID of the Verified Access group.</p>
    */
   VerifiedAccessGroupId: string | undefined;
 
@@ -3545,7 +3607,7 @@ export interface ModifyVerifiedAccessGroupPolicyRequest {
   PolicyEnabled: boolean | undefined;
 
   /**
-   * <p>The Amazon Web Services Verified Access policy document.</p>
+   * <p>The Verified Access policy document.</p>
    */
   PolicyDocument?: string;
 
@@ -3573,7 +3635,7 @@ export interface ModifyVerifiedAccessGroupPolicyResult {
   PolicyEnabled?: boolean;
 
   /**
-   * <p>The Amazon Web Services Verified Access policy document.</p>
+   * <p>The Verified Access policy document.</p>
    */
   PolicyDocument?: string;
 }
@@ -3583,12 +3645,12 @@ export interface ModifyVerifiedAccessGroupPolicyResult {
  */
 export interface ModifyVerifiedAccessInstanceRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstanceId: string | undefined;
 
   /**
-   * <p>A description for the Amazon Web Services Verified Access instance.</p>
+   * <p>A description for the Verified Access instance.</p>
    */
   Description?: string;
 
@@ -3611,7 +3673,7 @@ export interface ModifyVerifiedAccessInstanceRequest {
  */
 export interface ModifyVerifiedAccessInstanceResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
@@ -3700,12 +3762,12 @@ export interface VerifiedAccessLogOptions {
  */
 export interface ModifyVerifiedAccessInstanceLoggingConfigurationRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   * <p>The ID of the Verified Access instance.</p>
    */
   VerifiedAccessInstanceId: string | undefined;
 
   /**
-   * <p>The configuration options for Amazon Web Services Verified Access instances.</p>
+   * <p>The configuration options for Verified Access instances.</p>
    */
   AccessLogs: VerifiedAccessLogOptions | undefined;
 
@@ -3728,17 +3790,46 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationRequest {
  */
 export interface ModifyVerifiedAccessInstanceLoggingConfigurationResult {
   /**
-   * <p>The logging configuration for Amazon Web Services Verified Access instance.</p>
+   * <p>The logging configuration for the Verified Access instance.</p>
    */
   LoggingConfiguration?: VerifiedAccessInstanceLoggingConfiguration;
 }
 
 /**
  * @public
- * <p>OpenID Connect options for an <code>oidc</code>-type, user-identity based trust
- *          provider.</p>
+ * <p>Options for an OpenID Connect-compatible user-identity trust provider.</p>
  */
 export interface ModifyVerifiedAccessTrustProviderOidcOptions {
+  /**
+   * <p>The OIDC issuer.</p>
+   */
+  Issuer?: string;
+
+  /**
+   * <p>The OIDC authorization endpoint.</p>
+   */
+  AuthorizationEndpoint?: string;
+
+  /**
+   * <p>The OIDC token endpoint.</p>
+   */
+  TokenEndpoint?: string;
+
+  /**
+   * <p>The OIDC user info endpoint.</p>
+   */
+  UserInfoEndpoint?: string;
+
+  /**
+   * <p>The client identifier.</p>
+   */
+  ClientId?: string;
+
+  /**
+   * <p>The client secret.</p>
+   */
+  ClientSecret?: string;
+
   /**
    * <p>OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details. Each scope returns a specific set of user attributes.</p>
    */
@@ -3750,17 +3841,17 @@ export interface ModifyVerifiedAccessTrustProviderOidcOptions {
  */
 export interface ModifyVerifiedAccessTrustProviderRequest {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   * <p>The ID of the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProviderId: string | undefined;
 
   /**
-   * <p>The OpenID Connect details for an <code>oidc</code>-type, user-identity based trust provider.</p>
+   * <p>The options for an OpenID Connect-compatible user-identity trust provider.</p>
    */
   OidcOptions?: ModifyVerifiedAccessTrustProviderOidcOptions;
 
   /**
-   * <p>A description for the Amazon Web Services Verified Access trust provider.</p>
+   * <p>A description for the Verified Access trust provider.</p>
    */
   Description?: string;
 
@@ -3783,7 +3874,7 @@ export interface ModifyVerifiedAccessTrustProviderRequest {
  */
 export interface ModifyVerifiedAccessTrustProviderResult {
   /**
-   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   * <p>The ID of the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 }
@@ -6301,12 +6392,12 @@ export interface RequestSpotFleetResponse {
  */
 export interface RequestSpotLaunchSpecification {
   /**
-   * <p>One or more security group IDs.</p>
+   * <p>The IDs of the security groups.</p>
    */
   SecurityGroupIds?: string[];
 
   /**
-   * <p>One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.</p>
+   * <p>Not supported.</p>
    */
   SecurityGroups?: string[];
 
@@ -6316,7 +6407,7 @@ export interface RequestSpotLaunchSpecification {
   AddressingType?: string;
 
   /**
-   * <p>One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value.
+   * <p>The block device mapping entries. You can't specify both a snapshot ID and an encryption value.
    *            This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume,
    *            it is not blank and its encryption status is used for the volume encryption status.</p>
    */
@@ -6361,7 +6452,7 @@ export interface RequestSpotLaunchSpecification {
   Monitoring?: RunInstancesMonitoringEnabled;
 
   /**
-   * <p>One or more network interfaces. If you specify a network interface, you must specify
+   * <p>The network interfaces. If you specify a network interface, you must specify
    *            subnet IDs and security group IDs using the network interface.</p>
    */
   NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
@@ -6514,7 +6605,7 @@ export interface RequestSpotInstancesRequest {
  */
 export interface RequestSpotInstancesResult {
   /**
-   * <p>One or more Spot Instance requests.</p>
+   * <p>The Spot Instance requests.</p>
    */
   SpotInstanceRequests?: SpotInstanceRequest[];
 }
@@ -7178,6 +7269,12 @@ export interface CpuOptionsRequest {
    *                 <code>2</code>.</p>
    */
   ThreadsPerCore?: number;
+
+  /**
+   * <p>Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported
+   *             with M6a, R6a, and C6a instance types only.</p>
+   */
+  AmdSevSnp?: AmdSevSnpSpecification | string;
 }
 
 /**
@@ -7474,7 +7571,7 @@ export interface RunInstancesRequest {
   InstanceType?: _InstanceType | string;
 
   /**
-   * <p>[EC2-VPC] The number of IPv6 addresses to associate with the primary network
+   * <p>The number of IPv6 addresses to associate with the primary network
    *             interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You
    *             cannot specify this option and the option to assign specific IPv6 addresses in the same
    *             request. You can specify this option if you've specified a minimum number of instances
@@ -7485,7 +7582,7 @@ export interface RunInstancesRequest {
   Ipv6AddressCount?: number;
 
   /**
-   * <p>[EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the
+   * <p>The IPv6 addresses from the range of the subnet to associate with the
    *             primary network interface. You cannot specify this option and the option to assign a
    *             number of IPv6 addresses in the same request. You cannot specify this option if you've
    *             specified a minimum number of instances to launch.</p>
@@ -7567,7 +7664,7 @@ export interface RunInstancesRequest {
   SecurityGroupIds?: string[];
 
   /**
-   * <p>[EC2-Classic, default VPC] The names of the security groups.</p>
+   * <p>[Default VPC] The names of the security groups.</p>
    *          <p>If you specify a network interface, you must specify any security groups as part of
    *             the network interface.</p>
    *          <p>Default: Amazon EC2 uses the default security group.</p>
@@ -7575,7 +7672,7 @@ export interface RunInstancesRequest {
   SecurityGroups?: string[];
 
   /**
-   * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p>
+   * <p>The ID of the subnet to launch the instance into.</p>
    *          <p>If you specify a network interface, you must specify any subnets as part of the
    *             network interface.</p>
    */
@@ -7657,7 +7754,7 @@ export interface RunInstancesRequest {
   NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
 
   /**
-   * <p>[EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address
+   * <p>The primary IPv4 address. You must specify a value from the IPv4 address
    *             range of the subnet.</p>
    *          <p>Only one private IP address can be designated as primary. You can't specify this
    *             option if you've specified the option to designate a private IP address as the primary
@@ -8482,50 +8579,53 @@ export interface SearchTransitGatewayRoutesResult {
 }
 
 /**
- * @public
- */
-export interface SendDiagnosticInterruptRequest {
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface StartInstancesRequest {
-  /**
-   * <p>The IDs of the instances.</p>
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
-   * <p>Reserved.</p>
-   */
-  AdditionalInfo?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
  * @internal
  */
 export const ImportVolumeRequestFilterSensitiveLog = (obj: ImportVolumeRequest): any => ({
   ...obj,
   ...(obj.Image && { Image: DiskImageDetailFilterSensitiveLog(obj.Image) }),
+});
+
+/**
+ * @internal
+ */
+export const ImportVolumeResultFilterSensitiveLog = (obj: ImportVolumeResult): any => ({
+  ...obj,
+  ...(obj.ConversionTask && { ConversionTask: ConversionTaskFilterSensitiveLog(obj.ConversionTask) }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog = (
+  obj: ModifyVerifiedAccessTrustProviderOidcOptions
+): any => ({
+  ...obj,
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
+  obj: ModifyVerifiedAccessTrustProviderRequest
+): any => ({
+  ...obj,
+  ...(obj.OidcOptions && {
+    OidcOptions: ModifyVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog(obj.OidcOptions),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyVerifiedAccessTrustProviderResultFilterSensitiveLog = (
+  obj: ModifyVerifiedAccessTrustProviderResult
+): any => ({
+  ...obj,
+  ...(obj.VerifiedAccessTrustProvider && {
+    VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
+  }),
 });
 
 /**

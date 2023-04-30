@@ -1878,7 +1878,7 @@ export interface Placement {
   HostId?: string;
 
   /**
-   * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a
+   * <p>The tenancy of the instance. An instance with a
    *             tenancy of <code>dedicated</code> runs on single-tenant hardware.</p>
    *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>. The
    *                 <code>host</code> tenancy is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a> or
@@ -5306,6 +5306,20 @@ export interface LaunchTemplateCapacityReservationSpecificationRequest {
 
 /**
  * @public
+ * @enum
+ */
+export const AmdSevSnpSpecification = {
+  disabled: "disabled",
+  enabled: "enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type AmdSevSnpSpecification = (typeof AmdSevSnpSpecification)[keyof typeof AmdSevSnpSpecification];
+
+/**
+ * @public
  * <p>The CPU options for the instance. Both the core count and threads per core must be
  *             specified in the request.</p>
  */
@@ -5321,6 +5335,12 @@ export interface LaunchTemplateCpuOptionsRequest {
    *                 <code>2</code>.</p>
    */
   ThreadsPerCore?: number;
+
+  /**
+   * <p>Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported
+   *             with M6a, R6a, and C6a instance types only.</p>
+   */
+  AmdSevSnp?: AmdSevSnpSpecification | string;
 }
 
 /**
@@ -5916,7 +5936,7 @@ export interface LaunchTemplatePlacementRequest {
   HostId?: string;
 
   /**
-   * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a
+   * <p>The tenancy of the instance. An instance with a
    *             tenancy of dedicated runs on single-tenant hardware.</p>
    */
   Tenancy?: Tenancy | string;
@@ -6063,8 +6083,17 @@ export interface RequestLaunchTemplateData {
    *                   <code>resolve:ssm:parameter-name:label</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resolve:ssm:public-parameter</code>
+   *                </p>
+   *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI">Use a Systems Manager parameter to find an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <note>
+   *             <p>Currently, EC2 Fleet and Spot Fleet do not support specifying a Systems Manager parameter.
+   *                 If the launch template will be used by an EC2 Fleet or Spot Fleet, you must specify the AMI ID.</p>
+   *          </note>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id">Use a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   ImageId?: string;
 
@@ -6595,6 +6624,12 @@ export interface LaunchTemplateCpuOptions {
    * <p>The number of threads per CPU core.</p>
    */
   ThreadsPerCore?: number;
+
+  /**
+   * <p>Indicates whether the instance is enabled for
+   *             AMD SEV-SNP.</p>
+   */
+  AmdSevSnp?: AmdSevSnpSpecification | string;
 }
 
 /**
@@ -7026,7 +7061,7 @@ export interface LaunchTemplatePlacement {
   HostId?: string;
 
   /**
-   * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a
+   * <p>The tenancy of the instance. An instance with a
    *             tenancy of <code>dedicated</code> runs on single-tenant hardware. </p>
    */
   Tenancy?: Tenancy | string;
@@ -9726,93 +9761,6 @@ export const ReplaceRootVolumeTaskState = {
  * @public
  */
 export type ReplaceRootVolumeTaskState = (typeof ReplaceRootVolumeTaskState)[keyof typeof ReplaceRootVolumeTaskState];
-
-/**
- * @public
- * <p>Information about a root volume replacement task.</p>
- */
-export interface ReplaceRootVolumeTask {
-  /**
-   * <p>The ID of the root volume replacement task.</p>
-   */
-  ReplaceRootVolumeTaskId?: string;
-
-  /**
-   * <p>The ID of the instance for which the root volume replacement task was created.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The state of the task. The task can be in one of the following states:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code> - the replacement volume is being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>in-progress</code> - the original volume is being detached and the
-   *           replacement volume is being attached.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>succeeded</code> - the replacement volume has been successfully attached
-   *           to the instance and the instance is available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>failing</code> - the replacement task is in the process of failing.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>failed</code> - the replacement task has failed but the original root
-   *           volume is still attached.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>failing-detached</code> - the replacement task is in the process of failing.
-   *           The instance might have no root volume attached.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>failed-detached</code> - the replacement task has failed and the instance
-   *           has no root volume attached.</p>
-   *             </li>
-   *          </ul>
-   */
-  TaskState?: ReplaceRootVolumeTaskState | string;
-
-  /**
-   * <p>The time the task was started.</p>
-   */
-  StartTime?: string;
-
-  /**
-   * <p>The time the task completed.</p>
-   */
-  CompleteTime?: string;
-
-  /**
-   * <p>The tags assigned to the task.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The ID of the AMI used to create the replacement root volume.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The ID of the snapshot used to create the replacement root volume.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>Indicates whether the original root volume is to be deleted after the root volume
-   *       replacement task completes.</p>
-   */
-  DeleteReplacedRootVolume?: boolean;
-}
 
 /**
  * @internal

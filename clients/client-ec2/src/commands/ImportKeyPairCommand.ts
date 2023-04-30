@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ImportKeyPairRequest, ImportKeyPairResult } from "../models/models_5";
+import { ImportKeyPairRequest, ImportKeyPairResult } from "../models/models_6";
 import { de_ImportKeyPairCommand, se_ImportKeyPairCommand } from "../protocols/Aws_ec2";
 
 /**

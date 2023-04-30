@@ -753,6 +753,122 @@ export interface DescribeVirtualClusterResponse {
 /**
  * @public
  */
+export interface GetManagedEndpointSessionCredentialsRequest {
+  /**
+   * <p>The ARN of the managed endpoint for which the request is submitted. </p>
+   */
+  endpointIdentifier: string | undefined;
+
+  /**
+   * <p>The ARN of the Virtual Cluster which the Managed Endpoint belongs to. </p>
+   */
+  virtualClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The IAM Execution Role ARN that will be used by the job run. </p>
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>Type of the token requested. Currently supported and default value of this field is
+   *          “TOKEN.”</p>
+   */
+  credentialType: string | undefined;
+
+  /**
+   * <p>Duration in seconds for which the session token is valid. The default duration is 15
+   *          minutes and the maximum is 12 hours.</p>
+   */
+  durationInSeconds?: number;
+
+  /**
+   * <p>String identifier used to separate sections of the execution logs uploaded to S3.</p>
+   */
+  logContext?: string;
+
+  /**
+   * <p>The client idempotency token of the job run request.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ * <p>The structure containing the session token being returned.</p>
+ */
+export type Credentials = Credentials.TokenMember | Credentials.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Credentials {
+  /**
+   * <p>The actual session token being returned.</p>
+   */
+  export interface TokenMember {
+    token: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    token?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    token: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Credentials, visitor: Visitor<T>): T => {
+    if (value.token !== undefined) return visitor.token(value.token);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface GetManagedEndpointSessionCredentialsResponse {
+  /**
+   * <p>The identifier of the session token returned.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The structure containing the session credentials.</p>
+   */
+  credentials?: Credentials;
+
+  /**
+   * <p>The date and time when the session token will expire.</p>
+   */
+  expiresAt?: Date;
+}
+
+/**
+ * @public
+ * <p>The request throttled.</p>
+ */
+export class RequestThrottledException extends __BaseException {
+  readonly name: "RequestThrottledException" = "RequestThrottledException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestThrottledException, __BaseException>) {
+    super({
+      name: "RequestThrottledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestThrottledException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
 export interface ListJobRunsRequest {
   /**
    * <p>The ID of the virtual cluster for which to list the job run. </p>
@@ -1590,6 +1706,24 @@ export const JobDriverFilterSensitiveLog = (obj: JobDriver): any => ({
     sparkSubmitJobDriver: SparkSubmitJobDriverFilterSensitiveLog(obj.sparkSubmitJobDriver),
   }),
   ...(obj.sparkSqlJobDriver && { sparkSqlJobDriver: SparkSqlJobDriverFilterSensitiveLog(obj.sparkSqlJobDriver) }),
+});
+
+/**
+ * @internal
+ */
+export const CredentialsFilterSensitiveLog = (obj: Credentials): any => {
+  if (obj.token !== undefined) return { token: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const GetManagedEndpointSessionCredentialsResponseFilterSensitiveLog = (
+  obj: GetManagedEndpointSessionCredentialsResponse
+): any => ({
+  ...obj,
+  ...(obj.credentials && { credentials: CredentialsFilterSensitiveLog(obj.credentials) }),
 });
 
 /**

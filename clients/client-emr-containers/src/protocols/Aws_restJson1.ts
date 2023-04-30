@@ -6,6 +6,7 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
@@ -52,6 +53,10 @@ import {
   DescribeVirtualClusterCommandInput,
   DescribeVirtualClusterCommandOutput,
 } from "../commands/DescribeVirtualClusterCommand";
+import {
+  GetManagedEndpointSessionCredentialsCommandInput,
+  GetManagedEndpointSessionCredentialsCommandOutput,
+} from "../commands/GetManagedEndpointSessionCredentialsCommand";
 import { ListJobRunsCommandInput, ListJobRunsCommandOutput } from "../commands/ListJobRunsCommand";
 import { ListJobTemplatesCommandInput, ListJobTemplatesCommandOutput } from "../commands/ListJobTemplatesCommand";
 import {
@@ -88,6 +93,7 @@ import {
   ParametricConfigurationOverrides,
   ParametricMonitoringConfiguration,
   ParametricS3MonitoringConfiguration,
+  RequestThrottledException,
   ResourceNotFoundException,
   RetryPolicyConfiguration,
   S3MonitoringConfiguration,
@@ -427,6 +433,57 @@ export const se_DescribeVirtualClusterCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetManagedEndpointSessionCredentialsCommand
+ */
+export const se_GetManagedEndpointSessionCredentialsCommand = async (
+  input: GetManagedEndpointSessionCredentialsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/virtualclusters/{virtualClusterIdentifier}/endpoints/{endpointIdentifier}/credentials";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "endpointIdentifier",
+    () => input.endpointIdentifier!,
+    "{endpointIdentifier}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "virtualClusterIdentifier",
+    () => input.virtualClusterIdentifier!,
+    "{virtualClusterIdentifier}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      credentialType: [],
+      durationInSeconds: [],
+      executionRoleArn: [],
+      logContext: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -1313,6 +1370,64 @@ const de_DescribeVirtualClusterCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetManagedEndpointSessionCredentialsCommand
+ */
+export const de_GetManagedEndpointSessionCredentialsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetManagedEndpointSessionCredentialsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetManagedEndpointSessionCredentialsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    credentials: (_) => _json(__expectUnion(_)),
+    expiresAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetManagedEndpointSessionCredentialsCommandError
+ */
+const de_GetManagedEndpointSessionCredentialsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetManagedEndpointSessionCredentialsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.emrcontainers#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "RequestThrottledException":
+    case "com.amazonaws.emrcontainers#RequestThrottledException":
+      throw await de_RequestThrottledExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.emrcontainers#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.emrcontainers#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListJobRunsCommand
  */
 export const de_ListJobRunsCommand = async (
@@ -1745,6 +1860,26 @@ const de_InternalServerExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1RequestThrottledExceptionRes
+ */
+const de_RequestThrottledExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RequestThrottledException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new RequestThrottledException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ResourceNotFoundExceptionRes
  */
 const de_ResourceNotFoundExceptionRes = async (
@@ -1915,6 +2050,8 @@ const de_ConfigurationOverrides = (output: any, context: __SerdeContext): Config
 // de_ContainerInfo omitted.
 
 // de_ContainerProvider omitted.
+
+// de_Credentials omitted.
 
 // de_EksInfo omitted.
 

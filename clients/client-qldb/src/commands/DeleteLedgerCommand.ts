@@ -34,7 +34,7 @@ export interface DeleteLedgerCommandOutput extends __MetadataBearer {}
  * @public
  * <p>Deletes a ledger and all of its contents. This action is irreversible.</p>
  *          <p>If deletion protection is enabled, you must first disable it before you can delete the
- *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set the flag to <code>false</code>.</p>
+ *       ledger. You can disable it by calling the <code>UpdateLedger</code> operation to set this parameter to <code>false</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

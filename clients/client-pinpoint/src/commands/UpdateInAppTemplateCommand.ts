@@ -46,53 +46,53 @@ export interface UpdateInAppTemplateCommandOutput extends UpdateInAppTemplateRes
  *       { // InAppMessageContent
  *         BackgroundColor: "STRING_VALUE",
  *         BodyConfig: { // InAppMessageBodyConfig
- *           Alignment: "STRING_VALUE", // required
+ *           Alignment: "LEFT" || "CENTER" || "RIGHT", // required
  *           Body: "STRING_VALUE", // required
  *           TextColor: "STRING_VALUE", // required
  *         },
  *         HeaderConfig: { // InAppMessageHeaderConfig
- *           Alignment: "STRING_VALUE", // required
+ *           Alignment: "LEFT" || "CENTER" || "RIGHT", // required
  *           Header: "STRING_VALUE", // required
  *           TextColor: "STRING_VALUE", // required
  *         },
  *         ImageUrl: "STRING_VALUE",
  *         PrimaryBtn: { // InAppMessageButton
  *           Android: { // OverrideButtonConfiguration
- *             ButtonAction: "STRING_VALUE", // required
+ *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
  *             Link: "STRING_VALUE",
  *           },
  *           DefaultConfig: { // DefaultButtonConfiguration
  *             BackgroundColor: "STRING_VALUE",
  *             BorderRadius: Number("int"),
- *             ButtonAction: "STRING_VALUE", // required
+ *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
  *             Link: "STRING_VALUE",
  *             Text: "STRING_VALUE", // required
  *             TextColor: "STRING_VALUE",
  *           },
  *           IOS: {
- *             ButtonAction: "STRING_VALUE", // required
+ *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
  *             Link: "STRING_VALUE",
  *           },
  *           Web: {
- *             ButtonAction: "STRING_VALUE", // required
+ *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
  *             Link: "STRING_VALUE",
  *           },
  *         },
  *         SecondaryBtn: {
  *           Android: {
- *             ButtonAction: "STRING_VALUE", // required
+ *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
  *             Link: "STRING_VALUE",
  *           },
  *           DefaultConfig: {
  *             BackgroundColor: "STRING_VALUE",
  *             BorderRadius: Number("int"),
- *             ButtonAction: "STRING_VALUE", // required
+ *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
  *             Link: "STRING_VALUE",
  *             Text: "STRING_VALUE", // required
  *             TextColor: "STRING_VALUE",
  *           },
  *           IOS: {
- *             ButtonAction: "STRING_VALUE", // required
+ *             ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
  *             Link: "STRING_VALUE",
  *           },
  *           Web: "<OverrideButtonConfiguration>",
@@ -102,7 +102,7 @@ export interface UpdateInAppTemplateCommandOutput extends UpdateInAppTemplateRes
  *     CustomConfig: { // MapOf__string
  *       "<keys>": "STRING_VALUE",
  *     },
- *     Layout: "STRING_VALUE",
+ *     Layout: "BOTTOM_BANNER" || "TOP_BANNER" || "OVERLAYS" || "MOBILE_FEED" || "MIDDLE_BANNER" || "CAROUSEL",
  *     tags: {
  *       "<keys>": "STRING_VALUE",
  *     },

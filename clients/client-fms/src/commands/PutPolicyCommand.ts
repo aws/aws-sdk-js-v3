@@ -115,6 +115,7 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  *       "STRING_VALUE",
  *     ],
  *     PolicyDescription: "STRING_VALUE",
+ *     PolicyStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
  *   },
  *   TagList: [ // TagList
  *     { // Tag

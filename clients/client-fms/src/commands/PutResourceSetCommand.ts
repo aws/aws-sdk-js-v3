@@ -50,6 +50,7 @@ export interface PutResourceSetCommandOutput extends PutResourceSetResponse, __M
  *       "STRING_VALUE",
  *     ],
  *     LastUpdateTime: new Date("TIMESTAMP"),
+ *     ResourceSetStatus: "ACTIVE" || "OUT_OF_ADMIN_SCOPE",
  *   },
  *   TagList: [ // TagList
  *     { // Tag

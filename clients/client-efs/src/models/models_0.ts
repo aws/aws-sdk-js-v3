@@ -1532,6 +1532,8 @@ export const ReplicationStatus = {
   ENABLED: "ENABLED",
   ENABLING: "ENABLING",
   ERROR: "ERROR",
+  PAUSED: "PAUSED",
+  PAUSING: "PAUSING",
 } as const;
 
 /**

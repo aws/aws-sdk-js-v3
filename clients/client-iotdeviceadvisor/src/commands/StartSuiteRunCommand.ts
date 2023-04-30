@@ -47,6 +47,7 @@ export interface StartSuiteRunCommandOutput extends StartSuiteRunResponse, __Met
  *     primaryDevice: { // DeviceUnderTest
  *       thingArn: "STRING_VALUE",
  *       certificateArn: "STRING_VALUE",
+ *       deviceRoleArn: "STRING_VALUE",
  *     },
  *     selectedTestList: [ // SelectedTestList
  *       "STRING_VALUE",

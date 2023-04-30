@@ -58,6 +58,14 @@ import {
   BatchGetQueryExecutionCommandInput,
   BatchGetQueryExecutionCommandOutput,
 } from "./commands/BatchGetQueryExecutionCommand";
+import {
+  CancelCapacityReservationCommandInput,
+  CancelCapacityReservationCommandOutput,
+} from "./commands/CancelCapacityReservationCommand";
+import {
+  CreateCapacityReservationCommandInput,
+  CreateCapacityReservationCommandOutput,
+} from "./commands/CreateCapacityReservationCommand";
 import { CreateDataCatalogCommandInput, CreateDataCatalogCommandOutput } from "./commands/CreateDataCatalogCommand";
 import { CreateNamedQueryCommandInput, CreateNamedQueryCommandOutput } from "./commands/CreateNamedQueryCommand";
 import { CreateNotebookCommandInput, CreateNotebookCommandOutput } from "./commands/CreateNotebookCommand";
@@ -91,6 +99,14 @@ import {
   GetCalculationExecutionStatusCommandInput,
   GetCalculationExecutionStatusCommandOutput,
 } from "./commands/GetCalculationExecutionStatusCommand";
+import {
+  GetCapacityAssignmentConfigurationCommandInput,
+  GetCapacityAssignmentConfigurationCommandOutput,
+} from "./commands/GetCapacityAssignmentConfigurationCommand";
+import {
+  GetCapacityReservationCommandInput,
+  GetCapacityReservationCommandOutput,
+} from "./commands/GetCapacityReservationCommand";
 import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import { GetDataCatalogCommandInput, GetDataCatalogCommandOutput } from "./commands/GetDataCatalogCommand";
 import { GetNamedQueryCommandInput, GetNamedQueryCommandOutput } from "./commands/GetNamedQueryCommand";
@@ -121,6 +137,10 @@ import {
   ListCalculationExecutionsCommandInput,
   ListCalculationExecutionsCommandOutput,
 } from "./commands/ListCalculationExecutionsCommand";
+import {
+  ListCapacityReservationsCommandInput,
+  ListCapacityReservationsCommandOutput,
+} from "./commands/ListCapacityReservationsCommand";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
 import { ListDataCatalogsCommandInput, ListDataCatalogsCommandOutput } from "./commands/ListDataCatalogsCommand";
 import { ListEngineVersionsCommandInput, ListEngineVersionsCommandOutput } from "./commands/ListEngineVersionsCommand";
@@ -150,6 +170,10 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { ListWorkGroupsCommandInput, ListWorkGroupsCommandOutput } from "./commands/ListWorkGroupsCommand";
 import {
+  PutCapacityAssignmentConfigurationCommandInput,
+  PutCapacityAssignmentConfigurationCommandOutput,
+} from "./commands/PutCapacityAssignmentConfigurationCommand";
+import {
   StartCalculationExecutionCommandInput,
   StartCalculationExecutionCommandOutput,
 } from "./commands/StartCalculationExecutionCommand";
@@ -166,6 +190,10 @@ import { StopQueryExecutionCommandInput, StopQueryExecutionCommandOutput } from 
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { TerminateSessionCommandInput, TerminateSessionCommandOutput } from "./commands/TerminateSessionCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateCapacityReservationCommandInput,
+  UpdateCapacityReservationCommandOutput,
+} from "./commands/UpdateCapacityReservationCommand";
 import { UpdateDataCatalogCommandInput, UpdateDataCatalogCommandOutput } from "./commands/UpdateDataCatalogCommand";
 import { UpdateNamedQueryCommandInput, UpdateNamedQueryCommandOutput } from "./commands/UpdateNamedQueryCommand";
 import { UpdateNotebookCommandInput, UpdateNotebookCommandOutput } from "./commands/UpdateNotebookCommand";
@@ -193,6 +221,8 @@ export type ServiceInputTypes =
   | BatchGetNamedQueryCommandInput
   | BatchGetPreparedStatementCommandInput
   | BatchGetQueryExecutionCommandInput
+  | CancelCapacityReservationCommandInput
+  | CreateCapacityReservationCommandInput
   | CreateDataCatalogCommandInput
   | CreateNamedQueryCommandInput
   | CreateNotebookCommandInput
@@ -208,6 +238,8 @@ export type ServiceInputTypes =
   | GetCalculationExecutionCodeCommandInput
   | GetCalculationExecutionCommandInput
   | GetCalculationExecutionStatusCommandInput
+  | GetCapacityAssignmentConfigurationCommandInput
+  | GetCapacityReservationCommandInput
   | GetDataCatalogCommandInput
   | GetDatabaseCommandInput
   | GetNamedQueryCommandInput
@@ -223,6 +255,7 @@ export type ServiceInputTypes =
   | ImportNotebookCommandInput
   | ListApplicationDPUSizesCommandInput
   | ListCalculationExecutionsCommandInput
+  | ListCapacityReservationsCommandInput
   | ListDataCatalogsCommandInput
   | ListDatabasesCommandInput
   | ListEngineVersionsCommandInput
@@ -236,6 +269,7 @@ export type ServiceInputTypes =
   | ListTableMetadataCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkGroupsCommandInput
+  | PutCapacityAssignmentConfigurationCommandInput
   | StartCalculationExecutionCommandInput
   | StartQueryExecutionCommandInput
   | StartSessionCommandInput
@@ -244,6 +278,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | TerminateSessionCommandInput
   | UntagResourceCommandInput
+  | UpdateCapacityReservationCommandInput
   | UpdateDataCatalogCommandInput
   | UpdateNamedQueryCommandInput
   | UpdateNotebookCommandInput
@@ -258,6 +293,8 @@ export type ServiceOutputTypes =
   | BatchGetNamedQueryCommandOutput
   | BatchGetPreparedStatementCommandOutput
   | BatchGetQueryExecutionCommandOutput
+  | CancelCapacityReservationCommandOutput
+  | CreateCapacityReservationCommandOutput
   | CreateDataCatalogCommandOutput
   | CreateNamedQueryCommandOutput
   | CreateNotebookCommandOutput
@@ -273,6 +310,8 @@ export type ServiceOutputTypes =
   | GetCalculationExecutionCodeCommandOutput
   | GetCalculationExecutionCommandOutput
   | GetCalculationExecutionStatusCommandOutput
+  | GetCapacityAssignmentConfigurationCommandOutput
+  | GetCapacityReservationCommandOutput
   | GetDataCatalogCommandOutput
   | GetDatabaseCommandOutput
   | GetNamedQueryCommandOutput
@@ -288,6 +327,7 @@ export type ServiceOutputTypes =
   | ImportNotebookCommandOutput
   | ListApplicationDPUSizesCommandOutput
   | ListCalculationExecutionsCommandOutput
+  | ListCapacityReservationsCommandOutput
   | ListDataCatalogsCommandOutput
   | ListDatabasesCommandOutput
   | ListEngineVersionsCommandOutput
@@ -301,6 +341,7 @@ export type ServiceOutputTypes =
   | ListTableMetadataCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkGroupsCommandOutput
+  | PutCapacityAssignmentConfigurationCommandOutput
   | StartCalculationExecutionCommandOutput
   | StartQueryExecutionCommandOutput
   | StartSessionCommandOutput
@@ -309,6 +350,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | TerminateSessionCommandOutput
   | UntagResourceCommandOutput
+  | UpdateCapacityReservationCommandOutput
   | UpdateDataCatalogCommandOutput
   | UpdateNamedQueryCommandOutput
   | UpdateNotebookCommandOutput

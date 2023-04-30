@@ -1580,6 +1580,12 @@ export interface CreateWorkspaceRequest {
    *             required.</p>
    */
   networkAccessControl?: NetworkAccessConfiguration;
+
+  /**
+   * <p>Specifies the version of Grafana to support in the new workspace.</p>
+   *          <p>Supported values are <code>8.4</code> and <code>9.4</code>.</p>
+   */
+  grafanaVersion?: string;
 }
 
 /**

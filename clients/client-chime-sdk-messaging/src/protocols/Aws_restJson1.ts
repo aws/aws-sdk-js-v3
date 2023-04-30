@@ -401,7 +401,7 @@ export const se_CreateChannelFlowCommand = async (
   body = JSON.stringify(
     take(input, {
       AppInstanceArn: [],
-      ClientRequestToken: [],
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Name: [],
       Processors: (_) => _json(_),
       Tags: (_) => _json(_),
@@ -497,9 +497,6 @@ export const se_DeleteChannelCommand = async (
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
-  const query: any = map({
-    "sub-channel-id": [, input.SubChannelId!],
-  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -508,7 +505,6 @@ export const se_DeleteChannelCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
-    query,
     body,
   });
 };
@@ -1847,18 +1843,12 @@ export const se_UpdateChannelReadMarkerCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": "application/json",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/readMarker";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
-  body = JSON.stringify(
-    take(input, {
-      SubChannelId: [],
-    })
-  );
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2449,6 +2439,9 @@ const de_DeleteChannelCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmessaging#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
       throw await de_ForbiddenExceptionRes(parsedOutput, context);
@@ -2800,6 +2793,9 @@ const de_DeleteMessagingStreamingConfigurationsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmessaging#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmessaging#ForbiddenException":
       throw await de_ForbiddenExceptionRes(parsedOutput, context);
@@ -5077,7 +5073,6 @@ export const de_UpdateChannelReadMarkerCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     ChannelArn: __expectString,
-    SubChannelId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;

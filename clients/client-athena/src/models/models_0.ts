@@ -755,11 +755,26 @@ export interface BatchGetQueryExecutionOutput {
 
 /**
  * @public
- * <p>A label that you assign to a resource. In Athena, a resource can be a
- *             workgroup or data catalog. Each tag consists of a key and an optional value, both of
+ */
+export interface CancelCapacityReservationInput {
+  /**
+   * <p>The name of the capacity reservation to cancel.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelCapacityReservationOutput {}
+
+/**
+ * @public
+ * <p>A label that you assign to a resource. Athena resources include
+ *             workgroups, data catalogs, and capacity reservations. Each tag consists of a key and an optional value, both of
  *             which you define. For example, you can use tags to categorize Athena
- *             workgroups or data catalogs by purpose, owner, or environment. Use a consistent set of
- *             tag keys to make it easier to search and filter workgroups or data catalogs in your
+ *             resources by purpose, owner, or environment. Use a consistent set of
+ *             tag keys to make it easier to search and filter the resources in your
  *             account. For best practices, see <a href="https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html">Tagging Best Practices</a>. Tag keys can be from 1 to 128 UTF-8 Unicode
  *             characters, and tag values can be from 0 to 256 UTF-8 Unicode characters. Tags can use
  *             letters and numbers representable in UTF-8, and the following characters: + - = . _ : /
@@ -781,6 +796,31 @@ export interface Tag {
    */
   Value?: string;
 }
+
+/**
+ * @public
+ */
+export interface CreateCapacityReservationInput {
+  /**
+   * <p>The number of requested data processing units.</p>
+   */
+  TargetDpus: number | undefined;
+
+  /**
+   * <p>The name of the capacity reservation to create.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The tags for the capacity reservation.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateCapacityReservationOutput {}
 
 /**
  * @public
@@ -1623,6 +1663,173 @@ export interface GetCalculationExecutionStatusResponse {
 /**
  * @public
  */
+export interface GetCapacityAssignmentConfigurationInput {
+  /**
+   * <p>The name of the capacity reservation to retrieve the capacity assignment configuration for.</p>
+   */
+  CapacityReservationName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A mapping between one or more workgroups and a capacity reservation.</p>
+ */
+export interface CapacityAssignment {
+  /**
+   * <p>The list of workgroup names for the capacity assignment.</p>
+   */
+  WorkGroupNames?: string[];
+}
+
+/**
+ * @public
+ * <p>Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.</p>
+ */
+export interface CapacityAssignmentConfiguration {
+  /**
+   * <p>The name of the reservation that the capacity assignment configuration is for.</p>
+   */
+  CapacityReservationName?: string;
+
+  /**
+   * <p>The list of assignments that make up the capacity assignment configuration.</p>
+   */
+  CapacityAssignments?: CapacityAssignment[];
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityAssignmentConfigurationOutput {
+  /**
+   * <p>The requested capacity assignment configuration for the specified capacity reservation.</p>
+   */
+  CapacityAssignmentConfiguration: CapacityAssignmentConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityReservationInput {
+  /**
+   * <p>The name of the capacity reservation.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityAllocationStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityAllocationStatus = (typeof CapacityAllocationStatus)[keyof typeof CapacityAllocationStatus];
+
+/**
+ * @public
+ * <p>Contains the submission time of a single allocation request for a capacity reservation and the most recent status of the attempted allocation.</p>
+ */
+export interface CapacityAllocation {
+  /**
+   * <p>The status of the capacity allocation.</p>
+   */
+  Status: CapacityAllocationStatus | string | undefined;
+
+  /**
+   * <p>The status message of the capacity allocation.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The time when the capacity allocation was requested.</p>
+   */
+  RequestTime: Date | undefined;
+
+  /**
+   * <p>The time when the capacity allocation request was completed.</p>
+   */
+  RequestCompletionTime?: Date;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationStatus = {
+  ACTIVE: "ACTIVE",
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  UPDATE_PENDING: "UPDATE_PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationStatus = (typeof CapacityReservationStatus)[keyof typeof CapacityReservationStatus];
+
+/**
+ * @public
+ * <p>A reservation for a specified number of data processing units (DPUs). When a reservation is initially created, it has no DPUs. Athena allocates DPUs until the allocated amount equals the requested amount.</p>
+ */
+export interface CapacityReservation {
+  /**
+   * <p>The name of the capacity reservation.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The status of the capacity reservation.</p>
+   */
+  Status: CapacityReservationStatus | string | undefined;
+
+  /**
+   * <p>The number of data processing units requested.</p>
+   */
+  TargetDpus: number | undefined;
+
+  /**
+   * <p>The number of data processing units currently allocated.</p>
+   */
+  AllocatedDpus: number | undefined;
+
+  /**
+   * <p>Contains the submission time of a single allocation request for a capacity reservation and the most recent status of the attempted allocation.</p>
+   */
+  LastAllocation?: CapacityAllocation;
+
+  /**
+   * <p>The time of the most recent capacity allocation that succeeded.</p>
+   */
+  LastSuccessfulAllocationTime?: Date;
+
+  /**
+   * <p>The time in UTC epoch millis when the capacity reservation was created.</p>
+   */
+  CreationTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityReservationOutput {
+  /**
+   * <p>The requested capacity reservation structure.</p>
+   */
+  CapacityReservation: CapacityReservation | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetDatabaseInput {
   /**
    * <p>The name of the data catalog that contains the database to return.</p>
@@ -2159,7 +2366,7 @@ export interface EngineConfiguration {
   /**
    * <p>The number of DPUs to use for the coordinator. A coordinator is a special executor
    *             that orchestrates processing work and manages other executors in a notebook
-   *             session.</p>
+   *             session. The default is 1.</p>
    */
   CoordinatorDpuSize?: number;
 
@@ -2170,7 +2377,7 @@ export interface EngineConfiguration {
 
   /**
    * <p>The default number of DPUs to use for executors. An executor is the smallest unit of
-   *             compute that a notebook session can request from Athena.</p>
+   *             compute that a notebook session can request from Athena. The default is 1.</p>
    */
   DefaultExecutorDpuSize?: number;
 
@@ -2727,6 +2934,39 @@ export interface ListCalculationExecutionsResponse {
    * <p>A list of <a>CalculationSummary</a> objects.</p>
    */
   Calculations?: CalculationSummary[];
+}
+
+/**
+ * @public
+ */
+export interface ListCapacityReservationsInput {
+  /**
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Specifies the maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListCapacityReservationsOutput {
+  /**
+   * <p>A token generated by the Athena service that specifies where to continue
+   *             pagination if a previous request was truncated. To obtain the next set of pages, pass in
+   *             the NextToken from the response object of the previous page call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The capacity reservations for the current account.</p>
+   */
+  CapacityReservations: CapacityReservation[] | undefined;
 }
 
 /**
@@ -3499,6 +3739,26 @@ export interface ListWorkGroupsOutput {
 
 /**
  * @public
+ */
+export interface PutCapacityAssignmentConfigurationInput {
+  /**
+   * <p>The name of the capacity reservation to put a capacity assignment configuration for.</p>
+   */
+  CapacityReservationName: string | undefined;
+
+  /**
+   * <p>The list of assignments for the capacity assignment configuration.</p>
+   */
+  CapacityAssignments: CapacityAssignment[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutCapacityAssignmentConfigurationOutput {}
+
+/**
+ * @public
  * <p>Contains configuration information for the calculation.</p>
  */
 export interface CalculationConfiguration {
@@ -3803,13 +4063,13 @@ export interface StopQueryExecutionOutput {}
  */
 export interface TagResourceInput {
   /**
-   * <p>Specifies the ARN of the Athena resource (workgroup or data catalog) to
+   * <p>Specifies the ARN of the Athena resource to
    *             which tags are to be added.</p>
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>A collection of one or more tags, separated by commas, to be added to an Athena workgroup or data catalog resource.</p>
+   * <p>A collection of one or more tags, separated by commas, to be added to an Athena resource.</p>
    */
   Tags: Tag[] | undefined;
 }
@@ -3878,6 +4138,26 @@ export interface UntagResourceInput {
  * @public
  */
 export interface UntagResourceOutput {}
+
+/**
+ * @public
+ */
+export interface UpdateCapacityReservationInput {
+  /**
+   * <p>The new number of requested data processing units.</p>
+   */
+  TargetDpus: number | undefined;
+
+  /**
+   * <p>The name of the capacity reservation.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCapacityReservationOutput {}
 
 /**
  * @public

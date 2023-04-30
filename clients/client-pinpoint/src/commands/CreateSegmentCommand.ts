@@ -45,7 +45,7 @@ export interface CreateSegmentCommandOutput extends CreateSegmentResponse, __Met
  *     Dimensions: { // SegmentDimensions
  *       Attributes: { // MapOfAttributeDimension
  *         "<keys>": { // AttributeDimension
- *           AttributeType: "STRING_VALUE",
+ *           AttributeType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEFORE" || "AFTER" || "ON" || "BETWEEN",
  *           Values: [ // ListOf__string // required
  *             "STRING_VALUE",
  *           ],
@@ -53,37 +53,37 @@ export interface CreateSegmentCommandOutput extends CreateSegmentResponse, __Met
  *       },
  *       Behavior: { // SegmentBehaviors
  *         Recency: { // RecencyDimension
- *           Duration: "STRING_VALUE", // required
- *           RecencyType: "STRING_VALUE", // required
+ *           Duration: "HR_24" || "DAY_7" || "DAY_14" || "DAY_30", // required
+ *           RecencyType: "ACTIVE" || "INACTIVE", // required
  *         },
  *       },
  *       Demographic: { // SegmentDemographics
  *         AppVersion: { // SetDimension
- *           DimensionType: "STRING_VALUE",
+ *           DimensionType: "INCLUSIVE" || "EXCLUSIVE",
  *           Values: [ // required
  *             "STRING_VALUE",
  *           ],
  *         },
  *         Channel: {
- *           DimensionType: "STRING_VALUE",
+ *           DimensionType: "INCLUSIVE" || "EXCLUSIVE",
  *           Values: [ // required
  *             "STRING_VALUE",
  *           ],
  *         },
  *         DeviceType: {
- *           DimensionType: "STRING_VALUE",
+ *           DimensionType: "INCLUSIVE" || "EXCLUSIVE",
  *           Values: [ // required
  *             "STRING_VALUE",
  *           ],
  *         },
  *         Make: {
- *           DimensionType: "STRING_VALUE",
+ *           DimensionType: "INCLUSIVE" || "EXCLUSIVE",
  *           Values: [ // required
  *             "STRING_VALUE",
  *           ],
  *         },
  *         Model: {
- *           DimensionType: "STRING_VALUE",
+ *           DimensionType: "INCLUSIVE" || "EXCLUSIVE",
  *           Values: "<ListOf__string>", // required
  *         },
  *         Platform: "<SetDimension>",
@@ -106,7 +106,7 @@ export interface CreateSegmentCommandOutput extends CreateSegmentResponse, __Met
  *       },
  *       UserAttributes: {
  *         "<keys>": {
- *           AttributeType: "STRING_VALUE",
+ *           AttributeType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEFORE" || "AFTER" || "ON" || "BETWEEN",
  *           Values: "<ListOf__string>", // required
  *         },
  *       },
@@ -119,14 +119,14 @@ export interface CreateSegmentCommandOutput extends CreateSegmentResponse, __Met
  *             {
  *               Attributes: {
  *                 "<keys>": {
- *                   AttributeType: "STRING_VALUE",
+ *                   AttributeType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEFORE" || "AFTER" || "ON" || "BETWEEN",
  *                   Values: "<ListOf__string>", // required
  *                 },
  *               },
  *               Behavior: {
  *                 Recency: {
- *                   Duration: "STRING_VALUE", // required
- *                   RecencyType: "STRING_VALUE", // required
+ *                   Duration: "HR_24" || "DAY_7" || "DAY_14" || "DAY_30", // required
+ *                   RecencyType: "ACTIVE" || "INACTIVE", // required
  *                 },
  *               },
  *               Demographic: {
@@ -155,7 +155,7 @@ export interface CreateSegmentCommandOutput extends CreateSegmentResponse, __Met
  *               },
  *               UserAttributes: {
  *                 "<keys>": {
- *                   AttributeType: "STRING_VALUE",
+ *                   AttributeType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEFORE" || "AFTER" || "ON" || "BETWEEN",
  *                   Values: "<ListOf__string>", // required
  *                 },
  *               },
@@ -167,11 +167,11 @@ export interface CreateSegmentCommandOutput extends CreateSegmentResponse, __Met
  *               Version: Number("int"),
  *             },
  *           ],
- *           SourceType: "STRING_VALUE",
- *           Type: "STRING_VALUE",
+ *           SourceType: "ALL" || "ANY" || "NONE",
+ *           Type: "ALL" || "ANY" || "NONE",
  *         },
  *       ],
- *       Include: "STRING_VALUE",
+ *       Include: "ALL" || "ANY" || "NONE",
  *     },
  *     tags: { // MapOf__string
  *       "<keys>": "STRING_VALUE",

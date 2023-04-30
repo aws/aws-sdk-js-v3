@@ -67,7 +67,25 @@ export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, _
  *         PublicAccess: { // PublicAccess
  *           Type: "STRING_VALUE",
  *         },
+ *         VpcConnectivity: { // VpcConnectivity
+ *           ClientAuthentication: { // VpcConnectivityClientAuthentication
+ *             Sasl: { // VpcConnectivitySasl
+ *               Scram: { // VpcConnectivityScram
+ *                 Enabled: true || false,
+ *               },
+ *               Iam: { // VpcConnectivityIam
+ *                 Enabled: true || false,
+ *               },
+ *             },
+ *             Tls: { // VpcConnectivityTls
+ *               Enabled: true || false,
+ *             },
+ *           },
+ *         },
  *       },
+ *       ZoneIds: [
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *     ClientAuthentication: { // ClientAuthentication
  *       Sasl: { // Sasl
@@ -139,9 +157,7 @@ export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, _
  *         SubnetIds: [ // required
  *           "STRING_VALUE",
  *         ],
- *         SecurityGroupIds: [
- *           "STRING_VALUE",
- *         ],
+ *         SecurityGroupIds: "<__listOf__string>",
  *       },
  *     ],
  *     ClientAuthentication: { // ServerlessClientAuthentication

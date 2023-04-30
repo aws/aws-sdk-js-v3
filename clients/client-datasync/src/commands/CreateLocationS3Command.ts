@@ -32,8 +32,24 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
 
 /**
  * @public
- * <p>Creates an endpoint for an Amazon S3 bucket that DataSync can
- *       access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Create an Amazon S3 location</a>.</p>
+ * <p>A <i>location</i> is an endpoint for an Amazon S3 bucket. DataSync can use the location as a source or destination for copying data.</p>
+ *          <important>
+ *             <p>Before you create your location, make sure that you read the following sections:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage
+ *               class considerations with Amazon S3 locations</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests">Evaluating S3 request costs when using DataSync</a>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *          </important>
+ *          <p> For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Creating an Amazon S3 location</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,7 +84,8 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>

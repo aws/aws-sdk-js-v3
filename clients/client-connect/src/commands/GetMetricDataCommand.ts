@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { GetMetricDataRequest, GetMetricDataResponse } from "../models/models_0";
+import { GetMetricDataRequest, GetMetricDataResponse } from "../models/models_1";
 import { de_GetMetricDataCommand, se_GetMetricDataCommand } from "../protocols/Aws_restJson1";
 
 /**

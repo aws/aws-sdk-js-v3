@@ -381,7 +381,6 @@ import {
   StreamProcessorInput,
   StreamProcessorNotificationChannel,
   StreamProcessorOutput,
-  StreamProcessorParameterToDelete,
   StreamProcessorSettings,
   Sunglasses,
   TagResourceRequest,
@@ -393,12 +392,16 @@ import {
   TrainingData,
   UnindexedFace,
   UntagResourceRequest,
-  UpdateDatasetEntriesRequest,
   Video,
   VideoMetadata,
   VideoTooLargeException,
 } from "../models/models_0";
-import { StreamProcessorSettingsForUpdate, UpdateStreamProcessorRequest } from "../models/models_1";
+import {
+  StreamProcessorParameterToDelete,
+  StreamProcessorSettingsForUpdate,
+  UpdateDatasetEntriesRequest,
+  UpdateStreamProcessorRequest,
+} from "../models/models_1";
 import { RekognitionServiceException as __BaseException } from "../models/RekognitionServiceException";
 
 /**
@@ -6708,7 +6711,10 @@ const de_ConnectedHomeSettings = (output: any, context: __SerdeContext): Connect
  */
 const de_ContentModerationDetection = (output: any, context: __SerdeContext): ContentModerationDetection => {
   return take(output, {
+    DurationMillis: __expectLong,
+    EndTimestampMillis: __expectLong,
     ModerationLabel: (_: any) => de_ModerationLabel(_, context),
+    StartTimestampMillis: __expectLong,
     Timestamp: __expectLong,
   }) as any;
 };
@@ -7282,23 +7288,32 @@ const de_Geometry = (output: any, context: __SerdeContext): Geometry => {
 const de_GetCelebrityRecognitionResponse = (output: any, context: __SerdeContext): GetCelebrityRecognitionResponse => {
   return take(output, {
     Celebrities: (_: any) => de_CelebrityRecognitions(_, context),
+    JobId: __expectString,
     JobStatus: __expectString,
+    JobTag: __expectString,
     NextToken: __expectString,
     StatusMessage: __expectString,
+    Video: _json,
     VideoMetadata: (_: any) => de_VideoMetadata(_, context),
   }) as any;
 };
+
+// de_GetContentModerationRequestMetadata omitted.
 
 /**
  * deserializeAws_json1_1GetContentModerationResponse
  */
 const de_GetContentModerationResponse = (output: any, context: __SerdeContext): GetContentModerationResponse => {
   return take(output, {
+    GetRequestMetadata: _json,
+    JobId: __expectString,
     JobStatus: __expectString,
+    JobTag: __expectString,
     ModerationLabels: (_: any) => de_ContentModerationDetections(_, context),
     ModerationModelVersion: __expectString,
     NextToken: __expectString,
     StatusMessage: __expectString,
+    Video: _json,
     VideoMetadata: (_: any) => de_VideoMetadata(_, context),
   }) as any;
 };
@@ -7309,9 +7324,12 @@ const de_GetContentModerationResponse = (output: any, context: __SerdeContext): 
 const de_GetFaceDetectionResponse = (output: any, context: __SerdeContext): GetFaceDetectionResponse => {
   return take(output, {
     Faces: (_: any) => de_FaceDetections(_, context),
+    JobId: __expectString,
     JobStatus: __expectString,
+    JobTag: __expectString,
     NextToken: __expectString,
     StatusMessage: __expectString,
+    Video: _json,
     VideoMetadata: (_: any) => de_VideoMetadata(_, context),
   }) as any;
 };
@@ -7337,24 +7355,33 @@ const de_GetFaceLivenessSessionResultsResponse = (
  */
 const de_GetFaceSearchResponse = (output: any, context: __SerdeContext): GetFaceSearchResponse => {
   return take(output, {
+    JobId: __expectString,
     JobStatus: __expectString,
+    JobTag: __expectString,
     NextToken: __expectString,
     Persons: (_: any) => de_PersonMatches(_, context),
     StatusMessage: __expectString,
+    Video: _json,
     VideoMetadata: (_: any) => de_VideoMetadata(_, context),
   }) as any;
 };
+
+// de_GetLabelDetectionRequestMetadata omitted.
 
 /**
  * deserializeAws_json1_1GetLabelDetectionResponse
  */
 const de_GetLabelDetectionResponse = (output: any, context: __SerdeContext): GetLabelDetectionResponse => {
   return take(output, {
+    GetRequestMetadata: _json,
+    JobId: __expectString,
     JobStatus: __expectString,
+    JobTag: __expectString,
     LabelModelVersion: __expectString,
     Labels: (_: any) => de_LabelDetections(_, context),
     NextToken: __expectString,
     StatusMessage: __expectString,
+    Video: _json,
     VideoMetadata: (_: any) => de_VideoMetadata(_, context),
   }) as any;
 };
@@ -7364,10 +7391,13 @@ const de_GetLabelDetectionResponse = (output: any, context: __SerdeContext): Get
  */
 const de_GetPersonTrackingResponse = (output: any, context: __SerdeContext): GetPersonTrackingResponse => {
   return take(output, {
+    JobId: __expectString,
     JobStatus: __expectString,
+    JobTag: __expectString,
     NextToken: __expectString,
     Persons: (_: any) => de_PersonDetections(_, context),
     StatusMessage: __expectString,
+    Video: _json,
     VideoMetadata: (_: any) => de_VideoMetadata(_, context),
   }) as any;
 };
@@ -7378,11 +7408,14 @@ const de_GetPersonTrackingResponse = (output: any, context: __SerdeContext): Get
 const de_GetSegmentDetectionResponse = (output: any, context: __SerdeContext): GetSegmentDetectionResponse => {
   return take(output, {
     AudioMetadata: _json,
+    JobId: __expectString,
     JobStatus: __expectString,
+    JobTag: __expectString,
     NextToken: __expectString,
     Segments: (_: any) => de_SegmentDetections(_, context),
     SelectedSegmentTypes: _json,
     StatusMessage: __expectString,
+    Video: _json,
     VideoMetadata: (_: any) => de_VideoMetadataList(_, context),
   }) as any;
 };
@@ -7392,11 +7425,14 @@ const de_GetSegmentDetectionResponse = (output: any, context: __SerdeContext): G
  */
 const de_GetTextDetectionResponse = (output: any, context: __SerdeContext): GetTextDetectionResponse => {
   return take(output, {
+    JobId: __expectString,
     JobStatus: __expectString,
+    JobTag: __expectString,
     NextToken: __expectString,
     StatusMessage: __expectString,
     TextDetections: (_: any) => de_TextDetectionResults(_, context),
     TextModelVersion: __expectString,
+    Video: _json,
     VideoMetadata: (_: any) => de_VideoMetadata(_, context),
   }) as any;
 };
@@ -8159,6 +8195,8 @@ const de_UnindexedFaces = (output: any, context: __SerdeContext): UnindexedFace[
 // de_Urls omitted.
 
 // de_ValidationData omitted.
+
+// de_Video omitted.
 
 /**
  * deserializeAws_json1_1VideoMetadata

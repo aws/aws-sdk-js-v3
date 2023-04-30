@@ -89,6 +89,7 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   grafanaVersion: "STRING_VALUE",
  * };
  * const command = new CreateWorkspaceCommand(input);
  * const response = await client.send(command);

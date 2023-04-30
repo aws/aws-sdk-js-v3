@@ -34,7 +34,7 @@ export interface DescribeVerifiedAccessGroupsCommandOutput
 
 /**
  * @public
- * <p>Describe details of existing Verified Access groups.</p>
+ * <p>Describes the specified Verified Access groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

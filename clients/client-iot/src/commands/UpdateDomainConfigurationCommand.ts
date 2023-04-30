@@ -49,6 +49,9 @@ export interface UpdateDomainConfigurationCommandOutput extends UpdateDomainConf
  *   },
  *   domainConfigurationStatus: "ENABLED" || "DISABLED",
  *   removeAuthorizerConfig: true || false,
+ *   tlsConfig: { // TlsConfig
+ *     securityPolicy: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateDomainConfigurationCommand(input);
  * const response = await client.send(command);

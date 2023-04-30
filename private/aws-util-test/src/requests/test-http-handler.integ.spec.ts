@@ -1,4 +1,6 @@
 // import { JsonProtocol } from "@aws-sdk/aws-protocoltests-json";
+// CI has difficult importing a named private client from the workspace.
+// This file remains as a code sample.
 
 import { TestHttpHandler } from "./test-http-handler";
 

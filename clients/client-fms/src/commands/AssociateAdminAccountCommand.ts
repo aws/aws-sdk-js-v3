@@ -32,10 +32,8 @@ export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Sets the Firewall Manager administrator account. The account must be
- *       a member of the organization in Organizations whose resources you want to protect.
- *           Firewall Manager sets the permissions that allow the account to administer your Firewall Manager policies.</p>
- *          <p>The account that you associate with Firewall Manager is called the Firewall Manager administrator account. </p>
+ * <p>Sets a Firewall Manager default administrator account. The Firewall Manager default administrator account can manage third-party firewalls and has full administrative scope that allows administration of all policy types, accounts, organizational units, and Regions. This account must be a member account of the organization in Organizations whose resources you want to protect.</p>
+ *          <p>For information about working with Firewall Manager administrator accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/fms-administrators.html">Managing Firewall Manager administrators</a> in the <i>Firewall Manager Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

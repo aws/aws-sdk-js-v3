@@ -18,7 +18,7 @@ import {
   GetFederationTokenRequest,
   GetFederationTokenResponse,
   GetFederationTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GetFederationTokenCommand, se_GetFederationTokenCommand } from "../protocols/Aws_restJson1";
 
 /**

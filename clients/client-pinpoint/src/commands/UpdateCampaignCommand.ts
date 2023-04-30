@@ -48,12 +48,12 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *         CustomDeliveryConfiguration: { // CustomDeliveryConfiguration
  *           DeliveryUri: "STRING_VALUE", // required
  *           EndpointTypes: [ // ListOf__EndpointTypesElement
- *             "STRING_VALUE",
+ *             "PUSH" || "GCM" || "APNS" || "APNS_SANDBOX" || "APNS_VOIP" || "APNS_VOIP_SANDBOX" || "ADM" || "SMS" || "VOICE" || "EMAIL" || "BAIDU" || "CUSTOM" || "IN_APP",
  *           ],
  *         },
  *         MessageConfiguration: { // MessageConfiguration
  *           ADMMessage: { // Message
- *             Action: "STRING_VALUE",
+ *             Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *             Body: "STRING_VALUE",
  *             ImageIconUrl: "STRING_VALUE",
  *             ImageSmallIconUrl: "STRING_VALUE",
@@ -67,7 +67,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *             Url: "STRING_VALUE",
  *           },
  *           APNSMessage: {
- *             Action: "STRING_VALUE",
+ *             Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *             Body: "STRING_VALUE",
  *             ImageIconUrl: "STRING_VALUE",
  *             ImageSmallIconUrl: "STRING_VALUE",
@@ -81,7 +81,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *             Url: "STRING_VALUE",
  *           },
  *           BaiduMessage: {
- *             Action: "STRING_VALUE",
+ *             Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *             Body: "STRING_VALUE",
  *             ImageIconUrl: "STRING_VALUE",
  *             ImageSmallIconUrl: "STRING_VALUE",
@@ -98,7 +98,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *             Data: "STRING_VALUE",
  *           },
  *           DefaultMessage: {
- *             Action: "STRING_VALUE",
+ *             Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *             Body: "STRING_VALUE",
  *             ImageIconUrl: "STRING_VALUE",
  *             ImageSmallIconUrl: "STRING_VALUE",
@@ -118,7 +118,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *             Title: "STRING_VALUE",
  *           },
  *           GCMMessage: {
- *             Action: "STRING_VALUE",
+ *             Action: "OPEN_APP" || "DEEP_LINK" || "URL",
  *             Body: "STRING_VALUE",
  *             ImageIconUrl: "STRING_VALUE",
  *             ImageSmallIconUrl: "STRING_VALUE",
@@ -133,7 +133,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *           },
  *           SMSMessage: { // CampaignSmsMessage
  *             Body: "STRING_VALUE",
- *             MessageType: "STRING_VALUE",
+ *             MessageType: "TRANSACTIONAL" || "PROMOTIONAL",
  *             OriginationNumber: "STRING_VALUE",
  *             SenderId: "STRING_VALUE",
  *             EntityId: "STRING_VALUE",
@@ -145,53 +145,53 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *               { // InAppMessageContent
  *                 BackgroundColor: "STRING_VALUE",
  *                 BodyConfig: { // InAppMessageBodyConfig
- *                   Alignment: "STRING_VALUE", // required
+ *                   Alignment: "LEFT" || "CENTER" || "RIGHT", // required
  *                   Body: "STRING_VALUE", // required
  *                   TextColor: "STRING_VALUE", // required
  *                 },
  *                 HeaderConfig: { // InAppMessageHeaderConfig
- *                   Alignment: "STRING_VALUE", // required
+ *                   Alignment: "LEFT" || "CENTER" || "RIGHT", // required
  *                   Header: "STRING_VALUE", // required
  *                   TextColor: "STRING_VALUE", // required
  *                 },
  *                 ImageUrl: "STRING_VALUE",
  *                 PrimaryBtn: { // InAppMessageButton
  *                   Android: { // OverrideButtonConfiguration
- *                     ButtonAction: "STRING_VALUE", // required
+ *                     ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
  *                     Link: "STRING_VALUE",
  *                   },
  *                   DefaultConfig: { // DefaultButtonConfiguration
  *                     BackgroundColor: "STRING_VALUE",
  *                     BorderRadius: Number("int"),
- *                     ButtonAction: "STRING_VALUE", // required
+ *                     ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
  *                     Link: "STRING_VALUE",
  *                     Text: "STRING_VALUE", // required
  *                     TextColor: "STRING_VALUE",
  *                   },
  *                   IOS: {
- *                     ButtonAction: "STRING_VALUE", // required
+ *                     ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
  *                     Link: "STRING_VALUE",
  *                   },
  *                   Web: {
- *                     ButtonAction: "STRING_VALUE", // required
+ *                     ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
  *                     Link: "STRING_VALUE",
  *                   },
  *                 },
  *                 SecondaryBtn: {
  *                   Android: {
- *                     ButtonAction: "STRING_VALUE", // required
+ *                     ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
  *                     Link: "STRING_VALUE",
  *                   },
  *                   DefaultConfig: {
  *                     BackgroundColor: "STRING_VALUE",
  *                     BorderRadius: Number("int"),
- *                     ButtonAction: "STRING_VALUE", // required
+ *                     ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
  *                     Link: "STRING_VALUE",
  *                     Text: "STRING_VALUE", // required
  *                     TextColor: "STRING_VALUE",
  *                   },
  *                   IOS: {
- *                     ButtonAction: "STRING_VALUE", // required
+ *                     ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
  *                     Link: "STRING_VALUE",
  *                   },
  *                   Web: "<OverrideButtonConfiguration>",
@@ -201,7 +201,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *             CustomConfig: { // MapOf__string
  *               "<keys>": "STRING_VALUE",
  *             },
- *             Layout: "STRING_VALUE",
+ *             Layout: "BOTTOM_BANNER" || "TOP_BANNER" || "OVERLAYS" || "MOBILE_FEED" || "MIDDLE_BANNER" || "CAROUSEL",
  *           },
  *         },
  *         Schedule: { // Schedule
@@ -210,14 +210,14 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *             Dimensions: { // EventDimensions
  *               Attributes: { // MapOfAttributeDimension
  *                 "<keys>": { // AttributeDimension
- *                   AttributeType: "STRING_VALUE",
+ *                   AttributeType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEFORE" || "AFTER" || "ON" || "BETWEEN",
  *                   Values: [ // ListOf__string // required
  *                     "STRING_VALUE",
  *                   ],
  *                 },
  *               },
  *               EventType: { // SetDimension
- *                 DimensionType: "STRING_VALUE",
+ *                 DimensionType: "INCLUSIVE" || "EXCLUSIVE",
  *                 Values: [ // required
  *                   "STRING_VALUE",
  *                 ],
@@ -229,9 +229,9 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *                 },
  *               },
  *             },
- *             FilterType: "STRING_VALUE", // required
+ *             FilterType: "SYSTEM" || "ENDPOINT", // required
  *           },
- *           Frequency: "STRING_VALUE",
+ *           Frequency: "ONCE" || "HOURLY" || "DAILY" || "WEEKLY" || "MONTHLY" || "EVENT" || "IN_APP_EVENT",
  *           IsLocalTime: true || false,
  *           QuietTime: { // QuietTime
  *             End: "STRING_VALUE",
@@ -266,14 +266,14 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *     CustomDeliveryConfiguration: {
  *       DeliveryUri: "STRING_VALUE", // required
  *       EndpointTypes: [
- *         "STRING_VALUE",
+ *         "PUSH" || "GCM" || "APNS" || "APNS_SANDBOX" || "APNS_VOIP" || "APNS_VOIP_SANDBOX" || "ADM" || "SMS" || "VOICE" || "EMAIL" || "BAIDU" || "CUSTOM" || "IN_APP",
  *       ],
  *     },
  *     Description: "STRING_VALUE",
  *     HoldoutPercent: Number("int"),
  *     Hook: { // CampaignHook
  *       LambdaFunctionName: "STRING_VALUE",
- *       Mode: "STRING_VALUE",
+ *       Mode: "DELIVERY" || "FILTER",
  *       WebUrl: "STRING_VALUE",
  *     },
  *     IsPaused: true || false,
@@ -301,7 +301,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *       GCMMessage: "<Message>",
  *       SMSMessage: {
  *         Body: "STRING_VALUE",
- *         MessageType: "STRING_VALUE",
+ *         MessageType: "TRANSACTIONAL" || "PROMOTIONAL",
  *         OriginationNumber: "STRING_VALUE",
  *         SenderId: "STRING_VALUE",
  *         EntityId: "STRING_VALUE",
@@ -313,12 +313,12 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *           {
  *             BackgroundColor: "STRING_VALUE",
  *             BodyConfig: {
- *               Alignment: "STRING_VALUE", // required
+ *               Alignment: "LEFT" || "CENTER" || "RIGHT", // required
  *               Body: "STRING_VALUE", // required
  *               TextColor: "STRING_VALUE", // required
  *             },
  *             HeaderConfig: {
- *               Alignment: "STRING_VALUE", // required
+ *               Alignment: "LEFT" || "CENTER" || "RIGHT", // required
  *               Header: "STRING_VALUE", // required
  *               TextColor: "STRING_VALUE", // required
  *             },
@@ -328,7 +328,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *               DefaultConfig: {
  *                 BackgroundColor: "STRING_VALUE",
  *                 BorderRadius: Number("int"),
- *                 ButtonAction: "STRING_VALUE", // required
+ *                 ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
  *                 Link: "STRING_VALUE",
  *                 Text: "STRING_VALUE", // required
  *                 TextColor: "STRING_VALUE",
@@ -341,7 +341,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *               DefaultConfig: {
  *                 BackgroundColor: "STRING_VALUE",
  *                 BorderRadius: Number("int"),
- *                 ButtonAction: "STRING_VALUE", // required
+ *                 ButtonAction: "LINK" || "DEEP_LINK" || "CLOSE", // required
  *                 Link: "STRING_VALUE",
  *                 Text: "STRING_VALUE", // required
  *                 TextColor: "STRING_VALUE",
@@ -354,7 +354,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *         CustomConfig: {
  *           "<keys>": "STRING_VALUE",
  *         },
- *         Layout: "STRING_VALUE",
+ *         Layout: "BOTTOM_BANNER" || "TOP_BANNER" || "OVERLAYS" || "MOBILE_FEED" || "MIDDLE_BANNER" || "CAROUSEL",
  *       },
  *     },
  *     Name: "STRING_VALUE",
@@ -364,12 +364,12 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *         Dimensions: {
  *           Attributes: {
  *             "<keys>": {
- *               AttributeType: "STRING_VALUE",
+ *               AttributeType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEFORE" || "AFTER" || "ON" || "BETWEEN",
  *               Values: "<ListOf__string>", // required
  *             },
  *           },
  *           EventType: {
- *             DimensionType: "STRING_VALUE",
+ *             DimensionType: "INCLUSIVE" || "EXCLUSIVE",
  *             Values: "<ListOf__string>", // required
  *           },
  *           Metrics: {
@@ -379,9 +379,9 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *             },
  *           },
  *         },
- *         FilterType: "STRING_VALUE", // required
+ *         FilterType: "SYSTEM" || "ENDPOINT", // required
  *       },
- *       Frequency: "STRING_VALUE",
+ *       Frequency: "ONCE" || "HOURLY" || "DAILY" || "WEEKLY" || "MONTHLY" || "EVENT" || "IN_APP_EVENT",
  *       IsLocalTime: true || false,
  *       QuietTime: {
  *         End: "STRING_VALUE",

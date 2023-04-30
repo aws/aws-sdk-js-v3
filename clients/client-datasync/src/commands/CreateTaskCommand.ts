@@ -37,6 +37,12 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  *          <p>A task includes a source location, a destination location, and the preferences for how and
  *       when you want to transfer your data (such as bandwidth limits, scheduling, among other
  *       options).</p>
+ *          <important>
+ *             <p>If you're planning to transfer data to or from an Amazon S3 location, review
+ *           <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests">how
+ *             DataSync can affect your S3 request charges</a> and the <a href="http://aws.amazon.com/datasync/pricing/">DataSync pricing page</a> before
+ *         you begin.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,7 +104,8 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *  <p>This exception is thrown when an error occurs in the DataSync
+ *       service.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>

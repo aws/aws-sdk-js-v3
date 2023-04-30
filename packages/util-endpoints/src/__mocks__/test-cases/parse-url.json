@@ -72,7 +72,7 @@
       },
       "expect": {
         "endpoint": {
-          "url": "https://http-99_ab.com-nopath.example.com"
+          "url": "http://http-99_ab.com-nopath.example.com"
         }
       }
     },
@@ -83,7 +83,7 @@
       },
       "expect": {
         "endpoint": {
-          "url": "https://http-99_ab-.com-nopath.example.com"
+          "url": "http://http-99_ab-.com-nopath.example.com"
         }
       }
     },
@@ -94,7 +94,8 @@
       },
       "expect": {
         "error": "endpoint was invalid"
-      }
+      },
+      "skip": true
     },
     {
       "documentation": "IP Address",
