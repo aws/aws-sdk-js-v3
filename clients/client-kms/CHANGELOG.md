@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.324.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.323.0...v3.324.0) (2023-05-01)
+
+
+### Features
+
+* **client-kms:** This release makes the NitroEnclave request parameter Recipient and the response field for CiphertextForRecipient available in AWS SDKs. It also adds the regex pattern for CloudHsmClusterId validation. ([07967b9](https://github.com/aws/aws-sdk-js-v3/commit/07967b91bb4d443ab4d93d62efe3c49a539e5d19))
+
+
+
+
+
 ## [3.321.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.321.0...v3.321.1) (2023-04-27)
 
 **Note:** Version bump only for package @aws-sdk/client-kms

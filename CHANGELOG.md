@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.324.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.323.0...v3.324.0) (2023-05-01)
+
+
+### Features
+
+* **client-compute-optimizer:** support for tag filtering within compute optimizer. ability to filter recommendation results by tag and tag key value pairs. ability to filter by inferred workload type added. ([b94aa0e](https://github.com/aws/aws-sdk-js-v3/commit/b94aa0e593f55ad5db97cc536baaa1dddc1f1bd2))
+* **client-kms:** This release makes the NitroEnclave request parameter Recipient and the response field for CiphertextForRecipient available in AWS SDKs. It also adds the regex pattern for CloudHsmClusterId validation. ([07967b9](https://github.com/aws/aws-sdk-js-v3/commit/07967b91bb4d443ab4d93d62efe3c49a539e5d19))
+* **clients:** update client endpoints as of 2023-05-01 ([22c65b2](https://github.com/aws/aws-sdk-js-v3/commit/22c65b2b122bbb7b982ccf11c78b667e0edf5f58))
+
+
+
+
+
 # [3.323.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.322.0...v3.323.0) (2023-04-28)
 
 
